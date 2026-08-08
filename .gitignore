@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+
+# Raw data is not redistributed. data/SOURCES.md records where to get it.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Figures and results ARE committed: they are the artefact.
+!figures/*.png
+!results/*.json
+
+.DS_Store
+.idea/
+.vscode/

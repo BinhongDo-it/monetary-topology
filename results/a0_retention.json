@@ -1,0 +1,189 @@
+{
+  "stage": "A0",
+  "rounds": 400,
+  "seed": 7,
+  "parameters": {
+    "strata_counts": [
+      49,
+      40,
+      10,
+      1
+    ],
+    "wealth_share": [
+      0.1,
+      0.3,
+      0.3,
+      0.3
+    ],
+    "propensity_low": [
+      0.88,
+      0.87,
+      0.5,
+      0.5
+    ],
+    "propensity_high": [
+      1.0,
+      1.0,
+      0.5,
+      0.5
+    ],
+    "retention_rate": [
+      0.06000000000000005,
+      0.06499999999999995,
+      0.5,
+      0.5
+    ],
+    "adjacency": [
+      [
+        0.35,
+        0.25,
+        0.1,
+        0.3
+      ],
+      [
+        0.2,
+        0.35,
+        0.15,
+        0.3
+      ],
+      [
+        0.0,
+        0.0,
+        0.45,
+        0.55
+      ],
+      [
+        0.0,
+        0.0,
+        0.1,
+        0.9
+      ]
+    ],
+    "wage_bill": 8.0,
+    "wage_source_shares": [
+      0.0,
+      0.1,
+      0.3,
+      0.6
+    ],
+    "wage_dest_shares": [
+      0.45,
+      0.55,
+      0.0,
+      0.0
+    ],
+    "issuance_rule": "endogenous",
+    "issuance_gain": 1.0,
+    "initial_claims": 100.0,
+    "total_resources": 100.0
+  },
+  "derived": {
+    "flow_balance": 2.213541666666667,
+    "net_downward_wage_flow": 7.199999999999999,
+    "upward_leakage": 0.425
+  },
+  "sweeps": {
+    "top_propensity": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.35,
+      0.5,
+      0.7,
+      0.85,
+      1.0
+    ],
+    "spend_sweep_inflow": [
+      16.782918588159355,
+      17.700655535506495,
+      17.700655535506495,
+      17.700655535506495,
+      17.700655535506495,
+      17.700655535506495,
+      17.700655535506495,
+      17.700655535506495,
+      17.700655535506495
+    ],
+    "spend_sweep_churn": [
+      0.0,
+      356.1971928121445,
+      700.4947537209092,
+      1354.391542778515,
+      2256.813157522803,
+      3076.6137276607847,
+      4059.6416155020293,
+      4725.7603754202255,
+      5338.965458466622
+    ],
+    "downward_edge": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.55,
+      0.7,
+      0.85
+    ],
+    "edge_sweep_inflow": [
+      17.700655535506495,
+      35.43598166437011,
+      36.28108584836269,
+      37.706162770724525,
+      39.04740587161811,
+      40.38585598761383,
+      42.92809205450843,
+      45.84550607226859,
+      48.39194956240474
+    ]
+  },
+  "criteria": [
+    {
+      "name": "A0-1  targeted ratio flat while total ratio rises",
+      "passed": true,
+      "detail": "tail sd of M_a/R_a = 3.597e-03, M/R drift = 8.0038, threshold = 4.002e-01"
+    },
+    {
+      "name": "A0-2  M/R monotone under endogenous issuance",
+      "passed": true,
+      "detail": "min first difference = 0.000e+00"
+    },
+    {
+      "name": "A0-3  issuance equals lagged retention",
+      "passed": true,
+      "detail": "max absolute residual = 0.000e+00"
+    },
+    {
+      "name": "A0-4  Layer 2 inflow flat across the spending sweep (propensity >= 0.05)",
+      "passed": true,
+      "detail": "spread = 0.000e+00 over propensities [0.05, 0.1, 0.2, 0.35, 0.5, 0.7, 0.85, 1.0], level = 17.700656"
+    },
+    {
+      "name": "A0-5  the same sweep moves Layer 1 churn by an order of magnitude",
+      "passed": true,
+      "detail": "churn ranged 356.20 to 5338.97, factor 15.0"
+    },
+    {
+      "name": "A0-6  opening one downward edge raises Layer 2 inflow",
+      "passed": true,
+      "detail": "inflow rose from 17.7007 at weight 0 to 48.3919 at weight 0.85, factor 2.73"
+    },
+    {
+      "name": "A0-7  edge response monotone",
+      "passed": true,
+      "detail": "sequence = [17.701, 35.436, 36.281, 37.706, 39.047, 40.386, 42.928, 45.846, 48.392]"
+    },
+    {
+      "name": "A0-8  production layer settles at the payroll edge rather than zero",
+      "passed": true,
+      "detail": "settled inflow = 17.7007 against net downward wage flow 7.2000"
+    },
+    {
+      "name": "A0-9  issuance accumulates in the layer it was issued to",
+      "passed": true,
+      "detail": "Layer 1 holds 0.9982 of all claims at steady state, from 0.7291 at t=0"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "stage": "A2",
+  "rounds": 600,
+  "seed": 0,
+  "seeds_tested": 12,
+  "injection": {
+    "no_issuance": {
+      "volume": 0.8738507007444746,
+      "support": 0.7288457757022109
+    },
+    "issuance": {
+      "volume": 44.86661451083028,
+      "support": 0.4020127237476508
+    },
+    "l2_flow_share_end_no_issuance": 0.2636291268071204,
+    "l2_flow_share_end_issuance": 0.005134608432322142
+  },
+  "intermediate": {
+    "two_layer_levels_by_elasticity": {
+      "0.0": 17.43085733448321,
+      "0.5": 11.33072352492017,
+      "0.9": 2.9819136203701873,
+      "0.99": 0.32100250960583976,
+      "1.0": 7.838208691593556e-66
+    },
+    "three_layer_level_at_zero_elasticity": 3.2428163345239474e-138,
+    "two_layer_funding_ratio_tail": 1.0,
+    "three_layer_funding_ratio_tail": 2.5707219253654633e-139
+  },
+  "autonomous_edges": {
+    "autonomous_edges": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      8,
+      12,
+      20,
+      30
+    ],
+    "household_inflow": [
+      3.2428163345239474e-138,
+      22.72999453203368,
+      23.196642932256786,
+      23.624865659269368,
+      24.398644689149105,
+      25.315342776348704,
+      26.21748629850577,
+      27.202922014916012,
+      30.48208868890747
+    ],
+    "wage_funding_ratio": [
+      2.5707219253654633e-139,
+      0.6139636517392797,
+      0.6742520710997898,
+      0.6891582738863297,
+      0.6969336787527378,
+      0.7860399920550382,
+      0.8593930458080904,
+      0.8932912885235481,
+      0.9783176244896488
+    ]
+  },
+  "criteria": [
+    {
+      "name": "A2-1  without issuance, volume and support move the same way",
+      "passed": true,
+      "detail": "volume x0.87, support x0.729"
+    },
+    {
+      "name": "A2-2  with issuance, volume rises while support contracts",
+      "passed": true,
+      "detail": "volume x44.87, support x0.402; production layer falls to 0.51% of all circulation"
+    },
+    {
+      "name": "A2-3  the sign flip holds across graph seeds",
+      "passed": true,
+      "detail": "12/12 seeds flip under issuance, 12/12 agree without it"
+    },
+    {
+      "name": "A2-4  a maximal propensity with no in-edge still terminates at zero",
+      "passed": true,
+      "detail": "final holdings across 12 seeds, maximum 0.000e+00. Propensity is a property of the agent; reachability is a property of the graph, and only the second one decides"
+    },
+    {
+      "name": "A2-5  the two-layer payroll channel never narrows",
+      "passed": true,
+      "detail": "funding ratio 1.0000"
+    },
+    {
+      "name": "A2-6  H1: the three-layer payroll channel closes with the bill unchanged",
+      "passed": true,
+      "detail": "funding ratio 2.571e-139 while the bill owed stayed constant and the elasticity was zero"
+    },
+    {
+      "name": "A2-7  H2: three-layer at zero elasticity matches two-layer at unity",
+      "passed": true,
+      "detail": "three-layer 3.2428e-138 against two-layer at e=1 7.8382e-66 and at e=0 17.4309"
+    },
+    {
+      "name": "A2-8  zero autonomous edges collapses; one rescues",
+      "passed": true,
+      "detail": "0 edges 3.243e-138, 1 edge 22.7300 (75% of the maximum), 30 edges 30.4821"
+    }
+  ]
+}

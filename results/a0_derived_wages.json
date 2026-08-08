@@ -1,0 +1,231 @@
+{
+  "stage": "A0b",
+  "rounds": 800,
+  "seed": 7,
+  "source": {
+    "wage_bill": 8.0,
+    "flow_balance": 2.213541666666667,
+    "sweeps": {
+      "elasticity": [
+        0.0,
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95,
+        1.0,
+        1.05,
+        1.1,
+        1.15,
+        1.2
+      ],
+      "level_by_elasticity": [
+        16.953984078649377,
+        16.47800121834778,
+        15.979526061612495,
+        15.456926595909165,
+        14.908408889508323,
+        14.331996507737644,
+        13.725506708209835,
+        13.086522811210239,
+        12.412362008480304,
+        11.700037706810397,
+        10.946215292283958,
+        10.14715993355753,
+        9.298674700603623,
+        8.396026835078993,
+        7.433859437452963,
+        6.40608508958859,
+        5.305756947595287,
+        4.124911531435846,
+        2.8543756815189174,
+        1.48352777116759,
+        3.513489659743154e-83,
+        3.975896271883658e-171,
+        2.3090657650893996e-171,
+        1.7684185458063315e-171,
+        1.4735778945667556e-171
+      ],
+      "floor_share": [
+        0.0,
+        0.025,
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "level_by_floor": [
+        9.74136836659055e-172,
+        0.4238496019662344,
+        0.8476992039324688,
+        1.6953984078649376,
+        2.5430976117974065,
+        3.390796815729875,
+        5.086195223594813,
+        6.78159363145975
+      ],
+      "floor_slope": 16.953984078649373
+    },
+    "criteria": [
+      {
+        "name": "A0b-1  zero elasticity reproduces the fixed-bill model exactly",
+        "passed": true,
+        "detail": "series identical to bitwise equality; the addition is a strict generalisation and cannot have changed the earlier results"
+      },
+      {
+        "name": "A0b-2  a positive steady state exists below unit elasticity",
+        "passed": true,
+        "detail": "minimum level over e <= 0.9 is 2.8544"
+      },
+      {
+        "name": "A0b-3  no steady state exists at or above unit elasticity",
+        "passed": true,
+        "detail": "maximum level over e >= 1.0 is 3.513e-83"
+      },
+      {
+        "name": "A0b-4  the level falls monotonically in elasticity",
+        "passed": true,
+        "detail": "from 16.9540 at e=0 to 1.474e-171 at e=1.2"
+      },
+      {
+        "name": "A0b-5  above the boundary, survival is linear in the autonomous share",
+        "passed": true,
+        "detail": "max deviation from a line through the origin is 8.882e-16, slope 16.9540"
+      },
+      {
+        "name": "A0b-6  a zero autonomous share above the boundary collapses",
+        "passed": true,
+        "detail": "level at floor_share=0 is 9.741e-172"
+      }
+    ]
+  },
+  "dfa": {
+    "wage_bill": 6.0,
+    "flow_balance": 2.3684895833333335,
+    "sweeps": {
+      "elasticity": [
+        0.0,
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95,
+        1.0,
+        1.05,
+        1.1,
+        1.15,
+        1.2
+      ],
+      "level_by_elasticity": [
+        12.70692391639387,
+        12.340540257902715,
+        11.957458404974437,
+        11.556510238062831,
+        11.136416034676097,
+        10.695770820258717,
+        10.23302866612715,
+        9.746484564943621,
+        9.234253436184725,
+        8.694245716990899,
+        8.124138872358765,
+        7.521344005875152,
+        6.882966558832095,
+        6.205759839249583,
+        5.486069806441252,
+        4.719769128731803,
+        3.90217800090341,
+        3.0279685112669443,
+        2.0910484264301434,
+        1.0844190309959467,
+        1.0238861633133766e-85,
+        1.647834375506663e-170,
+        9.870105816811847e-171,
+        7.6041190076292e-171,
+        6.429048759967074e-171
+      ],
+      "floor_share": [
+        0.0,
+        0.025,
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "level_by_floor": [
+        4.2827325060768975e-171,
+        0.31767309790984694,
+        0.6353461958196939,
+        1.2706923916393877,
+        1.906038587459081,
+        2.5413847832787755,
+        3.812077174918162,
+        5.082769566557551
+      ],
+      "floor_slope": 12.706923916393878
+    },
+    "criteria": [
+      {
+        "name": "A0b-1  zero elasticity reproduces the fixed-bill model exactly",
+        "passed": true,
+        "detail": "series identical to bitwise equality; the addition is a strict generalisation and cannot have changed the earlier results"
+      },
+      {
+        "name": "A0b-2  a positive steady state exists below unit elasticity",
+        "passed": true,
+        "detail": "minimum level over e <= 0.9 is 2.0910"
+      },
+      {
+        "name": "A0b-3  no steady state exists at or above unit elasticity",
+        "passed": true,
+        "detail": "maximum level over e >= 1.0 is 1.024e-85"
+      },
+      {
+        "name": "A0b-4  the level falls monotonically in elasticity",
+        "passed": true,
+        "detail": "from 12.7069 at e=0 to 6.429e-171 at e=1.2"
+      },
+      {
+        "name": "A0b-5  above the boundary, survival is linear in the autonomous share",
+        "passed": true,
+        "detail": "max deviation from a line through the origin is 8.882e-16, slope 12.7069"
+      },
+      {
+        "name": "A0b-6  a zero autonomous share above the boundary collapses",
+        "passed": true,
+        "detail": "level at floor_share=0 is 4.283e-171"
+      }
+    ]
+  }
+}
