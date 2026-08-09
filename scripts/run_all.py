@@ -46,7 +46,26 @@ EXPERIMENTS = [
         "a2c_cycle_structure.json",
     ),
 ]
-B2 = ("B2A  effective price loop A", "experiments/b2_loop_a.py", "b2_loop_a.json")
+#: Stages needing the retrieved HMDA sample, run only under ``--b2``. B1 is here
+#: rather than above because its seventh criterion checks Theorem 3 against the
+#: real cells; ``--no-data`` runs its other six without any download.
+DATA_STAGES = [
+    ("B2A  effective price loop A", "experiments/b2_loop_a.py", "b2_loop_a.json"),
+    (
+        "B2A  graded placebo FHA/VA",
+        "experiments/b2_placebo_products.py",
+        "b2_placebo_products.json",
+    ),
+    ("B1   enlarged graph", "experiments/b1_theorem.py", "b1_theorem.json"),
+]
+
+#: B1 without its real-data criterion, so a checkout with no download still
+#: verifies the theorems.
+B1_SYNTHETIC = (
+    "B1   enlarged graph (synthetic)",
+    "experiments/b1_theorem.py --no-data",
+    "b1_theorem.json",
+)
 
 
 def run(cmd: list[str]) -> tuple[int, str]:
@@ -93,10 +112,10 @@ def main() -> int:
     ok &= code == 0
 
     if not args.quick:
-        jobs = list(EXPERIMENTS) + ([B2] if args.b2 else [])
+        jobs = list(EXPERIMENTS) + (DATA_STAGES if args.b2 else [B1_SYNTHETIC])
         total_p = total_n = 0
         for label, script, result_file in jobs:
-            code, secs = run([sys.executable, script])
+            code, secs = run([sys.executable, *script.split()])
             p, n, failed = criteria_from(RESULTS / result_file)
             total_p += p
             total_n += n

@@ -13,7 +13,7 @@ than a dozen parameters, and reports a criterion that can fail. The point is not
 to build a simulator large enough to reproduce an economy. It is to make a
 handful of structural claims checkable by someone who did not write them.
 
-**Status: stages A0, A0b, A2, A2c and B2 complete, 47/47 criteria pass.** The
+**Status: stages A0, A0b, A2, A2c, B1 and B2 complete, 54/54 criteria pass.** The
 simulation stages run across two independent parameterisations, one of them
 calibrated to published Federal Reserve data, and across 12 graph seeds. The
 empirical stage runs on **28,137,985 mortgage originations** reported to HMDA for
@@ -557,16 +557,99 @@ so this shows that terms disperse at fixed position and date without saying whic
 borrower attribute carries it. Non-integrability requires a non-zero loop sum; it
 does not require the loop sum to be explained.
 
-It does not exercise the topology. The decomposition is over a **partition**, not a
-graph: no cycle space, no Hodge decomposition, no Betti number. The pairwise
-difference between two borrowers in one cell is a loop of length two in a trivially
-connected structure. Whether the partition result is a special case of the
-cohomological claim or a weaker relative is the open question, and it is what the
-B1 theorem has to settle before a second carrier is chosen.
-
 It is a lower bound. HMDA records financed purchases only, so all-cash buyers — who
 face no financing term at all — are absent, and they are most absent in exactly the
 markets where the pattern is strongest. The censoring runs against the claim.
+
+---
+
+## Stage B1: the number above is a cohomological quantity
+
+Stage B2 computes a variance decomposition over a **partition**. There is no graph
+in it. Calling the difference between two borrowers in one cell a "loop sum" was,
+until this stage, borrowed authority: a loop of length two in a set with no edges
+is not a loop.
+
+So one of two things had to be true. Either the partition result is a shadow of a
+cohomological statement, in which case the topological vocabulary is decoration and
+should be dropped from the empirical claim; or it is a genuine instance, in which
+case it must be possible to name the cycles, the graph and the weights.
+
+It is the second, and the construction is short. [`docs/b1_theorem.md`](docs/b1_theorem.md)
+carries the proofs.
+
+**Enlarge the space.** Positions alone are the wrong domain: there the field is not
+one cochain but a family indexed by agent, and "the family disagrees with itself"
+is not a statement about any cochain's exactness. Put the agent index into the
+space. `Γ = G □ H` has a vertex for each (agent class, position). Position edges
+`(a,i)–(a,j)` carry agent `a`'s log cost ratio. Agent edges `(a,g)–(b,g)` carry
+**zero**, because a position is the same position whoever holds it.
+
+Then there is a four-cycle:
+
+```
+(a,i) ──w_a(i,j)──► (a,j)          sum = w_a(i,j) − w_b(i,j)
+  ▲                    │
+  │ 0                  │ 0          non-zero exactly when two classes
+  │                    ▼            face different terms on one transition
+(b,i) ◄──w_b(j,i)── (b,j)
+```
+
+**Theorem 1** makes that an equivalence: a single scalar price vector on positions
+exists **iff** the cochain is exact on `Γ` **iff** every cycle sums to zero **iff**
+every `w_a` is exact and they all coincide. The proof uses no equilibrium concept,
+no continuity and no rationality assumption. One non-zero four-cycle is enough to
+prove no such vector exists.
+
+**Theorem 2** splits the cycle space into slice cycles and squares. Agent edges
+carry zero, so agent cycles vanish identically and the obstruction lives in exactly
+two places with distinct readings:
+
+| summand | non-zero means | who can observe it |
+|---|---|---|
+| slice cycles | one agent faces arbitrage in their own opportunity set | one agent, several positions |
+| squares | two agents face different terms on the same transition | many agents, one transition |
+
+**Theorem 3** is the one that changes what stage B2 was. For a cell of `k` agents
+with values `x₁…x_k`, the mean squared four-cycle sum over ordered pairs is
+
+```
+(1/k²) Σ_{p,q} (x_p − x_q)²  =  2 · Var(x)
+```
+
+so the within term of the B2 decomposition is exactly half the size-weighted mean
+squared holonomy. **The within share is the fraction of the observed field that is
+holonomy rather than potential, in `L²`.** Stage B2 did not measure a proxy. It
+measured the quantity.
+
+![squares and the identity](figures/b1_fig13_squares_and_identity.png)
+
+Criterion **B1-6** checks this the slow way on the real sample: 500 HMDA cells,
+four-cycles **enumerated** rather than differenced, against the variance the B2
+code path already reported. Worst relative error per cell `1.07e-15`, aggregate
+`1.64e-16`. Evaluating a closed form and comparing it to itself would establish
+nothing, which is why the enumeration is there.
+
+**What this settles about the next carrier.** By Theorem 2, mortgage data reaches
+squares and nothing else — a borrower is observed at one transition, so no sample
+size produces a slice cycle. Covered interest parity deviations are the opposite
+shape: one dealer, several positions, a loop that closes. FX is therefore not a
+second opinion on the mortgage result but **the other summand of the cycle space**,
+and the mortgage carrier cannot reach it for structural reasons.
+
+**What it assumes.** Agent edges carry zero only where the position trades at one
+price independent of who holds it. A dwelling does. A 3% mortgage originated in
+2021 does not, because it cannot be assumed: the agent edge is absent, `Γ`
+disconnects, and the square is not a cycle. That is why loop B has to argue from
+the hole rather than from the holonomy, which the setup document asserted and this
+one derives. If agent edges carry a small non-zero weight instead, the existence
+conclusion survives untouched and only the attribution does not.
+
+**What it does not do.** The Hodge decomposition in `topology.py` builds 2-cells
+from triangles, which is right for A2c's clique complex and wrong for `Γ`, whose
+natural 2-cells are squares. Until a square complex is built, this stage claims a
+gradient-versus-non-gradient split and no finer one. Flagged rather than papered
+over, because the curl-versus-harmonic split is the more interesting question.
 
 ---
 
@@ -775,21 +858,33 @@ simulating instances.
 | B2 design | pre-registration, filters, falsifications | **complete**, [`docs/b2_measurement.md`](docs/b2_measurement.md) |
 | B2 loop A | dispersion at fixed position and date | **complete, 7/7** on 20,071,900 loans |
 | B2 placebo | conventional against FHA and VA | **complete, 4/4** on a further 8,066,085 |
-| B1 theorem | is the partition result a case of the cohomological claim? | **next** |
-| B2 loop B | same dwelling, different entry vintages | not started |
-| B2 loop C | CIP deviations, gated on the B1 theorem | not started |
+| B1 theorem | is the partition result a case of the cohomological claim? | **complete, 7/7**, [`docs/b1_theorem.md`](docs/b1_theorem.md) |
+| B2 loop B | same dwelling, different entry vintages | next |
+| B2 loop C | CIP deviations: the other summand of the cycle space | not started |
+| square complex | curl against harmonic on `Γ` | not started, see B1 §10 |
 
-**The B1 theorem is next, and it is gated ahead of any further data.** Loop A's
-decomposition runs over a *partition*, not a graph. It uses no cycle space, no
-Hodge decomposition and no Betti number, so as things stand the topological
-machinery has been exercised only on our own simulated graph in A2c and never on
-real data. Whether the partition result is a special case of the cohomological
-claim or a weaker relative decides whether a second carrier is optional or
-mandatory, and it decides what that carrier should measure. Getting FX data before
-settling it would risk measuring the wrong object — a mistake this project already
-made once on paper, conflating carry returns, which are risk compensation, with
-covered-parity deviations, which are the actual non-zero loop sums. The theorem is
-writing rather than compute, so it is also the cheapest step available.
+**The B1 theorem was taken before any further retrieval, and it changed the
+ordering that follows it.** The question it settled was whether stage B2 had
+exercised the framework's machinery at all: loop A's decomposition runs over a
+partition rather than a graph, so until Theorem 3 the honest description of the
+result was "an analysis of variance we believe is related to a topological claim."
+That description is worth little, because conditional dispersion in mortgage
+pricing is already documented and a framework that re-derives it has contributed a
+vocabulary rather than a result.
+
+Theorem 3 shows the within share **is** the `L²` norm of the non-exact part,
+halved. Same number, different object, and only the second is something the
+framework can be judged on. Getting FX data first would have risked measuring the
+wrong thing entirely — a mistake this project already made once on paper,
+conflating carry returns, which are compensation for bearing risk, with
+covered-parity deviations, which are the loop sums that actually fail to close.
+
+Theorem 2 then reorders what remains. Mortgage data reaches squares only, and no
+sample size changes that, so **FX stops being a robustness check and becomes the
+only available carrier for the other summand**. Loop B goes first regardless: it
+needs no retrieval, FHFA publishes the vintage shares as aggregates, and Theorem 1
+has just shown its disconnection argument to be a structurally different claim
+rather than a weaker version of the same one.
 
 The working approach is discrete rather than smooth. On a finite graph, curl is
 a sum around a cycle, the cycle space has dimension `E − V + C`, and the first
@@ -859,8 +954,13 @@ falsify the claim.
 
 Track B needs no simulation output and does not wait on Track A. Stage A2c is
 *not* part of it: measuring cycle structure on our own graph is description, and
-only the same computation on real input-output data would be a finding. A2c can
-motivate the theorem's introduction; it cannot support it.
+only the same computation on real data would be a finding. A2c can motivate the
+theorem's introduction; it cannot support it.
+
+That separation held until B1. It no longer describes the whole repository: by
+Theorem 3, stage B2's within share is a cycle-sum norm on a graph built from real
+loans, so the cohomology is now exercised on data and not only on a simulation.
+The A2c caveat stands as written, because it is about A2c.
 
 ---
 

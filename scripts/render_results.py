@@ -37,6 +37,7 @@ STAGE_TITLES = {
     "A0b": "A0b — derived demand on the downward edge",
     "A2": "A2 — support-set contraction and the intermediate layer",
     "A2c": "A2c — cycle structure of the realized graph",
+    "B1": "B1 — the enlarged graph, and what stage B2 measured",
     "B2A": "B2A — dispersion in financing terms at fixed position and date",
     "B2A-placebo": "B2A placebo — conventional against FHA and VA",
 }
@@ -93,6 +94,15 @@ def subtitle(record: dict) -> str:
     loans = record.get("variance", {}).get("n_loans")
     if loans:
         bits.insert(0, f"{loans:,} loans")
+    real = record.get("theorem_3_on_real_data")
+    if real:
+        bits.insert(
+            0,
+            f"{real['cells_checked']:,} cells enumerated over "
+            f"{real['loans_in_checked_cells']:,} loans",
+        )
+    elif record.get("shapes"):
+        bits.insert(0, f"{len(record['shapes'])} graph shapes")
     return " ".join(bits) if bits else "_no sample metadata recorded_"
 
 
@@ -104,6 +114,15 @@ def derived_for(record: dict) -> dict[str, float]:
     so they are lifted here rather than duplicated into the JSON.
     """
     stage = record.get("stage")
+    if stage == "B1":
+        real = record.get("theorem_3_on_real_data")
+        if not real:
+            return {}
+        return {
+            "half_mean_squared_holonomy": real["aggregate_half_mean_squared_holonomy"],
+            "within_cell_variance": real["aggregate_within_cell_variance"],
+            "worst_relative_error_per_cell": real["worst_relative_error_per_cell"],
+        }
     if stage == "B2A":
         out = {
             "within_share_all_cells": record["variance"]["within_share"],

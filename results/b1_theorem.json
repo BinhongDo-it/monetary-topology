@@ -1,0 +1,145 @@
+{
+  "stage": "B1",
+  "seed": 0,
+  "spread_bound": 20.0,
+  "shapes": [
+    {
+      "n": 4,
+      "m": 1,
+      "e_g": 5,
+      "e_h": 0
+    },
+    {
+      "n": 4,
+      "m": 2,
+      "e_g": 3,
+      "e_h": 1
+    },
+    {
+      "n": 4,
+      "m": 3,
+      "e_g": 5,
+      "e_h": 3
+    },
+    {
+      "n": 5,
+      "m": 2,
+      "e_g": 6,
+      "e_h": 1
+    },
+    {
+      "n": 5,
+      "m": 4,
+      "e_g": 6,
+      "e_h": 6
+    },
+    {
+      "n": 6,
+      "m": 3,
+      "e_g": 7,
+      "e_h": 3
+    },
+    {
+      "n": 3,
+      "m": 5,
+      "e_g": 3,
+      "e_h": 10
+    },
+    {
+      "n": 7,
+      "m": 2,
+      "e_g": 13,
+      "e_h": 1
+    }
+  ],
+  "betti": [
+    {
+      "direct": 2,
+      "formula": 2,
+      "generator_rank": 2
+    },
+    {
+      "direct": 3,
+      "formula": 3,
+      "generator_rank": 3
+    },
+    {
+      "direct": 16,
+      "formula": 16,
+      "generator_rank": 16
+    },
+    {
+      "direct": 8,
+      "formula": 8,
+      "generator_rank": 8
+    },
+    {
+      "direct": 35,
+      "formula": 35,
+      "generator_rank": 35
+    },
+    {
+      "direct": 22,
+      "formula": 22,
+      "generator_rank": 22
+    },
+    {
+      "direct": 31,
+      "formula": 31,
+      "generator_rank": 31
+    },
+    {
+      "direct": 20,
+      "formula": 20,
+      "generator_rank": 20
+    }
+  ],
+  "theorem_3_on_real_data": {
+    "cells_checked": 500,
+    "loans_in_checked_cells": 25942,
+    "cells_held_out_above_max_brute": 4,
+    "max_brute_cell_size": 2000,
+    "worst_relative_error_per_cell": 1.0694310168359587e-15,
+    "aggregate_half_mean_squared_holonomy": 0.3379392343718562,
+    "aggregate_within_cell_variance": 0.33793923437185625,
+    "aggregate_relative_error": 1.6426370656381183e-16,
+    "b2_within_share_restricted": 0.847959027149097
+  },
+  "criteria": [
+    {
+      "name": "B1-1  a shared potential annihilates every cycle",
+      "passed": true,
+      "detail": "largest |cycle sum| over squares and a spanning basis, across 8 shapes: 4.44e-16. Theorem 1, (1) implies (3)"
+    },
+    {
+      "name": "B1-2  the squares detect what no single agent can see",
+      "passed": true,
+      "detail": "7/7 shapes where every w_a is exact but the potentials differ: slice cycles vanish below 1e-10, squares reach 2.530, and no global potential exists. A family of gradients need not be a gradient"
+    },
+    {
+      "name": "B1-3  the path integral reconstructs the potential",
+      "passed": true,
+      "detail": "largest |d0 psi - omega| over every edge after integrating along a spanning tree: 8.88e-16. Theorem 1, (3) implies (2)"
+    },
+    {
+      "name": "B1-4  the generating set spans the cycle space",
+      "passed": true,
+      "detail": "rank of the slice-plus-agent-plus-square matrix equals E - V + C on Gamma, for all 8 shapes. The two are computed by different code paths sharing nothing"
+    },
+    {
+      "name": "B1-5  the closed form for the first Betti number is right",
+      "passed": true,
+      "detail": "m*e_G + n*e_H - m*n + 1 equals E - V + C for all 8 shapes: 2, 3, 16, 8, 35, 22, 31, 20"
+    },
+    {
+      "name": "B1-6  stage B2's within term is the holonomy of the squares",
+      "passed": true,
+      "detail": "over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a worst relative error of 1.07e-15; in aggregate 0.33793923 against 0.33793923, relative 1.64e-16. 4 cells above 2,000 loans were held out because enumeration is quadratic"
+    },
+    {
+      "name": "B1-7  one agent class reproduces the one-index case exactly",
+      "passed": true,
+      "detail": "at m=1 there are no squares at all and b1(Gamma) = b1(G). The enlarged graph is a generalisation, not a substitution"
+    }
+  ]
+}

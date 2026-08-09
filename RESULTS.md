@@ -189,6 +189,28 @@ Derived quantities:
 | PASS | A2c-6  the collapse and the rescue hold across graph seeds | 6 seeds: collapsed 0.023-0.029, rescued 0.744-0.862 |
 | PASS | A2c-7  limitation recorded: cycle rank saturates when nothing dies | in the two-layer model the realized rank is flat at 1074 after the transient, against a potential 1190. Cycle rank is a binary count, so it moves only where edges genuinely stop carrying claims. It is informative in the three-layer economy and inert in the two-layer one, and this criterion exists to keep that on the record |
 
+## B1 — the enlarged graph, and what stage B2 measured
+
+500 cells enumerated over 25,942 loans `spread_bound=20.0`
+
+**7/7 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B1-1  a shared potential annihilates every cycle | largest \|cycle sum\| over squares and a spanning basis, across 8 shapes: 4.44e-16. Theorem 1, (1) implies (3) |
+| PASS | B1-2  the squares detect what no single agent can see | 7/7 shapes where every w_a is exact but the potentials differ: slice cycles vanish below 1e-10, squares reach 2.530, and no global potential exists. A family of gradients need not be a gradient |
+| PASS | B1-3  the path integral reconstructs the potential | largest \|d0 psi - omega\| over every edge after integrating along a spanning tree: 8.88e-16. Theorem 1, (3) implies (2) |
+| PASS | B1-4  the generating set spans the cycle space | rank of the slice-plus-agent-plus-square matrix equals E - V + C on Gamma, for all 8 shapes. The two are computed by different code paths sharing nothing |
+| PASS | B1-5  the closed form for the first Betti number is right | m*e_G + n*e_H - m*n + 1 equals E - V + C for all 8 shapes: 2, 3, 16, 8, 35, 22, 31, 20 |
+| PASS | B1-6  stage B2's within term is the holonomy of the squares | over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a worst relative error of 1.07e-15; in aggregate 0.33793923 against 0.33793923, relative 1.64e-16. 4 cells above 2,000 loans were held out because enumeration is quadratic |
+| PASS | B1-7  one agent class reproduces the one-index case exactly | at m=1 there are no squares at all and b1(Gamma) = b1(G). The enlarged graph is a generalisation, not a substitution |
+
+Derived quantities:
+
+- `half_mean_squared_holonomy` = 0.3379
+- `within_cell_variance` = 0.3379
+- `worst_relative_error_per_cell` = 0.0000
+
 ## B2A — dispersion in financing terms at fixed position and date
 
 20,071,740 loans `min_cell_size=20` `spread_bound=20.0` 160 rows outside the plausibility band
