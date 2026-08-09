@@ -7,7 +7,7 @@ Failed criteria are listed alongside passing ones. A results file that records
 only successes is the same kind of object as a statistic designed to look good,
 and this project's own argument is about that kind of object.
 
-Last generated: 2026-08-08
+Last generated: 2026-08-09
 
 ## A0b — derived demand on the downward edge
 
@@ -41,7 +41,7 @@ Derived quantities:
 | PASS | A0b-2  a positive steady state exists below unit elasticity | minimum level over e <= 0.9 is 2.0910 |
 | PASS | A0b-3  no steady state exists at or above unit elasticity | maximum level over e >= 1.0 is 1.024e-85 |
 | PASS | A0b-4  the level falls monotonically in elasticity | from 12.7069 at e=0 to 6.429e-171 at e=1.2 |
-| PASS | A0b-5  above the boundary, survival is linear in the autonomous share | max deviation from a line through the origin is 8.882e-16, slope 12.7069 |
+| PASS | A0b-5  above the boundary, survival is linear in the autonomous share | max deviation from a line through the origin is 1.776e-15, slope 12.7069 |
 | PASS | A0b-6  a zero autonomous share above the boundary collapses | level at floor_share=0 is 4.283e-171 |
 
 Derived quantities:
@@ -172,3 +172,63 @@ Derived quantities:
 | PASS | A2-6  H1: the three-layer payroll channel closes with the bill unchanged | funding ratio 2.571e-139 while the bill owed stayed constant and the elasticity was zero |
 | PASS | A2-7  H2: three-layer at zero elasticity matches two-layer at unity | three-layer 3.2428e-138 against two-layer at e=1 7.8382e-66 and at e=0 17.4309 |
 | PASS | A2-8  zero autonomous edges collapses; one rescues | 0 edges 3.243e-138, 1 edge 22.7300 (75% of the maximum), 30 edges 30.4821 |
+
+## A2c — cycle structure of the realized graph
+
+`rounds=600` `seed=0`
+
+**7/7 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A2c-1  net displacement is flat while circulation grows | gradient magnitude stays within a factor of 1.62; total flow grows x97.1 |
+| PASS | A2c-2  the churn ratio rises by an order of magnitude | circulation over net displacement rises 4.4 -> 268 |
+| PASS | A2c-3  the harmonic component is diluted, not removed | magnitude within a factor of 1.65 while its share falls 2.18e-02 -> 8.59e-07. Reporting the share alone would have said it vanished |
+| PASS | A2c-4  cycle rank collapses with no edge deleted | potential rank 2846, realized fraction 0.029, and the potential graph is identical throughout |
+| PASS | A2c-5  one autonomous edge restores most of the loop structure | 0 edges 0.029, 1 edge 0.783, 30 edges 0.891 |
+| PASS | A2c-6  the collapse and the rescue hold across graph seeds | 6 seeds: collapsed 0.023-0.029, rescued 0.744-0.862 |
+| PASS | A2c-7  limitation recorded: cycle rank saturates when nothing dies | in the two-layer model the realized rank is flat at 1074 after the transient, against a potential 1190. Cycle rank is a binary count, so it moves only where edges genuinely stop carrying claims. It is informative in the three-layer economy and inert in the two-layer one, and this criterion exists to keep that on the record |
+
+## B2A — dispersion in financing terms at fixed position and date
+
+20,071,740 loans `min_cell_size=20` `spread_bound=20.0` 160 rows outside the plausibility band
+
+**7/7 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B2A-1  variance decomposition is exact | between 0.095178 + within 0.343669 = 0.438848 |
+| PASS | B2A-2  dispersion survives fixing position and date | within share 0.7831 over 1,103,962 cells and 20,071,740 loans. Integrability predicts exactly zero |
+| PASS | B2A-3  the median cell has a non-trivial spread | median within-cell IQR 0.5257 points, median p90-p10 1.0774, over 328,902 cells of at least 20 loans |
+| PASS | B2A-4  restricting to well-populated cells does not weaken it | all cells 0.7831 over 1,103,962 cells; cells of at least 20 loans 0.8480 over 328,902 cells and 16,177,088 loans. Sparse cells have zero within variance by construction, so the unrestricted figure is the conservative one |
+| PASS | B2A-5  it does not vanish within occupancy type | principal residence: 0.8289 (0.8502 restricted), second residence: 0.6155 (0.8418 restricted), investment: 0.3482 (0.5049 restricted) |
+| PASS | B2A-6  the exclusion band is not doing the work | within share across bands 10:0.8475, 15:0.8478, 20:0.8480, 25:0.8481, 30:0.8482, 50:0.8484; range 9.61e-04. 160 of 20,071,900 rows lie outside +-20 and are not interest-rate differences |
+| PASS | B2A-7  it survives with nothing excluded at all | ranked within share 0.7654 over 20,071,900 loans including every implausible row; 0.8181 restricted. A rank is bounded by the sample size, so no placeholder value can dominate it, and the integrable null still predicts exactly zero |
+
+Derived quantities:
+
+- `within_share_all_cells` = 0.7831
+- `within_share_restricted` = 0.8480
+- `bound_sweep_range` = 0.0010
+- `within_share_ranked_nothing_excluded` = 0.7654
+
+## B2A placebo — conventional against FHA and VA
+
+`min_cell_size=20` `spread_bound=20.0` `registered_min_gap=0.05` 409,181 tract-years common to all programmes
+
+**4/4 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | P1  conventional exceeds VA by more than the registered margin | conventional 0.8480 - VA 0.6666 = +0.1814 (registered > 0.05); ranked 0.8181 - 0.7325 = +0.0855 (registered same sign). VA has a wide pool and a flat price grid, so the pool-width account predicts VA near conventional and this is where it fails or survives |
+| PASS | P2  conventional exceeds FHA | conventional 0.8480 vs FHA 0.4757 = +0.3722. Both accounts predict this sign, so it grades the effect and discriminates nothing |
+| PASS | P3  both hold on tract-years common to all three programmes | common tract-years: conventional 0.8608, FHA 0.4747, VA 0.6664; conventional - VA = +0.1944. Removes the geography difference between where the programmes lend |
+| PASS | P5  the gap clears a gap whose true value is zero | conventional - VA = +0.1814 against a split-half null whose largest absolute gap over 20 random halvings of the conventional sample is 0.0014 (median 0.0005) |
+
+Derived quantities:
+
+- `conventional` = 0.8480
+- `fha` = 0.4757
+- `va` = 0.6666
+- `gap_conventional_minus_va` = 0.1814
+- `split_half_null_largest_gap` = 0.0014

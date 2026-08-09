@@ -1,0 +1,142 @@
+{
+  "stage": "B2A",
+  "min_cell_size": 20,
+  "spread_bound": 20.0,
+  "excluded_implausible": 160,
+  "bound_sweep": [
+    {
+      "bound": 10.0,
+      "excluded": 504,
+      "within_share": 0.8474735822352749,
+      "n_cells": 328897,
+      "n_loans": 16176824
+    },
+    {
+      "bound": 15.0,
+      "excluded": 235,
+      "within_share": 0.847808712113043,
+      "n_cells": 328899,
+      "n_loans": 16177000
+    },
+    {
+      "bound": 20.0,
+      "excluded": 160,
+      "within_share": 0.847959027149097,
+      "n_cells": 328902,
+      "n_loans": 16177088
+    },
+    {
+      "bound": 25.0,
+      "excluded": 141,
+      "within_share": 0.8480625953123453,
+      "n_cells": 328902,
+      "n_loans": 16177100
+    },
+    {
+      "bound": 30.0,
+      "excluded": 131,
+      "within_share": 0.8481727306137685,
+      "n_cells": 328902,
+      "n_loans": 16177109
+    },
+    {
+      "bound": 50.0,
+      "excluded": 115,
+      "within_share": 0.8484342534284707,
+      "n_cells": 328902,
+      "n_loans": 16177119
+    }
+  ],
+  "bound_sweep_range": 0.0009606711931957612,
+  "rank_decomposition": {
+    "within_share": 0.765378906008207,
+    "n_cells": 1103973,
+    "n_loans": 20071900,
+    "within_share_restricted": 0.8180603442199534,
+    "note": "computed on the raw sample before any exclusion, including every implausible row"
+  },
+  "variance": {
+    "between": 0.09517810879913258,
+    "within": 0.3436694393886492,
+    "within_share": 0.7831180573021999,
+    "n_cells": 1103962,
+    "n_loans": 20071740
+  },
+  "variance_restricted": {
+    "min_cell_size": 20,
+    "between": 0.060293368979743286,
+    "within": 0.33626663618984465,
+    "within_share": 0.847959027149097,
+    "n_cells": 328902,
+    "n_loans": 16177088
+  },
+  "dispersion": {
+    "cells": 328902,
+    "loans": 16177088,
+    "median_iqr": 0.5257499999999999,
+    "median_p90_p10": 1.0774,
+    "share_of_cells_with_iqr_above_25bp": 0.9891730667493661,
+    "share_of_cells_with_p90_p10_above_1pt": 0.5908872551702331
+  },
+  "by_occupancy": {
+    "principal residence": {
+      "within_share": 0.8289030431499798,
+      "n_cells": 602375,
+      "n_loans": 18391632,
+      "within_share_restricted": 0.85017127297748,
+      "n_cells_restricted": 317689
+    },
+    "second residence": {
+      "within_share": 0.6155465853660078,
+      "n_cells": 259726,
+      "n_loans": 1178828,
+      "within_share_restricted": 0.8418395070431709,
+      "n_cells_restricted": 10227
+    },
+    "investment": {
+      "within_share": 0.3482266979044986,
+      "n_cells": 241861,
+      "n_loans": 501280,
+      "within_share_restricted": 0.504943088540057,
+      "n_cells_restricted": 986
+    }
+  },
+  "falsifications_fired": {},
+  "criteria": [
+    {
+      "name": "B2A-1  variance decomposition is exact",
+      "passed": true,
+      "detail": "between 0.095178 + within 0.343669 = 0.438848"
+    },
+    {
+      "name": "B2A-2  dispersion survives fixing position and date",
+      "passed": true,
+      "detail": "within share 0.7831 over 1,103,962 cells and 20,071,740 loans. Integrability predicts exactly zero"
+    },
+    {
+      "name": "B2A-3  the median cell has a non-trivial spread",
+      "passed": true,
+      "detail": "median within-cell IQR 0.5257 points, median p90-p10 1.0774, over 328,902 cells of at least 20 loans"
+    },
+    {
+      "name": "B2A-4  restricting to well-populated cells does not weaken it",
+      "passed": true,
+      "detail": "all cells 0.7831 over 1,103,962 cells; cells of at least 20 loans 0.8480 over 328,902 cells and 16,177,088 loans. Sparse cells have zero within variance by construction, so the unrestricted figure is the conservative one"
+    },
+    {
+      "name": "B2A-5  it does not vanish within occupancy type",
+      "passed": true,
+      "detail": "principal residence: 0.8289 (0.8502 restricted), second residence: 0.6155 (0.8418 restricted), investment: 0.3482 (0.5049 restricted)"
+    },
+    {
+      "name": "B2A-6  the exclusion band is not doing the work",
+      "passed": true,
+      "detail": "within share across bands 10:0.8475, 15:0.8478, 20:0.8480, 25:0.8481, 30:0.8482, 50:0.8484; range 9.61e-04. 160 of 20,071,900 rows lie outside +-20 and are not interest-rate differences"
+    },
+    {
+      "name": "B2A-7  it survives with nothing excluded at all",
+      "passed": true,
+      "detail": "ranked within share 0.7654 over 20,071,900 loans including every implausible row; 0.8181 restricted. A rank is bounded by the sample size, so no placeholder value can dominate it, and the integrable null still predicts exactly zero"
+    }
+  ]
+}

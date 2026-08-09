@@ -10,10 +10,18 @@ venv/
 .env
 
 # Raw data is not redistributed. data/SOURCES.md records where to get it.
+# 3.8 GB across three programmes, and the retrieval script rebuilds it.
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
+
+# The manifests are the exception, and they are committed on purpose. Each
+# records, per file, the exact URL queried, the timestamp, and how many rows were
+# kept and dropped and why. That is the evidence that the sample was fixed before
+# any result was seen, it is the one part of the retrieval a reader cannot
+# reconstruct after the fact, and it is under a megabyte for all three.
+!data/raw/*_manifest.json
 
 # Figures and results ARE committed: they are the artefact.
 !figures/*.png

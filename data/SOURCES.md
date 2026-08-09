@@ -79,6 +79,71 @@ has so far been argued qualitatively.
 | Consumer Expenditure Survey by income decile | the consuming-power basket | |
 | Census Business Dynamics Statistics | firm size distribution (entry ticket) | |
 
+## Tier B2 — the effective-price loops
+
+Pre-registered in [`../docs/b2_measurement.md`](../docs/b2_measurement.md). Nothing
+here is retrieved until that document is final, and the sample is fixed before any
+loop sum is computed.
+
+| dataset | supplies | note |
+|---|---|---|
+| **HMDA modified LAR** | `rate_spread` (APR minus APOR at rate-set date), census tract, lien status, loan purpose, **occupancy type**, action taken. Loan level, ~4,800 filers | **Loop A, the logical anchor.** Note what is absent: credit score is redacted, along with 26 other fields, and DTI, loan amount and property value are modified. So this file gives the *dispersion* of terms at fixed position and date and cannot attribute it to credit score |
+| **NMDB Outstanding Residential Mortgage Statistics** | distribution of interest rates on outstanding fixed-rate mortgages, quarterly | **The load-bearing series.** Share of outstanding loans below 4% peaked at 65.1% in Q1 2022 and stood at 49.9% in Q1 2026. Roughly half the holders of the same position face materially different terms from the other half, divided by entry date |
+| NMDB New Residential Mortgage Statistics | LTV and credit score at origination, by vintage | |
+| Freddie Mac PMMS | 30-year fixed contract rate by week, averaged to quarter | the rate available at each vintage |
+| FHFA HPI, metro, all-transactions and purchase-only | house price by metro and quarter | purchase-only preferred where both exist |
+| Zillow ZORI, ZHVI | imputed rent and price tiers by metro | tier definition where FHFA does not publish tiers |
+| ACS 5-year | effective property tax rate by metro | |
+| NAIC homeowners premium | insurance by state | |
+| state assessment caps | hand-coded, dated, statute cited per row | committed as a table; the only hand-coded input |
+
+Two definitional traps recorded in advance.
+
+**The contract rate on an outstanding loan is not the current market rate**, and
+loop B turns entirely on that difference. Any step that substitutes one for the
+other destroys the measurement silently.
+
+**Asset tier is not agent class.** An individual landlord buying down-market units
+to rent and hold is a high-class agent holding a low-tier asset. Pooling by price
+tier averages that landlord together with the household that could reach no higher
+tier, which cancels the very distinction being measured. Occupancy type separates
+them and every cell is crossed by it.
+
+### Retrieval
+
+`data/fetch_hmda.py` pulls the pre-registered sample from the FFIEC Data Browser
+CSV endpoint, one file per metro-year, resumable, writing a manifest that records
+every URL, row count and exclusion count. It must be run before
+`experiments/b2_loop_a.py`.
+
+Two constraints discovered while probing the API and recorded here rather than in
+a comment:
+
+**Send two filters, not five.** Each documented filter works alone; five together
+return HTTP 400. Rather than guess which pair the server dislikes, only
+`loan_purposes` and `loan_products` are sent, purely to cut the download, and every
+other exclusion is applied locally where it is visible and testable.
+
+**`action_taken == 1` is load-bearing, not hygiene.** Purchased loans, action taken
+6, report `rate_spread` as NA. The first sample retrieved was almost entirely those
+and carried no observable field at all.
+
+**The column is `derived_msa-md`, with a hyphen.** An underscore silently produces
+no column rather than an error.
+
+**Query by state, not by metro.** HMDA reports Metropolitan Division codes for
+divided CBSAs, so querying New York as 35620 returns zero rows. State codes are
+unambiguous, and metro is not a cell key in any case.
+
+**The aggregation endpoint cannot serve this.** Its filter list has no
+`occupancy_type` and no `rate_spread`, so the raw CSV endpoint is required and the
+statistics are computed locally.
+
+**Loop A's window is 2018 onward, not 2000.** The API serves 2018-2025, and more
+importantly HMDA carried rate spread only for higher-priced loans before 2018.
+Using earlier years would select precisely the tail this measurement is about. The
+longer vintage range in `docs/b2_measurement.md` applies to loop B only.
+
 ## Recording convention
 
 Every file added to `data/raw/` gets a row here with: URL, retrieval date, series

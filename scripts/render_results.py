@@ -36,6 +36,9 @@ STAGE_TITLES = {
     "A0": "A0 — retention and allocation",
     "A0b": "A0b — derived demand on the downward edge",
     "A2": "A2 — support-set contraction and the intermediate layer",
+    "A2c": "A2c — cycle structure of the realized graph",
+    "B2A": "B2A — dispersion in financing terms at fixed position and date",
+    "B2A-placebo": "B2A placebo — conventional against FHA and VA",
 }
 
 PRESET_TITLES = {
@@ -66,18 +69,79 @@ def render_block(criteria: list[dict], derived: dict, params: dict) -> list[str]
     return lines
 
 
+def subtitle(record: dict) -> str:
+    """The one line that says what this record was computed on.
+
+    Simulation stages are identified by rounds and seed; the empirical stages have
+    neither and are identified by the sample and the settings that were applied to
+    it. Reading these off the record rather than assuming a fixed set of keys is
+    what lets a new stage be added without editing this function again.
+    """
+    if "rounds" in record:
+        return f"`rounds={record['rounds']}` `seed={record.get('seed', '?')}`"
+
+    bits = []
+    for key in ("min_cell_size", "spread_bound", "registered_min_gap"):
+        if key in record:
+            bits.append(f"`{key}={record[key]}`")
+    for key, label in (
+        ("excluded_implausible", "rows outside the plausibility band"),
+        ("common_tract_years", "tract-years common to all programmes"),
+    ):
+        if key in record:
+            bits.append(f"{record[key]:,} {label}")
+    loans = record.get("variance", {}).get("n_loans")
+    if loans:
+        bits.insert(0, f"{loans:,} loans")
+    return " ".join(bits) if bits else "_no sample metadata recorded_"
+
+
+def derived_for(record: dict) -> dict[str, float]:
+    """Headline numbers for the empirical stages, surfaced above the table.
+
+    The simulation stages carry a ``derived`` block already. The empirical ones do
+    not, because their headline quantities live at different depths of the record,
+    so they are lifted here rather than duplicated into the JSON.
+    """
+    stage = record.get("stage")
+    if stage == "B2A":
+        out = {
+            "within_share_all_cells": record["variance"]["within_share"],
+            "within_share_restricted": record["variance_restricted"]["within_share"],
+            "bound_sweep_range": record["bound_sweep_range"],
+        }
+        ranked = record.get("rank_decomposition") or {}
+        if ranked:
+            out["within_share_ranked_nothing_excluded"] = ranked["within_share"]
+        return out
+    if stage == "B2A-placebo":
+        overall = record["overall"]
+        return {
+            "conventional": overall["conventional"]["within_share"],
+            "fha": overall["fha"]["within_share"],
+            "va": overall["va"]["within_share"],
+            "gap_conventional_minus_va": (
+                overall["conventional"]["within_share"] - overall["va"]["within_share"]
+            ),
+            "split_half_null_largest_gap": record["split_half_null"]["max_abs_gap"],
+        }
+    return {}
+
+
 def render_stage(record: dict) -> str:
     stage = record["stage"]
     lines = [
         f"## {STAGE_TITLES.get(stage, stage)}",
         "",
-        f"`rounds={record['rounds']}` `seed={record['seed']}`",
+        subtitle(record),
         "",
     ]
 
     if "criteria" in record:
         lines += render_block(
-            record["criteria"], record.get("derived", {}), record.get("parameters", {})
+            record["criteria"],
+            record.get("derived", derived_for(record)),
+            record.get("parameters", {}),
         )
     else:
         # One block per calibration preset. Both are reported: a finding that

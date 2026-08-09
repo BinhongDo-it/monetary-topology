@@ -1,0 +1,178 @@
+{
+  "stage": "B2A-placebo",
+  "min_cell_size": 20,
+  "spread_bound": 20.0,
+  "registered_min_gap": 0.05,
+  "overall": {
+    "conventional": {
+      "n_loans": 20071900,
+      "n_excluded": 160,
+      "within_share": 0.847959027149097,
+      "n_cells": 328902,
+      "n_loans_in_cells": 16177088,
+      "within_share_ranked": 0.8180603442199534,
+      "n_cells_ranked": 328904
+    },
+    "fha": {
+      "n_loans": 5213182,
+      "n_excluded": 13,
+      "within_share": 0.4757137220848083,
+      "n_cells": 61653,
+      "n_loans_in_cells": 2358715,
+      "within_share_ranked": 0.5524580837980203,
+      "n_cells_ranked": 61653
+    },
+    "va": {
+      "n_loans": 2852903,
+      "n_excluded": 7,
+      "within_share": 0.6665837551227912,
+      "n_cells": 24880,
+      "n_loans_in_cells": 1112983,
+      "within_share_ranked": 0.7325340839881277,
+      "n_cells_ranked": 24880
+    }
+  },
+  "common_tract_years": 409181,
+  "restricted_to_common": {
+    "conventional": {
+      "n_loans": 16050287,
+      "n_excluded": 141,
+      "within_share": 0.8608056345355846,
+      "n_cells": 259733,
+      "n_loans_in_cells": 13466966,
+      "within_share_ranked": 0.8389161057939736,
+      "n_cells_ranked": 259735
+    },
+    "fha": {
+      "n_loans": 4760523,
+      "n_excluded": 12,
+      "within_share": 0.47465943332233274,
+      "n_cells": 60112,
+      "n_loans_in_cells": 2319961,
+      "within_share_ranked": 0.5516637196819196,
+      "n_cells_ranked": 60112
+    },
+    "va": {
+      "n_loans": 2768197,
+      "n_excluded": 7,
+      "within_share": 0.6664471770526292,
+      "n_cells": 24714,
+      "n_loans_in_cells": 1107957,
+      "within_share_ranked": 0.7337503143128228,
+      "n_cells_ranked": 24714
+    }
+  },
+  "split_half_null": {
+    "splits": 20,
+    "max_abs_gap": 0.001414828129844059,
+    "median_abs_gap": 0.0004840401277587669,
+    "gaps": [
+      0.0005526246147897762,
+      0.0005113185869070058,
+      0.0005786683853925556,
+      0.0009730272818417873,
+      0.000522743002005166,
+      2.2931603497422515e-05,
+      9.932557594793945e-05,
+      0.00018781278509805155,
+      0.00023128012662798625,
+      0.0012847296944941133,
+      0.0011953755189106907,
+      0.0003309590220080816,
+      0.0003734995492957749,
+      0.000456761668610528,
+      0.0002933059814007599,
+      0.0005982484465802962,
+      0.00026785541427665205,
+      0.001414828129844059,
+      2.6929628195060396e-05,
+      0.0013850336991145795
+    ]
+  },
+  "fha_minus_va_not_registered": -0.19087003303798294,
+  "post_hoc_not_pre_registered": {
+    "min_size_sweep": {
+      "5": {
+        "conventional_share": 0.8273811078509656,
+        "conventional_cells": 605891,
+        "fha_share": 0.5307081681934653,
+        "fha_cells": 306207,
+        "va_share": 0.6748025184664751,
+        "va_cells": 157807,
+        "gap_conventional_minus_va": 0.15257858938449054,
+        "usable": true
+      },
+      "10": {
+        "conventional_share": 0.8379444829319466,
+        "conventional_cells": 484584,
+        "fha_share": 0.517992575427138,
+        "fha_cells": 168802,
+        "va_share": 0.6779945650242543,
+        "va_cells": 65426,
+        "gap_conventional_minus_va": 0.1599499179076923,
+        "usable": true
+      },
+      "20": {
+        "conventional_share": 0.847959027149097,
+        "conventional_cells": 328902,
+        "fha_share": 0.4757137220848083,
+        "fha_cells": 61653,
+        "va_share": 0.6665837551227912,
+        "va_cells": 24880,
+        "gap_conventional_minus_va": 0.18137527202630577,
+        "usable": true
+      },
+      "50": {
+        "conventional_share": 0.8558799345331185,
+        "conventional_cells": 101671,
+        "fha_share": 0.4076104446497477,
+        "fha_cells": 9450,
+        "va_share": 0.643883739703855,
+        "va_cells": 5919,
+        "gap_conventional_minus_va": 0.21199619482926346,
+        "usable": true
+      },
+      "100": {
+        "conventional_share": 0.8523752613158241,
+        "conventional_cells": 21544,
+        "fha_share": 0.3842416893133156,
+        "fha_cells": 2344,
+        "va_share": 0.6321863042639783,
+        "va_cells": 1652,
+        "gap_conventional_minus_va": 0.22018895705184582,
+        "usable": true
+      }
+    },
+    "two_by_two": {
+      "conventional_graded_grid_wide_pool": 0.847959027149097,
+      "va_flat_grid_wide_pool": 0.6665837551227912,
+      "fha_flat_grid_narrow_pool": 0.4757137220848083,
+      "missing_cell": "graded grid over a narrow pool: no programme has this",
+      "pricing_channel_conventional_minus_va": 0.18137527202630577,
+      "pool_width_channel_va_minus_fha": 0.19087003303798294,
+      "note": "the two channels come out close in magnitude and together span the whole distance from conventional to FHA. Additivity is assumed, not shown, and cannot be shown without the missing cell"
+    }
+  },
+  "criteria": [
+    {
+      "name": "P1  conventional exceeds VA by more than the registered margin",
+      "passed": true,
+      "detail": "conventional 0.8480 - VA 0.6666 = +0.1814 (registered > 0.05); ranked 0.8181 - 0.7325 = +0.0855 (registered same sign). VA has a wide pool and a flat price grid, so the pool-width account predicts VA near conventional and this is where it fails or survives"
+    },
+    {
+      "name": "P2  conventional exceeds FHA",
+      "passed": true,
+      "detail": "conventional 0.8480 vs FHA 0.4757 = +0.3722. Both accounts predict this sign, so it grades the effect and discriminates nothing"
+    },
+    {
+      "name": "P3  both hold on tract-years common to all three programmes",
+      "passed": true,
+      "detail": "common tract-years: conventional 0.8608, FHA 0.4747, VA 0.6664; conventional - VA = +0.1944. Removes the geography difference between where the programmes lend"
+    },
+    {
+      "name": "P5  the gap clears a gap whose true value is zero",
+      "passed": true,
+      "detail": "conventional - VA = +0.1814 against a split-half null whose largest absolute gap over 20 random halvings of the conventional sample is 0.0014 (median 0.0005)"
+    }
+  ]
+}
