@@ -13,7 +13,7 @@ than a dozen parameters, and reports a criterion that can fail. The point is not
 to build a simulator large enough to reproduce an economy. It is to make a
 handful of structural claims checkable by someone who did not write them.
 
-**Status: stages A0, A0b, A2, A2c, B1 and B2 complete, 54/54 criteria pass.** The
+**Status: stages A0, A0b, A2, A2c, B1 and B2 complete, 58/58 criteria pass.** The
 simulation stages run across two independent parameterisations, one of them
 calibrated to published Federal Reserve data, and across 12 graph seeds. The
 empirical stage runs on **28,137,985 mortgage originations** reported to HMDA for
@@ -859,7 +859,7 @@ simulating instances.
 | B2 loop A | dispersion at fixed position and date | **complete, 7/7** on 20,071,900 loans |
 | B2 placebo | conventional against FHA and VA | **complete, 4/4** on a further 8,066,085 |
 | B1 theorem | is the partition result a case of the cohomological claim? | **complete, 7/7**, [`docs/b1_theorem.md`](docs/b1_theorem.md) |
-| B2 loop B | same dwelling, different entry vintages | next |
+| B2 loop B | same dwelling, different entry vintages | **complete, 4/4**, [`docs/b2_loop_b.md`](docs/b2_loop_b.md) |
 | B2 loop C | CIP deviations: the other summand of the cycle space | not started |
 | square complex | curl against harmonic on `Γ` | not started, see B1 §10 |
 
@@ -926,6 +926,16 @@ magnitude is: FHFA's National Mortgage Database reports the share of outstanding
 fixed-rate mortgages below 4% peaked at 65.1% in Q1 2022 and stood at 49.9% in
 Q1 2026, against new originations at market. Roughly half the holders of the same
 position face materially different terms from the other half.
+
+**Loop B is done and it passed**, 4/4 over 53 quarters of FHFA's National
+Mortgage Database. The bound on vintage dispersion is 0.8479 in 2026 Q1 against
+loop A's 0.3363, and it exceeds loop A in 46 of 53 quarters. The registered
+prediction most likely to fail was that the wedge predates the 2022 repricing;
+the mean over the 36 quarters before 2022 is 0.4043, so the repricing raised it by
+64% rather than creating it. **The larger number is the weaker evidence**, and
+[the B1 section](#stage-b1-the-number-above-is-a-cohomological-quantity) is why:
+loop A's figure is a holonomy and loop B's is a component separation, because a
+below-market mortgage cannot be transferred and so no cycle closes.
 
 Loop B alone would not have been enough, and the document says so. A critic can
 answer it by saying the two owners hold different assets, a dwelling plus a 3%

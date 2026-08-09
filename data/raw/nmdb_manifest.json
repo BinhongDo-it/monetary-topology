@@ -1,0 +1,84 @@
+{
+  "generated_utc": "2026-08-09T21:36:54+00:00",
+  "base": "https://www.fhfa.gov/document/d/nmdb",
+  "series_kept": [
+    "AVE_INTRATE",
+    "PCT_INTRATE_3_4",
+    "PCT_INTRATE_4_5",
+    "PCT_INTRATE_5_6",
+    "PCT_INTRATE_GE_6",
+    "PCT_INTRATE_LT_3",
+    "TOT_LOANS"
+  ],
+  "markets_kept": [
+    "All Mortgages",
+    "Conventional Market"
+  ],
+  "geolevels_kept": [
+    "National",
+    "State"
+  ],
+  "columns_kept": [
+    "SERIESID",
+    "GEOLEVEL",
+    "GEOID",
+    "GEONAME",
+    "MARKET",
+    "PERIOD",
+    "YEAR",
+    "QUARTER",
+    "SUPPRESSED",
+    "VALUE1",
+    "VALUE2"
+  ],
+  "rate_buckets": [
+    {
+      "series": "PCT_INTRATE_LT_3",
+      "lower": 0.0,
+      "upper": 3.0
+    },
+    {
+      "series": "PCT_INTRATE_3_4",
+      "lower": 3.0,
+      "upper": 4.0
+    },
+    {
+      "series": "PCT_INTRATE_4_5",
+      "lower": 4.0,
+      "upper": 5.0
+    },
+    {
+      "series": "PCT_INTRATE_5_6",
+      "lower": 5.0,
+      "upper": 6.0
+    },
+    {
+      "series": "PCT_INTRATE_GE_6",
+      "lower": 6.0,
+      "upper": null
+    }
+  ],
+  "records": [
+    {
+      "name": "outstanding_national",
+      "url": "https://www.fhfa.gov/document/d/nmdb/nmdb-outstanding-mortgage-statistics-national-census-areas-quarterly.zip",
+      "path": "data\\raw\\nmdb\\nmdb_outstanding_national.csv",
+      "status": "cached",
+      "bytes": 30302
+    },
+    {
+      "name": "outstanding_states",
+      "url": "https://www.fhfa.gov/document/d/nmdb/nmdb-outstanding-mortgage-statistics-states-quarterly.zip",
+      "path": "data\\raw\\nmdb\\nmdb_outstanding_states.csv",
+      "status": "cached",
+      "bytes": 1378767
+    },
+    {
+      "name": "new_national",
+      "url": "https://www.fhfa.gov/document/d/nmdb/nmdb-new-mortgage-statistics-national-census-areas-quarterly.zip",
+      "path": "data\\raw\\nmdb\\nmdb_new_national.csv",
+      "status": "cached",
+      "bytes": 17942
+    }
+  ]
+}

@@ -234,6 +234,25 @@ Derived quantities:
 - `bound_sweep_range` = 0.0010
 - `within_share_ranked_nothing_excluded` = 0.7654
 
+## B2B — vintage separation in the outstanding stock (H-zero, not H-one)
+
+53 quarters, 2013Q1 to 2026Q1
+
+**4/4 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | L1  the vintage bound exceeds loop A's within-cell variance | 2026Q1: bound 0.8479 (sd 0.9208) against loop A's 0.3363 (sd 0.5799), read from results/b2_loop_a.json. Ratio 2.52. The bound understates loop B and the spread-versus-APR gap understates loop A, so the comparison is not clean in one direction |
+| PASS | L2  it is positive in every quarter, not only after 2022 | 53 quarters from 2013Q1; smallest 0.3018. Before 2022: 36 quarters, smallest 0.3018. A wedge present only after the repricing would be an episode rather than a structural feature |
+| PASS | L3  it is positive in every state | 51/51 state geographies positive at 2026Q1; smallest 0.7549 (HI), largest 0.9245 (SD) |
+| PASS | L4  the null calibration is exact | all mass in one bucket gives 0.0e+00 (registered 0); half below 3% and half at or above 6% gives 2.250000 (registered 2.25) |
+
+Derived quantities:
+
+- `latest_variance_lower_bound` = 0.8479
+- `smallest_across_quarters` = 0.3018
+- `loop_a_within_cell_variance` = 0.3363
+
 ## B2A placebo — conventional against FHA and VA
 
 `min_cell_size=20` `spread_bound=20.0` `registered_min_gap=0.05` 409,181 tract-years common to all programmes

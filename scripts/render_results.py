@@ -40,6 +40,7 @@ STAGE_TITLES = {
     "B1": "B1 — the enlarged graph, and what stage B2 measured",
     "B2A": "B2A — dispersion in financing terms at fixed position and date",
     "B2A-placebo": "B2A placebo — conventional against FHA and VA",
+    "B2B": "B2B — vintage separation in the outstanding stock (H-zero, not H-one)",
 }
 
 PRESET_TITLES = {
@@ -101,6 +102,9 @@ def subtitle(record: dict) -> str:
             f"{real['cells_checked']:,} cells enumerated over "
             f"{real['loans_in_checked_cells']:,} loans",
         )
+    elif record.get("national", {}).get("periods"):
+        per = record["national"]["periods"]
+        bits.insert(0, f"{len(per)} quarters, {per[0]} to {per[-1]}")
     elif record.get("shapes"):
         bits.insert(0, f"{len(record['shapes'])} graph shapes")
     return " ".join(bits) if bits else "_no sample metadata recorded_"
@@ -133,6 +137,16 @@ def derived_for(record: dict) -> dict[str, float]:
         if ranked:
             out["within_share_ranked_nothing_excluded"] = ranked["within_share"]
         return out
+    if stage == "B2B":
+        nat = record.get("national", {})
+        bounds = nat.get("bounds") or []
+        if not bounds:
+            return {}
+        return {
+            "latest_variance_lower_bound": bounds[-1],
+            "smallest_across_quarters": min(bounds),
+            "loop_a_within_cell_variance": record["loop_a_within_cell_variance"],
+        }
     if stage == "B2A-placebo":
         overall = record["overall"]
         return {

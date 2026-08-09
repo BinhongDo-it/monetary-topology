@@ -57,6 +57,7 @@ DATA_STAGES = [
         "b2_placebo_products.json",
     ),
     ("B1   enlarged graph", "experiments/b1_theorem.py", "b1_theorem.json"),
+    ("B2B  vintage separation", "experiments/b2_loop_b.py", "b2_loop_b.json"),
 ]
 
 #: B1 without its real-data criterion, so a checkout with no download still
