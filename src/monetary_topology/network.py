@@ -422,6 +422,11 @@ class NetworkConfig:
     rounds: int = 300
     seed: int = 0
 
+    #: Keep the full flow matrix every ``snapshot_every`` rounds, for stage A2c
+    #: to compute cycle structure on. Zero keeps nothing, which is the default:
+    #: the matrices are large and no earlier stage needs them.
+    snapshot_every: int = 0
+
     def __post_init__(self) -> None:
         if not 0.0 < self.layer1_initial_share < 1.0:
             raise ValueError("layer1_initial_share must lie in (0, 1)")
@@ -429,6 +434,8 @@ class NetworkConfig:
             raise ValueError("epsilon must be positive")
         if self.rounds < 1:
             raise ValueError("rounds must be >= 1")
+        if self.snapshot_every < 0:
+            raise ValueError("snapshot_every must be non-negative")
 
 
 def effective_support(inflow: np.ndarray) -> float:
@@ -464,6 +471,9 @@ class NetworkHistory:
     issuance: np.ndarray  # (rounds,) new claims
     potential_support: int  # constant: nodes reachable in the potential graph
     node_count: int  # constant: nodes in the graph
+    adjacency: np.ndarray  # the potential graph, fixed for the whole run
+    snapshots: dict[int, np.ndarray]  # round -> flow matrix, if requested
+    epsilon_absolute: float  # the cutoff actually used, in claim units
 
     def tail_mean(self, metric: str, last: int = 50) -> float:
         series = np.asarray(getattr(self, metric), dtype=float)
@@ -685,6 +695,8 @@ class Network:
         }
 
         epsilon_abs: float | None = None
+        snapshots: dict[int, np.ndarray] = {}
+        every = cfg.snapshot_every
 
         for t in range(rounds):
             issued = self._pending_issuance
@@ -731,6 +743,9 @@ class Network:
             l2_spending = float(spend_matrix[self._l2, :].sum())
             if self._baseline_l2_spending is None:
                 self._baseline_l2_spending = l2_spending
+            if every and (t % every == 0 or t == rounds - 1):
+                snapshots[t] = flow.copy()
+
             self._last_l2_spending = l2_spending
 
             if self._baseline_active is None:
@@ -745,7 +760,14 @@ class Network:
                     0.0, auth.gain * (self._baseline_active - l2_inflow)
                 )
 
-        return NetworkHistory(potential_support=potential, node_count=n, **out)
+        return NetworkHistory(
+            potential_support=potential,
+            node_count=n,
+            adjacency=self.adjacency,
+            snapshots=snapshots,
+            epsilon_absolute=float(epsilon_abs or 0.0),
+            **out,
+        )
 
 
 def run_network(config: NetworkConfig) -> NetworkHistory:

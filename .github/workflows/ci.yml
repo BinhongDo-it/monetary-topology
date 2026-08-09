@@ -25,6 +25,10 @@ jobs:
           python experiments/a0_retention.py
           python experiments/a0_derived_wages.py
           python experiments/a2_support_contraction.py
+          python experiments/a2c_cycle_structure.py
+      # B2 is deliberately absent: it needs a multi-gigabyte download from
+      # ffiec.cfpb.gov. Its analysis module is covered by the test suite against
+      # constructions with known answers, which is what CI can check.
       - name: results file is current
         run: |
           python scripts/render_results.py

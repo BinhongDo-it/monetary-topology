@@ -1,0 +1,65 @@
+{
+  "stage": "A2c",
+  "rounds": 600,
+  "seed": 0,
+  "seeds_tested": 6,
+  "churn": {
+    "ratio_start": 4.412844449479592,
+    "ratio_end": 267.55857549459245
+  },
+  "cycle_rank": {
+    "potential_rank": {
+      "0": 2846,
+      "1": 2847,
+      "2": 2848,
+      "5": 2850,
+      "12": 2855,
+      "30": 2871
+    },
+    "final_fraction": {
+      "0": 0.02916373858046381,
+      "1": 0.7832806462943449,
+      "2": 0.7893258426966292,
+      "5": 0.7894736842105263,
+      "12": 0.8542907180385289,
+      "30": 0.8906304423545803
+    }
+  },
+  "criteria": [
+    {
+      "name": "A2c-1  net displacement is flat while circulation grows",
+      "passed": true,
+      "detail": "gradient magnitude stays within a factor of 1.62; total flow grows x97.1"
+    },
+    {
+      "name": "A2c-2  the churn ratio rises by an order of magnitude",
+      "passed": true,
+      "detail": "circulation over net displacement rises 4.4 -> 268"
+    },
+    {
+      "name": "A2c-3  the harmonic component is diluted, not removed",
+      "passed": true,
+      "detail": "magnitude within a factor of 1.65 while its share falls 2.18e-02 -> 8.59e-07. Reporting the share alone would have said it vanished"
+    },
+    {
+      "name": "A2c-4  cycle rank collapses with no edge deleted",
+      "passed": true,
+      "detail": "potential rank 2846, realized fraction 0.029, and the potential graph is identical throughout"
+    },
+    {
+      "name": "A2c-5  one autonomous edge restores most of the loop structure",
+      "passed": true,
+      "detail": "0 edges 0.029, 1 edge 0.783, 30 edges 0.891"
+    },
+    {
+      "name": "A2c-6  the collapse and the rescue hold across graph seeds",
+      "passed": true,
+      "detail": "6 seeds: collapsed 0.023-0.029, rescued 0.744-0.862"
+    },
+    {
+      "name": "A2c-7  limitation recorded: cycle rank saturates when nothing dies",
+      "passed": true,
+      "detail": "in the two-layer model the realized rank is flat at 1074 after the transient, against a potential 1190. Cycle rank is a binary count, so it moves only where edges genuinely stop carrying claims. It is informative in the three-layer economy and inert in the two-layer one, and this criterion exists to keep that on the record"
+    }
+  ]
+}

@@ -193,7 +193,7 @@
         3.812077174918162,
         5.082769566557551
       ],
-      "floor_slope": 12.706923916393878
+      "floor_slope": 12.70692391639388
     },
     "criteria": [
       {
@@ -219,7 +219,7 @@
       {
         "name": "A0b-5  above the boundary, survival is linear in the autonomous share",
         "passed": true,
-        "detail": "max deviation from a line through the origin is 8.882e-16, slope 12.7069"
+        "detail": "max deviation from a line through the origin is 1.776e-15, slope 12.7069"
       },
       {
         "name": "A0b-6  a zero autonomous share above the boundary collapses",
