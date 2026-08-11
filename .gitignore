@@ -30,3 +30,10 @@ data/processed/*
 .DS_Store
 .idea/
 .vscode/
+
+# Superseded pre-registrations. Kept in place, never deleted; see CLAUDE.md.
+*.expired
+*.expired[0-9]
+
+# Prepared commit message, not part of the repository.
+COMMIT_MSG.txt

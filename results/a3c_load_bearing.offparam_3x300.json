@@ -1,0 +1,100 @@
+{
+  "stage": "A3 P-C",
+  "seeds": 3,
+  "rounds": 300,
+  "kappa": 1.0,
+  "fixed": {
+    "hold_mean_cost": true,
+    "mean_cost_reference": 1.0,
+    "units_per_node": 1.1,
+    "residual_owner": true,
+    "proceeds": "seller"
+  },
+  "mean_cost_relative_drift": 0.0,
+  "cells": {
+    "both": {
+      "name": "both",
+      "config": {
+        "terms_spread": 1.0,
+        "gate_spread": 1.0
+      },
+      "gap_mean": 24.02673238612648,
+      "gap_net_of_stretch": 24.037388759813037,
+      "gap_by_seed": [
+        10.96002126702766,
+        22.80937215542787,
+        38.31080373592391
+      ],
+      "central_mean": 23.01027530737092,
+      "peripheral_mean": -1.0164570787555576,
+      "mean_cost": 2.3952418990774196,
+      "stretched_nodes": 38.0,
+      "traders": 44.0,
+      "paired_population": 42.0,
+      "deviations": []
+    },
+    "H1_only": {
+      "name": "H1_only",
+      "config": {
+        "terms_spread": 1.0,
+        "gate_spread": 0.0
+      },
+      "gap_mean": 19.29729115037395,
+      "gap_net_of_stretch": 19.357972000656357,
+      "gap_by_seed": [
+        8.4348990418884,
+        23.660125217699914,
+        25.796849191533536
+      ],
+      "central_mean": 20.075764020742344,
+      "peripheral_mean": 0.7784728703683955,
+      "mean_cost": 2.3952418990774196,
+      "stretched_nodes": 36.0,
+      "traders": 42.0,
+      "paired_population": 42.0,
+      "deviations": []
+    },
+    "H0_only": {
+      "name": "H0_only",
+      "config": {
+        "terms_spread": 0.0,
+        "gate_spread": 1.0
+      },
+      "gap_mean": 5.392306260371799,
+      "gap_net_of_stretch": 5.337209479160105,
+      "gap_by_seed": [
+        4.024555950572237,
+        1.5311668444601654,
+        10.621195986082995
+      ],
+      "central_mean": 0.9523386440167977,
+      "peripheral_mean": -4.439967616355002,
+      "mean_cost": 2.3952418990774196,
+      "stretched_nodes": 41.666666666666664,
+      "traders": 44.0,
+      "paired_population": 42.0,
+      "deviations": []
+    },
+    "null": {
+      "name": "null",
+      "config": {
+        "terms_spread": 0.0,
+        "gate_spread": 0.0
+      },
+      "gap_mean": 0.0,
+      "gap_net_of_stretch": 0.0,
+      "gap_by_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "central_mean": 0.0,
+      "peripheral_mean": 0.0,
+      "mean_cost": 2.3952418990774196,
+      "stretched_nodes": 39.0,
+      "traders": 42.0,
+      "paired_population": 42.0,
+      "deviations": []
+    }
+  }
+}

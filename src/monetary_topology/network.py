@@ -185,6 +185,31 @@ class NetworkSpec:
     preferential: bool = True
     seed: int = 0
 
+    #: Stage A4's ``C = 0`` arm: a complete graph on which every node reaches
+    #: every other on identical terms.
+    #:
+    #: Switching this on removes *differentiation of access*, not access. The
+    #: wage edge survives, aggregate spending propensity survives, and the claim
+    #: stock survives; what goes is the fact that any of the three is
+    #: distributed unequally across nodes. Concretely it sets four things at
+    #: once, and they are one object rather than four:
+    #:
+    #: 1. the adjacency becomes complete,
+    #: 2. every node both funds and receives payroll,
+    #: 3. every node draws the same spending propensity, the node-count-weighted
+    #:    mean of the two layers' values, so aggregate propensity is unchanged,
+    #: 4. initial holdings are uniform, since the in-degree weighting that sets
+    #:    them has nothing left to weight by.
+    #:
+    #: Points 3 and 4 are consequences rather than extra assumptions: both are
+    #: defined in the A2 model *by layer*, and with a complete graph there are
+    #: no layers for them to be defined by. Recorded in
+    #: ``docs/a4_causal_primitive.md`` section 9.
+    #:
+    #: ``False`` is the default and no code path above changes under it, which
+    #: is what makes the bitwise reproduction of A2 checkable.
+    uniform_access: bool = False
+
     @property
     def size(self) -> int:
         return self.layer1_size + self.intermediate_size + self.layer2_size
@@ -255,6 +280,7 @@ class NetworkSpec:
             "downward_edges": self.downward_edges,
             "preferential": self.preferential,
             "seed": self.seed,
+            "uniform_access": self.uniform_access,
         }
         fields.update(changes)
         return NetworkSpec(**fields)  # type: ignore[arg-type]
@@ -316,8 +342,16 @@ def build_graph(spec: NetworkSpec, wage_edges: np.ndarray | None = None) -> np.n
     traverse edges the potential graph does not contain and the two supports stop
     being comparable.
     """
-    rng = np.random.default_rng(spec.seed)
     n = spec.size
+
+    if spec.uniform_access:
+        # Complete graph, no self-loops. Nothing is drawn, so no seed enters:
+        # under uniform access the graph is not a sample from anything and two
+        # seeds must give the same structure. Folding ``wage_edges`` is a no-op
+        # here and is skipped rather than special-cased.
+        return 1.0 - np.eye(n)
+
+    rng = np.random.default_rng(spec.seed)
     a = np.zeros((n, n))
 
     fin = spec.financial_nodes
@@ -558,15 +592,24 @@ class Network:
         # are the intermediate itself, which is being drained upward at the same
         # time. Nothing else about the wage rule changes.
         scaffold_in = build_graph(spec).sum(axis=0)
-        if spec.has_intermediate:
+        if spec.uniform_access:
+            # Everyone funds payroll and everyone receives it. The bill is a
+            # total that is split across payers, so its size is untouched; only
+            # the concentration of who pays and who is paid is removed.
+            self._wage_payers = np.arange(n)
+            self._wage_receivers = np.arange(n)
+        elif spec.has_intermediate:
             self._wage_payers = self._mid
+            self._wage_receivers = np.random.default_rng(spec.seed + 4241).permutation(
+                self._hh
+            )[: max(1, spec.layer2_size // 2)]
         else:
             self._wage_payers = self._l1[np.argsort(-scaffold_in[self._l1])][
                 : max(1, spec.layer1_size // 4)
             ]
-        self._wage_receivers = np.random.default_rng(spec.seed + 4241).permutation(
-            self._hh
-        )[: max(1, spec.layer2_size // 2)]
+            self._wage_receivers = np.random.default_rng(spec.seed + 4241).permutation(
+                self._hh
+            )[: max(1, spec.layer2_size // 2)]
 
         wage_mask = np.zeros((n, n))
         wage_mask[np.ix_(self._wage_payers, self._wage_receivers)] = 1.0
@@ -576,7 +619,22 @@ class Network:
         # Discretionary routing follows the graph minus the payroll edges: wages
         # are settled separately, so counting them twice would let the top's
         # consumption ride down the employment channel.
-        discretionary = np.clip(self.adjacency - wage_mask, 0.0, 1.0)
+        # Under uniform access the subtraction is skipped. Its purpose is to
+        # stop the financial layer's consumption riding down the employment
+        # channel, and with a complete graph there is no financial layer and no
+        # downward channel: every edge is already both. Subtracting anyway would
+        # not be conservative, it would be fatal -- everyone pays and receives
+        # payroll in that arm, so the mask is the full matrix and the
+        # discretionary graph would be emptied. The null arm would then consist
+        # of a payroll transfer that is a wash for every node, holdings would
+        # never move, and every competing mechanism would have an exactly
+        # uniform distribution to work on and would report zero. The reference
+        # arm of the entire factorial would be a dead economy reporting clean
+        # numbers.
+        if spec.uniform_access:
+            discretionary = self.adjacency.copy()
+        else:
+            discretionary = np.clip(self.adjacency - wage_mask, 0.0, 1.0)
         row_sums = discretionary.sum(axis=1, keepdims=True)
         self._route = np.divide(
             discretionary,
@@ -604,17 +662,56 @@ class Network:
         self._p_high[self._l1] = hi[list(LAYER_1)].mean()
         self._p_low[self._l2] = lo[list(LAYER_2)].mean()
         self._p_high[self._l2] = hi[list(LAYER_2)].mean()
+        if spec.uniform_access:
+            # The two values above are defined *by layer*, and a complete graph
+            # has no layers to define them by. Both are replaced by a single
+            # figure, weighted by each layer's share of the initial claim stock
+            # rather than by its share of the nodes.
+            #
+            # The weighting is not a detail. Claim-weighting holds the
+            # economy's aggregate spending flow at t=0 equal to the stratified
+            # arm's, which is the invariant the whole ``C`` switch is built on:
+            # aggregates survive, their dispersion does not. Node-weighting
+            # would instead hold the mean propensity *per node* fixed, and since
+            # ninety percent of nodes sit in the production layer the result is
+            # a null arm that turns its entire claim stock over roughly twice as
+            # fast as the arm it is the reference for. Any mechanism acting on a
+            # stock would then be washed out in the null arm by a difference in
+            # turnover that the switch was never supposed to introduce, and the
+            # comparison would be measuring the weighting.
+            w1 = float(config.layer1_initial_share)
+            w2 = 1.0 - w1
+            flat_low = float(w1 * self._p_low[0] + w2 * self._p_low[-1])
+            flat_high = float(w1 * self._p_high[0] + w2 * self._p_high[-1])
+            self._p_low[:] = flat_low
+            self._p_high[:] = flat_high
 
         # Initial holdings, spread within each layer in proportion to in-degree
         # so that the graph's own centrality sets the distribution. Verified in
         # stage A2 not to affect any reported result.
         self.holdings = np.zeros(n)
-        for nodes, share in (
-            (self._l1, config.layer1_initial_share),
-            (self._l2, 1.0 - config.layer1_initial_share),
-        ):
-            w = in_degree[nodes] + 1.0
-            self.holdings[nodes] = config.initial_claims * share * w / w.sum()
+        if spec.uniform_access:
+            # ``layer1_initial_share`` splits the stock between two layers that
+            # no longer exist, and the in-degree weighting within each has a
+            # constant to weight by. Both collapse to an equal split. The total
+            # is unchanged, so the null arm starts with the same claim stock as
+            # every other arm and differs only in its concentration.
+            self.holdings[:] = config.initial_claims / n
+        else:
+            for nodes, share in (
+                (self._l1, config.layer1_initial_share),
+                (self._l2, 1.0 - config.layer1_initial_share),
+            ):
+                w = in_degree[nodes] + 1.0
+                self.holdings[nodes] = config.initial_claims * share * w / w.sum()
+
+        #: Relative shares in which payroll is distributed across
+        #: ``_wage_receivers``. ``None`` means an equal split and is the only
+        #: value any stage before A4 uses. It is a separate branch rather than a
+        #: vector of ``1/k`` because ``total / k`` and ``total * (1.0 / k)`` are
+        #: not the same float, and stage A4's bitwise reproduction of A2 would
+        #: fail on the difference.
+        self._wage_weights: np.ndarray | None = None
 
         self._total_claims = float(config.initial_claims)
         self._pending_issuance = 0.0
@@ -653,15 +750,23 @@ class Network:
         if total <= 0.0:
             return matrix, 0.0
 
-        share = total / self._wage_receivers.size
-        for idx, payer in enumerate(self._wage_payers):
-            if paid[idx] <= 0:
-                continue
-            portion = paid[idx] / self._wage_receivers.size
-            matrix[payer, self._wage_receivers] += portion
-
-        self.holdings[self._wage_payers] -= paid
-        self.holdings[self._wage_receivers] += share
+        if self._wage_weights is None:
+            share = total / self._wage_receivers.size
+            for idx, payer in enumerate(self._wage_payers):
+                if paid[idx] <= 0:
+                    continue
+                portion = paid[idx] / self._wage_receivers.size
+                matrix[payer, self._wage_receivers] += portion
+            self.holdings[self._wage_payers] -= paid
+            self.holdings[self._wage_receivers] += share
+        else:
+            w = self._wage_weights
+            for idx, payer in enumerate(self._wage_payers):
+                if paid[idx] <= 0:
+                    continue
+                matrix[payer, self._wage_receivers] += paid[idx] * w
+            self.holdings[self._wage_payers] -= paid
+            self.holdings[self._wage_receivers] += total * w
         return matrix, bill
 
     def _discretionary_flow(self) -> np.ndarray:
@@ -670,6 +775,24 @@ class Network:
         matrix = spent[:, None] * self._route
         self.holdings = self.holdings - spent + matrix.sum(axis=0)
         return matrix
+
+    # -- hooks -------------------------------------------------------------
+    #
+    # Two no-ops, so that stage A4 can add demography and the competing
+    # mechanisms without a second copy of the round loop. A second copy would
+    # make the bitwise reproduction of A2 a claim about two files staying in
+    # step, which is not a claim anyone can check by reading either one.
+
+    def _pre_round(self, t: int) -> None:
+        """Called before issuance is credited. Base class does nothing."""
+
+    def _post_round(self, t: int) -> None:
+        """Called after measurement. Base class does nothing.
+
+        Anything an override does here must conserve the claim total, since the
+        stock-flow assertion in the next round compares against the holdings
+        this one left behind.
+        """
 
     # -- driver ------------------------------------------------------------
 
@@ -699,6 +822,7 @@ class Network:
         every = cfg.snapshot_every
 
         for t in range(rounds):
+            self._pre_round(t)
             issued = self._pending_issuance
             if issued:
                 self.holdings[self.injection_node] += issued
@@ -759,6 +883,8 @@ class Network:
                 self._pending_issuance = max(
                     0.0, auth.gain * (self._baseline_active - l2_inflow)
                 )
+
+            self._post_round(t)
 
         return NetworkHistory(
             potential_support=potential,

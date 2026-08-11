@@ -1,0 +1,82 @@
+{
+  "stage": "A3",
+  "seeds": 5,
+  "rounds": 300,
+  "registered_rent_rate": 0.05,
+  "deviations": [],
+  "rent_sweep": null,
+  "market": {
+    "sales": [
+      225,
+      268,
+      172,
+      206,
+      246
+    ],
+    "traders": [
+      43,
+      48,
+      41,
+      38,
+      50
+    ],
+    "max_cycles": [
+      16,
+      25,
+      14,
+      21,
+      23
+    ]
+  },
+  "criteria": [
+    {
+      "name": "A3-1  the closed channel reproduces A2 bitwise",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "largest absolute difference over 5 seeds and four series: 0.000e+00. Not a tolerance: anything but zero is a different model"
+    },
+    {
+      "name": "A3-2  a gap opens between agents who started level",
+      "passed": true,
+      "void": false,
+      "diagnostic": true,
+      "detail": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero"
+    },
+    {
+      "name": "A3-3  the gap compounds rather than levelling off",
+      "passed": true,
+      "void": false,
+      "diagnostic": true,
+      "detail": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken"
+    },
+    {
+      "name": "A3-4  the realised terms differential is the loop sum",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16"
+    },
+    {
+      "name": "A3-5  the gate binds at the high tier, not at ownership",
+      "passed": false,
+      "void": true,
+      "diagnostic": false,
+      "detail": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure"
+    },
+    {
+      "name": "A3-6  the stock survives a generation",
+      "passed": false,
+      "void": false,
+      "diagnostic": false,
+      "detail": "survival of the shock's net worth deviation after 40 rounds: 0.0% into the median node, 62.2% into the richest, against 50% required and 0.00% on the A2 carrier. The criterion does not name the recipient and the two answers disagree; the median is reported as the verdict because it is the harder one. A stock exists for whoever can buy the asset and for nobody else, so A4 is unblocked only for that part of the population"
+    },
+    {
+      "name": "A3-7  non-overlapping windows agree in sign",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
+    }
+  ]
+}

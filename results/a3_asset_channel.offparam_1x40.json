@@ -1,0 +1,63 @@
+{
+  "stage": "A3",
+  "seeds": 1,
+  "rounds": 40,
+  "registered_rent_rate": 0.05,
+  "deviations": [],
+  "rent_sweep": null,
+  "market": {
+    "sales": [
+      48
+    ],
+    "traders": [
+      36
+    ],
+    "max_cycles": [
+      3
+    ]
+  },
+  "criteria": [
+    {
+      "name": "A3-1  the closed channel reproduces A2 bitwise",
+      "passed": true,
+      "void": false,
+      "detail": "largest absolute difference over 1 seeds and four series: 0.000e+00. Not a tolerance: anything but zero is a different model"
+    },
+    {
+      "name": "A3-2  a gap opens between agents who started level",
+      "passed": false,
+      "void": false,
+      "detail": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 0.4 against a floor of 2.0. A floor, not a finding: this is owning against not owning and is not evidence for A3-4"
+    },
+    {
+      "name": "A3-3  the gap compounds rather than levelling off",
+      "passed": false,
+      "void": true,
+      "detail": "void: no node completed four resale round trips"
+    },
+    {
+      "name": "A3-4  the realised terms differential is the loop sum",
+      "passed": true,
+      "void": false,
+      "detail": "mean cell-adjusted return, better group minus worse: +0.28468 against a holonomy of +0.30094 from the product graph, relative error 5.40% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 2.78e-16"
+    },
+    {
+      "name": "A3-5  the gate binds at the high tier, not at ownership",
+      "passed": true,
+      "void": false,
+      "detail": "price frozen, so opening a tier is a gate change and nothing else: low 1024.12, high 0.85, against 1.5. With the price free to respond: low 2.36, high 1.09 -- admitting everyone to a tier also puts their claims into that tier's bidder pool, so the price runs and the incumbents, who hold most of the units, gain most"
+    },
+    {
+      "name": "A3-6  the stock survives a generation",
+      "passed": false,
+      "void": false,
+      "detail": "survival of the shock's net worth deviation after 40 rounds: 0.0% into the median node, 36.5% into the richest, against 50% required and 0.00% on the A2 carrier. The criterion does not name the recipient and the two answers disagree; the median is reported as the verdict because it is the harder one. A stock exists for whoever can buy the asset and for nobody else, so A4 is unblocked only for that part of the population"
+    },
+    {
+      "name": "A3-7  non-overlapping windows agree in sign",
+      "passed": false,
+      "void": false,
+      "detail": "better terms beat worse in [0,100): 100%, [100,200): 0%, [200,300): 0% of seeds. One window only would be a repricing"
+    }
+  ]
+}

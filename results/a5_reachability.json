@@ -1,0 +1,87 @@
+{
+  "stage": "A5",
+  "seeds": 5,
+  "rounds": 300,
+  "grid": {
+    "0.25": {
+      "participation": 0.22222222222222224,
+      "survival": 0.0,
+      "share_start": 0.2813319092229825,
+      "share_end": 0.005573074098690937,
+      "trades": 498.2
+    },
+    "0.5": {
+      "participation": 0.26222222222222225,
+      "survival": 0.0,
+      "share_start": 0.32233505073919755,
+      "share_end": 0.005507129657592707,
+      "trades": 476.6
+    },
+    "1.0": {
+      "participation": 0.29555555555555557,
+      "survival": 0.0,
+      "share_start": 0.3746438746500453,
+      "share_end": 0.011679948810937037,
+      "trades": 454.6
+    },
+    "2.0": {
+      "participation": 0.12,
+      "survival": 0.0,
+      "share_start": 0.2186368852017601,
+      "share_end": 0.0012394523532566698,
+      "trades": 209.4
+    },
+    "4.0": {
+      "participation": 0.01,
+      "survival": 0.0,
+      "share_start": 0.2806361087436843,
+      "share_end": 0.0014091331857512734,
+      "trades": 173.6
+    },
+    "8.0": {
+      "participation": 0.0011111111111111111,
+      "survival": 0.0011111111111111111,
+      "share_start": 0.23618579206181645,
+      "share_end": 0.07919069826966971,
+      "trades": 123.4
+    }
+  },
+  "criteria": [
+    {
+      "name": "A5-1  participation falls with reachability",
+      "passed": false,
+      "void": false,
+      "detail": "production-layer participation across the grid: rho=0.25: 22.2%, rho=0.5: 26.2%, rho=1.0: 29.6%, rho=2.0: 12.0%, rho=4.0: 1.0%, rho=8.0: 0.1%"
+    },
+    {
+      "name": "A5-2  the threshold sits where the definition puts it",
+      "passed": false,
+      "void": false,
+      "detail": "at rho=0.5: 26.2% against a floor of 50%; at rho=2.0: 12.0% against a ceiling of 5%. rho=1 is where the median agent can just pay, not a fitted value"
+    },
+    {
+      "name": "A5-3  the sign of the production layer's trend flips",
+      "passed": false,
+      "void": false,
+      "detail": "net worth share at rho=0.25: 0.281 -> 0.006; at rho=4.0: 0.281 -> 0.001. One mechanism, two regimes, nothing changed but reachability"
+    },
+    {
+      "name": "A5-4  the benign side is not an equilibrium",
+      "passed": true,
+      "void": false,
+      "detail": "starting at rho=0.5: crossed in 5/5 seeds, median round 1 against 100, 0.0% of subsequent rounds back below one against 5%. Decomposed over the run, the price moves by x40.7 and the median buyer's claims by x0.877: the reachable region closes from the denominator, not only from the price"
+    },
+    {
+      "name": "A5-5  issuance sets the clock",
+      "passed": true,
+      "void": false,
+      "detail": "median crossing round by issuance gain: gain=0.25: 1, gain=0.5: 1, gain=1.0: 1. What evaporates the reachable region is the rate at which new claims arrive at the top"
+    },
+    {
+      "name": "A5-6  freeze the price and the drift disappears",
+      "passed": false,
+      "void": false,
+      "detail": "largest relative move in rho with the price frozen: 304.64% against 1%. Any crossing at a live price is therefore the price channel and not the wage bill, issuance or turnover"
+    }
+  ]
+}

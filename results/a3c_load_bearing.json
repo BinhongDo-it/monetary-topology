@@ -1,0 +1,128 @@
+{
+  "stage": "A3 P-C",
+  "seeds": 5,
+  "rounds": 300,
+  "kappa": 1.0,
+  "fixed": {
+    "hold_mean_cost": true,
+    "mean_cost_reference": 1.0,
+    "units_per_node": 1.1,
+    "residual_owner": true,
+    "proceeds": "seller"
+  },
+  "mean_cost_relative_drift": 1.8594744119919683e-16,
+  "cells": {
+    "both": {
+      "name": "both",
+      "config": {
+        "terms_spread": 1.0,
+        "gate_spread": 1.0
+      },
+      "gap_mean": 23.266653908465443,
+      "gap_net_of_stretch": 23.279096334128724,
+      "gap_by_seed": [
+        10.960021267027644,
+        22.809372155427862,
+        38.31080373592391,
+        30.4904158976372,
+        13.762656486310608
+      ],
+      "same_sign_across_seeds": true,
+      "gap_range": [
+        10.960021267027644,
+        38.31080373592391
+      ],
+      "central_mean": 22.36391867061544,
+      "peripheral_mean": -0.9027352378500059,
+      "mean_cost": 2.3882512552260966,
+      "stretched_nodes": 37.8,
+      "traders": 43.8,
+      "paired_population": 41.6,
+      "deviations": []
+    },
+    "H1_only": {
+      "name": "H1_only",
+      "config": {
+        "terms_spread": 1.0,
+        "gate_spread": 0.0
+      },
+      "gap_mean": 21.671388460880383,
+      "gap_net_of_stretch": 21.741916312577747,
+      "gap_by_seed": [
+        8.434899041888396,
+        23.660125217699917,
+        25.796849191533536,
+        27.17354988596542,
+        23.291518967314623
+      ],
+      "same_sign_across_seeds": true,
+      "gap_range": [
+        8.434899041888396,
+        27.17354988596542
+      ],
+      "central_mean": 21.36968649281429,
+      "peripheral_mean": -0.30170196806609295,
+      "mean_cost": 2.3882512552260966,
+      "stretched_nodes": 35.2,
+      "traders": 41.6,
+      "paired_population": 41.6,
+      "deviations": []
+    },
+    "H0_only": {
+      "name": "H0_only",
+      "config": {
+        "terms_spread": 0.0,
+        "gate_spread": 1.0
+      },
+      "gap_mean": 1.4091481961594767,
+      "gap_net_of_stretch": 1.3457239229388107,
+      "gap_by_seed": [
+        4.024555950572215,
+        1.5311668444601698,
+        10.621195986082995,
+        7.125400357576827,
+        -16.256578157894822
+      ],
+      "same_sign_across_seeds": false,
+      "gap_range": [
+        -16.256578157894822,
+        10.621195986082995
+      ],
+      "central_mean": -1.274221753801512,
+      "peripheral_mean": -2.6833699499609884,
+      "mean_cost": 2.388251255226097,
+      "stretched_nodes": 42.2,
+      "traders": 43.8,
+      "paired_population": 41.6,
+      "deviations": []
+    },
+    "null": {
+      "name": "null",
+      "config": {
+        "terms_spread": 0.0,
+        "gate_spread": 0.0
+      },
+      "gap_mean": 0.0,
+      "gap_net_of_stretch": 0.0,
+      "gap_by_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "same_sign_across_seeds": false,
+      "gap_range": [
+        0.0,
+        0.0
+      ],
+      "central_mean": 0.0,
+      "peripheral_mean": 0.0,
+      "mean_cost": 2.388251255226097,
+      "stretched_nodes": 39.4,
+      "traders": 41.6,
+      "paired_population": 41.6,
+      "deviations": []
+    }
+  }
+}

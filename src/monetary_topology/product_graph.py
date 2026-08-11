@@ -119,6 +119,66 @@ def cochain_from_field(adj_g: np.ndarray, field: np.ndarray, m: int) -> Cochain:
     return Cochain(weights)
 
 
+def tier_positions(n_tiers: int) -> np.ndarray:
+    """Adjacency of `G` for stage A3: a star with cash at the centre.
+
+    Position `0` is cash and positions `1..Q` are the tiers. The only edges are
+    cash to a tier and back, which is what an acquisition and a sale are, so the
+    squares of `Gamma` are exactly the four-cycles A3-4 is stated on:
+    `(a, cash) -> (a, q) -> (b, q) -> (b, cash)`.
+
+    No tier-to-tier edge. Moving between tiers is a sale followed by a purchase
+    and is already the composition of two edges that exist; adding a direct one
+    would create cycles the registered criterion does not name.
+    """
+    if n_tiers < 1:
+        raise ValueError("need at least one tier")
+    n = n_tiers + 1
+    adj = np.zeros((n, n))
+    adj[0, 1:] = 1.0
+    adj[1:, 0] = 1.0
+    return adj
+
+
+def tier_field(
+    terms: np.ndarray, price_entry: np.ndarray, price_exit: np.ndarray
+) -> np.ndarray:
+    """Stage A3's field on the star, one slice per agent class.
+
+    `W[a, cash, q] = log( P_q(exit) / (gamma[a, q] * P_q(entry)) )`, the log
+    return to class `a` on entering tier `q` at `price_entry` and leaving at
+    `price_exit`.
+
+    This module never sees the simulation. It is handed the terms matrix and two
+    price vectors and computes a field; whether the exponent that field implies
+    matches the divergence a run produced is decided elsewhere, by code that
+    does not import this file and that this file does not import. If the two
+    were computed together their agreement would be an identity rather than a
+    result, and criterion A3-4 would establish nothing.
+
+    The price is expected to cancel out of every square. That is a property of
+    the construction and it is left to be **observed** rather than assumed:
+    nothing here divides it out.
+    """
+    terms = np.asarray(terms, dtype=np.float64)
+    entry = np.asarray(price_entry, dtype=np.float64)
+    exit_ = np.asarray(price_exit, dtype=np.float64)
+    if terms.ndim != 2:
+        raise ValueError("terms must be (classes, tiers)")
+    m, q = terms.shape
+    if entry.shape != (q,) or exit_.shape != (q,):
+        raise ValueError(f"price vectors must have shape {(q,)}")
+    if (terms <= 0).any() or (entry <= 0).any() or (exit_ <= 0).any():
+        raise ValueError("terms and prices must be positive to take a logarithm")
+
+    n = q + 1
+    field = np.zeros((m, n, n))
+    gain = np.log(exit_[None, :] / (terms * entry[None, :]))
+    field[:, 0, 1:] = gain
+    field[:, 1:, 0] = -gain
+    return field
+
+
 def exact_field(potential: np.ndarray, m: int) -> np.ndarray:
     """`W[a,i,j] = phi[j] - phi[i]`, the one-index null of Theorem 1 condition (1)."""
     phi = np.asarray(potential, dtype=np.float64)

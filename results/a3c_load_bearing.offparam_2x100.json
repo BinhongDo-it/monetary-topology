@@ -1,0 +1,80 @@
+{
+  "stage": "A3 P-C",
+  "seeds": 2,
+  "rounds": 100,
+  "kappa": 1.0,
+  "fixed": {
+    "hold_mean_cost": true,
+    "mean_cost_reference": 1.0,
+    "units_per_node": 1.1,
+    "residual_owner": true,
+    "proceeds": "seller"
+  },
+  "mean_cost_relative_drift": 0.0,
+  "cells": {
+    "both": {
+      "name": "both",
+      "config": {
+        "terms_spread": 1.0,
+        "gate_spread": 1.0
+      },
+      "spread_mean": Infinity,
+      "spread_by_seed": [
+        12.093023255813954,
+        Infinity
+      ],
+      "mean_cost": 2.375434029171685,
+      "stretched_nodes": 39.0,
+      "traders": 45.5,
+      "deviations": []
+    },
+    "H1_only": {
+      "name": "H1_only",
+      "config": {
+        "terms_spread": 1.0,
+        "gate_spread": 0.0
+      },
+      "spread_mean": Infinity,
+      "spread_by_seed": [
+        12.000000000000002,
+        Infinity
+      ],
+      "mean_cost": 2.375434029171685,
+      "stretched_nodes": 36.0,
+      "traders": 41.5,
+      "deviations": []
+    },
+    "H0_only": {
+      "name": "H0_only",
+      "config": {
+        "terms_spread": 0.0,
+        "gate_spread": 1.0
+      },
+      "spread_mean": 10.852568904244029,
+      "spread_by_seed": [
+        9.999999999999998,
+        11.70513780848806
+      ],
+      "mean_cost": 2.375434029171685,
+      "stretched_nodes": 43.5,
+      "traders": 45.0,
+      "deviations": []
+    },
+    "null": {
+      "name": "null",
+      "config": {
+        "terms_spread": 0.0,
+        "gate_spread": 0.0
+      },
+      "spread_mean": 12.046511627906977,
+      "spread_by_seed": [
+        12.093023255813954,
+        12.000000000000002
+      ],
+      "mean_cost": 2.375434029171685,
+      "stretched_nodes": 39.5,
+      "traders": 42.5,
+      "deviations": []
+    }
+  }
+}

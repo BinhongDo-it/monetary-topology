@@ -1,0 +1,218 @@
+{
+  "stage": "A3",
+  "seeds": 2,
+  "rounds": 120,
+  "registered_rent_rate": 0.05,
+  "deviations": [],
+  "rent_sweep": {
+    "elasticity": 0.0,
+    "rates": [
+      0.0,
+      0.002,
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "dropped_from_paired_population": 1,
+    "zero_calibration_ok": true,
+    "per_rate": {
+      "0": {
+        "renter_delta_median": 0.0,
+        "renter_delta_worst": 0.0,
+        "landlord_delta_median": 0.0,
+        "financial_delta_median": 0.0,
+        "rent_per_round_share": 0.0,
+        "rent_cumulative_share": 0.0,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.5
+      },
+      "0.002": {
+        "renter_delta_median": -0.009369882570248518,
+        "renter_delta_worst": -0.04223570962286918,
+        "landlord_delta_median": 0.0,
+        "financial_delta_median": 0.2682913693618647,
+        "rent_per_round_share": 0.0015314587106086564,
+        "rent_cumulative_share": 0.18377504527303878,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.5
+      },
+      "0.005": {
+        "renter_delta_median": -0.014806123689828322,
+        "renter_delta_worst": -0.06792668530778388,
+        "landlord_delta_median": 0.0,
+        "financial_delta_median": 0.5810163374177683,
+        "rent_per_round_share": 0.0037050767410775343,
+        "rent_cumulative_share": 0.44460920892930417,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            1,
+            179
+          ]
+        ],
+        "renters": 179.5
+      },
+      "0.01": {
+        "renter_delta_median": -0.03581187930216395,
+        "renter_delta_worst": -0.17045138806163662,
+        "landlord_delta_median": 0.0,
+        "financial_delta_median": 1.1381014907651354,
+        "rent_per_round_share": 0.007166724756014568,
+        "rent_cumulative_share": 0.8600069707217484,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            1,
+            179
+          ]
+        ],
+        "renters": 179.5
+      },
+      "0.02": {
+        "renter_delta_median": -0.07632232914277609,
+        "renter_delta_worst": -0.36829463100130433,
+        "landlord_delta_median": 0.0,
+        "financial_delta_median": 2.183020190615864,
+        "rent_per_round_share": 0.013448158319493293,
+        "rent_cumulative_share": 1.6137789983391961,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            1,
+            179
+          ]
+        ],
+        "renters": 179.5
+      },
+      "0.05": {
+        "renter_delta_median": -0.1835238976586338,
+        "renter_delta_worst": -0.8592118582062211,
+        "landlord_delta_median": 0.0,
+        "financial_delta_median": 4.759895460412913,
+        "rent_per_round_share": 0.028718548660660714,
+        "rent_cumulative_share": 3.446225839279286,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            1,
+            179
+          ]
+        ],
+        "renters": 179.5
+      }
+    }
+  },
+  "market": {
+    "sales": [
+      109,
+      132
+    ],
+    "traders": [
+      43,
+      48
+    ],
+    "max_cycles": [
+      7,
+      13
+    ]
+  },
+  "criteria": [
+    {
+      "name": "A3-1  the closed channel reproduces A2 bitwise",
+      "passed": true,
+      "void": false,
+      "detail": "largest absolute difference over 2 seeds and four series: 0.000e+00. Not a tolerance: anything but zero is a different model"
+    },
+    {
+      "name": "A3-2  a gap opens between agents who started level",
+      "passed": true,
+      "void": false,
+      "detail": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 62.5 against a floor of 2.0. A floor, not a finding: this is owning against not owning and is not evidence for A3-4"
+    },
+    {
+      "name": "A3-3  the gap compounds rather than levelling off",
+      "passed": true,
+      "void": false,
+      "detail": "largest drift between a node's first and second half of trades, over 9 nodes with four or more: 4.27e-16. Constant in logs is geometric in levels, so the gap after N round trips is the holonomy to the Nth power"
+    },
+    {
+      "name": "A3-4  the realised terms differential is the loop sum",
+      "passed": true,
+      "void": false,
+      "detail": "mean cell-adjusted return, better group minus worse: +0.38166 against a holonomy of +0.39724 from the product graph, relative error 3.92% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 5.55e-16"
+    },
+    {
+      "name": "A3-5  the gate binds at the high tier, not at ownership",
+      "passed": false,
+      "void": false,
+      "detail": "price frozen, so opening a tier is a gate change and nothing else: low 796.53, high 3.03, against 1.5. With the price free to respond: low 2.71, high 2.69 -- admitting everyone to a tier also puts their claims into that tier's bidder pool, so the price runs and the incumbents, who hold most of the units, gain most"
+    },
+    {
+      "name": "A3-6  the stock survives a generation",
+      "passed": false,
+      "void": false,
+      "detail": "survival of the shock's net worth deviation after 40 rounds: 0.0% into the median node, 30.5% into the richest, against 50% required and 0.00% on the A2 carrier. The criterion does not name the recipient and the two answers disagree; the median is reported as the verdict because it is the harder one. A stock exists for whoever can buy the asset and for nobody else, so A4 is unblocked only for that part of the population"
+    },
+    {
+      "name": "A3-7  non-overlapping windows agree in sign",
+      "passed": false,
+      "void": false,
+      "detail": "better terms beat worse in [0,100): 100%, [100,200): 50%, [200,300): 0% of seeds. One window only would be a repricing"
+    }
+  ]
+}
