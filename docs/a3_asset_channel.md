@@ -367,17 +367,70 @@ framework's own A5 material says it should be.
 Reducing `units` does not repair this. The criterion is now subsumed by the
 `κ_gate` axis and should be rewritten there.
 
-### 6.4 A3-6's threshold fights the thesis
+### 6.4 A3-6's domain was wrong; corrected, it still fails, and harder
 
-A3-6 requires at least half of an injected shock to survive 40 rounds **in the
-median node**. The framework's own claim is that the median node cannot hold a
-stock. As registered, the criterion demands the model contradict the thesis
-before A4 is unblocked.
+**As first registered** the criterion shocked the **median node** and required
+half the transfer to survive 40 rounds. The framework's own claim is that the
+median node cannot hold a stock, so the criterion demanded the model contradict
+its thesis before A4 could start. Measured `0.0%`.
 
-Measured: `0.0%` into the median node, `62.2%` into the richest. The correct form
-restricts A4 to the population that does hold a stock and says so in the
-criterion body. **Not yet rewritten**, and A4 must not be run against the median
-form.
+**The obvious repair is to shock the richest node instead**, which measures
+`62.2%` and passes. It was proposed by an external review and is **refused**,
+for two reasons and then a third that the refusal turned up.
+
+*It is picking the arm that passes after seeing that it passes.* The earlier
+version of this criterion's own docstring named that as the move this repository
+exists to avoid.
+
+*A single richest node is not "the population that holds a stock".* Swapping one
+single-node measurement for another and calling it a population is §11.10's
+error — a quantile on a handful of units — relocated.
+
+*And the `62.2%` is one seed.* Per seed the richest node retains
+`36.5%, 24.5%, 39.8%, **177.2%**, 33.1%`. Four of five sit between 24% and 40%;
+the mean clears the threshold **only because of the outlier**. This is the same
+defect as the withdrawn `93.9% / 6.9%` attribution in §5.2: a mean quoted with
+no dispersion beside it, hiding the one observation that produced it.
+
+**Corrected domain.** The population is now the set that actually holds a unit
+when the transfer arrives, read at the shock round, and the statistic is the
+median over that set — legitimate on fifteen to eighteen nodes in a way a decile
+on ten never was.
+
+| quantity | value |
+|---|---|
+| median holder's retention after 40 rounds | **13.8%** |
+| holders clearing the 50% threshold | **3% of 79** |
+| a non-holder's retention | **0.1%** |
+| holding population | **15.8 of 200 nodes** |
+| of which in the production layer | **0.0** |
+
+**A3-6 fails on the corrected domain, and the correction made it fail harder.**
+The threshold is carried over from the median-node version and that is
+disclosed rather than hidden: it is being applied to a new domain by a session
+that had already seen the richest node's number, and it is kept because
+lowering it would be worse than carrying it.
+
+**Three consequences, and the third is the one that matters for A4.**
+
+*The contrast is the finding, not the verdict.* A one-off transfer to a node
+with no asset is recaptured within a generation — `0.1%` — while the same
+transfer to a holder is not. Retention rises steeply with position and does so
+non-monotonically in claims. **That is the redistribution-futility result, and
+it is what A6 goes on to price.**
+
+*The stock A3 was built to supply is thin.* `PROJECT_PLAN.md` §12.6 recorded
+that A0 and A2 had no stock and A4 therefore could not run, and A3 exists partly
+to supply one. It supplies a stock for **16 of 200 nodes, all upstairs**, whose
+median holder retains **14%** over forty rounds.
+
+*So A4 remains blocked, and for a better-stated reason than before.* Its four
+competitors act on wealth. Measured where the wealth is, they describe
+stratification **within** those sixteen upstairs nodes, not the economy's — and
+inheritance in particular, which is a generation-scale channel, has a
+forty-round median retention of 14% to transmit. **A4 must not be run as
+designed until this is resolved**, and switching its domain silently to the
+holders would reproduce exactly the error refused above.
 
 ### 6.5 The registered §7 grid has not been run
 
@@ -461,3 +514,84 @@ A4 is run.
 | A3-8's divergence unchanged with `κ_pay = 0` | **the loop sum is not load-bearing; `b1_setup.md` §3's identification is withdrawn for this carrier and A3-4's agreement is decorative.** Registered as an ordinary possible result |
 | both single-channel cells collapse while the full cell does not | the channels interact; report the interaction, attribute to neither |
 | A3-8 replicated with a cell's sign unstable across seeds | no share may be quoted for that cell, whatever its mean |
+
+---
+
+## 9. A registered distinguishing prediction: transfer persistence is a step in asset ownership, not a gradient in income
+
+**Registered 2026-08-10. Untested, and no data in this repository can test it.**
+Written down so that it is a prediction rather than a story told after the fact.
+
+### 9.1 The three readings it rests on
+
+All three are model output and **none of them is calibrated**. Survival of a
+one-off transfer of 10% of the claim stock, measured against the same node's own
+unshocked path:
+
+| carrier | recipient | retained |
+|---|---|---|
+| A2, no asset channel | any | **0.00%** |
+| A3 | holds nothing when the transfer arrives | **0.1%** |
+| A3 | holds a unit, median over the holding set | **14%** |
+
+And the shape, which matters more than the level. Median retention across
+holders by horizon: `22.1%` at 5 rounds, `17.8%` at 10, `15.2%` at 25, `14.4%`
+at 40, `14.6%` at 80, **`14.3%` at 149**. Two components, one fast and one
+permanent: about four fifths of the transfer is gone inside five rounds, and
+what is left **never decays again**.
+
+The mechanism is legible and was not designed in. The fast part is the claim
+flowing away through ordinary circulation, whose half-life A0 and A2 already
+measured at two to five rounds. **The permanent part is exactly the portion
+converted into the asset**, and converting requires already being able to hold.
+A transfer to someone who cannot convert is not a small effect. It is no effect.
+
+### 9.2 The prediction
+
+> **Transfer persistence is a step function in asset ownership, not a gradient
+> in income.** Two households at the same income, one holding an asset and one
+> not, should retain a one-off transfer at rates differing by an order of
+> magnitude, and the retained portion should show **no further decay** after the
+> first few periods.
+
+**The competing account predicts something else, and that is what makes it a
+test.** A marginal-propensity story — high-MPC households spend transfers faster
+— predicts a **smooth gradient in income or in MPC**, with no discontinuity at
+asset ownership, and predicts **continuing decay** rather than a permanent
+residual.
+
+### 9.3 Why this is prediction rather than explanation
+
+Nothing in this repository measures transfer persistence. B2 measures dispersion
+in mortgage terms. `DFA_NET_WORTH_SHARES` is a wealth **stock** share and it is
+an **input** to `calibration.py`, so any agreement between the model's
+concentration and the DFA figures is a calibration echo and must never be quoted
+as confirmation. The default-waterfall figures in the source manuscript — credit
+card, auto, rent, evictions — are cited from the New York Fed, Fitch and
+Eviction Lab; **they are not this project's measurements**, and stage A1, which
+would make them ours, has not started.
+
+So the resonance between this result and ordinary observation is the third
+correspondence standard, 解释力, which is the weakest of the ones that touch the
+world: the phenomenon was there first. **Persistence is the fourth standard,
+预测力, because no data used in building this model contains it.**
+
+### 9.4 What would falsify it
+
+| observation | consequence |
+|---|---|
+| retention rises smoothly with income and shows no discontinuity at asset ownership | the mechanism is MPC, not conversion, and this prediction is dead |
+| the retained portion keeps decaying rather than levelling | there is no permanent component, and §9.1's flat tail is an artefact of the model's closed accounts |
+| non-holders retain a substantial share | conversion is not the channel; the model has the mechanism wrong |
+| holders and non-holders differ but the gap tracks a third variable — credit access, employment stability — that also predicts ownership | the step is real and the attribution to ownership is not. **This is the most likely way to be wrong** and it needs the third variable measured, not controlled away |
+
+### 9.5 Where it could be tested, and by whom
+
+Panel data on a one-off transfer, split by **whether the recipient held an
+asset** rather than by income decile. The 2020–21 United States payments and the
+expanded child tax credit are panels of the right shape; so are one-off
+disbursements elsewhere. The split that matters is ownership, and the quantity
+is retention at twelve and at thirty-six months, looking for a **level** rather
+than a slope.
+
+This is outside the scope of this project and is recorded as a hook, not a plan.

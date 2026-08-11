@@ -65,11 +65,11 @@
       "detail": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure"
     },
     {
-      "name": "A3-6  the stock survives a generation",
+      "name": "A3-6  a stock exists, and A4's domain is exactly who holds it",
       "passed": false,
       "void": false,
       "diagnostic": false,
-      "detail": "survival of the shock's net worth deviation after 40 rounds: 0.0% into the median node, 62.2% into the richest, against 50% required and 0.00% on the A2 carrier. The criterion does not name the recipient and the two answers disagree; the median is reported as the verdict because it is the harder one. A stock exists for whoever can buy the asset and for nobody else, so A4 is unblocked only for that part of the population"
+      "detail": "median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring"
     },
     {
       "name": "A3-7  non-overlapping windows agree in sign",

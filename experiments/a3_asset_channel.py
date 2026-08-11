@@ -473,8 +473,21 @@ def a3_5(seeds: range) -> Criterion:
     )
 
 
-def _shock_survival(seed: int, pick: str) -> float:
-    base = run(seed)
+def _holders_at_shock(seed: int) -> tuple[np.ndarray, np.ndarray]:
+    """``(holders, non-holders)`` as of the shock round.
+
+    The population is read **at the moment of the shock** rather than at the
+    end, because the criterion asks whether a transfer lands on someone who has
+    a stock, and that is a fact about the recipient when the transfer arrives.
+    """
+    at_shock = run(seed, rounds=A3_6_SHOCK_ROUND)
+    held = at_shock.units.sum(axis=1) > 0
+    return np.flatnonzero(held), np.flatnonzero(~held)
+
+
+def _shock_survival(seed: int, target: int, base: A3Model | None = None) -> float:
+    """What is left, after ``A3_6_HORIZON`` rounds, of a transfer to ``target``."""
+    base = base if base is not None else run(seed)
     shocked = A3Model(
         A3Config(
             asset=AssetSpec(),
@@ -483,8 +496,6 @@ def _shock_survival(seed: int, pick: str) -> float:
             ),
         )
     )
-    order = np.argsort(shocked.holdings)
-    target = int(order[shocked._n // 2] if pick == "median" else order[-1])
     original = shocked._pre_round
 
     def hook(t: int, _m=shocked, _i=target, _pre=original) -> None:
@@ -505,25 +516,80 @@ def _shock_survival(seed: int, pick: str) -> float:
 
 
 def a3_6(seeds: range) -> Criterion:
-    """Both choices of recipient are reported, because the criterion does not
-    say which node is shocked and the two answers disagree completely.
+    """Does a stock exist, and for whom? A4's precondition, and only that.
 
-    Picking the one that passes after seeing that it passes is the move this
-    repository exists to avoid. The reported verdict is the median node's, the
-    harder of the two, and the pre-registration records the whole thing.
+    **Rewritten. The domain was wrong and the obvious repair is forbidden.**
+
+    As first registered the criterion shocked the **median node** and required
+    half the transfer to survive forty rounds. The framework's own claim is that
+    the median node cannot hold a stock, so the criterion demanded the model
+    contradict its thesis before A4 could start. It measured `0.0%`.
+
+    The tempting repair is to shock the **richest** node instead, which measures
+    `62.2%` and passes. That repair is refused twice over. It is picking the arm
+    that passes after seeing that it passes, which the earlier version of this
+    docstring already named as the move this repository exists to avoid. And a
+    single richest node is not "the population that holds a stock": swapping one
+    single-node measurement for another and calling it a population is §11.10's
+    error — a quantile taken on a handful of units — moved to a new place.
+
+    **The domain is now the set that actually holds a unit when the transfer
+    arrives**, read at the shock round rather than at the end, and the statistic
+    is the **median over that set**, which is a legitimate statistic on fifteen
+    to eighteen nodes in a way that a decile on ten never was.
+
+    **The threshold is carried over and that is disclosed rather than hidden.**
+    `A3_6_SURVIVAL` was registered against the median-node version, which
+    failed, and it is being applied to a new domain by a session that has
+    already seen the richest node's number. It is kept because lowering it would
+    be worse, not because carrying it is clean.
+
+    The non-holder arm is reported beside it. **That contrast is the finding,
+    and it is worth more than the verdict**: a one-off transfer to a node with
+    no asset is recaptured within a generation, while the same transfer to a
+    holder is not. That is the redistribution-futility result, and it is what
+    A6 goes on to price.
     """
-    median = float(np.mean([_shock_survival(s, "median") for s in seeds]))
-    richest = float(np.mean([_shock_survival(s, "richest") for s in seeds]))
+    holder, nonholder, sizes, downstairs, every = [], [], [], [], []
+    for seed in seeds:
+        base = run(seed)
+        holders, others = _holders_at_shock(seed)
+        sizes.append(holders.size)
+        downstairs.append(int(base._is_production[holders].sum()))
+        if holders.size:
+            v = [_shock_survival(seed, int(i), base) for i in holders]
+            every.extend(v)
+            holder.append(float(np.median(v)))
+        if others.size:
+            pick = others[others.size // 2]
+            nonholder.append(_shock_survival(seed, int(pick), base))
+    if not holder:
+        return Criterion(
+            "A3-6  a stock exists, and A4's domain is exactly who holds it",
+            False,
+            "void: nobody holds a unit at the shock round, so there is no "
+            "population for A4 to run on at all",
+            void=True,
+        )
+    med = float(np.mean(holder))
+    non = float(np.mean(nonholder)) if nonholder else 0.0
+    n = float(np.mean(sizes))
+    prod = float(np.mean(downstairs))
     return Criterion(
-        "A3-6  the stock survives a generation",
-        median > A3_6_SURVIVAL,
-        f"survival of the shock's net worth deviation after {A3_6_HORIZON} "
-        f"rounds: {median:.1%} into the median node, {richest:.1%} into the "
-        f"richest, against {A3_6_SURVIVAL:.0%} required and 0.00% on the A2 "
-        f"carrier. The criterion does not name the recipient and the two "
-        f"answers disagree; the median is reported as the verdict because it is "
-        f"the harder one. A stock exists for whoever can buy the asset and for "
-        f"nobody else, so A4 is unblocked only for that part of the population",
+        "A3-6  a stock exists, and A4's domain is exactly who holds it",
+        med > A3_6_SURVIVAL,
+        f"median holder retains {med:.1%} of the transfer after "
+        f"{A3_6_HORIZON} rounds against {A3_6_SURVIVAL:.0%} required, and "
+        f"**{float(np.mean(np.asarray(every) > A3_6_SURVIVAL)):.0%} of "
+        f"{len(every)} holders clear the threshold**; a "
+        f"non-holder retains {non:.1%}, against 0.00% on the A2 carrier. "
+        f"**The holding population is {n:.1f} nodes of 200, of which "
+        f"{prod:.1f} are in the production layer.** So A4's domain is "
+        f"{n:.1f} nodes and they are upstairs, which is a constraint on A4 and "
+        f"not a licence: four competitors that act on wealth, measured where "
+        f"the wealth is, describe stratification *within* that set and not the "
+        f"economy's. Threshold carried over from the median-node version, "
+        f"disclosed in the docstring",
     )
 
 
