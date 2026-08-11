@@ -294,3 +294,100 @@ makes things worse; where that band starts is not yet located.
 non-zero point, so all that is established is `R*(I) ≤ 0.005`. That makes A6-4's
 ratio an **upper bound**, which is conservative in the direction unfavourable to
 the framework, so the criterion passes on a bound rather than on a value.
+
+### 9.2 First full execution: 3/5, and the two failures are worth more than the three passes
+
+`experiments/a6_siphon_cost.py`, five seeds, three hundred rounds, issuance off
+in every cell. The script did not exist when §9.1 was written; §9.1's numbers
+came from the library alone and only covered the two headline criteria.
+
+**R\* by cell**, grid scan, per seed:
+
+| cell | median | per seed |
+|---|---|---|
+| access / fair / transfer | **0.060** | `0.060` ×5 |
+| access / fair / infrastructure | **0.005** | `0.005` ×5, on the grid's first non-zero point |
+| access / stratified / transfer | 0.160 | `0.120, 0.160, 0.160, 0.120, 0.160` |
+| access / stratified / infrastructure | 0.005 | `0.005` ×5, grid floor |
+| all four flat cells | **0.000** | `0.000` ×5 |
+
+**A6-2, A6-3 and A6-4 pass**, and A6-3 reproduces §9.1 exactly: with retention
+already fair and no issuance anywhere, the stratified graph needs `6.0` tax
+points and the flat graph needs none. **That difference is the siphon.**
+
+#### A6-1 fails, and the reason is a contradiction inside this document
+
+At `R = 0` the support set contracts in **4 of 8 cells**: all four access cells,
+none of the four flat ones.
+
+A6-1 as written requires **every** cell to contract. A6-3 requires
+`R*(no access, fair) < 0.005`, which says the flat graph needs no redistribution
+— that is, **it does not contract**. The two criteria cannot both hold, and the
+contradiction is visible on paper without running anything.
+
+A6-1's purpose — "there is something to fix" — is satisfied, and satisfied in
+precisely the way A6-3 predicts. What is wrong is its scope: it should quantify
+over the access cells, and the flat cells not contracting is the zero
+calibration rather than a failure. **Not rewritten here**, because rewriting a
+criterion after seeing which way it went is the move this repository refuses,
+and the same refusal was applied to A3-6 an hour earlier. It is recorded as a
+documentation defect for the stage designer to rule on.
+
+#### A6-5 fails, and the failure is bimodal rather than a drift
+
+Two thousand rounds at `R* = 0.005` in the infrastructure arm. End over start,
+per seed: **`1.66×, 0.07×, 1.60×, 1.86×, 0.15×`**.
+
+**Three seeds end more open than they began; two collapse to a fifteenth.** The
+registered band is symmetric — "within `10%` of round five hundred" — so it
+scores "grew by two thirds" and "collapsed to a fifteenth" as the same failure.
+They are opposite outcomes and the script now prints the direction beside the
+verdict.
+
+#### And then the finding, which reverses A6-4 at the long horizon
+
+`R*` measured at **two thousand** rounds rather than three hundred:
+
+| arm | per seed | reading |
+|---|---|---|
+| transfer | `0.060` ×5 | holds every seed |
+| infrastructure | `0.005, none, 0.005, 0.005, none` | **two seeds have no solution at any rate on the grid, up to `0.95`** |
+
+Raising the levy does not help those two seeds. It makes them worse, and the
+mechanism is legible in three measurements.
+
+**The infrastructure channel has no steady state.** `invested` only ever
+increases, and `removed = min(1, ι · invested / opening claims)`. So the arm
+accumulates until it has removed **all** of the production layer's upward
+leakage, and `R` sets how fast that happens, not where it stops. Measured on
+seed 0: at three hundred rounds `R = 0.005` leaves `leak_factor = 0.134`, while
+`R = 0.06` saturates by round one hundred and `R = 0.32` by round fifty. At two
+thousand rounds every rate saturates.
+
+**At saturation the financial layer is starved to nothing.** With the upward
+edges gone it receives nothing and pays the levy every round: measured `L1
+share = 0.0000` in every long run, at every rate.
+
+**What happens next is decided by the production layer's own internal
+connectivity**, and in two of five draws that layer cannot sustain circulation
+by itself. Support falls from `27.7` to `2.0` and from `25.5` to `3.9`.
+
+**So: cutting the leak is not the same as making a layer reachable.** Volume I
+§8 defines the support set as reachability and warns against reading a flow
+total as a topology; this is that warning applied to the instrument rather than
+to the diagnosis. An intervention that removes every upward edge has sealed the
+thermocline and done nothing whatever about whether the layer below it is
+connected to itself.
+
+**A6-4's registered pass stands at three hundred rounds and is a
+short-horizon statement.** §7 already warned that the reduced form omits
+construction lag, depreciation and congestion, and that their absence makes
+A6-4 favourable to the framework's own thesis by construction. **That warning
+now has a number.** Depreciation in particular is what would give the arm a
+steady state: with it, cumulative investment would settle at a level set by `R`
+and `R*` would be a price rather than a speed. Adding it is a design change and
+is not made here.
+
+**`R*` is therefore not a meaningful price for arm I beyond the short horizon**,
+and the `R*(I)/R*(T)` ratio of `0.083` should be read as "the rate does not
+control this channel" rather than as "this channel is twelve times cheaper".

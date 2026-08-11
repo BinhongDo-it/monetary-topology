@@ -1,0 +1,54 @@
+{
+  "seed": 0,
+  "shapes": 24,
+  "theorem_4": {
+    "agree": 24,
+    "disagree": 0,
+    "coverage": {
+      "exists": 5,
+      "arbitrage": 19
+    },
+    "worst_breach": 0.0,
+    "failures": []
+  },
+  "theorem_5": {
+    "rays_tested": 31,
+    "ray_worst": 1.1786849274386668e-11,
+    "bounded_tested": 24,
+    "bounded_failures": [],
+    "interval_failures": [],
+    "widest_interval": 2.054673698436056
+  },
+  "theorem_6": {
+    "checked": 24,
+    "worst_bar": -0.00042839048396264845
+  },
+  "reduction": {
+    "tested": 12,
+    "mismatches": []
+  },
+  "squares": {
+    "cases": 226,
+    "worst_sum": 1.1102230246251565e-15,
+    "worst_diff": 8.881784197001252e-16,
+    "worst_invariance": 8.881784197001252e-16,
+    "worst_friction_move": 0.22229612155648804
+  },
+  "one_way": {
+    "edges": 12,
+    "two_way_pairs": 2,
+    "one_way_edges": 8,
+    "split_entries": 2,
+    "split_covers_only_two_way": true
+  },
+  "criteria": {
+    "B4-1": true,
+    "B4-2": true,
+    "B4-3": true,
+    "B4-4": true,
+    "B4-5": true,
+    "B4-6": true,
+    "B4-7": true,
+    "B4-8": true
+  }
+}

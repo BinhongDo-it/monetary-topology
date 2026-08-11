@@ -1,0 +1,257 @@
+{
+  "stage": "A6",
+  "seeds": 5,
+  "rounds": 300,
+  "long_rounds": 2000,
+  "thresholds": {
+    "A6-3 siphon floor": 0.02,
+    "A6-3 flat ceiling": 0.005,
+    "A6-4 ratio": 0.75,
+    "A6-5 drift": 0.1
+  },
+  "zero_levy": {
+    "access=True fair=True transfer": {
+      "contracted_in_all_seeds": true,
+      "seeds_contracting": 5
+    },
+    "access=True fair=True infrastructure": {
+      "contracted_in_all_seeds": true,
+      "seeds_contracting": 5
+    },
+    "access=True fair=False transfer": {
+      "contracted_in_all_seeds": true,
+      "seeds_contracting": 5
+    },
+    "access=True fair=False infrastructure": {
+      "contracted_in_all_seeds": true,
+      "seeds_contracting": 5
+    },
+    "access=False fair=True transfer": {
+      "contracted_in_all_seeds": false,
+      "seeds_contracting": 0
+    },
+    "access=False fair=True infrastructure": {
+      "contracted_in_all_seeds": false,
+      "seeds_contracting": 0
+    },
+    "access=False fair=False transfer": {
+      "contracted_in_all_seeds": false,
+      "seeds_contracting": 0
+    },
+    "access=False fair=False infrastructure": {
+      "contracted_in_all_seeds": false,
+      "seeds_contracting": 0
+    }
+  },
+  "cells": {
+    "access/fair/T": {
+      "access": true,
+      "fair": true,
+      "channel": "transfer",
+      "rates": [
+        0.06,
+        0.06,
+        0.06,
+        0.06,
+        0.06
+      ],
+      "median": 0.06,
+      "unsolved_seeds": 0,
+      "monotone_above": true,
+      "at_grid_floor": false
+    },
+    "access/fair/I": {
+      "access": true,
+      "fair": true,
+      "channel": "infrastructure",
+      "rates": [
+        0.005,
+        0.005,
+        0.005,
+        0.005,
+        0.005
+      ],
+      "median": 0.005,
+      "unsolved_seeds": 0,
+      "monotone_above": false,
+      "at_grid_floor": true
+    },
+    "access/stratified/T": {
+      "access": true,
+      "fair": false,
+      "channel": "transfer",
+      "rates": [
+        0.12,
+        0.16,
+        0.16,
+        0.12,
+        0.16
+      ],
+      "median": 0.16,
+      "unsolved_seeds": 0,
+      "monotone_above": true,
+      "at_grid_floor": false
+    },
+    "access/stratified/I": {
+      "access": true,
+      "fair": false,
+      "channel": "infrastructure",
+      "rates": [
+        0.005,
+        0.005,
+        0.005,
+        0.005,
+        0.005
+      ],
+      "median": 0.005,
+      "unsolved_seeds": 0,
+      "monotone_above": false,
+      "at_grid_floor": true
+    },
+    "flat/fair/T": {
+      "access": false,
+      "fair": true,
+      "channel": "transfer",
+      "rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "median": 0.0,
+      "unsolved_seeds": 0,
+      "monotone_above": true,
+      "at_grid_floor": true
+    },
+    "flat/fair/I": {
+      "access": false,
+      "fair": true,
+      "channel": "infrastructure",
+      "rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "median": 0.0,
+      "unsolved_seeds": 0,
+      "monotone_above": false,
+      "at_grid_floor": true
+    },
+    "flat/stratified/T": {
+      "access": false,
+      "fair": false,
+      "channel": "transfer",
+      "rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "median": 0.0,
+      "unsolved_seeds": 0,
+      "monotone_above": true,
+      "at_grid_floor": true
+    },
+    "flat/stratified/I": {
+      "access": false,
+      "fair": false,
+      "channel": "infrastructure",
+      "rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "median": 0.0,
+      "unsolved_seeds": 0,
+      "monotone_above": false,
+      "at_grid_floor": true
+    }
+  },
+  "ratios": {
+    "fair": {
+      "per_seed": [
+        0.08333333333333334,
+        0.08333333333333334,
+        0.08333333333333334,
+        0.08333333333333334,
+        0.08333333333333334
+      ],
+      "median": 0.08333333333333334,
+      "all_below_threshold": true,
+      "is_upper_bound": true
+    },
+    "stratified": {
+      "per_seed": [
+        0.04166666666666667,
+        0.03125,
+        0.03125,
+        0.04166666666666667,
+        0.03125
+      ],
+      "median": 0.03125,
+      "all_below_threshold": true,
+      "is_upper_bound": true
+    }
+  },
+  "long_run": {
+    "rate": 0.005,
+    "rounds": 2000,
+    "tail_trend": [
+      -4.363147169359055e-07,
+      -4.101855952436546e-07,
+      -1.0427021802499512e-05,
+      1.1724909990674643e-06,
+      -0.005650348246927515
+    ],
+    "drift_from_round_500": [
+      0.17640346357032774,
+      0.8903562329264629,
+      0.1894651064515457,
+      0.15055297843982876,
+      0.9295113597083257
+    ],
+    "stationary": false
+  },
+  "palma": {
+    "palma_start": 16.2719645918603,
+    "palma_end": 14.41349477530956,
+    "per_seed": [
+      [
+        15.813819441369551,
+        11.175124664951731
+      ],
+      [
+        16.57193243832709,
+        15.109625508616235
+      ],
+      [
+        15.131131833278932,
+        15.251753934078943
+      ],
+      [
+        17.526373849582864,
+        10.318389079658866
+      ],
+      [
+        16.2719645918603,
+        14.41349477530956
+      ]
+    ],
+    "rose_in_every_seed": false,
+    "fell_in_every_seed": false
+  },
+  "verdicts": {
+    "A6-1": false,
+    "A6-2": true,
+    "A6-3": true,
+    "A6-4": true,
+    "A6-5": false
+  },
+  "ratio_is_upper_bound": true
+}

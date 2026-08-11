@@ -460,3 +460,67 @@ executable, in `experiments/b1_theorem.py` and the tests beside it.
 The last row is the same discipline applied throughout the repository: a
 generalisation that does not reproduce the special case bitwise is not a
 generalisation.
+
+---
+
+## 12. Correction to §10: the square complex would not unlock anything
+
+**Added 2026-08-10, third hand-off session, after a review that was about to
+build it.**
+
+§10 records that `topology.py` builds 2-cells from triangles, that the natural
+2-cells of a Cartesian product are squares, and that "a curl-versus-harmonic
+split on `Γ` therefore needs a square complex, which is not built". True, and it
+reads as though building one would deliver the finer split. **It would not.**
+The answer is fixed before the code runs, for two independent reasons that are
+already in this document.
+
+Filling the squares leaves `H¹(Γ) ≅ H¹(G) ⊕ H¹(H)`, so the harmonic component is
+the cochain's projection onto the slice and agent cycles of §5. Both vanish:
+
+- **Agent cycles: identically zero.** Theorem 2 states it — `ω` vanishes on
+  every agent edge, so agent cycles contribute nothing *regardless of the
+  field*. `cochain_from_field` writes the zeros.
+- **Slice cycles: zero in every field this project runs.** `exact_field` and
+  `per_agent_exact_field` both make each `w_a` exact on `G` by construction, so
+  every slice cycle sums to zero. And on stage A3's carrier the question does not
+  arise at all: `tier_positions` is a **star**, a tree, `b₁(G) = 0`, so there are
+  no slice cycles to sum over.
+
+Measured, rather than argued: on the A3 star with four agent classes, squares
+reach `2.668` while slice sums do not exist and agent sums are exactly `0`. On a
+four-node `G` with `b₁(G) = 2` and three agent classes, squares reach `2.760`,
+slice sums are `2.22e-16` and agent sums are exactly `0`.
+
+**So a curl-versus-harmonic decomposition on `Γ` would report curl `100%`,
+harmonic `0%`, always.** It is an identity dressed as a measurement — the same
+error this project caught in stage A3's criterion A3-3 — and it is not worth
+building. `PROJECT_PLAN.md` §13.2's entry, "Γ 上的方块复形 … 解锁 curl 与
+harmonic 的细分", is withdrawn on those grounds.
+
+**The substantive decomposition is not curl against harmonic. It is §5's slice
+against square**, and that split is not a refinement waiting on a complex: it is
+already stated, already proved, and already tells you which carrier reaches
+which half. Corollary 2 is the operative statement, and it says the mortgage data
+reaches squares and nothing else, no matter how large the sample.
+
+### 12.1 And a wrong turn worth recording
+
+The same review proposed, before doing this check, that the holes of Volume II §2
+"live in the agent edges", and that the directed-agent-edge theorem should
+therefore be promoted ahead of everything else. **That is wrong and the error is
+worth naming**, because it is the one `b2_loop_b.md` §10 warns about in its last
+line.
+
+Where the agent edge fails — the non-assumable mortgage — the edge **does not
+exist**. `Γ` disconnects in the agent direction, the square is not a cycle, and
+Theorem 1 does not apply. That is `H⁰`, and loop B is the argument for it. It is
+not a harmonic `H¹` class and calling it one would be handing a reader a number
+about `H⁰` while telling a story about `H¹`.
+
+**The genuinely untouched summand is the slice part**, and by Corollary 2 no
+volume of mortgage data can reach it. §9's ordering already says what comes next
+and why, and it is better than the reordering this review proposed: loop B first
+because it completes the disconnection side, then covered-parity deviations
+because they are the one available carrier whose loop is traversed by a single
+agent through several positions.

@@ -151,3 +151,46 @@ identifier, and definitional basis. Figures from different definitional bases ar
 never placed in the same column. Delinquency data in particular mixes "unpaid" and
 "paid late but eventually paid" across providers, and conflating them would
 overstate a level.
+
+---
+
+## Stage B3: covered interest parity deviations between government bonds
+
+**This one is different from every other source here and the difference is the
+first thing to say: it is a derived series and we did not build it.** Every other
+row in this file is a government release we retrieved and filtered ourselves.
+This is a research dataset constructed from Bloomberg and Datastream by its
+authors, who state that licensing forbids republishing the raw inputs. What is
+published is the output plus the ticker list needed to audit it.
+
+| | |
+|---|---|
+| page | `https://sites.google.com/view/jschreger/CIP` |
+| file | `cip_dataset_v4.csv` |
+| version | V4, October 2025; V1–V3 archived by the publisher |
+| retrieved by | `data/fetch_cip.py`, manifest at `data/raw/cip_manifest.json` |
+| coverage | 2000–2025, 10 developed and 18 emerging markets |
+| maturities | 3M, 1Y, 2Y, 3Y, 5Y, 10Y, 20Y, 30Y |
+| companions retrieved | ticker spreadsheet and data appendix, alongside the data |
+
+**Definitional basis.** `cip_govt` is `y_govt(i,n,t) − ρ(i,n,t) − y_govt(USD,n,t)`
+in basis points: the local-currency government bond yield, less the market-implied
+forward premium for hedging that currency against the dollar, less the US Treasury
+yield at the same maturity. `rho` is that forward premium in percentage points and
+`diff_y` the raw yield differential.
+
+**Two definitional bases are published and must never be mixed in one column.**
+`cip_govt_ibor` and `cip_govt_sofr` are the same object computed under the IBOR
+and the post-reform benchmarks; the publisher fixes a break date per
+tenor-currency pair, published in `cip_govt_break_date`. Stage B3 uses `cip_govt`
+as the series and the ibor/sofr pair **only** as a noise floor, which is
+`b3_cip_slice.md` §4.
+
+**Why a content hash is recorded here and nowhere else in this file.** The other
+sources are versioned government endpoints. This one is hosted by a researcher
+and V4 replaced V3; a silent republication under an unchanged filename would
+parse, carry the completion marker, and be different data. The manifest records
+the SHA-256 so that case is visible instead of invisible.
+
+**Citation is required by the publisher**: Du, Keerati and Schreger (2025); Du,
+Im and Schreger (2018); Du and Schreger (2016).

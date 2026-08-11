@@ -1,0 +1,39 @@
+{
+  "generated_utc": "2026-08-11T08:36:55+00:00",
+  "stage": "B3",
+  "version": "v4",
+  "source_page": "https://sites.google.com/view/jschreger/CIP",
+  "citation": "Du, Wenxin, Ritt Keerati, and Jesse Schreger (2025). 'Decoupling Dollar and Treasury Privilege.' Du, Wenxin, Joanne Im, and Jesse Schreger (2018). 'The U.S. Treasury Premium,' Journal of International Economics, 112, 167-181. Du, Wenxin and Jesse Schreger (2016). 'Local Currency Sovereign Risk,' Journal of Finance, 71, 1027-1070.",
+  "note": "Derived series. The publisher constructs it from Bloomberg and Datastream and states that licensing forbids republishing the raw inputs. The ticker spreadsheet retrieved alongside makes the construction auditable but not re-runnable without a terminal.",
+  "dataset": {
+    "name": "cip_dataset_v4.csv",
+    "url": "https://jschreger.s3.us-east-2.amazonaws.com/cip_dataset_v4.csv",
+    "version": "v4",
+    "status": "downloaded",
+    "seconds": 4.4,
+    "bytes": 118471039,
+    "data_rows": 1513471,
+    "header": "group,currency,tenor,date,diff_y,rho,cip_govt,cip_govt_break_date,rho_ibor,rho_sofr,cip_govt_ibor,cip_govt_sofr",
+    "sha256_source": "a6938267a7fecd148625295457d5ab6096b548bcc1b38f8e21e304b08bf3a22c",
+    "sha256_stored": "702ccac93c86eba9cf5749cebed91573b287ad7741e6264aa2e4df667e1f8411",
+    "retrieved_utc": "2026-08-11T08:36:54+00:00"
+  },
+  "companions": [
+    {
+      "name": "cip_tickers_v4.xlsx",
+      "url": "https://jschreger.s3.us-east-2.amazonaws.com/CIP_Data_Tickers_v4.xlsx",
+      "status": "downloaded",
+      "bytes": 89038,
+      "sha256": "0908edd8baf67520e504d34fe7ad76f2d604087350169c2b4588118ba8e06224",
+      "retrieved_utc": "2026-08-11T08:36:55+00:00"
+    },
+    {
+      "name": "cip_data_appendix_v4.pdf",
+      "url": "https://jschreger.s3.us-east-2.amazonaws.com/Data_Appendix_V4.pdf",
+      "status": "downloaded",
+      "bytes": 262527,
+      "sha256": "ff4fb4ed3b0797af73790d5959ea654a88fd72ac2a63acd4c419bd911cfc0534",
+      "retrieved_utc": "2026-08-11T08:36:55+00:00"
+    }
+  ]
+}
