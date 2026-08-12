@@ -452,7 +452,9 @@ def main() -> int:
             },
             indent=2,
         )
-        + "\n"
+        + "\n",
+        encoding="utf-8",
+        newline="\n",
     )
     print(f"  wrote {path.relative_to(ROOT)}")
     return 0 if n_pass == len(criteria) else 1

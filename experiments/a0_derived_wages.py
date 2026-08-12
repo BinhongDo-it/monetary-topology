@@ -331,7 +331,10 @@ def main() -> int:
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     path = RESULTS / "a0_derived_wages.json"
-    path.write_text(json.dumps(record, indent=2) + "\n")
+    path.write_text(
+        json.dumps(record, indent=2) + "\n",
+        encoding="utf-8", newline="\n",
+    )
     print(f"wrote {path.relative_to(ROOT)}")
     return 0 if all_pass else 1
 

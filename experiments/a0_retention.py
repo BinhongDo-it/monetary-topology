@@ -499,7 +499,10 @@ def main() -> int:
         ],
     }
     out_path = RESULTS / "a0_retention.json"
-    out_path.write_text(json.dumps(record, indent=2) + "\n")
+    out_path.write_text(
+        json.dumps(record, indent=2) + "\n",
+        encoding="utf-8", newline="\n",
+    )
     print(f"  wrote {out_path.relative_to(ROOT)}")
 
     return 0 if n_pass == len(criteria) else 1

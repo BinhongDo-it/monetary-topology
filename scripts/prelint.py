@@ -123,11 +123,17 @@ def check(path: Path) -> list[Finding]:
 
 
 def _calls(tree: ast.Module, report) -> None:
-    """B905 and UP006, from the tree rather than from the text.
+    """B905, UP006 and UP031, from the tree rather than from the text.
 
-    Both were regexes over source lines in the first version, and both fired on
-    this file's own constants. A checker that cannot pass itself is not evidence
-    about anything else.
+    The first two were regexes over source lines in the first version, and both
+    fired on this file's own constants. A checker that cannot pass itself is not
+    evidence about anything else.
+
+    **UP031 was added 2026-08-11, after it got through.** The B5 retriever's
+    tests handed over green on this checker and red on ruff, for a printf-style
+    format string in a test helper. That is the third instance of the pattern
+    this file's docstring describes, and the response is the same one: move the
+    rule out of memory and into the checker.
     """
     for node in ast.walk(tree):
         if isinstance(node, ast.Call):
@@ -144,6 +150,20 @@ def _calls(tree: ast.Module, report) -> None:
                 report(
                     node.lineno, "UP006", f"{label} is superseded by a builtin"
                 )
+        # UP031. The `%` operator with a string literal on the left is
+        # printf-style formatting whatever the right-hand side turns out to be.
+        # Matched on the literal rather than on the operator, because `%` on two
+        # numbers is arithmetic and appears throughout this repository.
+        if (
+            isinstance(node, ast.BinOp)
+            and isinstance(node.op, ast.Mod)
+            and isinstance(node.left, ast.Constant)
+            and isinstance(node.left.value, str)
+        ):
+            report(
+                node.lineno, "UP031",
+                "printf-style format; use an f-string or .format()",
+            )
 
 
 def _module_of(node: ast.stmt) -> str:
@@ -213,8 +233,34 @@ def _imports(tree: ast.Module, text: str, report) -> None:
         for n in ast.walk(tree)
         if isinstance(n, ast.Attribute)
     }
+    # **The escape hatch used to be "the name appears anywhere as a quoted
+    # string", and it was far too wide.** A dict key spelt like an import is not
+    # a use of that import: ``from datetime import date`` went unreported in
+    # ``data/fetch_argentinadatos.py`` because the file contains ``r["date"]``,
+    # and ruff caught it after prelint said clean. That is the third time this
+    # file has been the thing that let something through, which is the failure
+    # its own docstring is about.
+    #
+    # Narrowed to the two places a string really can stand for a binding:
+    # ``__all__`` and an explicit ``getattr``/``globals()`` lookup.
+    exported: set[str] = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Assign) and any(
+            getattr(t, "id", None) == "__all__" for t in node.targets
+        ):
+            exported |= {
+                e.value for e in ast.walk(node)
+                if isinstance(e, ast.Constant) and isinstance(e.value, str)
+            }
+        if isinstance(node, ast.Call) and getattr(node.func, "id", None) in (
+            "getattr", "hasattr", "setattr"
+        ):
+            exported |= {
+                a.value for a in node.args
+                if isinstance(a, ast.Constant) and isinstance(a.value, str)
+            }
     for name, line in bound.items():
-        if name in used or f'"{name}"' in text or f"'{name}'" in text:
+        if name in used or name in exported:
             continue
         report(line, "F401", f"{name!r} imported but unused")
 

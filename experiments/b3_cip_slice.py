@@ -527,7 +527,9 @@ def main() -> int:
             },
             indent=2,
         )
-        + "\n"
+        + "\n",
+        encoding="utf-8",
+        newline="\n",
     )
     print(f"\n  wrote {out.relative_to(ROOT)}")
     return 0

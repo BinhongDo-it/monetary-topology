@@ -567,7 +567,9 @@ def main() -> int:
             },
             indent=2,
         )
-        + "\n"
+        + "\n",
+        encoding="utf-8",
+        newline="\n",
     )
 
     ok = sum(r["status"].startswith(("downloaded", "cached")) for r in records)

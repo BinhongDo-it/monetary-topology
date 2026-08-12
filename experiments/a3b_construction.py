@@ -13,8 +13,8 @@ Writes ``results/a3b_construction.json``.
 The question is not which construction is right. It is **which results survive a
 change of construction**: those are properties of the flow topology, the rest
 were properties of the opening. That is the source manuscript's second
-correspondence standard, 拓展性, and this file is the first place in the
-repository where it is executed rather than asserted.
+correspondence standard, 拓展性 (extensibility), and this file is the first place
+in the repository where it is executed rather than asserted.
 
 Three things this file is built to make visible rather than to hide.
 
@@ -328,7 +328,9 @@ def main() -> int:
             },
             indent=2,
         )
-        + "\n"
+        + "\n",
+        encoding="utf-8",
+        newline="\n",
     )
     print(f"\n  wrote {out.relative_to(ROOT)}")
     return 0

@@ -18,8 +18,8 @@ qualification, which `b3_slice_availability.md` §4 states and
 Three things this script does that a plain download would not.
 
 **It never deletes.** A file that fails classification is renamed with an
-`.expired.<timestamp>` suffix and left in place. `CLAUDE.md` fixes this after a
-recursive delete cost hours of retrieval.
+`.expired.<timestamp>` suffix and left in place. **This repository does not
+delete**, a rule adopted after a recursive delete cost hours of retrieval.
 
 **It writes the completion marker it checks for.** The HMDA script defined a
 sentinel, checked for it, and never wrote it, so every finished file would have
@@ -321,6 +321,7 @@ def main() -> int:
         )
         + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     print(f"\n  wrote {MANIFEST.relative_to(ROOT)}")
 

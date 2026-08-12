@@ -503,7 +503,9 @@ def main() -> int:
     print("  pure theory; no data is read and no parameter is calibrated\n")
 
     crits: list[Criterion] = []
-    record: dict = {"seed": args.seed, "shapes": args.shapes}
+    # ``shapes_drawn`` rather than ``shapes``: render_results.subtitle() reads a
+    # key named ``shapes`` as B1's list of graph shapes and calls len() on it.
+    record: dict = {"stage": "B4", "seed": args.seed, "shapes_drawn": args.shapes}
 
     for name, fn in (
         ("theorem_4", lambda: theorem_4(rng, args.shapes)),
@@ -522,15 +524,23 @@ def main() -> int:
         print(c.line())
     print()
 
-    verdict = {c.name.split()[0]: bool(c.passed) for c in crits}
-    record["criteria"] = verdict
-    print(" ", verdict)
+    # The list-of-records shape is what scripts/render_results.py consumes. A
+    # name->bool mapping loses the detail string, which is the part that says
+    # what the criterion actually measured.
+    record["criteria"] = [
+        {"name": c.name, "passed": bool(c.passed), "detail": c.detail} for c in crits
+    ]
+    n_pass = sum(c.passed for c in crits)
+    print(f"  {n_pass}/{len(crits)} criteria passed")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = RESULTS / "b4_directed_edges.json"
-    out.write_text(json.dumps(record, indent=2, default=str) + "\n", encoding="utf-8")
+    out.write_text(
+        json.dumps(record, indent=2, default=str) + "\n",
+        encoding="utf-8", newline="\n",
+    )
     print(f"  wrote {out.relative_to(ROOT)}")
-    return 0 if all(verdict.values()) else 1
+    return 0 if n_pass == len(crits) else 1
 
 
 if __name__ == "__main__":
