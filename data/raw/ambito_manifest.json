@@ -1,0 +1,3723 @@
+{
+  "generated_utc": "2026-08-11T22:41:48+00:00",
+  "stage": "B5",
+  "endpoint": "https://mercados.ambito.com/{path}/historico-general/{start}/{end}",
+  "endpoint_verified": "2026-08-11",
+  "window": [
+    "2019-09-01",
+    "2026-06-30"
+  ],
+  "jump_threshold": 0.1,
+  "collapse_rule": "The endpoint returns intraday snapshots, not a daily series. Each date is collapsed to the single row whose mid is that date's median mid, lower median on ties. A whole row is selected rather than a per-field statistic, so bid and ask stay paired from one published quote. Registered in b5_orphan_prereg.md 3.5. The raw files keep every snapshot; nothing is dropped on disk.",
+  "provenance": "Ambito Financiero is a newspaper. These four series are a newspaper's quotes, a step down from every other source in this project, and b5_orphan_prereg.md 9.4 states it in the write-up rather than in a footnote. The oficial leg's headline mid (BCRA Com. A 3500), the friction leg (Banco de la Nacion counter rates) and the P2P leg are not retrieved here: their endpoints were not verified by the availability check.",
+  "anomaly_policy": "Flagged dates are recorded and left unchanged. No value is substituted and no row is dropped. Criterion B5-10 computes the headline with and without them and reports both.",
+  "anomalies": [
+    {
+      "series": "oficial",
+      "date": "2023-08-14",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-08-11",
+      "previous_mid": 294.9676,
+      "mid": 361.1454,
+      "gap_days": 3,
+      "log_change": 0.2024
+    },
+    {
+      "series": "oficial",
+      "date": "2023-12-12",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-12-11",
+      "previous_mid": 420.5018,
+      "mid": 515.8817,
+      "gap_days": 1,
+      "log_change": 0.2044
+    },
+    {
+      "series": "oficial",
+      "date": "2023-12-13",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-12-12",
+      "previous_mid": 515.8817,
+      "mid": 802.7692,
+      "gap_days": 1,
+      "log_change": 0.4422
+    },
+    {
+      "series": "oficial",
+      "date": "2025-04-14",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2025-04-11",
+      "previous_mid": 1074.5977,
+      "mid": 1205.8021,
+      "gap_days": 3,
+      "log_change": 0.1152
+    },
+    {
+      "series": "oficial",
+      "date": "2025-04-23",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2025-04-22",
+      "previous_mid": 1098.1159,
+      "mid": 1291.6926,
+      "gap_days": 1,
+      "log_change": 0.1624
+    },
+    {
+      "series": "informal",
+      "date": "2019-10-29",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2019-10-28",
+      "previous_mid": 72.4845,
+      "mid": 65.4828,
+      "gap_days": 1,
+      "log_change": -0.1016
+    },
+    {
+      "series": "informal",
+      "date": "2023-08-14",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-08-11",
+      "previous_mid": 599.9792,
+      "mid": 674.9259,
+      "gap_days": 3,
+      "log_change": 0.1177
+    },
+    {
+      "series": "informal",
+      "date": "2023-10-23",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-10-20",
+      "previous_mid": 889.9438,
+      "mid": 1074.7093,
+      "gap_days": 3,
+      "log_change": 0.1886
+    },
+    {
+      "series": "informal",
+      "date": "2023-11-21",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-11-17",
+      "previous_mid": 924.6621,
+      "mid": 1049.7023,
+      "gap_days": 4,
+      "log_change": 0.1268
+    },
+    {
+      "series": "mep",
+      "date": "2023-08-14",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-08-11",
+      "previous_mid": 539.89,
+      "mid": 621.14,
+      "gap_days": 3,
+      "log_change": 0.1402
+    },
+    {
+      "series": "ccl",
+      "date": "2022-07-04",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2022-07-01",
+      "previous_mid": 252.22,
+      "mid": 281.18,
+      "gap_days": 3,
+      "log_change": 0.1087
+    },
+    {
+      "series": "ccl",
+      "date": "2022-07-29",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2022-07-28",
+      "previous_mid": 321.9,
+      "mid": 288.28,
+      "gap_days": 1,
+      "log_change": -0.1103
+    },
+    {
+      "series": "ccl",
+      "date": "2023-10-20",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-10-19",
+      "previous_mid": 957.07,
+      "mid": 1110.59,
+      "gap_days": 1,
+      "log_change": 0.1488
+    },
+    {
+      "series": "ccl",
+      "date": "2023-10-23",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-10-20",
+      "previous_mid": 1110.59,
+      "mid": 935.45,
+      "gap_days": 3,
+      "log_change": -0.1716
+    },
+    {
+      "series": "mayorista",
+      "date": "2023-08-14",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-08-11",
+      "previous_mid": 287.1499,
+      "mid": 349.4496,
+      "gap_days": 3,
+      "log_change": 0.1964
+    },
+    {
+      "series": "mayorista",
+      "date": "2023-12-13",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2023-12-12",
+      "previous_mid": 365.9497,
+      "mid": 798.4486,
+      "gap_days": 1,
+      "log_change": 0.7802
+    },
+    {
+      "series": "mayorista",
+      "date": "2025-04-14",
+      "reason": "one-day log-mid change exceeds threshold",
+      "previous_date": "2025-04-11",
+      "previous_mid": 1076.499,
+      "mid": 1192.9895,
+      "gap_days": 3,
+      "log_change": 0.1027
+    }
+  ],
+  "chunks": [
+    {
+      "name": "ambito_oficial_2019H2.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2019-09-01/2019-12-31",
+      "range": [
+        "2019-09-01",
+        "2019-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "89cce927bc497cff10418d8a852c2c4bfcca0dc1098021aacd99f32cc4c1b7e8",
+      "rows": 81,
+      "dates": 81,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2019-09-02",
+      "last_date": "2019-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2020H1.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2020-01-01/2020-06-30",
+      "range": [
+        "2020-01-01",
+        "2020-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "f0681ad54333304dc7cef848cf41ef36b38408cb3a22f4f6daf4e6a7a360cd9b",
+      "rows": 118,
+      "dates": 118,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2020-01-02",
+      "last_date": "2020-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2020H2.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2020-07-01/2020-12-31",
+      "range": [
+        "2020-07-01",
+        "2020-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "09988ac844d45cf005cf0d6c8e1e3434fc13b5ab5ed04d6e75cbbba4ef9226f1",
+      "rows": 124,
+      "dates": 121,
+      "collapsed_rows": 3,
+      "dates_with_multiple_rows": 2,
+      "within_day_log_range_max": 0.000879,
+      "first_date": "2020-07-01",
+      "last_date": "2020-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2020-07-24",
+          "rows": 2,
+          "log_range": 0.000818
+        },
+        {
+          "date": "2020-10-08",
+          "rows": 3,
+          "log_range": 0.000879
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2021H1.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2021-01-01/2021-06-30",
+      "range": [
+        "2021-01-01",
+        "2021-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "abf4dc2dbf89597a087c6da8582b30b67556619bea7b4bb7c89fcf8dd71619f2",
+      "rows": 126,
+      "dates": 119,
+      "collapsed_rows": 7,
+      "dates_with_multiple_rows": 2,
+      "within_day_log_range_max": 0.001281,
+      "first_date": "2021-01-04",
+      "last_date": "2021-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2021-03-16",
+          "rows": 7,
+          "log_range": 0.001281
+        },
+        {
+          "date": "2021-06-09",
+          "rows": 2,
+          "log_range": 0.000103
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2021H2.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2021-07-01/2021-12-31",
+      "range": [
+        "2021-07-01",
+        "2021-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "81856b587ded002a0918719c8221eea3103c3799ac9dfb120a5eac6b9c744f61",
+      "rows": 132,
+      "dates": 124,
+      "collapsed_rows": 8,
+      "dates_with_multiple_rows": 4,
+      "within_day_log_range_max": 0.001316,
+      "first_date": "2021-07-01",
+      "last_date": "2021-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2021-07-08",
+          "rows": 4,
+          "log_range": 0.000102
+        },
+        {
+          "date": "2021-07-27",
+          "rows": 2,
+          "log_range": 0.001316
+        },
+        {
+          "date": "2021-09-14",
+          "rows": 3,
+          "log_range": 0.0
+        },
+        {
+          "date": "2021-09-16",
+          "rows": 3,
+          "log_range": 0.000696
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2022H1.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2022-01-01/2022-06-30",
+      "range": [
+        "2022-01-01",
+        "2022-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "d9e1c6809e0cfbb02d77af0ef8986fe6840d2e3625404c365cb10eda1454dd08",
+      "rows": 128,
+      "dates": 119,
+      "collapsed_rows": 9,
+      "dates_with_multiple_rows": 5,
+      "within_day_log_range_max": 0.002118,
+      "first_date": "2022-01-03",
+      "last_date": "2022-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2022-01-19",
+          "rows": 3,
+          "log_range": 0.002118
+        },
+        {
+          "date": "2022-01-25",
+          "rows": 3,
+          "log_range": 0.00028
+        },
+        {
+          "date": "2022-01-26",
+          "rows": 4,
+          "log_range": 0.0
+        },
+        {
+          "date": "2022-02-02",
+          "rows": 2,
+          "log_range": 0.001578
+        },
+        {
+          "date": "2022-06-10",
+          "rows": 2,
+          "log_range": 0.000807
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2022H2.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2022-07-01/2022-12-31",
+      "range": [
+        "2022-07-01",
+        "2022-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "14d53368c8ce97115392e4d61af98c4019f0a35f314b7287df554895ca95b4b4",
+      "rows": 133,
+      "dates": 124,
+      "collapsed_rows": 9,
+      "dates_with_multiple_rows": 4,
+      "within_day_log_range_max": 0.001594,
+      "first_date": "2022-07-01",
+      "last_date": "2022-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2022-07-12",
+          "rows": 6,
+          "log_range": 0.001594
+        },
+        {
+          "date": "2022-07-14",
+          "rows": 2,
+          "log_range": 0.000454
+        },
+        {
+          "date": "2022-10-12",
+          "rows": 3,
+          "log_range": 0.00052
+        },
+        {
+          "date": "2022-12-26",
+          "rows": 2,
+          "log_range": 0.000508
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2023H1.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2023-01-01/2023-06-30",
+      "range": [
+        "2023-01-01",
+        "2023-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "096fa430f86c3115618d0522cdd6ce788be143c4eaf324d12576c5a5741000bd",
+      "rows": 125,
+      "dates": 119,
+      "collapsed_rows": 6,
+      "dates_with_multiple_rows": 5,
+      "within_day_log_range_max": 0.004707,
+      "first_date": "2023-01-02",
+      "last_date": "2023-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2023-01-27",
+          "rows": 2,
+          "log_range": 0.001699
+        },
+        {
+          "date": "2023-03-17",
+          "rows": 2,
+          "log_range": 0.001604
+        },
+        {
+          "date": "2023-06-08",
+          "rows": 3,
+          "log_range": 0.003262
+        },
+        {
+          "date": "2023-06-12",
+          "rows": 2,
+          "log_range": 0.004707
+        },
+        {
+          "date": "2023-06-23",
+          "rows": 2,
+          "log_range": 0.001036
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2023H2.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2023-07-01/2023-12-31",
+      "range": [
+        "2023-07-01",
+        "2023-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "444e0572cff6351e743396064e10b8be3e94f42819ff62c7b4d9ebed12fb5427",
+      "rows": 137,
+      "dates": 123,
+      "collapsed_rows": 14,
+      "dates_with_multiple_rows": 6,
+      "within_day_log_range_max": 0.001341,
+      "first_date": "2023-07-03",
+      "last_date": "2023-12-29",
+      "within_day_dispersion": [
+        {
+          "date": "2023-09-07",
+          "rows": 2,
+          "log_range": 2.8e-05
+        },
+        {
+          "date": "2023-10-02",
+          "rows": 3,
+          "log_range": 0.000136
+        },
+        {
+          "date": "2023-11-01",
+          "rows": 4,
+          "log_range": 2.8e-05
+        },
+        {
+          "date": "2023-11-02",
+          "rows": 4,
+          "log_range": 0.000335
+        },
+        {
+          "date": "2023-11-03",
+          "rows": 5,
+          "log_range": 0.000972
+        },
+        {
+          "date": "2023-12-28",
+          "rows": 2,
+          "log_range": 0.001341
+        }
+      ],
+      "anomalies": [
+        {
+          "date": "2023-08-14",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-08-11",
+          "previous_mid": 294.9676,
+          "mid": 361.1454,
+          "gap_days": 3,
+          "log_change": 0.2024
+        },
+        {
+          "date": "2023-12-12",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-12-11",
+          "previous_mid": 420.5018,
+          "mid": 515.8817,
+          "gap_days": 1,
+          "log_change": 0.2044
+        },
+        {
+          "date": "2023-12-13",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-12-12",
+          "previous_mid": 515.8817,
+          "mid": 802.7692,
+          "gap_days": 1,
+          "log_change": 0.4422
+        }
+      ]
+    },
+    {
+      "name": "ambito_oficial_2024H1.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2024-01-01/2024-06-30",
+      "range": [
+        "2024-01-01",
+        "2024-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "dc114147bedebf46f046f3f22032b1a75e83bf1c860ebd7ad0d5988830155d84",
+      "rows": 145,
+      "dates": 119,
+      "collapsed_rows": 26,
+      "dates_with_multiple_rows": 19,
+      "within_day_log_range_max": 0.004306,
+      "first_date": "2024-01-02",
+      "last_date": "2024-06-28",
+      "within_day_dispersion": [
+        {
+          "date": "2024-01-03",
+          "rows": 3,
+          "log_range": 0.000122
+        },
+        {
+          "date": "2024-01-04",
+          "rows": 2,
+          "log_range": 0.000622
+        },
+        {
+          "date": "2024-01-25",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-01-30",
+          "rows": 3,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-02-01",
+          "rows": 4,
+          "log_range": 0.001389
+        },
+        {
+          "date": "2024-02-06",
+          "rows": 2,
+          "log_range": 0.000159
+        },
+        {
+          "date": "2024-02-07",
+          "rows": 2,
+          "log_range": 0.000266
+        },
+        {
+          "date": "2024-02-08",
+          "rows": 2,
+          "log_range": 0.000143
+        },
+        {
+          "date": "2024-02-15",
+          "rows": 2,
+          "log_range": 0.000103
+        },
+        {
+          "date": "2024-02-16",
+          "rows": 2,
+          "log_range": 1.4e-05
+        },
+        {
+          "date": "2024-02-28",
+          "rows": 3,
+          "log_range": 0.002143
+        },
+        {
+          "date": "2024-03-15",
+          "rows": 2,
+          "log_range": 3.1e-05
+        },
+        {
+          "date": "2024-04-03",
+          "rows": 2,
+          "log_range": 0.004306
+        },
+        {
+          "date": "2024-04-17",
+          "rows": 2,
+          "log_range": 3.8e-05
+        },
+        {
+          "date": "2024-04-30",
+          "rows": 2,
+          "log_range": 0.000638
+        },
+        {
+          "date": "2024-05-03",
+          "rows": 2,
+          "log_range": 0.001464
+        },
+        {
+          "date": "2024-06-04",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-06-05",
+          "rows": 2,
+          "log_range": 2.2e-05
+        },
+        {
+          "date": "2024-06-11",
+          "rows": 4,
+          "log_range": 0.001919
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2024H2.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2024-07-01/2024-12-31",
+      "range": [
+        "2024-07-01",
+        "2024-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "84ecbe1de39cb9f7cd478ac36d7731b074fe9ad0b2f205e277f83f25ab808735",
+      "rows": 135,
+      "dates": 123,
+      "collapsed_rows": 12,
+      "dates_with_multiple_rows": 10,
+      "within_day_log_range_max": 1.154469,
+      "first_date": "2024-07-01",
+      "last_date": "2024-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2024-07-10",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-08-07",
+          "rows": 2,
+          "log_range": 0.00053
+        },
+        {
+          "date": "2024-08-21",
+          "rows": 3,
+          "log_range": 1.154469
+        },
+        {
+          "date": "2024-08-27",
+          "rows": 2,
+          "log_range": 0.001154
+        },
+        {
+          "date": "2024-09-03",
+          "rows": 2,
+          "log_range": 0.00172
+        },
+        {
+          "date": "2024-09-20",
+          "rows": 3,
+          "log_range": 0.001683
+        },
+        {
+          "date": "2024-10-01",
+          "rows": 2,
+          "log_range": 0.000895
+        },
+        {
+          "date": "2024-10-16",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-11-29",
+          "rows": 2,
+          "log_range": 0.002984
+        },
+        {
+          "date": "2024-12-03",
+          "rows": 2,
+          "log_range": 8.6e-05
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2025H1.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2025-01-01/2025-06-30",
+      "range": [
+        "2025-01-01",
+        "2025-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "b3fe39b80176f22ccacb6021d5061a315ebbce3ad8a0ee10bc6d73317edd5a53",
+      "rows": 130,
+      "dates": 117,
+      "collapsed_rows": 13,
+      "dates_with_multiple_rows": 11,
+      "within_day_log_range_max": 0.024784,
+      "first_date": "2025-01-02",
+      "last_date": "2025-06-27",
+      "within_day_dispersion": [
+        {
+          "date": "2025-01-10",
+          "rows": 3,
+          "log_range": 0.000406
+        },
+        {
+          "date": "2025-01-15",
+          "rows": 2,
+          "log_range": 0.001542
+        },
+        {
+          "date": "2025-01-20",
+          "rows": 2,
+          "log_range": 0.00101
+        },
+        {
+          "date": "2025-01-23",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-02-11",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-03-07",
+          "rows": 2,
+          "log_range": 0.000117
+        },
+        {
+          "date": "2025-03-10",
+          "rows": 2,
+          "log_range": 6.6e-05
+        },
+        {
+          "date": "2025-05-12",
+          "rows": 2,
+          "log_range": 0.004868
+        },
+        {
+          "date": "2025-06-11",
+          "rows": 2,
+          "log_range": 0.001283
+        },
+        {
+          "date": "2025-06-18",
+          "rows": 3,
+          "log_range": 0.024784
+        },
+        {
+          "date": "2025-06-24",
+          "rows": 2,
+          "log_range": 0.001714
+        }
+      ],
+      "anomalies": [
+        {
+          "date": "2025-04-14",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2025-04-11",
+          "previous_mid": 1074.5977,
+          "mid": 1205.8021,
+          "gap_days": 3,
+          "log_change": 0.1152
+        },
+        {
+          "date": "2025-04-23",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2025-04-22",
+          "previous_mid": 1098.1159,
+          "mid": 1291.6926,
+          "gap_days": 1,
+          "log_change": 0.1624
+        }
+      ]
+    },
+    {
+      "name": "ambito_oficial_2025H2.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2025-07-01/2025-12-31",
+      "range": [
+        "2025-07-01",
+        "2025-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "2d60b3b3a8fb1c9d3b80c82641c8798b1ed1257f09e9cb17d1ff28040f836d89",
+      "rows": 145,
+      "dates": 124,
+      "collapsed_rows": 21,
+      "dates_with_multiple_rows": 14,
+      "within_day_log_range_max": 0.044676,
+      "first_date": "2025-07-01",
+      "last_date": "2025-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2025-07-03",
+          "rows": 3,
+          "log_range": 0.002278
+        },
+        {
+          "date": "2025-07-31",
+          "rows": 4,
+          "log_range": 0.044676
+        },
+        {
+          "date": "2025-08-08",
+          "rows": 2,
+          "log_range": 0.002113
+        },
+        {
+          "date": "2025-08-13",
+          "rows": 3,
+          "log_range": 0.002283
+        },
+        {
+          "date": "2025-08-14",
+          "rows": 2,
+          "log_range": 0.013305
+        },
+        {
+          "date": "2025-10-08",
+          "rows": 3,
+          "log_range": 0.0023
+        },
+        {
+          "date": "2025-10-09",
+          "rows": 2,
+          "log_range": 0.003679
+        },
+        {
+          "date": "2025-10-22",
+          "rows": 2,
+          "log_range": 0.001242
+        },
+        {
+          "date": "2025-10-28",
+          "rows": 3,
+          "log_range": 0.031915
+        },
+        {
+          "date": "2025-10-31",
+          "rows": 2,
+          "log_range": 0.006956
+        },
+        {
+          "date": "2025-11-04",
+          "rows": 2,
+          "log_range": 0.003876
+        },
+        {
+          "date": "2025-11-06",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-11-11",
+          "rows": 3,
+          "log_range": 0.003778
+        },
+        {
+          "date": "2025-12-17",
+          "rows": 2,
+          "log_range": 0.005321
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_oficial_2026H1.json",
+      "series": "oficial",
+      "url": "https://mercados.ambito.com/dolar/oficial/historico-general/2026-01-01/2026-06-30",
+      "range": [
+        "2026-01-01",
+        "2026-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "c3d6e1a1c232ea882b126d7acdfb9d4f295debe8c65d4e8cdcfa05e9b1b800af",
+      "rows": 136,
+      "dates": 120,
+      "collapsed_rows": 16,
+      "dates_with_multiple_rows": 8,
+      "within_day_log_range_max": 0.006084,
+      "first_date": "2026-01-01",
+      "last_date": "2026-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2026-01-01",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2026-01-06",
+          "rows": 3,
+          "log_range": 0.002779
+        },
+        {
+          "date": "2026-02-09",
+          "rows": 5,
+          "log_range": 0.005085
+        },
+        {
+          "date": "2026-03-18",
+          "rows": 3,
+          "log_range": 0.003079
+        },
+        {
+          "date": "2026-05-15",
+          "rows": 3,
+          "log_range": 0.004002
+        },
+        {
+          "date": "2026-06-03",
+          "rows": 4,
+          "log_range": 0.006084
+        },
+        {
+          "date": "2026-06-08",
+          "rows": 2,
+          "log_range": 0.000786
+        },
+        {
+          "date": "2026-06-09",
+          "rows": 2,
+          "log_range": 0.000122
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2019H2.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2019-09-01/2019-12-31",
+      "range": [
+        "2019-09-01",
+        "2019-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "b54b92ecee71b0b161ec3d2e7daadff63496868e4bddf3e3a2b2c2087dab8a03",
+      "rows": 82,
+      "dates": 82,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2019-09-02",
+      "last_date": "2019-12-30",
+      "within_day_dispersion": [],
+      "anomalies": [
+        {
+          "date": "2019-10-29",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2019-10-28",
+          "previous_mid": 72.4845,
+          "mid": 65.4828,
+          "gap_days": 1,
+          "log_change": -0.1016
+        }
+      ]
+    },
+    {
+      "name": "ambito_informal_2020H1.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2020-01-01/2020-06-30",
+      "range": [
+        "2020-01-01",
+        "2020-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "383b4fab75fc61eb52a66a7dc7748a5e7a2c2beda8e7f68aa6d2e1012674603c",
+      "rows": 118,
+      "dates": 118,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2020-01-02",
+      "last_date": "2020-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2020H2.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2020-07-01/2020-12-31",
+      "range": [
+        "2020-07-01",
+        "2020-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "3afaea13e595063946449265154945a7c88e110689f84f628d84a0e4ee880370",
+      "rows": 130,
+      "dates": 124,
+      "collapsed_rows": 6,
+      "dates_with_multiple_rows": 4,
+      "within_day_log_range_max": 0.01557,
+      "first_date": "2020-07-01",
+      "last_date": "2020-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2020-07-10",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2020-08-06",
+          "rows": 2,
+          "log_range": 0.01557
+        },
+        {
+          "date": "2020-08-07",
+          "rows": 4,
+          "log_range": 0.007695
+        },
+        {
+          "date": "2020-12-22",
+          "rows": 2,
+          "log_range": 0.006737
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2021H1.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2021-01-01/2021-06-30",
+      "range": [
+        "2021-01-01",
+        "2021-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "6d1ac5ae3898077fb1446823306e213bcda0b1e37eef74e92843f0a1cb58cf98",
+      "rows": 127,
+      "dates": 119,
+      "collapsed_rows": 8,
+      "dates_with_multiple_rows": 4,
+      "within_day_log_range_max": 0.007094,
+      "first_date": "2021-01-04",
+      "last_date": "2021-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2021-01-22",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2021-02-08",
+          "rows": 4,
+          "log_range": 0.0
+        },
+        {
+          "date": "2021-03-01",
+          "rows": 3,
+          "log_range": 0.006947
+        },
+        {
+          "date": "2021-03-22",
+          "rows": 3,
+          "log_range": 0.007094
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2021H2.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2021-07-01/2021-12-31",
+      "range": [
+        "2021-07-01",
+        "2021-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "9ddb3b066b248881339cac0ec2bcf231480b514cdea348d4331151d947a67082",
+      "rows": 138,
+      "dates": 124,
+      "collapsed_rows": 14,
+      "dates_with_multiple_rows": 6,
+      "within_day_log_range_max": 0.005635,
+      "first_date": "2021-07-01",
+      "last_date": "2021-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2021-07-23",
+          "rows": 2,
+          "log_range": 0.002744
+        },
+        {
+          "date": "2021-07-26",
+          "rows": 2,
+          "log_range": 0.005496
+        },
+        {
+          "date": "2021-08-02",
+          "rows": 4,
+          "log_range": 0.0
+        },
+        {
+          "date": "2021-08-03",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2021-08-05",
+          "rows": 3,
+          "log_range": 0.005635
+        },
+        {
+          "date": "2021-08-31",
+          "rows": 7,
+          "log_range": 0.00279
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2022H1.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2022-01-01/2022-06-30",
+      "range": [
+        "2022-01-01",
+        "2022-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "59f32af80172f47c894f9a5fece0177dd1044d49d4131086198de45a26096a53",
+      "rows": 122,
+      "dates": 119,
+      "collapsed_rows": 3,
+      "dates_with_multiple_rows": 1,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2022-01-03",
+      "last_date": "2022-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2022-03-07",
+          "rows": 4,
+          "log_range": 0.0
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2022H2.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2022-07-01/2022-12-31",
+      "range": [
+        "2022-07-01",
+        "2022-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "960f07091f386c77779362e624123eaa954e5d120c9413af091d4bb015b6456b",
+      "rows": 128,
+      "dates": 125,
+      "collapsed_rows": 3,
+      "dates_with_multiple_rows": 2,
+      "within_day_log_range_max": 0.007043,
+      "first_date": "2022-07-01",
+      "last_date": "2022-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2022-09-22",
+          "rows": 2,
+          "log_range": 0.007043
+        },
+        {
+          "date": "2022-11-18",
+          "rows": 3,
+          "log_range": 0.003284
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2023H1.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2023-01-01/2023-06-30",
+      "range": [
+        "2023-01-01",
+        "2023-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "623a87074936a4c9c5a99ab77b9ae4e134d645e6311bce2f97c4e8e5ccfd6873",
+      "rows": 121,
+      "dates": 117,
+      "collapsed_rows": 4,
+      "dates_with_multiple_rows": 4,
+      "within_day_log_range_max": 0.008239,
+      "first_date": "2023-01-02",
+      "last_date": "2023-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2023-03-28",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2023-05-03",
+          "rows": 2,
+          "log_range": 0.004251
+        },
+        {
+          "date": "2023-05-31",
+          "rows": 2,
+          "log_range": 0.006135
+        },
+        {
+          "date": "2023-06-05",
+          "rows": 2,
+          "log_range": 0.008239
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2023H2.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2023-07-01/2023-12-31",
+      "range": [
+        "2023-07-01",
+        "2023-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "87430a9e8cc4ddccffb5493cc3f0bc301e01e5ae846d03c67cfd48ef389cb36d",
+      "rows": 146,
+      "dates": 121,
+      "collapsed_rows": 25,
+      "dates_with_multiple_rows": 3,
+      "within_day_log_range_max": 0.013794,
+      "first_date": "2023-07-03",
+      "last_date": "2023-12-29",
+      "within_day_dispersion": [
+        {
+          "date": "2023-08-09",
+          "rows": 12,
+          "log_range": 0.0
+        },
+        {
+          "date": "2023-09-01",
+          "rows": 4,
+          "log_range": 0.013794
+        },
+        {
+          "date": "2023-10-06",
+          "rows": 12,
+          "log_range": 0.0
+        }
+      ],
+      "anomalies": [
+        {
+          "date": "2023-08-14",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-08-11",
+          "previous_mid": 599.9792,
+          "mid": 674.9259,
+          "gap_days": 3,
+          "log_change": 0.1177
+        },
+        {
+          "date": "2023-10-23",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-10-20",
+          "previous_mid": 889.9438,
+          "mid": 1074.7093,
+          "gap_days": 3,
+          "log_change": 0.1886
+        },
+        {
+          "date": "2023-11-21",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-11-17",
+          "previous_mid": 924.6621,
+          "mid": 1049.7023,
+          "gap_days": 4,
+          "log_change": 0.1268
+        }
+      ]
+    },
+    {
+      "name": "ambito_informal_2024H1.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2024-01-01/2024-06-30",
+      "range": [
+        "2024-01-01",
+        "2024-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "cd851a8cf9f0a2a10e38f0aa6f8b601dc4111791c90cc90aa45a7f7dbc58f5ed",
+      "rows": 217,
+      "dates": 119,
+      "collapsed_rows": 98,
+      "dates_with_multiple_rows": 23,
+      "within_day_log_range_max": 0.044462,
+      "first_date": "2024-01-02",
+      "last_date": "2024-06-28",
+      "within_day_dispersion": [
+        {
+          "date": "2024-01-18",
+          "rows": 2,
+          "log_range": 0.012428
+        },
+        {
+          "date": "2024-01-26",
+          "rows": 3,
+          "log_range": 0.020714
+        },
+        {
+          "date": "2024-02-29",
+          "rows": 6,
+          "log_range": 0.014673
+        },
+        {
+          "date": "2024-03-01",
+          "rows": 9,
+          "log_range": 0.044462
+        },
+        {
+          "date": "2024-03-04",
+          "rows": 6,
+          "log_range": 0.034409
+        },
+        {
+          "date": "2024-03-05",
+          "rows": 6,
+          "log_range": 0.005014
+        },
+        {
+          "date": "2024-03-06",
+          "rows": 8,
+          "log_range": 0.02031
+        },
+        {
+          "date": "2024-03-07",
+          "rows": 6,
+          "log_range": 0.010312
+        },
+        {
+          "date": "2024-03-08",
+          "rows": 7,
+          "log_range": 0.010259
+        },
+        {
+          "date": "2024-03-11",
+          "rows": 6,
+          "log_range": 0.015271
+        },
+        {
+          "date": "2024-03-12",
+          "rows": 6,
+          "log_range": 0.015041
+        },
+        {
+          "date": "2024-03-13",
+          "rows": 8,
+          "log_range": 0.019769
+        },
+        {
+          "date": "2024-03-14",
+          "rows": 5,
+          "log_range": 0.009854
+        },
+        {
+          "date": "2024-03-15",
+          "rows": 7,
+          "log_range": 0.009903
+        },
+        {
+          "date": "2024-03-18",
+          "rows": 4,
+          "log_range": 0.009953
+        },
+        {
+          "date": "2024-03-19",
+          "rows": 6,
+          "log_range": 0.009854
+        },
+        {
+          "date": "2024-03-20",
+          "rows": 5,
+          "log_range": 0.004915
+        },
+        {
+          "date": "2024-03-21",
+          "rows": 6,
+          "log_range": 0.004939
+        },
+        {
+          "date": "2024-03-22",
+          "rows": 3,
+          "log_range": 0.005025
+        },
+        {
+          "date": "2024-03-25",
+          "rows": 4,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-03-26",
+          "rows": 3,
+          "log_range": 0.004989
+        },
+        {
+          "date": "2024-05-17",
+          "rows": 3,
+          "log_range": 0.018269
+        },
+        {
+          "date": "2024-06-14",
+          "rows": 2,
+          "log_range": 0.028062
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2024H2.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2024-07-01/2024-12-31",
+      "range": [
+        "2024-07-01",
+        "2024-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "d0603f8b4d347ba9ada3a6e71edd99123bbeeb9af9f5039d45bb56768666007b",
+      "rows": 141,
+      "dates": 122,
+      "collapsed_rows": 19,
+      "dates_with_multiple_rows": 10,
+      "within_day_log_range_max": 0.028084,
+      "first_date": "2024-07-01",
+      "last_date": "2024-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2024-09-26",
+          "rows": 6,
+          "log_range": 0.016505
+        },
+        {
+          "date": "2024-10-23",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-10-24",
+          "rows": 3,
+          "log_range": 0.028084
+        },
+        {
+          "date": "2024-11-06",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-11-13",
+          "rows": 2,
+          "log_range": 0.004455
+        },
+        {
+          "date": "2024-11-22",
+          "rows": 2,
+          "log_range": 0.004475
+        },
+        {
+          "date": "2024-11-29",
+          "rows": 2,
+          "log_range": 0.004536
+        },
+        {
+          "date": "2024-12-10",
+          "rows": 6,
+          "log_range": 0.018927
+        },
+        {
+          "date": "2024-12-16",
+          "rows": 2,
+          "log_range": 0.013556
+        },
+        {
+          "date": "2024-12-23",
+          "rows": 2,
+          "log_range": 0.0
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2025H1.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2025-01-01/2025-06-30",
+      "range": [
+        "2025-01-01",
+        "2025-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "fc989826fb03b81fc237e21d6dd942e3db8e1235972a0c30b7e86097ef2a355f",
+      "rows": 117,
+      "dates": 110,
+      "collapsed_rows": 7,
+      "dates_with_multiple_rows": 6,
+      "within_day_log_range_max": 0.020369,
+      "first_date": "2025-01-02",
+      "last_date": "2025-06-27",
+      "within_day_dispersion": [
+        {
+          "date": "2025-01-02",
+          "rows": 2,
+          "log_range": 0.012372
+        },
+        {
+          "date": "2025-01-13",
+          "rows": 2,
+          "log_range": 0.020369
+        },
+        {
+          "date": "2025-02-14",
+          "rows": 3,
+          "log_range": 0.004124
+        },
+        {
+          "date": "2025-05-12",
+          "rows": 2,
+          "log_range": 0.004301
+        },
+        {
+          "date": "2025-05-21",
+          "rows": 2,
+          "log_range": 0.004301
+        },
+        {
+          "date": "2025-05-27",
+          "rows": 2,
+          "log_range": 0.0
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2025H2.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2025-07-01/2025-12-31",
+      "range": [
+        "2025-07-01",
+        "2025-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "09150a716a578c6a616440b993a7abd7435b236b075d1acc42f102e0f0b97c07",
+      "rows": 133,
+      "dates": 112,
+      "collapsed_rows": 21,
+      "dates_with_multiple_rows": 20,
+      "within_day_log_range_max": 0.027685,
+      "first_date": "2025-07-01",
+      "last_date": "2025-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2025-07-25",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-08-25",
+          "rows": 2,
+          "log_range": 0.014871
+        },
+        {
+          "date": "2025-08-29",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-09-01",
+          "rows": 2,
+          "log_range": 0.007463
+        },
+        {
+          "date": "2025-09-03",
+          "rows": 2,
+          "log_range": 0.007435
+        },
+        {
+          "date": "2025-09-05",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-09-17",
+          "rows": 2,
+          "log_range": 0.006897
+        },
+        {
+          "date": "2025-09-23",
+          "rows": 2,
+          "log_range": 0.027685
+        },
+        {
+          "date": "2025-09-26",
+          "rows": 2,
+          "log_range": 0.003578
+        },
+        {
+          "date": "2025-09-29",
+          "rows": 2,
+          "log_range": 0.007018
+        },
+        {
+          "date": "2025-10-03",
+          "rows": 2,
+          "log_range": 0.006969
+        },
+        {
+          "date": "2025-10-08",
+          "rows": 2,
+          "log_range": 0.010292
+        },
+        {
+          "date": "2025-10-16",
+          "rows": 2,
+          "log_range": 0.010363
+        },
+        {
+          "date": "2025-11-11",
+          "rows": 2,
+          "log_range": 0.003528
+        },
+        {
+          "date": "2025-11-12",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-11-14",
+          "rows": 2,
+          "log_range": 0.003515
+        },
+        {
+          "date": "2025-12-02",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-12-08",
+          "rows": 2,
+          "log_range": 0.007043
+        },
+        {
+          "date": "2025-12-16",
+          "rows": 2,
+          "log_range": 0.013514
+        },
+        {
+          "date": "2025-12-26",
+          "rows": 3,
+          "log_range": 0.009984
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_informal_2026H1.json",
+      "series": "informal",
+      "url": "https://mercados.ambito.com/dolar/informal/historico-general/2026-01-01/2026-06-30",
+      "range": [
+        "2026-01-01",
+        "2026-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "b9b3bc9ccb32543f8ddd7d28debe9babaf7afd91077f61afc0e86bedbde9bbd6",
+      "rows": 131,
+      "dates": 100,
+      "collapsed_rows": 31,
+      "dates_with_multiple_rows": 24,
+      "within_day_log_range_max": 0.013794,
+      "first_date": "2026-01-01",
+      "last_date": "2026-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2026-01-06",
+          "rows": 2,
+          "log_range": 0.003317
+        },
+        {
+          "date": "2026-01-13",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2026-01-15",
+          "rows": 2,
+          "log_range": 0.006667
+        },
+        {
+          "date": "2026-01-20",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2026-01-26",
+          "rows": 2,
+          "log_range": 0.003384
+        },
+        {
+          "date": "2026-01-29",
+          "rows": 4,
+          "log_range": 0.003413
+        },
+        {
+          "date": "2026-02-02",
+          "rows": 2,
+          "log_range": 0.013794
+        },
+        {
+          "date": "2026-02-06",
+          "rows": 2,
+          "log_range": 0.003503
+        },
+        {
+          "date": "2026-02-10",
+          "rows": 2,
+          "log_range": 0.003528
+        },
+        {
+          "date": "2026-02-19",
+          "rows": 2,
+          "log_range": 0.003503
+        },
+        {
+          "date": "2026-02-26",
+          "rows": 2,
+          "log_range": 0.006993
+        },
+        {
+          "date": "2026-03-04",
+          "rows": 2,
+          "log_range": 0.007093
+        },
+        {
+          "date": "2026-03-11",
+          "rows": 2,
+          "log_range": 0.007093
+        },
+        {
+          "date": "2026-03-18",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2026-03-25",
+          "rows": 2,
+          "log_range": 0.00354
+        },
+        {
+          "date": "2026-03-27",
+          "rows": 2,
+          "log_range": 0.007093
+        },
+        {
+          "date": "2026-04-09",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2026-04-15",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2026-04-29",
+          "rows": 2,
+          "log_range": 0.01062
+        },
+        {
+          "date": "2026-05-29",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2026-06-03",
+          "rows": 4,
+          "log_range": 0.003515
+        },
+        {
+          "date": "2026-06-04",
+          "rows": 5,
+          "log_range": 0.003515
+        },
+        {
+          "date": "2026-06-05",
+          "rows": 2,
+          "log_range": 0.00177
+        },
+        {
+          "date": "2026-06-09",
+          "rows": 2,
+          "log_range": 0.010399
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2019H2.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2019-09-01/2019-12-31",
+      "range": [
+        "2019-09-01",
+        "2019-12-31"
+      ],
+      "status": "cached-empty",
+      "sha256_stored": "0d7d9af28946ef305855dc72bf2143feea0515bb7f42080fe99779b54ce764fd",
+      "rows": 0,
+      "dates": 0,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": null,
+      "last_date": null,
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2020H1.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2020-01-01/2020-06-30",
+      "range": [
+        "2020-01-01",
+        "2020-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "c1969e1b810020edcc8d06b94442908275862ea6029b43d60bfb5b4e82902170",
+      "rows": 102,
+      "dates": 102,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2020-03-20",
+      "last_date": "2020-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2020H2.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2020-07-01/2020-12-31",
+      "range": [
+        "2020-07-01",
+        "2020-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "11fcbff90c59a57432be33879e7c9998a92b23326dffe52edd4c9734f6549bda",
+      "rows": 183,
+      "dates": 183,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2020-07-01",
+      "last_date": "2020-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2021H1.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2021-01-01/2021-06-30",
+      "range": [
+        "2021-01-01",
+        "2021-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "cc7e09b86dca4fc922ca89db0090295f3401febb20a1fb80683874f44a17b47f",
+      "rows": 180,
+      "dates": 180,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2021-01-01",
+      "last_date": "2021-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2021H2.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2021-07-01/2021-12-31",
+      "range": [
+        "2021-07-01",
+        "2021-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "344179ef95a41d3c3f6fb2a140862bf14c2200da892ea75229fce994c6af1404",
+      "rows": 183,
+      "dates": 183,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2021-07-01",
+      "last_date": "2021-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2022H1.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2022-01-01/2022-06-30",
+      "range": [
+        "2022-01-01",
+        "2022-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "2a1e017df49ee809dfba47cc17c699bcc64cd0ff09b48b51c35a0552a3d2d542",
+      "rows": 147,
+      "dates": 147,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2022-01-01",
+      "last_date": "2022-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2022H2.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2022-07-01/2022-12-31",
+      "range": [
+        "2022-07-01",
+        "2022-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "47513301765c768ee5dcb63e59f2cb998fdc931844cf7ea80952af8755585588",
+      "rows": 143,
+      "dates": 143,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2022-07-01",
+      "last_date": "2022-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2023H1.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2023-01-01/2023-06-30",
+      "range": [
+        "2023-01-01",
+        "2023-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "f15c9b2fb3e1996cc36943449be149b612260d13fe8d19bafb4a3900b80a7f19",
+      "rows": 129,
+      "dates": 129,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2023-01-02",
+      "last_date": "2023-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2023H2.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2023-07-01/2023-12-31",
+      "range": [
+        "2023-07-01",
+        "2023-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "452c0b099adf42437f65b9dc0efae77ded54cf367f6f1b71b0f37cb402b31437",
+      "rows": 130,
+      "dates": 130,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2023-07-03",
+      "last_date": "2023-12-29",
+      "within_day_dispersion": [],
+      "anomalies": [
+        {
+          "date": "2023-08-14",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-08-11",
+          "previous_mid": 539.89,
+          "mid": 621.14,
+          "gap_days": 3,
+          "log_change": 0.1402
+        }
+      ]
+    },
+    {
+      "name": "ambito_mep_2024H1.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2024-01-01/2024-06-30",
+      "range": [
+        "2024-01-01",
+        "2024-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "b32137735be3dafd3ac216ab93ea4d49d0da3f357d35b8cd238eaaa6c6c8e8ee",
+      "rows": 130,
+      "dates": 130,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2024-01-01",
+      "last_date": "2024-06-28",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2024H2.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2024-07-01/2024-12-31",
+      "range": [
+        "2024-07-01",
+        "2024-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "174f6331316ce877e1a23a539b9d0ebbe96d8a9678d2751c564ca985cb5664a1",
+      "rows": 131,
+      "dates": 131,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2024-07-01",
+      "last_date": "2024-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025H1.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-01-01/2025-06-30",
+      "range": [
+        "2025-01-01",
+        "2025-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "c09ce61b5c9285701d6a103b70639904840fefd9a780e62c267e5ceda0f0a785",
+      "rows": 128,
+      "dates": 128,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-01-01",
+      "last_date": "2025-06-27",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025H2.json",
+      "series": "mep",
+      "status": "bisected",
+      "range": [
+        "2025-07-01",
+        "2025-12-31"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-09-30"
+    },
+    {
+      "name": "ambito_mep_2025-07-01_2025-09-30.json",
+      "series": "mep",
+      "status": "bisected",
+      "range": [
+        "2025-07-01",
+        "2025-09-30"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-15"
+    },
+    {
+      "name": "ambito_mep_2025-07-01_2025-08-15.json",
+      "series": "mep",
+      "status": "bisected",
+      "range": [
+        "2025-07-01",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-07-23"
+    },
+    {
+      "name": "ambito_mep_2025-07-01_2025-07-23.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-07-01/2025-07-23",
+      "range": [
+        "2025-07-01",
+        "2025-07-23"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "cda6b4b387ac2632aacf4c82bd30dfdf99792d78166a2d26634e4cfb2eb9e33f",
+      "rows": 16,
+      "dates": 16,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-07-01",
+      "last_date": "2025-07-22",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025-07-24_2025-08-15.json",
+      "series": "mep",
+      "status": "bisected",
+      "range": [
+        "2025-07-24",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-04"
+    },
+    {
+      "name": "ambito_mep_2025-07-24_2025-08-04.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-07-24/2025-08-04",
+      "range": [
+        "2025-07-24",
+        "2025-08-04"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "70c93e4aaf9b2b8f81d83d402b745e7799ba934b15408ee4395dde2823d9b1a7",
+      "rows": 7,
+      "dates": 7,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-07-24",
+      "last_date": "2025-08-01",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025-08-05_2025-08-15.json",
+      "series": "mep",
+      "status": "bisected",
+      "range": [
+        "2025-08-05",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-10"
+    },
+    {
+      "name": "ambito_mep_2025-08-05_2025-08-10.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-08-05/2025-08-10",
+      "range": [
+        "2025-08-05",
+        "2025-08-10"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "c73744d42b224a7617a99cb5bd73724d43586412d1ef501e975fde911c1f1437",
+      "rows": 4,
+      "dates": 4,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-05",
+      "last_date": "2025-08-08",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025-08-11_2025-08-15.json",
+      "series": "mep",
+      "status": "bisected",
+      "range": [
+        "2025-08-11",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-13"
+    },
+    {
+      "name": "ambito_mep_2025-08-11_2025-08-13.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-08-11/2025-08-13",
+      "range": [
+        "2025-08-11",
+        "2025-08-13"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "3d13b5a002520bf54a13bb76a8609b479fa82c197dde5762cc651547a8402473",
+      "rows": 2,
+      "dates": 2,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-11",
+      "last_date": "2025-08-12",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025-08-14_2025-08-15.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-08-14/2025-08-15",
+      "range": [
+        "2025-08-14",
+        "2025-08-15"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "34bc8764aca333ccdd43dd5f6718c788c36ae37a437dd60653f7f0dec1b8465f",
+      "rows": 1,
+      "dates": 1,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-14",
+      "last_date": "2025-08-14",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025-08-16_2025-09-30.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-08-16/2025-09-30",
+      "range": [
+        "2025-08-16",
+        "2025-09-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "e2c07370959541991cf1868c5bef4b0f6d0fa8e0740d829a10f740f3264c448c",
+      "rows": 31,
+      "dates": 31,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-18",
+      "last_date": "2025-09-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2025-10-01_2025-12-31.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2025-10-01/2025-12-31",
+      "range": [
+        "2025-10-01",
+        "2025-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a4571345fb803af23338812c0715610ca4832ded1604bb715411d0d3d1f232d1",
+      "rows": 65,
+      "dates": 65,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-10-01",
+      "last_date": "2025-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mep_2026H1.json",
+      "series": "mep",
+      "url": "https://mercados.ambito.com/dolarrava/mep/historico-general/2026-01-01/2026-06-30",
+      "range": [
+        "2026-01-01",
+        "2026-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a1068514f893aea483ac68d8692230e2e943d3d2a065b66581c752c96359083a",
+      "rows": 128,
+      "dates": 128,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2026-01-01",
+      "last_date": "2026-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2019H2.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2019-09-01/2019-12-31",
+      "range": [
+        "2019-09-01",
+        "2019-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "fc317114905cc0ff226acbbd967518e97c956f740868d64d819270313f9b87c8",
+      "rows": 82,
+      "dates": 82,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2019-09-02",
+      "last_date": "2019-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2020H1.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2020-01-01/2020-06-30",
+      "range": [
+        "2020-01-01",
+        "2020-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a187a37e3425dbb6d77d7474a9b39ad7588c1e48a5b757ec4984751c6e22fcd2",
+      "rows": 156,
+      "dates": 156,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2020-01-02",
+      "last_date": "2020-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2020H2.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2020-07-01/2020-12-31",
+      "range": [
+        "2020-07-01",
+        "2020-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a1ff7ebd668c615884f4b6cc65525aeb24238ee47898e10a46e87d860cbd3c6c",
+      "rows": 183,
+      "dates": 183,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2020-07-01",
+      "last_date": "2020-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2021H1.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2021-01-01/2021-06-30",
+      "range": [
+        "2021-01-01",
+        "2021-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "77a7da0a05c1cd36d21aab522c246fc8749ee3ccdfafa290efd763882560d05b",
+      "rows": 180,
+      "dates": 180,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2021-01-01",
+      "last_date": "2021-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2021H2.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2021-07-01/2021-12-31",
+      "range": [
+        "2021-07-01",
+        "2021-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "b55790c5838305ab869251a8aafbaa77879569c87c1bc3eccda8963c03e49225",
+      "rows": 183,
+      "dates": 183,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2021-07-01",
+      "last_date": "2021-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2022H1.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2022-01-01/2022-06-30",
+      "range": [
+        "2022-01-01",
+        "2022-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a3a2e06117b05825941dcb8cd0e7359ba9e406d160d634c3a888b41ab3a0ddeb",
+      "rows": 147,
+      "dates": 147,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2022-01-01",
+      "last_date": "2022-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2022H2.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2022-07-01/2022-12-31",
+      "range": [
+        "2022-07-01",
+        "2022-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "f770d3d9161b77e6d5d64a6305c6ed54c6524dba844db117cbce4d3ab04dd92b",
+      "rows": 143,
+      "dates": 143,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2022-07-01",
+      "last_date": "2022-12-30",
+      "within_day_dispersion": [],
+      "anomalies": [
+        {
+          "date": "2022-07-04",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2022-07-01",
+          "previous_mid": 252.22,
+          "mid": 281.18,
+          "gap_days": 3,
+          "log_change": 0.1087
+        },
+        {
+          "date": "2022-07-29",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2022-07-28",
+          "previous_mid": 321.9,
+          "mid": 288.28,
+          "gap_days": 1,
+          "log_change": -0.1103
+        }
+      ]
+    },
+    {
+      "name": "ambito_ccl_2023H1.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2023-01-01/2023-06-30",
+      "range": [
+        "2023-01-01",
+        "2023-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "8295a1e33fce2e3379af3b76ae6d106065415c6df9c99285a62d3028442b3806",
+      "rows": 129,
+      "dates": 129,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2023-01-02",
+      "last_date": "2023-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2023H2.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2023-07-01/2023-12-31",
+      "range": [
+        "2023-07-01",
+        "2023-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "dd23085707002ff2951d368433bb74524c07748d98dce000c25f1d4f1e9c858e",
+      "rows": 130,
+      "dates": 130,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2023-07-03",
+      "last_date": "2023-12-29",
+      "within_day_dispersion": [],
+      "anomalies": [
+        {
+          "date": "2023-10-20",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-10-19",
+          "previous_mid": 957.07,
+          "mid": 1110.59,
+          "gap_days": 1,
+          "log_change": 0.1488
+        },
+        {
+          "date": "2023-10-23",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-10-20",
+          "previous_mid": 1110.59,
+          "mid": 935.45,
+          "gap_days": 3,
+          "log_change": -0.1716
+        }
+      ]
+    },
+    {
+      "name": "ambito_ccl_2024H1.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2024-01-01/2024-06-30",
+      "range": [
+        "2024-01-01",
+        "2024-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a9ba8516da470024cc23b2ce2536c92f4b57a78ec06827225c18cef6e6072094",
+      "rows": 130,
+      "dates": 130,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2024-01-01",
+      "last_date": "2024-06-28",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2024H2.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2024-07-01/2024-12-31",
+      "range": [
+        "2024-07-01",
+        "2024-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a4567883ffc51bc5f1b72198ae9ab933685c86bb35505f85b397881526989505",
+      "rows": 131,
+      "dates": 131,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2024-07-01",
+      "last_date": "2024-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025H1.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-01-01/2025-06-30",
+      "range": [
+        "2025-01-01",
+        "2025-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "e68daf8c2400195f964156876b1ea8b84616ab292624b137fa2c5948c92bf23a",
+      "rows": 128,
+      "dates": 128,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-01-01",
+      "last_date": "2025-06-27",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025H2.json",
+      "series": "ccl",
+      "status": "bisected",
+      "range": [
+        "2025-07-01",
+        "2025-12-31"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-09-30"
+    },
+    {
+      "name": "ambito_ccl_2025-07-01_2025-09-30.json",
+      "series": "ccl",
+      "status": "bisected",
+      "range": [
+        "2025-07-01",
+        "2025-09-30"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-15"
+    },
+    {
+      "name": "ambito_ccl_2025-07-01_2025-08-15.json",
+      "series": "ccl",
+      "status": "bisected",
+      "range": [
+        "2025-07-01",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-07-23"
+    },
+    {
+      "name": "ambito_ccl_2025-07-01_2025-07-23.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-07-01/2025-07-23",
+      "range": [
+        "2025-07-01",
+        "2025-07-23"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "8747583d5a14cc16d6140a57cfa77c0d9f8ccab122419c19cde1fa576bc90d2f",
+      "rows": 16,
+      "dates": 16,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-07-01",
+      "last_date": "2025-07-22",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025-07-24_2025-08-15.json",
+      "series": "ccl",
+      "status": "bisected",
+      "range": [
+        "2025-07-24",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-04"
+    },
+    {
+      "name": "ambito_ccl_2025-07-24_2025-08-04.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-07-24/2025-08-04",
+      "range": [
+        "2025-07-24",
+        "2025-08-04"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "e1de6f51e1eb0395b2b90024c27d9b439d760ba144dad5859299b704bdce85ce",
+      "rows": 7,
+      "dates": 7,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-07-24",
+      "last_date": "2025-08-01",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025-08-05_2025-08-15.json",
+      "series": "ccl",
+      "status": "bisected",
+      "range": [
+        "2025-08-05",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-10"
+    },
+    {
+      "name": "ambito_ccl_2025-08-05_2025-08-10.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-08-05/2025-08-10",
+      "range": [
+        "2025-08-05",
+        "2025-08-10"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "2085a1dd9c72a277efd91f55a17e79e4e36103c858674401b832935a915aedeb",
+      "rows": 4,
+      "dates": 4,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-05",
+      "last_date": "2025-08-08",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025-08-11_2025-08-15.json",
+      "series": "ccl",
+      "status": "bisected",
+      "range": [
+        "2025-08-11",
+        "2025-08-15"
+      ],
+      "reason": "known bad range from the manifest, not re-asked",
+      "split_at": "2025-08-13"
+    },
+    {
+      "name": "ambito_ccl_2025-08-11_2025-08-13.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-08-11/2025-08-13",
+      "range": [
+        "2025-08-11",
+        "2025-08-13"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "6137bde09ff9bef11c099a5ad821b014703508d14fc78a5aceed266bf8e7ce2e",
+      "rows": 2,
+      "dates": 2,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-11",
+      "last_date": "2025-08-12",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025-08-14_2025-08-15.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-08-14/2025-08-15",
+      "range": [
+        "2025-08-14",
+        "2025-08-15"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "c1273cc9306ce4a4e70c9356d6d57d8a81b499fae6448c6451865dc81a341edc",
+      "rows": 1,
+      "dates": 1,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-14",
+      "last_date": "2025-08-14",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025-08-16_2025-09-30.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-08-16/2025-09-30",
+      "range": [
+        "2025-08-16",
+        "2025-09-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "7e3fee17d1f175490be45a2fef7151db7078d91c229670bc4b5429e62e4ac902",
+      "rows": 31,
+      "dates": 31,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-08-18",
+      "last_date": "2025-09-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2025-10-01_2025-12-31.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2025-10-01/2025-12-31",
+      "range": [
+        "2025-10-01",
+        "2025-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "82986157e9d54d15865f8251581e11594862ac955f81a7f889c276560a2abc39",
+      "rows": 65,
+      "dates": 65,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2025-10-01",
+      "last_date": "2025-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_ccl_2026H1.json",
+      "series": "ccl",
+      "url": "https://mercados.ambito.com/dolarrava/cl/historico-general/2026-01-01/2026-06-30",
+      "range": [
+        "2026-01-01",
+        "2026-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "9d538872a191545d88f2e7c04a76ddb2154037ccd8c706ab3e8c48779e8a957c",
+      "rows": 128,
+      "dates": 128,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2026-01-01",
+      "last_date": "2026-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2019H2.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2019-09-01/2019-12-31",
+      "range": [
+        "2019-09-01",
+        "2019-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "23d094468a7ed07a3d1386f6f12ee9379cc68356500b53ddcc94b032fdb31c29",
+      "rows": 81,
+      "dates": 81,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2019-09-02",
+      "last_date": "2019-12-30",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2020H1.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2020-01-01/2020-06-30",
+      "range": [
+        "2020-01-01",
+        "2020-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "71636b825bb86b324f60af7f1c8a906b0ac830d57593aa915f24e5164d8695a4",
+      "rows": 118,
+      "dates": 118,
+      "collapsed_rows": 0,
+      "dates_with_multiple_rows": 0,
+      "within_day_log_range_max": 0.0,
+      "first_date": "2020-01-02",
+      "last_date": "2020-06-29",
+      "within_day_dispersion": [],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2020H2.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2020-07-01/2020-12-31",
+      "range": [
+        "2020-07-01",
+        "2020-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "eafa6b9ac8bffcd3f9762bbb75506f6651b37dd6cf7da06e1669778f8afc90bd",
+      "rows": 135,
+      "dates": 121,
+      "collapsed_rows": 14,
+      "dates_with_multiple_rows": 6,
+      "within_day_log_range_max": 0.003049,
+      "first_date": "2020-07-01",
+      "last_date": "2020-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2020-07-23",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2020-08-11",
+          "rows": 3,
+          "log_range": 0.000686
+        },
+        {
+          "date": "2020-09-11",
+          "rows": 4,
+          "log_range": 0.0
+        },
+        {
+          "date": "2020-10-05",
+          "rows": 2,
+          "log_range": 0.00065
+        },
+        {
+          "date": "2020-11-03",
+          "rows": 5,
+          "log_range": 0.003049
+        },
+        {
+          "date": "2020-12-29",
+          "rows": 4,
+          "log_range": 0.00155
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2021H1.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2021-01-01/2021-06-30",
+      "range": [
+        "2021-01-01",
+        "2021-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "8915d5bb01ef3546decd28a8e574c9e9a206edd4c9eec86083af09d1b6df4d6b",
+      "rows": 127,
+      "dates": 119,
+      "collapsed_rows": 8,
+      "dates_with_multiple_rows": 5,
+      "within_day_log_range_max": 0.006522,
+      "first_date": "2021-01-04",
+      "last_date": "2021-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2021-01-04",
+          "rows": 2,
+          "log_range": 0.006522
+        },
+        {
+          "date": "2021-01-18",
+          "rows": 2,
+          "log_range": 0.003962
+        },
+        {
+          "date": "2021-02-18",
+          "rows": 3,
+          "log_range": 0.00135
+        },
+        {
+          "date": "2021-02-22",
+          "rows": 4,
+          "log_range": 0.003252
+        },
+        {
+          "date": "2021-06-28",
+          "rows": 2,
+          "log_range": 0.000942
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2021H2.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2021-07-01/2021-12-31",
+      "range": [
+        "2021-07-01",
+        "2021-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "8238f529445026e45a07422b164d6a23b46fe64d18a4538b3a5206d608f54f61",
+      "rows": 168,
+      "dates": 124,
+      "collapsed_rows": 44,
+      "dates_with_multiple_rows": 11,
+      "within_day_log_range_max": 0.001175,
+      "first_date": "2021-07-01",
+      "last_date": "2021-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2021-08-26",
+          "rows": 3,
+          "log_range": 0.000821
+        },
+        {
+          "date": "2021-08-30",
+          "rows": 3,
+          "log_range": 0.000102
+        },
+        {
+          "date": "2021-09-09",
+          "rows": 5,
+          "log_range": 0.000102
+        },
+        {
+          "date": "2021-09-23",
+          "rows": 3,
+          "log_range": 0.000813
+        },
+        {
+          "date": "2021-10-14",
+          "rows": 14,
+          "log_range": 0.000303
+        },
+        {
+          "date": "2021-10-15",
+          "rows": 4,
+          "log_range": 0.000202
+        },
+        {
+          "date": "2021-10-18",
+          "rows": 4,
+          "log_range": 0.000202
+        },
+        {
+          "date": "2021-10-22",
+          "rows": 4,
+          "log_range": 0.000302
+        },
+        {
+          "date": "2021-10-29",
+          "rows": 3,
+          "log_range": 0.000402
+        },
+        {
+          "date": "2021-11-10",
+          "rows": 3,
+          "log_range": 0.0001
+        },
+        {
+          "date": "2021-12-21",
+          "rows": 9,
+          "log_range": 0.001175
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2022H1.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2022-01-01/2022-06-30",
+      "range": [
+        "2022-01-01",
+        "2022-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "b98694e8daedc0ec6b9f72a773df696c8524ada9efc1fd0cbf91d981c6dd1501",
+      "rows": 161,
+      "dates": 119,
+      "collapsed_rows": 42,
+      "dates_with_multiple_rows": 14,
+      "within_day_log_range_max": 0.005469,
+      "first_date": "2022-01-03",
+      "last_date": "2022-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2022-01-04",
+          "rows": 5,
+          "log_range": 0.001166
+        },
+        {
+          "date": "2022-01-06",
+          "rows": 5,
+          "log_range": 0.000581
+        },
+        {
+          "date": "2022-02-22",
+          "rows": 6,
+          "log_range": 0.0
+        },
+        {
+          "date": "2022-02-23",
+          "rows": 2,
+          "log_range": 0.00084
+        },
+        {
+          "date": "2022-02-25",
+          "rows": 4,
+          "log_range": 0.000652
+        },
+        {
+          "date": "2022-03-04",
+          "rows": 3,
+          "log_range": 0.001389
+        },
+        {
+          "date": "2022-03-17",
+          "rows": 4,
+          "log_range": 0.00128
+        },
+        {
+          "date": "2022-04-05",
+          "rows": 3,
+          "log_range": 0.001171
+        },
+        {
+          "date": "2022-04-20",
+          "rows": 3,
+          "log_range": 8.8e-05
+        },
+        {
+          "date": "2022-04-21",
+          "rows": 3,
+          "log_range": 0.000175
+        },
+        {
+          "date": "2022-04-29",
+          "rows": 5,
+          "log_range": 0.000347
+        },
+        {
+          "date": "2022-05-03",
+          "rows": 2,
+          "log_range": 0.001123
+        },
+        {
+          "date": "2022-05-30",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2022-06-06",
+          "rows": 9,
+          "log_range": 0.005469
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2022H2.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2022-07-01/2022-12-31",
+      "range": [
+        "2022-07-01",
+        "2022-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "17ada84e691f86b4e9e4f62269b65097b0cb6f965ffa2807cb6e75ada796fc33",
+      "rows": 132,
+      "dates": 124,
+      "collapsed_rows": 8,
+      "dates_with_multiple_rows": 7,
+      "within_day_log_range_max": 0.00655,
+      "first_date": "2022-07-01",
+      "last_date": "2022-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2022-08-31",
+          "rows": 2,
+          "log_range": 0.000505
+        },
+        {
+          "date": "2022-09-05",
+          "rows": 2,
+          "log_range": 0.000571
+        },
+        {
+          "date": "2022-10-04",
+          "rows": 2,
+          "log_range": 6.7e-05
+        },
+        {
+          "date": "2022-10-11",
+          "rows": 2,
+          "log_range": 0.002056
+        },
+        {
+          "date": "2022-10-24",
+          "rows": 3,
+          "log_range": 0.00655
+        },
+        {
+          "date": "2022-12-05",
+          "rows": 2,
+          "log_range": 0.000237
+        },
+        {
+          "date": "2022-12-26",
+          "rows": 2,
+          "log_range": 0.002342
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2023H1.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2023-01-01/2023-06-30",
+      "range": [
+        "2023-01-01",
+        "2023-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "6688e6a3e91a691ad948509129a4d1a488bdfe8324fce592be609c52eca87ba9",
+      "rows": 136,
+      "dates": 119,
+      "collapsed_rows": 17,
+      "dates_with_multiple_rows": 9,
+      "within_day_log_range_max": 0.002251,
+      "first_date": "2023-01-02",
+      "last_date": "2023-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2023-01-10",
+          "rows": 3,
+          "log_range": 0.000222
+        },
+        {
+          "date": "2023-02-24",
+          "rows": 4,
+          "log_range": 0.002251
+        },
+        {
+          "date": "2023-03-01",
+          "rows": 5,
+          "log_range": 0.000152
+        },
+        {
+          "date": "2023-05-04",
+          "rows": 2,
+          "log_range": 0.000222
+        },
+        {
+          "date": "2023-05-05",
+          "rows": 2,
+          "log_range": 0.000221
+        },
+        {
+          "date": "2023-05-12",
+          "rows": 4,
+          "log_range": 0.000873
+        },
+        {
+          "date": "2023-05-30",
+          "rows": 2,
+          "log_range": 0.000628
+        },
+        {
+          "date": "2023-06-14",
+          "rows": 2,
+          "log_range": 0.000202
+        },
+        {
+          "date": "2023-06-15",
+          "rows": 2,
+          "log_range": 0.001007
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2023H2.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2023-07-01/2023-12-31",
+      "range": [
+        "2023-07-01",
+        "2023-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "40bfc54e9b2253ee3fd4e5348ccbfaf1af5fb62cb82e258639f890e90a4374a8",
+      "rows": 136,
+      "dates": 123,
+      "collapsed_rows": 13,
+      "dates_with_multiple_rows": 10,
+      "within_day_log_range_max": 0.002611,
+      "first_date": "2023-07-03",
+      "last_date": "2023-12-29",
+      "within_day_dispersion": [
+        {
+          "date": "2023-07-03",
+          "rows": 2,
+          "log_range": 0.000388
+        },
+        {
+          "date": "2023-07-14",
+          "rows": 2,
+          "log_range": 0.000378
+        },
+        {
+          "date": "2023-07-25",
+          "rows": 3,
+          "log_range": 0.001289
+        },
+        {
+          "date": "2023-07-27",
+          "rows": 2,
+          "log_range": 0.000918
+        },
+        {
+          "date": "2023-08-16",
+          "rows": 2,
+          "log_range": 0.000143
+        },
+        {
+          "date": "2023-09-14",
+          "rows": 2,
+          "log_range": 0.000143
+        },
+        {
+          "date": "2023-10-09",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2023-11-24",
+          "rows": 2,
+          "log_range": 0.00014
+        },
+        {
+          "date": "2023-12-14",
+          "rows": 2,
+          "log_range": 3.3e-05
+        },
+        {
+          "date": "2023-12-26",
+          "rows": 4,
+          "log_range": 0.002611
+        }
+      ],
+      "anomalies": [
+        {
+          "date": "2023-08-14",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-08-11",
+          "previous_mid": 287.1499,
+          "mid": 349.4496,
+          "gap_days": 3,
+          "log_change": 0.1964
+        },
+        {
+          "date": "2023-12-13",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2023-12-12",
+          "previous_mid": 365.9497,
+          "mid": 798.4486,
+          "gap_days": 1,
+          "log_change": 0.7802
+        }
+      ]
+    },
+    {
+      "name": "ambito_mayorista_2024H1.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2024-01-01/2024-06-30",
+      "range": [
+        "2024-01-01",
+        "2024-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "d9830525a790e150a9b6322eebe4105ceeb6b162f25d85c8a2b6a5c912b1ea1f",
+      "rows": 151,
+      "dates": 119,
+      "collapsed_rows": 32,
+      "dates_with_multiple_rows": 16,
+      "within_day_log_range_max": 1.151948,
+      "first_date": "2024-01-02",
+      "last_date": "2024-06-28",
+      "within_day_dispersion": [
+        {
+          "date": "2024-01-02",
+          "rows": 3,
+          "log_range": 0.003404
+        },
+        {
+          "date": "2024-01-05",
+          "rows": 3,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-01-26",
+          "rows": 3,
+          "log_range": 0.000608
+        },
+        {
+          "date": "2024-02-01",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2024-02-23",
+          "rows": 2,
+          "log_range": 0.000299
+        },
+        {
+          "date": "2024-03-04",
+          "rows": 3,
+          "log_range": 0.000593
+        },
+        {
+          "date": "2024-03-05",
+          "rows": 3,
+          "log_range": 0.000593
+        },
+        {
+          "date": "2024-03-06",
+          "rows": 9,
+          "log_range": 0.001776
+        },
+        {
+          "date": "2024-03-07",
+          "rows": 4,
+          "log_range": 0.000592
+        },
+        {
+          "date": "2024-03-08",
+          "rows": 2,
+          "log_range": 1e-06
+        },
+        {
+          "date": "2024-03-13",
+          "rows": 2,
+          "log_range": 0.000589
+        },
+        {
+          "date": "2024-04-23",
+          "rows": 2,
+          "log_range": 0.000583
+        },
+        {
+          "date": "2024-05-02",
+          "rows": 3,
+          "log_range": 1.151948
+        },
+        {
+          "date": "2024-05-14",
+          "rows": 2,
+          "log_range": 0.000566
+        },
+        {
+          "date": "2024-06-14",
+          "rows": 2,
+          "log_range": 0.001109
+        },
+        {
+          "date": "2024-06-25",
+          "rows": 3,
+          "log_range": 0.001652
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2024H2.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2024-07-01/2024-12-31",
+      "range": [
+        "2024-07-01",
+        "2024-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "e70e28023b33da3a3cb751d81802b80a91cd5615d2db753374d7e8a236d7108f",
+      "rows": 131,
+      "dates": 126,
+      "collapsed_rows": 5,
+      "dates_with_multiple_rows": 4,
+      "within_day_log_range_max": 0.001531,
+      "first_date": "2024-07-01",
+      "last_date": "2024-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2024-07-19",
+          "rows": 2,
+          "log_range": 0.001082
+        },
+        {
+          "date": "2024-07-22",
+          "rows": 2,
+          "log_range": 0.00108
+        },
+        {
+          "date": "2024-09-02",
+          "rows": 3,
+          "log_range": 0.000525
+        },
+        {
+          "date": "2024-10-18",
+          "rows": 2,
+          "log_range": 0.001531
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2025H1.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2025-01-01/2025-06-30",
+      "range": [
+        "2025-01-01",
+        "2025-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "de1f5efc7c0eb4ad0f7bc67466de677d942625a03684eeef3303f2035dee660e",
+      "rows": 134,
+      "dates": 116,
+      "collapsed_rows": 18,
+      "dates_with_multiple_rows": 15,
+      "within_day_log_range_max": 1.153293,
+      "first_date": "2025-01-02",
+      "last_date": "2025-06-27",
+      "within_day_dispersion": [
+        {
+          "date": "2025-01-10",
+          "rows": 2,
+          "log_range": 0.000482
+        },
+        {
+          "date": "2025-02-21",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-03-06",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-03-07",
+          "rows": 2,
+          "log_range": 0.00047
+        },
+        {
+          "date": "2025-03-11",
+          "rows": 2,
+          "log_range": 0.000469
+        },
+        {
+          "date": "2025-03-12",
+          "rows": 3,
+          "log_range": 1.153293
+        },
+        {
+          "date": "2025-03-13",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-03-14",
+          "rows": 3,
+          "log_range": 0.000234
+        },
+        {
+          "date": "2025-03-17",
+          "rows": 2,
+          "log_range": 0.000234
+        },
+        {
+          "date": "2025-03-18",
+          "rows": 3,
+          "log_range": 0.000234
+        },
+        {
+          "date": "2025-05-13",
+          "rows": 2,
+          "log_range": 0.015487
+        },
+        {
+          "date": "2025-05-27",
+          "rows": 2,
+          "log_range": 0.010915
+        },
+        {
+          "date": "2025-06-04",
+          "rows": 2,
+          "log_range": 0.001271
+        },
+        {
+          "date": "2025-06-19",
+          "rows": 2,
+          "log_range": 0.01699
+        },
+        {
+          "date": "2025-06-23",
+          "rows": 2,
+          "log_range": 0.000427
+        }
+      ],
+      "anomalies": [
+        {
+          "date": "2025-04-14",
+          "reason": "one-day log-mid change exceeds threshold",
+          "previous_date": "2025-04-11",
+          "previous_mid": 1076.499,
+          "mid": 1192.9895,
+          "gap_days": 3,
+          "log_change": 0.1027
+        }
+      ]
+    },
+    {
+      "name": "ambito_mayorista_2025H2.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2025-07-01/2025-12-31",
+      "range": [
+        "2025-07-01",
+        "2025-12-31"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a367abbcd9f60384239ad4d54888e728e929a639e6b76dcf5cea5fdf8ec223ea",
+      "rows": 137,
+      "dates": 123,
+      "collapsed_rows": 14,
+      "dates_with_multiple_rows": 13,
+      "within_day_log_range_max": 0.014062,
+      "first_date": "2025-07-01",
+      "last_date": "2025-12-30",
+      "within_day_dispersion": [
+        {
+          "date": "2025-07-01",
+          "rows": 2,
+          "log_range": 0.014062
+        },
+        {
+          "date": "2025-08-01",
+          "rows": 2,
+          "log_range": 0.007329
+        },
+        {
+          "date": "2025-08-06",
+          "rows": 2,
+          "log_range": 0.004885
+        },
+        {
+          "date": "2025-08-08",
+          "rows": 2,
+          "log_range": 0.001134
+        },
+        {
+          "date": "2025-08-11",
+          "rows": 2,
+          "log_range": 0.003031
+        },
+        {
+          "date": "2025-08-21",
+          "rows": 2,
+          "log_range": 0.010741
+        },
+        {
+          "date": "2025-09-18",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-10-22",
+          "rows": 3,
+          "log_range": 0.000674
+        },
+        {
+          "date": "2025-10-30",
+          "rows": 2,
+          "log_range": 0.0042
+        },
+        {
+          "date": "2025-10-31",
+          "rows": 2,
+          "log_range": 0.004871
+        },
+        {
+          "date": "2025-11-05",
+          "rows": 2,
+          "log_range": 0.003455
+        },
+        {
+          "date": "2025-11-06",
+          "rows": 2,
+          "log_range": 0.0
+        },
+        {
+          "date": "2025-12-16",
+          "rows": 2,
+          "log_range": 0.008679
+        }
+      ],
+      "anomalies": []
+    },
+    {
+      "name": "ambito_mayorista_2026H1.json",
+      "series": "mayorista",
+      "url": "https://mercados.ambito.com/dolar/mayorista/historico-general/2026-01-01/2026-06-30",
+      "range": [
+        "2026-01-01",
+        "2026-06-30"
+      ],
+      "status": "cached-complete",
+      "sha256_stored": "a999ebc197f2628815e4e0b772d36c1589a43a6200d4e06433b6e3597a6462c1",
+      "rows": 143,
+      "dates": 119,
+      "collapsed_rows": 24,
+      "dates_with_multiple_rows": 6,
+      "within_day_log_range_max": 0.004882,
+      "first_date": "2026-01-01",
+      "last_date": "2026-06-29",
+      "within_day_dispersion": [
+        {
+          "date": "2026-01-20",
+          "rows": 6,
+          "log_range": 0.002445
+        },
+        {
+          "date": "2026-01-30",
+          "rows": 2,
+          "log_range": 0.000693
+        },
+        {
+          "date": "2026-02-12",
+          "rows": 5,
+          "log_range": 0.002879
+        },
+        {
+          "date": "2026-06-04",
+          "rows": 10,
+          "log_range": 0.004882
+        },
+        {
+          "date": "2026-06-08",
+          "rows": 3,
+          "log_range": 0.00417
+        },
+        {
+          "date": "2026-06-09",
+          "rows": 4,
+          "log_range": 0.003475
+        }
+      ],
+      "anomalies": []
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "B5-1": {
+    "dates_checked": 1457,
+    "passed": true,
+    "tolerance": 1e-12,
+    "worst_date": "2025-05-07",
+    "worst_friction_discrepancy": 8.916478666520788e-16,
+    "worst_index_discrepancy": 8.881784197001252e-16
+  },
+  "B5-2": {
+    "dates_checked": 1457,
+    "passed": true,
+    "worst_diagonal": 0.0
+  },
+  "B5-6": {
+    "headline_pair": "oficial-informal",
+    "noise_floor": 0.00260079,
+    "noise_floor_from": "median deviation of the calibration arm",
+    "passed": true,
+    "signal_over_noise": 385.14365552531865,
+    "threshold": 4.0
+  },
+  "B5-7": {
+    "dates_pre": 236,
+    "passed": true,
+    "rms_pre": 0.4996398687581931,
+    "signal_over_noise_pre": 192.11080816144062,
+    "window": [
+      "2024-04-14",
+      "2025-04-13"
+    ]
+  },
+  "B5-8": {
+    "caveat": "MEP and CCL are clean with respect to the deleted cap and not with respect to every rule: the cross-restriction was removed on the intervention date and reimposed in September 2025, inside the post-window (PROJECT_PLAN 14.5). `informal` is the only class whose access was never rule-bound, which is why oficial-informal is the headline pair.",
+    "collapse_band": 0.3333333333333333,
+    "control": {
+      "informal-ccl": 1.049885,
+      "informal-mep": 0.711775,
+      "mep-ccl": 0.99918
+    },
+    "control_all_above_band": true,
+    "form": "control pairs, not the friction column; see prereg 3.2a and 3.2b",
+    "passed": true,
+    "persistence_band": 0.6666666666666666,
+    "treated": {
+      "oficial-ccl": 0.177,
+      "oficial-informal": 0.101663,
+      "oficial-mep": 0.109605
+    },
+    "treated_all_below_band": true,
+    "treated_class": "oficial"
+  },
+  "classes": {
+    "ccl": 1976,
+    "informal": 1612,
+    "mep": 1840,
+    "oficial": 1660
+  },
+  "criteria": [
+    {
+      "detail": "worst 8.92e-16 against 1e-12, over 1,457 dates",
+      "name": "B5-1 walked square equals the closed form",
+      "passed": true
+    },
+    {
+      "detail": "worst diagonal 0.0e+00, off the same matrix every other number comes from",
+      "name": "B5-2 trivial square is exactly zero",
+      "passed": true
+    },
+    {
+      "detail": "S/N 385 against 4, floor 2.601e-03 from the calibration arm",
+      "name": "B5-6 headline clears the noise floor",
+      "passed": true
+    },
+    {
+      "detail": "pre-window rms 0.4996 over 236 dates, S/N 192",
+      "name": "B5-7 squares do not vanish before the intervention",
+      "passed": true
+    },
+    {
+      "detail": "treated 0.102, 0.110, 0.177 (<= 0.333); control 0.712, 1.050, 0.999 (>= 0.667)",
+      "name": "B5-8 treated premia collapse, untouched ones do not",
+      "passed": true
+    }
+  ],
+  "friction_column": {
+    "runs": false,
+    "why": "S + S' needs two classes that each publish a spread. MEP and CCL have no native two-sided quote (prereg 3.3), and oficial's spread has no source: three candidates were audited and all three failed (prereg 3.2a, experiments/b5_friction.py). B5-8 was therefore rewritten to use control pairs rather than the friction column (prereg 3.2b)."
+  },
+  "headline_sources": "prereg 3.1; oficial is BCRA A 3500, not Ambito",
+  "intervention": "2025-04-14",
+  "not_evaluated": {
+    "B5-11": "needs the FRICTION COLUMN, which has no source at all (prereg 3.2a). Not a P2P problem: it dies with B5-8's original form. An earlier version of this file filed it under P2P, which would have sent the next reader looking for the wrong thing.",
+    "B5-12": "needs the P2P class, not retrieved",
+    "B5-13": "needs the P2P class, not retrieved",
+    "B5-9": "needs the P2P class, not retrieved"
+  },
+  "pairs": {
+    "informal-ccl": {
+      "dates": 1607,
+      "dates_post": 204,
+      "dates_pre": 237,
+      "friction_available": false,
+      "friction_retrieved": false,
+      "group": "control",
+      "rms": 0.11897169554033017,
+      "rms_post": 0.069602842258182,
+      "rms_pre": 0.06629571234589958,
+      "signal_over_noise": 45.74444516486536
+    },
+    "informal-mep": {
+      "dates": 1471,
+      "dates_post": 204,
+      "dates_pre": 237,
+      "friction_available": false,
+      "friction_retrieved": false,
+      "group": "control",
+      "rms": 0.10606274400094357,
+      "rms_post": 0.04633870711319856,
+      "rms_pre": 0.06510302953949348,
+      "signal_over_noise": 40.780971935813184
+    },
+    "mep-ccl": {
+      "dates": 1840,
+      "dates_post": 254,
+      "dates_pre": 259,
+      "friction_available": false,
+      "friction_retrieved": false,
+      "group": "control",
+      "rms": 0.07492534243467751,
+      "rms_post": 0.04234823024782829,
+      "rms_pre": 0.04238299044559207,
+      "signal_over_noise": 28.808685989517613
+    },
+    "oficial-ccl": {
+      "dates": 1645,
+      "dates_post": 233,
+      "dates_pre": 244,
+      "friction_available": false,
+      "friction_retrieved": false,
+      "group": "treated",
+      "rms": 0.9953641169968274,
+      "rms_post": 0.08545088946088704,
+      "rms_pre": 0.4827725466777346,
+      "signal_over_noise": 382.7160658864527
+    },
+    "oficial-informal": {
+      "dates": 1596,
+      "dates_post": 201,
+      "dates_pre": 236,
+      "friction_available": false,
+      "friction_retrieved": false,
+      "group": "treated",
+      "rms": 1.0016777678536934,
+      "rms_post": 0.05079508218344948,
+      "rms_pre": 0.4996398687581931,
+      "signal_over_noise": 385.14365552531865
+    },
+    "oficial-mep": {
+      "dates": 1510,
+      "dates_post": 233,
+      "dates_pre": 244,
+      "friction_available": false,
+      "friction_retrieved": false,
+      "group": "treated",
+      "rms": 0.9753042719781034,
+      "rms_post": 0.050154355257275456,
+      "rms_pre": 0.4575919568021431,
+      "signal_over_noise": 375.0030844389987
+    }
+  },
+  "registered_in": "docs/b5_orphan_prereg.md 2, 6",
+  "stage": "B5-squares",
+  "verdicts": {
+    "B5-1": true,
+    "B5-2": true,
+    "B5-6": true,
+    "B5-7": true,
+    "B5-8": true
+  },
+  "window": [
+    "2019-09-01",
+    "2026-06-30"
+  ]
+}

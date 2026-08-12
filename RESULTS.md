@@ -7,9 +7,13 @@ Failed criteria are listed alongside passing ones. A results file that records
 only successes is the same kind of object as a statistic designed to look good,
 and this project's own argument is about that kind of object.
 
-Last generated: 2026-08-11
+**No generation date here on purpose.** This file is regenerated in CI and then
+compared against the committed copy with ``git diff --exit-code``. Git already
+records when a file was committed and by whom, and a "last generated" line would
+guarantee that check fails on every day after the commit day, on content that is
+character-for-character identical.
 
-## A0b ¡ª derived demand on the downward edge
+## A0b â€” derived demand on the downward edge
 
 `rounds=800` `seed=7`
 
@@ -50,7 +54,7 @@ Derived quantities:
 - `flow_balance` = 2.3685
 
 
-## A0 ¡ª retention and allocation
+## A0 â€” retention and allocation
 
 `rounds=400` `seed=7`
 
@@ -156,7 +160,7 @@ Derived quantities:
 
 </details>
 
-## A2 ¡ª support-set contraction and the intermediate layer
+## A2 â€” support-set contraction and the intermediate layer
 
 `rounds=600` `seed=0`
 
@@ -173,7 +177,7 @@ Derived quantities:
 | PASS | A2-7  H2: three-layer at zero elasticity matches two-layer at unity | three-layer 3.2428e-138 against two-layer at e=1 7.8382e-66 and at e=0 17.4309 |
 | PASS | A2-8  zero autonomous edges collapses; one rescues | 0 edges 3.243e-138, 1 edge 22.7300 (75% of the maximum), 30 edges 30.4821 |
 
-## A2c ¡ª cycle structure of the realized graph
+## A2c â€” cycle structure of the realized graph
 
 `rounds=600` `seed=0`
 
@@ -198,10 +202,10 @@ Derived quantities:
 | | criterion | detail |
 |---|---|---|
 | PASS | A3-1  the closed channel reproduces A2 bitwise | largest absolute difference over 5 seeds and four series: 0.000e+00. Not a tolerance: anything but zero is a different model |
-| PASS | A3-2  a gap opens between agents who started level | entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in ¡ì5.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero |
-| PASS | A3-3  the gap compounds rather than levelling off | largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in ¡ì5.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken |
+| PASS | A3-2  a gap opens between agents who started level | entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in Â§5.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero |
+| PASS | A3-3  the gap compounds rather than levelling off | largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in Â§5.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken |
 | PASS | A3-4  the realised terms differential is the loop sum | mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16 |
-| **FAIL** | A3-5  the gate binds at the high tier, not at ownership | price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per ¡ì6.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure |
+| **FAIL** | A3-5  the gate binds at the high tier, not at ownership | price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per Â§6.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure |
 | **FAIL** | A3-6  a stock exists, and A4's domain is exactly who holds it | median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring |
 | PASS | A3-7  non-overlapping windows agree in sign | better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing |
 
@@ -287,7 +291,7 @@ Derived quantities:
 `rounds=300` `seed=?`
 
 
-## B1 ¡ª the enlarged graph, and what stage B2 measured
+## B1 â€” the enlarged graph, and what stage B2 measured
 
 500 cells enumerated over 25,942 loans `spread_bound=20.0`
 
@@ -309,7 +313,7 @@ Derived quantities:
 - `within_cell_variance` = 0.3379
 - `worst_relative_error_per_cell` = 0.0000
 
-## B2A ¡ª dispersion in financing terms at fixed position and date
+## B2A â€” dispersion in financing terms at fixed position and date
 
 20,071,740 loans `min_cell_size=20` `spread_bound=20.0` 160 rows outside the plausibility band
 
@@ -332,7 +336,7 @@ Derived quantities:
 - `bound_sweep_range` = 0.0010
 - `within_share_ranked_nothing_excluded` = 0.7654
 
-## B2B ¡ª vintage separation in the outstanding stock (H-zero, not H-one)
+## B2B â€” vintage separation in the outstanding stock (H-zero, not H-one)
 
 53 quarters, 2013Q1 to 2026Q1
 
@@ -351,7 +355,7 @@ Derived quantities:
 - `smallest_across_quarters` = 0.3018
 - `loop_a_within_cell_variance` = 0.3363
 
-## B2A placebo ¡ª conventional against FHA and VA
+## B2A placebo â€” conventional against FHA and VA
 
 `min_cell_size=20` `spread_bound=20.0` `registered_min_gap=0.05` 409,181 tract-years common to all programmes
 
@@ -371,3 +375,71 @@ Derived quantities:
 - `va` = 0.6666
 - `gap_conventional_minus_va` = 0.1814
 - `split_half_null_largest_gap` = 0.0014
+
+## B3
+
+_no sample metadata recorded_
+
+
+## B4 â€” the directed theorem
+
+`shapes_drawn=24`
+
+**8/8 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B4-1  Theorem 4: Bellman-Ford agrees with cycle enumeration | 24 agree, 0 disagree over 24 graphs; 5 admit a sub-potential and 19 carry a positive cycle |
+| PASS | B4-2  the returned potential satisfies every edge inequality | worst breach 0.000e+00 over 5 potentials against 1e-09 |
+| PASS | B4-3  Theorem 5: a sink component gives an unbounded ray | 31 graphs with a proper sink; worst violation over shifts up to 1e+06 is 1.179e-11 |
+| PASS | B4-4  Theorem 5: strong connectivity bounds the polytope | 24 strongly connected graphs; every proper subset breaks (smallest breach 1.000e+06); every coordinate interval is finite, non-empty and contains the returned potential, widest 2.055 |
+| PASS | B4-5  Theorem 6(1): the symmetric part is non-positive | worst w_bar -4.284e-04 over 24 fields against 1e-09 |
+| PASS | B4-6  Theorem 6(3): the antisymmetric case reproduces Theorem 1 bitwise | 12 fields, 0 mismatches; potentials compared as raw bytes after centring on the minimum |
+| PASS | B4-7  section 5.1: the directed square splits into friction and index | worst \|S+S' - friction\| 1.110e-15, worst \|S-S' - index\| 8.882e-16 over 226 squares |
+| PASS | B4-8  section 5.1: a common spread moves the friction and not the index | index unchanged to 8.882e-16; friction moved by at least 2.223e-01 |
+
+## B5 source audit â€” the friction column has no source (REJECT)
+
+_no sample metadata recorded_
+
+
+## B5 source audit â€” the P2P control class has no usable source (REJECT)
+
+_no sample metadata recorded_
+
+
+## B5 pre-window guards â€” B5-14 failed, and B5-15 was written after it
+
+_no sample metadata recorded_
+
+**1/2 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| **FAIL** | B5-14 no pre-existing trend explains B5-8's collapse | collapse under test 0.4488; informal-mep dama 0.898; informal-ccl dama 0.775; mep-ccl dama 0.844; band 0.25 |
+| PASS | B5-15 the premium at the window's edge, no threshold in either leg | (a) last pre bucket 0.3866 against post max 0.0801, 4.83x; (b) treated ratio 8.21 against the closest control informal-mep at 0.84, 9.80x; no threshold in either leg |
+
+## B5 â€” the agent index on one conversion, and what the April 2025 intervention did to it
+
+_no sample metadata recorded_
+
+**5/5 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B5-1 walked square equals the closed form | worst 8.92e-16 against 1e-12, over 1,457 dates |
+| PASS | B5-2 trivial square is exactly zero | worst diagonal 0.0e+00, off the same matrix every other number comes from |
+| PASS | B5-6 headline clears the noise floor | S/N 385 against 4, floor 2.601e-03 from the calibration arm |
+| PASS | B5-7 squares do not vanish before the intervention | pre-window rms 0.4996 over 236 dates, S/N 192 |
+| PASS | B5-8 treated premia collapse, untouched ones do not | treated 0.102, 0.110, 0.177 (<= 0.333); control 0.712, 1.050, 0.999 (>= 0.667) |
+
+## B5 calibration â€” the wholesale market read by two parsers
+
+_no sample metadata recorded_
+
+**2/2 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B5-4 two formats, each parser refuses the other | byte-identical False, cross-refusals True/True |
+| PASS | B5-3 two parsers agree within the derived bounds | median 2.601e-03 against 0.02, 0 dates over 0.5, on 1,648 dates |

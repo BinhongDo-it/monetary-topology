@@ -1,0 +1,252 @@
+{
+  "generated_utc": "2026-08-11T17:51:30+00:00",
+  "stage": "B5",
+  "endpoint": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/{code}?fechadesde={start}&fechahasta={end}",
+  "endpoint_verified": "2026-08-11",
+  "currency_code": "REF",
+  "window": [
+    "2019-09-01",
+    "2026-06-30"
+  ],
+  "provenance": "Banco Central de la Republica Argentina, Comunicacion A 3500 reference rate, currency code REF. Free, no key. This is the one authoritative source in stage B5 and it supplies the oficial class's headline mid; every other series is a newspaper's or an aggregator's quote. It is a reference rate and carries no bid or ask, so the oficial class's friction term must come from Banco de la Nacion instead, per b5_orphan_prereg.md 3.2.",
+  "chunks": [
+    {
+      "name": "bcra_ref_2019H2.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2019-09-01&fechahasta=2019-12-31",
+      "range": [
+        "2019-09-01",
+        "2019-12-31"
+      ],
+      "status": "downloaded",
+      "bytes": 12470,
+      "rows": 82,
+      "first_date": "2019-09-02",
+      "last_date": "2019-12-31",
+      "sha256_source": "6fc98002db865cf8cf815378e9a24436421292f24a7704425aa06fa6815693de",
+      "sha256_stored": "6fc98002db865cf8cf815378e9a24436421292f24a7704425aa06fa6815693de",
+      "retrieved_utc": "2026-08-11T17:51:05+00:00"
+    },
+    {
+      "name": "bcra_ref_2020H1.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2020-01-01&fechahasta=2020-06-30",
+      "range": [
+        "2020-01-01",
+        "2020-06-30"
+      ],
+      "status": "downloaded",
+      "bytes": 18058,
+      "rows": 119,
+      "first_date": "2020-01-02",
+      "last_date": "2020-06-30",
+      "sha256_source": "0694d9bca1dc5f90a3674a37152e26dd3b9ef871d8c960fa6900c3bfc397506b",
+      "sha256_stored": "0694d9bca1dc5f90a3674a37152e26dd3b9ef871d8c960fa6900c3bfc397506b",
+      "retrieved_utc": "2026-08-11T17:51:06+00:00"
+    },
+    {
+      "name": "bcra_ref_2020H2.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2020-07-01&fechahasta=2020-12-31",
+      "range": [
+        "2020-07-01",
+        "2020-12-31"
+      ],
+      "status": "downloaded",
+      "bytes": 18511,
+      "rows": 122,
+      "first_date": "2020-07-01",
+      "last_date": "2020-12-31",
+      "sha256_source": "c4b8e2eb5b5f69ce40cd4ee11803bfcc9e4a088f746420fd420b9b5f1c5b5837",
+      "sha256_stored": "c4b8e2eb5b5f69ce40cd4ee11803bfcc9e4a088f746420fd420b9b5f1c5b5837",
+      "retrieved_utc": "2026-08-11T17:51:08+00:00"
+    },
+    {
+      "name": "bcra_ref_2021H1.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2021-01-01&fechahasta=2021-06-30",
+      "range": [
+        "2021-01-01",
+        "2021-06-30"
+      ],
+      "status": "downloaded",
+      "bytes": 18209,
+      "rows": 120,
+      "first_date": "2021-01-04",
+      "last_date": "2021-06-30",
+      "sha256_source": "a3e09a38baf6d1a4e243263e0e120e446a1368a0f718b1a0ed606c4e1c86ad6c",
+      "sha256_stored": "a3e09a38baf6d1a4e243263e0e120e446a1368a0f718b1a0ed606c4e1c86ad6c",
+      "retrieved_utc": "2026-08-11T17:51:10+00:00"
+    },
+    {
+      "name": "bcra_ref_2021H2.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2021-07-01&fechahasta=2021-12-31",
+      "range": [
+        "2021-07-01",
+        "2021-12-31"
+      ],
+      "status": "downloaded",
+      "bytes": 19001,
+      "rows": 125,
+      "first_date": "2021-07-01",
+      "last_date": "2021-12-31",
+      "sha256_source": "0ceaa7523d0743c267ecab19168ec71c80e69a3e754e8aea5f691de2a8a3237a",
+      "sha256_stored": "0ceaa7523d0743c267ecab19168ec71c80e69a3e754e8aea5f691de2a8a3237a",
+      "retrieved_utc": "2026-08-11T17:51:12+00:00"
+    },
+    {
+      "name": "bcra_ref_2022H1.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2022-01-01&fechahasta=2022-06-30",
+      "range": [
+        "2022-01-01",
+        "2022-06-30"
+      ],
+      "status": "downloaded",
+      "bytes": 18329,
+      "rows": 120,
+      "first_date": "2022-01-03",
+      "last_date": "2022-06-30",
+      "sha256_source": "f70b9f0942abb2ec00d991a2abada88e35393cf60e181fda02e56f544490a8f6",
+      "sha256_stored": "f70b9f0942abb2ec00d991a2abada88e35393cf60e181fda02e56f544490a8f6",
+      "retrieved_utc": "2026-08-11T17:51:14+00:00"
+    },
+    {
+      "name": "bcra_ref_2022H2.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2022-07-01&fechahasta=2022-12-31",
+      "range": [
+        "2022-07-01",
+        "2022-12-31"
+      ],
+      "status": "downloaded",
+      "bytes": 18937,
+      "rows": 124,
+      "first_date": "2022-07-01",
+      "last_date": "2022-12-30",
+      "sha256_source": "0cf51fc62a2d5605d46f883279302f0fe27bb6809b9b7b32d978f094e3192947",
+      "sha256_stored": "0cf51fc62a2d5605d46f883279302f0fe27bb6809b9b7b32d978f094e3192947",
+      "retrieved_utc": "2026-08-11T17:51:16+00:00"
+    },
+    {
+      "name": "bcra_ref_2023H1.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2023-01-01&fechahasta=2023-06-30",
+      "range": [
+        "2023-01-01",
+        "2023-06-30"
+      ],
+      "status": "downloaded",
+      "bytes": 18329,
+      "rows": 120,
+      "first_date": "2023-01-02",
+      "last_date": "2023-06-30",
+      "sha256_source": "70ce208efd968ecc4d4177fd8a14f4a000a8fec95b3ecd51adef2dcf0a737998",
+      "sha256_stored": "70ce208efd968ecc4d4177fd8a14f4a000a8fec95b3ecd51adef2dcf0a737998",
+      "retrieved_utc": "2026-08-11T17:51:17+00:00"
+    },
+    {
+      "name": "bcra_ref_2023H2.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2023-07-01&fechahasta=2023-12-31",
+      "range": [
+        "2023-07-01",
+        "2023-12-31"
+      ],
+      "status": "downloaded",
+      "bytes": 18785,
+      "rows": 123,
+      "first_date": "2023-07-03",
+      "last_date": "2023-12-29",
+      "sha256_source": "4ca49d90e0bc0a8de6449a36b225f2a254c0ae2bb6e90ff491c831d6b7573d97",
+      "sha256_stored": "4ca49d90e0bc0a8de6449a36b225f2a254c0ae2bb6e90ff491c831d6b7573d97",
+      "retrieved_utc": "2026-08-11T17:51:19+00:00"
+    },
+    {
+      "name": "bcra_ref_2024H1.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2024-01-01&fechahasta=2024-06-30",
+      "range": [
+        "2024-01-01",
+        "2024-06-30"
+      ],
+      "status": "downloaded",
+      "bytes": 18177,
+      "rows": 119,
+      "first_date": "2024-01-02",
+      "last_date": "2024-06-28",
+      "sha256_source": "2692eb3bd133073f4671addf661800af7f98f837c236d9c2da8086ede6d4c531",
+      "sha256_stored": "2692eb3bd133073f4671addf661800af7f98f837c236d9c2da8086ede6d4c531",
+      "retrieved_utc": "2026-08-11T17:51:21+00:00"
+    },
+    {
+      "name": "bcra_ref_2024H2.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2024-07-01&fechahasta=2024-12-31",
+      "range": [
+        "2024-07-01",
+        "2024-12-31"
+      ],
+      "status": "downloaded",
+      "bytes": 19271,
+      "rows": 126,
+      "first_date": "2024-07-01",
+      "last_date": "2024-12-31",
+      "sha256_source": "6f0121fe091fd37f418841d3d13cd8760a10d2aaa017b79c39930b35c1e6ba3d",
+      "sha256_stored": "6f0121fe091fd37f418841d3d13cd8760a10d2aaa017b79c39930b35c1e6ba3d",
+      "retrieved_utc": "2026-08-11T17:51:23+00:00"
+    },
+    {
+      "name": "bcra_ref_2025H1.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2025-01-01&fechahasta=2025-06-30",
+      "range": [
+        "2025-01-01",
+        "2025-06-30"
+      ],
+      "status": "downloaded",
+      "bytes": 18143,
+      "rows": 118,
+      "first_date": "2025-01-02",
+      "last_date": "2025-06-30",
+      "sha256_source": "0b3c0eeec8987f152f804af016035130f08b9e184b4e275fc60cc21636fcd512",
+      "sha256_stored": "0b3c0eeec8987f152f804af016035130f08b9e184b4e275fc60cc21636fcd512",
+      "retrieved_utc": "2026-08-11T17:51:25+00:00"
+    },
+    {
+      "name": "bcra_ref_2025H2.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2025-07-01&fechahasta=2025-12-31",
+      "range": [
+        "2025-07-01",
+        "2025-12-31"
+      ],
+      "status": "downloaded",
+      "bytes": 18908,
+      "rows": 123,
+      "first_date": "2025-07-01",
+      "last_date": "2025-12-31",
+      "sha256_source": "7faae6f35c6d1ea4e04c5bb3859cd7dcb47ce5ad5b7ba3eda4c3bc4946f549f2",
+      "sha256_stored": "7faae6f35c6d1ea4e04c5bb3859cd7dcb47ce5ad5b7ba3eda4c3bc4946f549f2",
+      "retrieved_utc": "2026-08-11T17:51:27+00:00"
+    },
+    {
+      "name": "bcra_ref_2026H1.json",
+      "series": "bcra_ref",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/REF?fechadesde=2026-01-01&fechahasta=2026-06-30",
+      "range": [
+        "2026-01-01",
+        "2026-06-30"
+      ],
+      "status": "downloaded",
+      "bytes": 18296,
+      "rows": 119,
+      "first_date": "2026-01-02",
+      "last_date": "2026-06-30",
+      "sha256_source": "0bc2325d64703a56d9cbbdfe47ffc5be17fde17970abb8ba88816a27fd165f68",
+      "sha256_stored": "0bc2325d64703a56d9cbbdfe47ffc5be17fde17970abb8ba88816a27fd165f68",
+      "retrieved_utc": "2026-08-11T17:51:29+00:00"
+    }
+  ]
+}

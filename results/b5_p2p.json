@@ -1,0 +1,48 @@
+{
+  "alive": {
+    "ending": "2025-11-18",
+    "longest_frozen_run_days": 47,
+    "passed": false,
+    "same_test_on_other_series": {
+      "mayorista": {
+        "ending": "2024-10-22",
+        "longest_frozen_run": 71
+      },
+      "oficial": {
+        "ending": "2020-02-11",
+        "longest_frozen_run": 106
+      },
+      "tarjeta": {
+        "ending": "2025-12-29",
+        "longest_frozen_run": 13
+      }
+    },
+    "threshold": 21
+  },
+  "audit": "candidate for the P2P agent class",
+  "candidate": "argentinadatos cripto",
+  "coverage": {
+    "passed": true,
+    "post_window_dates": 365,
+    "pre_window_dates": 365,
+    "threshold": 60
+  },
+  "dates": 1240,
+  "first_date": "2023-02-07",
+  "is_a_criterion": false,
+  "last_date": "2026-06-30",
+  "note_on_spread": "Where compra equals venta the series carries no spread, so the class contributes to the headline and not to any friction column. That column has no source anyway (prereg 3.2a).",
+  "refereed": {
+    "bias": "No clean sign, which is worse than a known direction: a stale control would track blue through its own staleness, and whether that inflates or deflates its premium against blue depends on which way blue moved.",
+    "possible": false,
+    "why": "There is no central bank for a crypto market and no second full-window collector. CriptoYa publishes bid and ask across thirty-six venues but only for the current moment. So this is the one series in stage B5 that b5_orphan_availability.md 7.4's referee requirement cannot be applied to, and the exemption is structural rather than an oversight."
+  },
+  "registered_in": "docs/b5_orphan_prereg.md 2.1, and 9.4 for provenance",
+  "stage": "B5-p2p-audit",
+  "two_sided_dates": 926,
+  "verdict": "reject",
+  "window": [
+    "2019-09-01",
+    "2026-06-30"
+  ]
+}

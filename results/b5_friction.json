@@ -1,0 +1,47 @@
+{
+  "alive": {
+    "ending": "2020-02-11",
+    "longest_frozen_run_days": 106,
+    "passed": false,
+    "same_test_on_other_series": {
+      "mayorista": {
+        "ending": "2024-10-22",
+        "longest_frozen_run": 71
+      },
+      "tarjeta": {
+        "ending": "2025-12-29",
+        "longest_frozen_run": 13
+      }
+    },
+    "threshold": 21
+  },
+  "audit": "candidate for the oficial friction leg",
+  "candidate": "argentinadatos oficial",
+  "dates": 2495,
+  "is_a_criterion": false,
+  "one_dealer": {
+    "ambito_oficial_for_contrast": {
+      "modal_share": 0.2889,
+      "modal_spread_ars": 6.0,
+      "note": "the source 3.2 rejected: a range across bank counters, whose spread is neither round nor stable"
+    },
+    "modal_share": 0.2906,
+    "modal_spread_ars": 6.0,
+    "passed": false,
+    "round_spread_share": 0.9743,
+    "threshold": 0.5
+  },
+  "registered_in": "docs/b5_orphan_prereg.md 3.2",
+  "right_level": {
+    "bound": 0.02,
+    "bound_from": "the calibration arm's registered systematic bound",
+    "median_deviation_from_bcra": 0.02896749,
+    "passed": false
+  },
+  "stage": "B5-friction-audit",
+  "verdict": "reject",
+  "window": [
+    "2019-09-01",
+    "2026-06-30"
+  ]
+}

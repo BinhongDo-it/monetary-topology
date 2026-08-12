@@ -1,0 +1,76 @@
+{
+  "generated_utc": "2026-08-12T00:41:44+00:00",
+  "stage": "B5",
+  "endpoint": "https://api.argentinadatos.com/v1/cotizaciones/dolares/{casa}",
+  "endpoint_verified": "2026-08-11",
+  "window": [
+    "2019-09-01",
+    "2026-06-30"
+  ],
+  "provenance": "argentinadatos is a community aggregator, not a central bank and not an exchange. Neither series retrieved here is an agent class and neither enters the headline. mayorista is the argentinadatos side of the zero calibration (b5_orphan_prereg.md 4.4): Ambito publishes the same number in a different format and the two must agree after passing through two different parsers, which is what makes the arm a test of this project's pipeline rather than of the publishers. tarjeta is a dating instrument for the tax regime (5.2); it is NOT a known-answer arm, because every free tarjeta series is computed by its publisher from that publisher's own oficial and cannot fail.",
+  "series": [
+    {
+      "name": "argentinadatos_mayorista.json",
+      "url": "https://api.argentinadatos.com/v1/cotizaciones/dolares/mayorista",
+      "status": "cached",
+      "sha256_stored": "d0f5dbfe8cf5454e21af95b13dd7cf42fa18b2bfeef108cf13b044b7871996d9",
+      "casa": "mayorista",
+      "purpose": "zero calibration, the argentinadatos-format counterpart (4.4)",
+      "rows": 5697,
+      "first_date": "2011-01-03",
+      "last_date": "2026-08-10",
+      "rows_in_window": 2495,
+      "window_first": "2019-09-01",
+      "window_last": "2026-06-30",
+      "covers_window_end": true
+    },
+    {
+      "name": "argentinadatos_tarjeta.json",
+      "url": "https://api.argentinadatos.com/v1/cotizaciones/dolares/tarjeta",
+      "status": "cached",
+      "sha256_stored": "3d9cdc6048b974b0a881b4e1479d8dfc56355504f4aa52c49958a6a73210e3f2",
+      "casa": "tarjeta",
+      "purpose": "dating instrument for the tax regime (5.2)",
+      "rows": 2421,
+      "first_date": "2019-12-23",
+      "last_date": "2026-08-10",
+      "rows_in_window": 2382,
+      "window_first": "2019-12-23",
+      "window_last": "2026-06-30",
+      "covers_window_end": true
+    },
+    {
+      "name": "argentinadatos_oficial.json",
+      "url": "https://api.argentinadatos.com/v1/cotizaciones/dolares/oficial",
+      "status": "cached",
+      "sha256_stored": "daf11f72a1a54bb57c31ef8a63d1071162d7d29bf5b5973e7389e35dbd940e38",
+      "casa": "oficial",
+      "purpose": "candidate for the oficial friction leg, REJECTED (3.2a)",
+      "rows": 5698,
+      "first_date": "2011-01-03",
+      "last_date": "2026-08-11",
+      "rows_in_window": 2495,
+      "window_first": "2019-09-01",
+      "window_last": "2026-06-30",
+      "covers_window_end": true
+    },
+    {
+      "name": "argentinadatos_cripto.json",
+      "url": "https://api.argentinadatos.com/v1/cotizaciones/dolares/cripto",
+      "status": "downloaded",
+      "bytes": 126655,
+      "sha256_source": "359ad358ac8ea54084e10133812269bc76af41c21c0331ee5956b163b9b293a1",
+      "sha256_stored": "359ad358ac8ea54084e10133812269bc76af41c21c0331ee5956b163b9b293a1",
+      "retrieved_utc": "2026-08-12T00:41:43+00:00",
+      "casa": "cripto",
+      "purpose": "candidate for the P2P agent class, unvalidated (2.1, 9.4)",
+      "rows": 1280,
+      "first_date": "2023-02-07",
+      "last_date": "2026-08-11",
+      "rows_in_window": 1240,
+      "window_first": "2023-02-07",
+      "window_last": "2026-06-30",
+      "covers_window_end": true
+    }
+  ]
+}

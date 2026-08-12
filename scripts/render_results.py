@@ -13,7 +13,6 @@ Usage::
 from __future__ import annotations
 
 import json
-from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,7 +28,11 @@ Failed criteria are listed alongside passing ones. A results file that records
 only successes is the same kind of object as a statistic designed to look good,
 and this project's own argument is about that kind of object.
 
-Last generated: {today}
+**No generation date here on purpose.** This file is regenerated in CI and then
+compared against the committed copy with ``git diff --exit-code``. Git already
+records when a file was committed and by whom, and a "last generated" line would
+guarantee that check fails on every day after the commit day, on content that is
+character-for-character identical.
 """
 
 STAGE_TITLES = {
@@ -41,6 +44,29 @@ STAGE_TITLES = {
     "B2A": "B2A — dispersion in financing terms at fixed position and date",
     "B2A-placebo": "B2A placebo — conventional against FHA and VA",
     "B2B": "B2B — vintage separation in the outstanding stock (H-zero, not H-one)",
+    "B4": "B4 — the directed theorem",
+    "B5-calibration": (
+        "B5 calibration — the wholesale market read by two parsers"
+    ),
+    "B5-squares": (
+        "B5 — the agent index on one conversion, and what the April 2025 "
+        "intervention did to it"
+    ),
+    # The two audits carry no `criteria` block: they are source audits rather
+    # than pre-registered criteria, and a reader must not mistake one for the
+    # other. Their verdict therefore travels in the title.
+    "B5-friction-audit": (
+        "B5 source audit — the friction column has no source (REJECT)"
+    ),
+    "B5-p2p-audit": (
+        "B5 source audit — the P2P control class has no usable source (REJECT)"
+    ),
+    # Both criteria here guard B5-8's pre-window. B5-14 failed and B5-15 was
+    # written afterwards; the title says so, because a reader scanning the
+    # contents should not have to reach §6B.3 to learn the ordering.
+    "B5-parallel-trends": (
+        "B5 pre-window guards — B5-14 failed, and B5-15 was written after it"
+    ),
 }
 
 PRESET_TITLES = {
@@ -83,7 +109,7 @@ def subtitle(record: dict) -> str:
         return f"`rounds={record['rounds']}` `seed={record.get('seed', '?')}`"
 
     bits = []
-    for key in ("min_cell_size", "spread_bound", "registered_min_gap"):
+    for key in ("min_cell_size", "spread_bound", "registered_min_gap", "shapes_drawn"):
         if key in record:
             bits.append(f"`{key}={record[key]}`")
     for key, label in (
@@ -203,11 +229,16 @@ def main() -> int:
         print(f"no records found in {RESULTS}")
         return 1
 
-    parts = [HEADER.format(today=date.today().isoformat())]
+    parts = [HEADER]
     for path in records:
-        parts.append(render_stage(json.loads(path.read_text())))
+        parts.append(render_stage(json.loads(path.read_text(encoding="utf-8"))))
 
-    OUT.write_text("\n".join(parts))
+    # Encoding is pinned on both ends. Without it Path.read_text/write_text use
+    # the platform's preferred encoding, so the same records render to different
+    # bytes on Windows (cp936) and on the Linux runner, and the CI step that
+    # diffs this file against the committed copy fails on content that is
+    # identical. The titles below contain em dashes, so this is not hypothetical.
+    OUT.write_text("\n".join(parts), encoding="utf-8", newline="\n")
     print(f"wrote {OUT.relative_to(ROOT)} from {len(records)} record(s)")
     return 0
 

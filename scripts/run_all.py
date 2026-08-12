@@ -58,6 +58,26 @@ DATA_STAGES = [
     ),
     ("B1   enlarged graph", "experiments/b1_theorem.py", "b1_theorem.json"),
     ("B2B  vintage separation", "experiments/b2_loop_b.py", "b2_loop_b.json"),
+    # Needs the retrieved Ámbito and BCRA archives, so it belongs here rather
+    # than with the synthetic stages. Its two criteria gate everything else in
+    # B5: `b5_orphan_prereg.md` §8 says no headline without a calibration.
+    (
+        "B5   zero calibration",
+        "experiments/b5_zero_calibration.py",
+        "b5_zero_calibration.json",
+    ),
+    # Must run after the calibration: it reads that stage's result file for its
+    # noise floor and refuses to start if the arm did not pass, which is
+    # `b5_orphan_prereg.md` §8 expressed as an import rather than as a note.
+    ("B5   squares", "experiments/b5_squares.py", "b5_squares.json"),
+    # Must run after the squares: B5-14's denominator is B5-8's collapse and it
+    # reads that record rather than recomputing it, refusing to start if B5-8
+    # did not pass. `b5_orphan_prereg.md` §6A.6, the same gate shape again.
+    (
+        "B5   pre-window guards",
+        "experiments/b5_parallel_trends.py",
+        "b5_parallel_trends.json",
+    ),
 ]
 
 #: B1 without its real-data criterion, so a checkout with no download still

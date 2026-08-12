@@ -194,3 +194,93 @@ the SHA-256 so that case is visible instead of invisible.
 
 **Citation is required by the publisher**: Du, Keerati and Schreger (2025); Du,
 Im and Schreger (2018); Du and Schreger (2016).
+
+---
+
+## Stage B5: Argentina's simultaneous peso-dollar quotes
+
+**The provenance here is the lowest in this file and that is the first thing to
+say: four of the seven series are a newspaper's quotes.** Every stage before this
+one rested on a government release or, in B3, on a research dataset with a
+published construction. Ámbito Financiero is a daily paper. `b5_orphan_prereg.md`
+§9.4 puts this admission at the top of the write-up rather than in a footnote,
+and the mitigation is that the oficial leg's headline comes from the central
+bank, so at least one side of every premium is authoritative.
+
+| | |
+|---|---|
+| endpoint | `https://mercados.ambito.com/<series>/historico-general/<YYYY-MM-DD>/<YYYY-MM-DD>` |
+| verified | 2026-08-11 |
+| retrieved by | `data/fetch_ambito.py`, manifest at `data/raw/ambito_manifest.json` |
+| files | `ambito_<series>_<year>.json`, per-year chunks, resumable |
+| window | 2019-09-01 to 2026-06-30, registered in `b5_orphan_prereg.md` §7 |
+
+| series | endpoint path | fields | usable for |
+|---|---|---|---|
+| oficial | `dolar/oficial` | `Fecha, Compra, Venta` | **cross-check only**, see below |
+| blue | `dolar/informal` | `Fecha, Compra, Venta` | headline mid **and** friction |
+| MEP | `dolarrava/mep` | `Fecha, Referencia` | headline mid only |
+| CCL | **`dolarrava/cl`** | `Fecha, Referencia` | headline mid only |
+
+**The CCL path is `cl` and not `ccl`.** `b5_orphan_availability.md` §7.1 listed
+`dolarrava/ccl` with the parenthetical "(same shape)", reasoned from the MEP path
+rather than requested. It 404s on every range. Corrected 2026-08-11 after the
+first retrieval, and recorded because the parenthetical was the tell: **an
+endpoint that was inferred is not a verified endpoint.**
+
+**This endpoint returns intraday snapshots, not a daily series.** A date can
+carry between two and nine rows with different values and no timestamps; 385 of
+the first run's 5,248 rows were repeat dates. Registered collapse rule
+(`b5_orphan_prereg.md` §3.5): **each date is represented by the single row whose
+mid is that date's median mid**, lower median on ties, selecting a whole row so
+that bid and ask stay paired from one published quote. Median rather than mean
+because 21 August 2024 returns `954.12 / 300.76 / 953.17` for one date; median
+rather than closing because there are no timestamps to identify a close. **The
+raw files keep every snapshot**; the collapse happens on load, and the per-date
+row count and log range go into the manifest.
+
+**Definitional basis.** Every value is pesos per dollar. The mid is
+**geometric**, `sqrt(Compra · Venta)`, because the claim is stated in logs
+(`b5_orphan_prereg.md` §3.4). Dates are `DD/MM/YYYY` and **the decimal separator
+is a comma** with periods grouping thousands; the retriever asserts the token
+format on every row rather than checking a plausibility band, because a
+hundredfold misreading at the 2019 end of the window lands inside any band loose
+enough to admit the 2026 end.
+
+**Ámbito's `dolar/oficial` is not the oficial leg, and this is a definitional
+distinction not a preference.** It returns e.g. `1071.36 / 1125.54` for 22 April
+2025, a gap near five percent, which is a **range across retail bank counters**
+and not one dealer's spread. Using it as the friction term would put dispersion
+across banks — an agent index — into a quantity defined as one agent's
+round-trip cost. Registered split, `b5_orphan_prereg.md` §3.2:
+
+- headline mid for oficial → **BCRA Comunicación A 3500**
+- friction term for oficial → **Banco de la Nación Argentina** posted counter rates
+
+**Three series this stage needs are not retrieved yet**: BCRA A 3500, BNA counter
+rates, and an `ARS/USDT` P2P mid. Their endpoints were **not verified** by
+`b5_orphan_availability.md`, and a retriever written against an unverified
+endpoint is first tested on the day the data is needed.
+
+**MEP and CCL have no bid and ask, and that is not a gap in the source.** MEP is
+a ratio of two bond prices (`AL30` against `AL30D`), so it has no native
+two-sided quote. Consequence: the friction column exists **only** for the
+oficial–blue pair. **Constructing a synthetic spread for MEP or CCL from another
+series, a lagged quote, or an OHLC range is prohibited** — it fills the gap with
+exactly the quantity in dispute (`b4_directed_edges.md` §5.2). Investing.com was
+proposed for this and rejected on these grounds.
+
+**Anomalies are recorded and never repaired.** A row whose one-day change in the
+log mid exceeds `0.10` is written to the manifest as a `DataAnomaly` and **its
+value is not changed and the row is not dropped**. The known instance is
+`dolar/oficial` on 23 April 2025, reading `1251.44 / 1333.24` between neighbours
+near `1100`. A jump filter cannot separate a composition change from a bad row
+from a real liquidity event three weeks into a float, and in this window it fires
+on genuine moves, so the threshold's only job is to populate the list that
+criterion B5-10 computes the headline with and without.
+
+**No completion marker, unlike `fetch_cip.py`.** A truncated CSV still parses as
+a CSV, which is why that script appends a sentinel. A truncated JSON array does
+not parse, and the write goes through a temporary file and a rename, so a chunk
+on disk is either wholly there or absent. Both hashes are still recorded, for the
+reason `PROJECT_PLAN.md` §11.11 gives.

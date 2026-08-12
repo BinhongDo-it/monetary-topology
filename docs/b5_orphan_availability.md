@@ -203,7 +203,8 @@ faked.
 
 **Cost.** Two daily series over roughly 2019–2026, a few thousand rows.
 `.gitignore` already excludes `data/raw/*`; the fetcher must be resumable and
-must detect truncation, per `CLAUDE.md`.
+must detect truncation, which this repository requires of anything that
+downloads: retrieved data is treated as non-regenerable.
 
 ---
 
@@ -255,15 +256,56 @@ Invoked to supply the two-sided quotes §7.2 shows do not exist. Its historical
 export is **OHLC, not bid and ask**, so it would not supply them even if they
 did. Two failures in series, and the route is dropped.
 
-### 7.4 Demoted, not adopted: Kaggle history dumps
+### 7.4 Demoted, not adopted: Kaggle history dumps **of the Ámbito series**
 
 Proposed as a historical baseline to avoid rate limits. **A Kaggle CSV is a third
 party's scrape of the endpoint in §7.1, with no published construction and behind
 an account.** That is strictly worse provenance than the thing it copies, and
 convenience is the wrong reason to accept a step down when the original is
 reachable. `b3_slice_availability.md` §4's rule applies: auditable beats
-convenient. Rate limiting is a fetcher problem, and `CLAUDE.md` already requires
-the fetcher to be resumable.
+convenient. Rate limiting is a fetcher problem, and every fetcher in this
+repository is already required to be resumable.
+
+**Amended 2026-08-11. The ruling above is conditional and the condition is in
+its own text: "when the original is reachable."** It was written about the
+Ámbito series, where the original *is* reachable, and it does not extend to
+sources where it is not.
+
+**It therefore does not bar a Kaggle dump for the P2P leg**, where Binance
+publishes no historical interface at all, only current order-book depth. There
+the dump is not a step down from a reachable original; it is the only record
+that exists. The general principle stands and is narrower than it first read:
+*prefer the original where there is one*, not *refuse third-party collection*.
+This project scrapes a newspaper's internal endpoint for four of its series, so
+a blanket objection to third-party collection would rule out most of the stage.
+
+**What a third-party dump still owes, and this is definitional rather than a
+provenance complaint.** Any P2P series adopted must state, in `data/SOURCES.md`
+alongside every other source: which venue, which side of the book, what
+aggregation over the day's orders, and at what hour it was sampled. Those are the
+same four questions `SOURCES.md` asks of a government release. A series whose
+construction cannot be stated cannot enter the headline, whoever collected it,
+because `MEASUREMENT.md` §2 needs to know what the denominator is.
+
+**And one condition the same day supplied, at cost.** The amended rule above was
+tested within hours of being written. argentinadatos' `mayorista` series was
+adopted as one half of the calibration arm on two hand-checked dates, and over
+the window it turned out to **freeze**: an unchanged sell quote for up to 71 days,
+flat at `365.45` through the 13 December 2023 devaluation while both Ámbito and
+the central bank moved to about `800`. See `b5_orphan_prereg.md` §4.4.
+
+**The lesson is not that third-party collection is bad.** The same publisher's
+`tarjeta` series tracked that devaluation correctly, so the fault is in one
+series rather than in the collector. The lesson is narrower and it is now a
+condition on the amendment:
+
+> **A third-party series may be adopted, and must be checked against an
+> independent referee over the whole window before it carries anything.** Two
+> agreeing dates are not a check. Here the referee was BCRA's A 3500, which the
+> stage already retrieves, and the check cost one experiment run.
+
+This is the same discipline `MEASUREMENT.md` rule 7 applies to measurements,
+moved one level out to sources.
 
 ### 7.5 Corrected: the known-answer arm's tax schedule
 
@@ -308,9 +350,9 @@ substituting BNA's rate when the row looks bad, is rejected.** Two reasons.
 
 **Substitution is repair, and repair is what this project forbids.** Replacing a
 value in one series with a value from another silently changes what the series
-is, and the change is invisible downstream. `CLAUDE.md` §5's principle applies to
-values as much as to files: leave it in place, mark it, and make the code ignore
-what it should not read.
+is, and the change is invisible downstream. **This repository does not repair**,
+and the rule applies to values as much as to files: leave it in place, mark it,
+and make the code ignore what it should not read.
 
 **A jump filter cannot tell the third candidate from the first two, and in this
 window it will fire on real moves.** The stage's whole subject is a period when

@@ -1,0 +1,78 @@
+{
+  "B5-3": {
+    "dates_compared": 1648,
+    "dates_over_partial_bound": 0,
+    "dates_over_systematic_bound": 45,
+    "max": 0.107336,
+    "median": 0.00260079,
+    "p90": 0.00803468,
+    "partial_bound": 0.5,
+    "passed": true,
+    "smallest_parse_error_it_must_catch": 4.6052,
+    "systematic_bound": 0.02,
+    "worst_dates": []
+  },
+  "B5-3b": {
+    "closest_counts": {
+      "first": 59,
+      "last": 70,
+      "median": 40
+    },
+    "dates_with_multiple_ambito_rows": 115,
+    "note": "Diagnostic. The registered collapse rule stays the median for this stage whatever this shows; changing it here would be choosing a rule after seeing which one agreed (prereg 4.4a). Ties count for every rule that achieves the minimum, so the shares may sum above one.",
+    "registered_rule": "median",
+    "registered_rule_wins": false,
+    "shares": {
+      "first": 0.513,
+      "last": 0.6087,
+      "median": 0.3478
+    },
+    "winner": "last"
+  },
+  "B5-4": {
+    "ambito_parser_refuses_bcra_payload": true,
+    "argentinadatos_parser_refuses_ambito_payload": true,
+    "bcra_parser_refuses_ambito_payload": true,
+    "passed": true,
+    "payloads_byte_identical": false
+  },
+  "arm": "bounded agreement, Ambito mayorista against BCRA A 3500",
+  "coverage": {
+    "ambito_dates": 1651,
+    "ambito_rows": 1890,
+    "bcra_dates": 1660,
+    "multi_row_dates": 115,
+    "pre_window_shared": 243,
+    "shared_dates_in_window": 1648
+  },
+  "criteria": [
+    {
+      "detail": "byte-identical False, cross-refusals True/True",
+      "name": "B5-4 two formats, each parser refuses the other",
+      "passed": true
+    },
+    {
+      "detail": "median 2.601e-03 against 0.02, 0 dates over 0.5, on 1,648 dates",
+      "name": "B5-3 two parsers agree within the derived bounds",
+      "passed": true
+    }
+  ],
+  "diagnostics": [
+    "B5-3b"
+  ],
+  "instrument_not_agent_class": true,
+  "registered_in": "docs/b5_orphan_prereg.md 4.4, 4.4a, 4.5",
+  "stage": "B5-calibration",
+  "verdicts": {
+    "B5-3": true,
+    "B5-4": true
+  },
+  "window": [
+    "2019-09-01",
+    "2026-06-30"
+  ],
+  "withdrawn_arm": {
+    "was": "Ambito mayorista against argentinadatos mayorista",
+    "why": "argentinadatos' mayorista freezes: longest unchanged sell quote 71 days, and it sits at 365.45 through the 13 December 2023 devaluation while Ambito and BCRA both move to about 800. The premise that the two are one number is false. Its tarjeta series does not have the fault and is kept for prereg 5.2."
+  }
+}
