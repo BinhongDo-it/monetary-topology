@@ -428,8 +428,8 @@ family background.
 
 ### 9.3 Open defect: `uniform_access` also flattens the opening holdings, and that biases `A(X)` upward
 
-Raised by the original stage-design session on review, and not found by the
-session that wrote §9.1. **Not repaired here.**
+Raised on review of the original stage design, and not found by the pass that
+wrote §9.1. **Not repaired here.**
 
 §9.1 justified four consequences of switching `C` off on one ground: each is
 defined *by layer* in stage A2 and a complete graph has no layers to define it
@@ -462,8 +462,7 @@ pre-result change since no A4 criterion has yet been evaluated.
 
 ## 10. The discriminant is replaced: `C` upstream means `C` decides where `H¹` acts
 
-**Registered 2026-08-10, third hand-off session, before any A4 code is run
-against it.** The amplification ratio of §4 is not withdrawn; it is demoted to a
+**Registered 2026-08-10, before any A4 code is run against it.** The amplification ratio of §4 is not withdrawn; it is demoted to a
 secondary reading, for three reasons already on the record and one new one.
 
 **Why the Gini ratio is the wrong instrument.** The Gini is bounded and the

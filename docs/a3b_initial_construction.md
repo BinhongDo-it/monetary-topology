@@ -265,7 +265,7 @@ those until `σ(t) = f(observable graph features)` exists with `f` fixed across
 epochs. With epoch-varying parameters the model fits anything and the fourth
 correspondence standard, predictive power, goes to zero.
 
-Recorded with the numbers rather than as a decision, because a later session
+Recorded with the numbers rather than as a decision, because a later pass
 will otherwise "discover" that tier appreciation is missing and add a rule for
 something the model already produces.
 

@@ -540,7 +540,7 @@ def a3_6(seeds: range) -> Criterion:
 
     **The threshold is carried over and that is disclosed rather than hidden.**
     `A3_6_SURVIVAL` was registered against the median-node version, which
-    failed, and it is being applied to a new domain by a session that has
+    failed, and it is being applied to a new domain by an author who has
     already seen the richest node's number. It is kept because lowering it would
     be worse, not because carrying it is clean.
 
@@ -883,7 +883,7 @@ def main() -> int:
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     #: Only a run at the registered parameters may claim the registered
-    #: filename. A hand-off session lost the stored 5-seed result by running
+    #: filename. A hand-off once lost the stored 5-seed result by running
     #: two seeds for a hundred and twenty rounds to check that a new code path
     #: executed; nothing warned it, because the writer did not care what it had
     #: been asked to run. Off-parameter runs land under their own name.

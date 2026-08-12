@@ -7,7 +7,7 @@ registers the one arm that can settle it. If the intervention in §4 runs and
 returns a verdict, this document's §5 becomes the basis for rewriting
 `a3_asset_channel.md`; if it does not run, nothing here is a result.
 
-Written 2026-08-10, third hand-off session.
+Written 2026-08-10.
 
 ---
 

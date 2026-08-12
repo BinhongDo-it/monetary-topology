@@ -1209,9 +1209,60 @@ unasked.
 gives the reason: B5-12 attributes its estimate to the intervention, and a
 control touched twice by that intervention cannot carry the attribution.
 
----
+### 8.3 "The market simply got more liquid", and what actually bears on it
 
-## 9. What this stage cannot establish
+**The objection put to this stage most often is that the premium collapsed
+because the market became more liquid rather than because an eligibility rule was
+deleted.** It arrives in two forms and they are not equally serious. Separating
+them is most of the answer.
+
+**The first form is answered by algebra and needs no data.** B4 §5.1 splits a
+two-way edge into
+
+```
+S − S'  =  2 · log( mid_b / mid_a )              the headline
+S + S'  =  log(bid_a/ask_a) + log(bid_b/ask_b)   the friction
+```
+
+so the bid and ask **cancel out of the headline by construction**. What collapsed
+is the ratio of two *eligibility classes'* mid quotes; a bid-ask spread is a cost
+*within* one class. Those are different objects, and a market-wide narrowing of
+spreads cannot move the first. This is also why §3.2a's missing friction column,
+which is a real and disclosed loss, is not the loss this particular objection
+needs it to be: `S + S'` was never the quantity that ruled out a liquidity story.
+
+**The second form does reach the headline, and §8 already names it as the failure
+mode this stage is most exposed to.** If the blue rate carried a premium for its
+own thinness, or if the April 2025 convergence was a level convergence produced
+by the devaluation, then something other than eligibility moved the gap. Nothing
+in the algebra excludes that.
+
+**What bears on it is the control group, computed on the same quotes in the same
+units.** A force acting on the whole market compresses every premium, not only
+the one containing the treated class. Over the same two windows:
+
+| pair | rms pre | rms post | post / pre |
+|---|---|---|---|
+| `oficial–informal`, treated | 0.4996 | 0.0508 | **0.102** |
+| `informal–mep` | 0.0651 | 0.0463 | 0.712 |
+| `informal–ccl` | 0.0663 | 0.0696 | 1.050 |
+| `mep–ccl` | 0.0424 | 0.0423 | **0.999** |
+
+`mep–ccl` moved by one part in a thousand across a year containing the
+intervention. B5-15's leg (a) is the second thing that bears on it, from the
+opposite direction and entirely inside the treated pair: on the eve of the
+intervention the premium stood 4.8 times above the highest level it reached in
+the whole following year, so whatever was closing the gap had not closed it.
+
+**Background citations exist and they are background.** BCRA publishes the
+balance cambiario and its statistical annex monthly back to 2003, and they
+describe what the market did around the intervention: volumes, the behaviour of
+household dollar purchases, the range the peso traded in. `data/SOURCES.md`
+lists them under a heading that says what they are for. They may be cited in a
+discussion of the market and they may not be read by a criterion, and the reason
+to keep that line sharp is that the strongest evidence against the liquidity
+story is already in the table above, in this stage's own measurements. A
+paragraph of context does not need to carry weight it would carry badly.
 
 ### 9.1 The `H⁰` half is not here, and the reason is not fixable by a bigger sample
 

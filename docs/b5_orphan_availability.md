@@ -3,10 +3,10 @@
 **Not a pre-registration. A check, run before deciding whether to open a stage**,
 as `PROJECT_PLAN.md` §13.5 requires. Same discipline as
 `b3_slice_availability.md`, and for the same reason: the last time this project
-assumed a source was reachable it was wrong in both directions within one
-session.
+assumed a source was reachable it was wrong in both directions, and both errors
+surfaced inside the same check.
 
-Run 2026-08-11, third hand-off session. Written **after**
+Run 2026-08-11. Written **after**
 `docs/b4_directed_edges.md`, because B4 changes what has to be retrieved.
 
 ---

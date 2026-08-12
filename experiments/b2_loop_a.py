@@ -70,7 +70,7 @@ class Criterion:
 
 #: Filenames the loader will accept: ``hmda_<two-letter state>_<year>.csv``.
 #:
-#: This exists because an earlier session left a synthetic fixture in the data
+#: This exists because an earlier run left a synthetic fixture in the data
 #: directory and the advice given for removing it was a recursive delete of the
 #: whole directory, which destroyed a completed download. A loader that recognises
 #: what belongs to the sample needs no manual deletion at all, so the dangerous

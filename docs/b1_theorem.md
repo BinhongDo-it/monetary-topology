@@ -465,8 +465,7 @@ generalisation.
 
 ## 12. Correction to §10: the square complex would not unlock anything
 
-**Added 2026-08-10, third hand-off session, after a review that was about to
-build it.**
+**Added 2026-08-10, after a review that was about to build it.**
 
 §10 records that `topology.py` builds 2-cells from triangles, that the natural
 2-cells of a Cartesian product are squares, and that "a curl-versus-harmonic

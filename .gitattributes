@@ -1,0 +1,18 @@
+# Line endings belong to this repository, not to whoever cloned it.
+#
+# Without this file the working-tree convention is whatever each machine's
+# core.autocrlf happens to be, and this project has three of those at once:
+# true on the author's Windows machine, unset in the Linux sandbox the analysis
+# is checked in, unset on the CI runner. One generated file then reads clean on
+# one of them and as a whole-file diff on another with no value changed
+# anywhere, which is eighteen thousand lines of noise for a reviewer to look
+# past.
+#
+# Every writer of a generated file also pins `newline="\n"` where it writes.
+# That is the same rule stated per call site; this is the repository-level
+# version, so a file produced by hand, by an editor, or by a tool that forgets
+# is covered as well. The two are deliberately redundant.
+
+* text=auto eol=lf
+
+*.png binary

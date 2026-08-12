@@ -284,3 +284,37 @@ a CSV, which is why that script appends a sentinel. A truncated JSON array does
 not parse, and the write goes through a temporary file and a rename, so a chunk
 on disk is either wholly there or absent. Both hashes are still recorded, for the
 reason `PROJECT_PLAN.md` §11.11 gives.
+
+### Background only, and the line between the two categories
+
+**Nothing in this subsection is retrieved, parsed or measured.** These are
+citations for the prose that describes the market around the intervention, and
+the distinction is the one every research paper makes between its data and its
+literature. A criterion may not read them, and no number in `results/` comes from
+them. `b5_orphan_prereg.md` §8.3 is where they are used and where the line is
+restated at the point of use.
+
+The rule that a third-party series needs an independent referee across the whole
+window before it carries anything (`b5_orphan_availability.md` §7.4) governs
+**series that enter a measurement**. It does not govern a citation in a
+discussion section, and reading it that way would forbid citing the literature at
+all.
+
+| publication | what it carries | period | form |
+|---|---|---|---|
+| BCRA, *Informe de la Evolución del Mercado de Cambios y Balance Cambiario* | monthly report on purchases and sales through the exchange market | to 2026-04 | PDF |
+| BCRA, *Anexo estadístico del informe de balance cambiario* | the report's statistical annex | 2003-01 onward, monthly | PDF |
+| BCRA, *Estadísticas estandarizadas sobre la Evolución del Mercado de Cambios* | standardised monthly series, disaggregated by sector and by concept | 2003 onward | spreadsheet |
+
+**Cite the central bank, not a newspaper's transcription of it.** Household
+dollar purchases circulate in the press as a headline figure; in BCRA's own
+terms the line is **Formación de Activos Externos del Sector Privado No
+Financiero**, and it is published in the annex above. Taking it from the annex
+rather than from a report of the annex costs one lookup and removes an
+intermediary.
+
+**There is a second reason to prefer BCRA here specifically.** This stage's
+headline already takes the oficial leg from BCRA's A 3500 reference
+(`b5_orphan_prereg.md` §3.1). Sourcing the background from the same central bank
+means a reviewer does not find authoritative data under the criteria and press
+reports under the discussion.

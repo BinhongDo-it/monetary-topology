@@ -1,6 +1,6 @@
 # A3: the asset channel
 
-**Rewritten 2026-08-10, third hand-off session.** The previous document is kept
+**Rewritten 2026-08-10.** The previous document is kept
 in full at `a3_asset_channel.md.expired1` — nothing is deleted — and it remains
 the record of how the stage got here. This one is what the stage *is*.
 
@@ -287,7 +287,7 @@ in `MEASUREMENT.md`. **That file is the long tail that does not survive
 compression into a hand-off note, and it is why the same error kept recurring
 under different names.**
 
-Four more were added by this session, all on the P-C measure, and they are worth
+Four more are added here, all on the P-C measure, and they are worth
 naming because they were found in sequence on the same quantity:
 
 1. A ratio of percentiles returned infinity, because the production layer's
@@ -407,8 +407,8 @@ on ten never was.
 
 **A3-6 fails on the corrected domain, and the correction made it fail harder.**
 The threshold is carried over from the median-node version and that is
-disclosed rather than hidden: it is being applied to a new domain by a session
-that had already seen the richest node's number, and it is kept because
+disclosed rather than hidden: it is being applied to a new domain by an author
+who had already seen the richest node's number, and it is kept because
 lowering it would be worse than carrying it.
 
 **Three consequences, and the third is the one that matters for A4.**

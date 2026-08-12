@@ -6,7 +6,7 @@ as `PROJECT_PLAN.md` §13.5 requires: "项目到目前为止全部跑在免费�
 government data. FX would break that. Run an availability check before opening
 the stage; do not assume.*)
 
-Run 2026-08-10, third hand-off session.
+Run 2026-08-10.
 
 ---
 
@@ -126,7 +126,7 @@ slice direction**", which completes Volume II's mathematics. It would not read
 
 ## 5. What this check withdraws
 
-**An earlier conclusion in this session — that the slice summand is
+**An earlier conclusion reached during this check — that the slice summand is
 "structurally unreachable on free data" and should be recorded as a permanent
 limitation — is withdrawn.** It was reached after finding that raw forwards are
 paywalled and before checking whether the derived forward premium is published
