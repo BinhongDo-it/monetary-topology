@@ -1,0 +1,587 @@
+{
+  "criteria": [
+    {
+      "name": "A6-7",
+      "passed": true
+    },
+    {
+      "name": "A6-8",
+      "passed": true
+    },
+    {
+      "name": "A6-9",
+      "passed": true
+    },
+    {
+      "name": "A6-10",
+      "passed": false
+    },
+    {
+      "name": "A6-11",
+      "passed": false
+    },
+    {
+      "name": "A6-13",
+      "passed": true
+    }
+  ],
+  "fixed_point": {
+    "passed": true,
+    "rows": [
+      {
+        "absorption": 0.0001,
+        "expected": 10000.0,
+        "gap": 9999.99999985448,
+        "injection": 1.0,
+        "relative_error": 1.4551915228366852e-11,
+        "rounds": 1801000
+      },
+      {
+        "absorption": 0.0001,
+        "expected": 34.0,
+        "gap": 33.99999999828651,
+        "injection": 0.0034,
+        "relative_error": 5.039670641588814e-11,
+        "rounds": 1801000
+      },
+      {
+        "absorption": 0.0001,
+        "expected": 2500000.0,
+        "gap": 2499999.999962747,
+        "injection": 250.0,
+        "relative_error": 1.4901161193847657e-11,
+        "rounds": 1801000
+      },
+      {
+        "absorption": 0.001,
+        "expected": 1000.0,
+        "gap": 999.9999999981956,
+        "injection": 1.0,
+        "relative_error": 1.8044374883174896e-12,
+        "rounds": 181000
+      },
+      {
+        "absorption": 0.001,
+        "expected": 3.4,
+        "gap": 3.400000000027603,
+        "injection": 0.0034,
+        "relative_error": 8.118603828426571e-12,
+        "rounds": 181000
+      },
+      {
+        "absorption": 0.001,
+        "expected": 250000.0,
+        "gap": 249999.99999953806,
+        "injection": 250.0,
+        "relative_error": 1.8477439880371095e-12,
+        "rounds": 181000
+      },
+      {
+        "absorption": 0.01,
+        "expected": 100.0,
+        "gap": 99.99999999997817,
+        "injection": 1.0,
+        "relative_error": 2.1827872842550277e-13,
+        "rounds": 19000
+      },
+      {
+        "absorption": 0.01,
+        "expected": 0.33999999999999997,
+        "gap": 0.3399999999998471,
+        "injection": 0.0034,
+        "relative_error": 4.4964032497318845e-13,
+        "rounds": 19000
+      },
+      {
+        "absorption": 0.01,
+        "expected": 25000.0,
+        "gap": 24999.999999994412,
+        "injection": 250.0,
+        "relative_error": 2.2351741790771485e-13,
+        "rounds": 19000
+      },
+      {
+        "absorption": 0.1,
+        "expected": 10.0,
+        "gap": 10.0,
+        "injection": 1.0,
+        "relative_error": 0.0,
+        "rounds": 2800
+      },
+      {
+        "absorption": 0.1,
+        "expected": 0.033999999999999996,
+        "gap": 0.03399999999999537,
+        "injection": 0.0034,
+        "relative_error": 1.3612477158547417e-13,
+        "rounds": 2800
+      },
+      {
+        "absorption": 0.1,
+        "expected": 2500.0,
+        "gap": 2500.0,
+        "injection": 250.0,
+        "relative_error": 0.0,
+        "rounds": 2800
+      }
+    ],
+    "tolerance": 1e-09
+  },
+  "lambda_curve": {
+    "bands": {
+      "exp": {
+        "contiguous": true,
+        "high": 0.01,
+        "low": 0.0,
+        "non_empty": true,
+        "points": [
+          0.0,
+          0.001,
+          0.01
+        ]
+      },
+      "hill": {
+        "contiguous": true,
+        "high": 0.01,
+        "low": 0.0,
+        "non_empty": true,
+        "points": [
+          0.0,
+          0.001,
+          0.01
+        ]
+      }
+    },
+    "cells": {
+      "exp/lambda=0": {
+        "absorption": 0.0,
+        "end_over_start": [
+          1.1843622597427055,
+          1.1529125076441573
+        ],
+        "final_gap_over_opening_claims": [
+          73.38040445981338,
+          74.2770486124648
+        ],
+        "final_leak_factor": [
+          0.48007926917609045,
+          0.4757939074145989
+        ],
+        "open_in_every_seed": true,
+        "seeds_above_start": 2,
+        "seeds_below_start": 0,
+        "shape": "exp",
+        "tail_trend": [
+          0.045806143418733646,
+          0.04085521247707833
+        ]
+      },
+      "exp/lambda=0.001": {
+        "absorption": 0.001,
+        "end_over_start": [
+          1.1396697437661079,
+          1.11068855949088
+        ],
+        "final_gap_over_opening_claims": [
+          66.79694012876134,
+          67.6001745702564
+        ],
+        "final_leak_factor": [
+          0.512748708252105,
+          0.5086466307338112
+        ],
+        "open_in_every_seed": true,
+        "seeds_above_start": 2,
+        "seeds_below_start": 0,
+        "shape": "exp",
+        "tail_trend": [
+          0.039720834768442494,
+          0.03541615814379059
+        ]
+      },
+      "exp/lambda=0.01": {
+        "absorption": 0.01,
+        "end_over_start": [
+          0.9651410105905301,
+          0.9455162527457777
+        ],
+        "final_gap_over_opening_claims": [
+          32.79183799240979,
+          33.13920491786232
+        ],
+        "final_leak_factor": [
+          0.7204218181891825,
+          0.7179236524817386
+        ],
+        "open_in_every_seed": true,
+        "seeds_above_start": 0,
+        "seeds_below_start": 2,
+        "shape": "exp",
+        "tail_trend": [
+          0.013598383193377568,
+          0.012024547299330314
+        ]
+      },
+      "hill/lambda=0": {
+        "absorption": 0.0,
+        "end_over_start": [
+          1.0735773227615661,
+          1.0473624520437483
+        ],
+        "final_gap_over_opening_claims": [
+          74.74065683202348,
+          75.59413212629991
+        ],
+        "final_leak_factor": [
+          0.5722766631015301,
+          0.5694951123313894
+        ],
+        "open_in_every_seed": true,
+        "seeds_above_start": 2,
+        "seeds_below_start": 0,
+        "shape": "hill",
+        "tail_trend": [
+          0.030032576941157095,
+          0.026636400095914108
+        ]
+      },
+      "hill/lambda=0.001": {
+        "absorption": 0.001,
+        "end_over_start": [
+          1.0522091587515712,
+          1.0272988103463045
+        ],
+        "final_gap_over_opening_claims": [
+          67.91225549772325,
+          68.6798431658594
+        ],
+        "final_leak_factor": [
+          0.5955491438286107,
+          0.5928390619955228
+        ],
+        "open_in_every_seed": true,
+        "seeds_above_start": 2,
+        "seeds_below_start": 0,
+        "shape": "hill",
+        "tail_trend": [
+          0.026904812915398636,
+          0.023855121019178162
+        ]
+      },
+      "hill/lambda=0.01": {
+        "absorption": 0.01,
+        "end_over_start": [
+          0.9483937773740321,
+          0.9295044341744361
+        ],
+        "final_gap_over_opening_claims": [
+          33.01803968438703,
+          33.35780647883766
+        ],
+        "final_leak_factor": [
+          0.7517777305790313,
+          0.7498623638194652
+        ],
+        "open_in_every_seed": true,
+        "seeds_above_start": 0,
+        "seeds_below_start": 2,
+        "shape": "hill",
+        "tail_trend": [
+          0.010815398347936336,
+          0.009506601679364476
+        ]
+      }
+    },
+    "floor": 0.9,
+    "passed": true,
+    "rate": 0.005,
+    "rounds": 200
+  },
+  "lambda_grid": [
+    0.0,
+    0.001,
+    0.01
+  ],
+  "long_rounds": 200,
+  "reduction_guard": {
+    "mismatch_count": 0,
+    "mismatches": [],
+    "pairs": 32,
+    "passed": true,
+    "rates": [
+      0.0,
+      0.06
+    ],
+    "rounds": 80
+  },
+  "rescan": {
+    "A6-10": false,
+    "A6-11": false,
+    "infrastructure": {
+      "exp/lambda=0.001": {
+        "at_grid_floor": true,
+        "band_contiguous": [
+          true,
+          true
+        ],
+        "band_high": [
+          0.04,
+          0.04
+        ],
+        "channel": "infrastructure",
+        "contracted_by_rate": [
+          [
+            true,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "grid": [
+          0.0,
+          0.005,
+          0.01,
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.12,
+          0.16,
+          0.24,
+          0.32,
+          0.48,
+          0.64,
+          0.8,
+          0.95
+        ],
+        "median": 0.005,
+        "monotone_above": false,
+        "rates": [
+          0.005,
+          0.005
+        ],
+        "rounds": 200,
+        "unsolved_seeds": 0
+      },
+      "hill/lambda=0.001": {
+        "at_grid_floor": true,
+        "band_contiguous": [
+          true,
+          true
+        ],
+        "band_high": [
+          0.12,
+          0.08
+        ],
+        "channel": "infrastructure",
+        "contracted_by_rate": [
+          [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "grid": [
+          0.0,
+          0.005,
+          0.01,
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.12,
+          0.16,
+          0.24,
+          0.32,
+          0.48,
+          0.64,
+          0.8,
+          0.95
+        ],
+        "median": 0.005,
+        "monotone_above": false,
+        "rates": [
+          0.005,
+          0.005
+        ],
+        "rounds": 200,
+        "unsolved_seeds": 0
+      }
+    },
+    "judged_cells": [
+      "exp/lambda=0.001"
+    ],
+    "ratios": {
+      "exp/lambda=0.001": {
+        "all_below_threshold": true,
+        "is_upper_bound": true,
+        "median": 0.08333333333333334,
+        "per_seed": [
+          0.08333333333333334,
+          0.08333333333333334
+        ]
+      },
+      "hill/lambda=0.001": {
+        "all_below_threshold": true,
+        "is_upper_bound": true,
+        "median": 0.08333333333333334,
+        "per_seed": [
+          0.08333333333333334,
+          0.08333333333333334
+        ]
+      }
+    },
+    "threshold": 0.75,
+    "transfer": {
+      "at_grid_floor": false,
+      "band_contiguous": [
+        true,
+        true
+      ],
+      "band_high": [
+        0.95,
+        0.95
+      ],
+      "channel": "transfer",
+      "contracted_by_rate": [
+        [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      ],
+      "grid": [
+        0.0,
+        0.005,
+        0.01,
+        0.02,
+        0.04,
+        0.06,
+        0.08,
+        0.12,
+        0.16,
+        0.24,
+        0.32,
+        0.48,
+        0.64,
+        0.8,
+        0.95
+      ],
+      "median": 0.06,
+      "monotone_above": true,
+      "rates": [
+        0.06,
+        0.06
+      ],
+      "rounds": 200,
+      "unsolved_seeds": 0
+    }
+  },
+  "rescan_lambdas": [
+    0.001
+  ],
+  "rounds": 80,
+  "seeds": 2,
+  "shape_agreement": {
+    "band_non_empty_agrees": true,
+    "passed": true,
+    "scan_verdict_agrees": true
+  },
+  "shapes": [
+    "exp",
+    "hill"
+  ],
+  "stage": "A6-ratchet",
+  "thresholds": {
+    "A6-11 ratio": 0.75,
+    "A6-8 relative": 1e-09,
+    "A6-9 floor": 0.9,
+    "A6-9 rate": 0.005
+  }
+}

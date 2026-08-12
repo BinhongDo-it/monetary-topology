@@ -70,6 +70,14 @@ status and by the operation you are performing.
 | **II** | `tasaPublica` | natural persons, on the retained fixed schedule | **none**, on the same ground |
 | **III** | `tasaEspecial` | the managed float opened 2025-12-18, with a cap of USD 100 per purchase operation for individuals | **both directions quoted**, buy and sell, at every channel in §2.2 |
 
+**The eligibility rules are cited to the regulation, not to the press.** They are
+established by `Resolución 127/2025` and `Resolución 128/2025` of the Banco
+Central de Cuba, *Reglamento del Mercado Cambiario*, published in the Gaceta
+Oficial and effective 2025-12-18. **The `H⁰` typing of §3.4 rests entirely on
+what those resolutions say about the return leg**, so the write-up cites them
+and not a newspaper's account of them, the same discipline `b5` applied to
+BCRA's own annex over press transcriptions of it.
+
 **This is `b2_measurement.md`'s cell structure printed by a central bank**: one
 position pair, several agent classes, terms differing by who the agent is rather
 than by what is bought. `PROJECT_PLAN.md` §9.4's ruling that the orphan currency
@@ -662,6 +670,24 @@ model for writing that.
 2025-01-01 to 2025-12-31 returns nine rows, all on or after 2025-12-19. There is
 no pre-window formal leg, and the stage does not construct one from press
 reports of scattered dates, which would be selection on the outcome.
+
+**The framework has no capacity, and the agent factor in this data is coarser
+than in the law.** Segment III caps an individual at USD 100 per operation and
+gates it behind an appointment. That quota does work, and it does it **through
+the topology**: the edge exists for someone buying a hundred dollars for travel
+and does not exist for anyone moving arbitrage size, which is two agent classes
+of which one has the edge. **The response is not to give edges a capacity** —
+that would turn `H⁰` and `H¹` from different objects into a difference of
+degree, and Theorems 4 to 6 are reachability statements with no flow in them.
+The response is a **size band as a coordinate of the agent index**, admissible
+here by B5's own test: `parallel_rates.py` excluded Argentina's wholesale rate
+because nobody is admitted to it by a rule and excluded from it by another, and
+Cuba's hundred-dollar cap **is** such a rule.
+
+**What that costs this stage is a data limit rather than a gap in the theory.**
+The bank publishes one rate irrespective of size, so the agent factor visible
+here is coarser than the one the regulation defines, and no criterion in this
+document separates a size band from another. Stated as scope.
 
 **`C → D` does not return.** `PROJECT_PLAN.md` §14.3.1 dropped the connectivity
 index because one country cannot supply a `C` worth reporting. Cuba adds two

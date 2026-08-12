@@ -216,7 +216,17 @@
       0.15055297843982876,
       0.9295113597083257
     ],
-    "stationary": false
+    "end_over_start": [
+      1.6585552307165583,
+      0.07225256276232137,
+      1.5979605175323148,
+      1.85515307950932,
+      0.15169799693156494
+    ],
+    "seeds_collapsed": 2,
+    "seeds": 5,
+    "stationary": false,
+    "open_in_every_seed": false
   },
   "palma": {
     "palma_start": 16.2719645918603,
