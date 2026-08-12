@@ -25,8 +25,20 @@ often one-way. This document generalises to directed edges, and the result is
 | the right null object | a potential `φ` with `ω = d⁰φ` | a **sub-potential** `φ` with `ω ≤ d⁰φ` |
 | exists iff | every cycle sums to zero | **no directed cycle sums positive** (Thm 4) |
 | how hard to satisfy | hard | **easy**; one-sided constraints are weaker |
-| pinned down? | unique up to a constant per component | **unique up to a constant iff strongly connected** (Thm 5) |
+| pinned down? | unique up to a constant per component | **bounded modulo constants iff strongly connected** (Thm 5) |
 | a non-zero loop means | the obstruction | **either friction or the obstruction**, and the two separate (Thm 6) |
+
+**"Bounded" and not "unique", and the difference is not pedantic.** An earlier
+version of this table said *unique up to a constant*, which Theorem 5 does not
+say and its proof does not show. Strong connectivity bounds every coordinate
+difference; it does not collapse the sub-potential polytope to a point. The
+polytope is a single point only when the field is exact, `ω = d⁰φ`, which in the
+directed setting is the special case rather than the rule. A canonical potential
+therefore has to be **chosen** by an extra rule, such as the pointwise largest
+or smallest admissible one, and cannot be deduced from connectivity. Corrected
+2026-08-11; the theorem statement in §4 and the proof were right throughout, and
+the error was confined to this summary table, which is the part a reader sees
+first.
 
 Three consequences that change what the next stage may claim.
 

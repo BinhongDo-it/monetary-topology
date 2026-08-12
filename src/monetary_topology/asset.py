@@ -292,9 +292,10 @@ class AssetSpec:
     #: before any mechanism runs and "the production layer holds nothing" is
     #: partly a statement about this number. Both large marketised economies sit
     #: in the same narrow place: the United States at 146.7M units over 132.7M
-    #: households, or ``1.11``; urban China's 套户比 at ``1.09``, up from ``0.8``
-    #: in 1978. A3b registers ``1.1`` with the tier ratio ``6 : 3 : 1`` left
-    #: alone, so supply and tier structure cannot be confounded later.
+    #: households, or ``1.11``; urban China's 套户比 (dwelling-to-household
+    #: ratio) at ``1.09``, up from ``0.8`` in 1978. A3b registers ``1.1`` with
+    #: the tier ratio ``6 : 3 : 1`` left alone, so supply and tier structure
+    #: cannot be confounded later.
     units_per_node: float = 0.0
 
     #: Share of nodes owning a dwelling at ``t = 0`` under ``occupancy`` and

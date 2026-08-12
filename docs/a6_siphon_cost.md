@@ -391,3 +391,125 @@ is not made here.
 **`R*` is therefore not a meaningful price for arm I beyond the short horizon**,
 and the `R*(I)/R*(T)` ratio of `0.083` should be read as "the rate does not
 control this channel" rather than as "this channel is twelve times cheaper".
+
+---
+
+## 12. A6-6: the frontier ratchet, ruled 2026-08-11, designed and not yet built
+
+`PROJECT_PLAN.md` §16.3 carries the same ruling in the plan's own terms. This
+section is the version a reader of *this* stage needs.
+
+### 12.1 Widening the scan is not the fix, and §11 already said why
+
+A proposal to extend the tax-rate grid was considered and **rejected on the
+evidence already in this document**. Three sentences above:
+
+- the grid **already runs to `0.95`**;
+- raising the levy makes the two failing seeds **worse**, not better;
+- `invested` only ever increases, so `R` sets **how fast** the arm saturates
+  rather than **where it stops**.
+
+A monotone stock has no fixed point, whatever shape the effect function takes.
+Scanning wider searches for something the model structurally cannot have, and
+would return "still no steady state" after burning the compute.
+
+### 12.2 The mechanism is obsolescence, and obsolescence is not depreciation
+
+Depreciation says the asset wears out. What actually happens to social
+infrastructure is that **the asset is fine and the world moved past it**.
+
+Barefoot doctors, then township clinics, then hospitals. Anaesthesia from *make
+the patient stop moving* to precision medicine. Prussian compulsory schooling to
+a modern nine-year system. Each was **enormously useful in its own period**;
+once absorbed into what is taken for granted, **the same provision at the same
+position delivers less**, because the frontier rose.
+
+Two state variables rather than one:
+
+```
+K ← K + I                  what has been built. Monotone. Nothing wears out.
+B ← B + λ·(K − B)          the absorbed baseline. Monotone. This is the wall.
+effect = g(K − B)          the effect comes from standing above the baseline,
+                           not from K itself. g concave and bounded.
+```
+
+**Steady state.** With `dK/dt = I` and `dB/dt = λ(K−B)`, the gap settles at
+**`K − B → I/λ`**. That is the fixed point A6-5 could not find, and it arrives
+from the mechanism rather than being bolted on. Its comparative statics are also
+the right ones: **investment must continue for the economy to stay above the
+frontier, and stopping does not destroy the stock, it only stops buying
+advantage.** Depreciation would say that stopping makes the bridge fall down,
+which is false for a library and mostly false for a bridge.
+
+### 12.3 The asymmetry, which must be carried verbatim into any write-up
+
+`B` never falls, so **up and down are not the same curve**.
+
+Going up: diminishing returns. One more library today buys less than one in
+1900.
+
+Coming down: **not a walk back along the marginal curve, but a cliff.** The
+economy was built assuming `B`. If `K` falls below `B`, what is lost is the
+**whole of `B`**, not the near-zero marginal quantity. Abolishing compulsory
+schooling does not cost you this year's marginal contribution; it costs the
+entire original block.
+
+This is Volume II's absorbing wall applied to the **instrument** rather than to
+the diagnosis: *losses to the real substrate are absorbing, quasi-money losses
+can be refilled from another layer, and accounting treats the two as
+interchangeable.* It is also §11.7's discipline against inventing a deflator:
+two quantities that are not commensurable across directions may not be folded
+into one number and then added.
+
+**A6 does not simulate the cliff; it registers it.** The stage never reduces
+`K`, so halting investment lets `B` catch up, drives `K − B → 0`, and takes the
+effect to zero without ever falling below `B`. The cliff happens only on
+deliberate abolition, which is not this experiment, and **simulating a path that
+does not occur is the same as inventing a price for it**.
+
+### 12.4 Where the four candidate mechanisms end up
+
+| mechanism | standing | why |
+|---|---|---|
+| **frontier ratchet `λ`** | **primary; A6-6's headline** | the only one that yields a fixed point without assuming anything wears out |
+| **smooth saturation `g`** | kept, separate | sets **where** the steady state sits, and replaces the `min(1,·)` wall. **On its own it does not fix A6-5** |
+| proportional decay `δ` | kept, **registered default `0`** | physical stock does wear out, but most of the loss is relative. A robustness axis, not a headline |
+| service life `L` | **excluded** | a special case of `δ` with an all-at-once hazard, needs a queue state, and **cannot express relative obsolescence**: a bridge usually loses its use because the centre of the city moved and other bridges were built, not because it fell down |
+
+### 12.5 What the code does today, verified rather than remembered
+
+`redistribution.py`:
+
+```python
+self._opening_claims = float(self.holdings.sum())   # __init__, never updated
+...
+self.invested += total                              # monotone
+removed = min(1.0, spec.leak_response * self.invested / self._opening_claims)
+```
+
+So of the four mechanisms: **no decay, no service life, and diminishing returns
+only as a wall.** `min(1,·)` is not a diminishing return. It is a constant
+marginal effect running straight into a ceiling and then becoming exactly zero.
+Clean water, the obvious saturating case, is smooth; the two behave very
+differently near the top, because against a wall `R` only decides the arrival
+time, while against a smooth saturation `R` still buys something at every level.
+
+### 12.6 The reduction guard, which decides whether the new parameters may enter
+
+§10.1's strict-generalisation rule: a generalisation that cannot reproduce its
+special case is not a generalisation.
+
+**With `λ = 0` the baseline `B` stays at zero, `g` set to the hard clip, and the
+denominator left frozen at the opening stock, the effect must reduce to
+`min(1, ι·K/claims₀)` — the line above — and every number in §11 must be
+reproduced bit for bit.** If it does not, the two new parameters do not enter.
+
+### 12.7 One scope limit that changes how `λ` may be read
+
+A6 is a closed economy with no outside, so `B` can only chase `K`: **the
+frontier is pushed only by what this economy itself built.** In the world the
+frontier is also pushed from outside, by other countries and by technology, and
+that part is not in this model.
+
+**Therefore `λ` reads as an endogenous absorption rate and may not be reported
+as a rate of progress.**

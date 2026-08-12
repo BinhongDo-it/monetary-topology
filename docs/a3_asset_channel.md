@@ -572,9 +572,10 @@ Eviction Lab; **they are not this project's measurements**, and stage A1, which
 would make them ours, has not started.
 
 So the resonance between this result and ordinary observation is the third
-correspondence standard, 解释力, which is the weakest of the ones that touch the
-world: the phenomenon was there first. **Persistence is the fourth standard,
-预测力, because no data used in building this model contains it.**
+correspondence standard, 解释力 (*explanatory power*), which is the weakest of the
+ones that touch the world: the phenomenon was there first. **Persistence is the
+fourth standard, 预测力 (*predictive power*), because no data used in building
+this model contains it.**
 
 ### 9.4 What would falsify it
 

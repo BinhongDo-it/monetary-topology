@@ -302,7 +302,8 @@ saying so.
 same bond market and the same default risk, differing in the capital account.
 The cycle `z(CNH, CNY)` therefore has **no default-risk component by
 construction**, and what remains is market segmentation — the source
-manuscript's "洞" in its most literal available form: 法律隔断、资本管制.
+manuscript's "洞" (*hole*) in its most literal available form: 法律隔断、资本管制
+(*legal partition and capital controls*).
 
 Registered: `√(z(CNH,CNY)²)` averaged over tenors exceeds the noise floor `N` of
 §4 by the same factor of four required in B3-3.
@@ -393,6 +394,13 @@ ground; the scan gives a second, independent one.
 G10: bond leg **`−2.13`**, forward-premium leg **`+3.13`**. EM: `−0.23` and
 `+1.23`.
 
+**A share above one is arithmetic, not a fault.** In a covariance
+decomposition the components are not required to lie in `[0, 1]`; two legs that
+move together and nearly cancel produce one share above one and its partner
+below zero, and they still sum to one. `+3.13` and `−2.13` is that, and the
+next paragraph gives the magnitudes that make it so. Written down because a
+reader meeting `313%` for the first time reasonably suspects the code.
+
 **The forward-premium leg drives the cross-currency cycle and the bond leg pulls
 against it.** The forward premium is the price of hedging dollar funding, which
 is where balance-sheet capacity is priced — §7.2 of the availability check
@@ -459,6 +467,10 @@ This is the source manuscript's Volume II §2 "hole" in its most literal
 available form —
 
 > 洞不是「价格太高」或「供不应求」……洞是在价格系统之外的障碍：**无论价格多高，你都无法进入该通道**。
+>
+> *A hole is not "the price is too high" or "supply falls short of demand". A
+> hole is an obstruction outside the price system: **however high the price, you
+> cannot enter that channel**.*
 
 — because no price converts an onshore renminbi position into an offshore one.
 The two codes price hedged dollar funding one to two percentage points apart and

@@ -496,7 +496,8 @@ slice sums are `2.22e-16` and agent sums are exactly `0`.
 harmonic `0%`, always.** It is an identity dressed as a measurement — the same
 error this project caught in stage A3's criterion A3-3 — and it is not worth
 building. `PROJECT_PLAN.md` §13.2's entry, "Γ 上的方块复形 … 解锁 curl 与
-harmonic 的细分", is withdrawn on those grounds.
+harmonic 的细分" (*a cube complex on Γ … unlocking the curl-versus-harmonic
+refinement*), is withdrawn on those grounds.
 
 **The substantive decomposition is not curl against harmonic. It is §5's slice
 against square**, and that split is not a refinement waiting on a complex: it is

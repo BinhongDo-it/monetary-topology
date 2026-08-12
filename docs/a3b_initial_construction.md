@@ -48,7 +48,7 @@ Both large marketised economies sit in the same narrow place:
 | | dwellings per household | source year |
 |---|---|---|
 | United States | 146.7M units / 132.7M households = **1.11** | 2024 |
-| Urban China | 套户比 **1.09** (0.8 in 1978) | 2020 |
+| Urban China | 套户比 (*dwelling-to-household ratio*) **1.09** (0.8 in 1978) | 2020 |
 
 **Registered: `units_per_node = 1.1`**, tier shape unchanged at `6 : 3 : 1`, so
 `units = (132, 66, 22)`. One number changes, not four. The tier ratio is left
@@ -119,10 +119,10 @@ by claims. Any criterion below that could be satisfied by moving the rate alone
 is mis-specified.
 
 **A definitional trap, recorded so it is not walked into.** Chinese sources give
-an urban "住房拥有率" of **96%**, but that counts a household as owning if it
-owns housing *anywhere*, including a parent's dwelling in another city. The
-occupancy-relevant number is the ~70% who live in owner-occupied housing. Using
-96% would import a definitional artefact as a fact.
+an urban "住房拥有率" (*home-ownership rate*) of **96%**, but that counts a
+household as owning if it owns housing *anywhere*, including a parent's dwelling
+in another city. The occupancy-relevant number is the ~70% who live in
+owner-occupied housing. Using 96% would import a definitional artefact as a fact.
 
 ---
 
@@ -139,8 +139,8 @@ The question is not which construction is right. It is:
 
 Those are properties of the flow topology. The rest were properties of the
 opening. This is the source manuscript's own second correspondence standard —
-拓展性, that the meta-level survives a change of parameters — made executable
-for the first time in this repository, rather than asserted.
+拓展性 (*extensibility*), that the meta-level survives a change of parameters —
+made executable for the first time in this repository, rather than asserted.
 
 The one result currently waiting on this is the **one-way exit**: under the
 present calibration 21 production-layer nodes hold a unit at the opening and

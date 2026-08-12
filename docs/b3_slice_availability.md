@@ -2,7 +2,9 @@
 
 **Not a pre-registration. A check, run before deciding whether to open a stage**,
 as `PROJECT_PLAN.md` §13.5 requires: "项目到目前为止全部跑在免费政府数据上。FX 会打破
-这一点 … 开工前先做可得性核查，不要假设."
+这一点 … 开工前先做可得性核查，不要假设." (*Everything so far has run on free
+government data. FX would break that. Run an availability check before opening
+the stage; do not assume.*)
 
 Run 2026-08-10, third hand-off session.
 
@@ -146,7 +148,8 @@ not specified anywhere in this repository.**
 
 Fits the existing pattern exactly and needs no new infrastructure. `.gitignore`
 already excludes `data/raw/*`; `data/SOURCES.md` is where retrieval is recorded;
-`CLAUDE.md` requires the fetch script to be resumable and to detect truncation
+This repository requires every fetch script to be resumable and to detect
+truncation
 rather than reading a damaged file silently. One CSV of moderate size, versioned
 by the publisher, with three archived prior versions — so a manifest recording
 the version, the URL and the retrieval date is sufficient and the download is
@@ -197,9 +200,11 @@ costly balance sheets*.
 
 **Why this matters more than a wording quibble.** `PROJECT_PLAN.md` §10.2 records
 this project getting the neighbouring case wrong once already: "carry trade 不是
-非零环路和（那是风险补偿），只有 CIP 偏离是". Calling the CIP deviation a profit
-re-imports that same category error one level up, and a referee closes the
-section with one sentence: *that is the price of a constraint, not free money*.
+非零环路和（那是风险补偿），只有 CIP 偏离是" (*the carry trade is not a non-zero
+loop sum, since that is risk compensation; only the CIP deviation is*). Calling
+the CIP deviation a profit re-imports that same category error one level up, and
+a referee closes the section with one sentence: *that is the price of a
+constraint, not free money*.
 
 ### 7.2 And the constraint explanation instantiates the framework rather than defeating it
 

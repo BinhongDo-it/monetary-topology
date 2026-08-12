@@ -31,9 +31,11 @@ data/processed/*
 .idea/
 .vscode/
 
-# Superseded pre-registrations. Kept in place, never deleted; see CLAUDE.md.
+# Superseded pre-registrations and fixtures. This repository does not delete:
+# a recursive delete once destroyed hours of retrieval, so anything no longer
+# read is renamed with this suffix and left where it is.
 *.expired
 *.expired[0-9]
 
-# Prepared commit message, not part of the repository.
-COMMIT_MSG.txt
+# Prepared commit messages, not part of the repository.
+COMMIT_MSG*.txt
