@@ -1,0 +1,700 @@
+{
+  "common_tract_years": 29644,
+  "criteria": [
+    {
+      "detail": "loans in cells of at least 20: conventional 865,053, fha 142,696, va 42,581. A programme with none reports zero dispersion, which is an absence and not a narrow pool, and every criterion below would read it as the second",
+      "name": "PW-0  every programme has cells at the headline threshold",
+      "passed": true
+    },
+    {
+      "detail": "within-cell dispersion, log income: VA 0.11872 against FHA 0.12333, conventional 0.26102; ranked income: VA 0.05209 against FHA 0.04039, conventional 0.05252",
+      "name": "PW-1  the VA pool is wider than the FHA pool",
+      "passed": false
+    },
+    {
+      "detail": "VA over conventional: log income 0.4548, ranked income 0.9918, against the registered floor 0.80. Loan-limit truncation biases the log-income ratio down and cannot touch the ranked one",
+      "name": "PW-2  the VA pool is comparable to the conventional pool",
+      "passed": false
+    },
+    {
+      "detail": "rate dispersion per unit of ranked-income dispersion: conventional 6.707, VA 3.882, FHA 7.777. A pure pool-width account makes this ratio constant across programmes",
+      "name": "PW-3  the graded grid converts pool width into rate dispersion",
+      "passed": false
+    },
+    {
+      "detail": "within-cell variance lower bound: VA 43.0998, FHA 26.3196, conventional 40.1891. FHA and VA underwrite to higher ceilings, which inflates both, so a pass here is weak and only a failure would be strong",
+      "name": "PW-4  debt-to-income does not contradict the premise",
+      "passed": true
+    },
+    {
+      "detail": "largest deviation from the mean missing rate is 0.0074 on income against 0.10; income conventional 0.0150, fha 0.0038, va 0.0038; dti conventional 0.0167, fha 0.0139, va 0.0056",
+      "name": "PW-5  the three samples are comparable at all",
+      "passed": true
+    },
+    {
+      "detail": "within-cell dispersion of LTV: conventional 229.548, VA 93.104, FHA 29.367. A check on the instrument and not on the pool: the rules pin LTV for both government programmes and a method that cannot see that is not measuring dispersion. A failure voids the rest",
+      "name": "PW-6  negative control: the down-payment rules pin loan-to-value",
+      "passed": true
+    },
+    {
+      "detail": "PW-1 and PW-2 together, evaluated at every folded threshold: log_income@10000 at 5 fails; rank_income at 5 holds; log_income@10000 at 20 fails; rank_income at 20 holds; log_income@10000 at 50 fails; rank_income at 50 holds",
+      "name": "PW-7  the minimum-size threshold is not carrying the verdict",
+      "passed": false
+    },
+    {
+      "detail": "PW-1 and PW-2 on log income at each income band: 1000 fails; 10000 fails; inf fails. Rows removed at the headline band: conventional income 0.000198, ltv 0.000081, fha income 0.000152, ltv 0.000013, va income 0.000020, ltv 0.000020. LTV dispersion by band, conventional: 110 229.414, 150 229.548, inf 234.671",
+      "name": "PW-8  the plausibility band is not carrying the verdict",
+      "passed": true
+    }
+  ],
+  "income_bound": 10000.0,
+  "income_bounds_folded": [
+    1000.0,
+    10000.0,
+    null
+  ],
+  "ltv_bound": 150.0,
+  "ltv_bounds_folded": [
+    110.0,
+    150.0,
+    null
+  ],
+  "min_cell_size": 20,
+  "min_cell_sizes_folded": [
+    5,
+    20,
+    50
+  ],
+  "programmes": {
+    "conventional": {
+      "by_min_cell_size": {
+        "20": {
+          "dti_within_cell_bound": {
+            "bound": 40.1890983399799,
+            "n_cells": 17696,
+            "n_loans": 863215
+          },
+          "log_income@1000": {
+            "between": 0.11304990841315288,
+            "n_cells": 17644,
+            "n_loans": 859371,
+            "within": 0.23947142287866874,
+            "within_share": 0.6793104462675232
+          },
+          "log_income@10000": {
+            "between": 0.12387603100935252,
+            "n_cells": 17727,
+            "n_loans": 865053,
+            "within": 0.2610204966268066,
+            "within_share": 0.6781575771282303
+          },
+          "log_income@inf": {
+            "between": 0.12576298486159843,
+            "n_cells": 17728,
+            "n_loans": 865256,
+            "within": 0.26399168389911437,
+            "within_share": 0.6773278296794188
+          },
+          "ltv@110": {
+            "between": 30.32464766099656,
+            "n_cells": 17689,
+            "n_loans": 863296,
+            "within": 229.41437356413493,
+            "within_share": 0.8832495498059478
+          },
+          "ltv@150": {
+            "between": 30.32582098928924,
+            "n_cells": 17691,
+            "n_loans": 863391,
+            "within": 229.54790182962918,
+            "within_share": 0.8833055506330648
+          },
+          "ltv@inf": {
+            "between": 30.368943221867994,
+            "n_cells": 17692,
+            "n_loans": 863486,
+            "within": 234.67062038558507,
+            "within_share": 0.8854173210651408
+          },
+          "rank_income": {
+            "between": 0.028385432852638226,
+            "n_cells": 17727,
+            "n_loans": 865053,
+            "within": 0.05251774497688495,
+            "within_share": 0.6491431657672189
+          },
+          "rate_spread": {
+            "between": 0.06378750597005044,
+            "n_cells": 17885,
+            "n_loans": 878778,
+            "within": 0.35222203805903984,
+            "within_share": 0.8466681669072718
+          }
+        },
+        "5": {
+          "dti_within_cell_bound": {
+            "bound": 39.77760685172764,
+            "n_cells": 31189,
+            "n_loans": 1018700
+          },
+          "log_income@1000": {
+            "between": 0.1260759400406748,
+            "n_cells": 31098,
+            "n_loans": 1014981,
+            "within": 0.23775680858038667,
+            "within_share": 0.653478306945961
+          },
+          "log_income@10000": {
+            "between": 0.1380100610153363,
+            "n_cells": 31184,
+            "n_loans": 1020521,
+            "within": 0.2596398716825545,
+            "within_share": 0.6529357868138064
+          },
+          "log_income@inf": {
+            "between": 0.13970130210365994,
+            "n_cells": 31184,
+            "n_loans": 1020720,
+            "within": 0.2622933774445221,
+            "within_share": 0.6524797237100853
+          },
+          "ltv@110": {
+            "between": 34.83882861486836,
+            "n_cells": 31326,
+            "n_loans": 1020009,
+            "within": 223.8689216876435,
+            "within_share": 0.8653351955087134
+          },
+          "ltv@150": {
+            "between": 34.84107730405685,
+            "n_cells": 31327,
+            "n_loans": 1020083,
+            "within": 223.9969938586296,
+            "within_share": 0.8653943094709652
+          },
+          "ltv@inf": {
+            "between": 35.017350323201754,
+            "n_cells": 31327,
+            "n_loans": 1020169,
+            "within": 229.7515345683412,
+            "within_share": 0.8677437103776531
+          },
+          "rank_income": {
+            "between": 0.030979261583876982,
+            "n_cells": 31184,
+            "n_loans": 1020521,
+            "within": 0.051367933571073617,
+            "within_share": 0.6237970033395297
+          },
+          "rate_spread": {
+            "between": 0.07188945609807082,
+            "n_cells": 31435,
+            "n_loans": 1034699,
+            "within": 0.36770358838372663,
+            "within_share": 0.8364636178836364
+          }
+        },
+        "50": {
+          "dti_within_cell_bound": {
+            "bound": 40.45932940033715,
+            "n_cells": 5064,
+            "n_loans": 469898
+          },
+          "log_income@1000": {
+            "between": 0.090155662550643,
+            "n_cells": 5044,
+            "n_loans": 466799,
+            "within": 0.23888459620521785,
+            "within_share": 0.7260041586049927
+          },
+          "log_income@10000": {
+            "between": 0.10025328794323585,
+            "n_cells": 5091,
+            "n_loans": 471306,
+            "within": 0.262366713541907,
+            "within_share": 0.7235307276690764
+          },
+          "log_income@inf": {
+            "between": 0.10326112871244675,
+            "n_cells": 5092,
+            "n_loans": 471516,
+            "within": 0.26686090075956287,
+            "within_share": 0.7210078825630781
+          },
+          "ltv@110": {
+            "between": 25.093027799071024,
+            "n_cells": 5069,
+            "n_loans": 470340,
+            "within": 235.21901365569914,
+            "within_share": 0.9036040451343047
+          },
+          "ltv@150": {
+            "between": 25.0998372743079,
+            "n_cells": 5069,
+            "n_loans": 470377,
+            "within": 235.39515789654664,
+            "within_share": 0.9036456064814401
+          },
+          "ltv@inf": {
+            "between": 25.165163826491153,
+            "n_cells": 5069,
+            "n_loans": 470443,
+            "within": 242.23521733623755,
+            "within_share": 0.905889573840298
+          },
+          "rank_income": {
+            "between": 0.02322664249217532,
+            "n_cells": 5091,
+            "n_loans": 471306,
+            "within": 0.053903982272343824,
+            "within_share": 0.6988661434665338
+          },
+          "rate_spread": {
+            "between": 0.0647107509414337,
+            "n_cells": 5190,
+            "n_loans": 482277,
+            "within": 0.3304896398536904,
+            "within_share": 0.8362583832186026
+          }
+        }
+      },
+      "files": 8,
+      "missing_rate": {
+        "dti": 0.016701165158748706,
+        "income": 0.014995715509854327,
+        "ltv": 0.01395612385329609
+      },
+      "out_of_band_rate": {
+        "income": 0.00019753168853425923,
+        "ltv": 8.06819572886411e-05
+      },
+      "out_of_band_rows": {
+        "income": 213,
+        "ltv": 87
+      },
+      "rows_in_common_tract_years": 1078308
+    },
+    "fha": {
+      "by_min_cell_size": {
+        "20": {
+          "dti_within_cell_bound": {
+            "bound": 26.319552564697943,
+            "n_cells": 3949,
+            "n_loans": 140237
+          },
+          "log_income@1000": {
+            "between": 0.08818076221805526,
+            "n_cells": 3998,
+            "n_loans": 142458,
+            "within": 0.11419820561994969,
+            "within_share": 0.5642790198997363
+          },
+          "log_income@10000": {
+            "between": 0.10357738528745486,
+            "n_cells": 4000,
+            "n_loans": 142696,
+            "within": 0.12333366825199836,
+            "within_share": 0.5435330995479876
+          },
+          "log_income@inf": {
+            "between": 0.10864921958954099,
+            "n_cells": 4001,
+            "n_loans": 142752,
+            "within": 0.12435610430602842,
+            "within_share": 0.5337049910574728
+          },
+          "ltv@110": {
+            "between": 2.159810202816516,
+            "n_cells": 3891,
+            "n_loans": 138086,
+            "within": 29.301761695331376,
+            "within_share": 0.9313508489083578
+          },
+          "ltv@150": {
+            "between": 2.1655732532872207,
+            "n_cells": 3891,
+            "n_loans": 138098,
+            "within": 29.36682410890359,
+            "within_share": 0.9313222769454291
+          },
+          "ltv@inf": {
+            "between": 2.1655732532872207,
+            "n_cells": 3891,
+            "n_loans": 138098,
+            "within": 29.36682410890359,
+            "within_share": 0.9313222769454291
+          },
+          "rank_income": {
+            "between": 0.03913780663078992,
+            "n_cells": 4000,
+            "n_loans": 142696,
+            "within": 0.040389148399007965,
+            "within_share": 0.5078674065148677
+          },
+          "rate_spread": {
+            "between": 0.30099104217990713,
+            "n_cells": 4022,
+            "n_loans": 143630,
+            "within": 0.314092916026956,
+            "within_share": 0.510650475981559
+          }
+        },
+        "5": {
+          "dti_within_cell_bound": {
+            "bound": 25.137572095919815,
+            "n_cells": 17319,
+            "n_loans": 270808
+          },
+          "log_income@1000": {
+            "between": 0.09629775589382916,
+            "n_cells": 17401,
+            "n_loans": 273664,
+            "within": 0.11292816947769761,
+            "within_share": 0.5397427172429455
+          },
+          "log_income@10000": {
+            "between": 0.10416077498139131,
+            "n_cells": 17404,
+            "n_loans": 273894,
+            "within": 0.11831860129257327,
+            "within_share": 0.5318182892911112
+          },
+          "log_income@inf": {
+            "between": 0.1068132290195436,
+            "n_cells": 17404,
+            "n_loans": 273939,
+            "within": 0.11945384980014226,
+            "within_share": 0.5279329649866388
+          },
+          "ltv@110": {
+            "between": 3.7793614546790195,
+            "n_cells": 17261,
+            "n_loans": 268769,
+            "within": 30.106913233897586,
+            "within_share": 0.8884692551951401
+          },
+          "ltv@150": {
+            "between": 3.7848774212707212,
+            "n_cells": 17263,
+            "n_loans": 268803,
+            "within": 30.153563397266335,
+            "within_share": 0.888478158395437
+          },
+          "ltv@inf": {
+            "between": 260189.19435528855,
+            "n_cells": 17263,
+            "n_loans": 268807,
+            "within": 2862061.0211810963,
+            "within_share": 0.91666612974816
+          },
+          "rank_income": {
+            "between": 0.041539647570689786,
+            "n_cells": 17404,
+            "n_loans": 273894,
+            "within": 0.03961308277670657,
+            "within_share": 0.48813000631195014
+          },
+          "rate_spread": {
+            "between": 0.23596011925397398,
+            "n_cells": 17440,
+            "n_loans": 275061,
+            "within": 0.29217545802613076,
+            "within_share": 0.5532205566056215
+          }
+        },
+        "50": {
+          "dti_within_cell_bound": {
+            "bound": 26.028767357828475,
+            "n_cells": 563,
+            "n_loans": 43353
+          },
+          "log_income@1000": {
+            "between": 0.08806804967241177,
+            "n_cells": 573,
+            "n_loans": 44064,
+            "within": 0.10581130904263147,
+            "within_share": 0.5457585054123737
+          },
+          "log_income@10000": {
+            "between": 0.1351212066478169,
+            "n_cells": 574,
+            "n_loans": 44291,
+            "within": 0.13109788705102352,
+            "within_share": 0.4924435930930169
+          },
+          "log_income@inf": {
+            "between": 0.15050491494154628,
+            "n_cells": 574,
+            "n_loans": 44327,
+            "within": 0.13400773893850246,
+            "within_share": 0.47100801005146314
+          },
+          "ltv@110": {
+            "between": 1.3794263078980293,
+            "n_cells": 556,
+            "n_loans": 42695,
+            "within": 28.947176191741754,
+            "within_share": 0.954514314357686
+          },
+          "ltv@150": {
+            "between": 1.3840499002562865,
+            "n_cells": 556,
+            "n_loans": 42697,
+            "within": 28.97288289053469,
+            "within_share": 0.9544074524987535
+          },
+          "ltv@inf": {
+            "between": 1.3840499002562865,
+            "n_cells": 556,
+            "n_loans": 42697,
+            "within": 28.97288289053469,
+            "within_share": 0.9544074524987535
+          },
+          "rank_income": {
+            "between": 0.0418770420964622,
+            "n_cells": 574,
+            "n_loans": 44291,
+            "within": 0.03906393815621504,
+            "within_share": 0.48262249894018233
+          },
+          "rate_spread": {
+            "between": 0.4592365497745641,
+            "n_cells": 580,
+            "n_loans": 44760,
+            "within": 0.33088539649996074,
+            "within_share": 0.4187776305418504
+          }
+        }
+      },
+      "files": 8,
+      "missing_rate": {
+        "dti": 0.01388953085278484,
+        "income": 0.0038495823566311203,
+        "ltv": 0.019974248076859585
+      },
+      "out_of_band_rate": {
+        "income": 0.00015187031595628777,
+        "ltv": 1.3206114430981545e-05
+      },
+      "out_of_band_rows": {
+        "income": 46,
+        "ltv": 4
+      },
+      "rows_in_common_tract_years": 302890
+    },
+    "va": {
+      "by_min_cell_size": {
+        "20": {
+          "dti_within_cell_bound": {
+            "bound": 43.09979482725946,
+            "n_cells": 1116,
+            "n_loans": 42614
+          },
+          "log_income@1000": {
+            "between": 0.048701758710446796,
+            "n_cells": 1113,
+            "n_loans": 42578,
+            "within": 0.11839652799925121,
+            "within_share": 0.7085442366320788
+          },
+          "log_income@10000": {
+            "between": 0.048770297430685616,
+            "n_cells": 1113,
+            "n_loans": 42581,
+            "within": 0.11871869952907807,
+            "within_share": 0.7088149173022881
+          },
+          "log_income@inf": {
+            "between": 0.048770297430685616,
+            "n_cells": 1113,
+            "n_loans": 42581,
+            "within": 0.11871869952907807,
+            "within_share": 0.7088149173022881
+          },
+          "ltv@110": {
+            "between": 7.352390916126751,
+            "n_cells": 934,
+            "n_loans": 36046,
+            "within": 93.10354021809039,
+            "within_share": 0.9268097878033367
+          },
+          "ltv@150": {
+            "between": 7.352390916126751,
+            "n_cells": 934,
+            "n_loans": 36046,
+            "within": 93.10354021809039,
+            "within_share": 0.9268097878033367
+          },
+          "ltv@inf": {
+            "between": 7.714233242280898,
+            "n_cells": 934,
+            "n_loans": 36047,
+            "within": 114.6928689272622,
+            "within_share": 0.936978875362999
+          },
+          "rank_income": {
+            "between": 0.021847066040924318,
+            "n_cells": 1113,
+            "n_loans": 42581,
+            "within": 0.05208689373967483,
+            "within_share": 0.704505668223966
+          },
+          "rate_spread": {
+            "between": 0.09737072147044584,
+            "n_cells": 1125,
+            "n_loans": 42962,
+            "within": 0.20219326993793374,
+            "within_share": 0.6749585255134836
+          }
+        },
+        "5": {
+          "dti_within_cell_bound": {
+            "bound": 41.22670892414064,
+            "n_cells": 8744,
+            "n_loans": 107626
+          },
+          "log_income@1000": {
+            "between": 0.07519032861673836,
+            "n_cells": 8762,
+            "n_loans": 107808,
+            "within": 0.1201855518090401,
+            "within_share": 0.6151504041702707
+          },
+          "log_income@10000": {
+            "between": 0.07568726225208877,
+            "n_cells": 8764,
+            "n_loans": 107830,
+            "within": 0.1214334204922051,
+            "within_share": 0.6160359166862731
+          },
+          "log_income@inf": {
+            "between": 0.07597388542806627,
+            "n_cells": 8764,
+            "n_loans": 107833,
+            "within": 0.12179916988854557,
+            "within_share": 0.6158532045407256
+          },
+          "ltv@110": {
+            "between": 16.000663940909362,
+            "n_cells": 7605,
+            "n_loans": 93049,
+            "within": 92.37982138505369,
+            "within_share": 0.8523658212750563
+          },
+          "ltv@150": {
+            "between": 16.010137681752894,
+            "n_cells": 7605,
+            "n_loans": 93054,
+            "within": 92.39233317718764,
+            "within_share": 0.8523083694043635
+          },
+          "ltv@inf": {
+            "between": 16.15882186303861,
+            "n_cells": 7605,
+            "n_loans": 93056,
+            "within": 100.7948870037664,
+            "within_share": 0.8618357466419351
+          },
+          "rank_income": {
+            "between": 0.03111085448786438,
+            "n_cells": 8764,
+            "n_loans": 107830,
+            "within": 0.049151141736020115,
+            "within_share": 0.6123837438445574
+          },
+          "rate_spread": {
+            "between": 0.10241950760952181,
+            "n_cells": 8793,
+            "n_loans": 108366,
+            "within": 0.1980862493186387,
+            "within_share": 0.6591762212595268
+          }
+        },
+        "50": {
+          "dti_within_cell_bound": {
+            "bound": 41.52349901745071,
+            "n_cells": 186,
+            "n_loans": 16105
+          },
+          "log_income@1000": {
+            "between": 0.03599315050103513,
+            "n_cells": 187,
+            "n_loans": 16163,
+            "within": 0.11224105465358018,
+            "within_share": 0.757187280334572
+          },
+          "log_income@10000": {
+            "between": 0.03599001912164823,
+            "n_cells": 187,
+            "n_loans": 16164,
+            "within": 0.11253228067964646,
+            "within_share": 0.7576793574446489
+          },
+          "log_income@inf": {
+            "between": 0.03599001912164823,
+            "n_cells": 187,
+            "n_loans": 16164,
+            "within": 0.11253228067964646,
+            "within_share": 0.7576793574446489
+          },
+          "ltv@110": {
+            "between": 3.5666294550628663,
+            "n_cells": 160,
+            "n_loans": 13935,
+            "within": 81.40994717433848,
+            "within_share": 0.9580280873090757
+          },
+          "ltv@150": {
+            "between": 3.5666294550628663,
+            "n_cells": 160,
+            "n_loans": 13935,
+            "within": 81.40994717433848,
+            "within_share": 0.9580280873090757
+          },
+          "ltv@inf": {
+            "between": 4.4336164777159865,
+            "n_cells": 160,
+            "n_loans": 13936,
+            "within": 137.25396450876437,
+            "within_share": 0.968708503265794
+          },
+          "rank_income": {
+            "between": 0.01673713639208646,
+            "n_cells": 187,
+            "n_loans": 16164,
+            "within": 0.05175801251170981,
+            "within_share": 0.7556449374890136
+          },
+          "rate_spread": {
+            "between": 0.08777842825265227,
+            "n_cells": 188,
+            "n_loans": 16255,
+            "within": 0.1884408856739814,
+            "within_share": 0.6822147336302232
+          }
+        }
+      },
+      "files": 8,
+      "missing_rate": {
+        "dti": 0.005579731425367755,
+        "income": 0.0038377339349120326,
+        "ltv": 0.1114210961902982
+      },
+      "out_of_band_rate": {
+        "income": 2.0022959660410605e-05,
+        "ltv": 2.0022959660410605e-05
+      },
+      "out_of_band_rows": {
+        "income": 3,
+        "ltv": 3
+      },
+      "rows_in_common_tract_years": 149828
+    }
+  },
+  "registered_min_pool_ratio": 0.8,
+  "spread_bound": 20.0,
+  "stage": "B2A-poolwidth",
+  "states_subset": [
+    "CA"
+  ]
+}

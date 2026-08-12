@@ -812,8 +812,30 @@ contracts depends on parameter magnitudes and cannot be settled structurally.
 | A0b | derived demand on the downward edge | **complete, 6/6 under both presets** |
 | A2 | support-set contraction, and the intermediate layer | **complete, 8/8 over 12 graph seeds** |
 | A2c | cycle structure of the realized graph | **complete, 7/7** |
+| A3 | **the asset price channel** | **5/7**, [`docs/a3_asset_channel.md`](docs/a3_asset_channel.md) |
+| A3b | the construction the channel opens from | complete, [`docs/a3b_initial_construction.md`](docs/a3b_initial_construction.md) |
+| A3c | which parts of A3 are load-bearing | complete, [`docs/a3_restated.md`](docs/a3_restated.md) |
+| A5 | reachability against participation | **2/6**, [`docs/a5_reachability.md`](docs/a5_reachability.md) |
+| A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
+| A4 | four competitors on the causal primitive | **blocked, and the block is measured**, see below |
 | A1 | default waterfall, calibrated to delinquency cross-sections | not started |
-| A3 | **the asset price channel** | redefined, see below |
+
+**A3's two failures are reported rather than repaired, and they are different
+kinds of failure.** A3-5 asks whether the gate binds at the high tier and comes
+back void rather than negative: opening the high tier is a bitwise no-op in the
+current calibration, because the tier allocates fully at the opening and no
+production-layer node can reach it even at a soft gate, so at that tier the
+exclusion is a price wall and not a hole and there is nothing for a gate
+criterion to measure. A3-6 is a real negative. It asks whether a stock exists
+and finds the holding population is 15.8 nodes of 200, none of them in the
+production layer.
+
+**A3-6 is also why A4 is blocked, and the block is the interesting part.** A4
+sets four competing accounts against each other on wealth, and A3-6 says the
+wealth is upstairs: A4's domain is 15.8 nodes and they are all in the financial
+layer, which describes stratification *within* that set rather than the
+economy's. That is a constraint on what A4 could establish, not a scheduling
+problem, and it is recorded here rather than discovered by a reader who runs it.
 
 **A3 has been redefined and it is no longer a merge.** The original plan made it
 an integrated simulator that combined the earlier stages. That is now the wrong
@@ -860,8 +882,29 @@ simulating instances.
 | B2 placebo | conventional against FHA and VA | **complete, 4/4** on a further 8,066,085 |
 | B1 theorem | is the partition result a case of the cohomological claim? | **complete, 7/7**, [`docs/b1_theorem.md`](docs/b1_theorem.md) |
 | B2 loop B | same dwelling, different entry vintages | **complete, 4/4**, [`docs/b2_loop_b.md`](docs/b2_loop_b.md) |
-| B2 loop C | CIP deviations: the other summand of the cycle space | not started |
-| square complex | curl against harmonic on `Γ` | not started, see B1 §10 |
+| B2 placebo validation | is the VA pool actually wide? | **6/9**, the premise survives, [`docs/b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
+| B3 | CIP deviations: the other summand of the cycle space | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md) |
+| B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
+| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, parallel trends **1/2**; two source audits returned REJECT |
+| square complex | curl against harmonic on `Γ` | **withdrawn**, see B1 §12 |
+
+**Three of those rows are newer than the narrative that follows them**, which was
+written when loop B was the next thing. B3 has since reached the slice summand
+that Corollary 2 says no volume of mortgage data can touch; B4 removes the
+standing prohibition on directed agent edges and replaces it with a narrower one,
+that a carrier with a bid-ask spread may report `S − S'` and never a single
+orientation; and the square complex is not merely unbuilt but **withdrawn**,
+because filling the squares of `Γ` leaves the harmonic component identically zero
+on every field this project runs, so the refinement it would deliver is an
+identity dressed as a measurement.
+
+**The placebo validation row exists because a premise was doing work unmeasured.**
+The graded placebo's load-bearing comparison is conventional against VA, and it
+rests on VA's borrower pool being as wide as conventional's. That was argued from
+programme rule and never looked at. It now has been, on the borrower-capacity
+fields the retrieval kept: at fixed position the VA pool is 97.7% as wide as the
+conventional pool on the tail-insensitive measure, and wider than FHA's on every
+measure tried. Three criteria fail and none of them touches that comparison.
 
 **The B1 theorem was taken before any further retrieval, and it changed the
 ordering that follows it.** The question it settled was whether stage B2 had
@@ -872,8 +915,11 @@ That description is worth little, because conditional dispersion in mortgage
 pricing is already documented and a framework that re-derives it has contributed a
 vocabulary rather than a result.
 
-Theorem 3 shows the within share **is** the `L²` norm of the non-exact part,
-halved. Same number, different object, and only the second is something the
+Theorem 3 shows the within share **is** the `L²` norm of the square component,
+halved, and on this carrier the square component is the whole non-exact part
+because the harmonic one is identically zero
+([`docs/b1_theorem.md`](docs/b1_theorem.md) §12). Same number, different object,
+and only the second is something the
 framework can be judged on. Getting FX data first would have risked measuring the
 wrong thing entirely — a mistake this project already made once on paper,
 conflating carry returns, which are compensation for bearing risk, with

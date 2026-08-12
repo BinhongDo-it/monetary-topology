@@ -198,6 +198,38 @@ def per_agent_exact_field(potentials: np.ndarray) -> np.ndarray:
     return phi[:, None, :] - phi[:, :, None]
 
 
+def shared_field(w: np.ndarray, m: int) -> np.ndarray:
+    """`W[a,i,j] = w[i,j]`: every class faces the same terms, exact or not.
+
+    The complement of ``per_agent_exact_field``. That one gives each class its own
+    consistent potential and lets the potentials differ, so the squares fire and
+    the slice cycles do not. This one gives every class the *same* field without
+    requiring it to be a gradient, so the slice cycles fire and the squares are
+    identically zero, because a square sum is `w_a(i,j) - w_b(i,j)` and the two
+    legs are now the same number.
+
+    It exists because every field this project otherwise constructs makes the
+    slice summand vanish by construction, which leaves Theorem 2's decomposition
+    checked on only one of its two parts. See ``docs/b1_theorem.md`` section 11.1.
+    """
+    w = np.asarray(w, dtype=np.float64)
+    asym = np.abs(w + w.T).max() if w.size else 0.0
+    if asym > 1e-12:
+        raise ValueError(f"w is not antisymmetric: max |w + w^T| = {asym:.3e}")
+    return np.repeat(w[None, :, :], m, axis=0)
+
+
+def slice_cycles(adj_g: np.ndarray, m: int) -> list[list[int]]:
+    """Lifts of a fundamental cycle basis of `G` into each slice `{a} x N`.
+
+    One list per class per basis cycle, as closed vertex walks, in the same form
+    ``squares`` returns so the two can be summed over by the same code.
+    """
+    n = np.asarray(adj_g).shape[0]
+    basis = spanning_tree_cycles(adj_g)
+    return [[vertex(a, x, n) for x in cycle] for a in range(m) for cycle in basis]
+
+
 def squares(adj_g: np.ndarray, m: int) -> list[list[int]]:
     """The four-cycles `(a,i) (a,j) (b,j) (b,i)`, as closed vertex walks."""
     n = np.asarray(adj_g).shape[0]

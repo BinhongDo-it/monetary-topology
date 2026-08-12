@@ -426,6 +426,31 @@ the price grid is flat. The two accounts therefore disagree:
 **The load-bearing comparison is conventional against VA.** FHA supplies the shape
 of the gradation and nothing else.
 
+### The pool-width row of that table is an assumption, and it is now tested
+
+The `wide` in the VA row is argued from programme rule above and was not
+measured. It carries the whole placebo: if the VA pool is narrow, the pool-width
+account predicts `low` there too, the two columns stop disagreeing, and the
+comparison identifies nothing. Prediction 3 below removes the *geographic*
+composition difference between programmes and says nothing about this one.
+
+**Tested in [`b2_placebo_pool_width.md`](b2_placebo_pool_width.md)**, on the
+borrower-capacity fields the retrieval kept, on these same loans. Credit score
+itself cannot be used: public HMDA redacts it, and FHFA's NMDB aggregates have no
+VA-only market, only `Government / Non-Conventional` with FHA, VA and USDA
+pooled, which merges the two arms this comparison needs kept apart.
+
+**Outcome: the premise survives.** On the tail-insensitive measure the VA pool at
+fixed position is 97.7% as wide as the conventional pool and wider than the FHA
+pool, so the `wide` in the VA row stands and the conventional-VA gap is not a
+pool artefact. Two qualifications belong here rather than in a footnote. The
+result is about borrower **capacity** and not credit score, because no public
+source carries a score while separating VA from FHA. And the same run puts a
+number on the concession this section already makes about FHA: per unit of pool
+width, FHA shows *more* rate dispersion than conventional, so FHA's low within
+share is substantially its narrow pool and not its flat grid, exactly as the
+paragraph above says it would be.
+
 ### Pre-registered predictions
 
 Computed at `min_size = 20` with the plausibility band and the ranked analogue,

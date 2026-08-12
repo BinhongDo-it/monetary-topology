@@ -94,22 +94,11 @@
       "generator_rank": 18
     }
   ],
-  "theorem_3_on_real_data": {
-    "cells_checked": 500,
-    "loans_in_checked_cells": 25942,
-    "cells_held_out_above_max_brute": 4,
-    "max_brute_cell_size": 2000,
-    "worst_relative_error_per_cell": 1.0694310168359587e-15,
-    "aggregate_half_mean_squared_holonomy": 0.3379392343718562,
-    "aggregate_within_cell_variance": 0.33793923437185625,
-    "aggregate_relative_error": 1.6426370656381183e-16,
-    "b2_within_share_restricted": 0.847959027149097
-  },
   "criteria": [
     {
       "name": "B1-1  a shared potential annihilates every cycle",
       "passed": true,
-      "detail": "largest |cycle sum| over squares and a spanning basis, across 8 shapes: 6.66e-16. Theorem 1, (1) implies (3)"
+      "detail": "largest |cycle sum| over squares and a spanning basis, across 8 shapes: 8.88e-16. Theorem 1, (1) implies (3)"
     },
     {
       "name": "B1-2  the squares detect what no single agent can see",
@@ -130,11 +119,6 @@
       "name": "B1-5  the closed form for the first Betti number is right",
       "passed": true,
       "detail": "m*e_G + n*e_H - m*n + 1 equals E - V + C for all 8 shapes: 2, 3, 16, 10, 39, 37, 26, 18"
-    },
-    {
-      "name": "B1-6  stage B2's within term is the holonomy of the squares",
-      "passed": true,
-      "detail": "over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a worst relative error of 1.07e-15; in aggregate 0.33793923 against 0.33793923, relative 1.64e-16. 4 cells above 2,000 loans were held out because enumeration is quadratic"
     },
     {
       "name": "B1-7  one agent class reproduces the one-index case exactly",

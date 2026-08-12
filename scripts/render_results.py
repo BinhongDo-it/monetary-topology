@@ -43,6 +43,7 @@ STAGE_TITLES = {
     "B1": "B1 — the enlarged graph, and what stage B2 measured",
     "B2A": "B2A — dispersion in financing terms at fixed position and date",
     "B2A-placebo": "B2A placebo — conventional against FHA and VA",
+    "B2A-poolwidth": "B2A placebo validation — is the VA pool actually wide?",
     "B2B": "B2B — vintage separation in the outstanding stock (H-zero, not H-one)",
     "B4": "B4 — the directed theorem",
     "B5-calibration": (

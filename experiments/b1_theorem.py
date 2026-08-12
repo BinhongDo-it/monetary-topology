@@ -61,6 +61,8 @@ from monetary_topology.product_graph import (  # noqa: E402
     exact_field,
     per_agent_exact_field,
     potential_from_cochain,
+    shared_field,
+    slice_cycles,
     spanning_tree_cycles,
     squares,
     undirected_pairs,
@@ -135,6 +137,13 @@ def synthetic_criteria(seed: int = 0) -> tuple[list[Criterion], dict]:
     detect_total = 0
     worst_null_gap = np.inf
 
+    # Section 11.1: the slice summand, on fields where it is not zero.
+    slice_total = slice_hits = 0
+    worst_slice_reach = 0.0
+    worst_square_leak = 0.0
+    mix_total = mix_hits = 0
+    mix_worst_slice = mix_worst_square = 0.0
+
     for n, m in SHAPES:
         adj_g = random_connected_graph(n, rng)
         adj_h = complete_agent_graph(m)
@@ -172,6 +181,49 @@ def synthetic_criteria(seed: int = 0) -> tuple[list[Criterion], dict]:
             ):
                 detect_hits += 1
             worst_null_gap = min(worst_null_gap, max(abs(s) for s in square_sums))
+
+        # Section 11.1, the mirror of B1-2 and the case every other field in this
+        # repository makes vacuous. Integers, so every sum below is exact in
+        # float64 and "identical" is a claim rather than a tolerance.
+        basis = spanning_tree_cycles(adj_g)
+        if m > 1 and basis:
+            upper = rng.integers(-6, 7, size=(n, n)).astype(np.float64)
+            w = np.triu(upper, 1)
+            w = w - w.T
+            omega_slice = cochain_from_field(adj_g, shared_field(w, m), m)
+            slice_sums = [omega_slice.sum_over(c) for c in slice_cycles(adj_g, m)]
+            square_sums = [omega_slice.sum_over(s) for s in squares(adj_g, m)]
+            reach = max(abs(s) for s in slice_sums)
+            leak = max(abs(s) for s in square_sums)
+            slice_total += 1
+            if reach > 1e-6 and leak == 0.0:
+                slice_hits += 1
+            worst_slice_reach = max(worst_slice_reach, reach)
+            worst_square_leak = max(worst_square_leak, leak)
+
+            # A mixture of the two. Cycle sums are linear in the field, and each
+            # part is silent on the other's cycles, so each summand has to come
+            # back out of the mixture unchanged. Compared as raw bytes.
+            phis_int = rng.integers(-6, 7, size=(m, n)).astype(np.float64)
+            omega_square = cochain_from_field(adj_g, per_agent_exact_field(phis_int), m)
+            omega_mix = cochain_from_field(
+                adj_g, shared_field(w, m) + per_agent_exact_field(phis_int), m
+            )
+            lifts = slice_cycles(adj_g, m)
+            got_slice = np.array([omega_mix.sum_over(c) for c in lifts])
+            want_slice = np.array(slice_sums)
+            got_square = np.array([omega_mix.sum_over(s) for s in squares(adj_g, m)])
+            want_square = np.array(
+                [omega_square.sum_over(s) for s in squares(adj_g, m)]
+            )
+            mix_total += 1
+            if (
+                got_slice.tobytes() == want_slice.tobytes()
+                and got_square.tobytes() == want_square.tobytes()
+            ):
+                mix_hits += 1
+            mix_worst_slice = max(mix_worst_slice, float(np.abs(want_slice).max()))
+            mix_worst_square = max(mix_worst_square, float(np.abs(want_square).max()))
 
         # Theorem 2: the generating set spans, and the closed form is right.
         b1_direct = cycle_rank(adj_gamma)
@@ -229,6 +281,24 @@ def synthetic_criteria(seed: int = 0) -> tuple[list[Criterion], dict]:
             ok_collapse,
             "at m=1 there are no squares at all and b1(Gamma) = b1(G). The "
             "enlarged graph is a generalisation, not a substitution",
+        ),
+        Criterion(
+            "B1-8  the slice summand fires where the squares are silent",
+            slice_total > 0 and slice_hits == slice_total,
+            f"{slice_hits}/{slice_total} shapes with a shared but non-exact field: "
+            f"slice cycles reach {worst_slice_reach:.1f} while every square sum is "
+            f"exactly {worst_square_leak:.1f}. The mirror of B1-2, and the case "
+            "every other field in this repository makes vacuous by construction",
+        ),
+        Criterion(
+            "B1-9  on a mixture each summand comes back out unchanged",
+            mix_total > 0 and mix_hits == mix_total,
+            f"{mix_hits}/{mix_total} shapes: adding a pure-slice field to a "
+            f"pure-square one leaves both sets of cycle sums identical as raw "
+            f"bytes, slice reaching {mix_worst_slice:.1f} and squares "
+            f"{mix_worst_square:.1f}. Integer fields, so this is exactness and "
+            "not a tolerance. Without it the split of Theorem 2 is checked on "
+            "one summand and asserted on the other",
         ),
     ], record
 
@@ -395,8 +465,13 @@ def main() -> int:
     n_pass = sum(c.passed for c in criteria)
     print(f"\n  {n_pass}/{len(criteria)} criteria passed")
 
-    RESULTS.mkdir(parents=True, exist_ok=True)
-    out = RESULTS / "b1_theorem.json"
+    # A ``--no-data`` run is missing B1-6 and the whole real-data block, so it
+    # must not be able to displace a full one. It goes to ``results/subset/``,
+    # which ``render_results.py`` does not reach because its glob is not
+    # recursive. Written after a --no-data run overwrote the full record once.
+    directory = RESULTS / "subset" if args.no_data else RESULTS
+    directory.mkdir(parents=True, exist_ok=True)
+    out = directory / "b1_theorem.json"
     out.write_text(
         json.dumps(
             {

@@ -295,17 +295,19 @@ Derived quantities:
 
 500 cells enumerated over 25,942 loans `spread_bound=20.0`
 
-**7/7 criteria passed**
+**9/9 criteria passed**
 
 | | criterion | detail |
 |---|---|---|
-| PASS | B1-1  a shared potential annihilates every cycle | largest \|cycle sum\| over squares and a spanning basis, across 8 shapes: 4.44e-16. Theorem 1, (1) implies (3) |
-| PASS | B1-2  the squares detect what no single agent can see | 7/7 shapes where every w_a is exact but the potentials differ: slice cycles vanish below 1e-10, squares reach 2.530, and no global potential exists. A family of gradients need not be a gradient |
+| PASS | B1-1  a shared potential annihilates every cycle | largest \|cycle sum\| over squares and a spanning basis, across 8 shapes: 6.66e-16. Theorem 1, (1) implies (3) |
+| PASS | B1-2  the squares detect what no single agent can see | 7/7 shapes where every w_a is exact but the potentials differ: slice cycles vanish below 1e-10, squares reach 4.272, and no global potential exists. A family of gradients need not be a gradient |
 | PASS | B1-3  the path integral reconstructs the potential | largest \|d0 psi - omega\| over every edge after integrating along a spanning tree: 8.88e-16. Theorem 1, (3) implies (2) |
 | PASS | B1-4  the generating set spans the cycle space | rank of the slice-plus-agent-plus-square matrix equals E - V + C on Gamma, for all 8 shapes. The two are computed by different code paths sharing nothing |
-| PASS | B1-5  the closed form for the first Betti number is right | m*e_G + n*e_H - m*n + 1 equals E - V + C for all 8 shapes: 2, 3, 16, 8, 35, 22, 31, 20 |
+| PASS | B1-5  the closed form for the first Betti number is right | m*e_G + n*e_H - m*n + 1 equals E - V + C for all 8 shapes: 2, 3, 16, 10, 39, 37, 26, 18 |
 | PASS | B1-6  stage B2's within term is the holonomy of the squares | over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a worst relative error of 1.07e-15; in aggregate 0.33793923 against 0.33793923, relative 1.64e-16. 4 cells above 2,000 loans were held out because enumeration is quadratic |
 | PASS | B1-7  one agent class reproduces the one-index case exactly | at m=1 there are no squares at all and b1(Gamma) = b1(G). The enlarged graph is a generalisation, not a substitution |
+| PASS | B1-8  the slice summand fires where the squares are silent | 5/5 shapes with a shared but non-exact field: slice cycles reach 15.0 while every square sum is exactly 0.0. The mirror of B1-2, and the case every other field in this repository makes vacuous by construction |
+| PASS | B1-9  on a mixture each summand comes back out unchanged | 5/5 shapes: adding a pure-slice field to a pure-square one leaves both sets of cycle sums identical as raw bytes, slice reaching 15.0 and squares 22.0. Integer fields, so this is exactness and not a tolerance. Without it the split of Theorem 2 is checked on one summand and asserted on the other |
 
 Derived quantities:
 
@@ -354,6 +356,24 @@ Derived quantities:
 - `latest_variance_lower_bound` = 0.8479
 - `smallest_across_quarters` = 0.3018
 - `loop_a_within_cell_variance` = 0.3363
+
+## B2A placebo validation — is the VA pool actually wide?
+
+`min_cell_size=20` `spread_bound=20.0` 409,181 tract-years common to all programmes
+
+**6/9 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | PW-0  every programme has cells at the headline threshold | loans in cells of at least 20: conventional 13,256,641, fha 2,295,274, va 1,098,949. A programme with none reports zero dispersion, which is an absence and not a narrow pool, and every criterion below would read it as the second |
+| PASS | PW-1  the VA pool is wider than the FHA pool | within-cell dispersion, log income: VA 0.14545 against FHA 0.13994, conventional 0.27483; ranked income: VA 0.05271 against FHA 0.04887, conventional 0.05396 |
+| **FAIL** | PW-2  the VA pool is comparable to the conventional pool | VA over conventional: log income 0.5292, ranked income 0.9769, against the registered floor 0.80. Loan-limit truncation biases the log-income ratio down and cannot touch the ranked one |
+| **FAIL** | PW-3  the graded grid converts pool width into rate dispersion | rate dispersion per unit of ranked-income dispersion: conventional 6.336, VA 5.168, FHA 7.445. A pure pool-width account makes this ratio constant across programmes |
+| PASS | PW-4  debt-to-income does not contradict the premise | within-cell variance lower bound: VA 52.7425, FHA 33.4032, conventional 45.2571. FHA and VA underwrite to higher ceilings, which inflates both, so a pass here is weak and only a failure would be strong |
+| PASS | PW-5  the three samples are comparable at all | largest deviation from the mean missing rate is 0.0056 on income against 0.10; income conventional 0.0137, fha 0.0058, va 0.0047; dti conventional 0.0073, fha 0.0058, va 0.0033 |
+| PASS | PW-6  negative control: the down-payment rules pin loan-to-value | within-cell dispersion of LTV: conventional 226.009, VA 84.795, FHA 26.428. A check on the instrument and not on the pool: the rules pin LTV for both government programmes and a method that cannot see that is not measuring dispersion. A failure voids the rest |
+| **FAIL** | PW-7  the minimum-size threshold is not carrying the verdict | PW-1 and PW-2 together, evaluated at every folded threshold: log_income@10000 at 5 fails; rank_income at 5 holds; log_income@10000 at 20 fails; rank_income at 20 holds; log_income@10000 at 50 fails; rank_income at 50 holds |
+| PASS | PW-8  the plausibility band is not carrying the verdict | PW-1 and PW-2 on log income at each income band: 1000 fails; 10000 fails; inf fails. Rows removed at the headline band: conventional income 0.000104, ltv 0.000073, fha income 0.000072, ltv 0.000096, va income 0.000078, ltv 0.000032. LTV dispersion by band, conventional: 110 225.739, 150 226.009, inf 91970479.005 |
 
 ## B2A placebo — conventional against FHA and VA
 

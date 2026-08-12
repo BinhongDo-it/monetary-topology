@@ -27,6 +27,12 @@ data/processed/*
 !figures/*.png
 !results/*.json
 
+# Reduced runs live here so they cannot displace a full record: the renderer's
+# glob is not recursive, so nothing in this directory reaches RESULTS.md. They
+# are committed anyway, because a smoke run that disagrees with the full one is
+# the thing you want in the history rather than out of it.
+!results/subset/*.json
+
 .DS_Store
 .idea/
 .vscode/
