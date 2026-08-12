@@ -263,12 +263,23 @@ def evaluate(base, sweeps: dict[str, list[float]]) -> list[Criterion]:
     slope = sweeps["floor_slope"]
     predicted = [slope * fs for fs in sweeps["floor_share"]]
     resid = float(np.max(np.abs(np.array(floors) - np.array(predicted))))
+    tol = 1e-6 * max(1.0, max(floors))
+    # The residual is two to eight units in the last place of a value near 12.7,
+    # so it is rounding and not a measurement, and its exact size is a property
+    # of the machine's floating-point library. Printing it into the record made
+    # RESULTS.md read 1.776e-15 on the author's Windows build and 4.441e-16 on
+    # the Linux runner, and `git diff --exit-code RESULTS.md` had been red on
+    # that one line ever since. What the criterion asserts is that the deviation
+    # is below the tolerance, and that statement is the same on both machines.
+    # The value itself goes to the job log, where a varying number belongs.
+    print(f"  A0b-5 residual {resid:.3e} against tolerance {tol:.3e} "
+          f"(not written to the record: it is machine-dependent rounding)")
     out.append(
         Criterion(
             "A0b-5  above the boundary, survival is linear in the autonomous share",
-            resid < 1e-6 * max(1.0, max(floors)),
-            f"max deviation from a line through the origin is {resid:.3e}, "
-            f"slope {slope:.4f}",
+            resid < tol,
+            "max deviation from a line through the origin is below 1e-6 of the "
+            f"largest level, slope {slope:.4f}",
         )
     )
     out.append(

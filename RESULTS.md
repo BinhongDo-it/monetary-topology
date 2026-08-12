@@ -27,7 +27,7 @@ character-for-character identical.
 | PASS | A0b-2  a positive steady state exists below unit elasticity | minimum level over e <= 0.9 is 2.8544 |
 | PASS | A0b-3  no steady state exists at or above unit elasticity | maximum level over e >= 1.0 is 3.513e-83 |
 | PASS | A0b-4  the level falls monotonically in elasticity | from 16.9540 at e=0 to 1.474e-171 at e=1.2 |
-| PASS | A0b-5  above the boundary, survival is linear in the autonomous share | max deviation from a line through the origin is 8.882e-16, slope 16.9540 |
+| PASS | A0b-5  above the boundary, survival is linear in the autonomous share | max deviation from a line through the origin is below 1e-6 of the largest level, slope 16.9540 |
 | PASS | A0b-6  a zero autonomous share above the boundary collapses | level at floor_share=0 is 9.741e-172 |
 
 Derived quantities:
@@ -45,7 +45,7 @@ Derived quantities:
 | PASS | A0b-2  a positive steady state exists below unit elasticity | minimum level over e <= 0.9 is 2.0910 |
 | PASS | A0b-3  no steady state exists at or above unit elasticity | maximum level over e >= 1.0 is 1.024e-85 |
 | PASS | A0b-4  the level falls monotonically in elasticity | from 12.7069 at e=0 to 6.429e-171 at e=1.2 |
-| PASS | A0b-5  above the boundary, survival is linear in the autonomous share | max deviation from a line through the origin is 1.776e-15, slope 12.7069 |
+| PASS | A0b-5  above the boundary, survival is linear in the autonomous share | max deviation from a line through the origin is below 1e-6 of the largest level, slope 12.7069 |
 | PASS | A0b-6  a zero autonomous share above the boundary collapses | level at floor_share=0 is 4.283e-171 |
 
 Derived quantities:
