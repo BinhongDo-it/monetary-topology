@@ -78,6 +78,12 @@ DATA_STAGES = [
         "experiments/b5_parallel_trends.py",
         "b5_parallel_trends.json",
     ),
+    # Needs the retrieved BCC archive, so it belongs here rather than with the
+    # synthetic stages. It has no dependency on any other stage: every class it
+    # reads comes from one publisher, which is what removes B5's reporter
+    # confound and removes B5's zero calibration with it
+    # (`b6_cuba_prereg.md` §4.3).
+    ("B6-A segment typing", "experiments/b6_segments.py", "b6_segments.json"),
 ]
 
 #: B1 without its real-data criterion, so a checkout with no download still

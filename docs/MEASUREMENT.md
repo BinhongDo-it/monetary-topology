@@ -35,8 +35,8 @@ not. So the next session implements a thing with that name, and then finds a
 
 ---
 
-## Six failure modes, each with an instance in this repository
-（六种失败模式，每一种都有本仓库的实例）
+## Seven failure modes, each with an instance in this repository
+（七种失败模式，每一种都有本仓库的实例）
 
 ### 1. Window error　(four instances)　（窗口错，四次）
 
@@ -170,6 +170,51 @@ relative to at the same time as writing down the tolerance.
 （**规则**：**容差要和被量的效应同量级。** 这里被量的收缩是 27%，1% 的容差因此有意义而
 不是遮掩。写下容差时一并写下它相对什么。）
 
+### 7. Guard error　(seven instances in one stage, and the worst was silent)　（守卫错，一个阶段里七次，最坏的一次没出声）
+
+**Symptom**: the measurement is right and **the thing that was supposed to check
+it** is wrong. A guard is itself a measurement, of the pipeline rather than of
+the world, so every failure mode above applies to it. It gets its own entry
+because a broken guard does not look like a broken number: it looks like
+nothing, or it looks like a result.
+
+（**症状**：度量是对的，而**本该检查它的那个东西**是错的。守卫本身也是一次度量，量的是流水线不是世界，所以上面每一种失败模式都适用于它。单列出来是因为坏掉的守卫不长得像坏掉的数字：它要么什么都不像，要么长得像一个结果。）
+
+| form（形态） | instance（实例） |
+|---|---|
+| **silent when it should speak** | A3b's collapse guard said "the three arms differ" when every printed number was identical. B6's path reconciliation accepted a **back fill** as a forward fill, because its rule referred to "the previous published value" and before a currency's first publication there is none, so the branch fell through |
+| **speaks when nothing is wrong** | `fetch_cip` compared a source hash against a stored file carrying an extra sentinel line, and cried on every run |
+| **vacuous** | B4-4's criterion had a side that never occurred in the sample. B6's XLSX-against-API agreement looked like a zero calibration and tests only the delivery path: two routes to one record say nothing about the collection |
+| **domain set by the sample it was written on** | B6's plausibility band was `(1, 1e6)`, written when the stage held two currencies, and rejected two of the eleven added later. Its provisional-row rule required a forward fill, true of six files downloaded in one minute and false of the next thirty-three. Its coverage check asserted every currency starts on the window's first day, and one joined twelve days late |
+| **message conflates two states** | B6's export loader reported "the directory is empty" when the directory held six files whose names it did not accept |
+| **computed on a different population from the thing it guards** | A6's noise floor ran on 2012–2025 while the signal ran on 2000–2025 |
+
+**Rule**: **write down what the guard would say if the thing it guards were
+broken, and what it would say if the guard itself were broken, and check that
+those are different sentences.** Then check the guard on a case it should
+reject, not only on the data in hand.
+
+（**规则**：**写下「被守卫的东西坏了它会说什么」和「守卫自己坏了它会说什么」，确认这两句话不一样。** 然后拿一个它**应该拒绝**的样例去试它，不要只拿手上的数据试它。）
+
+**The silent hole is the dangerous one and it deserves its own sentence.** A
+guard that cries is found in a day. A guard that is vacuous is found when someone
+asks what it would take to fail it. **A guard with a hole produces a plausible
+downstream result**: B6-8, a registered criterion, failed on eight of 5 382
+observations, in one currency, in one contiguous stretch, with a clean story
+about a stale row. Every part of that was manufactured by rows the guard had let
+through. It was found because the fetcher, on a different machine, refused the
+same currency for an unrelated reason.
+
+（**沉默的洞才是危险的那一种，值得单独一句。** 乱叫的守卫一天就被发现；空转的守卫在有人问「怎样才能让它失败」时被发现。**带洞的守卫会产出一个看起来完全合理的下游结果**：B6-8 这条登记判据在 5382 个观测里失败了 8 个，集中在一个货币、一段连续日期上，还配着一个关于陈旧行的干净故事。那全部是守卫放进来的行造出来的。它之所以被发现，是因为取数脚本在另一台机器上因为一个无关的理由拒绝了同一个货币。）
+
+**And one instance in the other direction, because a file of failures teaches the
+wrong lesson.** B6's path reconciliation caught, on its first real run, a
+disagreement nobody had anticipated: the export's last row is provisional, and
+the API had published a value for that day in the hours after the download. It
+said so, refused to proceed, and named the row. That is what these are for.
+
+（**还有一个方向相反的实例，因为一份全是失败的清单会教出错误的结论。** B6 的路径对账在第一次真跑时抓到了一个没人预料到的分歧：导出文件的尾行是临时的，而 API 在下载之后的几小时里发布了那天的值。它说了出来、拒绝继续、并点了名。守卫就是干这个的。）
+
 ---
 
 ## The checklist before reporting a number　（报数之前的清单）
@@ -198,6 +243,10 @@ conversation:
 7. **Is there an arm whose true value should be zero, or should not move,
    running the same machinery?**
    （**有没有一个「真值应当是零／应当不动」的臂，跑同一套机器？**）
+
+8. **Would this guard say something different if the guard itself were broken?**
+   Have I run it on a case it should reject?
+   （**如果守卫自己坏了，它说的话会不一样吗？** 我拿一个它应该拒绝的样例试过它吗？）
 
 Item 7 is the only one **designed to catch an error rather than to avoid one**:
 A5-6's zero calibration was the only one of the eleven caught by an automatic

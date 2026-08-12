@@ -68,6 +68,12 @@ STAGE_TITLES = {
     "B5-parallel-trends": (
         "B5 pre-window guards — B5-14 failed, and B5-15 was written after it"
     ),
+    # Half a stage on purpose, and the title says so: the H-one arm needs the
+    # informal market, which is behind a retrieval gate. `b6_cuba_prereg.md` §9.
+    "B6-A": (
+        "B6-A — reachability typing inside the central bank's own table "
+        "(the H-one arm is not in this half)"
+    ),
 }
 
 PRESET_TITLES = {
@@ -108,6 +114,18 @@ def subtitle(record: dict) -> str:
     """
     if "rounds" in record:
         return f"`rounds={record['rounds']}` `seed={record.get('seed', '?')}`"
+
+    # B6-A is identified by its publication-day domain rather than by a sample
+    # size, because the estimator's domain is the registered object there: the
+    # publisher's schedule changes inside the window and the calendar-day view
+    # would carry a stale quote on two days in seven for the first eleven weeks
+    # (`b6_cuba_prereg.md` §3.2).
+    if record.get("stage") == "B6-A":
+        start, end = record["window"]
+        return (
+            f"{record['publication_days']:,} publication days, {start} to {end}, "
+            f"`segment_channel={record['segment_channel']}`"
+        )
 
     bits = []
     for key in ("min_cell_size", "spread_bound", "registered_min_gap", "shapes_drawn"):

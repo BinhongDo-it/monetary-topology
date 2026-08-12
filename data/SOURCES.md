@@ -318,3 +318,127 @@ headline already takes the oficial leg from BCRA's A 3500 reference
 (`b5_orphan_prereg.md` §3.1). Sourcing the background from the same central bank
 means a reviewer does not find authoritative data under the criteria and press
 reports under the discussion.
+
+---
+
+## Stage B6-A: the Banco Central de Cuba's own segment table
+
+**The provenance here is the highest in this file and that is the first thing to
+say: every agent class comes from the central bank.** B5's difficulty was the
+opposite, four of seven series from a newspaper. The cost of that strength is
+recorded in `b6_cuba_prereg.md` §4.3: with one publisher there is **no zero
+calibration** over the window, because a zero calibration needs one class
+collected twice by independent paths and there is only one path.
+
+| | |
+|---|---|
+| endpoint | `https://api.bc.gob.cu/v1/tasas-de-cambio/historico?fechaInicio=&fechaFin=&codigoMoneda=` |
+| verified | 2026-08-12 |
+| terms | free, no key, no registration, both ends of the range inclusive |
+| retrieved by | `data/fetch_bcc.py`, manifest at `data/raw/bcc_manifest.json` |
+| files | `bcc_<currency>.json`, one per currency, whole window in one request |
+| window | 2025-12-19 to retrieval, registered in `b6_cuba_prereg.md` §6 |
+
+The response carries three rates per date and nothing else:
+
+| field | segment | who may transact | return leg |
+|---|---|---|---|
+| `tasaOficial` | I | state enterprises and legal persons, on designated operations | **none** |
+| `tasaPublica` | II | natural persons, on the retained fixed schedule | **none** |
+| `tasaEspecial` | III | the managed float opened 2025-12-18 | both directions |
+
+### The four questions this file asks of every source
+
+**Which venue.** The central bank's own reference, and for the channel columns
+the counters of the banks and CADECA that the bank sets rates for. Not a market.
+
+**Which side of the book.** The API carries a mid only. The nineteen channel
+columns in the XLSX export carry a buy, a sell, or one of the two, and **the
+spread is an administrative markup rather than a dealer's cost**: it is the base
+rate times a fixed constant, published in the bank's own schedule. `b4` §5.1's
+sentence about `S + S'` being an agent's round-trip cost does not carry over, and
+`b6_cuba_prereg.md` §2.2 says so.
+
+**What aggregation over the day.** None. One value per date, no intraday
+snapshots, unlike Ámbito in B5.
+
+**At what hour.** Not published. The one thing known about the timing is
+indirect: the euro leg's implied cross tracks the previous European business
+day's fixing more closely than the same day's, which is why B6-4 failed on three
+of 147 days (§below).
+
+### Five properties of this source that cost something to learn
+
+**The nineteen channel columns are not retrieved.** Each is the base rate times a
+constant from the bank's published markup schedule, held as
+`cuba_segments.MARKUP_SCHEDULE` and validated against the exports by guard 1:
+176 358 exact equalities over 39 files, no departures.
+
+**The publisher truncates and does not round.** Every channel is
+`floor(base * k * 1e4) / 1e4`. The base itself is **not** truncated, and the
+channel whose multiplier is exactly `1.000` differs from the base in the last
+place on 59 of 1 428 rows, which is what says the truncation is the publisher's.
+
+**The export is a complete calendar and the API is not.** The XLSX carries every
+day; the API carries only publication days. Extra export rows are forward fills.
+**Rows before a currency's first publication are back fills** and are a different
+object: they manufacture a value for a day the bank published nothing. The yuan
+joined the table on **2025-12-31**, twelve days after everything else, so its
+export carries thirteen back-filled rows. Reading them as forward fills produced
+a criterion failure that was the reader's, `b6_cuba_prereg.md` §11.
+
+**The export's last row is provisional.** Taken before the day's rate is
+published it is a forward fill; taken after, it is the real value. Which one
+depends on the minute of the download. Rows at or after the export's own date are
+never compared.
+
+**The yen is published `de manera indirecta`**, yen per peso, while the other
+twelve are `de forma directa`, pesos per unit. The bank's page carries that
+footnote. Registered in `cuba_segments.QUOTATION` and asserted by guard 6 through
+the segment ladder, which runs `1/5` for the yen where a direct currency runs
+`5`.
+
+### The XLSX export, which is not fetched
+
+The historical export is behind a form rather than a URL, so the 39 files, 13
+currencies against 3 segments, are downloaded by hand into
+`data/raw/bcc_xlsx/`. Names look like
+`tasas-historicas-USD-Segmento-III-2026-08-12.xlsx`; the loader accepts only
+names matching `cuba_segments.VALID_XLSX` and **reports what it skipped**, since
+"the directory is empty" and "the loader accepts none of these six files" are
+different facts.
+
+The export is a **validator, not a daily source**: it checks the markup schedule
+and reconciles against the API. Every number the criteria read comes from the
+API.
+
+---
+
+## Stage B6-A: the ECB daily euro reference rate
+
+The external referee, and **the only source in stage B6-A that is not the Banco
+Central de Cuba**.
+
+| | |
+|---|---|
+| endpoint | `https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=&endPeriod=&format=csvdata` |
+| verified | 2026-08-12 |
+| terms | free, no key, no registration |
+| retrieved by | `data/fetch_ecb.py`, manifest at `data/raw/ecb_manifest.json` |
+| series | US dollar against the euro, fixed at 14:15 CET, business days only |
+
+**The address and the series identifier are two different strings.** SDMX
+addresses a series as `/service/data/{flow}/{key}`, so the path carries `EXR`
+once and then `D.USD.EUR.SP00.A`; the response's `KEY` column carries the two
+joined as `EXR.D.USD.EUR.SP00.A`. Putting the joined form into the path is well
+formed, looks right, and returns HTTP 400. Both spellings are held separately in
+`cuba_segments` and a test pins the built URL against the verified one.
+
+**What it validates and what it does not.** The source, not the pipeline. It
+cannot substitute for the zero calibration this stage does not have. And it is
+not a claim that the BCC copies the ECB: the two agree to within a few tenths of
+a percent but track no fixed lag, and **B6-4 fails on three of 147 compared
+days**, each of them a day the reference itself moved about a percent with the
+sign reversed. A one-business-day lag removes all three, which is a diagnostic
+and is not the registered comparison.
+

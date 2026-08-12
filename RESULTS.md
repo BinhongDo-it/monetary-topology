@@ -463,3 +463,30 @@ _no sample metadata recorded_
 |---|---|---|
 | PASS | B5-4 two formats, each parser refuses the other | byte-identical False, cross-refusals True/True |
 | PASS | B5-3 two parsers agree within the derived bounds | median 2.601e-03 against 0.02, 0 dates over 0.5, on 1,648 dates |
+
+## B6-A — reachability typing inside the central bank's own table (the H-one arm is not in this half)
+
+207 publication days, 2025-12-19 to 2026-08-12, `segment_channel=efectivo_ventanilla`
+
+**9/10 criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B6-1 the walked square equals the closed form | 16,098 squares over 4 two-sided channels of the float; worst departure below 1e-12 on both the index and the friction part |
+| PASS | B6-2 the trivial square is exactly zero | read off the diagonal of the same matrix, not short-circuited; worst diagonal exactly 0.0 |
+| PASS | B6-3 known answer: every pair of published columns | 1,763,580 comparisons, 190 pairs per date per file; exact against the truncated schedule, and drift from the ideal ratio stays inside the derived tolerance. A floor, not a finding |
+| **FAIL** | B6-4 the implied euro cross matches an outside reference | 147 publication days carry an ECB reference and 60 do not; worst relative deviation 1.134% against a band of 1.0%, exceeded on 3 dates (2026-03-02, 2026-04-08, 2026-06-18). Each sits on a day the reference itself moved about a percent with the sign reversed; a one-business-day lag leaves 0 outside the band, reported and not re-registered |
+| PASS | B6-5 the segment triangle is zero | implied EUR/USD agrees across the three segments on 207 dates, spread below 1e-12; cross ranges 1.1359 to 1.1977 |
+| PASS | B6-8 the agent and position factors are separable | 5,174 ladder rungs over 13 currencies and 199 dates; worst relative departure 0.0018% at JPY III 2026-06-18, against a tolerance derived per currency per date. 0 rungs outside it |
+| PASS | B6-6a maximal reading: no sub-potential exists | believing the published columns leaves a positive directed cycle on all 207 publication days, worst 3.2181; Bellman-Ford and enumeration agree on every date |
+| PASS | B6-6b directed reading: not strongly connected | removing the two agent edges the regulation does not grant restores a sub-potential on all 207 dates; three components, sinks exactly [1, 3] |
+| PASS | B6-6c the one-sided bound clears the float's band | segment I at least 2.7932; segment II at least 1.1838 against 4 x 0.0939 = 0.3756 |
+| PASS | B6-7 the distance grows across the window | segment I 2.7981 to 3.2181; segment II 1.1887 to 1.6087 |
+
+Derived quantities:
+
+- `float_band_width` = 0.0400
+- `four_bands` = 0.3756
+- `smallest_distance_segment_I` = 2.7932
+- `smallest_distance_segment_II` = 1.1838
+- `worst_cycle_sum_maximal` = 3.2181
