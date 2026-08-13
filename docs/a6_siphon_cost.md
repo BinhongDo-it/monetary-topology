@@ -75,6 +75,15 @@ Both are funded identically: a **progressive tax on holdings**, levied each roun
 at rate `R` on the financial layer only. What differs is where the proceeds go
 and what they do.
 
+> **On "the financial layer only", added 2026-08-12 and not a rewrite of the
+> above.** That phrase turned out to be a design choice rather than a
+> description: it makes the levy fall on a fixed set of node indices, which no
+> real tax system does and which lets the base be drained to zero. It remains
+> the registered default and is what every result up to §14 was produced under.
+> §15 registers a second base assessed on a measured stock each round, and
+> records what the difference measures. **Layer as position is not changed by
+> that and is not in question**; only who the levy is assessed on.
+
 ### Arm T — transfer
 
 Proceeds are divided **equally per capita** across the production layer and added
@@ -1026,3 +1035,1054 @@ own ratio is a bound while the cell is not flagged. The flag is inherited
 unchanged from `a6_siphon_cost.py` and §13.4 registered it in that form, so it
 stays. The per-seed `R*` values are printed beside every ratio for exactly this
 reason.
+
+---
+
+## 15. Who pays: the levy base, ruled and rebuilt 2026-08-12
+
+Section 3 registered the levy as falling "on the financial layer only". That
+sentence hid a design choice that no real tax system makes, and the choice turns
+out to have been carrying one of this stage's central findings. This section
+records what was wrong, what replaced it, and what the replacement measured.
+
+### 15.1 The defect: layer membership is an identity, and the levy inherited it
+
+`network.py` assigns `self._l1 = spec.financial_nodes`, which is `arange(20)`,
+once at construction, and never recomputes it. Layer membership fixes the graph's
+edges, the spending propensities, who pays payroll, the injection point and the
+opening allocation. It also, until now, fixed **who pays the levy**:
+
+```python
+levy = spec.rate * np.maximum(self.holdings[self._l1_idx], 0.0)
+```
+
+Twenty node indices, whatever they hold, and whoever else has become rich.
+
+**Two different things were riding on one switch, and only one of them was
+right.** Layer as *position*, meaning which edges a node has, is the framework's
+own object and should not move: a household does not become a bank by getting
+rich. The **levy base** is a policy instrument, and a real tax is assessed on a
+measured quantity rather than on a category. The two coincide at the open and
+come apart exactly when the intervention starts working, which is the whole
+regime this stage is about.
+
+**The counter-case is real and is why the position reading is not simply
+correct either.** A production-layer household that accumulates enough does in
+fact become a rentier. The evidence for that is causal rather than
+correlational: a lottery windfall of one million kronor raises equity market
+entry among prior non-participants by twelve percentage points, about
+thirty-nine percent of prior non-participants entering on windfalls above two
+million, with the effect immediate and still present ten years later, while
+prior participants are unaffected (Briggs, Cesarini, Lindqvist and Östling,
+*Journal of Financial Economics*, 2021). The implied **one-time** entry cost
+exceeds a million kronor for over forty-five percent of non-participants against
+a median per-period cost of about two hundred.
+
+So the shape the evidence supports for *membership* is a threshold with a large
+one-off cost and downward stickiness, and neither a fixed identity nor a
+per-period recomputation. **Membership is not changed here.** Three reasons, all
+recorded rather than argued from taste:
+
+- the blast radius is the whole A track, since everything subclassing `Network`
+  reads the partition;
+- the thinnest part of the evidence is precisely the property such a change
+  would need, namely reversibility. No study tracks whether households that
+  *lose* wealth exit rentier behaviour; the downward stickiness is inferred from
+  the entry-cost asymmetry rather than measured;
+- stage A3 already contains the mechanism, in its `γ·P` asset-access threshold
+  where one hundred and eighty production nodes yield twenty-three entrants.
+  A6 declares in its own header that it does not use A3's machinery, so
+  borrowing it is a coupling decision and not a local fix.
+
+### 15.2 What real systems do, and the one number that decides it
+
+Every net wealth tax in force assesses liability on a **measured stock,
+recomputed every year**. Norway (worldwide net assets above NOK 1.9m, about
+twelve percent of the population), Switzerland (cantonal, annual, thirty-four to
+forty-two percent of filers, levied continuously since 1840 and still 3.9% of
+total tax revenue), Spain (the regional *Patrimonio* plus the national
+*Solidaridad* above €3m) and France's ISF before its 2018 replacement by the
+real-estate-only IFI. **None uses a fixed set of payers.**
+
+And the base does not drain. Norway's wealth tax revenue rose from NOK 27bn to
+about 34bn between 2022 and 2025 *through* the largest documented emigration
+episode, roughly 260 residents with over NOK 10m leaving in each of 2022 and
+2023. Spain's rose 58% in a year; France's IFI rose 11% in 2024. The reason is
+structural: a stock base recomputed each period is replenished by returns and by
+new entrants crossing the threshold, and observed rates of 0.15% to 1.1% sit far
+below the return on capital, so the tax **skims a flow rather than consuming the
+stock**.
+
+Behavioural response is large but runs through valuation and reclassification
+rather than through holders disappearing: elasticity of *taxable* wealth to the
+net-of-tax rate is 43% in Switzerland (24 points of it internal mobility, 21
+house-price capitalisation), 0.7 long-run in Denmark, 0.09 to 0.27 in Sweden.
+
+**So the model's property that taxing a fixed set drains it to zero, after which
+the levy collects nothing forever, is an artefact of the fixed-category design
+and not a feature of any real system.**
+
+### 15.3 The threshold base, and why `θ` is one mean
+
+`LevySpec.base = "threshold"` levies on **the excess above a threshold**, for
+every node, recomputed each round:
+
+```
+levy_i = R · max(0, holdings_i − θ),      θ = k · (claim stock / node count)
+```
+
+Norway taxes what is above NOK 1.9m rather than the whole holding of everyone
+above it, and this follows that. The disbursement side is **not changed**:
+proceeds still go per capita to the production layer. One change at a time, so
+the effect is attributable.
+
+**`k = 1` is registered, on three grounds fixed before the run.**
+
+- It catches **twenty-one to twenty-five of two hundred nodes at the open**,
+  measured per seed as `23, 22, 25, 23, 21`, so ten and a half to twelve and a
+  half percent. Norway's threshold catches roughly twelve percent of the
+  population. That is an external anchor, not a tuned one.
+- Under `uniform_access` every node opens holding exactly the mean, so the
+  excess is exactly zero everywhere and **the levy is exactly zero. The zero
+  calibration becomes a derivation rather than an assumption.** The layer base
+  had no such property: in the flat cells it takes from twenty node indices that
+  are structurally identical to the other hundred and eighty.
+- Written as a multiple of the mean rather than as an absolute number, so it is
+  scale-free and would index itself if issuance were ever turned on.
+
+**One identity makes the base's behaviour predictable in advance.** Since
+`Σ(h − mean) = 0`,
+
+```
+Σ max(0, h_i − mean) = (n/2) · mean absolute deviation
+```
+
+so **the threshold levy is proportional to the dispersion of holdings**. It is
+exactly zero on a flat distribution, which is the zero calibration again, and it
+*grows* as the economy concentrates. A base defined this way cannot die by
+concentration, because concentration is what feeds it.
+
+### 15.4 What section 3 now means
+
+Section 3's sentence, "levied each round at rate `R` on the financial layer
+only", **is left as written** and describes the `layer` base, which remains the
+default and remains what every result before this section was produced under.
+It is no longer the only base. What section 3 should be read as having
+registered is *an* instrument, not *the* instrument, and section 15.3 is the
+second one. Rewriting section 3 would be editing a pre-registration to match a
+later ruling, which is what this repository refuses.
+
+The same applies to the module docstring in `redistribution.py`, which is
+updated because it is code documentation rather than registered text.
+
+### 15.5 A6-18, registered before the threshold arm ran
+
+**A6-18 — a base recomputed from a measured stock does not die.** In the
+long-horizon cells under `threshold`, the levy collected in the **final** round
+is at least `1e-6` of the opening claim stock, in every seed.
+
+The floor is set at the scale of numerical noise rather than at a level chosen
+to taste. The registered claim is that the base **does not die**, so the test is
+that it is not approximately zero, and the magnitudes are reported beside the
+verdict rather than being turned into a threshold nobody had seen. The `layer`
+rows are run alongside as the comparison and are **not** judged by this
+criterion.
+
+**A renumbering, recorded because it happened after a result existed.** This
+criterion was first written as A6-19, leaving A6-18 unused, and a gap in a
+pre-registration reads as a withdrawn criterion. It was renumbered to A6-18
+after the first registered run had already written `A6-19` into
+`results/a6_ratchet.json`. Labels only: no threshold, no scope and no line of
+logic changed, and `tests/test_a6_ratchet.py` passed unchanged across the
+rename. A6-19 is reused below for a new criterion.
+
+### 15.6 First execution. A6-18 passes, and the margin is the finding
+
+Five seeds, twelve thousand rounds, `R = 0.005`, `access / fair /
+infrastructure`. Levy collected, in units of the opening claim stock:
+
+| cell | round 1 | round 12000 | gone |
+|---|---|---|---|
+| `layer / exp / λ=0` | `3.571e-03` | **`8.543e-05`** | **97.6%** |
+| `layer / hill / λ=0` | `3.571e-03` | `5.134e-04` | 85.6% |
+| `layer / clip / λ=1e-3` | `3.571e-03` | `8.652e-04` | 75.8% |
+| `threshold / exp / λ=0` | `3.110e-03` | **`2.737e-03`** | **12.0%** |
+| `threshold / hill / λ=0` | `3.110e-03` | `2.463e-03` | 20.8% |
+| `threshold / clip / λ=1e-3` | `3.110e-03` | `2.737e-03` | 12.0% |
+
+The fixed base is drained. The recomputed base is not, which is the shape
+section 15.2 describes. The threshold base also collects **less in round one**,
+`3.110e-03` against `3.571e-03`, because it takes only the excess above `θ` and
+not the whole holding of those above it.
+
+### 15.7 The tax ends up entirely inside the production layer
+
+At round twelve thousand, in every threshold cell, the share of the levy coming
+from production-layer nodes is **100%** (98% in one seed of one cell). The payer
+count goes from twenty to between fifty and sixty-five. Not one financial-layer
+node is above `θ` any more.
+
+**The instrument changes category.** It was designed to move claims from the top
+of the graph to the bottom. It ends as a transfer from the production layer to
+the production layer, because it succeeded at destroying the position the top
+occupied. This is the framework's own thesis biting the instrument built to act
+on it: position determines everything, and once the position is gone a levy
+assessed on **quantity** has no upstream left to assess.
+
+### 15.8 A realistic base makes the arm more lethal, not safer
+
+The fixed base carried an accidental safety brake: sealing the leak destroys the
+levy base, which stops the building, which stops `x`. Section 14.2 read
+`clip / λ=0` stopping at `x = 1.000000` as a fixed point of the building
+process. **It was not. It was the tax base dying.**
+
+Remove the artefact and the brake goes with it:
+
+| cell | `x` at the end | surviving leak | seed 1 closed at round |
+|---|---|---|---|
+| `layer / exp / λ=0` | `4.49–5.01` | `0.0067–0.0113` | **3808** |
+| `threshold / exp / λ=0` | **`32.56–44.14`** | **`0.0000`** | **1402** |
+| `layer / clip / λ=1e-3` | `0.87–0.89` | `0.112–0.135` | never |
+| `threshold / clip / λ=1e-3` | **`2.74–3.87`** | **`0.0000`** | **426** |
+
+The collapse arrives between two and nine times sooner. `x` reaching thirty-two
+to forty-four puts the `exp` arm across the `37.43` at which section 13.3
+registered that it becomes the wall in float64, which is why the surviving leak
+reads as exactly zero.
+
+### 15.9 The control cell flipped, and `x* = I/λ` predicts both sides exactly
+
+`clip / λ=1e-3` was A6-16's control, chosen because under the layer base it has
+a genuine fixed point and stays open at any horizon. Under the threshold base
+**the same cell closes**, and section 13.3's arithmetic says why to three
+figures:
+
+| base | levy `I` at the end | `x* = I/λ` | measured `x` |
+|---|---|---|---|
+| `layer` | `8.652e-04` | `0.865` | `0.87–0.89` |
+| `threshold` | `2.737e-03` | `2.737` | `2.74–3.87`, seed 0 at `2.86` |
+
+`λ`'s fixed point still exists and is still settled to within `0.29%` over six
+thousand rounds. **It moved above the wall's corner at `x = 1`**, because a base
+that does not drain keeps `I` three times higher.
+
+**So the band of `λ` that works is a function of the levy base**, and section
+14.7's interior band `[0.001, 0.01]` was measured under a base now known to be
+unrealistic. It shifts upward under the threshold base and has not been
+remeasured.
+
+Every fixed point observed anywhere in this stage comes from either `λ` or from
+the tax base collapsing. **Nothing in the evidence shows the building process
+saturating on its own.**
+
+### 15.10 The surviving-leak reading, and its one exception
+
+Sorting all thirty cells measured so far by the leak surviving at the end
+separates open from closed with **one** exception:
+
+| leak | cell | verdict |
+|---|---|---|
+| `0.0000` | `threshold / clip / λ=1e-3` | closed |
+| `0.0000` | `threshold / exp / λ=0` | closed |
+| `0.0113` | `layer / exp / λ=0` | closed |
+| `0.0130` | `layer / clip / λ=1e-4` | closed |
+| **`0.0335`** | **`threshold / hill / λ=0`** | **open** |
+| `0.0403` | `layer / clip / λ=3e-4` | closed |
+| `0.0678` … `0.7286` | fifteen cells, all three shapes interleaved | open |
+| `0.8709` … `0.9620` | six cells | closed, the arm buys too little |
+
+The exception is diagnostic rather than noise. **Circulation reaching the
+production layer has two sources**: the surviving upward leak, which recirculates
+through the financial layer's spending, and the levy-and-rebate loop. Under the
+fixed base the second source dies with the first, so the leak alone predicts the
+verdict. Under the threshold base the second source survives as a purely
+intra-production-layer redistribution, and a leak of `0.0335` therefore holds
+where `0.0130` did not.
+
+It does not substitute entirely. `threshold / exp` and `threshold / clip` have a
+leak of exactly zero with the levy still flowing at full strength, and one seed
+in five still closes. Once the graph is genuinely cut in two, redistribution
+inside the lower half does not repair it.
+
+### 15.11 A6-19, registered before its code exists
+
+Section 14.4's A6-16 asks whether a smooth `g` removes the collapse or postpones
+it, and it is judged on the `layer` base. **It stays there.** A criterion is not
+moved to a different arm after it has returned a verdict, even a null one.
+
+**A6-19 asks the same question on the threshold base**, as a separate criterion
+with its own cells and its own control.
+
+- **Judged**: `threshold / exp / λ=0` and `threshold / hill / λ=0`.
+- **Control**: `threshold / clip / λ=1e-2`, and **not** the `λ=1e-3` cell A6-16
+  uses, because section 15.9 shows that cell closes under this base. At
+  `λ=1e-2` the fixed point is `x* ≈ 0.27`, below the wall's corner, so the
+  control has a surviving leak of about `0.73` and should stay open at any
+  horizon. **If it closes too, A6-19 returns no verdict**, exactly as A6-16 does.
+- **Three-valued, on the same rule as A6-16.** Both judged cells closed is a
+  pass; a judged cell open with `x` settled is a fail; a judged cell open with
+  `x` still climbing is **no verdict**, because that is A6-5's mistake.
+
+**The registered prediction is that both close**, and the argument is available
+before the run, which is what makes it a prediction rather than a description.
+The threshold base's levy is proportional to dispersion (section 15.3), so it
+cannot die by concentration; at `λ = 0` the gap is cumulative investment and
+therefore unbounded; a smooth `g` then drives the surviving leak to zero. The
+chain uses only quantities already measured. `threshold / exp` reached the end of
+that chain at twelve thousand rounds already.
+
+**The horizon moves to sixty thousand rounds, and that is not a change of
+criterion.** A6-16 was built three-valued precisely so that "the horizon is too
+short" would trigger a longer run instead of a wrong answer, and it returned that
+branch at twelve thousand rounds with `layer / hill`'s `x` still climbing at
+fifty percent per six thousand rounds. Extending is the response the criterion
+itself prescribes. Sixty thousand is set by two independent readings and not by
+convenience:
+
+- `layer / hill`'s `x` fits `4.50·ln t − 30.35` across five seeds, which puts a
+  surviving leak of `0.05` at about **fifty-eight thousand** rounds;
+- `threshold / hill`'s `x` grows close to linearly, `2.45e-3` per round, which at
+  sixty thousand rounds gives `x ≈ 147` and a surviving leak of about `0.0068`,
+  inside the range in which closure has already been observed.
+
+The twelve-thousand-round readings in sections 15.6 to 15.10 stand as recorded
+and are superseded as verdicts, not withdrawn as measurements.
+
+### 15.12 What this still does not establish, and one thing it must not be read as
+
+**`g`'s shape is an input, not an output.** The model cannot say whether
+education, or infrastructure in general, saturates in the world. It says what
+happens to circulation *given* an assumption about `g`. The registered default,
+`exp`, encodes the assumption that marginal returns decay quickly but never
+reach zero; `hill` encodes slower decay with the same property; `clip` encodes a
+good that is genuinely finished at a point, which is the minority case and is
+present only as the reduction point and as A6-14's control.
+
+Anything in a write-up of the form "the model shows that public provision never
+becomes sufficient" is quoting an assumption back as a result.
+
+**What `g` bounded at one does encode is accounting and not a claim about the
+good.** No more than a hundred percent of upward leakage can be removed. The
+*shape* is a claim about what the last few percent of it costs.
+
+**The two senses of "enough" are opposite, and both are real.** In the arm's
+sense, `K − B` stops growing, and `λ > 0` is what delivers that. In the welfare
+sense, investment can stop, and `λ > 0` is what destroys that: halting lets `B`
+catch `K`, drives the gap to zero and gives up the whole advantage. Section
+12.2's comparative statics said the second; the first is new here. **The rising
+frontier is simultaneously the reason provision never becomes sufficient and the
+reason accumulated provision does not run away and sever the economy.**
+
+**A note on units that section 16 will have to settle.** `R*(transfer) = 0.060`
+is six tax points per round against real net wealth taxes of 0.15% to 1.1% per
+year. Section 7 already says `R*` is not a tax rate for any real economy, so
+this is not a contradiction. It is a reminder that `PROJECT_PLAN.md` §16.1's
+rule applies here too: **without a mapping from rounds to time, there is no
+saying whether the model's `R` is above or below the return on capital, and that
+is the single parameter deciding whether a base drains.**
+
+---
+
+## 16. The long horizon settles it, 2026-08-12
+
+Five seeds. The `λ` curve at two thousand rounds, the rescan at two thousand,
+the long-horizon block at sixty thousand with `layer/hill` carrying a registered
+multiple of three. `results/a6_ratchet.json`.
+
+**Nine of eleven criteria pass.** The two failures are A6-10 and A6-11, both on
+the grid-floor split §14.5 records, and neither has moved.
+
+### 16.1 A6-16 and A6-19 agree, and the answer is *postpones*
+
+Both ask whether a smooth `g` removes the collapse or defers it. A6-16 asks it
+on the `layer` base, A6-19 on `threshold`. **Both pass, and they pass in the
+same direction.**
+
+| cell | rounds | surviving leak | `end / start`, five seeds | closed at round |
+|---|---|---|---|---|
+| `threshold / exp / λ=0` | 60000 | `0.0000` | `1.68, **0.13**, 1.61, 1.86, 1.22` | 1402 |
+| `layer / exp / λ=0` | 60000 | `0.0010–0.0022` | `1.69, **0.09**, 1.62, 1.88, **0.74**` | 3808, 50440 |
+| `threshold / hill / λ=0` | 60000 | `0.0056–0.0064` | `1.77, **0.27**, 1.68, 1.93, 1.81` | 15522 |
+| `layer / hill / λ=0` | **180000** | `0.0155–0.0196` | `1.90, **0.45**, 1.83, 2.06, 2.06` | **64854** |
+| `layer / clip / λ=1e-3` (control) | 60000 | `0.112–0.135` | all `≥ 2.51` | never |
+| `threshold / clip / λ=1e-2` (control) | 60000 | `0.665–0.676` | all `≥ 0.97` | never |
+
+Both controls held, and held where they were registered to. `layer / clip`
+settled at `x = 0.87–0.89`, `threshold / clip` at `x = 0.32` against a predicted
+`x* ≈ 0.27`, both moving `0.01%` across the second half of thirty thousand
+rounds.
+
+**So the answer does not depend on who pays.** A smooth saturation buys time and
+nothing else. Under the wall the leak is sealed by round three hundred; under
+`exp` it takes to round three thousand eight hundred; under `hill` on the
+threshold base to fifteen thousand and on the layer base to sixty-five thousand.
+The ordering is the ordering of how fast each shape drives the leak down, and
+every one of them arrives.
+
+### 16.2 The correction of a correction. Three layers, all kept
+
+| when | what was said |
+|---|---|
+| §12.4, registered before any of this ran | "smooth saturation `g` … **on its own it does not fix A6-5**" |
+| §14.2, after two thousand rounds on the layer base | "that sentence is false. `g` alone does fix it" |
+| **§16, after sixty and a hundred and eighty thousand rounds on both bases** | **§14.2 was wrong. It was a short horizon on a levy base since shown to be an artefact. §12.4 stands as registered.** |
+
+**None of the three is rewritten.** §12.4 keeps its wording, §14.2 keeps its
+correction, and this section carries the correction of the correction. What the
+sequence is worth is exactly that it is on the page: a wrong reading was issued
+with confidence from a run that looked long enough, on an arm that looked
+faithful enough, and it took two independent changes, the horizon and the levy
+base, to expose it.
+
+### 16.3 Every fixed point in this stage comes from `λ`
+
+At sixty thousand rounds, `x` in the two control cells moves by `0.01%` across
+the second half. At the same horizon, `x` in every `λ = 0` cell is still
+climbing: `+13%` for `layer / exp`, `+49%` for `layer / hill`, `+102%` and
+`+117%` for the two threshold cells.
+
+There is no cell anywhere in this stage in which the building process stops on
+its own. The one that looked like it did, `clip / λ=0` halting at
+`x = 1.000000`, was the tax base dying (§15.8). **`λ` is the only stop the
+mechanism has**, and §12.2's comparative statics acquire a second meaning
+because of it: the requirement to keep investing and the guarantee against
+running away are the same condition.
+
+### 16.4 Seeds fall one at a time, and the threshold base buys a lower floor
+
+Sorting the six cells by surviving leak gives a monotone count of closures, with
+one systematic inversion:
+
+| leak | cell | seeds closed |
+|---|---|---|
+| `0.0000` | `threshold / exp` | 1 |
+| `0.0022` | `layer / exp` | **2** |
+| `0.0064` | `threshold / hill` | 1 |
+| `0.0196` | `layer / hill` | 1 |
+| `0.1345` | `layer / clip / λ=1e-3` | 0 |
+| `0.6758` | `threshold / clip / λ=1e-2` | 0 |
+
+The inversion is the finding. `layer / exp` at a **higher** leak has **more**
+seeds closed than `threshold / exp` at zero. Seed 4 is the case: it closes under
+`layer / exp` at round 50440 and ends at `1.22` under `threshold / exp`, at a
+lower leak.
+
+**The cleanest measurement is seed 1 under `hill` on the two bases**, same
+shape, same `λ = 0`, differing only in who pays:
+
+| base | closed at round | `x` there | leak at closure |
+|---|---|---|---|
+| `layer` | 64854 | `≈ 31.6` | **`0.031`** |
+| `threshold` | 15522 | `≈ 38.6` | **`0.025`** |
+
+The threshold base survives to a leak about a fifth lower. That is the second
+circulation source §15.10 identified, now measured rather than inferred: the
+levy keeps running as a purely intra-production-layer redistribution, and it
+substitutes for part of the upward leak. It does not substitute for all of it,
+since `threshold / exp` closes a seed at a leak of exactly zero.
+
+### 16.5 A6-18 at the long horizon, and one base that grew
+
+| cell | round 1 | final round | change |
+|---|---|---|---|
+| `layer / exp / λ=0` | `3.571e-03` | `1.693e-05` | **−99.5%** |
+| `layer / hill / λ=0` | `3.571e-03` | `1.456e-04` | −95.9% |
+| `layer / clip / λ=1e-3` | `3.571e-03` | `8.664e-04` | −75.7% |
+| `threshold / exp / λ=0` | `3.110e-03` | `2.738e-03` | −11.9% |
+| `threshold / hill / λ=0` | `3.110e-03` | `2.683e-03` | −13.7% |
+| `threshold / clip / λ=1e-2` | `3.110e-03` | `3.241e-03` | **+4.2%** |
+
+The last row is the identity of §15.3 doing its work. A threshold levy is
+proportional to the mean absolute deviation of holdings, so a base that runs at
+a `λ` high enough to keep the economy in a steady state **collects more at the
+end than at the start**, because the distribution has spread. The fixed base
+under the same conditions lost three quarters of its revenue.
+
+Payer counts tell the same story from the other side: twenty in every layer
+cell at every horizon, against twenty-four to sixty-six under `threshold`, and
+one hundred percent of the levy coming from production-layer nodes in the two
+`λ = 0` threshold cells.
+
+### 16.6 A6-9's band has a horizon-dependent low end. Recorded, not withdrawn
+
+A6-9 passed, and its band is `λ ∈ [0, 0.01]` on the two-thousand-round curve.
+**That low endpoint is a two-thousand-round artefact.** At `λ = 0` the same
+cells close under both smooth shapes once the horizon is long enough, at round
+3808 for `exp` and 64854 for `hill`.
+
+A6-9 is registered at two thousand rounds and is not withdrawn: it measured what
+it said it would measure. What may not be said is that `λ = 0` holds the economy
+open, and any write-up quoting the band's low end without the horizon attached
+is quoting an artefact. **The band's upper end at `0.01` is unaffected**: that
+failure is the arm buying too little, which a longer run does not repair.
+
+This is the third time in this stage that a short horizon produced a confident
+wrong reading, after A6-5 at three hundred rounds and §14.2 at two thousand.
+
+### 16.7 Two sizing estimates, both wrong in the same direction
+
+Recorded because the discipline is worth more than the estimates were.
+
+- §14.7 fitted `layer / hill`'s `x` to `4.50·ln t − 30.35` on five points
+  between two thousand four hundred and twelve thousand rounds, and predicted
+  `x ≈ 19` at fifty-eight thousand. **Measured: `28–34` at sixty thousand.**
+  Extrapolating a log fit five times beyond its data undershot.
+- §15.11 then sized the extension from measured increments and put the crossing
+  near a hundred and ten to a hundred and twenty thousand rounds. **Measured:
+  round 64854.**
+
+Both erred towards the cell moving faster than predicted, so the sixty-thousand
+run missed the crossing by under eight percent and the three-times margin caught
+it. The margin was registered on the grounds that overshooting costs three
+minutes and undershooting costs a whole pass over the stage, and that is what it
+bought.
+
+### 16.8 What is still open
+
+- **A6-10 and A6-11** remain failed on the split §14.5 names. The diagnosis is
+  unchanged and is not a resolution problem: `R*` in this arm is proportional to
+  `λ`, so it falls off any grid fixed in advance as `λ` shrinks. Asking for it
+  as a level is the wrong question and a criterion asking the right one has not
+  been written.
+- **A6-15's interior band `[0.001, 0.01]` was measured on the layer base.**
+  §15.9 shows the same `λ` gives a three times larger `x*` under `threshold`, so
+  the band shifts upward there. Not remeasured.
+- **The `λ` curve is entirely on the layer base at two thousand rounds.** §16.6
+  is the reason that matters.
+- **The rounds-to-time mapping.** §15.12. Without it there is no saying whether
+  this model's `R` sits above or below the return on capital, and that is the
+  parameter deciding whether a base drains.
+
+---
+
+## 17. What a round is, and what the horizon numbers are not
+
+§16.8 left the rounds-to-time mapping open. It is closed here in the only way
+that is honest, which is smaller than it sounds.
+
+### 17.1 A round reads as a year, and the source is already in the repository
+
+`calibration.py` takes the spending propensities from Fagereng, Holm & Natvik
+(2021), Norwegian lottery wins in administrative panel data, and quotes them as:
+low-liquidity winners of the smallest prizes spend essentially all of the win
+**within the year**, high-liquidity winners of the largest prizes slightly below
+one half. A propensity estimated over a year, applied once per round, makes a
+round a year. That sentence has been in the file since the calibration was
+written, as a caveat, and was never carried forward as a unit.
+
+Read that way:
+
+| reading | per year | against |
+|---|---|---|
+| `R*(transfer) = 0.060` | **6.0%** | Norway 1.0%, Switzerland 0–0.3%, Spain up to 3.5% |
+| `R*(infrastructure) = 0.010` at `λ = 1e-2` | **1.0%** | Norway's rate exactly |
+| the wall seals at round 294 | 294 years | |
+| seed 1 closes, `threshold/exp` | 1,400 years | |
+| seed 1 closes, `layer/hill` | 65,000 years | |
+
+### 17.2 The horizons are ordinal. They are not a forecast
+
+**Nothing in §16 should be read as a claim about the year 65,000.** By that
+point every other assumption in this model has broken down thousands of times
+over: the graph is fixed, there is no technical change, no population, no
+external sector, and the claim stock is conserved. A real economy is not
+stationary and is not driven by one mechanism.
+
+§7 already registered the discipline this is an instance of: **what transfers is
+the comparison, not the level.** Applied to time, the transferable content of
+§16 is the *ordering and the ratios*, all measured inside one model under one
+set of assumptions:
+
+- the wall seals fastest, then `exp`, then `hill`;
+- a realistic levy base brings the closure forward by a factor of two to nine;
+- `λ > 0` stops it altogether, and is the only thing in the stage that does.
+
+Those are internal comparisons. The absolute horizons are the units they were
+measured in and are not a prediction of anything.
+
+### 17.3 The one place the year reading earns its keep
+
+§12.2's own worked example of the frontier moving is Prussian compulsory
+schooling to a modern nine-year system, which is roughly a hundred and twenty
+years. A gap half-life of a hundred and twenty years is
+`λ = ln 2 / 120 ≈ 0.0058` per year.
+
+**The registered band is `λ ∈ [0.001, 0.01]`**, fixed from the arithmetic
+`x* = ι·R·s/λ` in §13.3 before anything ran and with no reference to any
+historical example. The value implied by the document's own example lands
+inside it, towards the upper end.
+
+That is a check on the band's plausibility and it does not need the horizons to
+be forecasts. It also sharpens what §16.1 established: **the collapse is a
+statement about a counterfactual in which the frontier never moves.** At the
+absorption rate the historical example implies, the arm has a fixed point and
+holds it at sixty thousand rounds to within `0.01%`.
+
+### 17.4 Three limits on the mapping, stated rather than buried
+
+- **The estimand does not match.** `calibration.py` says so itself: FHN measure
+  a marginal propensity to consume out of a transitory income shock, and this
+  model's propensity is a spending rate out of holdings. The analogy licenses
+  the range, the ordering and the period, not the exact values, and the period
+  inherits all of that looseness.
+- **The wage channel and the issuance rule have not been checked against it.**
+  `WageChannel(bill=6.0)` is six units of a hundred-unit claim stock per round,
+  and the endogenous issuance rule is calibrated elsewhere. If those imply a
+  different period, that is a finding rather than a detail: it would mean the
+  model mixes timescales.
+- **§7 is unchanged.** `R*` is still not a tax rate for any real economy. What
+  §17.1 does is give the round counter a scale, not claim that the model is
+  calibrated to anything.
+
+---
+
+## 18. The other side of the same instrument, 2026-08-13
+
+§15 corrected **who pays** and did not look at **who receives**. This section is
+that correction, and it is here because a repository-wide audit went looking for
+the shape of the §15 defect elsewhere and found it three lines below §15's own
+edit.
+
+### 18.1 What was wrong, and how it survived §15
+
+`_post_round` moved claims in two statements. §15 rewrote the first into
+`_assess`, so under the threshold base the payers are recomputed from measured
+holdings every round. The second was left as it stood:
+
+```python
+self.holdings[self._l2_idx] += total / self._l2_idx.size
+```
+
+`_l2_idx` is the hundred and eighty node indices assigned to the production
+layer at construction. So the corrected instrument taxes a **measured**
+magnitude and pays a **fixed address list**, and nothing in the run says so.
+
+The consequence is not subtle once it is measured. At the registered
+infrastructure cell over twenty thousand rounds, `λ = 1e-3`, `R = 0.005`,
+threshold levy, five seeds:
+
+| levy base | rebate base | nodes on **both** sides in one round, worst | recipients |
+|---|---|---|---|
+| layer | layer | 0 | 180 every round |
+| layer | threshold | 5 | 133 to 183 |
+| **threshold** | **layer** | **61** | 180 every round |
+| threshold | threshold | 0 | 123 to 183 |
+
+The third row is the shipped configuration of §15's correction. **Sixty-one
+nodes pay the levy and receive the rebate in the same round**, and on a
+seed-by-seed mean it is fifty-four. Meanwhile the financial-layer nodes that
+have fallen below `θ` pay nothing, because they are below the threshold, and
+receive nothing, because they are not in `_l2_idx`. At the twenty-thousandth
+round of seed zero there are four of them.
+
+The second row is the same error mirrored, and it is run to show that the
+diagnosis is about **mismatch** and not about the word "layer": a layer levy
+with a threshold rebate levies a financial-layer node that is below `θ` and
+pays it a rebate in the same breath, because the layer levy never looks at `θ`.
+
+### 18.2 `RebateSpec`, and why it is equal shares
+
+The switch has the same shape as `LevySpec` and the same default, so everything
+that ran before it exists is untouched and A6-7 still reduces the ratchet to the
+`A6Model` that produced §9.2. Verified: ninety-six pairs across two access arms,
+two retention arms, two channels, four rates and three seeds, zero mismatches on
+`effective_support`, `holdings`, `total_volume`, `leak_factor`, `invested` and
+the Palma trajectory.
+
+`threshold` pays the nodes **below the same `θ`** the levy is assessed above, in
+**equal shares**. Equal shares rather than in proportion to the shortfall is a
+deliberate refusal to move two things at once: the existing rebate is an equal
+split, so changing membership alone isolates the membership. A shortfall-weighted
+rebate is a different arm and is not written here.
+
+`θ` is the levy's own, not a second number. One instrument, one threshold, taxed
+above it and paid below it. A rebate threshold free to differ would be a second
+free parameter and would be the first thing anyone tuned.
+
+**Both sides are read off the holdings before either moves, and that ordering is
+load-bearing.** A real instrument assesses both sides on one measurement date.
+Taking the recipients off the post-levy holdings would let a node pay and then
+immediately qualify to receive, which is the overlap this switch exists to
+remove, reintroduced through ordering rather than through membership. This is
+the same class of within-round ordering decision as §12's `B` before `K`, and it
+is checked rather than trusted: `both_sides_history` counts the intersection
+every round.
+
+**The empty-recipient case is handled and recorded rather than assumed away.**
+If no node is below `θ`, the rule names nobody, and the claims still have to
+land somewhere: conservation is not negotiable and holding them outside the
+ledger would make the levy a destruction of claims rather than a transfer. They
+are split across every node and the round is recorded in
+`rebate_fallback_history`. It has never fired.
+
+### 18.3 A6-20, and one scope correction disclosed
+
+> **A6-20.** In every round of every cell: matched pairs, meaning `layer/layer`
+> and `threshold/threshold`, put **no** node on both sides of the transfer;
+> mismatched pairs put **at least one**; claims are conserved to within `1e-6`
+> of the opening stock; and the empty-recipient fallback does not fire.
+
+Every quantity is fixed by construction, so there is nothing here to tune. The
+criterion is two-sided on purpose. A zero in the mismatched rows would not be a
+success, it would mean the distribution never put anybody in the overlapping
+region and the comparison was empty.
+
+**The first draft demanded zero in all four cells and failed on the two
+mismatched ones.** That is the criterion having the wrong scope, not the model
+misbehaving: those cells are supposed to overlap. It is disclosed here rather
+than silently repaired, and the repair is only legitimate because **nothing had
+been registered when it happened**: the first form never left the experiment
+file and A6-20 reaches this page in the corrected form. A criterion already on
+this page would have been left failing, as A6-1 is.
+
+**Result: pass.** Five seeds, twenty thousand rounds, four cells, at the
+registered rate. Worst claim drift `1.9e-11` against the `1e-6` bound, zero
+fallback rounds, the two matched rows at zero and the two mismatched rows at
+sixty-one and five.
+
+### 18.4 What the correction does to A6's numbers, and what is still open
+
+Almost nothing, at the cell measured. Seed zero, twenty thousand rounds,
+threshold levy, the rebate switched from `layer` to `threshold`:
+
+| | layer rebate | threshold rebate |
+|---|---|---|
+| gap `K − B` | 243.855 | 243.757 |
+| surviving leak | 0.087287 | 0.087373 |
+| Palma, final round | 23.073 | 22.889 |
+
+The gap moves by four hundredths of a percent and the Palma falls by eight
+tenths of a percent, which is the direction the correction predicts: money that
+was going to every downstairs node now goes only to the ones below `θ`.
+
+**This is one cell and it is not a robustness claim.** No threshold for the
+outcome comparison is registered and none is invented here. §16.6 and §15's
+interior band are both still measured on the **layer** base at two thousand
+rounds, and they now need re-measuring on a corrected instrument that has two
+switches rather than one. That is the open item, and it is open on this page
+rather than in a comment.
+
+**What §18 does not touch.** A6-7 through A6-19 all ran with the default rebate,
+which is `layer`, so every number in §13 to §17 stands exactly as printed. This
+section adds a switch and a criterion; it withdraws nothing.
+
+---
+
+## 19. A6-21, registered before its code exists
+
+§16.8 leaves A6-10 and A6-11 failed with a diagnosis and no criterion: `R*` in
+this arm is proportional to `λ`, so it falls off any rate grid fixed in advance
+as `λ` shrinks, and asking for it **as a level** is the wrong question. This
+section writes the right one. It is registered here, in full, before the code
+that evaluates it exists.
+
+**A6-10 and A6-11 are not repaired and not withdrawn.** They keep their
+failures, their thresholds and their split, in §5, §13.4 and §14.5. A6-21 is a
+different question about the same mechanism, in the same relationship to them as
+§15's A6-18 stands to A6-1.
+
+### 19.1 Why the level was the wrong question
+
+§12.2 registers the ratchet's fixed point as `K − B → I/λ`, and §15.9 confirms
+it to three figures on both levy bases. The effect enters through
+`x = ι·max(0, K − B)/claims₀`, so at the fixed point
+
+`x* = ι · I / (λ · claims₀)`
+
+Closure needs `g(x*)` past some level, so it needs `x*` past some level, so it
+needs `I/λ` past some level. `I` is the levy actually collected per round and
+rises with the rate. **The critical rate is therefore whatever makes `I/λ` big
+enough, and that scales with `λ`.** A grid of rates fixed in advance is a grid
+of the wrong variable: it is measuring `R*` when the mechanism only ever
+determines `R*/λ`.
+
+This is consistent with what §14.5 already measured. At `λ = 1e-2`, `R* = 0.010`
+gives `R*/λ = 1.0`. If that ratio is the invariant, then at `λ = 1e-3` the
+critical rate is `0.001`, which is **below** the registered grid's smallest
+non-zero point of `0.005`, and "pinned at the floor" is exactly what a grid in
+the wrong variable reports when the answer is underneath it.
+
+### 19.2 The criterion
+
+> **A6-21.** In the infrastructure arm under access with fair retention, with
+> the ratchet on and `g = exp`, scan the levy rate as `R = ρ·λ` over the fixed
+> ratio grid `ρ ∈ {0.125, 0.25, 0.5, 1, 2, 4, 8}` at `λ ∈ {1e-3, 3e-3, 1e-2}`.
+> Let `ρ*` be the smallest `ρ` whose rate holds the support set open, taken per
+> seed and reported as the median. The criterion holds when **`ρ*` is the same
+> grid point at every `λ`, or differs by at most one step**, and **`ρ*` is at
+> neither end of the `ρ` grid** at any `λ`, and **every seed has a solution**.
+
+**The grid is the tolerance and no other tolerance is registered.** The ratio
+grid is geometric with a factor of two, so `ρ*` is resolved to within a factor
+of two by construction, and "the same, or one step apart" is the strongest
+statement that resolution supports. Inventing a percentage band on top of it
+would be inventing precision the scan does not have.
+
+**Each of the three failure modes means something different and they are not
+interchangeable.**
+
+| Outcome | What it means |
+|---|---|
+| `ρ*` moves by more than one step across `λ` | `R*` is **not** proportional to `λ` and §14.5's diagnosis is wrong. The failure is the finding and the diagnosis is what gets withdrawn, not the criterion. |
+| `ρ*` sits at the bottom of the `ρ` grid | The same defect as A6-10's, one variable up: the answer is under the grid again. Reported as a failure and **not** repaired by widening the grid inside the same run. |
+| `ρ*` sits at the top of the `ρ` grid | As above, above. |
+| A seed has no solution at some `λ` | The ratchet does not hold that seed open at any rate in the scanned range. A6-9's territory, reported here rather than absorbed. |
+
+### 19.3 The horizon scales with `λ`, and that is not a convenience
+
+The ratchet's relaxation time is `1/λ`: the gap approaches `I/λ` geometrically at
+rate `λ` per round. A cell run for fewer rounds than a few multiples of `1/λ` has
+not reached the fixed point the criterion is about, and would report a transient.
+§16 is this stage's own precedent for extending a horizon when the criterion says
+the horizon is too short.
+
+**Registered: each `λ` runs for `max(2000, 10/λ)` rounds**, which is ten
+relaxation times or the stage's registered long horizon, whichever is larger.
+
+| `λ` | rounds | `1/λ` | relaxation times |
+|---|---|---|---|
+| `1e-2` | 2000 | 100 | 20 |
+| `3e-3` | 3334 | 333 | 10 |
+| `1e-3` | 10000 | 1000 | 10 |
+
+Cost is 3 `λ` × 7 `ρ` × 5 seeds = 105 runs, 537,000 round-units, on the order of
+ten minutes. **`λ = 3e-4` and below are excluded on cost**: at ten relaxation
+times they need thirty-three thousand rounds each and would triple the stage.
+That is a limit on the span this criterion tests, one decade, and it is a
+budget decision rather than a finding.
+
+### 19.4 Reported beside it and not judged
+
+**`I(R*)/λ`, the measured steady-state levy at the critical rate over `λ`.**
+This is the parameter-free form of the same hypothesis: §19.1's derivation
+assumes `I` rises with `R`, and this quantity does not. If the mechanism is
+`x* = I/λ` then this is constant across `λ` whatever `I(R)` looks like. **No
+threshold is registered for it**, because none existed before the quantity did,
+and §14.6 is the precedent for reporting such a thing rather than gating on it.
+
+**The settledness of `x` in every cell**, by the same `X_SETTLED` reading §16
+uses. A cell whose `x` is still climbing has not reached the fixed point the
+criterion assumes, and it must be visible rather than inferred from the horizon
+rule having been followed.
+
+### 19.5 Result: `R* = λ`, and A6-21 passes
+
+Five seeds, the registered ratio grid, the registered horizon rule, ten minutes.
+
+| `λ` | rounds | `ρ*` per seed | median `ρ*` | `R* = ρ*·λ` | `I(R*)/λ`, mean | `x` |
+|---|---|---|---|---|---|---|
+| `1e-3` | 10000 | `1, 1, 1, 1, 1` | **1.0** | `0.00100` | `0.686` | settled, `+0.22%` |
+| `3e-3` | 3334 | `1, 1, 1, 0.5, 1` | **1.0** | `0.00300` | `0.621` | settled, `+0.41%` |
+| `1e-2` | 2000 | `1, 1, 1, 0.5, 1` | **1.0** | `0.01000` | `0.609` | settled, `+0.02%` |
+
+**Pass.** Worst separation between medians: **zero grid steps**. Not at either
+end of the ratio grid. No unsolved seed. `x` settled in every cell against the
+`1%` reading §16 registered, so the horizon rule delivered what it was meant to
+rather than merely having been obeyed.
+
+**The critical levy rate equals the absorption rate**, to the factor of two the
+grid resolves. That is the sharpest thing this stage has said about `R`, and it
+is a statement §14.5's grid could not have made in either direction.
+
+**§14.5's "pinned at the grid floor" is now explained rather than repaired.** At
+`λ = 1e-3` the critical rate is `0.001`, five times below the registered grid's
+smallest non-zero point of `0.005`. A6-10 asked where `R*` was on a grid that
+did not extend to where it was. **A6-10 and A6-11 stay failed.** Nothing here is
+carried back into them.
+
+**The parameter-free form agrees.** §19.1's derivation assumes `I` rises with
+`R`; `I(R*)/λ` does not, and it comes out at `0.686`, `0.621`, `0.609` across a
+decade of `λ`, a spread of twelve percent on the means. Since `ι = 1` in every
+registered cell, that is a direct reading of the closure condition:
+
+`x* = ι · I(R*) / (λ · claims₀) ≈ 0.61 to 0.69`
+
+**The critical `x*` is a pure number**, and everything else in the relation
+follows from it. `R*` is not a property of the tax at all: it is whatever rate
+makes the gap reach a fixed height, and the ratchet sets that height at `I/λ`.
+
+**One seed carries the dispersion and it is not hidden.** Seed 3 solves at
+`ρ* = 0.5` at the two larger `λ`, one grid step below the rest, which is what
+drags its `I(R*)/λ` to `0.370` and the cell means below `0.686`. Five seeds with
+one at one step is inside what the criterion registered as agreement, and it is
+also the whole of the spread: the other four sit between `0.65` and `0.70` in
+every cell.
+
+**What this does not say.** It is one decade of `λ`, one shape, one levy base
+and one channel. §19.3 records the cost reason for the span. The levy base is
+`layer`, so this inherits §15.9's warning directly: under `threshold` the same
+`λ` gives an `I` three times larger, so `x* = I/λ` moves and **`R*` should be
+expected to move with it**. That re-measurement is §16.8's open item and this
+criterion does not close it. What A6-21 establishes is the **form** of the
+relation, `R* ∝ λ`, not the constant in front of it.
+
+---
+
+## 20. A6-22 and A6-23, registered before their code exists
+
+§16.8 leaves two readings measured on an instrument now known to be wrong in
+three separate ways, and §19.5 adds a fourth thing wrong with how they were
+read. This section registers the re-measurement. **A6-9 and A6-15 are not
+repaired and not withdrawn**: they keep their bands, their thresholds and their
+horizons, on the layer base at two thousand rounds, in §13.4 and §14.7.
+
+### 20.1 Four things wrong, and only one of them is the levy base
+
+**The levy base.** §15.9: the same `λ` gives an `I` three times larger under
+`threshold`, so `x* = I/λ` moves and the band of `λ` that works moves with it.
+
+**The rebate base.** §18: the recipients were a fixed address list while the
+payers were measured. Corrected there, never carried into the curve.
+
+**The horizon.** §16.6: A6-9's low end is horizon-dependent, and §19.3 gives the
+reason in one line. The ratchet relaxes at rate `λ` per round, so two thousand
+rounds is twenty relaxation times at `λ = 1e-2` and two at `λ = 1e-3`. The curve
+was comparing a settled cell against a transient and calling the difference an
+effect of `λ`.
+
+**And a fourth, which is new and is about the reading rather than the run.**
+§19.5 measured `R* = λ`. A curve at a **fixed** rate therefore crosses every `λ`
+at a different multiple of that `λ`'s own critical rate. At the registered
+`R = 0.005`:
+
+| `λ` | `R / R*` |
+|---|---|
+| `1e-3` | 5 |
+| `3e-3` | 1.7 |
+| `1e-2` | 0.5 |
+| `3e-2` | 0.17 |
+| `1e-1` | 0.05 |
+
+**A6-9's curve was never a curve in `λ` alone.** It swept `λ` and the policy's
+strength relative to `λ` together, in opposite directions, which is exactly the
+stratification error `MEASUREMENT.md` §4 names. That is a reading of an existing
+result and it is recorded here rather than by editing §13.4.
+
+### 20.2 One change at a time
+
+The re-measurement is a factorial in the two bases at the corrected horizon, so
+that the three defects can be told apart instead of being fixed in one step and
+attributed to whichever one is being discussed:
+
+| column | levy | rebate | isolates |
+|---|---|---|---|
+| A | `layer` | `layer` | the **horizon** alone, against §13.4's own reading |
+| B | `threshold` | `layer` | the **levy base**, added to A |
+| C | `threshold` | `threshold` | the **rebate base**, added to B |
+
+Column C is the corrected instrument and is what A6-22 and A6-23 are judged on.
+A and B are run so that a difference between C and §13.4 can be attributed
+rather than asserted.
+
+**Registered `λ` set: `{1e-3, 3e-3, 1e-2, 3e-2, 1e-1}`, horizon
+`max(2000, 10/λ)`**, which is §19.3's rule reused unchanged.
+
+`λ = 3e-4` and below are excluded on cost, the same budget decision §19.3
+records. **`λ = 0` is excluded for a different reason and it is not a budget
+one**: it has no fixed point to relax to, so no horizon rule can make its
+reading settled, and §16.6 already records that its two-thousand-round value is
+an artefact. Excluding it here does not remove that record.
+
+### 20.3 The criteria
+
+> **A6-22.** On column C, at the registered rate `R = 0.005`, with `g = exp` and
+> the registered horizon rule, the band of `λ` in which the support set stays
+> open in every seed is **non-empty**, by A6-9's own one-sided test: end-over-
+> start effective support at or above `0.9` in all five seeds.
+
+> **A6-23.** On column C, with `g = clip`, the band is **interior to the scanned
+> `λ` set**: at least one closed cell below the open block and at least one
+> above it. This is §14.7's interior claim asked where §15.9 says it must have
+> moved.
+
+| Outcome | What it means |
+|---|---|
+| A6-22's band is empty | On a realistic base with a corrected rebate and an adequate horizon, **no absorption rate keeps this economy open at the registered levy**. That is a much harder result than A6-9's and it would be the stage's headline. |
+| A6-23's band runs to the bottom of the scanned set | Not interior within what was scanned. The band has moved below `1e-3` rather than above, which is the **opposite** of what §15.9 predicts, and the prediction is what gets withdrawn. Reported as a failure and not repaired by extending the scan downward inside the same run. |
+| A6-23's band runs to the top | The band has moved above `1e-1`, consistent with §15.9's direction but further than the scan reaches. Same treatment. |
+| A6-22 passes and column A does not match §13.4 | The horizon alone moved the old reading, and §16.6's warning was larger than §16.6 stated. |
+
+### 20.4 Reported beside them and not judged
+
+**The `ρ = 1` column**, meaning `R = λ` rather than `R = 0.005`, on column C with
+`g = exp`. §19.5 makes this available for the first time: it is the curve in `λ`
+with the policy held at each `λ`'s own critical strength, which is the
+comparison §20.1's fourth defect says the fixed-rate curve cannot make. **No
+threshold is registered for it.** It is a quantity nobody has seen and §14.6 is
+the precedent for reporting such a thing rather than gating on it.
+
+**Both band ends and contiguity in every column**, since a band with a hole in
+it is a different object from a band and A6-9's `bands` block already reports
+the distinction.
+
+### 20.5 Result: both pass, and the fixed-rate curve was mostly about the horizon
+
+Five seeds, the registered `λ` set, the registered horizon rule, eight minutes.
+End-over-start effective support, minimum over seeds, against A6-9's floor of
+`0.9`:
+
+| column | `1e-3` | `3e-3` | `1e-2` | `3e-2` | `1e-1` | band |
+|---|---|---|---|---|---|---|
+| A `exp` layer/layer | 2.473 | 1.388 | 0.963 | 0.879 | 0.854 | `0.001` to `0.01` |
+| B `exp` threshold/layer | 2.319 | 1.355 | 0.946 | 0.873 | 0.851 | `0.001` to `0.01` |
+| **C `exp` threshold/threshold** | 2.328 | 1.355 | 0.945 | 0.873 | 0.851 | **`0.001` to `0.01`** |
+| C `clip` threshold/threshold | 0.136 | 2.482 | 0.972 | 0.875 | 0.851 | **`0.003` to `0.01`** |
+| C `exp`, `ρ = 1` | 1.069 | 1.078 | 1.109 | 1.187 | 1.425 | `0.001` to `0.1` |
+
+**A6-22 passes.** The band on the corrected instrument is non-empty and
+contiguous, `0.001` to `0.01`.
+
+**A6-23 passes.** The `clip` control band is `0.003` to `0.01`, closed at
+`0.001` below it and at `0.03` above it, so it is interior to the scanned set.
+**And it moved in the direction §15.9 predicted**: §14.7 measured `[0.001,
+0.01]` on the layer base and the low end has moved up one grid step, which is
+what a base that does not drain does when it keeps `I` three times higher and
+pushes `x*` past the wall's corner.
+
+### 20.6 Which of the three defects actually moved the number
+
+**The horizon, almost entirely.** Column A is the *original* instrument, layer
+levy and layer rebate, and at the corrected horizon it already gives the band
+`0.001` to `0.01`. The two base changes then move the readings by six percent at
+`λ = 1e-3` and by under two percent everywhere else, and the rebate change
+alone moves them by less than half a percent, once in each direction.
+
+So §16.8 listed three open items and they were not equally open. **§15.9's
+warning about the band moving is true of the wall and not of the smooth shape**:
+the `clip` column's low end moved a grid step, the `exp` column's did not move
+at all. That is a sharper statement than the open item made, and it is only
+visible because the columns were run one change at a time rather than corrected
+in one step.
+
+**The `clip` column at `λ = 1e-3` is where the levy base bites**, and it bites
+unevenly: end-over-start runs `0.136` to `1.87` across five seeds, one economy
+collapsing to a seventh while another grows by seven eighths. A cell whose seeds
+disagree that violently is not a cell with a mean, and it is reported as the
+spread rather than as a number.
+
+### 20.7 The scaled column, and what it does to A6-9's shape
+
+Reported and not judged, per §20.4, and it is the largest thing in this section.
+
+With the policy held at each `λ`'s own critical strength, `R = λ`, **the band is
+the entire scanned set** and end-over-start **rises monotonically with `λ`**:
+`1.069, 1.078, 1.109, 1.187, 1.425`. Every absorption rate across a decade keeps
+the economy open, and more absorption is monotonically better.
+
+The fixed-rate curve says the opposite at its top end: it closes at `λ = 0.03`
+and `λ = 0.1`. §20.1's table is why. At `R = 0.005` those two cells are running
+a levy at `0.17` and `0.05` of their own critical rate. **They do not close
+because absorption is too high. They close because the tax is too small for
+them**, and the fixed-rate curve reads the second as the first.
+
+**This is a reading of A6-9's shape and it does not repair A6-9.** A6-9 keeps
+its curve, its band and its floor. What is registered here is that the top end
+of that band is an artefact of holding `R` fixed while sweeping the quantity
+that sets what `R` means, which is `MEASUREMENT.md` §4's stratification error in
+this stage's own results, found by this stage's own later criterion.
+
+**What it does not say.** One rate ratio, `ρ = 1`, which §19.5 measured as
+critical and not as optimal. Nothing here scans `ρ` against `λ` jointly, so
+"more absorption is better" holds along the line `R = λ` and is not a statement
+about the plane. The registered limits of §19.3 and §20.2 on the `λ` span apply
+unchanged.

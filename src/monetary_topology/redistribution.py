@@ -13,9 +13,9 @@ and it was not there before, so both arms are interventions on the graph and
 neither is "quantity against topology". The question is *which* edges.
 
 ``transfer``
-    Adds a downward edge. Levy on the financial layer, paid out equally per head
-    across the production layer. The claims arrive and then leak back upward
-    along the existing edges at the rate those edges always had.
+    Adds a downward edge. The levy is paid out equally per head across the
+    production layer. The claims arrive and then leak back upward along the
+    existing edges at the rate those edges always had.
 
 ``infrastructure``
     Attenuates the upward edges. The levy is paid to the production layer as
@@ -32,6 +32,43 @@ So the transfer arm has to keep paying and the infrastructure arm does not. If
 the second holds the support set open at a lower rate, the framework's thesis
 has a form a finance ministry could act on: **where you put the edge matters
 more than how much you push through it.**
+
+Who pays, and why that is a switch rather than a fact
+-----------------------------------------------------
+Two different things were riding on one word in section 3's phrase "on the
+financial layer only", and only one of them belongs to the framework.
+
+**Layer as position** is which edges a node has. It is assigned at construction,
+it fixes the graph, the propensities, the payroll payers, the injection point
+and the opening allocation, and it does not move: a household does not become a
+bank by getting rich. That is the framework's own object and :class:`LevySpec`
+does not touch it.
+
+**The levy base** is a policy instrument, and a real tax is assessed on a
+measured quantity rather than on a category. Every net wealth tax in force,
+Norwegian, Swiss, Spanish, and the French ISF before 2018, recomputes liability
+from an annual stock, so the set of payers changes as the distribution does, and
+their bases grow rather than drain. :data:`LEVY_BASES` makes that a switch:
+
+``layer``
+    The twenty node indices assigned to the financial layer at construction,
+    whatever they hold. **The default**, so every result recorded before this
+    existed is reproduced exactly, and criterion A6-7 checks that bit for bit.
+    Its distinguishing property is that it can be **drained to zero**, after
+    which the levy collects nothing forever.
+
+``threshold``
+    The excess above ``θ``, for every node, recomputed each round. Since
+    ``Σ(h − mean) = 0``, a threshold at one mean makes the base
+    ``(n/2) ×`` the mean absolute deviation of holdings, so it is exactly zero
+    on a flat distribution and **grows as the economy concentrates**. It cannot
+    die by concentration, because concentration is what feeds it.
+
+The two agree at the open and separate as soon as the distribution moves, and in
+two of the five registered seeds they already disagree at round zero: opening
+claims are spread within each layer in proportion to in-degree, so a badly
+connected financial node opens poorer than a well connected production one.
+Section 15 records what the difference measures.
 
 What is measured, and what is deliberately not
 ----------------------------------------------
@@ -124,6 +161,113 @@ SHAPES: dict[str, Callable[[float], float]] = {
 }
 
 
+#: Who the levy is assessed on. ``layer`` is a fixed set of node indices fixed
+#: at construction; ``threshold`` is every node holding more than a threshold,
+#: recomputed each round.
+LEVY_BASES: tuple[str, ...] = ("layer", "threshold")
+
+
+@dataclass(frozen=True)
+class LevySpec:
+    """Who pays. Registered in section 15.
+
+    ``layer`` is what stage A6 has always done: the levy falls on the twenty
+    node indices assigned to the financial layer at construction, and it falls
+    on them whatever they hold and whoever else has become rich. **No real net
+    wealth tax works that way.** Norway, Switzerland, Spain and France all
+    assess liability on a measured stock recomputed every year, so the set of
+    payers changes as the distribution does.
+
+    ``threshold`` is that shape: the levy falls on **the excess above** a
+    threshold, for every node, recomputed each round. Norway taxes what is
+    above NOK 1.9m, not the whole holding of everyone above it, and this
+    follows that.
+
+    The default is ``layer``, so nothing that ran before this existed moves,
+    and criterion A6-7 keeps reducing the ratchet to the object that produced
+    section 9.2.
+    """
+
+    base: str = "layer"
+
+    #: ``θ``, as a multiple of the mean holding, which is the claim stock over
+    #: the node count. Registered at ``1.0``: it catches twenty-one to
+    #: twenty-five of two hundred nodes at the open, which is ten and a half to
+    #: twelve and a half percent, against the roughly twelve percent of the
+    #: population Norway's threshold catches.
+    #:
+    #: Written as a multiple rather than as an absolute number so that it is
+    #: scale-free and would index itself if issuance were ever turned on. In
+    #: stage A6 issuance is off in every cell, so the claim stock is conserved
+    #: and this is a constant.
+    threshold_multiple: float = 1.0
+
+    def __post_init__(self) -> None:
+        if self.base not in LEVY_BASES:
+            raise ValueError(f"base must be one of {LEVY_BASES}")
+        if self.threshold_multiple < 0.0:
+            raise ValueError("threshold_multiple must be non-negative")
+
+    @property
+    def is_reduction(self) -> bool:
+        """Is this the base ``A6Model`` already implements?"""
+        return self.base == "layer"
+
+
+#: Who the rebate is paid to. ``layer`` is the set of node indices assigned to
+#: the production layer at construction; ``threshold`` is every node holding
+#: **less** than the same threshold the levy is assessed above, recomputed each
+#: round.
+REBATE_BASES: tuple[str, ...] = ("layer", "threshold")
+
+
+@dataclass(frozen=True)
+class RebateSpec:
+    """Who receives. Registered in section 18.
+
+    **:class:`LevySpec` corrected one side of a two-sided instrument.** The
+    other side sat three lines further down in ``_post_round`` and was not
+    looked at, so under the threshold base the payers are recomputed from
+    measured holdings every round while the recipients stay the hundred and
+    eighty node indices assigned to the production layer at construction. Over
+    twenty thousand rounds at the registered infrastructure cell that leaves
+    **fifty-six of the hundred and eighty recipients also paying**, and **four
+    financial-layer nodes below the threshold paying nothing and receiving
+    nothing**. Section 15's own argument, that liability belongs on a measured
+    stock, says the same thing about eligibility.
+
+    ``threshold`` applies it: pay the nodes **below** the same ``θ`` the levy is
+    assessed above, in equal shares.
+
+    **Equal shares rather than in proportion to the shortfall, deliberately.**
+    The existing rebate is an equal split. Changing the membership and the
+    split rule in one step would move two things at once, which
+    ``MEASUREMENT.md``'s stratification rule forbids, and the resulting arm
+    could not say which of the two did the work. A shortfall-weighted rebate is
+    a separate arm and is not written here.
+
+    **``θ`` is the levy's, not a second number.** One instrument, one
+    threshold: taxed above it, paid below it. A rebate threshold free to differ
+    from the levy's would be a second free parameter and the first thing anyone
+    would tune.
+
+    The default is ``layer``, so nothing that ran before this existed moves and
+    criterion A6-7 keeps reducing the ratchet to the object that produced
+    section 9.2.
+    """
+
+    base: str = "layer"
+
+    def __post_init__(self) -> None:
+        if self.base not in REBATE_BASES:
+            raise ValueError(f"base must be one of {REBATE_BASES}")
+
+    @property
+    def is_reduction(self) -> bool:
+        """Is this the destination ``A6Model`` already implements?"""
+        return self.base == "layer"
+
+
 @dataclass(frozen=True)
 class RatchetSpec:
     """The frontier ratchet. Registered in section 13.2.
@@ -175,6 +319,18 @@ class A6Config:
     #: ``replace(config.fiscal, rate=...)`` carries it through untouched and
     #: ``FiscalSpec`` itself does not change at all.
     ratchet: RatchetSpec = field(default_factory=RatchetSpec)
+
+    #: Who the levy falls on. Same placement and the same reason as
+    #: ``ratchet``: read by :class:`A6RatchetModel`, ignored by
+    #: :class:`A6Model`, and carried untouched through ``find_rate``'s
+    #: ``replace(config.fiscal, rate=...)``.
+    levy: LevySpec = field(default_factory=LevySpec)
+
+    #: Who the rebate is paid to. Same placement and the same reason again.
+    #: Kept as its own field rather than folded into ``levy`` because the two
+    #: sides of the instrument are separately settable and the whole finding
+    #: behind section 18 is that they were not separately *looked at*.
+    rebate: RebateSpec = field(default_factory=RebateSpec)
 
 
 # ---------------------------------------------------------------------------
@@ -350,10 +506,15 @@ class A6Model(Network):
 class A6RatchetModel(A6Model):
     """A6 with the frontier ratchet. Registered in sections 12 and 13.
 
-    Overrides ``_post_round`` and nothing else. ``A6Model`` is left exactly as
-    it was when it produced section 9.2, so criterion A6-7 reduces this class
-    to an object that is still in the file and can be read beside it rather
-    than to a stored fixture.
+    Overrides ``_post_round``, adds ``_assess`` beside it, and touches nothing
+    else. ``A6Model`` is left exactly as it was when it produced section 9.2,
+    so criterion A6-7 reduces this class to an object that is still in the file
+    and can be read beside it rather than to a stored fixture.
+
+    Two switches live here and they are orthogonal. :class:`RatchetSpec` sets
+    what building buys, :class:`LevySpec` sets who pays for it, and their
+    defaults are both the reduction point, so a default-constructed instance of
+    this class is ``A6Model``.
 
     The state, with ``I`` the levy collected this round::
 
@@ -386,6 +547,93 @@ class A6RatchetModel(A6Model):
         self.B = 0.0
         self.gap_history: list[float] = []
         self.leak_history: list[float] = []
+        #: Levy collected each round. The measurement A6-18 turns on: under a
+        #: fixed set of payers this goes to zero once they are drained, and a
+        #: threshold base is supposed not to.
+        self.levy_history: list[float] = []
+        self.payer_count_history: list[int] = []
+        #: Share of each round's levy coming from production-layer nodes. Zero
+        #: by construction under the layer base, and the whole point of the
+        #: threshold base: does the tax follow the money downstream?
+        self.l2_levy_share_history: list[float] = []
+        #: How many nodes the rebate was split across. Constant at the
+        #: production layer's size under the layer base; under the threshold
+        #: base it moves with the distribution and is the measurement A6-20
+        #: turns on.
+        self.payee_count_history: list[int] = []
+        #: Rounds in which the threshold rebate named nobody and the claims
+        #: were split across every node instead. Recorded per round so that a
+        #: fallback can never be a silent change of policy.
+        self.rebate_fallback_history: list[bool] = []
+        #: How many nodes both paid and received in the same round. Zero under
+        #: the threshold rebate by construction, since both sides are read off
+        #: one measurement, and it is recorded anyway: a non-zero entry would
+        #: mean the within-round ordering had been changed.
+        self.both_sides_history: list[int] = []
+
+    def _assess(self) -> tuple[np.ndarray | None, np.ndarray]:
+        """Who pays this round and how much. ``(payer indices, amounts)``.
+
+        ``None`` for the indices means every node, which keeps the caller from
+        having to build and index an ``arange`` over the whole graph in the one
+        case where it would change the arithmetic.
+
+        The ``layer`` branch is the expression stage A6 has always had, written
+        out character for character, because criterion A6-7 compares the result
+        against ``A6Model`` bit for bit and any rearrangement of it, however
+        algebraically equal, is a risk with no upside.
+        """
+        spec = self.a6.fiscal
+        if self.a6.levy.base == "layer":
+            return (
+                self._l1_idx,
+                spec.rate * np.maximum(self.holdings[self._l1_idx], 0.0),
+            )
+        threshold = (
+            self.a6.levy.threshold_multiple * self._total_claims / self._n
+        )
+        return None, spec.rate * np.maximum(self.holdings - threshold, 0.0)
+
+    def _payees(self) -> tuple[np.ndarray | None, bool]:
+        """Who receives this round. ``(recipient indices, fell back)``.
+
+        ``None`` for the indices means the layer branch, which ``_disburse``
+        writes out separately for the same reason ``_assess`` does: A6-7
+        compares this class against ``A6Model`` bit for bit and an
+        algebraically equal rearrangement is a risk with no upside.
+
+        **Read off the holdings before the levy is deducted, and that ordering
+        is load-bearing.** A real instrument assesses both sides on one
+        measurement date. Taking the recipients off the post-levy holdings
+        would let a node pay and then immediately qualify to receive, which is
+        the overlap :class:`RebateSpec` exists to remove, reintroduced by
+        ordering rather than by membership. Assessed here, above ``θ`` pays,
+        below it receives, and no node does both. ``both_sides_history`` checks
+        that rather than trusting it.
+        """
+        if self.a6.rebate.base == "layer":
+            return None, False
+        threshold = (
+            self.a6.levy.threshold_multiple * self._total_claims / self._n
+        )
+        below = np.flatnonzero(self.holdings < threshold)
+        if below.size == 0:
+            # Nobody is below the threshold, so the rule names no recipient.
+            # The claims still have to land somewhere: conservation is not
+            # negotiable, and holding them outside the ledger would turn the
+            # levy into a destruction of claims rather than a transfer. Split
+            # across every node and record the round.
+            return np.arange(self._n), True
+        return below, False
+
+    def _disburse(self, payees: np.ndarray | None, total: float) -> None:
+        """Pay ``total`` out. The mirror of ``_assess``, and its inverse."""
+        if payees is None:
+            self.holdings[self._l2_idx] += total / self._l2_idx.size
+            self.payee_count_history.append(int(self._l2_idx.size))
+            return
+        self.holdings[payees] += total / payees.size
+        self.payee_count_history.append(int(payees.size))
 
     def _post_round(self, t: int) -> None:
         spec = self.a6.fiscal
@@ -394,11 +642,35 @@ class A6RatchetModel(A6Model):
         if spec.rate <= 0.0:
             return
 
-        levy = spec.rate * np.maximum(self.holdings[self._l1_idx], 0.0)
+        payers, levy = self._assess()
+        # Both sides are read off the same holdings, before either moves.
+        payees, fell_back = self._payees()
         total = float(levy.sum())
+        self.levy_history.append(total)
+        self.payer_count_history.append(int((levy > 0.0).sum()))
+        self.l2_levy_share_history.append(
+            0.0 if (payers is not None or total <= 0.0)
+            else float(levy[self._l2_idx].sum()) / total
+        )
+        self.rebate_fallback_history.append(bool(fell_back))
+        paid = (
+            np.flatnonzero(levy > 0.0) if payers is None
+            else np.asarray(payers)[levy > 0.0]
+        )
+        got = self._l2_idx if payees is None else payees
+        self.both_sides_history.append(
+            int(np.intersect1d(paid, got, assume_unique=False).size)
+        )
         if total > 0.0:
-            self.holdings[self._l1_idx] -= levy
-            self.holdings[self._l2_idx] += total / self._l2_idx.size
+            if payers is None:
+                self.holdings -= levy
+            else:
+                self.holdings[payers] -= levy
+            self._disburse(payees, total)
+        else:
+            self.payee_count_history.append(
+                int(self._l2_idx.size if payees is None else payees.size)
+            )
 
         if spec.channel != "infrastructure":
             return
@@ -536,12 +808,14 @@ def find_rate(
 
 __all__ = [
     "CHANNELS",
+    "LEVY_BASES",
     "RATE_GRID",
     "SHAPES",
     "A6Config",
     "A6Model",
     "A6RatchetModel",
     "FiscalSpec",
+    "LevySpec",
     "RatchetSpec",
     "contracted",
     "find_rate",

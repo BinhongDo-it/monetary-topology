@@ -162,10 +162,38 @@ class AssetSpec:
     #: must sell one unit. Arm F only.
     forced_sale_floor: float = 0.10
 
-    #: Centrality bins used when the loop sum is computed on the product graph.
-    #: Swept, for the same reason B2 sweeps its band and its minimum cell size:
-    #: a result that lives in the binning is a result about the binning.
-    centrality_bins: int = 4
+    #: How many bins the trader population is cut into before two of them are
+    #: compared. Swept, for the same reason B2 sweeps its band and its minimum
+    #: cell size: a result that lives in the binning is a result about the
+    #: binning.
+    #:
+    #: **This field existed for a long time and was read by nothing.** It was
+    #: declared, validated against ``< 1``, documented as feeding the loop sum,
+    #: and no line in the repository ever looked at it. Two models differing
+    #: only in it were bit-identical in ``terms``, ``units``, ``cycles``,
+    #: ``centrality``, ``uncounted_cost`` and ``net_worth``. The §6.5 grid duly
+    #: swept it across ``2`` and ``8``, reported "no state change" both times,
+    #: and that clean row was worth nothing: an axis that reaches no code cannot
+    #: move a verdict, and a grid that counts it as robustness is claiming
+    #: coverage it does not have.
+    #:
+    #: **The default moved from 4 to 3, and 3 is not a preference.** Both call
+    #: sites cut the population into thirds with a hardcoded ``// 3``, so 3 is
+    #: the value at which the wired parameter reproduces every stored A3 result
+    #: bit for bit. Leaving the declared ``4`` in place would have silently
+    #: changed every number in the stage the moment the wire was connected,
+    #: which is the failure the reduction guard exists to make impossible. The
+    #: declared ``4`` was never the behaviour of anything.
+    #:
+    #: **What it controls, at both sites.** The population is ranked and cut
+    #: into this many equal bins of width ``floor(n / bins)``, and the outermost
+    #: two are compared. In ``a3_asset_channel.terms_pair`` the ranking is by
+    #: ``γ``, which is the same ranking as centrality: ``γ = γ̄(1 + κ(1 − c))``
+    #: is strictly monotone decreasing in ``c``, so ordering by terms and
+    #: ordering by centrality are the same order and the field name is accurate.
+    #: In ``a3c_load_bearing.terciles`` the ranking is on ``centrality``
+    #: directly. Larger values mean narrower, more extreme groups.
+    centrality_bins: int = 3
 
     #: ``T``. Holding period in the edge weight and in the counted stretch's
     #: amortisation, in rounds.
@@ -521,6 +549,45 @@ class AssetSpec:
     def closed(self) -> bool:
         """Whether the asset layer is absent. The A3-1 control."""
         return self.tiers == 0
+
+
+#: Section 4's registered robustness grid, **one parameter at a time off the
+#: registered point**. It lives here rather than in either experiment because
+#: both of them sweep it and a second copy would drift; it names fields of
+#: :class:`AssetSpec`, so this is where a reader checks it against the thing it
+#: varies.
+#:
+#: **One at a time, not a factorial, and the limitation is registered rather
+#: than hidden.** The full grid is 4 x 3 x 3 x 4 x 3 = 432 cells, and section
+#: 6.5's promise quantifies over one parameter at a time, which is what this
+#: tests. What it does not test is interactions, and section 4's own table
+#: registers ``initial_price`` as swept *with* ``stretch``, so at least one
+#: pair is registered as joint and this grid does not deliver it.
+#:
+#: Two entries move a second field, and neither is an interaction.
+#: ``forced_sale_floor`` does nothing under the exogenous arm, so sweeping it
+#: alone would measure zero. ``holding_period`` is registered as tied to
+#: ``turnover`` and this module enforces the tie with a ``DesignDeviation``
+#: computed as ``round(1 / turnover)``; a mismatched ``T`` rescales the loop
+#: sum, so A3-4 would move by that factor with nothing in the run looking
+#: wrong. The first version of the turnover cells moved ``turnover`` alone and
+#: the model said so.
+SWEEP_CELLS: tuple[tuple[str, dict], ...] = (
+    ("eta", {"elasticity": 0.0}),
+    ("eta", {"elasticity": 0.5}),
+    ("eta", {"elasticity": 1.5}),
+    ("tau", {"turnover": 0.02, "holding_period": 50}),
+    ("tau", {"turnover": 0.08, "holding_period": 12}),
+    ("phi", {"forced_sale_floor": 0.05, "arm": "forced"}),
+    ("phi", {"forced_sale_floor": 0.10, "arm": "forced"}),
+    ("phi", {"forced_sale_floor": 0.20, "arm": "forced"}),
+    ("s", {"stretch": 1.0}),
+    ("s", {"stretch": 2.0}),
+    ("s", {"stretch": 5.0}),
+    ("bins", {"centrality_bins": 2}),
+    ("bins", {"centrality_bins": 8}),
+    ("stretch_cost", {"stretch_cost": "counted"}),
+)
 
 
 #: The registered configuration. ``CLOSED`` is the A3-1 control.

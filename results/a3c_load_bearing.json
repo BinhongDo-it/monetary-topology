@@ -11,6 +11,444 @@
     "proceeds": "seller"
   },
   "mean_cost_relative_drift": 1.8594744119919683e-16,
+  "state": "unstable",
+  "share_h1": null,
+  "share_h0": null,
+  "notes": [
+    "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+  ],
+  "criteria": [
+    {
+      "name": "A3-8  removing the holonomy removes the divergence",
+      "passed": false,
+      "void": true,
+      "detail": "state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift 1.86e-16. Indistinguishable from zero across seeds: H0_only"
+    }
+  ],
+  "sweep": {
+    "baseline": "unstable",
+    "cells": {
+      "elasticity=0.0": {
+        "axis": "eta",
+        "parameters": {
+          "elasticity": 0.0
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 1.373591971730158,
+          "H1_only": 2.6493340367299716,
+          "H0_only": -0.48365550950827946,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "elasticity=0.5": {
+        "axis": "eta",
+        "parameters": {
+          "elasticity": 0.5
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "H0 -> H1,H0",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 2.1482990461790124,
+          "H1_only": 2.0285575838603926,
+          "H0_only": -1.333346427952716,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H1_only",
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "elasticity=1.5": {
+        "axis": "eta",
+        "parameters": {
+          "elasticity": 1.5
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 99.33040701011687,
+          "H1_only": 117.15382998421906,
+          "H0_only": -5.463520670323412,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "holding_period=50 turnover=0.02": {
+        "axis": "tau",
+        "parameters": {
+          "turnover": 0.02,
+          "holding_period": 50
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 10.17281497168986,
+          "H1_only": 15.85224224735795,
+          "H0_only": -2.2124644212698805,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "holding_period=12 turnover=0.08": {
+        "axis": "tau",
+        "parameters": {
+          "turnover": 0.08,
+          "holding_period": 12
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 22.533127649900273,
+          "H1_only": 27.31511752582901,
+          "H0_only": 5.6581339030253455,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "arm=forced forced_sale_floor=0.05": {
+        "axis": "phi",
+        "parameters": {
+          "forced_sale_floor": 0.05,
+          "arm": "forced"
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": true,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 23.266653908465443,
+          "H1_only": 21.671388460880383,
+          "H0_only": 1.4091481961594767,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "arm=forced forced_sale_floor=0.1": {
+        "axis": "phi",
+        "parameters": {
+          "forced_sale_floor": 0.1,
+          "arm": "forced"
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 22.57677328438351,
+          "H1_only": 21.972568792520217,
+          "H0_only": 0.4987227885393075,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "arm=forced forced_sale_floor=0.2": {
+        "axis": "phi",
+        "parameters": {
+          "forced_sale_floor": 0.2,
+          "arm": "forced"
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 17.257866889243047,
+          "H1_only": 16.087934007611988,
+          "H0_only": -1.8001623583872548,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "stretch=1.0": {
+        "axis": "s",
+        "parameters": {
+          "stretch": 1.0
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "H0 -> H1,H0",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 14.011824906201529,
+          "H1_only": 2.8089662701009943,
+          "H0_only": -0.5545996333103205,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H1_only",
+          "H0_only"
+        ],
+        "paired_population": 18.4,
+        "dropped_to_intersect": 2,
+        "notes": [
+          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "stretch=2.0": {
+        "axis": "s",
+        "parameters": {
+          "stretch": 2.0
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "H0 -> H1,H0",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 25.830506192492873,
+          "H1_only": 19.727599040409277,
+          "H0_only": -2.475935845640971,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H1_only",
+          "H0_only"
+        ],
+        "paired_population": 24.2,
+        "dropped_to_intersect": 7,
+        "notes": [
+          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "stretch=5.0": {
+        "axis": "s",
+        "parameters": {
+          "stretch": 5.0
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 6.202147915742097,
+          "H1_only": 4.428307910383145,
+          "H0_only": 1.4748186240381158,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 98.8,
+        "dropped_to_intersect": 18,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "centrality_bins=2": {
+        "axis": "bins",
+        "parameters": {
+          "centrality_bins": 2
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 13.421075161244456,
+          "H1_only": 14.569121531344624,
+          "H0_only": -0.44283135778026406,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "centrality_bins=8": {
+        "axis": "bins",
+        "parameters": {
+          "centrality_bins": 8
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "H0 -> H1,H0",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 20.122974266481673,
+          "H1_only": 23.01044341927176,
+          "H0_only": 2.5869227475544627,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H1_only",
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      },
+      "stretch_cost=counted": {
+        "axis": "stretch_cost",
+        "parameters": {
+          "stretch_cost": "counted"
+        },
+        "state": "unstable",
+        "moved": "",
+        "zero_channels_moved": "",
+        "inert": false,
+        "deviations": [],
+        "cost_drift": 1.8594744119919683e-16,
+        "gaps": {
+          "both": 18.00632618134742,
+          "H1_only": 20.381063738714726,
+          "H0_only": -1.0113937914734201,
+          "null": 0.0
+        },
+        "share_h1": null,
+        "share_h0": null,
+        "unstable_channels": [
+          "H0_only"
+        ],
+        "paired_population": 41.6,
+        "dropped_to_intersect": 11,
+        "notes": [
+          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+        ]
+      }
+    },
+    "excluded": {
+      "kappa": "the four cells are the kappa factorial, so kappa is this criterion's treatment rather than a robustness axis"
+    },
+    "one_at_a_time": true,
+    "interactions_not_tested": true,
+    "cells_with_deviations": [],
+    "cells_inert": [
+      "arm=forced forced_sale_floor=0.05"
+    ],
+    "live_cells": 13,
+    "share_h1_range": null,
+    "share_h0_range": null,
+    "shares_are_not_gated": "no threshold is registered for either share, so their spread across the grid is reported and not judged",
+    "passed": false
+  },
   "cells": {
     "both": {
       "name": "both",

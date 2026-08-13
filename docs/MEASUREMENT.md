@@ -35,8 +35,8 @@ not. So the next session implements a thing with that name, and then finds a
 
 ---
 
-## Seven failure modes, each with an instance in this repository
-（七种失败模式，每一种都有本仓库的实例）
+## Eight failure modes, each with an instance in this repository
+（八种失败模式，每一种都有本仓库的实例）
 
 ### 1. Window error　(four instances)　（窗口错，四次）
 
@@ -104,7 +104,8 @@ sides**: if one side averages over trades, the other cannot average over nodes.
 （**规则**：**在哪个尺度上陈述，就在哪个尺度上聚合。** 对数里的主张用几何均值。而且**两
 边的加权必须一致**——一边按笔数平均，另一边就不能按节点平均。）
 
-### 4. Stratification error　(two instances)　（分层错，两次）
+### 4. Stratification error　(three instances, the third found by a later criterion in the same stage)
+（分层错，三次，第三次是被同一阶段后写的判据抓到的）
 
 **Symptom**: what should have been held fixed was not, so what got measured is
 the thing that moved.
@@ -115,6 +116,7 @@ the thing that moved.
 |---|---|---|
 | A3-3, drift 0.583 | Constancy was not grouped by **tier**, so the entire drift is tier changes. | A3-3 漂移 0.583：常数性没按**档位**分组，漂移全是换档 |
 | A3-5, sign reversed | `open_tiers` changes the **threshold** and the **bidding pool** at once, so what was measured is the price response and not access. | A3-5 符号相反：`open_tiers` 同时改**门槛**和**竞标池**，量到的是价格反应不是准入 |
+| A6-9's curve, top end | The curve sweeps `λ` at a **fixed** `R`. A6-21 then measured `R* = λ`, so the levy's strength relative to each cell's own critical rate was sweeping in the **opposite** direction: `R = 0.005` is five times critical at `λ = 1e-3` and one twentieth of it at `λ = 0.1`. The two cells that closed at high `λ` were read as *too much absorption* and were *too small a tax*. Scaled to `R = λ`, the band is the whole scanned decade and more absorption is monotonically better. | A6-9 曲线的上端：曲线在**固定** `R` 下扫 `λ`，而 A6-21 后来量出 `R* = λ`，所以税相对于每格自身临界率的强度是**反向**在扫的：`R = 0.005` 在 `λ = 1e-3` 是临界的五倍，在 `λ = 0.1` 是二十分之一。高 `λ` 关闭的那两格被读成*吸收太多*，实际是*税太小*。按 `R = λ` 缩放之后，带是整个扫描数量级，而且吸收越高越好 |
 
 **Rule**: **move one thing at a time; where moving one is impossible, decompose
 the compound operation and report the parts separately.** If a switch
@@ -124,6 +126,19 @@ difference between them is itself the result.
 
 （**规则**：**一次只动一个东西；动不了一个的，把复合操作拆开单独报。** 若一个开关必然改
 两样东西（如 A3-5），就必须同时跑「另一样被冻住」的那一臂，两个都报，差值本身是结果。）
+
+**And the third instance says something the first two do not: the two
+things that moved together were not both parameters.** One was `λ` and the
+other was *what `R` means*, which nothing in the sweep named because it was
+not measured until A6-21. A sweep can be stratified by a quantity that has
+no variable of its own, and the only defence is to ask what each cell's
+control variable is **in its own units** before reading the row.
+`docs/a6_siphon_cost.md` §20.1 and §20.7.
+
+（**第三个实例说了前两个没说的：一起动的那两样东西并不都是参数。** 一个是 `λ`，另一个
+是**`R` 意味着什么**，而扫描里没有任何东西给它命名，因为它要到 A6-21 才被量出来。一次
+扫描可以被一个自己没有变量的量分层，唯一的防御是在读那一行之前先问：这一格的控制变量
+**用它自己的单位**算是多少。见 `docs/a6_siphon_cost.md` §20.1 与 §20.7。）
 
 ### 5. Population error　(three instances, two of them consecutive)　（人群错，三次，其中两次连续发生）
 
@@ -215,6 +230,86 @@ said so, refused to proceed, and named the row. That is what these are for.
 
 （**还有一个方向相反的实例，因为一份全是失败的清单会教出错误的结论。** B6 的路径对账在第一次真跑时抓到了一个没人预料到的分歧：导出文件的尾行是临时的，而 API 在下载之后的几小时里发布了那天的值。它说了出来、拒绝继续、并点了名。守卫就是干这个的。）
 
+### 8. Membership error　(four instruments, found three days apart)　（成员错，四个工具，隔三天各抓到一次）
+
+**Symptom**: a quantity whose real counterpart is assessed on a **measured
+magnitude** is instead keyed on a set of node indices **fixed at construction
+time**. The arithmetic is correct, the variable names are honest, and nothing in
+the run looks wrong. What has quietly changed is what the number is *about*: it
+reads as an economic property that agents have, and it is an address they were
+assigned.
+
+（**症状**：一个在现实里按**测得的量**征收／发放的量，被挂在**构造时定死的一组节点下标**
+上。算术是对的，变量名是诚实的，运行起来没有一处看着不对。悄悄变掉的是这个数**关于
+什么**：它读起来像主体拥有的一种经济性质，实际上是它被分配到的一个地址。）
+
+**This mode was written after the same defect was found in two unrelated stages
+within three days**, which is why it gets an entry rather than a line in the
+stratification error above. It is not a slip in one place. It is what happens
+whenever a layer index is in scope and a quantity needs a population.
+
+（**这一条是在三天内于两个互不相关的阶段抓到同一个缺陷之后写的**，所以它单列而不是并进
+上面的分层错。它不是某一处的手误，而是只要层籍下标在作用域里、而某个量需要一个人群，
+这件事就会发生。）
+
+| Instance（实例） | What went wrong（错在哪） | 处置 |
+|---|---|---|
+| A6 的税基 | The levy fell on `_l1_idx`, twenty node indices fixed at construction, not on whoever held most. No real net wealth tax uses fixed membership. | `PROJECT_PLAN` §16.4：加 `LevySpec` 开关，默认仍是层制所以既有结果逐位不动，另一支按门槛累进 |
+| A6 的返还端 | `holdings[_l2_idx] += total / _l2_idx.size`. **The correction above was applied to one side of the instrument only.** Under the threshold base the payers are recomputed from measured holdings every round while the recipients are still the fixed set, so at steady state 56 of the 180 recipients are also payers and 4 financial-layer nodes below the threshold pay nothing and receive nothing. | **未处置**，见下 |
+| A3-6 与 §12.6 的两点画面 | Every holder is a financial-layer node and no production-layer node holds, so "holder against non-holder" is also "layer 1 against layer 2". | `a3_asset_channel.md` §6.4b：诊断跑完，形状归因不成立 |
+| A3 的租金负债 | `renters = (held <= 0) & _is_production`. Liability keyed on the layer index, receipts keyed on holding. A financial-layer node holding nothing pays no rent; a production-layer node holding nothing pays every round. | 同上，已记未改 |
+| A3 的开盘价款与残量 | `_prior_owner_weights` routes both to `~_is_production`, weighted by opening claims. | 同上；docstring 里有辩护，形状仍是这一类 |
+
+**Rule**: **tell position apart from quantity.** Layer as position, meaning who
+has which edges, is the framework's own object and does not move: a household
+does not become a bank by getting rich. Any **liability, receipt, eligibility or
+population** whose real counterpart is assessed on an observed magnitude has to
+be recomputed from that magnitude. Where it is keyed on an index set instead,
+that is a modelling choice and has to be **registered as one**, not left on the
+page to read as a fact. And when one side of a two-sided instrument is
+corrected, **check the other side in the same edit**: the A6 rebate survived
+§16.4 by being three lines further down.
+
+（**规则**：**把位置和量分开。** 层籍作为位置，即谁有哪些边，是框架自己的对象，不动：
+家户不会因为变富就成了银行。任何在现实里按可观测量征收／发放的**负债、收入、资格、
+人群**，都必须从那个量重算。挂在下标集上的，那是一个建模选择，必须**作为建模选择登记
+下来**，而不是留在纸面上让人读成事实。还有，一个双边工具改了一边，**同一次编辑里就要
+查另一边**：A6 的返还端能在 §16.4 里活下来，只是因为它在三行之后。）
+
+**And the same file shows what the rule looks like when it is followed.**
+`mechanisms._rematch` pairs agents on a key built from normalised holdings and a
+uniform draw, and the docstring says it "has no access to `self._is_layer1`, so
+any tendency of households to form within a layer is derived rather than
+imposed". `_is_layer1` appears in that method exactly once, on the line *after*
+the matching, to **measure** the cross-layer rate. That is prediction A4-6's
+entire content, and it is only a prediction because the mechanism was denied the
+index it would have been tempting to use.
+
+（**同一个文件里也有这条规则被遵守时的样子。** `mechanisms._rematch` 用归一化持有量和一
+个均匀抽样构成配对键，docstring 明写它「拿不到 `self._is_layer1`，所以家户在层内形成的
+倾向是推出来的不是强加的」。`_is_layer1` 在那个方法里只出现一次，在配对**之后**那一行，
+用来**测量**跨层率。这就是预测 A4-6 的全部内容，而它之所以能算预测，正是因为机制被拒绝
+使用那个用起来很顺手的下标。）
+
+**The sweep, 2026-08-13.** Every line in `src/monetary_topology/` that reads a
+layer index or a fixed node set was enumerated and classified: **73 sites, 45
+position, 19 measurement, 9 mechanism.** The 45 are the graph's wiring, the spec
+accessors, the propensities and the opening allocation, all of which define
+position and are the framework's own object. The 19 report a series over a fixed
+index set, which is sound arithmetic with a reading hazard attached: a series
+named `layer2_holdings` is the holdings of a fixed set of addresses, and
+`effective_support_l2` is reach into that set, neither of which is "the
+households'" if a member of the set has since become rich. The 9 mechanism sites
+are the four instruments in the table above, and only the A6 rebate is
+uncorrected.
+
+（**2026-08-13 的普查。** `src/monetary_topology/` 里每一行读层籍下标或固定节点集的地方
+都被枚举并分类：**73 处，45 处位置，19 处测量，9 处机制。** 那 45 处是图的接线、spec 的
+下标访问器、消费倾向与开盘分配，全都在定义位置，是框架自己的对象。那 19 处是在固定下标
+集上报一条序列，算术没问题但附带一个读法风险：叫 `layer2_holdings` 的序列是一组固定地址
+的持有量，`effective_support_l2` 是对那一组地址的触达，如果集合里有成员后来变富了，两者
+都不叫「家户的」。那 9 处机制就是上表的四个工具，其中只有 A6 的返还端还没处置。）
+
 ---
 
 ## The checklist before reporting a number　（报数之前的清单）
@@ -247,6 +342,13 @@ conversation:
 8. **Would this guard say something different if the guard itself were broken?**
    Have I run it on a case it should reject?
    （**如果守卫自己坏了，它说的话会不一样吗？** 我拿一个它应该拒绝的样例试过它吗？）
+
+9. **Is this number keyed on a set fixed at construction time?** If it were
+   recomputed from the measured magnitude its real counterpart is assessed on,
+   would it change? And if this is one side of a two-sided instrument, is the
+   other side keyed on the same kind of thing?
+   （**这个数是不是挂在一个构造时定死的集合上？** 如果改成按它在现实里所依据的那个可测
+   量重算，它会变吗？如果它是一个双边工具的一边，另一边挂的是不是同一类东西？）
 
 Item 7 is the only one **designed to catch an error rather than to avoid one**:
 A5-6's zero calibration was the only one of the eleven caught by an automatic

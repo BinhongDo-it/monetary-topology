@@ -40,6 +40,18 @@ STAGE_TITLES = {
     "A0b": "A0b — derived demand on the downward edge",
     "A2": "A2 — support-set contraction and the intermediate layer",
     "A2c": "A2c — cycle structure of the realized graph",
+    # A6-1's failure is a scope defect in the criterion rather than a result,
+    # and A6-5's is a real one. The title says which, because a reader scanning
+    # a two-of-five line should not have to open the stage document to learn
+    # that one of the two failures is the strongest evidence for the headline.
+    "A6": (
+        "A6 — the siphon in tax points (A6-1 fails on its own scope, "
+        "A6-5 fails for real)"
+    ),
+    "A6-ratchet": (
+        "A6-7 to A6-23 — the frontier ratchet, who the levy falls on, who "
+        "the rebate reaches, and R* as a slope in lambda"
+    ),
     "B1": "B1 — the enlarged graph, and what stage B2 measured",
     "B2A": "B2A — dispersion in financing terms at fixed position and date",
     "B2A-placebo": "B2A placebo — conventional against FHA and VA",
@@ -82,18 +94,48 @@ PRESET_TITLES = {
 }
 
 
+def mark_of(c: dict) -> str:
+    """The four states a criterion can be in, as one cell.
+
+    Stages that carry ``void`` and ``diagnostic`` flags were writing them into
+    the record and this table was ignoring both, so A3-5 appeared as **FAIL**
+    when it is a criterion that **could not be evaluated**, and A3-2 and A3-3
+    appeared as verdicts when they are diagnostics demoted in `a3_asset_channel`
+    §5.1. Those are three different things and a reader of this file was seeing
+    two. Stages that carry no flags are unaffected, so nothing else moves.
+    """
+    if c.get("diagnostic"):
+        return "DIAG"
+    if c.get("void"):
+        return "VOID"
+    return "PASS" if c["passed"] else "**FAIL**"
+
+
 def criteria_table(criteria: list[dict]) -> list[str]:
     lines = ["| | criterion | detail |", "|---|---|---|"]
     for c in criteria:
-        mark = "PASS" if c["passed"] else "**FAIL**"
-        detail = c["detail"].replace("|", r"\|")
-        lines.append(f"| {mark} | {c['name']} | {detail} |")
+        # Rendered rather than raised. A stage that forgets its detail strings
+        # should show a visible gap in this table, not take the whole CI run
+        # down with a KeyError before anything else is checked.
+        detail = c.get("detail", "_no detail recorded_").replace("|", r"\|")
+        lines.append(f"| {mark_of(c)} | {c['name']} | {detail} |")
     return lines
 
 
 def render_block(criteria: list[dict], derived: dict, params: dict) -> list[str]:
-    n_pass = sum(c["passed"] for c in criteria)
-    lines = [f"**{n_pass}/{len(criteria)} criteria passed**", ""]
+    # Live criteria only, which is the count the stages print themselves. A
+    # denominator that includes the voids and the diagnostics reports a stage
+    # as having failed things it never decided.
+    live = [c for c in criteria if not (c.get("void") or c.get("diagnostic"))]
+    n_pass = sum(c["passed"] for c in live)
+    n_void = sum(bool(c.get("void")) for c in criteria)
+    n_diag = sum(bool(c.get("diagnostic")) for c in criteria)
+    extra = "".join(
+        f", {n} {label}"
+        for n, label in ((n_void, "void"), (n_diag, "diagnostic"))
+        if n
+    )
+    lines = [f"**{n_pass}/{len(live)} live criteria passed{extra}**", ""]
     lines += criteria_table(criteria)
     if derived:
         lines += ["", "Derived quantities:", ""]
@@ -112,7 +154,32 @@ def subtitle(record: dict) -> str:
     it. Reading these off the record rather than assuming a fixed set of keys is
     what lets a new stage be added without editing this function again.
     """
+    # A6 runs several horizons in one record and replicates over a set of
+    # seeds rather than one, so the generic line below would print a single
+    # round count and `seed=?`, both of which would be wrong rather than merely
+    # thin. Its own lengths are named instead.
+    if record.get("stage", "").startswith("A6"):
+        bits = [f"{record['seeds']} seeds", f"`rounds={record['rounds']}`"]
+        for key, label in (
+            ("long_rounds", "long run"),
+            ("horizon", "horizon"),
+        ):
+            if record.get(key):
+                bits.append(f"`{label.replace(' ', '_')}={record[key]}`")
+        if "long_horizon" in record and record["long_horizon"]:
+            bits.append(
+                f"`horizon={record['long_horizon']['rounds']}`, "
+                f"one cell carrying a registered multiple"
+            )
+        return " ".join(bits)
+
     if "rounds" in record:
+        # A stage that replicates over a set of seeds records `seeds` and has
+        # no single `seed`, and printing `seed=?` for it says the seed is
+        # unknown when what is true is that there are five of them. A3 and A3c
+        # are both in that shape and both were printing the question mark.
+        if "seeds" in record:
+            return f"`rounds={record['rounds']}` `{record['seeds']} seeds`"
         return f"`rounds={record['rounds']}` `seed={record.get('seed', '?')}`"
 
     # B6-A is identified by its publication-day domain rather than by a sample
@@ -242,6 +309,52 @@ def render_stage(record: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+#: Filename markers the experiments already use when they refuse to write over
+#: a registered result. ``a3_asset_channel.py`` prints "writing beside the
+#: registered result, not over it" and lands the run under one of these.
+NOT_REGISTERED = (".offparam", ".smoke")
+
+
+def is_registered(path: Path) -> bool:
+    """Was this record produced at the stage's registered parameters?
+
+    Read off the filename, because that is the signal the writers already use.
+    An off-parameter or smoke record is **not a claim**: it was written beside
+    the registered result precisely so it would not overwrite it, and rendering
+    it into `RESULTS.md` under the identical heading undoes that. The committed
+    file had `## A3` three times, at three hundred, forty and a hundred and
+    twenty rounds, distinguished only by a line a reader would have to already
+    know how to read.
+
+    Worse than ambiguous, they go stale invisibly. Nothing regenerates them:
+    `run_all.py` does not run them and CI does not either, so they are frozen
+    snapshots of whatever the code was on the day somebody measured a cost, and
+    they sit under the same heading as the current numbers.
+    """
+    return not any(m in path.name for m in NOT_REGISTERED)
+
+
+def is_diagnostic(record: dict) -> bool:
+    """Did the writer declare this record a diagnostic rather than a stage?
+
+    Keyed on the record's own ``diagnostic_only`` field, which
+    ``a3_asset_channel.py --retention-profile`` already writes and which says in
+    plain text that it registers nothing and feeds no criterion. Such a file
+    must not become a heading in `RESULTS.md`: `main` globs the whole directory,
+    so running that diagnostic would otherwise add three empty stages to a file
+    CI byte-diffs.
+
+    **The first version of this test asked whether the record carried criteria,
+    and that was wrong.** Four real stages carry none. The two B5 source audits
+    carry none *by design*, and `STAGE_TITLES` says so twelve lines above: their
+    verdict travels in the title precisely because they are audits rather than
+    pre-registered criteria. `a3b_construction` and `b3_cip_slice` were dropped
+    with them. A stage is not defined by having criteria, and the writer is the
+    only thing that knows whether a record is a claim.
+    """
+    return bool(record.get("diagnostic_only"))
+
+
 def main() -> int:
     records = sorted(RESULTS.glob("*.json"))
     if not records:
@@ -249,8 +362,17 @@ def main() -> int:
         return 1
 
     parts = [HEADER]
+    off: list[str] = []
+    bare: list[str] = []
     for path in records:
-        parts.append(render_stage(json.loads(path.read_text(encoding="utf-8"))))
+        if not is_registered(path):
+            off.append(path.name)
+            continue
+        record = json.loads(path.read_text(encoding="utf-8"))
+        if is_diagnostic(record):
+            bare.append(path.name)
+            continue
+        parts.append(render_stage(record))
 
     # Encoding is pinned on both ends. Without it Path.read_text/write_text use
     # the platform's preferred encoding, so the same records render to different
@@ -258,7 +380,17 @@ def main() -> int:
     # diffs this file against the committed copy fails on content that is
     # identical. The titles below contain em dashes, so this is not hypothetical.
     OUT.write_text("\n".join(parts), encoding="utf-8", newline="\n")
-    print(f"wrote {OUT.relative_to(ROOT)} from {len(records)} record(s)")
+    print(f"wrote {OUT.relative_to(ROOT)} from "
+          f"{len(records) - len(off) - len(bare)} record(s)")
+    # Announced rather than silent, for the reason `run_all.py` announces a
+    # skipped stage: a renderer that quietly drops a file is indistinguishable
+    # from one that never saw it.
+    for names, why in (
+        (off, "off-parameter or smoke runs, kept on disk and not rendered"),
+        (bare, "declared diagnostic by the writer, so not stages"),
+    ):
+        if names:
+            print(f"  {why}: {', '.join(names)}")
     return 0
 
 

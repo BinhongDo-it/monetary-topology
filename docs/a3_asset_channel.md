@@ -178,7 +178,7 @@ is a defect in this table, not a freedom.
 | `stretch_cost` | `uncounted` or `counted` | `uncounted` | both |
 | `max_units` | cap on units per node; `0` is no cap | `0` | `1` runs and produces zero trades |
 | `open_tiers` | tiers forced open regardless of claims | `()` | A3-5 only |
-| `bins` | centrality bins for the product-graph `δ` | `4` | `{2, 4, 8}` |
+| `bins` | how many bins the trader population is cut into before the outer two are compared. **Corrected, §6.5b**: registered as `4` and as feeding the product-graph `δ`, and it reached no code at all. `3` is the value at which the wired parameter reproduces every stored result bit for bit | `3` | `{2, 8}` |
 | `T` | holding period in the weight; must equal `1/τ` under arm E | `25` | tied to `τ` |
 | `construction` | opening allocation rule | `auction` | A3b axis |
 | `ownership_rate` | share owning at `t = 0`; ignored under `auction` | `0.70` / `0.653` | A3b |
@@ -432,12 +432,260 @@ forty-round median retention of 14% to transmit. **A4 must not be run as
 designed until this is resolved**, and switching its domain silently to the
 holders would reproduce exactly the error refused above.
 
+### 6.4b The step in retention is a step in layer, and the asset's own step is a transient
+
+§6.4 leaves A3-6 with two numbers, a holder statistic and a non-holder
+statistic, and `PROJECT_PLAN` §16.1 proposed taking the *shape* between them to
+external data as a distinguishing prediction: that a one-off transfer is
+retained in a **step** on whether the recipient owns an asset, rather than along
+a gradient in wealth. §16.1's own first instruction was that two points cannot
+tell those apart and the profile had to be run internally first. It has been.
+`experiments/a3_asset_channel.py --retention-profile`, every node shocked
+separately, one full model run each, five seeds, a thousand runs. It is a
+**diagnostic**: it registers nothing, feeds no criterion, and A3-6's seven
+criteria are character-identical with it in the file.
+
+**The two-point picture is real and it is enormous.** Holders retain a median
+`14.25%` of the transfer over forty rounds; non-holders retain `0.00%`. Only
+`0.8%` of non-holders beat the median holder and no holder falls below the
+median non-holder.
+
+**It cannot be attributed to the asset, because at the registered shock round
+every holder is a financial-layer node.** Seventy-nine holders, all upstairs;
+nine hundred production-layer node-seeds, not one of them holding. Holders
+occupy wealth ranks `182` to `200` of `200` in every seed. So "holder against
+non-holder" is also "layer 1 against layer 2", and the layer carries two things
+of its own that have nothing to do with owning:
+
+* `_collect_rent` bills `(held <= 0) & _is_production`. A financial-layer node
+  holding nothing pays no rent; a production-layer node holding nothing pays,
+  every round, at `rent_rate = 0.05` of the low tier's price. **Liability is
+  keyed on the construction-time layer index while receipts are keyed on
+  holding**, and that asymmetry is live in the registered run.
+* `_prior_owner_weights` routes the opening proceeds and the unsold residual to
+  `~_is_production`, weighted by opening claims. Defended in its docstring and
+  the same shape all the same: a fixed index set receives.
+
+`_is_production` is assigned once, by index, at `layer1_size`, and is never
+updated. This is the same defect A6 had in its levy base, in a different place.
+
+**The trade asymmetry is by design and is worth stating with it.** A buyer pays
+`γ_{i,q} · P` and `γ` rises as centrality falls; a seller in `_settle` receives
+the market price, and the seller's own `γ` never enters what it receives.
+Reaching up costs, selling down is free, and a peripheral round trip is a net
+loss of `(γ − 1) · P`, which is the holonomy. The premium is split equally
+across all nodes rather than routed upstairs, deliberately, so that A3-4 can
+tell the terms differential apart from the premium's destination.
+
+**The denominator is already layer-determined.** The transfer is the same
+absolute amount for every recipient, but the deviation it has produced by the
+end of the round it lands in is a median of `36` upstairs and `3.8` downstairs.
+Nine tenths of a transfer to the production layer is gone inside the landing
+round. So A3-6's ratio **understates** the gap: at forty rounds the absolute
+retained amounts are `9.83` and `0.017`, a factor of about `560`, where the
+ratio shows a factor of `66`.
+
+**`open_tiers` does not break the identification, and that was tested rather
+than assumed.** It is the only switch in the model that admits regardless of
+claims, which is what §16.1's problem needs. Opening the low tier admits **one**
+production-layer node across three seeds. Allocated units rise from `61` to `89`
+of a supply of `100` and the extra units go upstairs: the opening caps each node
+at one unit, and the resale market then has no cap at all, so twenty financial
+nodes absorb the stock over a hundred and fifty rounds. Opening the high tier is
+a bitwise no-op, per §6.3.
+
+**What does break it is the shock round.** Production-layer nodes holding a unit,
+by round, over three seeds:
+
+| round | 1 | 5 | 10 | 20 | 40 | 80 | 150 | 299 |
+|---|---|---|---|---|---|---|---|---|
+| holders downstairs | 21, 27, 19 | 21, 24, 17 | 20, 23, 15 | 13, 16, 8 | 6, 11, 4 | 1, 2, 1 | 0, 0, 0 | 0, 0, 0 |
+
+A3-6's registered shock round is `150`. **The cell that answers §16.1 is empty
+there**, and it is populated early. Profiled at round 20, with the horizon read
+at five points off the same runs:
+
+| group | n | median at 40 | h=10 | h=20 | h=40 | h=80 | h=149 |
+|---|---|---|---|---|---|---|---|
+| financial layer, holds | 88 | **24.33%** | 22.35% | 23.43% | 24.33% | 22.31% | 22.53% |
+| financial layer, no asset | 12 | 1.39% | 1.68% | 1.57% | 1.39% | 2.00% | 0.89% |
+| production layer, holds | 62 | **0.59%** | 6.17% | 10.95% | 0.59% | 0.28% | 0.01% |
+| production layer, no asset | 838 | 0.37% | 0.01% | 0.23% | 0.37% | 0.16% | 0.00% |
+
+The last two rows are the comparison §16.1 wanted: same layer, same rent
+liability, same construction-time assignment, and the asset is the only thing
+that differs.
+
+**Read as three findings.**
+
+*Between layers the step is permanent.* The upstairs rows are flat in the
+horizon, `22%` at ten rounds and `22%` at a hundred and forty-nine.
+
+*Within the production layer the asset's step is a transient.* `6.17%` against
+`0.01%` at ten rounds, `10.95%` against `0.23%` at twenty, and by forty rounds
+`0.59%` against `0.37%`, which in absolute terms is `0.0245` against `0.0174`, a
+factor of `1.4`. By a hundred and forty-nine rounds it is gone. The asset is
+sold or stripped and the advantage goes with it.
+
+*Wealth is still doing work inside the groups.* Spearman of retention against
+wealth, with holding held constant, is `+0.776` among holders at the registered
+shock round and `+0.860` against net worth; at round 20 it is `+0.496`. A pure
+step predicts these near zero. The boundary pair, the poorest holder against the
+richest non-holder, splits two to two across seeds at round 150 and three to two
+at round 20, and under a net-worth ordering it reads as a step in none of the
+two seeds that can discriminate at all. The largest adjacent jump in the
+rank-ordered curve sits at the holding boundary in **no** seed at either shock
+round.
+
+**So §16.1's shape is not established, and the reason is sharper than "not yet
+measured".** There is a very large step and it is a step in **position**. The
+asset contributes a step of its own that is real at a ten to twenty round scale
+and has decayed to a factor of `1.4` by the forty rounds A3-6 measures at.
+Taking "the model predicts retention jumps on asset ownership" to the child tax
+credit or the SCE panel would be taking a shape the model did not produce.
+**§16.1's steps two and three, pinning the round-to-time window and the priors
+on the mapping, are idle until this is resolved**: they exist to carry the step
+outward, and what would travel is the layer.
+
+Nothing here changes A3-6. Its threshold, domain, verdict and detail string are
+untouched, and the profile writes to its own file so that a diagnostic cannot
+reach a criterion.
+
 ### 6.5 The registered §7 grid has not been run
 
 `{η, κ, τ, φ, s}` and the centrality binning have not been swept, and "no
 conclusion may live at one value of any of them" is a registered promise. **This
 is a breach of a registered commitment, not a todo.** The exception is `η`,
 swept between `0` and `1` in the rent arm and in A3-5, and `κ`, swept in A3c.
+
+### 6.5b The grid has now been run, and the first thing it found was a knob wired to nothing
+
+§6.5 above is left as written. This section records what closing it produced.
+
+Fourteen cells, one parameter at a time off the registered point, at the
+registered five seeds and three hundred rounds, run twice: once against
+`a3_asset_channel.py`'s six live criteria and once against A3-8 in
+`a3c_load_bearing.py`. A3-1 is excluded from the first by construction, since
+the closed channel is built from the module-level `CLOSED` spec that no asset
+parameter reaches. `κ` is excluded from the second by construction, since A3-8's
+four cells **are** the `κ` factorial and putting it on a robustness axis would
+be sweeping the treatment.
+
+**`centrality_bins` was declared, validated, documented, and read by nothing.**
+It had a field in `AssetSpec`, a `< 1` validation, and a docstring saying it fed
+the loop sum on the product graph. No line in the repository ever looked at it.
+Two models differing only in it came out bit-identical in `terms`, `units`,
+`cycles`, `centrality`, `uncounted_cost` and `net_worth`. The first run of this
+grid duly swept it across `2` and `8`, reported "no state change" both times,
+and **those two clean rows were worth nothing**: an axis that reaches no code
+cannot move a verdict, and a grid that counts it as robustness is claiming
+coverage it does not have. §6.5's promise names the centrality binning
+explicitly, so the axis it names was the one axis the grid could not have been
+testing.
+
+**It is now wired at two sites, and the default moved from `4` to `3`.** Both
+sites cut the population into thirds with a hardcoded `// 3`:
+`terms_pair` in `a3_asset_channel.py`, ranking by `γ`, and `terciles` in
+`a3c_load_bearing.py`, ranking on `centrality` directly. Sorting by `γ` is
+sorting by centrality, since `γ = γ̄(1 + κ(1 − c))` is strictly monotone
+decreasing in `c`, so the field's name describes both cuts accurately. The
+parameter now sets how many equal bins of width `floor(n / bins)` the population
+is cut into, with the outermost two compared; larger values mean narrower, more
+extreme groups.
+
+`3` is not a preference. It is the value at which the wired parameter reproduces
+every stored A3 number **bit for bit**, and that was verified rather than
+assumed: `criteria`, `market`, `rent_sweep` and `deviations` in
+`a3_asset_channel.json`, and `cells` and `mean_cost_relative_drift` in
+`a3c_load_bearing.json`, all compare identical against the pre-wiring files.
+**The declared `4` was never the behaviour of anything**, and leaving it in
+place would have changed every number in the stage the moment the wire was
+connected, with nothing in the run looking wrong. This is the same reduction
+guard A6-7 applies to the ratchet, for the same reason.
+
+**Both sweeps now detect this class of defect rather than reasoning about it in
+advance.** A cell whose criterion details, or whose four gaps, come out
+identical to the registered point is flagged `inert` and named in the result
+file. It is reported and not gated: inertness is a statement about coverage, not
+a failure of the run. After the wiring, `a3_asset_channel` has twelve live cells
+of fourteen and `a3c_load_bearing` has thirteen, the remainder being
+`forced_sale_floor` at `0.05` and, for the first stage only, at `0.10`, which is
+the registered default and therefore differs from the registered point by the
+arm switch alone.
+
+**A3-4 holds at every one of the fourteen points.** Relative error between the
+realised terms differential and the product-graph holonomy ranges from `0.00%`
+to `7.77%` against a registered tolerance of `20%`, with the holonomy itself
+moving over `+0.282` to `+0.499`. The criterion that carries the stage does not
+live at one value of any swept parameter.
+
+**A3-7 fails at four of the fourteen, and is not repaired.** It asks that the
+better-termed group beat the worse-termed group in all three non-overlapping
+hundred-round windows, so that the result is not a single repricing. Registered
+point: `100% / 100% / 100%` of seeds. The four failures:
+
+| cell | `[0,100)` | `[100,200)` | `[200,300)` |
+|---|---|---|---|
+| `η = 1.5` | 80% | 0% | 0% |
+| `τ = 0.02`, `T = 50` | 80% | 100% | 80% |
+| `s = 1.0` | 20% | 0% | 0% |
+| `s = 5.0` | 60% | 80% | 80% |
+
+**So A3-7's conclusion lives at one value and A3-4's does not**, and that is the
+grid's finding rather than a defect to be tuned away. A3-2, A3-3, A3-5 and A3-6
+hold their states at all fourteen cells, which for the last two means the void
+and the failure are as robust as the passes.
+
+**A3-8's verdict held at every cell, and its reason did not.** The state is
+`unstable` at all fourteen: the gate channel's per-seed sign moves everywhere on
+the grid, so **no share may be quoted for the gate at any parameter value
+tested**, which makes §5.2's refusal robust rather than local. But the loop-sum
+channel also becomes sign-unstable at four cells, `η = 0.5`, `s = 1.0`,
+`s = 2.0` and `centrality_bins = 8`. The verdict word is the same at those cells
+for a different reason, so the sweep compares the **set** of channels
+indistinguishable from zero and not merely the word. A3-8's negative content is
+robust; its positive content is not everywhere.
+
+**The binning axis, mapped.** Diagnostic, outside the registered grid, reported
+because the single `bins = 8` cell above is not readable without it:
+
+| bins | nodes per group | both | loop sum only | gate only | indistinguishable from zero |
+|---|---|---|---|---|---|
+| 2 | 21 | +13.421 | +14.569 | −0.443 | gate |
+| **3** | **14** | **+23.267** | **+21.671** | **+1.409** | **gate** |
+| 4 | 10 | +25.947 | +26.976 | +3.438 | gate |
+| 5 | 8 | +32.151 | +28.524 | +1.780 | gate, loop sum |
+| 6 | 7 | +26.418 | +28.375 | +3.099 | gate, loop sum |
+| 8 | 5 | +20.123 | +23.010 | +2.587 | gate, loop sum |
+
+The gap **levels** stay between `+13` and `+32` throughout; what breaks from
+five bins on is the cross-seed sign consistency of a group mean taken over eight
+nodes or fewer. That reads as a sample-size effect rather than the channel
+disappearing, and it is written here as a reading and not as a repair: the
+criterion reports what it reports. The never-real default of `4` falls on the
+stable side.
+
+**A design tie was violated in the first version of this grid, by this
+repository.** Two cells swept `turnover` without moving `holding_period`, which
+§4 registers as tied to `1/τ` under arm E, and `asset.py` said so on stderr
+while the digest printed a clean row. The values are now tied through the
+guard's own `round(1/turnover)`, and more to the point **both sweeps record
+`model.deviations` per cell and refuse to call a cell clean if it has any**, so
+a violated tie can no longer be visible only in stderr. The corrected re-run
+still shows `τ = 0.02` failing A3-7, so the error had not manufactured the
+finding.
+
+**Three section references in `a3_asset_channel.py`'s docstring were stale** and
+are corrected in the script rather than in this document: the grid is §4 and not
+§7, this breach is §6.5 and not §9.10, and the rent arm is §6.2b and not §9.11.
+The heading of §6.5 above still says §7 and is left alone.
+
+**What this still does not cover.** The grid is one parameter at a time, so it
+sees no interactions, and a pair of parameters that only moves a verdict jointly
+would pass every cell. No threshold is registered for A3-8's two shares, so
+their spread across the grid is reported and not judged. `forced_sale_floor` at
+`0.05` reaches nothing either stage can see, which is a fact about that axis's
+low end and not a second dead knob, since `0.2` moves both stages.
 
 ### 6.6 What A3 cannot say, however it comes out
 

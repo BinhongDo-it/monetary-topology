@@ -1,8 +1,12 @@
-"""A6-7 to A6-13: the frontier ratchet. Registered in ``docs/a6_siphon_cost.md``.
+"""A6-7 to A6-23: the frontier ratchet, the levy base, the rebate base, the
+scaling of ``R*`` with ``λ``, and the curve re-measured on all of it.
+
+Registered in ``docs/a6_siphon_cost.md``, sections 13, 14.7, 15, 18, 19
+and 20.
 
 This file evaluates and does not design. Every threshold, grid and scope
-decision it compares against is written in section 13 of that document, before
-any of this ran.
+decision it compares against is written in that document, before any of this
+ran.
 
 Usage::
 
@@ -36,6 +40,7 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
+import math
 import sys
 import time
 import warnings
@@ -57,7 +62,9 @@ from monetary_topology.redistribution import (  # noqa: E402
     A6Model,
     A6RatchetModel,
     FiscalSpec,
+    LevySpec,
     RatchetSpec,
+    RebateSpec,
     open_band,
     run_a6,
     scan_rates,
@@ -130,22 +137,81 @@ A6_8_INJECTIONS: tuple[float, ...] = (1.0, 0.0034, 250.0)
 #: Section 13.4. The guard's registered scope.
 GUARD_RATES: tuple[float, ...] = (0.0, 0.005, 0.06, 0.32)
 
-#: A6-16 and A6-17, the long-horizon test. A6-5's own warning applied to this
-#: stage's conclusion: three hundred rounds was enough to find `R*` and not
+#: A6-16, A6-17 and A6-19, the long-horizon test. A6-5's own warning applied to
+#: this stage's conclusion: three hundred rounds was enough to find `R*` and not
 #: enough to claim "forever", and two thousand rounds is not enough to claim
 #: that a smooth `g` removes the collapse rather than postponing it.
-HORIZON_ROUNDS = 12000
+#:
+#: **Raised from twelve thousand on 2026-08-12, and that is not a change of
+#: criterion.** A6-16 was built three-valued precisely so that "the horizon is
+#: too short" would trigger a longer run instead of a wrong answer, and it
+#: returned that branch at twelve thousand with `layer/hill`'s `x` still
+#: climbing at fifty percent per six thousand rounds. Extending is the response
+#: the criterion prescribes. Sixty thousand comes from two independent readings,
+#: not from convenience: `layer/hill`'s `x` fits `4.50·ln t − 30.35` across five
+#: seeds, putting a surviving leak of `0.05` at about fifty-eight thousand
+#: rounds; and `threshold/hill`'s `x` grows close to linearly at `2.45e-3` per
+#: round, giving `x ≈ 147` and a leak near `0.0068` at sixty thousand, inside
+#: the range where closure has already been observed. Section 15.11.
+HORIZON_ROUNDS = 60000
 
 #: Two judged cells and one control. The control has a genuine fixed point in
 #: `x` at about `0.87` and a surviving leak of `0.12`, well clear of the
 #: boundary, so it should stay open at any horizon. **If the control closes
 #: too, long horizons close everything and the two judged cells say nothing
 #: about `g`**, so A6-16 returns no verdict rather than a wrong one.
-HORIZON_CELLS: tuple[tuple[str, float, str], ...] = (
-    ("exp", 0.0, "judged"),
-    ("hill", 0.0, "judged"),
-    ("clip", 1e-3, "control"),
+#: **Two criteria share this block and neither reads the other's rows.** A6-16
+#: asks whether a smooth `g` removes the collapse or postpones it, on the
+#: `layer` base, and it stays there because a criterion is not moved to another
+#: arm after returning a verdict, even a null one. **A6-19 asks the same
+#: question on the `threshold` base**, with its own control.
+#:
+#: The two controls differ, and the difference is measured rather than assumed.
+#: `clip/λ=1e-3` has a settled fixed point at `x ≈ 0.87` and a surviving leak of
+#: `0.12` under the layer base, so it holds at any horizon. Under the threshold
+#: base the same cell **closes**, because a base that does not drain keeps `I`
+#: three times higher and moves `x*` to `2.74`, above the wall's corner at one.
+#: A6-19's control is therefore `clip/λ=1e-2`, whose fixed point is `x* ≈ 0.27`
+#: and whose surviving leak is about `0.73`. Section 15.9 and section 15.11.
+#: The last column is a **per-cell multiple of the horizon**, and it sets a run
+#: length rather than a threshold. Every criterion in this block is unchanged:
+#: five seeds, ``end/start >= 0.90``, the same three-valued rule. What the
+#: multiple does is give each cell enough rounds for its own ``x`` to reach the
+#: range where closure has already been observed, sized from that cell's own
+#: measured growth.
+#:
+#: Only ``layer/hill`` needs more than one. At sixty thousand rounds it sits at
+#: ``x = 28`` to ``34`` with seed 1 at ``0.92`` against the floor, and its
+#: increments per twelve thousand rounds are ``5.97, 4.68, 3.98, 3.52``,
+#: decelerating. Seed 1 closed under ``threshold/hill`` at ``x ≈ 42``, so this
+#: cell needs about eleven and a half more, which those increments deliver in
+#: four to five more blocks, near a hundred and twenty thousand rounds.
+#: **Three times is deliberate margin**: overshooting costs three minutes of
+#: compute, undershooting costs another null verdict and another pass over the
+#: whole stage.
+HORIZON_CELLS: tuple[tuple[str, float, str, str, int], ...] = (
+    ("exp", 0.0, "layer", "judged", 1),
+    ("hill", 0.0, "layer", "judged", 3),
+    ("clip", 1e-3, "layer", "control", 1),
+    ("exp", 0.0, "threshold", "levy-judged", 1),
+    ("hill", 0.0, "threshold", "levy-judged", 1),
+    ("clip", 1e-2, "threshold", "levy-control", 1),
 )
+
+#: A6-18. The levy collected in the final round, as a fraction of the opening
+#: claim stock, at or above which the base counts as still alive. Set at the
+#: scale of numerical noise rather than at a level chosen to taste: the
+#: registered claim is that the threshold base **does not die**, so the test is
+#: that it is not approximately zero, and the magnitudes are reported beside
+#: the verdict rather than being turned into a threshold nobody had seen.
+A6_18_FLOOR = 1e-6
+
+#: A6-20's conservation tolerance. Not a measurement tolerance: the levy
+#: and the rebate are the same float total added and subtracted, so the
+#: only thing between them is accumulated rounding over the horizon. Set
+#: well above float noise and far below any transfer the model makes, so a
+#: real leak of claims could not hide under it.
+A6_20_DRIFT = 1e-6
 
 #: Relative growth of `x` across the second half of the run, at or below which
 #: `x` counts as settled. Registered rather than chosen at reading time, and
@@ -198,6 +264,8 @@ def config_for(
     channel: str,
     rate: float = 0.0,
     ratchet: RatchetSpec | None = None,
+    levy: LevySpec | None = None,
+    rebate: RebateSpec | None = None,
 ) -> A6Config:
     """One cell of section 4's factorial, at one levy rate.
 
@@ -214,6 +282,8 @@ def config_for(
             authority=MonetaryAuthority(rule="none"),
         ),
         ratchet=ratchet or RatchetSpec(),
+        levy=levy or LevySpec(),
+        rebate=rebate or RebateSpec(),
     )
 
 
@@ -335,15 +405,28 @@ def fixed_point_bench() -> dict:
 
 
 def lambda_cell(
-    seeds: range, absorption: float, shape: str, rounds: int, rate: float
+    seeds: range,
+    absorption: float,
+    shape: str,
+    rounds: int,
+    rate: float,
+    levy: LevySpec | None = None,
+    rebate: RebateSpec | None = None,
 ) -> dict:
-    """One point of the curve: five long runs in ``access / fair / arm I``."""
+    """One point of the curve: five long runs in ``access / fair / arm I``.
+
+    ``levy`` and ``rebate`` are section 20's re-measurement and default to
+    ``None``, which is the registered instrument. A6-9 calls this without them
+    and its numbers are unchanged.
+    """
     ratios, trends, gaps, xs, leaks = [], [], [], [], []
     for seed in seeds:
         cfg = config_for(
             seed, rounds, access=True, fair=True, channel="infrastructure",
             rate=rate,
             ratchet=RatchetSpec(absorption=absorption, shape=shape),
+            levy=levy,
+            rebate=rebate,
         )
         model, history = _quiet(run_a6, cfg, model_cls=A6RatchetModel)
         y = np.asarray(history.effective_support, dtype=float)
@@ -631,6 +714,7 @@ def horizon_cell(
     seeds: range,
     shape: str,
     absorption: float,
+    levy_base: str,
     rounds: int,
     rate: float,
     role: str,
@@ -651,18 +735,22 @@ def horizon_cell(
     ratios, leaks, crossings = [], [], []
     traces: list[list[float]] = []
     growth: list[float] = []
+    levy_first, levy_final, levy_share = [], [], []
+    payers: list[int] = []
     for seed in seeds:
         cfg = config_for(
             seed, rounds, access=True, fair=True, channel="infrastructure",
             rate=rate,
             ratchet=RatchetSpec(absorption=absorption, shape=shape),
+            levy=LevySpec(base=levy_base),
         )
         model, history = _quiet(run_a6, cfg, model_cls=A6RatchetModel)
         y = np.asarray(history.effective_support, dtype=float)
+        claims = model._opening_claims
         xs = (
             np.asarray(model.gap_history, dtype=float)
             * cfg.fiscal.leak_response
-            / model._opening_claims
+            / claims
         )
         ratios.append(float(y[-1] / y[0]) if y[0] else float("nan"))
         leaks.append(float(model.leak_history[-1]))
@@ -674,14 +762,27 @@ def horizon_cell(
         mid = float(xs[xs.size // 2])
         end = float(xs[-1])
         growth.append((end - mid) / mid if mid else float("inf"))
+        levy_first.append(model.levy_history[0] / claims)
+        levy_final.append(model.levy_history[-1] / claims)
+        levy_share.append(model.l2_levy_share_history[-1])
+        payers.append(model.payer_count_history[-1])
 
     settled = all(g <= X_SETTLED for g in growth)
     worst = max(growth)
     return {
         "shape": shape,
         "absorption": absorption,
+        "levy_base": levy_base,
         "role": role,
         "rounds": rounds,
+        # All in units of the opening claim stock, so the numbers are
+        # comparable across cells and across any future change of scale.
+        "levy_first_round": levy_first,
+        "levy_final_round": levy_final,
+        "final_payer_count": payers,
+        "final_l2_levy_share": levy_share,
+        # A6-18's own test: the base is still collecting something.
+        "levy_alive": bool(all(v >= A6_18_FLOOR for v in levy_final)),
         "end_over_start": ratios,
         "final_leak_factor": leaks,
         "final_x": [t[-1] for t in traces],
@@ -699,77 +800,524 @@ def horizon_cell(
     }
 
 
-def long_horizon(
-    seeds: range, rounds: int, rate: float, progress: bool
+def three_valued(
+    cells: dict, judged_role: str, control_role: str, label: str
 ) -> dict:
-    """A6-16 and A6-17. Three-valued on purpose.
+    """One criterion's verdict on one levy base. ``True``, ``False`` or ``None``.
 
-    A6-5's failure was scored on a two-thousand-round run and section 5 of this
-    document says in as many words that three hundred rounds is "not enough to
-    claim forever". The same objection applies to section 14.2's reading, so
-    this test refuses to return a verdict when the run cannot support one.
+    A6-16 and A6-19 ask the same question of two different bases and share this
+    rule, so it lives in one place and neither can drift from the other.
 
     - both judged cells closed: the registered prediction holds
     - a judged cell open with ``x`` settled: the prediction is wrong there
     - a judged cell open with ``x`` still climbing: **no verdict.** The horizon
-      is too short and saying anything else would repeat A6-5's mistake
+      is too short, and A6-5 was scored on a two-thousand-round run while
+      section 5 says in as many words that three hundred rounds is "not enough
+      to claim forever". Returning a pass here would repeat that
     - the control closed as well: **no verdict.** Long horizons close
-      everything here and the judged cells are confounded
+      everything on this base and the judged cells are confounded
+    """
+    judged = [c for c in cells.values() if c["role"] == judged_role]
+    control = [c for c in cells.values() if c["role"] == control_role]
+    if not judged or not control:
+        return {
+            "passed": None,
+            "control_open": False,
+            "reason": f"the {label} base has no judged or no control cell "
+                      f"in this run",
+        }
+    control_open = all(c["open_in_every_seed"] for c in control)
+    if not control_open:
+        verdict, why = None, (
+            f"the {label} control closed as well, so this horizon closes "
+            f"everything on this base and the judged cells are confounded"
+        )
+    elif all(not c["open_in_every_seed"] for c in judged):
+        verdict, why = True, (
+            f"both judged cells closed on the {label} base, which is what the "
+            f"surviving-leak reading predicts: a smooth g postpones the "
+            f"collapse rather than removing it"
+        )
+    elif any(c["open_in_every_seed"] and not c["x_settled"] for c in judged):
+        verdict, why = None, (
+            f"a judged cell on the {label} base is still open with x still "
+            f"climbing, so this horizon cannot decide it. Reported as no "
+            f"verdict rather than as a pass, which is A6-5's mistake"
+        )
+    else:
+        verdict, why = False, (
+            f"a judged cell on the {label} base is open with x settled, so a "
+            f"smooth g removes the collapse on its own there"
+        )
+    return {
+        "passed": verdict,
+        "control_open": bool(control_open),
+        "reason": why,
+    }
+
+
+#: Section 20.2. The `λ` set the re-measurement walks. `3e-4` and below are
+#: excluded on cost, the same budget decision section 19.3 records; `0` is
+#: excluded because it has no fixed point to relax to, so no horizon rule can
+#: make its reading settled, which section 16.6 already records.
+A6_22_LAMBDAS: tuple[float, ...] = (1e-3, 3e-3, 1e-2, 3e-2, 1e-1)
+
+#: Section 20.2's factorial. One change at a time, so that a difference between
+#: the corrected instrument and section 13.4's reading can be attributed to the
+#: horizon, the levy base or the rebate base rather than to all three at once.
+#: ``C`` is the corrected instrument and is the column A6-22 and A6-23 judge.
+REBASE_COLUMNS: tuple[tuple[str, str, str], ...] = (
+    ("A", "layer", "layer"),
+    ("B", "threshold", "layer"),
+    ("C", "threshold", "threshold"),
+)
+
+#: Section 19.2. The ratio grid A6-21 scans in place of a rate grid. Geometric
+#: with a factor of two, so ``ρ*`` resolves to within a factor of two and that
+#: resolution **is** the criterion's tolerance: section 19.2 registers "the same
+#: grid point or one step apart" and registers no other band.
+RHO_GRID: tuple[float, ...] = (0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0)
+
+#: Section 19.2. One decade. ``λ = 3e-4`` and below are excluded on cost, which
+#: section 19.3 records as a limit on the span rather than as a finding.
+A6_21_LAMBDAS: tuple[float, ...] = (1e-3, 3e-3, 1e-2)
+
+#: Section 19.3. Ten relaxation times, or the stage's registered long horizon,
+#: whichever is larger. The ratchet approaches ``I/λ`` at rate ``λ`` per round,
+#: so a cell shorter than a few multiples of ``1/λ`` reports a transient and not
+#: the fixed point the criterion is about.
+A6_21_RELAXATIONS = 10
+
+
+def a6_21_rounds(absorption: float) -> int:
+    """Section 19.3's horizon rule, as one function so it cannot drift."""
+    return max(REGISTERED_LONG, math.ceil(A6_21_RELAXATIONS / absorption))
+
+
+def rho_scaling(seeds: range, progress: bool, smoke: bool = False) -> dict:
+    """A6-21. Is ``R*`` a slope in ``λ`` rather than a level?
+
+    Registered in section 19 before this function existed. It scans
+    ``R = ρ·λ`` over :data:`RHO_GRID` at each :data:`A6_21_LAMBDAS`, in the arm
+    A6-10 is judged in, and asks whether ``ρ*`` is the same grid point
+    throughout.
+
+    **A6-10 and A6-11 are untouched by this.** They keep their failures, their
+    thresholds and their split. This is a different question about the same
+    mechanism, in the relation to them that A6-18 stands in to A6-1.
+
+    ``I(R*)/λ`` and the settledness of ``x`` are measured and **reported, not
+    judged**, per section 19.4. The first is the parameter-free form of the same
+    hypothesis and the second is what stops "the horizon rule was followed" from
+    being mistaken for "the fixed point was reached".
+    """
+    # A smoke run is off every registered parameter by design and says so.
+    # Section 19.3's horizon rule is what makes this criterion expensive, so a
+    # smoke run that honoured it would not be a smoke run.
+    lambdas = (3e-3, 1e-2) if smoke else A6_21_LAMBDAS
+    cells: dict[str, dict] = {}
+    for absorption in lambdas:
+        rounds = 300 if smoke else a6_21_rounds(absorption)
+        rates = tuple(rho * absorption for rho in RHO_GRID)
+        started = time.time()
+        rho_star: list[float | None] = []
+        levy_over_lambda: list[float] = []
+        growth: list[float] = []
+        for seed in seeds:
+            cfg = config_for(
+                seed, rounds, access=True, fair=True,
+                channel="infrastructure",
+                ratchet=RatchetSpec(absorption=absorption, shape=SHAPE_DEFAULT),
+            )
+            verdicts = _quiet(
+                scan_rates, cfg, grid=rates, model_cls=A6RatchetModel
+            )
+            open_at = [
+                rho for rho, bad in zip(RHO_GRID, verdicts, strict=True)
+                if not bad
+            ]
+            if not open_at:
+                rho_star.append(None)
+                continue
+            rho_star.append(open_at[0])
+            # One extra run at this seed's own critical rate, to read the levy
+            # actually collected there and whether `x` had settled. Reading it
+            # at the median instead would attribute one seed's levy to another.
+            crit = config_for(
+                seed, rounds, access=True, fair=True,
+                channel="infrastructure", rate=open_at[0] * absorption,
+                ratchet=RatchetSpec(absorption=absorption, shape=SHAPE_DEFAULT),
+            )
+            model, _ = _quiet(run_a6, crit, model_cls=A6RatchetModel)
+            claims = model._opening_claims
+            levy_over_lambda.append(
+                float(model.levy_history[-1]) / claims / absorption
+            )
+            xs = (
+                np.asarray(model.gap_history, dtype=float)
+                * crit.fiscal.leak_response
+                / claims
+            )
+            mid = float(xs[xs.size // 2]) if xs.size else 0.0
+            end = float(xs[-1]) if xs.size else 0.0
+            growth.append((end - mid) / mid if mid else float("inf"))
+        solved = [r for r in rho_star if r is not None]
+        median = float(np.median(solved)) if solved else float("nan")
+        cells[f"lambda={absorption:g}"] = {
+            "absorption": absorption,
+            "rounds": rounds,
+            "relaxation_times": rounds * absorption,
+            "rho_grid": list(RHO_GRID),
+            "rate_grid": list(rates),
+            "rho_star_per_seed": rho_star,
+            "rho_star_median": median,
+            "unsolved_seeds": int(sum(r is None for r in rho_star)),
+            "at_grid_bottom": bool(solved) and median <= RHO_GRID[0],
+            "at_grid_top": bool(solved) and median >= RHO_GRID[-1],
+            # Section 19.4, reported and not judged.
+            "levy_over_lambda": levy_over_lambda,
+            "x_growth_second_half": growth,
+            "x_settled": bool(growth) and all(g <= X_SETTLED for g in growth),
+        }
+        if progress:
+            c = cells[f"lambda={absorption:g}"]
+            print(f"      lambda={absorption:<8g} {rounds:>6d} rounds  "
+                  f"rho* {c['rho_star_per_seed']} median {median:g}  "
+                  f"unsolved {c['unsolved_seeds']}  "
+                  f"{time.time() - started:6.1f}s", flush=True)
+
+    medians = [
+        c["rho_star_median"] for c in cells.values()
+        if not math.isnan(c["rho_star_median"])
+    ]
+    expected = len(lambdas)
+    steps = [
+        abs(RHO_GRID.index(_nearest_rho(a)) - RHO_GRID.index(_nearest_rho(b)))
+        for a, b in itertools.combinations(medians, 2)
+    ]
+    return {
+        "lambdas": list(lambdas),
+        "smoke": bool(smoke),
+        "cells": cells,
+        "worst_step_apart": max(steps) if steps else None,
+        "at_a_grid_end": any(
+            c["at_grid_bottom"] or c["at_grid_top"] for c in cells.values()
+        ),
+        "unsolved_total": sum(c["unsolved_seeds"] for c in cells.values()),
+        "passed": (
+            len(medians) == expected
+            and bool(steps)
+            and max(steps) <= 1
+            and not any(c["at_grid_bottom"] or c["at_grid_top"]
+                        for c in cells.values())
+            and not any(c["unsolved_seeds"] for c in cells.values())
+        ),
+    }
+
+
+def _band_text(rebase: dict, label: str) -> str:
+    """One column's band as a phrase, for the digest and the detail string."""
+    b = rebase["columns"][label]["band"]
+    if not b["non_empty"]:
+        return "empty"
+    hole = "" if b["contiguous"] else " with a hole"
+    return f"{b['low']:g} to {b['high']:g}{hole}"
+
+
+def _band(cells: dict, grid: tuple[float, ...], key_of) -> dict:
+    """The open block of ``λ``, its two ends, and whether it has a hole.
+
+    Lifted out of ``lambda_curve`` unchanged in meaning so that section 20's
+    columns are read the same way A6-9's curve is. A band with a hole in it is a
+    different object from a band and both criteria are stated on the block.
+    """
+    good = [a for a in grid if cells[key_of(a)]["open_in_every_seed"]]
+    inside = [
+        cells[key_of(a)]["open_in_every_seed"]
+        for a in grid
+        if good and good[0] <= a <= good[-1]
+    ]
+    return {
+        "low": (good[0] if good else None),
+        "high": (good[-1] if good else None),
+        "points": [float(a) for a in good],
+        "contiguous": bool(all(inside)),
+        "non_empty": bool(good),
+        # Section 20.3's interior test, stated against the scanned set rather
+        # than against the whole real line: a band touching either end of what
+        # was scanned is a band whose edge was not observed.
+        "interior": bool(good) and good[0] > grid[0] and good[-1] < grid[-1],
+    }
+
+
+def rebase_curve(seeds: range, progress: bool, smoke: bool = False) -> dict:
+    """A6-22 and A6-23. Section 13.4's curve on the corrected instrument.
+
+    Registered in section 20 before this function existed. Three columns, one
+    change at a time, plus the ``clip`` control column A6-23 is stated on and
+    the ``ρ = 1`` column section 20.4 reports without judging.
+
+    **A6-9 and A6-15 are untouched.** They keep their bands on the layer base at
+    two thousand rounds. This asks the same two questions of a different
+    instrument and reports the answers under different names.
+    """
+    lambdas = (3e-3, 1e-2) if smoke else A6_22_LAMBDAS
+    columns: dict[str, dict] = {}
+
+    def walk(label: str, shape: str, levy: str, rebate: str, scaled: bool):
+        cells: dict[str, dict] = {}
+        for absorption in lambdas:
+            rounds = 300 if smoke else a6_21_rounds(absorption)
+            # Section 20.4. `scaled` puts the policy at each lambda's own
+            # critical strength, which section 19.5 measured at `R* = lambda`.
+            rate = absorption if scaled else A6_9_RATE
+            started = time.time()
+            cells[f"lambda={absorption:g}"] = lambda_cell(
+                seeds, absorption, shape, rounds, rate,
+                levy=LevySpec(base=levy), rebate=RebateSpec(base=rebate),
+            )
+            if progress:
+                c = cells[f"lambda={absorption:g}"]
+                mark = "open" if c["open_in_every_seed"] else "closed"
+                print(f"      {label:22s} lambda={absorption:<7g} "
+                      f"{rounds:>6d} rounds  R={rate:<8g} {mark:6s} "
+                      f"end/start {min(c['end_over_start']):.2f}"
+                      f"-{max(c['end_over_start']):.2f}  "
+                      f"{time.time() - started:5.1f}s", flush=True)
+        band = _band(cells, lambdas, lambda a: f"lambda={a:g}")
+        columns[label] = {
+            "shape": shape,
+            "levy_base": levy,
+            "rebate_base": rebate,
+            "rate": "lambda" if scaled else A6_9_RATE,
+            "cells": cells,
+            "band": band,
+        }
+
+    for label, levy, rebate in REBASE_COLUMNS:
+        walk(f"{label} exp {levy[:4]}/{rebate[:4]}", SHAPE_DEFAULT,
+             levy, rebate, False)
+    walk("C clip thre/thre", SHAPE_CONTROL, "threshold", "threshold", False)
+    walk("C exp rho=1", SHAPE_DEFAULT, "threshold", "threshold", True)
+
+    judged = columns[
+        f"C exp {REBASE_COLUMNS[2][1][:4]}/{REBASE_COLUMNS[2][2][:4]}"
+    ]
+    control = columns["C clip thre/thre"]
+    return {
+        "lambdas": list(lambdas),
+        "rate": A6_9_RATE,
+        "floor": A6_9_FLOOR,
+        "smoke": bool(smoke),
+        "columns": columns,
+        "A6-22": bool(judged["band"]["non_empty"]),
+        "A6-23": bool(control["band"]["interior"]),
+    }
+
+
+def _nearest_rho(value: float) -> float:
+    """The ratio-grid point nearest ``value``.
+
+    A median over an even count can land between two grid points, and "one step
+    apart" is a statement about grid indices. Snapping is the only way to say
+    it, and it is done here rather than by rounding the median itself so that
+    the median printed is the median measured.
+    """
+    return min(RHO_GRID, key=lambda r: abs(r - value))
+
+
+#: A6-20's cells. The corrected rebate is only reachable under the threshold
+#: levy: under the layer levy the payers are the financial layer and the
+#: recipients the production layer, which are already disjoint, so there is
+#: nothing for the correction to remove and the cell would pass by not asking.
+#: Both levy bases are run anyway, precisely so that the layer row shows the
+#: overlap at zero for a reason that has nothing to do with the fix.
+A6_20_CELLS: tuple[tuple[str, str], ...] = (
+    ("layer", "layer"),
+    ("layer", "threshold"),
+    ("threshold", "layer"),
+    ("threshold", "threshold"),
+)
+#: A6-20 runs at this horizon. Long enough for the threshold levy to have
+#: drained the financial layer and moved downstream, which is the regime where
+#: the two sides of the instrument disagree; short enough to sit inside the
+#: default run rather than behind ``--slow``.
+A6_20_ROUNDS = 20000
+
+
+def rebate_sides(seeds: range, rounds: int, rate: float) -> dict:
+    """A6-20. Both sides of one instrument keyed on the same kind of thing.
+
+    **Structural, not a threshold.** Every quantity here is determined by
+    construction rather than chosen, so there is nothing to tune and nothing
+    that could have been set after seeing a number. The criterion is two-sided
+    and both directions can fail:
+
+    * **Matched pairs put nobody on both sides.** ``layer/layer`` because the
+      financial and production layers are disjoint by construction;
+      ``threshold/threshold`` because above ``θ`` pays and below ``θ`` receives
+      and both are read off one measurement. Either being non-zero means the
+      within-round ordering is wrong.
+    * **Mismatched pairs put somebody on both sides.** ``threshold/layer`` is
+      the defect section 18 records: the payers move with the distribution and
+      the recipients do not, so a production-layer node above ``θ`` pays and
+      receives. ``layer/threshold`` is the same error mirrored: a
+      financial-layer node below ``θ`` receives and is levied anyway because
+      the layer levy never looks at ``θ``. **Both are required to be non-zero.**
+      A zero there would not be a success, it would mean the distribution never
+      put anyone in the overlapping region and the comparison had nothing in it.
+    * **Claims are conserved and the empty-recipient fallback did not fire
+      silently.** Both checked in every cell.
+
+    **The first draft of this criterion quantified over all four cells and
+    demanded zero everywhere.** It failed on the two mismatched cells, which is
+    what it should do: those cells are supposed to overlap and the criterion had
+    the wrong scope. Recorded here rather than silently corrected because the
+    scope changed after a run, and it is only legitimate because **nothing had
+    been registered yet**: A6-20 reaches ``docs/a6_siphon_cost.md`` §18 in the
+    corrected form, and the first form never left this file. A criterion already
+    on the page would have been left failing, as A6-1 is.
+
+    The comparison of *outcomes* between the two rebates is deliberately not
+    judged here. No threshold for it is registered, it belongs with the
+    re-measurement of A6-9 and A6-15 on the corrected instrument, and inventing
+    a bound for it now would be choosing one after seeing the run.
+    """
+    rows: dict[str, dict] = {}
+    for levy_base, rebate_base in A6_20_CELLS:
+        key = f"levy={levy_base}/rebate={rebate_base}"
+        overlap, drift, fallbacks, payees = [], [], [], []
+        for seed in seeds:
+            cfg = config_for(
+                seed,
+                rounds,
+                True,
+                False,
+                "infrastructure",
+                rate,
+                ratchet=RatchetSpec(absorption=1e-3, shape=SHAPE_DEFAULT),
+                levy=LevySpec(base=levy_base),
+                rebate=RebateSpec(base=rebate_base),
+            )
+            model, _ = _quiet(run_a6, cfg, model_cls=A6RatchetModel)
+            both = np.asarray(model.both_sides_history)
+            pc = np.asarray(model.payee_count_history)
+            overlap.append(int(both.max()) if both.size else 0)
+            drift.append(
+                abs(float(model.holdings.sum()) - model._opening_claims)
+            )
+            fallbacks.append(int(np.asarray(model.rebate_fallback_history).sum()))
+            payees.append((int(pc.min()), int(pc.max())) if pc.size else (0, 0))
+        rows[key] = {
+            "levy_base": levy_base,
+            "rebate_base": rebate_base,
+            "worst_both_sides": max(overlap),
+            "worst_claim_drift": max(drift),
+            "fallback_rounds": max(fallbacks),
+            "payee_range": [min(p[0] for p in payees), max(p[1] for p in payees)],
+        }
+    matched = [
+        r for r in rows.values() if r["levy_base"] == r["rebate_base"]
+    ]
+    mismatched = [
+        r for r in rows.values() if r["levy_base"] != r["rebate_base"]
+    ]
+    return {
+        "rounds": rounds,
+        "rate": rate,
+        "cells": rows,
+        "worst_claim_drift": max(r["worst_claim_drift"] for r in rows.values()),
+        "worst_fallback_rounds": max(
+            r["fallback_rounds"] for r in rows.values()
+        ),
+        "matched_clean": all(r["worst_both_sides"] == 0 for r in matched),
+        "mismatched_overlap": all(
+            r["worst_both_sides"] > 0 for r in mismatched
+        ),
+        "passed": (
+            all(r["worst_both_sides"] == 0 for r in matched)
+            and all(r["worst_both_sides"] > 0 for r in mismatched)
+            and all(r["worst_claim_drift"] < A6_20_DRIFT for r in rows.values())
+            and all(r["fallback_rounds"] == 0 for r in rows.values())
+        ),
+    }
+
+
+def long_horizon(
+    seeds: range, rounds: int, rate: float, progress: bool
+) -> dict:
+    """A6-16, A6-17, A6-18 and A6-19, from one pass over six cells.
+
+    A6-16 and A6-19 are the same question asked of the two levy bases, each
+    with its own control, each three-valued. A6-18 reads the levy actually
+    collected. A6-17 is the trajectory of ``x``, reported and not judged.
     """
     cells: dict[str, dict] = {}
-    for shape, absorption, role in HORIZON_CELLS:
-        key = f"{shape}/lambda={absorption:g}"
+    for shape, absorption, levy_base, role, multiple in HORIZON_CELLS:
+        key = f"{levy_base}/{shape}/lambda={absorption:g}"
         started = time.time()
-        cells[key] = horizon_cell(seeds, shape, absorption, rounds, rate, role)
+        cells[key] = horizon_cell(
+            seeds, shape, absorption, levy_base, rounds * multiple, rate, role
+        )
         if progress:
             c = cells[key]
-            print(f"      {key:22s} {role:7s} "
+            print(f"      {key:30s} {role:13s} "
+                  f"{c['rounds']:>7d}r "
                   f"{'open' if c['open_in_every_seed'] else 'closed':6s} "
                   f"x {min(c['final_x']):.2f}-{max(c['final_x']):.2f} "
                   f"{'settled' if c['x_settled'] else 'CLIMBING'} "
                   f"(+{max(c['x_growth_second_half']):.2%}) "
+                  f"levy {min(c['levy_final_round']):.2e} "
                   f"{time.time() - started:5.1f}s", flush=True)
 
-    judged = [c for c in cells.values() if c["role"] == "judged"]
-    control = [c for c in cells.values() if c["role"] == "control"]
-    control_open = all(c["open_in_every_seed"] for c in control)
-
-    if not control_open:
-        passed, reason = None, (
-            "the control cell closed too, so the horizon closes everything "
-            "here and the judged cells are confounded"
-        )
-    elif all(not c["open_in_every_seed"] for c in judged):
-        passed, reason = True, (
-            "both judged cells closed, which is what the surviving-leak "
-            "reading predicts: a smooth g postpones the collapse rather than "
-            "removing it"
-        )
-    elif any(
-        c["open_in_every_seed"] and not c["x_settled"] for c in judged
-    ):
-        passed, reason = None, (
-            "a judged cell is still open with x still climbing, so this "
-            "horizon cannot decide it. Reported as no verdict rather than as "
-            "a pass, which is A6-5's mistake"
-        )
-    else:
-        passed, reason = False, (
-            "a judged cell is open with x settled, so a smooth g removes the "
-            "collapse on its own and section 14.2 stands as written"
-        )
+    layer = three_valued(cells, "judged", "control", "layer")
+    threshold = three_valued(
+        cells, "levy-judged", "levy-control", "threshold"
+    )
+    levy_cells = [
+        c for c in cells.values() if c["role"].startswith("levy")
+    ]
     return {
+        # The base horizon. Cells carry their own ``rounds``, which is this
+        # times the per-cell multiple registered in ``HORIZON_CELLS``.
         "rounds": rounds,
+        "cell_multiples": {
+            f"{base}/{shape}/lambda={a:g}": m
+            for shape, a, base, _role, m in HORIZON_CELLS
+        },
         "rate": rate,
         "floor": A6_9_FLOOR,
         "x_settled_threshold": X_SETTLED,
+        "levy_floor": A6_18_FLOOR,
         "cells": cells,
-        "control_open": bool(control_open),
-        "passed": passed,
-        "reason": reason,
+        # A6-16, on the layer base. Where it has always been judged.
+        "control_open": layer["control_open"],
+        "passed": layer["passed"],
+        "reason": layer["reason"],
+        # A6-19, the same question on the threshold base, with its own control.
+        "A6-19": threshold["passed"],
+        "A6-19 reason": threshold["reason"],
+        "A6-19 control_open": threshold["control_open"],
         "marginal_cells": [
             k for k, c in cells.items() if c["settling_call_is_marginal"]
         ],
+        # A6-18. Does a base recomputed each round from a measured stock keep
+        # collecting, where a fixed set of payers is drained and then collects
+        # nothing forever?
+        "A6-18": (
+            bool(levy_cells) and all(c["levy_alive"] for c in levy_cells)
+        ),
+        "levy_comparison": {
+            k: {
+                "levy_base": c["levy_base"],
+                "first_round": c["levy_first_round"],
+                "final_round": c["levy_final_round"],
+                "final_payer_count": c["final_payer_count"],
+                "final_l2_levy_share": c["final_l2_levy_share"],
+                "alive": c["levy_alive"],
+            }
+            for k, c in cells.items()
+        },
     }
 
 
@@ -927,7 +1475,7 @@ def main() -> int:
         and not args.skip_horizon
     )
 
-    print("A6-7 to A6-13: the frontier ratchet\n")
+    print("A6-7 to A6-19: the frontier ratchet and the levy base\n")
     print(f"  {args.seeds} seeds, {args.rounds} rounds for the guard, "
           f"{args.long} for the long runs, issuance off in every cell")
 
@@ -1034,27 +1582,44 @@ def main() -> int:
 
     horizon: dict | None = None
     if not args.skip_horizon:
-        print(f"\n  A6-16 / A6-17  the long horizon: {args.horizon} rounds at "
-              f"R = {A6_9_RATE}, two judged cells and one control")
+        print(f"\n  A6-16 / A6-17 / A6-19  the long horizon: {args.horizon} "
+              f"rounds at R = {A6_9_RATE}, two judged cells and one "
+              f"control on each levy base. Cells carrying a registered "
+              f"multiple run longer and print their own length")
         horizon = long_horizon(seeds, args.horizon, A6_9_RATE, progress)
         mark = {True: "pass", False: "FAIL", None: "no verdict"}[
             horizon["passed"]
         ]
-        print(f"        A6-16 {mark} -- {horizon['reason']}")
+        print(f"        A6-16 {mark} (layer base) -- {horizon['reason']}")
+        shown = {True: "pass", False: "FAIL", None: "no verdict"}[
+            horizon["A6-19"]
+        ]
+        print(f"        A6-19 {shown} (threshold base) -- "
+              f"{horizon['A6-19 reason']}")
         for key, cell in horizon["cells"].items():
             shut = [
                 "-" if r is None else str(r) for r in cell["closed_at_round"]
             ]
-            print(f"          {key:22s} end/start "
+            print(f"          {key:30s} end/start "
                   f"{[f'{r:.2f}' for r in cell['end_over_start']]}")
-            print(f"          {'':22s} leak "
+            print(f"          {'':30s} leak "
                   f"{min(cell['final_leak_factor']):.4f}-"
                   f"{max(cell['final_leak_factor']):.4f}, closed at round "
                   f"{shut}")
-            print(f"          {'':22s} x at "
+            print(f"          {'':30s} x at "
                   f"{[f'{f:.0%}' for f in cell['checkpoint_fractions']]} "
                   f"= {[f'{v:.2f}' for v in cell['x_checkpoints'][0]]} "
                   f"(seed 0)")
+            print(f"          {'':30s} levy round 1 "
+                  f"{min(cell['levy_first_round']):.3e} -> final "
+                  f"{min(cell['levy_final_round']):.3e}, payers "
+                  f"{cell['final_payer_count']}, from L2 "
+                  f"{[f'{s:.0%}' for s in cell['final_l2_levy_share']]}")
+        print(f"        A6-18 {'pass' if horizon['A6-18'] else 'FAIL'} -- the "
+              f"threshold base is still collecting at the end of the run, "
+              f"every seed, against a floor of {A6_18_FLOOR:g} of the opening "
+              f"claim stock. The layer rows are printed beside it as the "
+              f"comparison and are not judged by this criterion")
         if horizon["marginal_cells"]:
             print(f"        ** the settled/climbing call rests on the "
                   f"{X_SETTLED:.0%} threshold rather than on the data in "
@@ -1062,7 +1627,67 @@ def main() -> int:
         print("        A6-17 reported, not judged: where x settles and what "
               "leak that leaves, above in the same lines")
     else:
-        print("\n  A6-16 / A6-17 skipped")
+        print("\n  A6-16 / A6-17 / A6-19 skipped")
+
+    sides_rounds = 300 if args.smoke else A6_20_ROUNDS
+    print(f"\n  A6-20  the two sides of the instrument, {sides_rounds} rounds "
+          f"at R = {A6_9_RATE}, four cells")
+    sides = rebate_sides(seeds, sides_rounds, A6_9_RATE)
+    for key, row in sides["cells"].items():
+        print(f"        {key:38s} both sides {row['worst_both_sides']:>4d}   "
+              f"payees {row['payee_range'][0]}-{row['payee_range'][1]}   "
+              f"claim drift {row['worst_claim_drift']:.2e}   "
+              f"fallbacks {row['fallback_rounds']}")
+    print(f"        A6-20 {'pass' if sides['passed'] else 'FAIL'} -- matched "
+          f"pairs put nobody on both sides ({sides['matched_clean']}), "
+          f"mismatched pairs do ({sides['mismatched_overlap']}), claims are "
+          f"conserved and the empty-recipient fallback never fired. "
+          f"`levy=threshold/rebate=layer` is the defect section 18 records and "
+          f"its count is what the correction removes")
+
+    print(f"\n  A6-21  R* as a slope in lambda: {len(RHO_GRID)} ratios at "
+          f"{len(A6_21_LAMBDAS)} values of lambda, each for "
+          f"max(2000, {A6_21_RELAXATIONS}/lambda) rounds")
+    slope = rho_scaling(seeds, progress, smoke=args.smoke)
+    reading = (
+        "the same grid point or one step apart"
+        if slope["passed"]
+        else "NOT stable"
+    )
+    print(f"        A6-21 {'pass' if slope['passed'] else 'FAIL'} -- rho* is "
+          f"{reading} across lambda, worst separation "
+          f"{slope['worst_step_apart']} steps. A6-10 and A6-11 keep their "
+          f"failures; this asks a different question")
+    for key, c in slope["cells"].items():
+        iol = c["levy_over_lambda"]
+        print(f"          {key:16s} reported, not judged: I(R*)/lambda "
+              f"{'-' if not iol else f'{min(iol):.3g} to {max(iol):.3g}'}, "
+              f"x {'settled' if c['x_settled'] else 'CLIMBING'}")
+
+    print(f"\n  A6-22 / A6-23  the curve on the corrected instrument: "
+          f"{len(REBASE_COLUMNS)} columns plus a control and a scaled column, "
+          f"one change at a time")
+    rebase = rebase_curve(seeds, progress, smoke=args.smoke)
+    for label, col in rebase["columns"].items():
+        b = col["band"]
+        print(f"        {label:22s} band {_band_text(rebase, label):18s} "
+              f"contiguous {str(b['contiguous']):5s} interior "
+              f"{str(b['interior']):5s}")
+    a22 = (
+        "non-empty"
+        if rebase["A6-22"]
+        else "EMPTY: no absorption rate in the scanned set keeps this economy "
+             "open at the registered levy"
+    )
+    print(f"        A6-22 {'pass' if rebase['A6-22'] else 'FAIL'} -- the exp "
+          f"band on the corrected instrument is {a22}")
+    a23 = (
+        "interior to the scanned set"
+        if rebase["A6-23"]
+        else "NOT interior: it runs to an end of what was scanned"
+    )
+    print(f"        A6-23 {'pass' if rebase['A6-23'] else 'FAIL'} -- the clip "
+          f"band is {a23}")
 
     agreement = shape_agreement(curve, scan, rescan_lambdas)
     print(f"\n  A6-13 {'pass' if agreement['passed'] else 'FAIL'} -- "
@@ -1071,6 +1696,138 @@ def main() -> int:
           f"scan {agreement['scan_verdict_agrees']}). If they did not, the "
           f"headline would rest on the tail of g rather than on lambda")
 
+    # Every number in a detail string goes through an explicit format spec.
+    # RESULTS.md is rendered from this file and diffed byte for byte in CI, so
+    # a value printed through ``repr`` would turn that check red on a
+    # last-digit difference between two BLAS builds rather than on a change to
+    # the model.
+    band = curve["bands"][SHAPE_DEFAULT]
+    judged = scan["judged_cells"]
+    details = {
+        "A6-7": (
+            f"{guard['pairs']} model pairs compared against A6Model bit for "
+            f"bit, over {len(guard['rates'])} rates and {guard['rounds']} "
+            f"rounds in each of eight cells; {guard['mismatch_count']} "
+            f"mismatches. A gate: nothing below it runs if it fails"
+        ),
+        "A6-8": (
+            f"K-B settles on I/lambda on a bench with no economy in it; "
+            f"worst relative error "
+            f"{max(r['relative_error'] for r in bench['rows']):.1e} against "
+            f"{A6_8_TOL:g}"
+        ),
+        "A6-9": (
+            (
+                f"band of lambda holding all five seeds open at R = "
+                f"{A6_9_RATE:g} over {args.long} rounds: "
+                f"[{band['low']:g}, {band['high']:g}], "
+                f"{len(band['points'])} of {len(lambdas)} grid points, "
+                f"judged on {SHAPE_DEFAULT}. No lambda is nominated, and the "
+                f"low end is an artefact of this horizon"
+            )
+            if band["non_empty"]
+            else "no lambda on the grid holds all seeds open"
+        ),
+        "A6-10": (
+            "on the registered grid at "
+            f"{args.long} rounds, R*(I) per judged cell: "
+            + "; ".join(
+                f"{k} median {_fmt(scan['infrastructure'][k]['registered']['median'])}"
+                + (" on the grid floor"
+                   if scan["infrastructure"][k]["registered"]["at_grid_floor"]
+                   else " off the floor")
+                for k in judged
+            )
+        ),
+        "A6-11": (
+            f"R*(I)/R*(T) against {A6_11_RATIO:g}, as a value not a bound: "
+            + "; ".join(
+                f"{k} {_fmt(scan['ratios']['registered'][k]['median'])}"
+                + (" (bound only)"
+                   if scan["ratios"]["registered"][k]["is_upper_bound"] else "")
+                for k in judged
+            )
+        ),
+        "A6-13": (
+            f"{SHAPE_DEFAULT} and {SHAPE_AXIS} point the same way: band "
+            f"agreement {agreement['band_non_empty_agrees']}, scan verdict "
+            f"agreement {agreement['scan_verdict_agrees']}"
+        ),
+        "A6-14": (
+            "not comparable off the registered parameters"
+            if rep is None
+            else (
+                "the wall at lambda = 0 reproduces section 9.2's end over "
+                "start: recorded "
+                + ", ".join(f"{x:.2f}" for x in rep["recorded"])
+                + "; measured "
+                + ", ".join(f"{x:.2f}" for x in rep["measured"])
+                + f"; worst absolute difference {max(rep['abs_deltas']):.4f} "
+                f"against {A6_14_TOL:g}"
+            )
+        ),
+        "A6-15": (
+            "the pinned lambda are not all on this grid"
+            if interior["passed"] is None
+            else (
+                "under the wall the band is interior: open at "
+                f"{[k for k, v in interior['pinned'].items() if v]}, closed at "
+                f"{[k for k, v in interior['pinned'].items() if not v]}, "
+                f"crossover at {interior['crossover']}, inside the registered "
+                f"window {interior['crossover_in_window']}"
+            )
+        ),
+        "A6-16": "not run" if horizon is None else horizon["reason"],
+        "A6-18": (
+            "not run"
+            if horizon is None
+            else (
+                "levy collected in the final round, in units of the opening "
+                "claim stock: "
+                + "; ".join(
+                    f"{k} {min(c['levy_final_round']):.2e} from "
+                    f"{min(c['levy_first_round']):.2e}"
+                    for k, c in horizon["cells"].items()
+                )
+            )
+        ),
+        "A6-19": "not run" if horizon is None else horizon["A6-19 reason"],
+        "A6-20": (
+            "nodes on both sides of the transfer in one round, worst over "
+            "seeds: "
+            + "; ".join(
+                f"{k} {c['worst_both_sides']}" for k, c in sides["cells"].items()
+            )
+            + f". Worst claim drift {sides['worst_claim_drift']:.2e} against "
+            + f"{A6_20_DRIFT:g}; fallback rounds "
+            + f"{sides['worst_fallback_rounds']}"
+        ),
+        "A6-21": (
+            "rho* per lambda, median over seeds: "
+            + "; ".join(
+                f"{k} {c['rho_star_median']:g}" for k, c in slope["cells"].items()
+            )
+            + f". Worst separation {slope['worst_step_apart']} grid steps "
+            + f"against 1; at a grid end {slope['at_a_grid_end']}; "
+            + f"unsolved seeds {slope['unsolved_total']}"
+        ),
+        "A6-22": (
+            "band of lambda keeping every seed open, exp, on the corrected "
+            "instrument: "
+            + _band_text(rebase, "C exp thre/thre")
+            + ". The other columns, one change at a time: "
+            + "; ".join(
+                f"{k} {_band_text(rebase, k)}"
+                for k in rebase["columns"]
+                if k != "C exp thre/thre"
+            )
+        ),
+        "A6-23": (
+            "clip control band on the corrected instrument: "
+            + _band_text(rebase, "C clip thre/thre")
+            + f", scanned over {rebase['lambdas']}"
+        ),
+    }
     verdicts = [
         ("A6-7", guard["passed"]),
         ("A6-8", bench["passed"]),
@@ -1081,10 +1838,16 @@ def main() -> int:
         ("A6-14", None if rep is None else rep["passed"]),
         ("A6-15", interior["passed"]),
         ("A6-16", None if horizon is None else horizon["passed"]),
+        ("A6-18", None if horizon is None else horizon["A6-18"]),
+        ("A6-19", None if horizon is None else horizon["A6-19"]),
+        ("A6-20", sides["passed"]),
+        ("A6-21", slope["passed"]),
+        ("A6-22", rebase["A6-22"]),
+        ("A6-23", rebase["A6-23"]),
     ]
     skipped = [name for name, v in verdicts if v is None]
     criteria = [
-        {"name": name, "passed": bool(v)}
+        {"name": name, "passed": bool(v), "detail": details[name]}
         for name, v in verdicts
         if v is not None
     ]
@@ -1127,7 +1890,9 @@ def main() -> int:
                     "A6-14 absolute": A6_14_TOL,
                     "A6-16 x settled": X_SETTLED,
                     "A6-16 rounds": args.horizon,
+                    "A6-18 levy floor": A6_18_FLOOR,
                 },
+                "levy_threshold_multiple": LevySpec().threshold_multiple,
                 "reduction_guard": guard,
                 "fixed_point": bench,
                 "lambda_curve": curve,

@@ -151,7 +151,14 @@ REGISTERED_DEFAULTS: dict[str, object] = {
     "terms_spread": 1.0,
     "turnover": 0.04,
     "forced_sale_floor": 0.10,
-    "centrality_bins": 4,
+    # Was `4`, and `4` was never the behaviour of anything: the field was
+    # declared, validated and documented as feeding the product-graph loop sum,
+    # and no line in the repository read it. Both real call sites cut the
+    # population into thirds with a hardcoded `// 3`, so `3` is the value at
+    # which wiring it up reproduces every stored A3 result bit for bit. Moving
+    # this back to `4` would silently change every number in the stage.
+    # `docs/a3_asset_channel.md` §4's row and §6.5b.
+    "centrality_bins": 3,
     "holding_period": 25,
     "arm": "exogenous",
     "open_tiers": (),
