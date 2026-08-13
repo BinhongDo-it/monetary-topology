@@ -92,6 +92,27 @@ CONSTRUCTIONS: tuple[str, ...] = ("auction", "occupancy", "continuous")
 #: is what the code did before A3b; ``"seller"`` pays whoever held the unit.
 PROCEEDS: tuple[str, ...] = ("equal", "seller")
 
+#: Who the rent bill is assessed on. ``layer`` keys the payer set on the layer
+#: index fixed at construction, which is what every result before 2026-08-13
+#: was produced under and remains the default so those results reproduce
+#: bitwise. ``holding`` keys it on the measured magnitude, so the two sides of
+#: the instrument are keyed on the same kind of thing.
+#:
+#: `MEASUREMENT.md` §8 lists the payer side of this instrument as a membership
+#: error and its checklist item 9 asks, of any number, whether it is keyed on a
+#: set fixed at construction time and whether the other side of a two-sided
+#: instrument is keyed on the same kind of thing. Here it is not: the receipt
+#: side is already ``held > 0``, computed every round from the measured units,
+#: while the payer side carries ``& _is_production``. So a financial-layer node
+#: holding nothing pays no rent and a production-layer node holding nothing
+#: pays every round, and neither fact is about renting.
+#:
+#: This switch does not make layer endogenous and is not an argument for doing
+#: so. Layer as position, meaning who has which edges, is the framework's own
+#: object and is untouched. What moves is a **liability**, and the real thing it
+#: stands for is assessed on whether you hold, which the model already measures.
+RENT_BASES: tuple[str, ...] = ("layer", "holding")
+
 
 class DesignDeviation(UserWarning):
     """The configuration runs, but departs from the registered design.
@@ -241,6 +262,12 @@ class AssetSpec:
     #: Five percent is a gross rental yield in the range US residential property
     #: actually shows, with a round read as a year.
     rent_rate: float = 0.05
+
+    #: Which set the rent bill falls on. See ``RENT_BASES``. Default ``layer``
+    #: reproduces every result recorded before 2026-08-13 bitwise, and the
+    #: reproduction is asserted in ``tests/test_a3_rent_base.py`` rather than
+    #: argued for here.
+    rent_base: str = "layer"
 
     #: Most units one node may hold. ``0`` is no cap.
     #:
@@ -465,6 +492,10 @@ class AssetSpec:
             raise ValueError("max_units must be non-negative; 0 means no cap")
         if not 0.0 <= self.rent_rate < 1.0:
             raise ValueError("rent_rate must lie in [0, 1)")
+        if self.rent_base not in RENT_BASES:
+            raise ValueError(
+                f"rent_base must be one of {RENT_BASES}, got {self.rent_base!r}"
+            )
         if self.stretch < 1.0:
             raise ValueError(
                 "stretch must be at least one: below one it would exclude nodes "
@@ -1356,6 +1387,22 @@ class A3Model(Network):
         Receipts go to holders **in proportion to units held**, which is what
         makes accumulating units an income and not only a mark-to-market.
 
+        **The two sides are not keyed on the same kind of thing under the
+        default**, and that is what ``rent_base`` exists to make visible. The
+        receipt side has always been ``held > 0``, recomputed every round from
+        the measured units. The payer side carries ``& _is_production``, a set
+        fixed at construction. Under ``rent_base = "layer"`` that asymmetry is
+        preserved exactly, because every result recorded before 2026-08-13 was
+        produced under it. Under ``"holding"`` both sides read the same
+        magnitude and a financial-layer node that holds nothing pays like any
+        other non-holder.
+
+        Neither setting is a claim about layer as position. It is a claim about
+        who a rent bill is assessed on, and `MEASUREMENT.md` §8's rule is that
+        a liability whose real counterpart is assessed on an observed magnitude
+        has to be recomputed from that magnitude or registered as a modelling
+        choice. This is the registration.
+
         A renter short of the rent pays what it has, in the same spirit as the
         wage channel, which narrows when its payers are illiquid rather than
         driving holdings negative. Claims are conserved exactly: this is a
@@ -1366,7 +1413,10 @@ class A3Model(Network):
             self.rent_history.append(0.0)
             return
         held = self.units.sum(axis=1)
-        renters = np.flatnonzero((held <= 0) & self._is_production)
+        if spec.rent_base == "layer":
+            renters = np.flatnonzero((held <= 0) & self._is_production)
+        else:
+            renters = np.flatnonzero(held <= 0)
         landlords = np.flatnonzero(held > 0)
         if renters.size == 0 or landlords.size == 0:
             self.rent_history.append(0.0)

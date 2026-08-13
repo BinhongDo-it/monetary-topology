@@ -647,7 +647,23 @@ def a3_6(seeds: range, **asset_kw) -> Criterion:
             holder.append(float(np.median(v)))
         if others.size:
             pick = others[others.size // 2]
-            nonholder.append(_shock_survival(seed, int(pick), base))
+            # `**asset_kw` was missing here until 2026-08-13 while the holder
+            # loop three lines above always passed it. `_shock_trace` builds
+            # its shocked model from `AssetSpec(**asset_kw)` and differences it
+            # against the `base` it is handed, so without the kwargs the
+            # non-holder arm differenced a **registered-parameter** shocked run
+            # against a **swept-parameter** base, and the deviation carried the
+            # parameter change rather than the transfer. At the registered
+            # point `asset_kw` is empty and the two are the same object, which
+            # is why nothing ever caught it: the only path that was wrong is
+            # the one `--sweep` takes. A3-6's verdict is unaffected either way,
+            # since it reads the holder median; the non-holder figure in the
+            # detail string is what was wrong, at every cell but the
+            # registered one. `MEASUREMENT.md` §8's closing rule, one call site
+            # corrected and its twin left alone, in a third place.
+            nonholder.append(
+                _shock_survival(seed, int(pick), base, **asset_kw)
+            )
     if not holder:
         return Criterion(
             "A3-6  a stock exists, and A4's domain is exactly who holds it",
@@ -1387,14 +1403,19 @@ def main() -> int:
     )
     ap.add_argument(
         "--profile-arm",
-        choices=("registered", "open-frozen", "open-free"),
+        choices=("registered", "open-frozen", "open-free",
+                 "rent-by-holding", "rent-off"),
         default="registered",
         help="which arm to profile. `registered` cannot separate holding from "
              "wealth, because holding IS clearing a wealth gate there. The "
              "two `open` arms admit the low tier regardless of claims, which "
              "is the only switch in the model that breaks that identity; "
              "`open-frozen` also holds the price still, which is the arm A3-5 "
-             "takes its own verdict on",
+             "takes its own verdict on. `rent-by-holding` keys the rent bill "
+             "on the measured magnitude instead of the layer index, both "
+             "sides of the instrument then reading the same thing; "
+             "`rent-off` removes the channel and is a bracket rather than an "
+             "answer, because zero rent has its own recorded pathology",
     )
     args = ap.parse_args()
     seeds = range(args.seeds)
@@ -1489,10 +1510,21 @@ def main() -> int:
         # `open_tiers = (0,)` is the low tier. §6.3 records that opening the
         # **high** tier is a bitwise no-op, so it is not offered here: an arm
         # that changes nothing would answer the question by not asking it.
+        # `rent-by-holding` and `rent-off` do not open any gate. They ask how
+        # much of the layer step in retention is produced by the rent bill
+        # rather than by the asset, and they differ from each other on purpose:
+        # `rent-off` removes the channel and is known to produce a pathology
+        # (`AssetSpec.rent_rate`'s own note: at zero, production-layer nodes
+        # that never held anything end 253% richer in claims than with no asset
+        # market at all), so it brackets rather than answers. `rent-by-holding`
+        # keeps the channel and keys its payer set on the measured magnitude,
+        # which is the counterfactual `MEASUREMENT.md` §8 actually asks for.
         arm_kw = {
             "registered": {},
             "open-frozen": {"open_tiers": (0,), "elasticity": 0.0},
             "open-free": {"open_tiers": (0,)},
+            "rent-by-holding": {"rent_base": "holding"},
+            "rent-off": {"rent_rate": 0.0},
         }[args.profile_arm]
         print(f"    arm: {args.profile_arm}"
               + (f", {arm_kw}" if arm_kw else ", the registered parameters"))

@@ -140,7 +140,7 @@ control variable is **in its own units** before reading the row.
 扫描可以被一个自己没有变量的量分层，唯一的防御是在读那一行之前先问：这一格的控制变量
 **用它自己的单位**算是多少。见 `docs/a6_siphon_cost.md` §20.1 与 §20.7。）
 
-### 5. Population error　(three instances, two of them consecutive)　（人群错，三次，其中两次连续发生）
+### 5. Population error　(four instances, two of them consecutive)　（人群错，四次，其中两次连续发生）
 
 **Symptom**: the two groups being compared are selected **on an outcome**, and
 the treatment changes that outcome.
@@ -152,6 +152,7 @@ the treatment changes that outcome.
 | A5-1/A5-2, 0% across the whole grid | Participation measured at the end of the period measures **survival** and not entry. | A5-1/A5-2，全网格 0%：期末测参与率，量的是**存活**不是进场 |
 | Rent sweep v1 | The set of "never-holders" moves with the rent rate. | 租金扫描 v1：「从不持有者」这个集合随租金率改变 |
 | Rent sweep v2 | Pinning the population to the `rent=0` set still fails: some of them **acquire units at other rates and are therefore on the receiving side of the rent**. | 租金扫描 v2：把人群固定到 `rent=0` 那批仍不行——其中一些在别的费率下**买到了单位，于是是收租方** |
+| **A3-8's paired population** (2026-08-13) | The set is `cycles > 0` in **every** cell, which is an outcome. What it leaves is the top eighth of the production layer by centrality, band `[86.8, 100]` over twenty seeds, and `gate_spread` disperses terms **along** centrality. **So the gate arm is read on a population inside which its own treatment barely varies, and it reads as zero for that reason rather than for a reason about the mechanism.** The peripheral tercile trades zero times in every cell **including the null**, so the gate is not what removed it. | `a3_asset_channel.md` §5.3, `experiments/a3d_gate_margin.py` |
 
 **Rule**: **the population has to be defined by the state before treatment, or
 matched by node.** Matching is the strongest form: the same node is compared
@@ -160,9 +161,22 @@ unavoidable, **stratify inside each arm separately** and report the transition
 matrix (holds in both arms / holds in one only / holds in neither), rather than
 imposing one arm's strata on the other.
 
+**And a second half, added with the fourth instance: report the treatment's
+variation over the measured population before reporting its effect.** The first
+three instances are a population that moves with the arm. The fourth is a
+population that does not move at all and still breaks the reading, because the
+treatment has no room to act inside it. Both produce a number that looks like an
+effect size and is a fact about the sampling frame. One line of output prevents
+it: the range of the treatment variable over the nodes actually measured.
+
 （**规则**：**人群必须由处理之前的状态定义，或者按节点配对。** 配对是最强的：同一个节点
 在两臂之间比它自己。若必须按结果分层，则**在每一臂内部各自分层**，并报出转移矩阵（两
-臂都持有／只有一臂持有／都不持有），而不是把一臂的分层套到另一臂上。）
+臂都持有／只有一臂持有／都不持有），而不是把一臂的分层套到另一臂上。
+
+**随第四个实例补的后半条：报任何处理效应之前，先报处理变量在被测人群上的变异范围。**
+前三个实例是人群随臂移动，第四个是人群一动不动也照样坏读数，因为处理在它内部没有作用
+余地。两者产出的都是看起来像效应量、实际是关于抽样框的事实。一行输出就能防住：被实际
+测量的那些节点上，处理变量的取值范围。）
 
 ### 6. Tolerance error　(one instance)　（容差错，一次）
 
@@ -331,8 +345,12 @@ conversation:
    changes two things at once?
    （**我固定住了该固定的吗？** 有没有一个操作同时改了两样东西？）
 5. **Is my population defined by the state** before **treatment,** or selected on
-   an outcome?
-   （**我的人群是按处理**之前**的状态定义的吗？** 还是按结果选的？）
+   an outcome? **And does the treatment vary over that population?** A treatment
+   that disperses along a dimension the measured population barely spans reads
+   as zero, and that zero says nothing about the mechanism.
+   （**我的人群是按处理**之前**的状态定义的吗？** 还是按结果选的？**以及，处理在这个
+   人群上有变异吗？** 一个沿某个维度分散的处理，若被测人群在那个维度上几乎不变，它必然
+   读作零，而这个零不携带关于机制的信息。）
 6. **Is my tolerance the same order of magnitude as the effect being measured?**
    （**我的容差和被量的效应同量级吗？**）
 7. **Is there an arm whose true value should be zero, or should not move,

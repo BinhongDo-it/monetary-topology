@@ -163,6 +163,14 @@ REGISTERED_DEFAULTS: dict[str, object] = {
     "arm": "exogenous",
     "open_tiers": (),
     "rent_rate": 0.05,
+    # Added 2026-08-13. `layer` is the behaviour every stored A3 result was
+    # produced under, so registering it here is registering the status quo, not
+    # a new default. The switch exists because the payer side of the rent
+    # instrument is keyed on the layer index while its receipt side is keyed on
+    # measured units, which `MEASUREMENT.md` §8 lists as a membership error and
+    # its checklist item 9 asks about directly. `tests/test_a3_rent_base.py`
+    # asserts the default reproduces the other bitwise.
+    "rent_base": "layer",
     "max_units": 0,
     "stretch": 3.0,
     "stretch_cost": "uncounted",

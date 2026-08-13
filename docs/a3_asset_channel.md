@@ -174,6 +174,7 @@ is a defect in this table, not a freedom.
 | `φ` | forced-sale trigger, arm F | `0.10` | `{0.05, 0.10, 0.20}` |
 | `arm` | `exogenous` or `forced` | `exogenous` | both |
 | `rent_rate` | rent per round as a share of the low tier's price | `0.05` | `{0, 0.002, 0.005, 0.01, 0.02, 0.05}` at `η = 0` |
+| `rent_base` | which set the rent bill falls on. `layer` keys the payer set on the layer index fixed at construction, which is what every stored result was produced under; `holding` keys it on the measured units, so both sides of the instrument read the same magnitude. **Added 2026-08-13**, registering the status quo rather than changing it, because `MEASUREMENT.md` §8 lists the payer side as a membership error and requires the choice be registered as a choice | `layer` | `holding` in §16.1's profile arms |
 | `s` = `stretch` | how far short a node may be and still enter | `3.0` | `{1, 2, 3, 5}` |
 | `stretch_cost` | `uncounted` or `counted` | `uncounted` | both |
 | `max_units` | cap on units per node; `0` is no cap | `0` | `1` runs and produces zero trades |
@@ -209,7 +210,19 @@ Five seeds, three hundred rounds. Registered thresholds in the third column.
 | A3-5 | the gate binds at the high tier | `low > ½ · shut > high` | **void**; see §6.3 |
 | A3-6 | a stock survives a generation | `≥ 50%` at 40 rounds | **fail** on the median node (`0.0%`), **pass** on the richest (`62.2%`); see §6.4 |
 | A3-7 | non-overlapping windows agree in sign | all three windows | **pass**, `100/100/100` |
-| **A3-8** | **the holonomy is load-bearing** | see §5.2 | **pass**; see §5.2 |
+| **A3-8** | **the holonomy is load-bearing** | see §5.2 | **unstable**; see §5.2 |
+
+**A3-8's word in this table was `pass` until 2026-08-13 and that was stale, not
+wrong-then-right.** The harness registers three states and `pass` is the only
+one that carries an answer: `void` means the harness cannot be read and
+`unstable` means a channel's sign moves across seeds so no share may be quoted.
+At the registered point the harness reads fine (`0.000` zero calibration,
+`1.86e-16` cost drift, a full cell that moves) and the gate channel's sign
+moves, so the state is `unstable`. `RESULTS.md` shows `VOID` because that
+renderer takes a boolean and the two non-verdict states collapse into it, which
+`a3c_load_bearing.py` says at the point of writing and prints in the detail
+string. **The directional reading of §5.2 stands; the share decomposition is
+what may not be quoted.** No number changed here, only the word.
 
 ### 5.1 Two former criteria demoted, and why
 
@@ -272,6 +285,98 @@ number and not the same strength of treatment: the payment premium is a
 per-round-trip multiplier compounding over some twenty traversals, the gate acts
 once. A compounding channel beating a one-off filter over three hundred rounds
 is partly arithmetic. **Direction transfers, ratio does not.**
+
+### 5.3 A3-8's population, and a criterion registered forward rather than back
+
+**Added 2026-08-13, after a diagnostic that §5.2 had not been given.**
+`experiments/a3d_gate_margin.py`. It reports and scores nothing; it re-reads the
+same cells on three population rules and prints who is in them. Its five-seed
+run reproduces §5.2's numbers exactly, `+23.2667 / +21.6714 / +1.4091` with the
+gate range `[−16.2566, +10.6212]`, so what follows is a second reading of one
+pipeline rather than a second implementation.
+
+**The question it was built for has a negative answer, and that is worth
+recording first.** The population is the intersection of agents completing a
+round trip in every cell, and the obvious worry is that this drops exactly the
+agents the gate excludes, so the gate arm would be blind by construction. It is
+not. Participation is `24.6` nodes with the gate on and `21.9` with it off, over
+twenty seeds; the gate **admits** two or three more rather than excluding any,
+and `shared` at `41.6` against `any_cell` at `44.4` gives the same qualitative
+picture on both rules. The population rule is not what is holding the gate arm
+down.
+
+**What the diagnostic found instead is a scope fact about the whole stage.**
+
+| twenty seeds | production layer participating | peripheral tercile | share | centrality percentile of participants |
+|---|---|---|---|---|
+| gate on (`both`, `H0_only`) | 24.6 | **0.0** | 13.7% | `[86.8, 93.4, 100.0]` |
+| gate off (`H1_only`, `null`) | 21.9 | **0.0** | 12.2% | `[88.3, 94.2, 100.0]` |
+
+**A3-8 is measured on the top eighth of the production layer by centrality.**
+The peripheral tercile walks the cycle zero times, in every cell, at every seed,
+including the null, so the gate is not what removed it. The criterion's own
+"peripheral" group therefore sits near the 87th percentile, and `κ_gate`, which
+disperses admission along centrality, has almost no variation left to act on
+inside a band that runs from 87 to 100. **The gate reads as nothing because its
+treatment barely varies over the set it is read on.** That is a statement about
+the estimand's reach and it holds whatever the gap comes out to.
+
+**Any quotation of A3-8 must carry that population with it.** This is the same
+disease §6.4 records for A3-6, whose holding population is 15.8 nodes of 200
+with none downstairs, arriving through a different criterion.
+
+**On the full production layer every treated cell is noise**: `+0.1064`,
+`+0.7811`, `+0.9400`, all three sign-unstable. So the divergence lives inside
+the participating band and vanishes when averaged over the layer. Not an
+inversion, a range.
+
+**Twenty seeds strengthen the positive content and refute one of §6.5b's
+attributions.**
+
+| population `shared`, 20 seeds | mean | range | sign |
+|---|---|---|---|
+| `both` | +18.9854 | `[+0.6042, +38.3108]` | stable, and the low end is now `+0.60` |
+| **`H1_only`** | **+22.2119** | **`[+7.1073, +37.4222]`** | **stable, 20 of 20** |
+| `H0_only` | −0.2997 | `[−16.2566, +21.6474]` | moves |
+
+The loop-sum-only cell is the only channel that stays same-sign over twenty
+seeds, and it is **steadier than the full treatment**: `both` drops to a low end
+of `+0.60`, and on `any_cell` it goes negative at one seed and becomes
+unquotable. Mechanically that follows from the row above, since the gate moves
+two or three nodes in and out of the measured set without contributing a
+direction, so switching it off removes composition noise and no signal.
+
+**§6.5b reads the gate arm's instability as a sample-size effect. For that arm
+it is not.** Going from five seeds to twenty widens the range, `[−16.26,
++10.62]` to `[−16.26, +21.65]`, rather than narrowing it. A quantity that
+disperses further as the sample grows has no location parameter to find. §6.5b's
+sample-size reading was about the loop-sum arm at high bin counts and remains
+untouched there; it does not extend to the gate.
+
+**A criterion, registered forward.**
+
+`tier_positions` is a star, so `b₁(G) = 0`, so `Γ` carries no slice cycles and by
+`b1_theorem.md` §5 the entire obstruction is squares. `terms_spread` is the only
+thing that sets a square sum; `gate_spread` contributes no holonomy at all. That
+licenses an **ordering** and not a level, and the distinction matters: Theorem 2
+says the gate produces no holonomy, it does **not** say the gate produces no
+divergence, and A3-2 already exhibits an ownership gap orders of magnitude wide
+with a loop sum of exactly zero. So the registrable statement is:
+
+> **A3-8′.** The loop-sum-only cell is same-sign across all seeds, **and** its
+> gap exceeds the gate-only cell's. Shares continue to be reported and not
+> gated.
+
+Neither clause contains a number this repository invented, which is what §5.1's
+demotions and the registered-provenance rule exist to enforce.
+
+**It is registered forward and is not applied to A3-8.** It was written after
+seeing that the ordering holds, so using it to convert A3-8's `void` into a pass
+would be manufacturing the result it was chosen to fit. **A3-8's state stays
+`void`, for the reason already on record: no threshold was registered for its
+two shares before it ran.** A3-8′ governs the next stage that runs this design,
+and the first thing it will need is a carrier whose measured population is not
+one eighth of one layer.
 
 ---
 
@@ -551,6 +656,383 @@ Nothing here changes A3-6. Its threshold, domain, verdict and detail string are
 untouched, and the profile writes to its own file so that a diagnostic cannot
 reach a criterion.
 
+### 6.4c §6.4b's reading is a reading at one parameter, and the parameter is the rent
+
+**Added 2026-08-13, after §6.4b. Diagnostic.** It registers nothing, feeds no
+criterion and moves no threshold. `A3_6_SHOCK_ROUND` is untouched and A3-6's
+seven criteria are unchanged word for word. Four profile runs, each written to
+its own file: `--profile-arm rent-by-holding`, `--profile-arm rent-off`, and
+both of those questions again at `--profile-shock-round 20` against the
+registered control at the same round.
+
+#### The membership error is real and it carries nothing
+
+`MEASUREMENT.md` §8 lists this stage's rent liability as a membership error: the
+payer set is `(held <= 0) & _is_production`, fixed at construction, while the
+receipt set is `held > 0`, recomputed every round. The two sides of one
+instrument are keyed on different kinds of thing. That is now registered as a
+choice rather than left on the page as a fact: `AssetSpec.rent_base`, default
+`layer`, §4's table, and `tests/test_a3_rent_base.py` asserts the default
+reproduces the previous behaviour bitwise and that the other arm is not inert.
+
+Keying the payer set on the measured magnitude instead moves almost nothing.
+
+| shock round 150, median retention at 40 rounds | registered | `rent_base = "holding"` |
+|---|---|---|
+| financial layer, holds | **14.25%** | **14.56%** |
+| financial layer, no asset | 0.31% | 0.19% |
+| production layer, no asset | 0.00% | 0.00% |
+| Spearman(retention, wealth) within holders | +0.776 | +0.771 |
+| median wealth, financial layer non-holders | 13.492 | **9.337** |
+
+The only column that moves is the last, and it moves for the right reason:
+twenty-one financial-layer nodes that hold nothing now pay rent like any other
+non-holder, and they get poorer by a third. They were already at 0.31%
+retention, so nothing downstream notices.
+
+**So the defect is where the census said it was and it is not load-bearing
+here.** `PROJECT_PLAN` §16.4 judged that hard-coded layer membership mattered
+for A6's levy and little for A3. Its conclusion survives this check. Its stated
+reason does not: §16.4 argued that A3 already had the mechanism through the
+`γ·P` gate, and §16.1's own run shows that gate admits production-layer nodes at
+the opening and none of them still hold at round 150. And the 2026-08-13 census
+puts three of the five instrument instances in A3, not in A6. **The defect lives
+here; it just does not carry anything here.**
+
+#### What carries it is the rent channel, and at round 150 it hides the question
+
+| shock round 150, median retention at 40 rounds | registered | `rent_rate = 0` |
+|---|---|---|
+| financial layer, holds | 14.25% | **30.70%** |
+| financial layer, no asset | 0.31% | 1.86% |
+| **production layer, holds** | **EMPTY** | **EMPTY** |
+| production layer, no asset | **0.00%** | **0.22%** |
+| nodes whose shock left no measurable trace | 11 | **0** |
+
+Two things follow and the second is the one that matters.
+
+Rent is what drives the production layer's retention to **exactly zero**. With
+it off the non-holder deciles come out as a clean monotone gradient
+(`0.11, 0.11, 0.11, 0.11, 0.16, 0.22, 0.31, 0.47, 0.65, 3.11`); with it on that
+curve is flattened onto the floor. An exact zero in a denominator is also why
+§16.1's two summaries of the same gap disagree, one reporting 560-fold in
+absolute retention and the other 66-fold as a ratio.
+
+**And `production_layer_with_asset` is empty in every arm at round 150,
+including with rent fully off.** So rent is not what strips the production layer
+of holders before the registered shock lands. Whatever does that is elsewhere,
+and this diagnostic does not identify it.
+
+#### At round 20 the two-by-two completes, and the ordering reverses
+
+The registered control at round 20 reproduces §6.4b exactly
+(`6.17 / 10.95 / 0.59 / 0.28 / 0.01` against
+`0.01 / 0.23 / 0.37 / 0.16 / 0.00`).
+
+Production layer only, holders against non-holders, median retention:
+
+| horizon | 10 | 20 | **40** | 80 | 149 |
+|---|---|---|---|---|---|
+| registered | 6.17% / 0.01% | 10.95% / 0.23% | **0.59% / 0.37%** | 0.28% / 0.16% | 0.01% / 0.00% |
+| ratio | 617× | 47.6× | **1.59×** | 1.75× | both dead |
+| `rent_rate = 0` | 2.76% / 0.23% | 8.88% / 0.44% | **4.89% / 0.86%** | 1.70% / 0.83% | 2.54% / 1.11% |
+| ratio | 12.0× | 20.2× | **5.69×** | 2.05× | **2.29×** |
+
+And the two steps against each other at horizon 40:
+
+| | layer step, holders across layers | asset step, within the production layer | ratio |
+|---|---|---|---|
+| registered | 24.33 / 0.59 = **41.2×** | **1.59×** | **26 : 1** |
+| `rent_rate = 0` | 33.82 / 4.89 = **6.92×** | **5.69×** | **1.2 : 1** |
+
+**§6.4b's closing sentence, that the step which travels is the layer's and not
+the asset's, is a reading at `rent_rate = 0.05`.** At zero the two are the same
+order of magnitude at horizon 40.
+
+**The `2.29×` at horizon 149 in that table does not survive the decomposition
+below and is retracted as an asset effect.** It is a ratio of group medians, so
+it carries whatever wealth difference the two groups have. Once the pairs are
+matched on wealth the advantage at 149 is gone in both arms. The retraction is
+left here rather than the table edited, because the table is what a reader
+would otherwise reproduce and then wonder about.
+
+**The mechanism is a floor, not an economic finding.** Under the registered rent
+both production-layer groups sit at the bottom of the range by horizon 40, with
+median wealth `0.319` and `0.032`, and a ratio between two numbers at the floor
+has no resolution. The registered configuration does not have the dynamic range
+downstairs to answer the question §16.1 asks. That is a statement about the
+instrument.
+
+#### Three limits, and none of them is optional when quoting the above
+
+*`rent_rate = 0` is a bracket and not a world.* `AssetSpec.rent_rate`'s own note
+records that at zero, production-layer nodes that never held anything end **253%
+richer in claims** than in a run with no asset market at all, because they
+collect the opening rebate and the transaction premium and the price never
+reaches them. So the figures above measure how much the registered rent
+compresses, not what the economy would be.
+
+*Controlling for wealth by decile does not give a consistent answer.* At round
+20 the tenth decile reads 15.9× registered (`26.00%` against `1.64%`, nine
+non-holders) and 11.1× with rent off, while the **ninth** decile reads 1.8× and
+1.29× with populations of fifty-eight against forty-two. A contrast that is
+fourteen-fold in one decile, one-and-a-third in the next and eleven-fold in the
+one after is not a step read through a bin.
+
+*It is a step plus a gradient in both arms.* Spearman(retention, wealth) within
+the holder group is `+0.496` registered and `+0.386` with rent off, `+0.510` and
+`+0.431` against net worth. §16.1's own reading is that a pure step predicts
+these near zero.
+
+#### What this licenses and what it does not
+
+It does **not** reinstate §16.1's prediction. It removes one of the two reasons
+that prediction was withdrawn, and the other reason, that the shape is mixed,
+is untouched and is now the open item.
+
+It does **not** touch A3-6, which measures at round 150 under the registered
+rent and fails there for the reasons §6.4 records.
+
+It does **not** make `rent_rate = 0` quotable. Nothing above may be reported
+without the 253% note beside it.
+
+#### The decomposition, and it closes the question by dissolving it
+
+`experiments/a3e_step_or_gradient.py`, a reading of the profile files already on
+disk and not another set of runs. Each holder is matched to the nearest
+non-holder by wealth at the shock round, inside the interval where both groups
+exist; the same matcher is then run non-holder against non-holder to supply the
+noise floor, which is checklist item 7's zero arm. Both quantities are
+pre-treatment, so item 5 holds by construction.
+
+    python experiments/a3e_step_or_gradient.py
+    python experiments/a3e_step_or_gradient.py --horizon 149
+
+| production layer, horizon 40 | registered | `rent_rate = 0` |
+|---|---|---|
+| seeds with any wealth overlap | **4 of 5** | 5 of 5 |
+| holders matched | 42 of 62 | **59 of 60** |
+| match balance, median \|Δwealth\| | 0.0364 | **0.0029** |
+| paired median difference | +0.0012 | +0.0203 |
+| paired upper quartile | +1.8639 | **+1.5413** |
+| **holder wins the pair** | **57.1%** | **71.2%** |
+| noise floor's share | **60.0%** | **50.0%** |
+| spread of the share | 7.6% | 5.9% |
+| noise floor's interquartile width | 0.0163 | 0.0328 |
+| Spearman(retention, wealth), non-holders **on the support** | −0.377 (n=20) | **+0.071** (n=218) |
+| the same over the **full** range, from §6.4b's reading | +0.068 | +0.293 |
+
+Three readings and none of them is the shape §16.1 wanted.
+
+***Under the registered rent the question cannot be asked downstairs.*** One
+seed of five has **no wealth overlap at all**: its twelve production-layer
+holders are each richer than every production-layer non-holder, which is
+§16.1's collinearity arriving as an empty interval rather than as a weak
+contrast. A third of the holders are dropped for want of a control. Among the
+forty-two that match, the holder wins `57.1%` of pairs against a floor of
+`60.0%`, which is **below** the floor. **The decile ratios in §6.4c above were
+reading collinearity.**
+
+***With the rent floor lifted the support becomes usable and something
+survives, but it is not a step and not a gradient.*** Fifty-nine of sixty
+holders match, all five seeds have overlap, and the match is an order of
+magnitude tighter in wealth. The holder then wins `71.2%` of pairs against a
+floor of `50.0%`, three and a half spreads away, **while the paired median
+stays inside the floor's interquartile width**. The step's upper quartile is
+`+1.5413` against the floor's `+0.0167`.
+
+**Holding shifts the sign of the paired difference without shifting its middle.
+What it buys is a skewed upper tail.** With wealth held fixed the typical holder
+keeps about what a matched non-holder keeps, and a minority keep enormously
+more. The profile's own amplification counter says the same thing from the other
+side: `44` of a thousand nodes end with a larger deviation than they started
+with under rent-off at round 20, against `5` to `7` at round 150.
+
+***And the wealth gradient is a range effect.*** On the common support the
+non-holder Spearman is `+0.071` with rent off, against `+0.293` over the full
+range. The gradient lives **between** the support and the rest of the
+distribution, not within it, so it is not a within-group slope in the sense
+§16.1's external comparison would need.
+
+**What this does to §16.1's remaining steps.** They stay stalled, and for a
+third reason which replaces both earlier ones. Not because the step belongs to
+the layer, and not because the asset's step is a transient. Because the shape is
+a **tail**, and the external measurements it was to be taken to are central: the
+CTC monthly-payment work and the SCE panel's marginal propensity to repay debt
+report means and medians by income band. A quantity whose median is inside its
+own noise floor and whose signal is in the upper quartile cannot be confirmed or
+refuted by a median. **Taking it out as designed would compare a tail against a
+centre**, and this repository has a name for that.
+
+The sign statistic was promoted to the headline **after** the first run, because
+the first version read the median alone and that rule discards a distribution
+whose mass has moved into one tail. Both statistics are printed, neither is
+scored, and the sequence is recorded in the module docstring rather than left in
+the history.
+
+#### The tail, measured on one fixed pair set at five horizons
+
+`--tail`. Matching is on wealth at the shock round and does not depend on the
+horizon, so the pair set is identical at all five and the series is within-pair.
+Three questions: does the sign asymmetry hold at every horizon, is the advantage
+a level or a lottery, and is it the same pairs winning each time.
+
+Production layer, holder-wins share against the noise floor's share:
+
+| horizon | 10 | 20 | **40** | 80 | 149 |
+|---|---|---|---|---|---|
+| registered, step | 85.7% | 85.7% | **57.1%** | 50.0% | 31.0% |
+| registered, floor | 20.0% | 55.0% | 60.0% | 40.0% | 20.0% |
+| `rent_rate = 0`, step | 66.1% | 64.4% | **71.2%** | **50.8%** | 44.1% |
+| `rent_rate = 0`, floor | 49.5% | 49.5% | 50.0% | 47.7% | 49.1% |
+
+**The advantage is a transient in both arms, and rent moves when it dies rather
+than whether.** Registered, it is gone by horizon 40. With rent off it survives
+to 40 and is gone by 80. The registered arm's floor is on twenty pairs and moves
+between 20% and 60%, so its own readings are weak; the rent-off floor sits at
+49.5% to 50.0% on two hundred and eighteen pairs, which is what a floor should
+look like and is the reason the rent-off column is the one worth reading.
+
+**So §6.4b's word for the asset's step, transient, was right.** What was wrong
+was the reason. §6.4b had it dying because the asset does not survive
+downstairs; it dies with the asset still held, and lifting the rent extends the
+window by roughly one horizon step without removing the decay.
+
+*Is it a level or a lottery.* The top tenth of pairs carries `75.0%` of the
+positive total at horizon 40 with rent off. **But the floor carries `99.7%`,**
+and between `96.9%` and `99.7%` at every horizon. **Concentration therefore
+separates nothing here**, and that is the finding rather than a defect: the
+retention distribution is itself heavy-tailed, so any difference of two
+retentions is concentrated whether or not holding had anything to do with it.
+The zero arm earned its place by taking a statistic away rather than by
+confirming one.
+
+*Does the winner rotate.* Against horizon 40, the share of that horizon's top
+tenth still in the top tenth elsewhere is `16.7%`, `16.7%`, `33.3%`, `33.3%`,
+with rank correlations of `+0.375`, `+0.588`, `+0.451`, `+0.330`. **The tail
+rotates.** It is not a set of holders who are durably ahead; it is a different
+few at each reading. This project's conclusion 34 is the same shape found in a
+different place, and it was found there only because someone asked the floating
+against fixed question rather than reporting the top share alone.
+
+**The characterisation that survives all of this is weak, and it is the one to
+carry forward.** With wealth held fixed, holding buys a **temporary and rotating
+sign advantage**, present at ten to forty rounds, gone by eighty, whose
+magnitude no tail statistic tried here can separate from the noise floor. It is
+neither a step nor a gradient, and it is also not the durable lottery the
+previous subsection's quartiles suggested before the floor was measured at every
+horizon.
+
+### 6.4d What empties the production layer, answered: the gate shuts in three rounds
+
+**Added 2026-08-13. Diagnostic**, `experiments/a3f_who_empties_downstairs.py`.
+It reads series from unmodified runs, changes no mechanism and scores nothing.
+§6.4c left one open item, that `production_layer_with_asset` is empty at round
+150 in every arm including rent-off and that whatever empties it was not
+identified. This identifies it.
+
+#### Two candidates with different fingerprints
+
+Turnover is exogenous at `τ = 0.04`, so about four percent of held units return
+to the market each round whoever holds them and a holder that never wins one
+back decays with a half-life near seventeen rounds. **The units leave by
+construction. The question is why none come back**, and there are two answers.
+
+*The wall.* The price rises, the gate is `claims ≥ γ·P`, and production-layer
+claims stop clearing it. Then the count that **could** buy at the current price
+reaches zero before the unit count does, and the auction is thereafter
+irrelevant.
+
+*The auction.* They still clear the gate and lose every time, because the bidder
+pool is claims-weighted. Then the clearing count stays positive while the units
+go.
+
+#### It is the wall, and it closes almost immediately
+
+Registered parameters, five seeds, means:
+
+| round | prod units | fin units | prod holders | can buy | can stretch | low price |
+|---|---|---|---|---|---|---|
+| 1 | 23.20 | 37.40 | 22.20 | **5.80** | **39.60** | 0.447 |
+| 10 | 19.00 | 41.60 | 18.20 | **0.20** | **1.00** | 1.801 |
+| 20 | 12.80 | 47.80 | 12.20 | 0.00 | 0.60 | 3.416 |
+| 40 | 5.80 | 54.80 | 5.80 | 0.00 | 0.00 | 6.728 |
+| 80 | 0.80 | 59.80 | 0.80 | 0.00 | 0.00 | 13.299 |
+| 150 | **0.00** | 60.60 | **0.00** | 0.00 | 0.00 | 25.628 |
+| 299 | 0.00 | 60.60 | 0.00 | 0.00 | 0.00 | 49.916 |
+
+Per seed, the round each gate first shuts against the round the layer's units
+run out for good:
+
+| seed | units empty | hard gate shuts | soft gate shuts |
+|---|---|---|---|
+| 0 | 110 | **3** | 6 |
+| 1 | 104 | **3** | 8 |
+| 2 | 99 | **2** | 6 |
+| 3 | 72 | **4** | 9 |
+| 4 | 55 | **2** | 15 |
+
+**The hard gate shuts in two to four rounds and the soft gate in six to fifteen,
+in five seeds of five. The median distance from the soft gate shutting to the
+units running out is ninety-three rounds.** So the production layer is locked
+out of the market in the first ten rounds of a three-hundred-round run, and what
+follows is exogenous turnover grinding away the units it already held, at four
+percent a round, for the next hundred.
+
+**Rent is not what builds the wall.** With `rent_rate = 0` the hard gate still
+shuts at rounds `2, 2, 3, 3, 5` and the soft gate at `6, 7, 8, 9, 13`. Rent
+steepens the price path a little, low-tier price `49.9` against `36.7` at round
+299, and shortens the grind, units empty at `55` to `110` against `63` to `132`.
+It changes the speed of the aftermath and not the event.
+
+**What builds it is the price rule itself.** `P_q(t) = P_q(0)·(B_q(t)/B_q(0))^η`
+at `η = 1`, with `B` the claims-weighted bidder pool. The low tier goes from
+`0.447` to `1.801` in ten rounds, a fourfold rise, and the gate is
+`claims ≥ γ·P`. Anyone whose claims do not also quadruple is out. That is the
+stage's registered mechanism working exactly as written, not a defect.
+
+#### This reframes §6.3, and the two readings converge
+
+§6.3 concluded that at the high tier the exclusion is a price wall and not a
+hole, and located the hole **at the low-tier margin, where twenty-three nodes
+sit between the hard and the soft gate**. That is a reading at the opening.
+**The low-tier hole shuts by round six to fifteen.** So `γ`, which §2 registers
+as carrying the hole-against-high-price distinction in one parameter, carries a
+hole for the first ten rounds and a wall for the remaining two hundred and
+ninety, and nothing in the registered reporting says when it flips.
+
+**And §5.3 is the same fact seen from the other end.** That section finds A3-8
+measured on the top eighth of the production layer by centrality, with the
+peripheral tercile trading zero times in every cell including the null. A layer
+walled out of the market by round ten is exactly a layer that never appears in a
+population defined by having traded. Two diagnostics built for different
+questions land on one structural fact.
+
+#### What it changes and what it does not
+
+It changes **no verdict**. A3-6 still fails, A3-5 is still void, and the numbers
+in every table above are untouched. What it supplies is the reason A3-6's shock
+round finds nobody downstairs holding: **not that the layer was stripped over
+time, but that it was locked out on round three and the stripping is the
+aftermath.**
+
+It closes §6.4c's open item, so **A3's registered re-check has an answer** and
+the conclusions there stand rather than waiting on it.
+
+It adds one thing a later stage must carry: **any A3 measurement taken after
+round fifteen is taken on an economy in which the production layer cannot enter
+the asset market at any price.** That is true of A3-4's three windows, of A3-7,
+and of A3-8, and it is not a defect in any of them. It is the scope of the
+carrier.
+
+*One statistic was corrected after the first run and the reason is in the module
+docstring.* The soft gate's *stays shut* round is one past the units' round in
+every seed of both arms, which is mechanical: a node selling its last unit holds
+the proceeds for a round and clears `γ·P / s` on that round alone. The round
+each gate **first** shuts is the quantity the two candidates disagree about and
+is what the table reports; the *stays shut* column is printed beside it so the
+artifact is visible rather than removed.
+
 ### 6.5 The registered §7 grid has not been run
 
 `{η, κ, τ, φ, s}` and the centrality binning have not been swept, and "no
@@ -686,6 +1168,84 @@ would pass every cell. No threshold is registered for A3-8's two shares, so
 their spread across the grid is reported and not judged. `forced_sale_floor` at
 `0.05` reaches nothing either stage can see, which is a fact about that axis's
 low end and not a second dead knob, since `0.2` moves both stages.
+
+### 6.5c The grid re-run, and what its population column says
+
+**Added 2026-08-13.** The grid was re-run after a fix to A3-6's non-holder arm,
+and the re-run is reported here because a fix whose effect is not shown is an
+assertion.
+
+#### The fix, and that it moved no verdict
+
+`a3_6` passed `**asset_kw` to `_shock_survival` in the holder loop and not in
+the non-holder line three below it. `_shock_trace` builds its shocked model from
+`AssetSpec(**asset_kw)` and differences it against the `base` it is handed, so
+without the kwargs the non-holder arm differenced a **registered-parameter**
+shocked run against a **swept-parameter** base, and the deviation carried the
+parameter change rather than the transfer. At the registered point `asset_kw` is
+empty and the two paths are the same object, so the only path that was ever
+wrong is the one `--sweep` takes.
+
+**A3-6's verdict never depended on it.** The verdict reads the holder median,
+which always received the kwargs. What was wrong is the non-holder figure inside
+the detail string, at thirteen of fourteen cells.
+
+Checked rather than argued, five seeds, before against after: at the registered
+point the detail string is **identical character for character**; at
+`elasticity = 0.5` the non-holder figure moves from `0.2%` to `0.4%` and
+**every other field in the string is unchanged**. The re-run then reproduces the
+grid verdict for verdict: A3-7 fails at the same four cells (`η = 1.5`,
+`τ = 0.02`, `s = 1.0`, `s = 5.0`), A3-8's zero-channel set moves at the same
+four (`η = 0.5`, `s = 1.0`, `s = 2.0`, `bins = 8`), and both inert counts are
+unchanged at twelve of fourteen live in the first stage and thirteen of fourteen
+in the second, with `forced_sale_floor` at `0.05` and `0.10` the dead cells.
+
+**This is `MEASUREMENT.md` §8's closing rule in a third place**, after the A6
+rebate and this stage's rent liability: one call site corrected and its twin
+left alone. It is added to that section's instance table.
+
+#### The population column explains three of A3-8's four moved cells
+
+`a3c_load_bearing.py --sweep` prints the paired population per cell and the
+number had not been read against which cells move. With `bins` setting how many
+equal buckets the population is cut into before the outer two are compared, the
+size of each compared group is `pop / bins`:
+
+| cell | pop | group | loop-sum channel quotable |
+|---|---|---|---|
+| registered and nine others | 41.6 | 13.9 | yes |
+| **`s = 1.0`** | **18.4** | **6.1** | **no** |
+| **`s = 2.0`** | **24.2** | **8.1** | **no** |
+| **`bins = 8`** | 41.6 | **5.2** | **no** |
+| `bins = 2` | 41.6 | 20.8 | yes |
+| `s = 5.0` | **98.8** | 32.9 | yes |
+| **`η = 0.5`** | 41.6 | 13.9 | **no** |
+
+**Every cell whose compared groups fall below about eight nodes loses the
+loop-sum channel, and every cell above about fourteen keeps it, with `η = 0.5`
+the single exception.** So three of the four cells where §6.5b records that "the
+set of channels indistinguishable from zero moved" are a statement about how
+many nodes were left to compare, not about the mechanism. §6.5b's own reading of
+the binning axis said as much for `bins = 8`; the `stretch` axis was not read
+that way and should have been.
+
+**And `stretch` is a lever on §5.3's problem.** §5.3 records that A3-8 is
+measured on the top eighth of the production layer and that the next carrier
+needs a larger measured population. The grid shows that parameter already
+exists: `s = 5.0` carries `98.8` nodes against the registered `41.6`, and it
+keeps both channels quotable. §13.3 of `PROJECT_PLAN` notes independently that
+`s = 5` admits eighty-eight production-layer nodes to the lowest tier against
+twenty-three at the registered `s = 3`.
+
+**That is an observation and not a proposal to move the registered value.**
+Choosing `s` after seeing which value makes a channel quotable is exactly the
+move §5.1's demotions exist to prevent. It is recorded so that a stage designed
+after this one starts from a population that can carry a reading, and so that
+`s = 1.0` and `s = 2.0` are never quoted as evidence that the loop sum is weak
+there.
+
+`η = 0.5` remains unexplained. Its population and its groups are the registered
+ones, so whatever moves it is not size.
 
 ### 6.6 What A3 cannot say, however it comes out
 
@@ -844,3 +1404,132 @@ is retention at twelve and at thirty-six months, looking for a **level** rather
 than a slope.
 
 This is outside the scope of this project and is recorded as a hook, not a plan.
+
+---
+
+## 10. Stage closed: what each verdict says about an economy
+
+**Added 2026-08-13 as the closing read.** Nothing below is a new measurement.
+It says what the seven verdicts and the diagnostics mean if the model is taken
+as a description of a stratified economy, and it says what §9's registered
+prediction is now worth.
+
+### 10.1 The verdicts, in economic terms
+
+**A3-1, pass.** Not a finding. Switching the asset market off returns the
+economy of stage A2 bit for bit, so everything A3 reports is attributable to
+the asset channel rather than to the model having been rebuilt around it.
+
+**A3-2, demoted.** Owning against not owning opens a ninefold net-worth gap
+between nodes that started level. That is real and large, and it is **not** the
+claim this stage exists to test. It is a gap produced by owning, and the claim
+is about the terms on which one obtains. The two are independent: this gap can
+be orders of magnitude wide while the loop sum is exactly zero.
+
+**A3-3, demoted.** No economic content. An identity read at machine precision.
+
+**A3-4, pass at 3.05%.** The load-bearing one. The framework says the gap
+between two agents facing different terms on the same transition **is** the
+holonomy of a four-cycle in the position-agent graph. On paper that is an
+identity. What the run adds is that after embedding it in an economy with
+moving prices, circulation, a wage bill, issuance, supply limits, turnover and
+rent, the identity is perturbed by three percent. **The topological object
+survives contact with a working economy.** It is not a validation of the theory
+and §3.2's sixth reading applies: the relation was always going to agree with
+itself, and the informative quantity is the perturbation.
+
+**A3-5, void, and the void is the finding.** The framework compresses "a hole"
+and "a price that is too high" into one parameter. This run separates them and
+locates each. At the **top** of the asset ladder the exclusion is a price wall:
+no production-layer node reaches the high tier even at the soft gate, against a
+claims median of `0.162` and a price of `2.0`. A price wall is expressible
+inside the price system, so it is not the framework's object. **The hole is at
+the low-tier margin**, the twenty-three nodes between the hard and the soft
+gate. §6.4d then adds the time quantifier the criterion never had: that hole
+shuts between rounds six and fifteen. **The hole is a property of the opening.**
+
+**A3-6, fail, and the failure is the economic result.** Two readings and the
+second matters more. First, redistribution futility: a one-off transfer to a
+node with no asset is recaptured within a generation, `0.1%` surviving forty
+rounds, while the same transfer to a holder leaves `13.8%`. **Money handed to a
+node with no in-edges to retain it does not stay.** That is §8's reachability
+criterion at the scale of one agent, and it is what A6 goes on to price in tax
+points. Second, the criterion asked whether a stock survives a generation and
+the model says it does not, which is the model agreeing with the manuscript's
+own path-dependence claim rather than contradicting it. And §6.4d supplies the
+mechanism: the production layer holds nothing at the shock round because it was
+**locked out on round three**, not because it was drained slowly.
+
+**A3-7, pass, and it is the weaker of the two passes.** Better terms beat worse
+terms in all three non-overlapping hundred-round windows in every seed, so the
+advantage is a structural wedge and not one lucky repricing. But four of
+fourteen grid cells fail it and are not repaired. **A3-7's conclusion lives at
+the registered parameter values and A3-4's does not.**
+
+**A3-8, unstable.** Removing the loop sum collapses the divergence from
+`+23.27` to `+1.41`; removing the gate leaves `+21.67`. **Among agents already
+in the market, what drives them apart is the terms and not the admission
+threshold.** No share may be quoted for the gate because its sign moves across
+seeds. §5.3 supplies the scope and it is what makes the reading honest: the
+measurement lives on the top eighth of the production layer by centrality, and
+the gate disperses **along** centrality, so it is read where it barely varies.
+The two halves fit together rather than competing. **The gate decides who is in
+the market; the terms decide how those inside come apart; and A3-8 can only see
+the second, because its sample is the people already inside.**
+
+### 10.2 What §9's registered prediction is now worth
+
+§9 registers a prediction for external data: that retention of a one-off
+transfer is a **step** on whether the recipient owns an asset rather than a
+gradient in wealth. §6.4b through §6.4d took it apart in three moves and the
+prediction is **suspended**, not falsified.
+
+The step is not the asset's; at the registered shock round every holder is a
+financial-layer node. Lifting the rent floor makes the asset's own step visible
+and comparable to the layer's, so the earlier attribution was a reading at one
+parameter. And once wealth is held fixed by matching, what remains is a
+**temporary and rotating sign advantage**, present at ten to forty rounds, gone
+by eighty, whose magnitude no tail statistic tried here separates from the noise
+floor.
+
+**So the shape is a tail, and the panels §9.5 names report centres.** The
+child-tax-credit work and the SCE panel's marginal propensity to repay debt
+report means and medians by income band. Comparing a quantity whose median is
+inside its own noise floor against a median is comparing a tail to a centre.
+**§9 is suspended until a carrier is found that reports the upper tail of a
+distribution and does so at short horizons.** That is a fresh availability
+check, not a step in §9's own plan.
+
+### 10.3 What the stage is evidence for
+
+**A3 is a mechanism demonstration on a constructed economy, not a measurement
+of the world.** §6.6 states the boundary and it stands: the stage supports the
+claim that in a running stratified economy the holonomy of the position-agent
+cycle accumulates and that removing it while holding everything else removes
+the divergence. It does not support the claim that the real economy's holonomy
+causes the real economy's distributional divergence. That half is B2 on
+mortgage terms and B3 on covered parity.
+
+Six limits travel with every number above.
+
+Five seeds throughout. The grid moves one parameter at a time and cannot see
+interactions. A3-7 fails four of fourteen cells, unrepaired. A3-6's threshold
+is carried from a different domain and disclosed. One grid cell, `η = 0.5`,
+moves A3-8's zero-channel set for a reason that is not population size and is
+not identified. And, from §6.4d, **every A3 measurement taken after round
+fifteen is taken on an economy in which the production layer cannot enter the
+asset market at any price**, which is the scope of the carrier rather than a
+defect in any criterion.
+
+### 10.4 Closed
+
+There is no open registered re-check and no ruling waiting on this stage. The
+one re-check §6.4c left open, what empties the production layer, is answered in
+§6.4d. The ruling §16.1 was waiting on is dissolved: both of its options were
+removed by data rather than chosen between.
+
+What A3 hands forward is in §7, with one addition from §5.3 and §6.5c: **the
+next stage built on this carrier needs a measured population larger than one
+eighth of one layer, and `stretch` is an existing lever on it.** Recorded as an
+observation. Choosing that parameter after seeing which value makes a channel
+quotable is the move §5.1's demotions exist to prevent.
