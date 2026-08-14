@@ -224,6 +224,37 @@ Derived quantities:
 |---|---|---|
 | VOID | A3-8  removing the holonomy removes the divergence | state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift 1.86e-16. Indistinguishable from zero across seeds: H0_only |
 
+## A4 — the causal primitive (A4-4 could not be computed: no competitor is readable in both arms)
+
+`rounds=300` `5 seeds`
+
+**3/4 live criteria passed, 2 void**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A4-1 null calibration: identical agents on a complete graph do not stratify | C=0 all competitors off, Gini 0.00711 against a ceiling of 0.02. Production layer 0.00714. Spread across seeds 0.00026. |
+| PASS | A4-2 connectivity alone is sufficient | Gini 0.93673 against 0.00711, gap +0.92962 against a floor of 0.05, and the sign holds at 5 of 5 seeds. Production layer 0.59490 against 0.00714. |
+| **FAIL** | A4-3 no competitor is a strawman | Each competitor alone with C off, Gini rise over the null against a floor of 0.02: I +0.00007, E +0.00932, K +0.00080, M -0.00006. Below the floor: I, E, K, M. The floor is in absolute Gini units and the C=0 control sits at 0.00711, so it asks each competitor for 2.8 times the control's whole value; the threshold is registered and is not moved on that account. Education's rise is 35.6 control-cell sd and still below it. |
+| VOID | A4-4 connectivity is upstream | **Void on two independent grounds and not evaluated.** §7's table: A4-3 fails for 4 of four competitors, and a failed strawman floor makes that competitor's comparison void rather than favourable. §11.8's rule: A(X) is a ratio across the two arms and no competitor is readable in both, so one of its two terms is a reading of the graph draw in every case. Readable Gini cells: C=0/K/I, C=0/null/E, C=0/null/K, C=1/E/I, C=1/E/M, C=1/K/I, C=1/K/M, C=1/null/I, C=1/null/M. Ratios whose per-seed sign happens to agree: I\|K = 440.7 (denominator -0.00042), and each rests on a denominator inside two control-cell sd, so the agreement is five draws landing the same way rather than a quantity. |
+| VOID | A4-5 the update order does not decide it | **Void: A4-4 has no result for an ordering to preserve or overturn.** What was run in its place, on all four combinations of channel order and event order, and is reported: the set of cells clearing §11.2's floor, and the three verdicts that do not pass through A(X). Registered set has 35 cells; orderings whose set differs: capital_first/match_first (12 cells differ), pooling_first/inherit_first (2 cells differ), pooling_first/match_first (6 cells differ). A4-1, A4-2 and A4-6 evaluated on every alternative run; orderings where any of the three flips: none. |
+| PASS | A4-6 caste is derived from holdings, not read off the layer | Matching reads holdings and never the layer label. Cross-layer pairing rate with M on: C=1 0.1610 against C=0 0.1780, uniform-random reference 0.1809, and C=1 is lower at 5 of 5 seeds. On §11.5's based cells the same direction holds and wider: E+M 0.1645 against 0.1835, K+M 0.1645 against 0.1835. This criterion reads a rate directly and takes no ratio across arms, which is why §11's collapse does not reach it. |
+
+<details><summary>Parameters</summary>
+
+```json
+{
+  "issuance_rule": "endogenous",
+  "injection_target": "top_node",
+  "uniform_opening": "same_marginal",
+  "pooling": "round",
+  "channel_order": "capital_first",
+  "event_order": "inherit_first",
+  "readable_sd": 1.0
+}
+```
+
+</details>
+
 ## A5
 
 `rounds=300` `5 seeds`

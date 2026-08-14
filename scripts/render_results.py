@@ -40,6 +40,14 @@ STAGE_TITLES = {
     "A0b": "A0b — derived demand on the downward edge",
     "A2": "A2 — support-set contraction and the intermediate layer",
     "A2c": "A2c — cycle structure of the realized graph",
+    # A4-4 is the stage's headline and it is void rather than failed, on two
+    # independent grounds. The title says so, because a reader scanning a
+    # three-of-four line would otherwise take the stage as mostly successful
+    # when the thing it was built to compute could not be computed.
+    "A4": (
+        "A4 — the causal primitive (A4-4 could not be computed: no competitor "
+        "is readable in both arms)"
+    ),
     # A6-1's failure is a scope defect in the criterion rather than a result,
     # and A6-5's is a real one. The title says which, because a reader scanning
     # a two-of-five line should not have to open the stage document to learn
