@@ -60,7 +60,7 @@
       "passed": true
     },
     {
-      "detail": "K-B settles on I/lambda on a bench with no economy in it; worst relative error 5.0e-11 against 1e-09",
+      "detail": "K-B settles on I/lambda on a bench with no economy in it; the worst relative error is at machine precision, below 1e-09",
       "name": "A6-8",
       "passed": true
     },
@@ -110,7 +110,7 @@
       "passed": true
     },
     {
-      "detail": "nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. Worst claim drift 1.97e-11 against 1e-06; fallback rounds 0",
+      "detail": "nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. Worst claim drift at machine precision, below 1e-06; fallback rounds 0",
       "name": "A6-20",
       "passed": true
     },

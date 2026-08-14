@@ -333,7 +333,20 @@ def main() -> int:
         record[tag] = {
             "wage_bill": base.wages.bill,
             "flow_balance": base.flow_balance(),
-            "sweeps": sweeps,
+            # Rounded here rather than in `figure_5`, so that A0b-5 is computed
+            # on the slope that was measured and only the written copy is
+            # rounded. `np.polyfit` returns a value whose last bit depends on
+            # the BLAS build: the committed record read `12.706923916393878` on
+            # one machine and `12.70692391639388` on another, and
+            # `git diff --exit-code RESULTS.md` went red on that line alone.
+            # Nine places is six orders of margin over where the two differ and
+            # nothing reads this number past the second.
+            #
+            # The float reaches the record through `round` and never through
+            # `repr`, which is `CLAUDE.md`'s determinism rule. Fixed
+            # 2026-08-13 together with the two residuals in `b1_theorem.py`,
+            # which are the same rule in its other form.
+            "sweeps": sweeps | {"floor_slope": round(sweeps["floor_slope"], 9)},
             "criteria": [
                 {"name": c.name, "passed": c.passed, "detail": c.detail}
                 for c in criteria

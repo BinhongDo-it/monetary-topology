@@ -1710,10 +1710,15 @@ def main() -> int:
             f"rounds in each of eight cells; {guard['mismatch_count']} "
             f"mismatches. A gate: nothing below it runs if it fails"
         ),
+        # `CLAUDE.md` rule 6. The relative error is a residual against a closed
+        # form, so it sits at machine precision and its digits come from the
+        # BLAS build; `a6_ratchet.py` line 1499 already prints it to the job
+        # log, which is where a per-machine value belongs. Written here it made
+        # `RESULTS.md` differ between machines on content that asserts the same
+        # thing, and CI checks that file with `git diff --exit-code`.
         "A6-8": (
             f"K-B settles on I/lambda on a bench with no economy in it; "
-            f"worst relative error "
-            f"{max(r['relative_error'] for r in bench['rows']):.1e} against "
+            f"the worst relative error is at machine precision, below "
             f"{A6_8_TOL:g}"
         ),
         "A6-9": (
@@ -1798,7 +1803,10 @@ def main() -> int:
             + "; ".join(
                 f"{k} {c['worst_both_sides']}" for k, c in sides["cells"].items()
             )
-            + f". Worst claim drift {sides['worst_claim_drift']:.2e} against "
+            # `CLAUDE.md` rule 6, as for A6-8 above. The drift is a residual
+            # against conservation and sits at machine precision. The counts
+            # either side of it are integers and stay.
+            + ". Worst claim drift at machine precision, below "
             + f"{A6_20_DRIFT:g}; fallback rounds "
             + f"{sides['worst_fallback_rounds']}"
         ),

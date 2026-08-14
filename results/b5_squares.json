@@ -58,7 +58,7 @@
   },
   "criteria": [
     {
-      "detail": "worst 8.92e-16 against 1e-12, over 1,457 dates",
+      "detail": "at machine precision, below `1e-10`, against a tolerance of 1e-12, over 1,457 dates",
       "name": "B5-1 walked square equals the closed form",
       "passed": true
     },
@@ -103,7 +103,7 @@
       "friction_available": false,
       "friction_retrieved": false,
       "group": "control",
-      "rms": 0.11897169554033017,
+      "rms": 0.11897169554033019,
       "rms_post": 0.069602842258182,
       "rms_pre": 0.06629571234589958,
       "signal_over_noise": 45.74444516486536

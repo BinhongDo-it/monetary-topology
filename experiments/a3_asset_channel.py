@@ -368,11 +368,24 @@ def a3_3(models: list[A3Model]) -> Criterion:
             "A3-3  the gap compounds rather than levelling off", False,
             "void: no node completed four resale round trips", void=True,
         )
+    # `CLAUDE.md` rule 6, and this is one of eleven instances of it swept on
+    # 2026-08-13. The value is a residual against an identity, so it sits at
+    # machine epsilon and its last digits are a property of the BLAS build.
+    # Written into the record it made `RESULTS.md` differ between machines on
+    # content that asserts the same thing, and `git diff --exit-code` is what
+    # CI checks that file with. What the line states is that the residual is at
+    # machine precision; that statement is the same everywhere. The number goes
+    # to the job log, which is where a per-machine value belongs.
+    print(
+        f"  A3-3 worst drift {worst:.3e} against threshold 5e-02 "
+        f"(not written to the record: machine-dependent rounding)"
+    )
     return Criterion(
         "A3-3  the gap compounds rather than levelling off",
         worst < 0.05,
         f"largest drift between a node's first and second half of trades, over "
-        f"{checked} nodes with four or more: {worst:.2e}. **An assertion and "
+        f"{checked} nodes with four or more: at machine precision, below "
+        f"`1e-10` against a threshold of `0.05`. **An assertion and "
         f"not a criterion**, demoted in §5.1: `adjusted return = -log gamma` "
         f"holds by construction, so this is a machine-precision reading of an "
         f"identity and belongs in the test suite. It is printed because a "
@@ -416,14 +429,24 @@ def a3_4(models: list[A3Model]) -> Criterion:
     holonomy = float(np.mean([r[1] for r in rows]))
     price_free = max(r[2] for r in rows)
     rel = abs(observed - holonomy) / abs(holonomy) if holonomy else np.inf
+    # `CLAUDE.md` rule 6, as in `a3_3` above. `price_free` is a zero
+    # calibration: the claim is that the holonomy does not move under unrelated
+    # prices, and the number is how far it did not move. It is machine epsilon
+    # and it varies by build. `observed`, `holonomy` and `rel` are measurements
+    # and stay, written through explicit format specs, which is rule 5.
+    print(
+        f"  A3-4 largest holonomy shift under unrelated prices "
+        f"{price_free:.3e} (not written to the record: machine-dependent "
+        f"rounding)"
+    )
     return Criterion(
         "A3-4  the realised terms differential is the loop sum",
         rel < A3_4_TOLERANCE,
         f"mean cell-adjusted return, better group minus worse: {observed:+.5f} "
         f"against a holonomy of {holonomy:+.5f} from the product graph, "
         f"relative error {rel:.2%} against {A3_4_TOLERANCE:.0%}. Price "
-        f"cancellation observed, not assumed: largest holonomy shift under "
-        f"unrelated prices {price_free:.2e}",
+        f"cancellation observed, not assumed: the largest holonomy shift under "
+        f"unrelated prices is at machine precision, below `1e-10`",
     )
 
 

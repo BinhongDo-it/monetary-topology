@@ -279,7 +279,7 @@ Derived quantities:
 | | criterion | detail |
 |---|---|---|
 | PASS | A6-7 | 160 model pairs compared against A6Model bit for bit, over 4 rates and 300 rounds in each of eight cells; 0 mismatches. A gate: nothing below it runs if it fails |
-| PASS | A6-8 | K-B settles on I/lambda on a bench with no economy in it; worst relative error 5.0e-11 against 1e-09 |
+| PASS | A6-8 | K-B settles on I/lambda on a bench with no economy in it; the worst relative error is at machine precision, below 1e-09 |
 | PASS | A6-9 | band of lambda holding all five seeds open at R = 0.005 over 2000 rounds: [0, 0.01], 6 of 8 grid points, judged on exp. No lambda is nominated, and the low end is an artefact of this horizon |
 | **FAIL** | A6-10 | on the registered grid at 2000 rounds, R*(I) per judged cell: exp/lambda=0.001 median 0.005 on the grid floor; exp/lambda=0.01 median 0.010 off the floor |
 | **FAIL** | A6-11 | R*(I)/R*(T) against 0.75, as a value not a bound: exp/lambda=0.001 0.083 (bound only); exp/lambda=0.01 0.167 |
@@ -289,7 +289,7 @@ Derived quantities:
 | PASS | A6-16 | both judged cells closed on the layer base, which is what the surviving-leak reading predicts: a smooth g postpones the collapse rather than removing it |
 | PASS | A6-18 | levy collected in the final round, in units of the opening claim stock: layer/exp/lambda=0 1.69e-05 from 3.57e-03; layer/hill/lambda=0 1.46e-04 from 3.57e-03; layer/clip/lambda=0.001 8.66e-04 from 3.57e-03; threshold/exp/lambda=0 2.74e-03 from 3.11e-03; threshold/hill/lambda=0 2.68e-03 from 3.11e-03; threshold/clip/lambda=0.01 3.24e-03 from 3.11e-03 |
 | PASS | A6-19 | both judged cells closed on the threshold base, which is what the surviving-leak reading predicts: a smooth g postpones the collapse rather than removing it |
-| PASS | A6-20 | nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. Worst claim drift 1.97e-11 against 1e-06; fallback rounds 0 |
+| PASS | A6-20 | nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. Worst claim drift at machine precision, below 1e-06; fallback rounds 0 |
 | PASS | A6-21 | rho* per lambda, median over seeds: lambda=0.001 1; lambda=0.003 1; lambda=0.01 1. Worst separation 0 grid steps against 1; at a grid end False; unsolved seeds 0 |
 | PASS | A6-22 | band of lambda keeping every seed open, exp, on the corrected instrument: 0.001 to 0.01. The other columns, one change at a time: A exp laye/laye 0.001 to 0.01; B exp thre/laye 0.001 to 0.01; C clip thre/thre 0.003 to 0.01; C exp rho=1 0.001 to 0.1 |
 | PASS | A6-23 | clip control band on the corrected instrument: 0.003 to 0.01, scanned over [0.001, 0.003, 0.01, 0.03, 0.1] |
@@ -316,12 +316,12 @@ Derived quantities:
 
 | | criterion | detail |
 |---|---|---|
-| PASS | B1-1  a shared potential annihilates every cycle | largest \|cycle sum\| over squares and a spanning basis, across 8 shapes: 6.66e-16. Theorem 1, (1) implies (3) |
+| PASS | B1-1  a shared potential annihilates every cycle | largest \|cycle sum\| over squares and a spanning basis, across 8 shapes: below 1e-10, at machine epsilon. Theorem 1, (1) implies (3) |
 | PASS | B1-2  the squares detect what no single agent can see | 7/7 shapes where every w_a is exact but the potentials differ: slice cycles vanish below 1e-10, squares reach 4.272, and no global potential exists. A family of gradients need not be a gradient |
-| PASS | B1-3  the path integral reconstructs the potential | largest \|d0 psi - omega\| over every edge after integrating along a spanning tree: 8.88e-16. Theorem 1, (3) implies (2) |
+| PASS | B1-3  the path integral reconstructs the potential | largest \|d0 psi - omega\| over every edge after integrating along a spanning tree: below 1e-10, at machine epsilon. Theorem 1, (3) implies (2) |
 | PASS | B1-4  the generating set spans the cycle space | rank of the slice-plus-agent-plus-square matrix equals E - V + C on Gamma, for all 8 shapes. The two are computed by different code paths sharing nothing |
 | PASS | B1-5  the closed form for the first Betti number is right | m*e_G + n*e_H - m*n + 1 equals E - V + C for all 8 shapes: 2, 3, 16, 10, 39, 37, 26, 18 |
-| PASS | B1-6  stage B2's within term is the holonomy of the squares | over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a worst relative error of 1.07e-15; in aggregate 0.33793923 against 0.33793923, relative 1.64e-16. 4 cells above 2,000 loans were held out because enumeration is quadratic |
+| PASS | B1-6  stage B2's within term is the holonomy of the squares | over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a relative error at machine precision, below `1e-10`, both per cell and in aggregate: 0.33793923 against 0.33793923. 4 cells above 2,000 loans were held out because enumeration is quadratic |
 | PASS | B1-7  one agent class reproduces the one-index case exactly | at m=1 there are no squares at all and b1(Gamma) = b1(G). The enlarged graph is a generalisation, not a substitution |
 | PASS | B1-8  the slice summand fires where the squares are silent | 5/5 shapes with a shared but non-exact field: slice cycles reach 15.0 while every square sum is exactly 0.0. The mirror of B1-2, and the case every other field in this repository makes vacuous by construction |
 | PASS | B1-9  on a mixture each summand comes back out unchanged | 5/5 shapes: adding a pure-slice field to a pure-square one leaves both sets of cycle sums identical as raw bytes, slice reaching 15.0 and squares 22.0. Integer fields, so this is exactness and not a tolerance. Without it the split of Theorem 2 is checked on one summand and asserted on the other |
@@ -464,7 +464,7 @@ _no sample metadata recorded_
 
 | | criterion | detail |
 |---|---|---|
-| PASS | B5-1 walked square equals the closed form | worst 8.92e-16 against 1e-12, over 1,457 dates |
+| PASS | B5-1 walked square equals the closed form | at machine precision, below `1e-10`, against a tolerance of 1e-12, over 1,457 dates |
 | PASS | B5-2 trivial square is exactly zero | worst diagonal 0.0e+00, off the same matrix every other number comes from |
 | PASS | B5-6 headline clears the noise floor | S/N 385 against 4, floor 2.601e-03 from the calibration arm |
 | PASS | B5-7 squares do not vanish before the intervention | pre-window rms 0.4996 over 236 dates, S/N 192 |

@@ -729,50 +729,57 @@ git clone https://github.com/<user>/monetary-topology
 cd monetary-topology
 pip install -e ".[dev]"
 
-pytest                                       # 147 tests
-python experiments/a0_retention.py           # figures 1-3, 9 criteria
-python experiments/a0_derived_wages.py       # figures 4-5, 6 criteria x 2 presets
-python experiments/a2_support_contraction.py # figures 6-8, 8 criteria
-python experiments/a2c_cycle_structure.py    # figures 9-10, 7 criteria
-python scripts/render_results.py             # regenerates RESULTS.md
+python scripts/run_all.py            # lint, tests, every stage, one digest
+python scripts/run_all.py --quick    # lint and tests only
+python scripts/run_all.py --slow     # adds A6's ratchet, about twenty-five minutes
+python scripts/run_all.py --b2       # adds the stages needing fetched data
+python scripts/render_results.py     # regenerates RESULTS.md from results/*.json
 ```
 
-Every experiment script exits non-zero if a criterion fails, so every published
-claim is re-checked on each commit rather than trusted. `.github/workflows/ci.yml`
-runs lint, the test suite, all three experiments, and a check that `RESULTS.md`
-matches what the code currently produces.
+`run_all.py` is the entry point. It prints a dozen pasteable lines: one per
+stage, with its pass count, its exit code and its wall time, and a named line for
+every criterion that failed. Criteria registered as failing carry the reason
+inline, so a reader can tell a known negative from a regression without opening
+anything. Individual stages still run on their own, for example
+`python experiments/a0_retention.py`, and take `--rounds N` and `--seeds N`.
 
-Optional arguments: `--rounds N`, `--seed N`. Results are reproducible for a
-given seed, and every qualitative finding above was verified to hold across
-seeds 0-19: the spending-sweep spread is exactly 0.0 in all twenty, the churn
-factor is 15.0 in all twenty, and the edge-opening jump ranges from x1.89 to
-x2.01.
+Every experiment script exits non-zero if a live criterion fails, so every
+published claim is re-checked on each commit rather than trusted.
+`.github/workflows/ci.yml` runs lint, the test suite, the stages that need no
+fetched data, and a check that `RESULTS.md` matches what the code currently
+produces. That last check is a byte comparison, which is why the rules in
+`CLAUDE.md` about wall-clock content, float formatting and machine-dependent
+values apply to anything a criterion writes into its detail string.
+
+Results are reproducible for a given seed, and every qualitative finding above
+was verified to hold across seeds 0-19: the spending-sweep spread is exactly 0.0
+in all twenty, the churn factor is 15.0 in all twenty, and the edge-opening jump
+ranges from x1.89 to x2.01.
 
 ---
 
 ## Repository layout
 
 ```
-src/monetary_topology/
+src/monetary_topology/   21 modules. The ones a reader starts from:
   config.py        all parameters, with sources and justifications
   economy.py       the block model (A0)
   network.py       the graph model and the intermediate layer (A2)
   topology.py      incidence operators, Betti number, Hodge split (A2c)
+  asset.py         the asset price channel and its gate (A3)
+  mechanisms.py    the four competitors and the demographic layer (A4)
+  redistribution.py  the levy, the rebate and the frontier ratchet (A6)
+  directed.py      one-way edges, friction and index (B4)
   calibration.py   the two presets, with series IDs and citations
   variants.py      config copying, so a sweep cannot re-default a field
-  plotting.py      figure style
-experiments/
-  a0_retention.py           figures 1-3, criteria A0-1..9
-  a0_derived_wages.py       figures 4-5, criteria A0b-1..6 under both presets
-  a2_support_contraction.py figures 6-8, criteria A2-1..8
-  a2c_cycle_structure.py    figures 9-10, criteria A2c-1..7
+experiments/     29 scripts, one per stage or diagnostic. A stage script
+                 writes results/<name>.json; a diagnostic writes nothing and
+                 says so in its first line
 scripts/
+  run_all.py           lints, tests, runs every stage, prints one digest
   render_results.py    regenerates RESULTS.md from results/*.json
-tests/
-  test_a0_economy.py        25 tests
-  test_a0b_derived_wages.py 26 tests
-  test_a2_network.py        68 tests
-  test_a2c_topology.py      28 tests
+tests/           25 files. Naming follows the stage, so `test_a4_*.py` are
+                 A4's guards and each asserts one claim its docstring states
 figures/         committed; they are the artefact
 results/         committed; machine-readable run records
 data/            not committed. SOURCES.md records provenance
@@ -812,12 +819,13 @@ contracts depends on parameter magnitudes and cannot be settled structurally.
 | A0b | derived demand on the downward edge | **complete, 6/6 under both presets** |
 | A2 | support-set contraction, and the intermediate layer | **complete, 8/8 over 12 graph seeds** |
 | A2c | cycle structure of the realized graph | **complete, 7/7** |
-| A3 | **the asset price channel** | **5/7**, [`docs/a3_asset_channel.md`](docs/a3_asset_channel.md) |
+| A3 | **the asset price channel** | closed, **3/4 live, 1 void, 2 diagnostic**, [`docs/a3_asset_channel.md`](docs/a3_asset_channel.md) |
 | A3b | the construction the channel opens from | complete, [`docs/a3b_initial_construction.md`](docs/a3b_initial_construction.md) |
-| A3c | which parts of A3 are load-bearing | complete, [`docs/a3_restated.md`](docs/a3_restated.md) |
+| A3c | which parts of A3 are load-bearing | complete, A3-8 **void**, [`docs/a3_restated.md`](docs/a3_restated.md) |
 | A5 | reachability against participation | **2/6**, [`docs/a5_reachability.md`](docs/a5_reachability.md) |
 | A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
-| A4 | four competitors on the causal primitive | **blocked, and the block is measured**, see below |
+| A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below |
+| A7 | continuous connectivity | availability check done, `experiments/a7a_continuous_c.py` |
 | A1 | default waterfall, calibrated to delinquency cross-sections | not started |
 
 **A3's two failures are reported rather than repaired, and they are different
@@ -830,12 +838,58 @@ criterion to measure. A3-6 is a real negative. It asks whether a stock exists
 and finds the holding population is 15.8 nodes of 200, none of them in the
 production layer.
 
-**A3-6 is also why A4 is blocked, and the block is the interesting part.** A4
-sets four competing accounts against each other on wealth, and A3-6 says the
-wealth is upstairs: A4's domain is 15.8 nodes and they are all in the financial
-layer, which describes stratification *within* that set rather than the
-economy's. That is a constraint on what A4 could establish, not a scheduling
-problem, and it is recorded here rather than discovered by a reader who runs it.
+**A3-6 was also why A4 was blocked, and A4 has since run and answered it a
+different way.** A4 sets four competing accounts against each other on wealth,
+and A3-6 says the wealth is upstairs: sixteen nodes of two hundred, all in the
+financial layer. The plan had been for A4 to inherit that stock. It does not.
+[`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) §10.4 rules that A4
+keeps the plain network and takes its stock from issuance instead, because the
+population A3's channel could hand it is that sixteen and no more.
+
+**A4 ran, and its discriminant could not be computed.** Not "failed": three of
+four live criteria pass and the two voids are voids on grounds registered before
+the run. The amplification ratio `A(X)` compares a competitor's effect with
+connectivity on against its effect with connectivity off, and no competitor is
+readable in both arms. Inheritance and assortative mating transmit dispersion
+without creating any, and the complete graph is an attractor at a Gini of
+`0.0071` reached in five rounds from any opening, so on that arm they have
+nothing to transmit. Education and capital returns create their own dispersion
+and are invisible on the stratified arm, where twenty nodes hold `99.7%` of the
+stock and any agent-level mechanism moves about `0.3%` of it. One of the two
+terms of every ratio is therefore a reading of the graph draw.
+
+Two repairs were registered in §11 before either was run, and both of the
+falsification conditions written down with them fired. Measuring on the
+production layer alone relieves the Gini ceiling by a factor of six and a half
+and still leaves education inside the noise floor. Measuring a transmitting
+mechanism on top of a generating one lifts the complete-graph denominator six to
+eight fold and still yields no sign-stable cell once the household pooling rule
+is set to settle at generations rather than every round. That last control
+matters on its own: at the registered rule, ninety-nine point six percent of what
+inheritance and assortative mating do on the stratified arm is a household
+straddling the layer boundary and acting as a zero-cost conduit across it, not
+the channel being measured.
+
+**What A4 does establish is A4-2 and A4-6.** With every competitor off and every
+agent identical, switching on nothing but the access structure takes the Gini
+from `0.00711` to `0.93673`. And the matching rule, which reads holdings and is
+guarded in code against seeing the layer label at all, pairs across the layer
+boundary `16.1%` of the time with connectivity on against `17.8%` with it off,
+where uniform random gives `18.1%`, at five of five seeds. Connectivity does not
+prevent anyone from marrying anyone. It arranges the holdings so that a rule
+which never mentions layers ends up respecting them.
+
+**A7 is what A4's failure points at.** The two arms of a binary `C` are not two
+settings of one economy, they are two economies with different state, and a ratio
+between them measures the state difference as much as the mechanism difference. A
+continuous `C` replaces that ratio with a slope along a path, which does not need
+both endpoints live at once. The availability check is done and the continuum is
+constructible: interpolating by edge addition takes the centrality dispersion from
+`0.161` to `0.000` monotonically with no cliff, the layer gap closes with it
+rather than surviving it, and both endpoints are exact rather than limits. It also
+lets `C` move one thing at a time, which the binary switch does not: `uniform_access`
+collapses the adjacency, the payroll incidence, the routing, the propensities and
+the opening holdings together, and the design notes say so.
 
 **A3 has been redefined and it is no longer a merge.** The original plan made it
 an integrated simulator that combined the earlier stages. That is now the wrong

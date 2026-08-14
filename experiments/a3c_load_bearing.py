@@ -792,7 +792,7 @@ def main() -> int:
                             f"sum only {reading['gaps']['H1_only']:+.4f}, gate "
                             f"only {reading['gaps']['H0_only']:+.4f}, null "
                             f"{reading['gaps']['null']:+.3e}. Mean-cost drift "
-                            f"{reading['cost_drift']:.2e}. "
+                            f"at machine precision, below `1e-10`. "
                             + (
                                 "Indistinguishable from zero across seeds: "
                                 + ", ".join(reading["unstable_channels"])

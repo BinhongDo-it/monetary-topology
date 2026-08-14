@@ -295,12 +295,24 @@ def theorem_5(rng: np.random.Generator, shapes: int) -> tuple[list[Criterion], d
                 if gap < lo - TOL or gap > hi + TOL:
                     interval_failures.append(("outside", n, u, v, gap, lo, hi))
 
+    if rays_tested:
+        print(
+            f"  B4-3 sink-ray violation {ray_worst:.3e} against {TOL:.0e} "
+            f"(not written to the record: machine-dependent rounding)"
+        )
+
     crits = [
         Criterion(
             "B4-3  Theorem 5: a sink component gives an unbounded ray",
             rays_tested > 0 and ray_worst <= TOL,
-            f"{rays_tested} graphs with a proper sink; worst violation over "
-            f"shifts up to {shifts.max():.0e} is {ray_worst:.3e}"
+            # `CLAUDE.md` rule 6, as for B4-7 and B4-8 below. The violation is
+            # machine epsilon amplified by the shift magnitude, which is why it
+            # reads `1e-11` rather than `1e-16`; its digits still come from the
+            # BLAS build. The shift magnitude itself is a design constant and
+            # stays.
+            f"{rays_tested} graphs with a proper sink; the worst violation "
+            f"over shifts up to {shifts.max():.0e} is at machine precision "
+            f"for that scale, below {TOL:.0e}"
             if rays_tested
             else "no graph with a proper sink was drawn; criterion vacuous",
         ),
@@ -451,18 +463,35 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
                         worst_friction_move, abs((s1 + r1) - (s0 + r0))
                     )
 
+    # `CLAUDE.md` rule 6. The three residuals below are deviations from an
+    # identity and sit at machine epsilon, so their last digits are a property
+    # of the BLAS build and writing them into `RESULTS.md`, which CI checks
+    # with `git diff --exit-code`, makes that check fail between machines on
+    # content that asserts the same thing. `worst_friction_move` is **not** one
+    # of them: it is the magnitude the criterion needs to be large, so it stays
+    # in the record.
+    for label, value in (
+        ("B4-7 |S+S' - friction|", worst_sum),
+        ("B4-7 |S-S' - index|", worst_diff),
+        ("B4-8 index invariance", worst_invariance),
+    ):
+        print(
+            f"  {label}: {value:.3e} against {TOL:.0e} "
+            f"(not written to the record: machine-dependent rounding)"
+        )
+
     return [
         Criterion(
             "B4-7  section 5.1: the directed square splits into friction and index",
             max(worst_sum, worst_diff) <= TOL,
-            f"worst |S+S' - friction| {worst_sum:.3e}, "
-            f"worst |S-S' - index| {worst_diff:.3e} over {cases} squares",
+            f"|S+S' - friction| and |S-S' - index| are both at machine "
+            f"precision, below `1e-10`, over {cases} squares",
         ),
         Criterion(
             "B4-8  section 5.1: a common spread moves the friction and not the index",
             worst_invariance <= TOL and worst_friction_move > TOL,
-            f"index unchanged to {worst_invariance:.3e}; friction moved by at "
-            f"least {worst_friction_move:.3e}",
+            f"index unchanged to machine precision, below `1e-10`; friction "
+            f"moved by at least {worst_friction_move:.3e}",
         ),
     ], {
         "cases": cases,

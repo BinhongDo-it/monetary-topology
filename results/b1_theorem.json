@@ -109,7 +109,7 @@
     {
       "name": "B1-1  a shared potential annihilates every cycle",
       "passed": true,
-      "detail": "largest |cycle sum| over squares and a spanning basis, across 8 shapes: 6.66e-16. Theorem 1, (1) implies (3)"
+      "detail": "largest |cycle sum| over squares and a spanning basis, across 8 shapes: below 1e-10, at machine epsilon. Theorem 1, (1) implies (3)"
     },
     {
       "name": "B1-2  the squares detect what no single agent can see",
@@ -119,7 +119,7 @@
     {
       "name": "B1-3  the path integral reconstructs the potential",
       "passed": true,
-      "detail": "largest |d0 psi - omega| over every edge after integrating along a spanning tree: 8.88e-16. Theorem 1, (3) implies (2)"
+      "detail": "largest |d0 psi - omega| over every edge after integrating along a spanning tree: below 1e-10, at machine epsilon. Theorem 1, (3) implies (2)"
     },
     {
       "name": "B1-4  the generating set spans the cycle space",
@@ -134,7 +134,7 @@
     {
       "name": "B1-6  stage B2's within term is the holonomy of the squares",
       "passed": true,
-      "detail": "over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a worst relative error of 1.07e-15; in aggregate 0.33793923 against 0.33793923, relative 1.64e-16. 4 cells above 2,000 loans were held out because enumeration is quadratic"
+      "detail": "over 500 real cells holding 25,942 loans, the mean squared four-cycle sum computed by enumeration matches 2*Var to a relative error at machine precision, below `1e-10`, both per cell and in aggregate: 0.33793923 against 0.33793923. 4 cells above 2,000 loans were held out because enumeration is quadratic"
     },
     {
       "name": "B1-7  one agent class reproduces the one-index case exactly",

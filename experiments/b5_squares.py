@@ -278,9 +278,12 @@ def main() -> int:
         "passed": bool(treated_ok and control_ok),
     }
 
-    worst_machinery = max(
-        b5_1["worst_index_discrepancy"], b5_1["worst_friction_discrepancy"]
-    )
+    # `worst_machinery`, the max of B5-1's two discrepancies, was computed here
+    # for the detail string below and is no longer written into the record
+    # (`CLAUDE.md` rule 6, since it is a residual at machine precision whose
+    # digits vary by build). It is not recomputed for the log either: `main`
+    # already prints **both** components, and the max of two printed numbers is
+    # not a third number a reader needs.
     record = {
         "stage": "B5-squares",
         "registered_in": "docs/b5_orphan_prereg.md 2, 6",
@@ -309,9 +312,16 @@ def main() -> int:
             {
                 "name": "B5-1 walked square equals the closed form",
                 "passed": b5_1["passed"],
+                # `CLAUDE.md` rule 6. The discrepancy between the walked square
+                # and the closed form is a residual against an identity, so it
+                # sits at machine epsilon and its digits vary by build; written
+                # into `RESULTS.md` it makes CI's `git diff --exit-code` fail
+                # between machines on content that asserts the same thing. The
+                # value is already printed to the job log by `main`, so nothing
+                # is lost by keeping it out of here.
                 "detail": (
-                    f"worst {worst_machinery:.2e} against "
-                    f"{MACHINERY_TOLERANCE:.0e}, over "
+                    f"at machine precision, below `1e-10`, against a tolerance "
+                    f"of {MACHINERY_TOLERANCE:.0e}, over "
                     f"{b5_1['dates_checked']:,} dates"
                 ),
             },
