@@ -50,6 +50,17 @@ EXPERIMENTS = [
         "experiments/a6_siphon_cost.py",
         "a6_siphon_cost.json",
     ),
+    # About ninety seconds, which is an order more than everything above it and
+    # two orders less than `SLOW_STAGES`. It sits here because A4 is a stage
+    # whose verdicts belong in the default digest, and because most of the cost
+    # is A4-5's three alternative orderings, which are a criterion rather than a
+    # robustness extra: a criterion evaluated only behind a flag is not
+    # evaluated.
+    (
+        "A4   the causal primitive",
+        "experiments/a4_causal_primitive.py --json",
+        "a4_causal_primitive.json",
+    ),
 ]
 
 #: Stages slow enough that putting them in the default run would change what
@@ -147,6 +158,17 @@ EXPECTED_FAILURES = {
         "the same split as A6-10, on the same two cells, and the same "
         "resolution: A6-21 asks the answerable form of it"
     ),
+    "A4-3 no competitor is a strawman": (
+        "all four competitors fail the 0.02 floor on the C=0 arm, the largest "
+        "being education at +0.00932. The floor is in absolute Gini units "
+        "against a C=0 control that sits at 0.00711, so it asks each "
+        "competitor for 2.8 times the control's whole value; education clears "
+        "35.6 control-cell sd and still misses it. The threshold is registered "
+        "and is not moved on that account, and MechanismParams keeps every "
+        "value, including the claim in its own docstring that they were set to "
+        "clear this floor, which stands as falsified rather than repaired. "
+        "docs/a4_causal_primitive.md 11.2, 11.7"
+    ),
 }
 
 #: B1 without its real-data criterion, so a checkout with no download still
@@ -187,6 +209,18 @@ def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
     The fourth element exists so that a criterion on ``EXPECTED_FAILURES``
     which has started passing can be told apart from one that was not run at
     all. Those are different events and only one of them is a finding.
+
+    **Voids and diagnostics are excluded from all four, corrected 2026-08-13.**
+    A criterion the run could not evaluate is not a criterion the run failed,
+    and one demoted to a diagnostic decides nothing by construction. Counting
+    them here reported every void as an unexpected failure and put it in the
+    denominator, so a stage with four live passes and two voids printed as
+    ``4/6`` with two ``FAILED:`` lines under it. `render_results.py`'s
+    ``mark_of`` and ``render_block`` already draw exactly this distinction and
+    say so in their own docstrings; this file was the half that had not been
+    brought over, so the digest and `RESULTS.md` disagreed about the same
+    record. A3 and A6 both move as a result, in the direction of reporting
+    fewer failures than before, and no verdict changes.
     """
     if not path.exists():
         return 0, 0, ["no result file"], []
@@ -200,11 +234,16 @@ def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
             for v in record.values()
             if isinstance(v, dict) and "criteria" in v
         )
-    passed = sum(c["passed"] for b in blocks for c in b)
-    total = sum(len(b) for b in blocks)
-    failed = [c["name"] for b in blocks for c in b if not c["passed"]]
-    seen = [c["name"] for b in blocks for c in b]
-    return passed, total, failed, seen
+    live = [
+        c
+        for b in blocks
+        for c in b
+        if not (c.get("void") or c.get("diagnostic"))
+    ]
+    passed = sum(c["passed"] for c in live)
+    failed = [c["name"] for c in live if not c["passed"]]
+    seen = [c["name"] for c in live]
+    return passed, len(live), failed, seen
 
 
 def main() -> int:

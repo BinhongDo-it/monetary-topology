@@ -1,0 +1,668 @@
+{
+  "stage": "A4",
+  "seeds": 5,
+  "rounds": 300,
+  "parameters": {
+    "issuance_rule": "endogenous",
+    "injection_target": "top_node",
+    "uniform_opening": "same_marginal",
+    "pooling": "round",
+    "channel_order": "capital_first",
+    "event_order": "inherit_first",
+    "readable_sd": 1.0
+  },
+  "cells": {
+    "C1_none": {
+      "gini": 0.936731,
+      "holders": 13.751484,
+      "gini_prod": 0.594896,
+      "holders_prod": 69.995975,
+      "cross_layer": null
+    },
+    "C1_I": {
+      "gini": 0.765975,
+      "holders": 37.633611,
+      "gini_prod": 0.696465,
+      "holders_prod": 44.060941,
+      "cross_layer": 0.1815
+    },
+    "C1_E": {
+      "gini": 0.936746,
+      "holders": 13.751383,
+      "gini_prod": 0.601986,
+      "holders_prod": 68.983695,
+      "cross_layer": null
+    },
+    "C1_K": {
+      "gini": 0.936806,
+      "holders": 13.733853,
+      "gini_prod": 0.594858,
+      "holders_prod": 69.9969,
+      "cross_layer": null
+    },
+    "C1_M": {
+      "gini": 0.786346,
+      "holders": 35.217061,
+      "gini_prod": 0.725504,
+      "holders_prod": 40.129726,
+      "cross_layer": 0.161
+    },
+    "C1_E+I": {
+      "gini": 0.750871,
+      "holders": 41.306991,
+      "gini_prod": 0.683726,
+      "holders_prod": 49.972383,
+      "cross_layer": 0.185
+    },
+    "C1_E+M": {
+      "gini": 0.786472,
+      "holders": 36.316215,
+      "gini_prod": 0.734102,
+      "holders_prod": 40.876238,
+      "cross_layer": 0.1645
+    },
+    "C1_K+I": {
+      "gini": 0.750139,
+      "holders": 41.309652,
+      "gini_prod": 0.682402,
+      "holders_prod": 50.052934,
+      "cross_layer": 0.185
+    },
+    "C1_K+M": {
+      "gini": 0.786679,
+      "holders": 36.288741,
+      "gini_prod": 0.734477,
+      "holders_prod": 40.816926,
+      "cross_layer": 0.1645
+    },
+    "C0_none": {
+      "gini": 0.007112,
+      "holders": 199.969315,
+      "gini_prod": 0.007138,
+      "holders_prod": 179.972184,
+      "cross_layer": null
+    },
+    "C0_I": {
+      "gini": 0.007183,
+      "holders": 199.968518,
+      "gini_prod": 0.007228,
+      "holders_prod": 179.971338,
+      "cross_layer": 0.1815
+    },
+    "C0_E": {
+      "gini": 0.016434,
+      "holders": 199.801189,
+      "gini_prod": 0.016492,
+      "holders_prod": 179.822783,
+      "cross_layer": null
+    },
+    "C0_K": {
+      "gini": 0.007916,
+      "holders": 199.961597,
+      "gini_prod": 0.007942,
+      "holders_prod": 179.965213,
+      "cross_layer": null
+    },
+    "C0_M": {
+      "gini": 0.007052,
+      "holders": 199.969677,
+      "gini_prod": 0.007081,
+      "holders_prod": 179.972479,
+      "cross_layer": 0.178
+    },
+    "C0_E+I": {
+      "gini": 0.014932,
+      "holders": 199.822469,
+      "gini_prod": 0.014978,
+      "holders_prod": 179.839478,
+      "cross_layer": 0.185
+    },
+    "C0_E+M": {
+      "gini": 0.014898,
+      "holders": 199.818012,
+      "gini_prod": 0.01495,
+      "holders_prod": 179.835282,
+      "cross_layer": 0.1835
+    },
+    "C0_K+I": {
+      "gini": 0.007492,
+      "holders": 199.965566,
+      "gini_prod": 0.007542,
+      "holders_prod": 179.968591,
+      "cross_layer": 0.185
+    },
+    "C0_K+M": {
+      "gini": 0.007597,
+      "holders": 199.964565,
+      "gini_prod": 0.007658,
+      "holders_prod": 179.967588,
+      "cross_layer": 0.1835
+    }
+  },
+  "resolution": [
+    {
+      "arm": "C=1",
+      "base": "null",
+      "competitor": "education",
+      "stock_moved": 0.000406,
+      "gini": {
+        "effect": 1.5e-05,
+        "floor": 0.004685,
+        "sd": 0.0,
+        "sign_stable": false
+      },
+      "holders": {
+        "effect": -0.000101,
+        "floor": 0.959143,
+        "sd": 0.0,
+        "sign_stable": false
+      },
+      "gini_prod": {
+        "effect": 0.00709,
+        "floor": 0.009768,
+        "sd": 0.73,
+        "sign_stable": false
+      },
+      "holders_prod": {
+        "effect": -1.01228,
+        "floor": 3.276844,
+        "sd": 0.31,
+        "sign_stable": false
+      }
+    },
+    {
+      "arm": "C=1",
+      "base": "null",
+      "competitor": "capital",
+      "stock_moved": 0.003516,
+      "gini": {
+        "effect": 7.5e-05,
+        "floor": 0.004685,
+        "sd": 0.02,
+        "sign_stable": false
+      },
+      "holders": {
+        "effect": -0.017631,
+        "floor": 0.959143,
+        "sd": 0.02,
+        "sign_stable": false
+      },
+      "gini_prod": {
+        "effect": -3.9e-05,
+        "floor": 0.009768,
+        "sd": 0.0,
+        "sign_stable": false
+      },
+      "holders_prod": {
+        "effect": 0.000925,
+        "floor": 3.276844,
+        "sd": 0.0,
+        "sign_stable": false
+      }
+    },
+    {
+      "arm": "C=1",
+      "base": "null",
+      "competitor": "inheritance",
+      "stock_moved": 0.441496,
+      "gini": {
+        "effect": -0.170756,
+        "floor": 0.004685,
+        "sd": 36.45,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": 23.882127,
+        "floor": 0.959143,
+        "sd": 24.9,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.101569,
+        "floor": 0.009768,
+        "sd": 10.4,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -25.935034,
+        "floor": 3.276844,
+        "sd": 7.91,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=1",
+      "base": "null",
+      "competitor": "mating",
+      "stock_moved": 0.41546,
+      "gini": {
+        "effect": -0.150384,
+        "floor": 0.004685,
+        "sd": 32.1,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": 21.465576,
+        "floor": 0.959143,
+        "sd": 22.38,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.130608,
+        "floor": 0.009768,
+        "sd": 13.37,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -29.866249,
+        "floor": 3.276844,
+        "sd": 9.11,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=1",
+      "base": "E",
+      "competitor": "inheritance",
+      "stock_moved": 0.460283,
+      "gini": {
+        "effect": -0.185875,
+        "floor": 0.004718,
+        "sd": 39.4,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": 27.555608,
+        "floor": 0.960686,
+        "sd": 28.68,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.081739,
+        "floor": 0.009111,
+        "sd": 8.97,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -19.011312,
+        "floor": 1.980675,
+        "sd": 9.6,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=1",
+      "base": "K",
+      "competitor": "inheritance",
+      "stock_moved": 0.461182,
+      "gini": {
+        "effect": -0.186667,
+        "floor": 0.004552,
+        "sd": 41.0,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": 27.575798,
+        "floor": 0.933186,
+        "sd": 29.55,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.087545,
+        "floor": 0.009639,
+        "sd": 9.08,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -19.943966,
+        "floor": 3.278189,
+        "sd": 6.08,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=1",
+      "base": "E",
+      "competitor": "mating",
+      "stock_moved": 0.424771,
+      "gini": {
+        "effect": -0.150274,
+        "floor": 0.004718,
+        "sd": 31.85,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": 22.564832,
+        "floor": 0.960686,
+        "sd": 23.49,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.132116,
+        "floor": 0.009111,
+        "sd": 14.5,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -28.107457,
+        "floor": 1.980675,
+        "sd": 14.19,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=1",
+      "base": "K",
+      "competitor": "mating",
+      "stock_moved": 0.424889,
+      "gini": {
+        "effect": -0.150127,
+        "floor": 0.004552,
+        "sd": 32.98,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": 22.554888,
+        "floor": 0.933186,
+        "sd": 24.17,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.139619,
+        "floor": 0.009639,
+        "sd": 14.48,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -29.179975,
+        "floor": 3.278189,
+        "sd": 8.9,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "null",
+      "competitor": "education",
+      "stock_moved": 0.010325,
+      "gini": {
+        "effect": 0.009322,
+        "floor": 0.000262,
+        "sd": 35.62,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": -0.168126,
+        "floor": 0.002085,
+        "sd": 80.64,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.009354,
+        "floor": 0.000223,
+        "sd": 41.86,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -0.149401,
+        "floor": 0.001601,
+        "sd": 93.31,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "null",
+      "competitor": "capital",
+      "stock_moved": 0.002204,
+      "gini": {
+        "effect": 0.000804,
+        "floor": 0.000262,
+        "sd": 3.07,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": -0.007718,
+        "floor": 0.002085,
+        "sd": 3.7,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": 0.000804,
+        "floor": 0.000223,
+        "sd": 3.6,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": -0.006971,
+        "floor": 0.001601,
+        "sd": 4.35,
+        "sign_stable": true
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "null",
+      "competitor": "inheritance",
+      "stock_moved": 0.003883,
+      "gini": {
+        "effect": 7.1e-05,
+        "floor": 0.000262,
+        "sd": 0.27,
+        "sign_stable": false
+      },
+      "holders": {
+        "effect": -0.000797,
+        "floor": 0.002085,
+        "sd": 0.38,
+        "sign_stable": false
+      },
+      "gini_prod": {
+        "effect": 9e-05,
+        "floor": 0.000223,
+        "sd": 0.4,
+        "sign_stable": false
+      },
+      "holders_prod": {
+        "effect": -0.000846,
+        "floor": 0.001601,
+        "sd": 0.53,
+        "sign_stable": false
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "null",
+      "competitor": "mating",
+      "stock_moved": 0.003651,
+      "gini": {
+        "effect": -6e-05,
+        "floor": 0.000262,
+        "sd": 0.23,
+        "sign_stable": false
+      },
+      "holders": {
+        "effect": 0.000362,
+        "floor": 0.002085,
+        "sd": 0.17,
+        "sign_stable": false
+      },
+      "gini_prod": {
+        "effect": -5.7e-05,
+        "floor": 0.000223,
+        "sd": 0.25,
+        "sign_stable": false
+      },
+      "holders_prod": {
+        "effect": 0.000295,
+        "floor": 0.001601,
+        "sd": 0.18,
+        "sign_stable": false
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "E",
+      "competitor": "inheritance",
+      "stock_moved": 0.015051,
+      "gini": {
+        "effect": -0.001502,
+        "floor": 0.000879,
+        "sd": 1.71,
+        "sign_stable": false
+      },
+      "holders": {
+        "effect": 0.02128,
+        "floor": 0.028411,
+        "sd": 0.75,
+        "sign_stable": false
+      },
+      "gini_prod": {
+        "effect": -0.001514,
+        "floor": 0.000738,
+        "sd": 2.05,
+        "sign_stable": true
+      },
+      "holders_prod": {
+        "effect": 0.016695,
+        "floor": 0.018969,
+        "sd": 0.88,
+        "sign_stable": false
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "K",
+      "competitor": "inheritance",
+      "stock_moved": 0.005306,
+      "gini": {
+        "effect": -0.000424,
+        "floor": 0.000225,
+        "sd": 1.89,
+        "sign_stable": true
+      },
+      "holders": {
+        "effect": 0.003969,
+        "floor": 0.002168,
+        "sd": 1.83,
+        "sign_stable": true
+      },
+      "gini_prod": {
+        "effect": -0.0004,
+        "floor": 0.000283,
+        "sd": 1.41,
+        "sign_stable": false
+      },
+      "holders_prod": {
+        "effect": 0.003378,
+        "floor": 0.002439,
+        "sd": 1.39,
+        "sign_stable": false
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "E",
+      "competitor": "mating",
+      "stock_moved": 0.014614,
+      "gini": {
+        "effect": -0.001535,
+        "floor": 0.000879,
+        "sd": 1.75,
+        "sign_stable": false
+      },
+      "holders": {
+        "effect": 0.016822,
+        "floor": 0.028411,
+        "sd": 0.59,
+        "sign_stable": false
+      },
+      "gini_prod": {
+        "effect": -0.001542,
+        "floor": 0.000738,
+        "sd": 2.09,
+        "sign_stable": false
+      },
+      "holders_prod": {
+        "effect": 0.012499,
+        "floor": 0.018969,
+        "sd": 0.66,
+        "sign_stable": false
+      }
+    },
+    {
+      "arm": "C=0",
+      "base": "K",
+      "competitor": "mating",
+      "stock_moved": 0.005168,
+      "gini": {
+        "effect": -0.000319,
+        "floor": 0.000225,
+        "sd": 1.42,
+        "sign_stable": false
+      },
+      "holders": {
+        "effect": 0.002968,
+        "floor": 0.002168,
+        "sd": 1.37,
+        "sign_stable": false
+      },
+      "gini_prod": {
+        "effect": -0.000284,
+        "floor": 0.000283,
+        "sd": 1.01,
+        "sign_stable": false
+      },
+      "holders_prod": {
+        "effect": 0.002375,
+        "floor": 0.002439,
+        "sd": 0.97,
+        "sign_stable": false
+      }
+    }
+  ],
+  "criteria": [
+    {
+      "name": "A4-1 null calibration: identical agents on a complete graph do not stratify",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "C=0 all competitors off, Gini 0.00711 against a ceiling of 0.02. Production layer 0.00714. Spread across seeds 0.00026."
+    },
+    {
+      "name": "A4-2 connectivity alone is sufficient",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "Gini 0.93673 against 0.00711, gap +0.92962 against a floor of 0.05, and the sign holds at 5 of 5 seeds. Production layer 0.59490 against 0.00714."
+    },
+    {
+      "name": "A4-3 no competitor is a strawman",
+      "passed": false,
+      "void": false,
+      "diagnostic": false,
+      "detail": "Each competitor alone with C off, Gini rise over the null against a floor of 0.02: I +0.00007, E +0.00932, K +0.00080, M -0.00006. Below the floor: I, E, K, M. The floor is in absolute Gini units and the C=0 control sits at 0.00711, so it asks each competitor for 2.8 times the control's whole value; the threshold is registered and is not moved on that account. Education's rise is 35.6 control-cell sd and still below it."
+    },
+    {
+      "name": "A4-4 connectivity is upstream",
+      "passed": false,
+      "void": true,
+      "diagnostic": false,
+      "detail": "**Void on two independent grounds and not evaluated.** \u00a77's table: A4-3 fails for 4 of four competitors, and a failed strawman floor makes that competitor's comparison void rather than favourable. \u00a711.8's rule: A(X) is a ratio across the two arms and no competitor is readable in both, so one of its two terms is a reading of the graph draw in every case. Readable Gini cells: C=0/K/I, C=0/null/E, C=0/null/K, C=1/E/I, C=1/E/M, C=1/K/I, C=1/K/M, C=1/null/I, C=1/null/M. Ratios whose per-seed sign happens to agree: I|K = 440.7 (denominator -0.00042), and each rests on a denominator inside two control-cell sd, so the agreement is five draws landing the same way rather than a quantity."
+    },
+    {
+      "name": "A4-5 the update order does not decide it",
+      "passed": false,
+      "void": true,
+      "diagnostic": false,
+      "detail": "**Void: A4-4 has no result for an ordering to preserve or overturn.** What was run in its place, on all four combinations of channel order and event order, and is reported: the set of cells clearing \u00a711.2's floor, and the three verdicts that do not pass through A(X). Registered set has 35 cells; orderings whose set differs: capital_first/match_first (12 cells differ), pooling_first/inherit_first (2 cells differ), pooling_first/match_first (6 cells differ). A4-1, A4-2 and A4-6 evaluated on every alternative run; orderings where any of the three flips: none."
+    },
+    {
+      "name": "A4-6 caste is derived from holdings, not read off the layer",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "Matching reads holdings and never the layer label. Cross-layer pairing rate with M on: C=1 0.1610 against C=0 0.1780, uniform-random reference 0.1809, and C=1 is lower at 5 of 5 seeds. On \u00a711.5's based cells the same direction holds and wider: E+M 0.1645 against 0.1835, K+M 0.1645 against 0.1835. This criterion reads a rate directly and takes no ratio across arms, which is why \u00a711's collapse does not reach it."
+    }
+  ]
+}
