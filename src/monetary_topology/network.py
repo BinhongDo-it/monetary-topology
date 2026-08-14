@@ -102,6 +102,7 @@ load-bearing -- and this one is reported the same way if it holds.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from dataclasses import replace as _dc_replace
 
 import numpy as np
 
@@ -112,6 +113,76 @@ from .config import LAYER_1, LAYER_2, MonetaryAuthority, SpendRule, WageChannel
 #: silently depend on the scale of the initial claim stock. Swept for robustness
 #: in the experiment; the qualitative result must not depend on its value.
 DEFAULT_EPSILON = 1e-4
+
+#: How the opening holdings are set in the arm where ``uniform_access`` is on.
+#:
+#: ``flat`` is an equal split and is what every result before 2026-08-13 was
+#: produced under, so it remains the default and reproduces those bitwise.
+#:
+#: ``same_marginal`` gives that arm the **same multiset of opening holdings**
+#: the stratified arm would produce, assigned at random rather than by layer and
+#: in-degree. `docs/a4_causal_primitive.md` section 9.3 is the defect this
+#: exists for and section 9.3a is why it is a switch rather than a repair.
+#:
+#: The distinction matters because the two things ``uniform_access`` collapses
+#: are not equally licensed. A complete graph genuinely has no layers to define
+#: an adjacency, a payroll incidence or a spending propensity by, so collapsing
+#: those follows from the switch. **Holdings do not follow.** They can be drawn
+#: from the same marginal without reference to any layer, and flattening them
+#: makes the null arm start perfectly equal, which pins the denominator of every
+#: transmitting mechanism near zero by construction rather than by anything
+#: about the mechanism. Inheritance and assortative mating transmit and sort
+#: dispersion without creating any, so on a perfectly equal opening they have
+#: nothing to act on whatever the routing does.
+#:
+#: Under ``uniform_access = False`` this field reaches no code at all, which is
+#: asserted rather than argued in ``tests/test_a4_uniform_opening.py``.
+OPENING_HOLDINGS: tuple[str, ...] = ("flat", "same_marginal")
+
+#: Offset for the permutation that assigns the stratified marginal at random.
+#: A fresh constant, so the assignment cannot correlate with the payroll
+#: receiver order, which draws on ``seed + 4241``.
+_OPENING_PERMUTATION_OFFSET = 9301
+
+#: Where newly issued claims are credited. ``PROJECT_PLAN.md`` §16.2 registers
+#: both arms as the two readings of the source's own claim that money is
+#: non-neutral because the path and the injection point decide everything. Only
+#: the first was ever implemented.
+#:
+#: ``"top_node"``
+#:     The financial-layer node of highest in-degree, which is what
+#:     ``self.injection_node`` has always been and what every number in this
+#:     repository was produced under. This is the default and it reproduces
+#:     bitwise.
+#:
+#: ``"uniform"``
+#:     An equal per-head credit to every node. Helicopter money, and the arm
+#:     §16.2 named and nobody wrote.
+#:
+#: **Why this is a switch and not a robustness afterthought.**
+#: ``experiments/a4a_domain_probe.py --probe injection`` measures what the
+#: existing arm delivers downstairs, and the answer is **bitwise zero**. Over
+#: three hundred rounds the endogenous rule issues about ``3213`` against an
+#: opening stock of ``100``, a thirty-three-fold expansion, and the production
+#: layer's entire holdings history is `array_equal` to the same run with
+#: issuance off, at every seed, with derived demand on or off. The financial
+#: block differs, so the comparison is live rather than unwired.
+#:
+#: The reason is structural rather than incidental. The credit lands on one
+#: node inside layer 1, and the only downward edge is ``WageChannel.bill``, an
+#: **absolute** per-round flow whose elasticity feeds back on the production
+#: layer's *own* spending rather than on the financial layer's stock. No edge in
+#: the model connects how much money sits upstairs to how much arrives
+#: downstairs. So the production layer's share falls from ``10.4%`` to ``0.3%``
+#: while its absolute holdings do not move at all.
+#:
+#: That kills §16.2's registered deliverable as it was written. "At what
+#: injection amount does ``A(X)`` cross one" presupposes that the amount reaches
+#: someone; on this arm no amount does, and the presupposition fails bitwise
+#: rather than by being small. The contrast §16.2 wanted survives in a sharper
+#: form: the two arms are zero and non-zero rather than two points on a dosage
+#: curve.
+INJECTION_TARGETS: tuple[str, ...] = ("top_node", "uniform")
 
 
 @dataclass(frozen=True)
@@ -210,6 +281,9 @@ class NetworkSpec:
     #: is what makes the bitwise reproduction of A2 checkable.
     uniform_access: bool = False
 
+    #: See ``OPENING_HOLDINGS``. Only read when ``uniform_access`` is on.
+    uniform_opening: str = "flat"
+
     @property
     def size(self) -> int:
         return self.layer1_size + self.intermediate_size + self.layer2_size
@@ -245,6 +319,11 @@ class NetworkSpec:
         return slice(self.layer1_size, self.size)
 
     def __post_init__(self) -> None:
+        if self.uniform_opening not in OPENING_HOLDINGS:
+            raise ValueError(
+                f"uniform_opening must be one of {OPENING_HOLDINGS}, "
+                f"got {self.uniform_opening!r}"
+            )
         if self.layer1_size < 2 or self.layer2_size < 2:
             raise ValueError("each layer needs at least two nodes")
         if self.downward_edges < 0:
@@ -281,6 +360,7 @@ class NetworkSpec:
             "preferential": self.preferential,
             "seed": self.seed,
             "uniform_access": self.uniform_access,
+            "uniform_opening": self.uniform_opening,
         }
         fields.update(changes)
         return NetworkSpec(**fields)  # type: ignore[arg-type]
@@ -456,6 +536,13 @@ class NetworkConfig:
     rounds: int = 300
     seed: int = 0
 
+    #: Where new claims land. See ``INJECTION_TARGETS``. It sits here rather
+    #: than on ``MonetaryAuthority`` because ``economy.py``'s block model shares
+    #: that dataclass and credits ``INJECTION_STRATUM`` instead of a node, so a
+    #: field there would be read by one model and silently ignored by the other,
+    #: which is the shape ``centrality_bins`` failed in.
+    injection_target: str = "top_node"
+
     #: Keep the full flow matrix every ``snapshot_every`` rounds, for stage A2c
     #: to compute cycle structure on. Zero keeps nothing, which is the default:
     #: the matrices are large and no earlier stage needs them.
@@ -470,6 +557,11 @@ class NetworkConfig:
             raise ValueError("rounds must be >= 1")
         if self.snapshot_every < 0:
             raise ValueError("snapshot_every must be non-negative")
+        if self.injection_target not in INJECTION_TARGETS:
+            raise ValueError(
+                f"injection_target must be one of {INJECTION_TARGETS}, "
+                f"got {self.injection_target!r}"
+            )
 
 
 def effective_support(inflow: np.ndarray) -> float:
@@ -696,7 +788,32 @@ class Network:
             # constant to weight by. Both collapse to an equal split. The total
             # is unchanged, so the null arm starts with the same claim stock as
             # every other arm and differs only in its concentration.
-            self.holdings[:] = config.initial_claims / n
+            #
+            # `uniform_opening` decides whether that last sentence is the
+            # intended design or a defect. See `OPENING_HOLDINGS` and
+            # `docs/a4_causal_primitive.md` section 9.3.
+            if spec.uniform_opening == "flat":
+                self.holdings[:] = config.initial_claims / n
+            else:
+                # The stratified arm's own opening vector, then permuted.
+                #
+                # **Built by constructing that arm rather than by recomputing
+                # its formula here.** The first attempt weighted by
+                # ``build_graph(spec).sum(axis=0)`` and was wrong, because the
+                # stratified arm weights by ``self.adjacency``, which is
+                # ``build_graph(config.spec, wage_edges=wage_mask)`` and folds
+                # the payroll incidence in. Two lines that look like the same
+                # in-degree are not, and a copy of the formula here would go
+                # stale the first time the other one changes. The twin cannot
+                # recurse: it has ``uniform_access`` off, so it takes the branch
+                # below and never reaches this one.
+                twin = Network(
+                    _dc_replace(config, spec=spec.replace(uniform_access=False))
+                )
+                order = np.random.default_rng(
+                    spec.seed + _OPENING_PERMUTATION_OFFSET
+                ).permutation(n)
+                self.holdings[:] = np.asarray(twin.holdings, dtype=float)[order]
         else:
             for nodes, share in (
                 (self._l1, config.layer1_initial_share),
@@ -825,7 +942,13 @@ class Network:
             self._pre_round(t)
             issued = self._pending_issuance
             if issued:
-                self.holdings[self.injection_node] += issued
+                # `top_node` is the line this branch replaced, unchanged, so the
+                # default path is the previous behaviour and not a
+                # reimplementation of it. See `INJECTION_TARGETS`.
+                if cfg.injection_target == "top_node":
+                    self.holdings[self.injection_node] += issued
+                else:
+                    self.holdings += issued / n
                 self._total_claims += issued
             self._pending_issuance = 0.0
 

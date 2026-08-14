@@ -267,6 +267,31 @@ agent classes, with terms set bilaterally rather than read off a public vector.
 The last row is a pure hole: below the accreditation threshold the edge is absent
 at any price, so it contributes to `H¹` rather than to the curl.
 
+**Sharpened 2026-08-13.** "Contributes to `H¹`" is only defined once a complex is
+fixed, and this sentence predates the one [`b1_theorem.md`](b1_theorem.md) §12
+settles on. On the square complex of `Γ`, deleting an edge has two possible
+effects and they are different claims:
+
+- **Puncture.** The graph stays connected, but every square that contained the
+  deleted edge dies with it, so `rank ∂₂` falls further than `b₁` does and
+  `dim H¹` **rises**. Measured on a filled 5×6 grid, deleting one interior edge
+  moves `b₁` 20 → 19, `rank ∂₂` 20 → 18, `c` unchanged, `dim H¹` 0 → 1.
+- **Disconnection.** The graph falls into components: `c` rises and `b₁` is
+  unchanged. That is `H⁰`. Measured on a dumbbell, deleting the bridge moves
+  `c` 1 → 2 with `b₁` fixed at 2.
+
+**The test is whether `Γ` is still connected after the deletion.** The
+accreditation row is a puncture: a class that cannot reach the equity position
+still reaches everything else, and other classes still reach equity, so nothing
+disconnects and the sentence above stands. The non-assumable mortgage of
+[`b1_theorem.md`](b1_theorem.md) §8 is a disconnection, which is why §12.1 rejects
+filing *it* under `H¹` and hands it to loop B. The two holes are different objects
+and carry different arguments; only the second one is `H⁰`.
+
+On the bare graph, with no 2-cells, neither statement is available: every
+1-cochain is closed there, `dim H¹ = b₁`, and deleting edges only lowers it. So
+any claim of this shape has to name its complex first.
+
 The first row is the one to do first. It holds the position, the market, the
 quality and the unit fixed and varies only the holder, so it isolates the two-index
 structure with nothing else moving, and it needs no revaluation term, which is the
@@ -297,6 +322,25 @@ as a separate mechanism. Separately, on a domain with `H¹ ≠ 0` no global pote
 exists even where the curl vanishes everywhere. Machinery exists and can be
 borrowed: Ilinski's gauge theory of arbitrage, Farinelli's geometric arbitrage
 theory.
+
+**Located 2026-08-13.** That second sentence was written as a separate
+speculative channel. It now has an address, and it is not separate.
+
+On `Γ` with its squares filled, [`b1_theorem.md`](b1_theorem.md) §12 gives
+`H¹(Γ) ≅ H¹(G) ⊕ H¹(H)`. So whenever `G` carries a cycle, a field that is zero on
+every square and non-zero on a slice cycle is closed and not exact: the curl
+vanishes everywhere and no potential exists. **That is exactly the slice summand
+of Theorem 2.** §11.1's B1-8 exhibits one deliberately, and an independent check
+on a four-position `G` with `b₁(G) = 2` and three classes reproduces it: every
+square sum exactly `0.000e+00`, slice sums `2.14`, residual against exactness
+`3.43`.
+
+Two consequences. The sentence is not a second speculative route to
+non-integrability, it is the summand the mortgage carrier provably cannot reach
+(Corollary 2) and covered-parity deviations can, which is why §9 orders FX after
+loop B rather than dropping it. And §12's "the harmonic component is identically
+zero" is scoped to the fields this project has run so far, not to `Γ` in general;
+§12 and §11.1 both say so, and this paragraph is the reason that scoping matters.
 
 **Will not.** It will not say the gain is large, that anyone is behaving badly,
 that markets fail to clear, or that a planner would do better. It will say a single
