@@ -35,10 +35,10 @@ not. So the next session implements a thing with that name, and then finds a
 
 ---
 
-## Eight failure modes, each with an instance in this repository
-（八种失败模式，每一种都有本仓库的实例）
+## Nine failure modes, each with an instance in this repository
+（九种失败模式，每一种都有本仓库的实例）
 
-### 1. Window error　(four instances)　（窗口错，四次）
+### 1. Window error　(five instances, and the fifth is a guard's own label)　（窗口错，五次，第五次错在守卫自己的标签上）
 
 **Symptom**: the size or the sign of the number is decided by **how long a
 stretch was measured** rather than by the mechanism.
@@ -51,6 +51,7 @@ stretch was measured** rather than by the mechanism.
 | A3-4 v2, sign flipped on 4 of 5 seeds | The four-cycle **enters and leaves at the same points**, while an agent who trades less holds each unit longer, so appreciation swamps the terms. | A3-4 v2，符号 5 个种子翻 4 个：四圈是**同进同出**的，而交易少的人每笔持有更久、涨幅盖过条款 |
 | A5-4, "crossing at round 1" | The origin of the series sits two steps away from the configured value, so the configured value was never observed. | A5-4「第 1 轮穿越」：序列的原点比配置值远两步，配置的值从未被观测 |
 | A6-1, tail slope `+1.1e-05` while the support fell 27% | The slope answers "is it still contracting". The question was "did it contract". | A6-1，尾部斜率 `+1.1e-05` 而支撑集掉 27%：斜率答「还在不在收缩」，问题是「收缩过没有」 |
+| A5 cap probe, an arm printed `INERT` | The comparison was of **opening allocations** and the word carried no time. The same arm was bitwise identical in all thirty opening cells and different in all thirty at the end of the run. | A5 上限诊断印 `INERT`：比的是**开盘分配**，而那个词不带时间。同一条臂在三十个开盘格上逐位相同，在三十个跑完格上全部不同 |
 
 **Rule**: **write down the time quantifier in the claim first, then choose the
 window.** "Per trade", "per period", "cumulative" and "end of period against
@@ -60,6 +61,21 @@ of rounds.
 
 （**规则**：**先写下主张里的时间量词，再选窗口。** 「每笔」「每期」「累计」「期末对开
 局」是四个不同的量。若主张是「每笔」，度量的分母必须是笔数不是轮数。）
+
+**And the rule binds a guard's output as tightly as a criterion's.** The fifth
+instance is not a mismeasurement: the arrays compared were the right arrays and
+the comparison was correct. What carried no time quantifier was **the word
+printed over it**. `INERT` is a verdict about whether a switch reaches code, and
+a switch can reach no code on the first day and a great deal of it over three
+hundred rounds. A guard that prints an unqualified verdict is asserting a
+quantifier it did not check, and the reader has no way to see that from the
+output. **Scope the word, or compare at every time the word claims to cover.**
+
+（**而这条规则约束守卫的输出，和约束判据一样紧。** 第五个实例不是量错了：比的数组是对的，
+比法也是对的。**没带时间量词的是印在它上面的那个词。** `INERT` 是一个关于「开关有没有接到
+代码」的判词，而一个开关完全可以第一天碰不到任何代码、三百轮里碰到很多。守卫印一个不带
+限定的判词，就是在断言一个它没有查过的量词，而读者从输出里看不出这件事。**要么给那个词
+加作用域，要么在它声称覆盖的每个时点上都比一遍。**）
 
 ### 2. Granularity error　(one instance, and the deepest)　（粒度错，一次，但最深）
 
@@ -326,6 +342,104 @@ uncorrected.
 
 ---
 
+### 9. Record error　(one instance, and it is the meta-rule's first specimen)　（记录错，一次，而且是那条元规则的第一个标本）
+
+**Symptom**: a file in `results/` is not a reading of the code in the same
+commit. The arithmetic is right, the file is well formed, every criterion in it
+is correctly evaluated, and every verdict it carries is the verdict the current
+code also reaches. What has changed is **which economy it is a reading of**.
+
+（**症状**：`results/` 里的一份文件，不是同一次提交里那份代码的读数。算术是对的，文件是
+良构的，里面每条判据都被正确评了分，而且它带的每一条判词与当前代码得到的判词都一样。变
+掉的是**它是哪一个经济的读数**。）
+
+**Instance**: `results/a5_reachability.json`. The commit that restated stage A3
+added `rent_rate = 0.05` as a default-on mechanism, and stage A5 runs entirely on
+A3's machinery. A5's existing record was carried into that commit without the
+stage being re-run. Record and code therefore entered the repository together
+and disagreed from the first day, and the disagreement survived five further
+commits. Running the current code with `rent_rate = 0` returns the stored file's
+numbers to every printed digit; at the registered default it returns different
+ones.
+
+（**实例**：`results/a5_reachability.json`。重述 A3 的那次提交把 `rent_rate = 0.05` 作为
+默认打开的机制加了进来，而 A5 完全跑在 A3 的机器上。A5 已有的记录被原样带进那次提交，阶
+段没有重跑。于是记录与代码同次入库、从第一天起就不一致，并且熬过了此后五次提交。当前代码
+把 `rent_rate` 设为 `0` 就逐位复现存盘文件的每一个打印数字，用登记的默认值则不然。）
+
+**Why nothing caught it, and both halves are needed.** The commit preserved the
+opening construction, so every construction-time quantity in the file still
+reproduces bitwise, and a file in which half the numbers reproduce exactly does
+not look like a file that is wrong. And the stage is in neither
+`scripts/run_all.py`'s experiment list nor the continuous integration reruns, so
+no comparison between record and code was ever performed.
+
+（**为什么没被抓到，两半缺一不可。** 那次提交保住了开盘构造，所以文件里每一个构造时的量
+仍然逐位复现，而一份有一半数字精确复现的文件看起来不像一份错的文件。以及，这个阶段既不在
+`scripts/run_all.py` 的实验清单里，也不在持续集成的重跑里，所以记录与代码之间从来没有被
+比对过。）
+
+**How it was found, and this is the part that generalises.** Not by a guard,
+because there was none. Not by a human noticing a number that looked wrong,
+because none did. It was found by **re-running the stage on unchanged code and
+comparing to the file**. That is a third route, and for this class it is the only
+one, because the failure is invisible from inside the file.
+
+（**它是怎么被抓到的，能推广的正是这一段。** 不是靠守卫，因为根本没有守卫。也不是靠人看
+出某个数不对，因为没有一个数看着不对。是靠**在代码不动的情况下重跑阶段、再与文件比对**。
+这是第三条路，而对这一类失败它是唯一的一条，因为这个错误从文件内部看不见。）
+
+**What it costs.** No verdict: the criteria pass and fail identically under both
+settings. A reading: the stage's own sections decompose a ratio into a numerator
+and a denominator, and **the sign of the denominator's move differs between the
+two settings**. A conclusion drawn from that decomposition is a conclusion about
+the economy the record was taken in, which is not the economy the repository now
+describes.
+
+（**代价是什么。** 不是判词：两种设置下判据的过与败完全相同。是读法：该阶段自己的小节把
+一个比值拆成分子与分母，而**分母那一项移动的符号在两种设置下不同**。从那个分解里得出的
+结论，是关于记录被采下时那个经济的结论，而那不是仓库现在描述的经济。）
+
+**The exposure, counted rather than estimated (2026-08-15).**
+`render_results.py` globs `results/*.json`, drops the off-parameter and smoke
+runs by filename and the writer-declared diagnostics by field, and turns every
+survivor into a heading in `RESULTS.md`. That survivor set is **twenty-four
+records, and eight of them have no job in `run_all.py`**: `a3_asset_channel`,
+`a3b_construction`, `a3c_load_bearing`, `b2_placebo_pool_width`, `b3_cip_slice`,
+`b4_directed_edges`, `b5_friction`, `b5_p2p`. **The first of those is A3**, the
+stage every A-track claim about compounding rests on, and the stage whose own
+restatement produced the instance above. It is in exactly the position A5 was in.
+
+`tests/test_runner_covers_every_record.py` is the ratchet: the eight are named
+with their reasons, the list is checked in both directions so it cannot outlive
+them, and a ninth cannot be added silently. **Naming them does not fix them.**
+
+（**这个敞口是数出来的，不是估的（2026-08-15）。** `render_results.py` 扫
+`results/*.json`，按文件名去掉离参与冒烟跑、按字段去掉写入者自己声明的诊断，剩下的每一份
+都变成 `RESULTS.md` 里的一节。剩下的是**二十四份，其中八份在 `run_all.py` 里没有任何
+job**。**第一份就是 A3**，A 轨关于复利的每一条主张都站在它上面，而上面那个实例正是它自己
+的重述造成的。**它现在所处的位置，和 A5 刚才一模一样。**
+`tests/test_runner_covers_every_record.py` 是那道棘轮：八份逐个具名带理由，清单双向校验
+所以不会比理由活得更久，第九份加不进来而不出声。**点名不等于修好。**）
+
+**The rule**: **a stage that nothing re-runs does not have a record, it has a
+memory.** When a default on shared machinery moves, the stages standing on that
+machinery are the ones whose stored numbers are now about a different economy,
+and the ones outside the runner are exactly the ones that will not say so. The
+operational form is the same one section 11.12 of `PROJECT_PLAN.md` gives for
+call sites: **before moving a default, enumerate every stage that constructs from
+the object it belongs to, and re-run all of them.** Putting the stage into the
+runner is the durable version of that, because it does not depend on anyone
+remembering to enumerate.
+
+（**规则**：**没有东西重跑的阶段，它没有记录，它只有记忆。** 当共用机器上的某个默认值移
+动时，站在那台机器上的阶段，其存盘数字就已经是关于另一个经济的了，而在 runner 之外的那
+些，恰恰是不会说出这件事的那些。可操作的形式与 `PROJECT_PLAN.md` §11.12 对调用点给的那
+条相同：**移动一个默认值之前，先枚举所有从它所属对象构造的阶段，并且全部重跑。** 把阶段
+放进 runner 是这条的耐久版本，因为它不依赖任何人记得去枚举。）
+
+---
+
 ## The checklist before reporting a number　（报数之前的清单）
 
 Answer each of these before any number goes into `results/` or into a
@@ -368,6 +482,14 @@ conversation:
    （**这个数是不是挂在一个构造时定死的集合上？** 如果改成按它在现实里所依据的那个可测
    量重算，它会变吗？如果它是一个双边工具的一边，另一边挂的是不是同一类东西？）
 
+10. **Is this stage in the runner?** If nothing re-runs it, its stored file is a
+    memory of some earlier code and not a reading of this code. And if a default
+    on shared machinery has moved, which stages stand on that machinery, and were
+    they re-run?
+    （**这个阶段在 runner 里吗？** 如果没有东西重跑它，它存盘的那份是对某一版旧代码的
+    记忆，不是对这一版代码的读数。以及，如果共用机器上的某个默认值动过，有哪些阶段站在
+    那台机器上，它们重跑了吗？）
+
 Item 7 is the only one **designed to catch an error rather than to avoid one**:
 A5-6's zero calibration was the only one of the eleven caught by an automatic
 guard, and the other ten were all caught by a human inspecting a number that
@@ -400,3 +522,15 @@ written down.
 （对付它们只有两个办法：把判断路由到一个 context 不同的模型上（复核 session），以及**强
 制列出「我改了但认为不影响」的清单**——因为最危险的从来不是被记录下来的偏离，是被判为
 无关紧要因而没写的那些。）
+
+**Failure mode 9 is that meta-rule's first specimen.** It raised no error, every
+verdict it carried was correct, and it quietly answered a question about an
+economy the repository had already stopped describing. The eleven counted at the
+top of this file were all of the self-contradicting kind and all found in-house
+by inspection; this one was found only by re-running. **Re-running a stage whose
+code has not changed is not a redundant action.**
+
+（**第九种失败模式就是那条元规则的第一个标本。** 它不报错，它带的每一条判词都是对的，它
+安静地回答了一个关于仓库早已不再描述的那个经济的问题。本文件开头计的十一次全部是自相矛盾
+型、全部靠人工审视在内部抓到；这一次只能靠重跑抓到。**重跑一个代码没有变过的阶段，不是一
+个多余的动作。**）
