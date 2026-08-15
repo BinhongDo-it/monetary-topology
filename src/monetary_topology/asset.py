@@ -281,6 +281,32 @@ class AssetSpec:
     #: have nothing to be evaluated on. The cap forbids the very thing the stage
     #: exists to measure, and the framework's own account — claims pile up at
     #: the top and the top bids for assets — is accumulation of more than one.
+    #:
+    #: **The zero-transaction claim above is scale-dependent, and it had never
+    #: been run when it was written.** Measured 2026-08-15 by
+    #: ``experiments/a5a_units_cap_probe.py`` at stage A5's price scale, three
+    #: hundred rounds, five seeds, mean transactions at a cap of one:
+    #:
+    #: ===========  =====  =====  =====  =====  =====  =====
+    #: rho_eff       0.25    0.5    1.0    2.0    4.0    8.0
+    #: cap of one    12.6    4.2    0.0    0.0    0.0  117.6
+    #: no cap       504.0  485.0  450.6  201.4  167.0  131.6
+    #: ===========  =====  =====  =====  =====  =====  =====
+    #:
+    #: **It holds where stage A3 actually sits and not in general.** A3's
+    #: registered parameters put its production layer at an effective
+    #: reachability of about ``1.96``, inside the band where the cap does
+    #: produce zero transactions, so the argument for the default is sound at
+    #: the operating point it was written about. As a claim about the mechanism
+    #: it is too strong: cheap enough and the opening does not clear every
+    #: eligible buyer, dear enough and most of the stock never sells, and either
+    #: way an offered unit finds a buyer.
+    #:
+    #: **The original sentence is left standing rather than corrected**, on the
+    #: same rule that keeps ``MechanismParams``'s falsified docstring claim in
+    #: place: a claim that turned out to be narrower than it was stated is a
+    #: record, and rewriting it would remove the evidence that it was ever
+    #: believed in the wider form. The default does not move on this account.
     max_units: int = 0
 
     #: ``s``. How far short of the acquisition cost a node may be and still

@@ -52,6 +52,14 @@ STAGE_TITLES = {
     # and A6-5's is a real one. The title says which, because a reader scanning
     # a two-of-five line should not have to open the stage document to learn
     # that one of the two failures is the strongest evidence for the headline.
+    # Two of six reads as a stage that mostly failed. Section 8.1 records that
+    # three of the four failures are results, and 8.6 that the fourth, the
+    # zero calibration, is what produced A5-7 and A5-8. A reader scanning the
+    # line should not have to open the stage document to learn that.
+    "A5": (
+        "A5 — the reachability threshold (A5-6 is a zero calibration and its "
+        "failure is the finding)"
+    ),
     "A6": (
         "A6 — the siphon in tax points (A6-1 fails on its own scope, "
         "A6-5 fails for real)"

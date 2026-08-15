@@ -61,6 +61,43 @@ EXPERIMENTS = [
         "experiments/a4_causal_primitive.py --json",
         "a4_causal_primitive.json",
     ),
+    # About fifteen seconds, and it was outside this list until 2026-08-15.
+    #
+    # **What being outside it cost.** A5 runs entirely on A3's machinery. The
+    # commit that restated A3 added `rent_rate = 0.05` as a default-on
+    # mechanism and carried A5's existing record forward without re-running the
+    # stage, so `results/a5_reachability.json` described an economy in which
+    # being outside the asset market costs nothing while the repository
+    # described one in which it costs five percent of the low tier's price a
+    # round. Record and code entered the repository in the same commit and
+    # disagreed for four days across five further commits. Nothing caught it,
+    # because the restatement preserved the opening construction: every
+    # construction-time number in the file still reproduced bitwise, only the
+    # ones that run rounds had moved, and a file half of whose numbers are
+    # exactly right does not look like a wrong file. There was no guard to
+    # fail, and no number looked wrong. It was found by re-running the stage on
+    # unchanged code and comparing.
+    #
+    # `docs/MEASUREMENT.md` failure mode 9 is the general form and this entry
+    # is its durable half: enumerating the dependent stages by hand every time
+    # a shared default moves depends on somebody remembering to enumerate, and
+    # running them does not.
+    (
+        "A5   the reachability threshold",
+        "experiments/a5_reachability.py",
+        "a5_reachability.json",
+    ),
+    # Belongs with the synthetic stages and not beside B1 proper: it retrieves
+    # nothing, uses no seed, and every graph in it is constructed. It is here
+    # because `b1_setup.md` section 5's puncture-versus-disconnection ruling is
+    # the one claim in this repository that depends on the square complex, and
+    # until this ran in CI the numbers that ruling quotes had no committed
+    # source.
+    (
+        "B1H  the hole taxonomy",
+        "experiments/b1_holes.py",
+        "b1_holes.json",
+    ),
 ]
 
 #: Stages slow enough that putting them in the default run would change what
@@ -168,6 +205,41 @@ EXPECTED_FAILURES = {
         "value, including the claim in its own docstring that they were set to "
         "clear this floor, which stands as falsified rather than repaired. "
         "docs/a4_causal_primitive.md 11.2, 11.7"
+    ),
+    # A5's four, registered failing in docs/a5_reachability.md 8.1, which says
+    # of the first two in its own words that they "fail in a way that is a
+    # result rather than a defect". None is repaired and no threshold moves.
+    "A5-1  participation falls with reachability": (
+        "entry participation is not monotone in reachability: it rises from "
+        "22.2% at rho=0.25 to 29.6% at rho=1.0 before collapsing. At the "
+        "cheapest prices the whole stock sells at the opening and it sells to "
+        "the richest, because no cap limits how much one node may hold, so "
+        "making the asset cheaper does not put it in ordinary hands. "
+        "max_units therefore interacts with rho and the two cannot be swept "
+        "independently; that is an open defect in the design, registered as a "
+        "diagnostic probe rather than repaired. "
+        "docs/a5_reachability.md 8.1, 8.5"
+    ),
+    "A5-2  the threshold sits where the definition puts it": (
+        "the threshold is not at the definitional point: 26.2% at rho=0.5 "
+        "against a floor of 50%. Section 5's registered consequence is that "
+        "it is reported at the location it is actually at, which is what 8.1 "
+        "does. Same open defect as A5-1. docs/a5_reachability.md 8.1"
+    ),
+    "A5-3  the sign of the production layer's trend flips": (
+        "no sign flip: the production layer's share falls at both ends of the "
+        "grid. Section 5's registered consequence applies in full, and 8.1 "
+        "withdraws section 1's claim that the source's retention tilting "
+        "point transfers to the price. docs/a5_reachability.md 8.1"
+    ),
+    "A5-6  freeze the price and the drift disappears": (
+        "**this failure is the stage's finding.** Reachability has a "
+        "numerator and a denominator and the registered criterion named only "
+        "the numerator: with the price frozen exactly, rho still moves, "
+        "because the median production-layer agent's claims fall out from "
+        "under it. The zero calibration did what a zero calibration is for. "
+        "A5-7 and A5-8 are registered forward to score what it caught, and "
+        "this criterion is not backfilled. docs/a5_reachability.md 8.1, 8.4"
     ),
 }
 

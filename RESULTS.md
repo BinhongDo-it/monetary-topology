@@ -255,20 +255,22 @@ Derived quantities:
 
 </details>
 
-## A5
+## A5 — the reachability threshold (A5-6 is a zero calibration and its failure is the finding)
 
-`rounds=300` `5 seeds`
+`rounds=300` `12 seeds`
 
-**2/6 live criteria passed**
+**4/8 live criteria passed**
 
 | | criterion | detail |
 |---|---|---|
-| **FAIL** | A5-1  participation falls with reachability | production-layer participation across the grid: rho=0.25: 22.2%, rho=0.5: 26.2%, rho=1.0: 29.6%, rho=2.0: 12.0%, rho=4.0: 1.0%, rho=8.0: 0.1% |
-| **FAIL** | A5-2  the threshold sits where the definition puts it | at rho=0.5: 26.2% against a floor of 50%; at rho=2.0: 12.0% against a ceiling of 5%. rho=1 is where the median agent can just pay, not a fitted value |
-| **FAIL** | A5-3  the sign of the production layer's trend flips | net worth share at rho=0.25: 0.281 -> 0.006; at rho=4.0: 0.281 -> 0.001. One mechanism, two regimes, nothing changed but reachability |
-| PASS | A5-4  the benign side is not an equilibrium | starting at rho=0.5: crossed in 5/5 seeds, median round 1 against 100, 0.0% of subsequent rounds back below one against 5%. Decomposed over the run, the price moves by x40.7 and the median buyer's claims by x0.877: the reachable region closes from the denominator, not only from the price |
-| PASS | A5-5  issuance sets the clock | median crossing round by issuance gain: gain=0.25: 1, gain=0.5: 1, gain=1.0: 1. What evaporates the reachable region is the rate at which new claims arrive at the top |
-| **FAIL** | A5-6  freeze the price and the drift disappears | largest relative move in rho with the price frozen: 304.64% against 1%. Any crossing at a live price is therefore the price channel and not the wage bill, issuance or turnover |
+| **FAIL** | A5-1  participation falls with reachability | production-layer participation across the grid: rho=0.25: 22.2%, rho=0.5: 27.2%, rho=1.0: 29.2%, rho=2.0: 11.1%, rho=4.0: 0.6%, rho=8.0: 0.0% |
+| **FAIL** | A5-2  the threshold sits where the definition puts it | at rho=0.5: 27.2% against a floor of 50%; at rho=2.0: 11.1% against a ceiling of 5%. rho=1 is where the median agent can just pay, not a fitted value |
+| **FAIL** | A5-3  the sign of the production layer's trend flips | net worth share at rho=0.25: 0.279 -> 0.001; at rho=4.0: 0.260 -> 0.010. One mechanism, two regimes, nothing changed but reachability |
+| PASS | A5-4  the benign side is not an equilibrium | configured rho=0.5, rho_opening=0.319: the configured value is never observed, because the opening allocation moves it before any round runs. Crossed in 12/12 seeds, median round 2 counted from rho_opening against 100, and 1 counted from the series origin, which is the count this stage reported before the origin was named. 0.0% of subsequent rounds back below one against 5%. Measured from the series origin, the price moves by x58.554 and the median production-layer agent's claims by no point value: the sign is not stable across seeds, [x0.036, x2.652], 7 of 12 below x1; which of the two closes the reachable region is what A5-7 and A5-8 are registered to score, and this line reports the pair rather than reading it |
+| PASS | A5-5  issuance sets the clock | median crossing round counted from rho_opening, by issuance gain: gain=0.25: 2, gain=0.5: 2, gain=1.0: 2. Every median is equal, so the ordering is satisfied vacuously and this pass carries no information about issuance |
+| **FAIL** | A5-6  freeze the price and the drift disappears | largest relative move in rho with the price frozen: 654.51% against 1%. Any crossing at a live price is therefore the price channel and not the wage bill, issuance or turnover |
+| PASS | A5-7  the denominator crosses the threshold on its own | price frozen at eta=0, configured rho=0.5, rho_opening=0.319: crossed in 12/12 seeds, median round 2 counted from rho_opening against 100 inherited from A5-4, 0.0% of subsequent rounds back below one against 5%. The asset does not move and the reachable region closes anyway |
+| PASS | A5-8  the drain is not a property of one reachability | price frozen: median production-layer claims end below their rho_opening value in 72/72 cells across 6 reachabilities and 12 seeds, ratio x0.045. Reported without a threshold, the same ratio with the price live is no point value: the sign is not stable across seeds, [x0.000, x2.496], 68 of 72 below x1: the two arms are two registered settings of one switch and this line reports both rather than choosing one |
 
 ## A6-7 to A6-23 — the frontier ratchet, who the levy falls on, who the rebate reaches, and R* as a slope in lambda
 

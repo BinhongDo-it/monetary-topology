@@ -6,7 +6,7 @@ design.
 Usage::
 
     python experiments/a5_reachability.py
-    python experiments/a5_reachability.py --seeds 5
+    python experiments/a5_reachability.py --seeds 5   # the pre-8.6 record
 
 Writes ``results/a5_reachability.json``.
 
@@ -62,6 +62,17 @@ RHO_GRID = (0.25, 0.5, 1.0, 2.0, 4.0, 8.0)
 GAIN_GRID = (0.25, 0.5, 1.0)
 ROUNDS = 300
 
+#: Registered in §8.6, moved from five before the run that used it. Five is thin
+#: for a criterion stated as a sign that has to hold in every cell, and A5 has
+#: the cheapest run in the A track. **No threshold moved with it**, and the
+#: five-seed verdicts stand recorded in §8.1 and §8.8 so that the change cannot
+#: be read as having rescued anything.
+#:
+#: One constant, because the cap probe reports alongside these numbers and a
+#: second seed count kept in step by hand is the defect `PROJECT_PLAN.md` §11.12
+#: records.
+REGISTERED_SEEDS = 12
+
 #: Registered thresholds, section 4.
 A5_2_LOW_RHO, A5_2_LOW_SHARE = 0.5, 0.50
 A5_2_HIGH_RHO, A5_2_HIGH_SHARE = 2.0, 0.05
@@ -82,6 +93,27 @@ class Criterion:
     def line(self) -> str:
         mark = "VOID" if self.void else ("pass" if self.passed else "FAIL")
         return f"  {mark}  {self.name}\n        {self.detail}"
+
+
+def _spread(values: list[float], unit: float = 1.0) -> str:
+    """A multiple, or a refusal to give one when the sign moves across seeds.
+
+    A3c's rule, and it is borrowed rather than invented: a quantity whose sign
+    is not stable across seeds does not get a point value. A5-4's claims side
+    is the case that forced it. Its five seeds are 2.573, 0.223, 2.652, 0.431
+    and 0.187, three of the five below one, and their mean is 1.213, which
+    reads as a rise and is a mean of a bimodal set with no location to report.
+    The price side is stable and prints as a multiple, which is what makes the
+    contrast between the two sides legible instead of averaged away.
+    """
+    lo, hi = min(values), max(values)
+    if lo > unit or hi < unit:
+        return f"x{float(np.median(values)):.3f}"
+    return (
+        f"no point value: the sign is not stable across seeds, "
+        f"[x{lo:.3f}, x{hi:.3f}], {sum(v < unit for v in values)} of "
+        f"{len(values)} below x{unit:.0f}"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -135,20 +167,115 @@ def rho_series(model: A3Model, tier: int = 0) -> np.ndarray:
     return gamma * prices / np.maximum(median_claims, 1e-12) / spec.stretch
 
 
-def run(seed: int, rho: float, gain: float = 1.0, eta: float | None = None):
+def rho_opening(model: A3Model, tier: int = 0) -> float:
+    """``rho`` on a constructed model, before any round has run. §8.3.
+
+    The same formula as everywhere else in this file, read off the state the
+    economy is actually in when it opens: the price is still ``P_q(0)`` and the
+    claims are what the opening allocation left. That state is not in
+    ``price_history`` or ``claims_history``, because both are appended in
+    ``_post_round``, so ``rho_series[0]`` is the state after round zero has
+    settled and repriced. §8.2 recorded the consequence: the configured value is
+    never observed and the series' own origin was a state no criterion named.
+
+    Refuses a model that has run, because the fields would then hold the final
+    state and the number would be an end value wearing an origin's name.
+    """
+    if model.price_history:
+        raise ValueError(
+            "rho_opening reads the opening state; this model has already run. "
+            "Use build() and read it before run()."
+        )
+    layer1 = model.a3.network.spec.layer1_size
+    production = slice(layer1, model._n)
+    gamma = float(np.median(model.terms[production, tier]))
+    claims = float(np.median(model.holdings[production]))
+    return (
+        gamma
+        * float(model.price[tier])
+        / max(claims, 1e-12)
+        / model.a3.asset.stretch
+    )
+
+
+def trajectory(
+    seed: int,
+    rho: float,
+    gain: float = 1.0,
+    eta: float | None = None,
+    tier: int = 0,
+) -> tuple[A3Model, np.ndarray]:
+    """``rho`` from the opening state onward, and the model it came from.
+
+    Index ``0`` is ``rho_opening`` and index ``t + 1`` is after round ``t``, so
+    a crossing index read off this array is counted from the origin §8.3 names
+    as the default. One model is built, read, and then run, rather than two
+    constructed separately: the opening value and the series have to be about
+    the same object.
+    """
+    model = build(seed, rho, gain, eta)
+    opening = rho_opening(model, tier)
+    model.run()
+    return model, np.concatenate(([opening], rho_series(model, tier)))
+
+
+def _config(
+    seed: int,
+    rho: float,
+    gain: float = 1.0,
+    eta: float | None = None,
+    max_units: int | None = None,
+) -> A3Config:
+    """The one place a stage A5 configuration is built.
+
+    ``run`` and ``build`` both need it, and building it twice is the defect
+    ``PROJECT_PLAN.md`` §11.12 records: a parameter reached one of two call
+    sites, the default path was the correct one, and so the guard on the
+    default path never fired. Two constructions that must agree are one
+    function.
+
+    ``max_units`` is here for the same reason. §8.5 registers a diagnostic that
+    varies the holding cap, and the alternative was a second constructor inside
+    the probe that had to be kept in step with this one by hand. ``None`` takes
+    the registered value, so every existing caller is unchanged and
+    ``tests/test_a5_origin.py`` asserts the reproduction rather than this
+    docstring claiming it.
+    """
     spec = AssetSpec()
-    prices = price_for(rho, seed, spec)
-    asset = AssetSpec(
-        initial_price=prices,
-        elasticity=spec.elasticity if eta is None else eta,
+    return A3Config(
+        asset=AssetSpec(
+            initial_price=price_for(rho, seed, spec),
+            elasticity=spec.elasticity if eta is None else eta,
+            max_units=spec.max_units if max_units is None else max_units,
+        ),
+        network=NetworkConfig(
+            spec=NetworkSpec(seed=seed),
+            seed=seed,
+            rounds=ROUNDS,
+            authority=MonetaryAuthority(rule="endogenous", gain=gain),
+        ),
     )
-    net = NetworkConfig(
-        spec=NetworkSpec(seed=seed),
-        seed=seed,
-        rounds=ROUNDS,
-        authority=MonetaryAuthority(rule="endogenous", gain=gain),
-    )
-    model = A3Model(A3Config(asset=asset, network=net))
+
+
+def build(
+    seed: int,
+    rho: float,
+    gain: float = 1.0,
+    eta: float | None = None,
+    max_units: int | None = None,
+):
+    """The model constructed and not run. §8.3's ``rho_opening`` is read here."""
+    return A3Model(_config(seed, rho, gain, eta, max_units))
+
+
+def run(
+    seed: int,
+    rho: float,
+    gain: float = 1.0,
+    eta: float | None = None,
+    max_units: int | None = None,
+):
+    model = build(seed, rho, gain, eta, max_units)
     model.run()
     return model
 
@@ -195,7 +322,14 @@ def rho_components(model: A3Model, tier: int = 0) -> tuple[float, float]:
     """How much of ``rho``'s drift is the price, and how much is the buyers.
 
     Reachability has a numerator and a denominator and the registered criterion
-    named only the numerator. Returns the ratio each has moved by over the run.
+    named only the numerator. Returns the ratio each has moved by over the run,
+    **measured from the series origin**, which is one round after
+    ``rho_opening``. That distinction is not cosmetic: round zero alone takes
+    the median production-layer agent's claims down by fifty-four to sixty
+    percent, so the same run reads as a fall from the opening state and can
+    read as a rise from the state one round later. A5-8 measures the same
+    quantity from ``rho_opening`` and the two numbers differ for that reason
+    and for no other.
     """
     layer1 = model.a3.network.spec.layer1_size
     prices = np.asarray(model.price_history)[:, tier]
@@ -213,9 +347,43 @@ def production_share(model: A3Model) -> np.ndarray:
     )
 
 
+def median_production_claims(model: A3Model) -> float:
+    """The median production-layer agent's claims, as they stand.
+
+    Read off ``holdings``, so it means the same thing on a model that has been
+    built and on one that has been run: the state now. §8.4's A5-8 compares the
+    two, and comparing them requires one function rather than two that agree by
+    inspection.
+    """
+    layer1 = model.a3.network.spec.layer1_size
+    return float(np.median(model.holdings[layer1:]))
+
+
+def claims_drain(
+    seed: int, rho: float, eta: float | None = None
+) -> tuple[float, float]:
+    """Median production-layer claims at ``rho_opening`` and at the end.
+
+    The first is the denominator of reachability at the origin §8.3 names, so
+    A5-8's comparison starts where A5-4's crossing is counted from and not one
+    round later.
+    """
+    model = build(seed, rho, eta=eta)
+    opening = median_production_claims(model)
+    model.run()
+    return opening, median_production_claims(model)
+
+
 def crossing(series: np.ndarray) -> tuple[int | None, float]:
-    """First round at which ``rho`` reaches one, and the share of rounds after
-    it that fall back below."""
+    """First index at which ``rho`` reaches one, and the share of entries after
+    it that fall back below.
+
+    **An index, not a round, and the difference is §8.3's whole subject.** The
+    caller states which origin the array starts from; this function cannot know
+    it and does not guess. Passing ``rho_series`` gives a count from the state
+    after round zero, passing ``trajectory``'s array gives a count from
+    ``rho_opening``. Reporting either without naming which is what §8.3
+    forbids."""
     above = np.flatnonzero(series >= 1.0)
     if above.size == 0:
         return None, 0.0
@@ -232,7 +400,11 @@ def crossing(series: np.ndarray) -> tuple[int | None, float]:
 def sweep(seeds: range) -> dict[float, dict[str, float]]:
     out: dict[float, dict[str, float]] = {}
     for rho in RHO_GRID:
-        models = [run(seed, rho) for seed in seeds]
+        # One model per seed, built and read at its opening state and then run,
+        # so the two origins §8.3 names are recorded on the same object that
+        # produced the outcome measures rather than on a second construction.
+        pairs = [trajectory(seed, rho) for seed in seeds]
+        models = [m for m, _ in pairs]
         shares = [production_share(m) for m in models]
         out[rho] = {
             "participation": float(
@@ -242,6 +414,9 @@ def sweep(seeds: range) -> dict[float, dict[str, float]]:
             "share_start": float(np.mean([s[0] for s in shares])),
             "share_end": float(np.mean([s[-1] for s in shares])),
             "trades": float(np.mean([sum(m.sales) for m in models])),
+            # §8.3. `rho_configured` is the key of this row and is not repeated.
+            "rho_opening": float(np.mean([t[0] for _, t in pairs])),
+            "rho_series_first": float(np.mean([t[1] for _, t in pairs])),
         }
     return out
 
@@ -287,30 +462,45 @@ def a5_3(grid: dict[float, dict[str, float]]) -> Criterion:
 
 
 def a5_4(seeds: range) -> Criterion:
-    rounds_to_cross, returns = [], []
-    for seed in seeds:
-        series = rho_series(run(seed, A5_4_START))
-        first, back = crossing(series)
-        rounds_to_cross.append(ROUNDS if first is None else first)
-        returns.append(back)
-    median = float(np.median(rounds_to_cross))
-    back = float(np.mean(returns))
-    crossed = sum(r < ROUNDS for r in rounds_to_cross)
+    """Scored from ``rho_opening``, the origin §8.3 makes the default.
+
+    The count from the series origin is reported beside it because that is the
+    number this stage published before the origin had a name, and a reader
+    holding both records needs to see which is which. One model per seed serves
+    both the trajectory and the decomposition; it used to be built twice.
+    """
+    opening, from_opening, from_series, returns = [], [], [], []
     price_moves, claim_moves = [], []
     for seed in seeds:
-        up, down = rho_components(run(seed, A5_4_START))
+        model, traj = trajectory(seed, A5_4_START)
+        opening.append(float(traj[0]))
+        first, back = crossing(traj)
+        from_opening.append(ROUNDS if first is None else first)
+        returns.append(back)
+        first_series, _ = crossing(traj[1:])
+        from_series.append(ROUNDS if first_series is None else first_series)
+        up, down = rho_components(model)
         price_moves.append(up)
         claim_moves.append(down)
+    median = float(np.median(from_opening))
+    back = float(np.mean(returns))
+    crossed = sum(r < ROUNDS for r in from_opening)
     return Criterion(
         "A5-4  the benign side is not an equilibrium",
         median < A5_4_MEDIAN_CROSSING and back < A5_4_RETURN_SHARE,
-        f"starting at rho={A5_4_START}: crossed in {crossed}/{len(seeds)} seeds, "
-        f"median round {median:.0f} against {A5_4_MEDIAN_CROSSING}, "
-        f"{back:.1%} of subsequent rounds back below one against "
-        f"{A5_4_RETURN_SHARE:.0%}. Decomposed over the run, the price moves by "
-        f"x{np.mean(price_moves):.1f} and the median buyer's claims by "
-        f"x{np.mean(claim_moves):.3f}: the reachable region closes from the "
-        f"denominator, not only from the price",
+        f"configured rho={A5_4_START}, rho_opening={np.mean(opening):.3f}: the "
+        f"configured value is never observed, because the opening allocation "
+        f"moves it before any round runs. Crossed in {crossed}/{len(seeds)} "
+        f"seeds, median round {median:.0f} counted from rho_opening against "
+        f"{A5_4_MEDIAN_CROSSING}, and {np.median(from_series):.0f} counted from "
+        f"the series origin, which is the count this stage reported before the "
+        f"origin was named. {back:.1%} of subsequent rounds back below one "
+        f"against {A5_4_RETURN_SHARE:.0%}. Measured from the series origin, "
+        f"the price moves by {_spread(price_moves)} and the median "
+        f"production-layer agent's claims by {_spread(claim_moves)}; which of "
+        f"the two closes the reachable region is what A5-7 and A5-8 are "
+        f"registered to score, and this line reports the pair rather than "
+        f"reading it",
     )
 
 
@@ -319,19 +509,29 @@ def a5_5(seeds: range) -> Criterion:
     for gain in GAIN_GRID:
         rounds_to_cross = []
         for seed in seeds:
-            first, _ = crossing(rho_series(run(seed, A5_4_START, gain=gain)))
+            first, _ = crossing(trajectory(seed, A5_4_START, gain=gain)[1])
             rounds_to_cross.append(ROUNDS if first is None else first)
         medians.append(float(np.median(rounds_to_cross)))
     falling = all(a >= b for a, b in pairwise(medians))
+    # §8.1 read this pass as vacuous. That reading is computed here rather than
+    # left in prose: an ordering over values that are all equal is satisfied by
+    # every ordering, so it carries nothing about issuance, and a criterion that
+    # says so in its own detail cannot be quoted as if it did.
+    vacuous = len(set(medians)) == 1
     return Criterion(
         "A5-5  issuance sets the clock",
         falling,
-        "median crossing round by issuance gain: "
+        "median crossing round counted from rho_opening, by issuance gain: "
         + ", ".join(
             f"gain={g}: {m:.0f}" for g, m in zip(GAIN_GRID, medians, strict=True)
         )
-        + ". What evaporates the reachable region is the rate at which new "
-        "claims arrive at the top",
+        + (
+            ". Every median is equal, so the ordering is satisfied vacuously "
+            "and this pass carries no information about issuance"
+            if vacuous
+            else ". What evaporates the reachable region is the rate at which "
+            "new claims arrive at the top"
+        ),
     )
 
 
@@ -350,6 +550,70 @@ def a5_6(seeds: range) -> Criterion:
     )
 
 
+def a5_7(seeds: range) -> Criterion:
+    """§8.4. The frozen-price arm, scored on A5-4's own thresholds.
+
+    **No number is invented here.** ``A5_4_MEDIAN_CROSSING`` and
+    ``A5_4_RETURN_SHARE`` are the values already registered for A5-4, applied to
+    the arm in which the numerator is held still. What A5-6 established is that
+    ``rho`` moves under a frozen price; what it could not establish is whether
+    it reaches one, because a largest relative move is a maximum against the
+    series' own first point and carries no level.
+    """
+    openings, from_opening, returns = [], [], []
+    for seed in seeds:
+        _, traj = trajectory(seed, A5_4_START, eta=0.0)
+        openings.append(float(traj[0]))
+        first, back = crossing(traj)
+        from_opening.append(ROUNDS if first is None else first)
+        returns.append(back)
+    median = float(np.median(from_opening))
+    back = float(np.mean(returns))
+    crossed = sum(r < ROUNDS for r in from_opening)
+    return Criterion(
+        "A5-7  the denominator crosses the threshold on its own",
+        median < A5_4_MEDIAN_CROSSING and back < A5_4_RETURN_SHARE,
+        f"price frozen at eta=0, configured rho={A5_4_START}, "
+        f"rho_opening={np.mean(openings):.3f}: crossed in {crossed}/{len(seeds)} "
+        f"seeds, median round {median:.0f} counted from rho_opening against "
+        f"{A5_4_MEDIAN_CROSSING} inherited from A5-4, {back:.1%} of subsequent "
+        f"rounds back below one against {A5_4_RETURN_SHARE:.0%}. The asset does "
+        f"not move and the reachable region closes anyway",
+    )
+
+
+def a5_8(seeds: range) -> Criterion:
+    """§8.4. A sign in every cell, and the live-price twin reported beside it.
+
+    The twin carries no threshold and decides nothing, for the same reason B3's
+    emerging-market group is reported without constituting evidence. It is here
+    because the stage's one recorded decomposition names a direction for the
+    denominator, and if the two arms disagree that line is about one arm and has
+    to say which.
+    """
+    fell = total = 0
+    ratios: list[float] = []
+    live_ratios: list[float] = []
+    for rho in RHO_GRID:
+        for seed in seeds:
+            start, end = claims_drain(seed, rho, eta=0.0)
+            total += 1
+            fell += end < start
+            ratios.append(end / max(start, 1e-12))
+            a, b = claims_drain(seed, rho)
+            live_ratios.append(b / max(a, 1e-12))
+    return Criterion(
+        "A5-8  the drain is not a property of one reachability",
+        fell == total,
+        f"price frozen: median production-layer claims end below their "
+        f"rho_opening value in {fell}/{total} cells across {len(RHO_GRID)} "
+        f"reachabilities and {len(seeds)} seeds, ratio {_spread(ratios)}. "
+        f"Reported without a threshold, the same ratio with the price live is "
+        f"{_spread(live_ratios)}: the two arms are two registered settings of "
+        f"one switch and this line reports both rather than choosing one",
+    )
+
+
 # ---------------------------------------------------------------------------
 # driver
 # ---------------------------------------------------------------------------
@@ -357,7 +621,7 @@ def a5_6(seeds: range) -> Criterion:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--seeds", type=int, default=5)
+    ap.add_argument("--seeds", type=int, default=REGISTERED_SEEDS)
     args = ap.parse_args()
     seeds = range(args.seeds)
 
@@ -372,6 +636,8 @@ def main() -> int:
         a5_4(seeds),
         a5_5(seeds),
         a5_6(seeds),
+        a5_7(seeds),
+        a5_8(seeds),
     ]
 
     print("\ncriteria")
