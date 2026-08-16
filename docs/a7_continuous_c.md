@@ -521,7 +521,7 @@ rather than one invented here. §9's retention table:
 | `C = 0` uniform | richest | 1 round | 0.0% | **0.00%** |
 | `C = 0` uniform | median | 1 round | 0.0% | 0.00% |
 
-What a generational mechanism has left to transmit runs from `28.06%` to
+What a generational mechanism has left to transmit runs from `23.72%` to
 `0.00%` along this axis, **in the same direction as the amplification the leg
 would be claiming**. A declining slope on `I` or `M` is manufactured by the
 carrier's own decay whatever connectivity does.
@@ -531,6 +531,22 @@ carrier's own decay whatever connectivity does.
 > alternative explanation for a *declining* slope, which is the predicted
 > direction, so the exposure is a false positive rather than a false negative.
 > §3.3's text stands and this is the correction, dated in the changelog.
+
+**The table above was corrected 2026-08-16 and the correction is A7-B's first
+act.** Section 9 had no producer in the repository, and `experiments/a7b_probes.py`
+is now that instrument. Its numbers are **seed zero**: at twenty seeds the
+richest node keeps `+0.2372` with a range of `[+0.1957, +0.2863]` rather than
+`+0.2806`, the half-life of `2` reproduces at twenty of twenty seeds, and the
+median row reproduces as zero while its stated half-life of `5` does not. Full
+record in `a4_causal_primitive.md` section 13.
+
+**The ruling is unaffected.** `+0.2372` to `0.00` carries exactly what `+0.2806`
+to `0.00` carried, and the direction that makes `I` and `M` unreadable is the
+same. One thing is sharper: the surviving quarter belongs to a **financial-layer**
+node at every seed and the median **production-layer** node keeps nothing, so
+what a generational mechanism has to transmit exists only upstairs, in a
+twenty-node layer, while leg B's outcome is a whole-population concentration
+measure.
 
 Carried with them regardless: §11.4 measured that `99.6%` of what `I` and `M`
 did on the stratified arm was the zero-cost transfer across the thermocline that
@@ -1042,6 +1058,305 @@ seventy-five rounds on `D_reach` only, and is not recomputed here. Its verdict
 stands as recorded in §10 with that limitation attached, and §10.3's
 unnormalised reading, which is what the conclusion rests on, is a comparison
 within one estimator rather than across two.
+
+---
+
+## 12. Leg A7-B: the two probes, and the section 5.3 trigger decided
+
+**Nothing scored. Section 5.8's order is P1, P2, the trigger, then the grid, and
+the trigger is decided on the probes alone so that the choice between its exits
+cannot be made after seeing the result it decides how to read.**
+
+### 12.1 P1, retention: a cliff rather than a decline
+
+`experiments/a7b_probes.py`, twenty seeds, three hundred rounds. Retention of a
+one-off transfer at forty rounds, richest node:
+
+| `s` | uniform | preferential |
+|---|---|---|
+| 0.0 | +0.2372 | +0.2372 |
+| 0.01 | +0.1363 | +0.1423 |
+| 0.02 | **+0.0005** | +0.1028 |
+| 0.05 | +0.0000 | +0.0039 |
+| 0.1 | +0.0000 | +0.0002 |
+| ≥ 0.2 | +0.0000 | **+0.0000** |
+
+**Section 5.2 registered this as a decline from `28.06%` to `0.00%` along the
+axis. It is not a decline, it is a cliff**: gone by `s = 0.02` when the edges are
+spread and by `s = 0.1` when they point at the centre.
+
+**That strengthens the ruling on `I` and `M` and changes its ground.** Above the
+cliff they are not confounded, they have nothing to transmit, so `d(I, s)` and
+`d(M, s)` are identically zero there for a reason with no connectivity in it.
+
+**It does not mean the model has no holdings.** What is erased is the memory of a
+perturbation. Steady-state holdings still circulate, so `E`, which acts on the
+wage flow, and `K`, which acts on the current holdings each round, are untouched.
+
+**A fourth criterion whose shape does not say what it meant.** Section 5.3 makes
+`I` and `M` scoreable over any region where this curve is flat within a band. The
+curve is flat from `s = 0.05`, **flat at zero**. By the letter they become
+scoreable exactly where the mechanism cannot fire. The clause needed "and
+non-zero" and does not have it. Recorded, not repaired.
+
+### 12.2 P2, room, and two numbers that reproduce
+
+`s = 0` aggregate Gini `0.9368` against section 11.3's `0.935`, and
+`log(1/HHI) = 2.6196`, an effective holder count of `13.7` against that section's
+"about fourteen of two hundred". Both reproduce.
+
+**Independent confirmation of section 2.4.** At `s = 1` the aggregate Gini is
+`0.0746` while A4's `C = 0` control sits at `0.00711`, an order of magnitude
+apart. The ruling that `s = 1` is not `C = 0` was made by reading code; it is now
+measured.
+
+Room relative to `s = 0`, largest value over the grid, identical in both arms:
+
+| measure | max ratio |
+|---|---|
+| Gini, aggregate | **15.81** |
+| `log(1/HHI)`, aggregate | **2.00** |
+| Gini, production layer only | **2.36** |
+| **`log(1/HHI)`, production layer only** | **1.20** |
+
+The aggregate Gini's `15.81` is section 11.3's ceiling problem measured on this
+axis, and it is the same order as the `0.065` against `0.99` recorded there.
+
+### 12.3 The trigger: satisfied through the registered substitution
+
+The band, **registered before this run and an arbitrary calibration value with no
+theoretical provenance**, is a factor of `1.5`. It gates readability and may not
+serve as a falsification basis. It was chosen by order of magnitude rather than
+by precision: section 11.3 measured that a room movement near fifteen is enough
+to turn `A(K) = 5.31` into `A(K) = 0.06`, and `1.5` is an order of magnitude
+below that.
+
+Registered with it, before the run: **if the aggregate `log(1/HHI)` leaves the
+band while the production-layer-only version stays inside, leg B's primary
+outcome becomes the production-layer-only pair.**
+
+That is what happened. `2.00` outside, `1.20` inside.
+
+> **Decision.** Leg B proceeds on **one axis**. Exit one, the
+> `layer1_initial_share` second axis, is not taken. Exit two, recording the leg
+> as not identified, is not taken. The primary outcome is the
+> **production-layer-only `log(1/HHI)`**, with the aggregate `log(1/HHI)` and
+> both Ginis reported beside it on every row.
+
+Section 11.6 of `a4_causal_primitive.md` introduced the production-layer-only
+pair for a units reason, that the aggregate is taken over a population containing
+a twenty-node financial layer holding `99.7%` of the stock. P1 adds a second
+reason pointing the same way: what survives a generation lives in that layer at
+every seed, so the measure leg B now scores on excludes the only place a
+generational mechanism has anything to work with.
+
+---
+
+## 13. Leg A7-B: the verdicts
+
+Twenty seeds, three hundred rounds, uniform arm, the section 5.4 cells, primary
+outcome the production-layer-only `log(1/HHI)` per section 12.3. `d(X, s)` is
+taken **within seed** against that seed's own control, so the graph draw cancels.
+
+| `s` | `d(E)` | negative seeds | `d(K)` | negative seeds |
+|---|---|---|---|---|
+| 0.0 | **−0.02701** | 17/20 | −0.00039 | 12/20 |
+| 0.01 | −0.00539 | 15/20 | −0.00035 | 10/20 |
+| 0.02 | −0.00156 | 13/20 | −0.00009 | 13/20 |
+| 0.05 | −0.00101 | 16/20 | −0.00006 | 13/20 |
+| 0.1 | −0.00034 | 14/20 | −0.00003 | 14/20 |
+| 0.2 | −0.00005 | 11/20 | −0.00002 | 13/20 |
+| ≥ 0.5 | ≤ 2e-05 | mixed | ≤ 1e-05 | mixed |
+
+### 13.1 A7-B-1, capital returns: **unreadable**
+
+The criterion asks that `|d(K, s)|` decrease in `s` with `sign(d)` stable. **The
+sign is unstable at every grid point including `s = 0`**, where the mean is
+`−0.00039` against a range of `[−0.0020, +0.0010]` whose width is five times the
+mean and which straddles zero. A quantity with no sign has no magnitude to trend,
+so the slope cannot be asked. `K` is not distinguishable from zero anywhere on
+this carrier.
+
+**Not a negative result.** It does not say connectivity fails to amplify capital
+returns. It says the effect is not measurable here, which is where A4-4 was, on a
+different estimator.
+
+### 13.2 A7-B-2, education: not adjudicable as registered
+
+The clause scores `E` only where `d(E, s)` "clears the seed noise floor at the
+low-`s` end", and **that floor was never given a numeric form**. Measured against
+the same all-seeds-same-sign standard A7-B-1 uses, `E` fails it too, at `17/20`
+rather than `20/20`.
+
+### 13.3 A7-B-3, the two measures: does not fire
+
+Section 3's disagreement clause needs the two measures to disagree in the sign of
+the slope. On the aggregate `log(1/HHI)` both competitors are also sign-unstable
+and also near zero. The two measures agree, and what they agree on is that
+nothing is readable.
+
+### 13.4 A7-B-4, the probes: done, section 12
+
+### 13.5 A7-B-5, `I` and `M`: not run, and the reason is measured
+
+Section 5.2 ruled them unreadable for direction. Section 12.1 measured something
+stronger: above `s = 0.02` in the uniform arm a one-off transfer leaves nothing
+after a generation, so a transmitting mechanism has no stock to transmit and
+`d(I, s)` and `d(M, s)` are identically zero there by construction. Running them
+would produce zeros whose cause is the carrier. **Recorded as not run rather than
+as measured.**
+
+### 13.6 The section 5.4 fence: no-op confirmed
+
+`pooling = generation` against `round` at both endpoints, twenty seeds, every
+cell and every measure identical. `pooling` is read only where the demographic
+layer fires and leg B's cells keep `I` and `M` off. Verified by running, which is
+the point.
+
+### 13.7 The pattern that is visible and is not licensed
+
+`|d(E)|` falls by a factor near **2700** from `s = 0` to `s = 0.2`, and `|d(K)|`
+by about twenty. The control cell's production-layer effective holder count rises
+from `75` to `180` of `180` across the same range.
+
+**This may not be reported as an effect**, because the quantities whose
+magnitudes are falling are, by the registered standard, indistinguishable from
+zero at every point. What can be said is that exogenously imposed heterogeneity
+does not survive either: `E` injects dispersion into the wage flow every round and
+a dense graph flattens it every round, so the steady state keeps none of it. That
+is the same mechanism section 12.1 measured for a one-off transfer.
+
+### 13.8 Registered forward, and a discipline point
+
+> **A7-B-6.** The direction of `d(X, s)` is judged by a sign test rather than by
+> all-seeds-same-sign, at the α this project uses elsewhere.
+
+All-seeds-same-sign is the standard `a3_asset_channel.md` section 5.2 uses for a
+share decomposition, where refusing to quote a share whose sign moves is right.
+Carried onto a twenty-seed difference it is a different and much stricter object:
+at `s = 0`, `d(E)` is negative at seventeen of twenty seeds, which a two-sided
+sign test puts at `p ≈ 0.003`, and the registered clause calls that unreadable.
+**The clause was inherited rather than chosen.** A7-B-6 governs the next stage and
+is not applied here.
+
+### 13.9 What the two legs say together
+
+Leg A: the divergence A3-8 measures exists only on the sparse graph, and thirty-
+four per cent more edges remove ninety-eight per cent of it whichever way they
+are aimed.
+
+Leg B: on a different carrier, with a different outcome and different mechanisms,
+the two competitors that could be measured are indistinguishable from zero
+everywhere, and what magnitude they have follows the same collapse.
+
+**Two carriers, two quantities, one shape.** Whatever this model has to say about
+position and about competing explanations, it says only at mean out-degree near
+five, and the sensitivity to that number was neither measured nor excluded before
+this stage.
+
+---
+
+## 14. "So you have rediscovered supply and demand"
+
+**The objection is the one this stage will meet first, and part of it lands.**
+Written here so that the concession and the defence travel together and neither
+is quoted without the other.
+
+### 14.1 The formal answer
+
+`b1_theorem.md` §5 defines the object. If the terms could be written as a
+potential on positions, which is one number per position and is what a price
+vector is, the loop sum would be **identically zero**. A non-zero loop sum is
+formally equivalent to "no price system represents these terms".
+
+Supply and demand is the claim that outcomes are generated by a price vector.
+**If this were that, A3-4 would read zero.** It reads `+0.36536` against a
+holonomy of `+0.37686`.
+
+**The obvious rejoinder, and why it fails.** "Your `γ` is a price under another
+name." A price vector assigns one number **per position**. `γ` is one number per
+**agent and position pair**, and the content of the framework is that two agents
+facing different terms on the same transition has nowhere to sit in a price
+system. That is a theorem rather than a phrasing.
+
+### 14.2 The measured answer: two shape differences, both falsifiable
+
+**Supply and demand predicts the margin falls. The margin rose.** More
+counterparties is supposed to reduce extraction. Measured at matched added-edge
+count, `H¹` read directly off the terms matrix over the paired population is
+`+4.9%` and `+7.0%` **higher** at `s = 0.01` than at `s = 0` in the two arms, and
+the preferential arm raises the centrality dispersion and the layer gap as well.
+`D` falls `98%` in both. **Whatever removed it, it was not the margin.**
+
+**Supply and demand predicts a smaller rate. The rate went to zero.** Cournot
+from five competitors to seven takes the markup from `1/5` to `1/7`, a `29%`
+reduction, and the result still accumulates, only more slowly. Measured across a
+fourfold change in the round count, the gap at `s = 0` moves with the rounds and
+the gap at `s = 0.01` **does not move at all** (§10.3). That is a phase change in
+the dynamics rather than a displacement along one, and it was measured on three
+round counts rather than argued.
+
+### 14.3 What the objection is right about, conceded without qualification
+
+**The policy implication is not new.** "More alternatives at the periphery beats
+breaking up the top" is competition policy's oldest sentence. Nothing in §7.3's
+second item or §10.4's replacement of it may be presented as a discovery, and
+this document's §7.3 should be read with that attached.
+
+### 14.4 What remains claimable
+
+1. **The instruments are aimed at the wrong side.** HHI, top shares, network
+   centralisation and degree Gini all measure the centre, while the load-bearing
+   variable is the counterparty count at the periphery. This is a claim about
+   measurement rather than about mechanism, and it is actionable and falsifiable.
+2. **The empirical signature is a threshold rather than a slope**, since the
+   accumulation goes from present to absent rather than from large to small, and
+   annual data integrate the accumulation away and leave no visible margin. Both
+   are things to look for rather than things to assert.
+3. **The stage's own product is a negative result about the model.** §6.6's
+   boundary stands: this supports statements about a running stratified economy
+   in simulation and not about any real one. The objection assumes a claim about
+   an economic law is being made. What is being reported is a property of a
+   mechanism model and the discovery that its domain is far narrower than the
+   manuscript assumed, in a dimension the manuscript never named.
+
+### 14.5 The one-sentence form
+
+> Supply and demand predicts that adding counterparties lowers the margin. The
+> margin rose by five to seven per cent and the outcome fell by ninety-eight.
+> So the margin is not what removed it. And the object is defined as the part of
+> the terms that no price vector can represent, so if it were a price phenomenon
+> it would be zero by construction.
+
+---
+
+## 15. Close-out, 2026-08-16
+
+**Both legs run. Eleven criteria, all with verdicts.** One pass, four fails, one
+void, one shape-wrong, three unreadable or not adjudicable, one not run with the
+reason measured.
+
+**Two decisions, taken and registered rather than left open.**
+
+**`diagnostic_only` stays on.** Every A7 record keeps it and no A7 heading enters
+`RESULTS.md`. Flipping it needs a job in `run_all.py`, that file is currently
+carrying another line of work, and the reproducibility this flag protects is
+already met: the records are on disk and the verdicts are in this document. **To
+be revisited when that work lands**, not deferred indefinitely.
+
+**`D_reach` stays the default output of `experiments/a7_continuous_c.py`, and
+this is a registered known state rather than an oversight.** `D_fixed` runs under
+`--dfixed`, §11 measured the difference, and the difference does not move the
+headline. What it does move is recorded there: A7-A-3 becomes void and A7-A-4
+loses its last point. Anyone quoting a gap from this stage has to say which
+estimator it came from, and §11.4 records that `s = 0` is not even arm-independent
+under `D_fixed`.
+
+**What A7 hands forward.** The limit in §6.6 for A3. The four registered-forward
+criteria in §10.5, §11.2 and §13.8. The discipline candidate on normalised
+statistics, which this stage tripped four times. And the correction to
+`a4_causal_primitive.md` §9, whose retention table had no producer and was a
+single seed.
 
 ---
 

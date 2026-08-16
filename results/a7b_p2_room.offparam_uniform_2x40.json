@@ -1,0 +1,315 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "a section 5.3 probe; it gates and scores nothing",
+  "rounds": 40,
+  "rows": [
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.9260383735027247,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.5857944562017425,
+          "log_inv_hhi": 2.6648177710750653,
+          "log_inv_hhi_prod": 4.290280640576556
+        },
+        {
+          "gini": 0.9309202531467491,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.5819141015924265,
+          "log_inv_hhi": 2.6082187724210244,
+          "log_inv_hhi_prod": 4.256291221890679
+        }
+      ],
+      "mean": {
+        "gini": 0.9284793133247369,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.5838542788970845,
+        "log_inv_hhi": 2.636518271748045,
+        "log_inv_hhi_prod": 4.273285931233618
+      },
+      "room_gini": 0.06652068667526312,
+      "room_gini_prod": 0.41059016554735994,
+      "room_log_inv_hhi": 2.636518271748045,
+      "room_log_inv_hhi_prod": 4.273285931233618,
+      "s": 0.0
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.7767240413726983,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.4782528534789767,
+          "log_inv_hhi": 3.3250641542477015,
+          "log_inv_hhi_prod": 4.519769095298295
+        },
+        {
+          "gini": 0.7450818415640237,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.45231556580810994,
+          "log_inv_hhi": 3.4058041131022554,
+          "log_inv_hhi_prod": 4.639207578981523
+        }
+      ],
+      "mean": {
+        "gini": 0.760902941468361,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.46528420964354333,
+        "log_inv_hhi": 3.3654341336749782,
+        "log_inv_hhi_prod": 4.579488337139908
+      },
+      "room_gini": 0.23409705853163898,
+      "room_gini_prod": 0.5291602348009011,
+      "room_log_inv_hhi": 3.3654341336749782,
+      "room_log_inv_hhi_prod": 4.579488337139908,
+      "s": 0.01
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.6179177450851587,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.3305928041239139,
+          "log_inv_hhi": 3.8440167885307264,
+          "log_inv_hhi_prod": 4.857181219961607
+        },
+        {
+          "gini": 0.6105536211294251,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.3458109023536744,
+          "log_inv_hhi": 3.8783631230924795,
+          "log_inv_hhi_prod": 4.840514686727316
+        }
+      ],
+      "mean": {
+        "gini": 0.6142356831072919,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.33820185323879415,
+        "log_inv_hhi": 3.8611899558116027,
+        "log_inv_hhi_prod": 4.848847953344461
+      },
+      "room_gini": 0.38076431689270807,
+      "room_gini_prod": 0.6562425912056503,
+      "room_log_inv_hhi": 3.8611899558116027,
+      "room_log_inv_hhi_prod": 4.848847953344461,
+      "s": 0.02
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.3544630772890667,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.2006293590052861,
+          "log_inv_hhi": 4.72930838254935,
+          "log_inv_hhi_prod": 5.059053834805937
+        },
+        {
+          "gini": 0.36972159803775684,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.1837283407861139,
+          "log_inv_hhi": 4.656799190078817,
+          "log_inv_hhi_prod": 5.08449307212126
+        }
+      ],
+      "mean": {
+        "gini": 0.36209233766341176,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.1921788498957,
+        "log_inv_hhi": 4.693053786314083,
+        "log_inv_hhi_prod": 5.0717734534635985
+      },
+      "room_gini": 0.6329076623365882,
+      "room_gini_prod": 0.8022655945487445,
+      "room_log_inv_hhi": 4.693053786314083,
+      "room_log_inv_hhi_prod": 5.0717734534635985,
+      "s": 0.05
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.2348868092868679,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.13339831393497104,
+          "log_inv_hhi": 5.0375216521545125,
+          "log_inv_hhi_prod": 5.136239432891902
+        },
+        {
+          "gini": 0.24555844128941073,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.13217183743800676,
+          "log_inv_hhi": 5.012363129345736,
+          "log_inv_hhi_prod": 5.1387722543260255
+        }
+      ],
+      "mean": {
+        "gini": 0.2402226252881393,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.1327850756864889,
+        "log_inv_hhi": 5.024942390750124,
+        "log_inv_hhi_prod": 5.137505843608963
+      },
+      "room_gini": 0.7547773747118607,
+      "room_gini_prod": 0.8616593687579556,
+      "room_log_inv_hhi": 5.024942390750124,
+      "room_log_inv_hhi_prod": 5.137505843608963,
+      "s": 0.1
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.16185856983563007,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.09218602164597334,
+          "log_inv_hhi": 5.175711871003608,
+          "log_inv_hhi_prod": 5.1655398544820255
+        },
+        {
+          "gini": 0.1614014588421322,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.08700822378433792,
+          "log_inv_hhi": 5.172516038537816,
+          "log_inv_hhi_prod": 5.168989924133598
+        }
+      ],
+      "mean": {
+        "gini": 0.16163001433888113,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.08959712271515563,
+        "log_inv_hhi": 5.1741139547707125,
+        "log_inv_hhi_prod": 5.167264889307812
+      },
+      "room_gini": 0.8333699856611189,
+      "room_gini_prod": 0.9048473217292888,
+      "room_log_inv_hhi": 5.1741139547707125,
+      "room_log_inv_hhi_prod": 5.167264889307812,
+      "s": 0.2
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.10333597454570609,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.04807397624653342,
+          "log_inv_hhi": 5.234518217194683,
+          "log_inv_hhi_prod": 5.185768247829338
+        },
+        {
+          "gini": 0.09891181408190941,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.04781485241838124,
+          "log_inv_hhi": 5.241368477188819,
+          "log_inv_hhi_prod": 5.185633115004627
+        }
+      ],
+      "mean": {
+        "gini": 0.10112389431380775,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.04794441433245733,
+        "log_inv_hhi": 5.2379433471917505,
+        "log_inv_hhi_prod": 5.185700681416982
+      },
+      "room_gini": 0.8938761056861922,
+      "room_gini_prod": 0.9465000301119871,
+      "room_log_inv_hhi": 5.2379433471917505,
+      "room_log_inv_hhi_prod": 5.185700681416982,
+      "s": 0.5
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.07816831971744498,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.026001444525838302,
+          "log_inv_hhi": 5.250129782696792,
+          "log_inv_hhi_prod": 5.190857226160114
+        },
+        {
+          "gini": 0.07790777268210825,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.02589166085830108,
+          "log_inv_hhi": 5.250457871167174,
+          "log_inv_hhi_prod": 5.190914270337156
+        }
+      ],
+      "mean": {
+        "gini": 0.07803804619977661,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.02594655269206969,
+        "log_inv_hhi": 5.250293826931983,
+        "log_inv_hhi_prod": 5.190885748248634
+      },
+      "room_gini": 0.9169619538002234,
+      "room_gini_prod": 0.9684978917523748,
+      "room_log_inv_hhi": 5.250293826931983,
+      "room_log_inv_hhi_prod": 5.190885748248634,
+      "s": 0.9
+    },
+    {
+      "arm": "uniform",
+      "by_seed": [
+        {
+          "gini": 0.07474664931109753,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.02147511180704087,
+          "log_inv_hhi": 5.251072022339045,
+          "log_inv_hhi_prod": 5.1915707616386735
+        },
+        {
+          "gini": 0.07501612784596223,
+          "gini_bound": 0.995,
+          "gini_bound_prod": 0.9944444444444445,
+          "gini_prod": 0.02201288080082242,
+          "log_inv_hhi": 5.251356400935054,
+          "log_inv_hhi_prod": 5.191494754034528
+        }
+      ],
+      "mean": {
+        "gini": 0.07488138857852988,
+        "gini_bound": 0.995,
+        "gini_bound_prod": 0.9944444444444445,
+        "gini_prod": 0.021743996303931645,
+        "log_inv_hhi": 5.25121421163705,
+        "log_inv_hhi_prod": 5.191532757836601
+      },
+      "room_gini": 0.9201186114214701,
+      "room_gini_prod": 0.9727004481405128,
+      "room_log_inv_hhi": 5.25121421163705,
+      "room_log_inv_hhi_prod": 5.191532757836601,
+      "s": 1.0
+    }
+  ],
+  "seeds": 2,
+  "stage": "A7-B P2 room"
+}

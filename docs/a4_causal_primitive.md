@@ -1255,3 +1255,48 @@ amplification arrow, which was never measured.
    what sorting the rule produces given the holdings it is handed. It does not
    say that real households sort this way, and §6's anchors are not close enough
    in construction to be compared in value.
+
+---
+
+## 13. Section 9's retention table, reproduced 2026-08-16, and what was wrong with it
+
+**Appended by A7-B. Section 9 is not edited.**
+
+Section 9's table had **no producer in this repository**. `28.06` appeared in
+this file, in `README.md` and in `docs/a7_continuous_c.md`, in no code and in no
+stored record. `experiments/a3_asset_channel.py`'s `_shock_trace` is a sibling
+instrument but it runs `A3Model` and reads `net_worth_history`, while the table
+is about A2's transaction balance on this stage's carrier.
+
+`experiments/a7b_probes.py --check` is that measurement, built to the sentence
+under the table and using the same shock convention `_shock_trace` uses. The
+prose under the table says ten per cent of the stock is injected into one node;
+the code takes it uniformly from every node first, so the stock is conserved and
+the operation is a **transfer**.
+
+**Twenty seeds, three hundred rounds, `C = 1`:**
+
+| node | half-life | left after 10 | left after 40 | range at 40 |
+|---|---|---|---|---|
+| richest | **2.00**, twenty of twenty | `+0.2672` | **`+0.2372`**, sd `0.0242` | `[+0.1957, +0.2863]` |
+| median | 1.00, twenty of twenty | `−0.0032` | `−0.0002`, sd `0.0005` | `[−0.0022, +0.0000]` |
+
+**Section 9's numbers are seed zero.** Seed zero alone returns `+0.3216` and
+`+0.2806`, reproducing the table to four decimal places, and `+0.2806` is
+exceeded by only two of twenty seeds. The twenty-seed value is `+0.2372`.
+
+**Section 9's median half-life of `5` does not reproduce.** It is `1` at twenty
+of twenty seeds. The quantity is not meaningful for this row either way: the
+series is zero to within `0.002` from the first horizon on, so where it crosses
+one half is a fact about noise.
+
+**What does not change.** The richest node keeps about a quarter of a one-off
+transfer across a generation and the median node keeps nothing, at every seed.
+The richest target is in the **financial layer** at every seed and the median
+target is in the **production layer** at every seed, so what survives a
+generation survives upstairs, always. Section 9's argument that the four
+competitors were registered on a model with no wealth for them to act on stands
+unchanged, and so does everything downstream of it.
+
+**What to quote from now on.** `+0.2372` with the range attached, not `28.06%`.
+`a7b_p1_check.offparam_uniform_20x300.json` is the record.
