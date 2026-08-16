@@ -1,0 +1,69 @@
+{
+  "stage": "A1c",
+  "complete": true,
+  "wave": "2022",
+  "households": 20000,
+  "seeds": "none; A0's path seed is the only randomness",
+  "path_seed": 7,
+  "periods": 60,
+  "defaulting_households": 7277,
+  "in_scope_for_no_pair": 17499,
+  "pairs": {
+    "card_before_auto": {
+      "in_scope": 1142,
+      "in_order": 607,
+      "tied": 533,
+      "inverted": 2,
+      "released": 2,
+      "unattributed": 0,
+      "examples": [],
+      "holds": true
+    },
+    "auto_before_rent": {
+      "in_scope": 977,
+      "in_order": 449,
+      "tied": 526,
+      "inverted": 2,
+      "released": 2,
+      "unattributed": 0,
+      "examples": [],
+      "holds": true
+    },
+    "card_before_rent": {
+      "in_scope": 1612,
+      "in_order": 523,
+      "tied": 1080,
+      "inverted": 9,
+      "released": 9,
+      "unattributed": 0,
+      "examples": [],
+      "holds": true
+    }
+  },
+  "mortgage_before_auto": {
+    "in_scope": 788,
+    "in_order": 768,
+    "tied": 20,
+    "inverted": 0,
+    "released": 0,
+    "unattributed": 0,
+    "examples": [],
+    "holds": true,
+    "scored": false,
+    "registered": "a1_prereg.md 2.2, written 2026-08-13 before any run: a squeezed owner skips the mortgage before the car, the reversal of the payment hierarchy reported after 2008, a prediction rather than an input. Reported here and not gated, because the direction was registered in advance and the decision to gate was not"
+  },
+  "criteria": [
+    {
+      "name": "A1c-1 the sequence holds inside a household",
+      "passed": true,
+      "void": false,
+      "detail": "card_before_auto: 607 in order, 533 tied, 2 inverted, of 1,142 in scope; auto_before_rent: 449 in order, 526 tied, 2 inverted, of 977 in scope; card_before_rent: 523 in order, 1,080 tied, 9 inverted, of 1,612 in scope. 17,499 of 20,000 households are in scope for no pair at all, which is the population A1-2 quantified over and the size of the mismatch between the claim and its cross-sectional form"
+    },
+    {
+      "name": "A1c-2 every inversion is attributed",
+      "passed": true,
+      "void": false,
+      "detail": "13 inversions: 13 attributed to the release clause, the later class unsavable in the period it was first missed while the earlier one was savable; 0 unattributed"
+    }
+  ]
+}

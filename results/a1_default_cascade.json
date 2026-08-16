@@ -1,0 +1,136 @@
+{
+  "stage": "A1",
+  "complete": false,
+  "not_yet_written": [
+    "A1-2 the order is an output",
+    "A1-3 K shape",
+    "A1-4 and A1-5 card and auto levels, reported",
+    "A1-6 the subprime gradient",
+    "A1-7 the rent gradient",
+    "A1-8 the eviction rung, reported",
+    "A1-9 the representative arm as a localizer",
+    "A1-10 one parameter set across every rung"
+  ],
+  "seeds": 20,
+  "households": 4000,
+  "reference_year": "2024",
+  "consumer_units": 135760000.0,
+  "credit_per_household": 37367.641426045964,
+  "tenure_source": "CEX Table 1110, by income decile",
+  "dispersion": 0.25,
+  "dispersion_is_derived": false,
+  "dispersion_caps_by_arm": [
+    {
+      "arm": "stratified",
+      "cap": 0.14570254208805644,
+      "binding": "stratum 0, renter, mean 0.940",
+      "note": "a property of that arm's crossing of two rankings, reported and not minimised into a parameter"
+    },
+    {
+      "arm": "stratified:permuted",
+      "cap": 0.08913803124545165,
+      "binding": "stratum 8, renter, mean 0.977",
+      "note": "a property of that arm's crossing of two rankings, reported and not minimised into a parameter"
+    },
+    {
+      "arm": "stratified:scf-tenure",
+      "cap": null,
+      "binding": "stratum 0, mortgaged: the published debt takes 1.476 of the disposable",
+      "note": "a property of that arm's crossing of two rankings, reported and not minimised into a parameter"
+    }
+  ],
+  "rank_correlation": 0.76,
+  "arms_refused": {
+    "stratified": "stratum 0, mortgaged: the published debt takes 0.862 of the disposable, and a Beta with that mean cannot carry a dispersion of 0.250. Its concentration would fall to 1.552, which is two point masses at zero and one rather than a spread. The largest dispersion this mean supports is 0.231",
+    "stratified:permuted": "stratum 0, mortgaged: the published debt takes 0.863 of the disposable, and a Beta with that mean cannot carry a dispersion of 0.250. Its concentration would fall to 1.546, which is two point masses at zero and one rather than a spread. The largest dispersion this mean supports is 0.230",
+    "stratified:scf-tenure": "stratum 0: the published consumer credit implies a service of 703.17 against a disposable of 476.46, a share of 1.476. A group whose data say it cannot service its own debt is a finding, and it must not be rescaled away here"
+  },
+  "free_parameters": [
+    {
+      "name": "cost.commute_dependency",
+      "value": 0.35
+    },
+    {
+      "name": "cost.access_penalty",
+      "value": 1.0
+    },
+    {
+      "name": "population.dispersion",
+      "value": 0.25
+    },
+    {
+      "name": "population.buffer_months",
+      "value": 1.0
+    },
+    {
+      "name": "cost.grace_basket",
+      "value": 1.0
+    },
+    {
+      "name": "cost.grace_rent",
+      "value": 4.0
+    }
+  ],
+  "cost_table": [
+    {
+      "class": "CARD",
+      "cost_now": 0.0,
+      "cost_later": 1.0,
+      "resource": 0.0,
+      "grace": 6,
+      "reports_to_credit": true
+    },
+    {
+      "class": "AUTO",
+      "cost_now": 0.11666666666666665,
+      "cost_later": 1.0,
+      "resource": 0.35,
+      "grace": 3,
+      "reports_to_credit": true
+    },
+    {
+      "class": "RENT",
+      "cost_now": 0.25,
+      "cost_later": 0.0,
+      "resource": 1.0,
+      "grace": 4,
+      "reports_to_credit": false
+    },
+    {
+      "class": "MORTGAGE",
+      "cost_now": 0.08333333333333333,
+      "cost_later": 1.0,
+      "resource": 1.0,
+      "grace": 12,
+      "reports_to_credit": true
+    },
+    {
+      "class": "BASKET",
+      "cost_now": 1.0,
+      "cost_later": 0.0,
+      "resource": 1.0,
+      "grace": 1,
+      "reports_to_credit": false
+    }
+  ],
+  "criteria": [
+    {
+      "name": "A1-1  zero calibration",
+      "passed": true,
+      "void": false,
+      "detail": "60 cells over 20 seeds and 24 periods in 3 arms, every rung exactly 0.000000. 3 arm(s) could not be built and are reported rather than scored: stratified, stratified:permuted, stratified:scf-tenure"
+    },
+    {
+      "name": "A1-10 licence  the population size is an estimation setting",
+      "passed": false,
+      "void": true,
+      "detail": "not tested: the main arm has no population at 10,000 households. stratum 0, mortgaged: the published debt takes 0.862 of the disposable, and a Beta with that mean cannot carry a dispersion of 0.250. Its concentration would fall to 1.552, which is two point masses at zero and one rather than a spread. The largest dispersion this mean supports is 0.231"
+    },
+    {
+      "name": "A1-11 free parameters within the registered bound",
+      "passed": true,
+      "void": false,
+      "detail": "6 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, population.dispersion=0.25, population.buffer_months=1, cost.grace_basket=1, cost.grace_rent=4"
+    }
+  ]
+}

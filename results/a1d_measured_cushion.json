@@ -1,0 +1,528 @@
+{
+  "stage": "A1d",
+  "complete": true,
+  "not_yet_written": [],
+  "cushion": {
+    "rule": "LIQ, measured, no floor",
+    "source": "LIQ",
+    "by_group": [
+      {
+        "group": "bottom50",
+        "households": 50117,
+        "zero": 1125,
+        "zero_share": 0.022447472913382685,
+        "mean_cushion": 7080.020332422132,
+        "months_of_bills": 2.7127063569323298
+      },
+      {
+        "group": "next40",
+        "households": 40096,
+        "zero": 243,
+        "zero_share": 0.006060454908220271,
+        "mean_cushion": 50308.867941939345,
+        "months_of_bills": 15.651426466255929
+      },
+      {
+        "group": "next9",
+        "households": 8919,
+        "zero": 0,
+        "zero_share": 0.0,
+        "mean_cushion": 258994.84426505215,
+        "months_of_bills": 56.41114164332754
+      },
+      {
+        "group": "top1",
+        "households": 868,
+        "zero": 0,
+        "zero_share": 0.0,
+        "mean_cushion": 1005748.2419354839,
+        "months_of_bills": 170.13694659453185
+      }
+    ]
+  },
+  "delinquency_gradient": {
+    "target": {
+      "rate": [
+        0.08465600892649552,
+        0.01626062100002599,
+        0.0022216863424502436,
+        0.0025914279991864258
+      ],
+      "families": [
+        1856.6,
+        1474.6,
+        694.4,
+        569.4
+      ],
+      "rows": [
+        9283,
+        7373,
+        3472,
+        2847
+      ],
+      "reporting_rows": [
+        886,
+        155,
+        11,
+        5
+      ],
+      "standard_error": [
+        0.006460436905235966,
+        0.0032936047263232506,
+        0.001786707855255498,
+        0.0021305777641068796
+      ]
+    },
+    "cells": [
+      {
+        "seed": 7,
+        "months_per_round": 1,
+        "window": [
+          0.06724614776768076,
+          0.04198625361091742,
+          0.0041647385469689956,
+          0.0034482758620689655
+        ],
+        "first_window": [
+          0.16669300671671275,
+          0.059268851479231,
+          0.012956964368347987,
+          0.0
+        ],
+        "whole_run": [
+          0.24444883445278545,
+          0.12461400537902181,
+          0.012956964368347987,
+          0.017241379310344827
+        ],
+        "ever_missed": [
+          0.3606084551560648,
+          0.17671082777169042,
+          0.024294308190652477,
+          0.034482758620689655
+        ],
+        "window_with_rent": [
+          0.07131568549980245,
+          0.04228508815619086,
+          0.0041647385469689956,
+          0.0034482758620689655
+        ],
+        "decreasing": true,
+        "matches": true
+      },
+      {
+        "seed": 7,
+        "months_per_round": 3,
+        "window": [
+          0.06578427499012249,
+          0.04502440482119733,
+          0.005090236001850995,
+          0.0
+        ],
+        "first_window": [
+          0.1367048597392335,
+          0.038051598764817215,
+          0.012956964368347987,
+          0.0
+        ],
+        "whole_run": [
+          0.22165152113789016,
+          0.10055782448451041,
+          0.015039333641832485,
+          0.017241379310344827
+        ],
+        "ever_missed": [
+          0.33935203476886605,
+          0.1583823089949198,
+          0.026376677464136973,
+          0.034482758620689655
+        ],
+        "window_with_rent": [
+          0.07613591465823785,
+          0.045323239366470765,
+          0.005090236001850995,
+          0.0
+        ],
+        "decreasing": true,
+        "matches": true
+      },
+      {
+        "seed": 8,
+        "months_per_round": 1,
+        "window": [
+          0.06744369814302648,
+          0.04387887239764917,
+          0.0041647385469689956,
+          0.0034482758620689655
+        ],
+        "first_window": [
+          0.1677597787435796,
+          0.059318657236776574,
+          0.012956964368347987,
+          0.0
+        ],
+        "whole_run": [
+          0.2464243382062426,
+          0.1269548759836637,
+          0.012956964368347987,
+          0.017241379310344827
+        ],
+        "ever_missed": [
+          0.3608060055314105,
+          0.17860344655842214,
+          0.024294308190652477,
+          0.034482758620689655
+        ],
+        "window_with_rent": [
+          0.07040695377321217,
+          0.044078095427831455,
+          0.0041647385469689956,
+          0.0034482758620689655
+        ],
+        "decreasing": true,
+        "matches": true
+      },
+      {
+        "seed": 8,
+        "months_per_round": 3,
+        "window": [
+          0.06760173844330304,
+          0.045323239366470765,
+          0.005090236001850995,
+          0.0
+        ],
+        "first_window": [
+          0.1371789806400632,
+          0.03859946209781851,
+          0.012956964368347987,
+          0.0
+        ],
+        "whole_run": [
+          0.22386408534176214,
+          0.10155393963542185,
+          0.015039333641832485,
+          0.017241379310344827
+        ],
+        "ever_missed": [
+          0.3425128407743975,
+          0.1607729853571073,
+          0.026376677464136973,
+          0.034482758620689655
+        ],
+        "window_with_rent": [
+          0.07815092848676412,
+          0.0456220739117442,
+          0.005090236001850995,
+          0.0
+        ],
+        "decreasing": true,
+        "matches": true
+      },
+      {
+        "seed": 9,
+        "months_per_round": 1,
+        "window": [
+          0.05930462267878309,
+          0.04103994421755155,
+          0.0041647385469689956,
+          0.0034482758620689655
+        ],
+        "first_window": [
+          0.15934413275385223,
+          0.050951289969120434,
+          0.012956964368347987,
+          0.0
+        ],
+        "whole_run": [
+          0.23212169103121297,
+          0.11176411993226416,
+          0.012956964368347987,
+          0.017241379310344827
+        ],
+        "ever_missed": [
+          0.34879494271039113,
+          0.1661022014144835,
+          0.024294308190652477,
+          0.034482758620689655
+        ],
+        "window_with_rent": [
+          0.06372975108652706,
+          0.041189361490188266,
+          0.0041647385469689956,
+          0.0034482758620689655
+        ],
+        "decreasing": true,
+        "matches": true
+      },
+      {
+        "seed": 9,
+        "months_per_round": 3,
+        "window": [
+          0.060845515606479654,
+          0.03785237573463492,
+          0.005090236001850995,
+          0.0
+        ],
+        "first_window": [
+          0.13389964440932436,
+          0.03705548361390577,
+          0.012956964368347987,
+          0.0
+        ],
+        "whole_run": [
+          0.20347688660608454,
+          0.08696085267456918,
+          0.015039333641832485,
+          0.017241379310344827
+        ],
+        "ever_missed": [
+          0.33220071118135125,
+          0.1474748480924395,
+          0.026376677464136973,
+          0.034482758620689655
+        ],
+        "window_with_rent": [
+          0.06811536941920189,
+          0.037951987249726066,
+          0.005090236001850995,
+          0.0
+        ],
+        "decreasing": true,
+        "matches": true
+      }
+    ],
+    "pairs": [
+      {
+        "pair": "bottom50/next40",
+        "gap": 0.06839538792646954,
+        "sigmas": 9.431821209289115,
+        "expected_events": [
+          2142.6435859296016,
+          326.4807484385218
+        ],
+        "source_resolves": true,
+        "model_resolves": true,
+        "scored": true
+      },
+      {
+        "pair": "next40/next9",
+        "gap": 0.014038934657575745,
+        "sigmas": 3.7466935247345625,
+        "expected_events": [
+          326.4807484385218,
+          9.602128372069952
+        ],
+        "source_resolves": true,
+        "model_resolves": true,
+        "scored": true
+      },
+      {
+        "pair": "next9/top1",
+        "gap": -0.0003697416567361822,
+        "sigmas": 0.1329723251379171,
+        "expected_events": [
+          9.602128372069952,
+          0.7515141197640635
+        ],
+        "source_resolves": false,
+        "model_resolves": false,
+        "scored": false
+      }
+    ],
+    "group_sizes": [
+      25310,
+      20078,
+      4322,
+      290
+    ],
+    "scored_pairs": [
+      0,
+      1
+    ],
+    "households": 50000,
+    "window_months": 12
+  },
+  "wave": "2022",
+  "households": 100000,
+  "records": 22975,
+  "records_covered": 19843,
+  "seeds": "none; the population is a deterministic allocation",
+  "baseline_stress": {
+    "households": 100000,
+    "stressed": 11311,
+    "share": 0.11311,
+    "by_group": [
+      9649,
+      1467,
+      170,
+      25
+    ],
+    "group_sizes": [
+      50117,
+      40096,
+      8919,
+      868
+    ]
+  },
+  "baseline_no_shock": {
+    "final": {
+      "CARD": 0.040611080077452295,
+      "AUTO": 0.01921676315318914,
+      "RENT": 0.0,
+      "MORTGAGE": 0.0014740095765723874,
+      "BASKET": 0.024887801259153654
+    },
+    "displaced": 8653,
+    "renters": 32098,
+    "periods": 60,
+    "still_moving": true
+  },
+  "workers": 8,
+  "path": {
+    "source": "A0 retention, terminating claims by stratum",
+    "seed": 7,
+    "periods": 60,
+    "months_per_round": 1
+  },
+  "renter_families": {
+    "why": "docs/a1d_prereg.md section 10, ruling \u4e19: RENTER_FLOOR counts model households, which are copies of implicates of families. Reported and scored on nothing",
+    "implicates": 5,
+    "floor": 30,
+    "by_group": [
+      {
+        "group": "bottom50",
+        "model_renters": 28776,
+        "families": 1251,
+        "behind": 16811,
+        "clears_a_family_floor": true
+      },
+      {
+        "group": "next40",
+        "model_renters": 2888,
+        "families": 150,
+        "behind": 740,
+        "clears_a_family_floor": true
+      },
+      {
+        "group": "next9",
+        "model_renters": 397,
+        "families": 30,
+        "behind": 0,
+        "clears_a_family_floor": true
+      },
+      {
+        "group": "top1",
+        "model_renters": 37,
+        "families": 6,
+        "behind": 5,
+        "clears_a_family_floor": false
+      }
+    ]
+  },
+  "first_default_shares": {
+    "card": 0.3067656691641617,
+    "auto": 0.07037103503970568,
+    "shelter": 0.1564224505361389,
+    "rent": 0.09650500246758491,
+    "mortgage": 0.059917448068553994,
+    "basket": 0.46644084525999374
+  },
+  "scored_final": {
+    "CARD": 0.1810481023319624,
+    "AUTO": 0.08069867937164416,
+    "RENT": 0.0001508880010340859,
+    "MORTGAGE": 0.006914593692254822,
+    "BASKET": 0.06393154971658263
+  },
+  "free_parameters": [
+    {
+      "name": "cost.commute_dependency",
+      "value": 0.35
+    },
+    {
+      "name": "cost.access_penalty",
+      "value": 1.0
+    },
+    {
+      "name": "cost.grace_basket",
+      "value": 1.0
+    },
+    {
+      "name": "cost.grace_rent",
+      "value": 4.0
+    }
+  ],
+  "literature_parameters": [
+    {
+      "name": "cost.grace_card",
+      "value": 6.0,
+      "why": "FFIEC uniform retail credit classification: an open-end account is charged off at 180 days, which is six monthly cycles"
+    },
+    {
+      "name": "cost.grace_auto",
+      "value": 3.0,
+      "why": "repossession practice clusters near ninety days; unverified, and swept beside the basket"
+    },
+    {
+      "name": "cost.grace_mortgage",
+      "value": 12.0,
+      "why": "federal servicing rules bar a first foreclosure filing until the borrower is more than 120 days delinquent, four monthly cycles, and the process runs beyond that; the value above the floor is unverified and swept"
+    }
+  ],
+  "criteria": [
+    {
+      "name": "A1d-0 zero calibration, by removing the cause",
+      "passed": true,
+      "void": false,
+      "detail": "income raised to cover each household's own obligations: every rung exactly 0.000000 over 24 periods"
+    },
+    {
+      "name": "A1-2  the order is an output",
+      "passed": false,
+      "void": false,
+      "detail": "first default among 44,578 defaulting households: card 0.3068, auto 0.0704, shelter 0.1564 (rent 0.0965, mortgage 0.0599), basket 0.4664. Among the 39,492 not short at baseline: card 0.3163, auto 0.0741, shelter 0.1647. The manuscript's sequence is what fails here, not the code"
+    },
+    {
+      "name": "A1-3  K shape, ordinally",
+      "passed": true,
+      "void": false,
+      "detail": "mortgage 0.0069 < auto 0.0807 < card 0.1810. Over baseline: mortgage +0.0054, auto +0.0615, card +0.1404. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes"
+    },
+    {
+      "name": "A1-6  the subprime gradient",
+      "passed": true,
+      "void": false,
+      "detail": "bottom 0.1345 against middle 0.0518, ratio x2.60. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them"
+    },
+    {
+      "name": "A1-9  the representative arm is degenerate",
+      "passed": true,
+      "void": false,
+      "detail": "every rung of the collapsed household takes values in {0, 1} across all three tenures, which is Corollary 1 with a number attached: the difference between the arms is the population"
+    },
+    {
+      "name": "A1-10 one parameter set across every rung",
+      "passed": true,
+      "void": false,
+      "detail": "one rule, one attribute table, one grace table; every rung's pair is CARD 0.000/6, AUTO 0.117/3, RENT 0.250/4, MORTGAGE 0.083/12, BASKET 1.000/1"
+    },
+    {
+      "name": "A1d-1 the delinquency gradient, matched window",
+      "passed": true,
+      "void": false,
+      "detail": "LATE60 by net worth: bottom50 0.0847 (886 of 1,857 families), next40 0.0163 (155 of 1,475 families), next9 0.0022 (11 of 694 families), top1 0.0026 (5 of 569 families). Scored pairs: bottom50/next40, next40/next9. Reported and not scored: next9/top1 (0.13 sigma, expected events 0.8). Model on the last 12 periods over 6 sweep cells: seed 7x1 0.067/0.042/0.004/0.003; seed 7x3 0.066/0.045/0.005/0.000; seed 8x1 0.067/0.044/0.004/0.003; seed 8x3 0.068/0.045/0.005/0.000; seed 9x1 0.059/0.041/0.004/0.003; seed 9x3 0.061/0.038/0.005/0.000. Decreasing on every scored pair in every cell: True. Ordering matches the survey on those groups in every cell: True. Group sizes at 50,000: [25310, 20078, 4322, 290]. Reported and never scored, the other three windows on cell one: first 12 periods 0.167/0.059/0.013/0.000; whole run at sixty days 0.244/0.125/0.013/0.017; whole run on A1b-1's any-miss rule 0.361/0.177/0.024/0.034; last window including rent 0.071/0.042/0.004/0.003"
+    },
+    {
+      "name": "A1d-2 the rent gradient, on net worth",
+      "passed": false,
+      "void": false,
+      "detail": "by net worth, sixty days: bottom50 0.5842 (28,776), next40 0.2562 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. Reported and not scored, by income: bottom50 0.7162 (23,585), next40 0.0877 (7,581), next9 0.0000 (897), top1 0.0000 (35). A measured cushion did not produce the monotonicity a label could not, so the non-monotonicity is a property of the data. docs/a1b_prereg.md section 8 has what the cells are made of"
+    },
+    {
+      "name": "A1d-3 free parameters within the registered bound",
+      "passed": true,
+      "void": false,
+      "detail": "4 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, cost.grace_basket=1, cost.grace_rent=4. A1b counted five; population.buffer_months left the list when the cushion became a measurement rather than a choice"
+    }
+  ]
+}
