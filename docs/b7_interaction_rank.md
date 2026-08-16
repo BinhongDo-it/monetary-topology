@@ -3182,3 +3182,38 @@ and the comment in `b7_crossfold.py` now says so at the line where it happened.
 unchanged. What changes is the count. The design carries a **two**-dimensional
 departure from additivity, not a one-dimensional one, and §11.9's first
 outstanding item is closed.
+
+### 11.11 Two overstatements in §11.6 and §11.10's write-up, corrected
+
+Both are mine and both ran in the same direction, toward making the leftover look
+more mysterious than it is.
+
+**"The residual has no candidate explanation" is wrong.** The obvious candidate
+was available the whole time. If the interaction is a smooth family of curves in
+DTI, then `m` and `m'` are two elements of a smooth basis and **nothing says the
+family's modes are spanned by them**. A leftover that is still ordered in DTI is
+exactly what a smooth-in-DTI structure predicts once you regress on only two
+smooth functions. `R^2 = 0.634` with an ordered residual is the signature of a
+smooth family described by two of its many modes, not an anomaly. The reading
+that survives is narrower and still worth having: **`v1` is not a linear
+combination of `m` and `m'`**, so "the local schedule is the national one
+rescaled" is a good approximation and not an identity.
+
+**"That is what B7-17 is for" is wrong.** B7-17 correlates a class's `gamma`
+across adjacent years in the same tract. That is a question about **time**. The
+residual is a question about the **shape of a loading** in a single cross-section.
+They are different objects and the first does not bear on the second.
+
+**And B7-17's first two registered readings are now answered by §11.** They were
+written to ask whether a thin class's diagonal was noise or signal, and
+`Stilde(a,a)` answers that by construction: it is noise-free, and it is nonzero.
+Its third reading was attached to stage B2's within share, and that attachment was
+loose: B2's within share is a single cross-section's decomposition and does not
+depend on whether cell effects persist.
+
+**What B7-17 would still be worth running for** is one thing only, and it is a
+question this stage does not ask: whether `f(c)` is a property of a place or of a
+place-year. **No claim in §11 turns on the answer.** The rank is two either way,
+the loadings are what they are either way, and neither the withdrawal nor its
+successor moves. `experiments/b7_persistence.py` therefore stays written and
+unrun, which is a decision recorded here rather than a task left pending.

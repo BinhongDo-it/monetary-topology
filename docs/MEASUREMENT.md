@@ -811,6 +811,51 @@ record. Do not register expecting to be protected.**
 
 ---
 
+### 14. Unexamined residual　(two instances, an hour apart, both leaning the same way)　（残差没查错，两次，隔一小时，而且两次偏同一个方向）
+
+**Symptom**: a leftover is reported as having **no candidate explanation**, and the
+most ordinary candidate was available and simply not written down. The defect is
+not that the leftover is unexplained. It is that **"I did not think of one" was
+reported as "there is not one"**, and those are claims about two different
+objects: the person and the world.
+
+（**症状**：一块剩余项被写成「没有候选解释」，而最平凡的那个候选一直在手边，只是没写下来。
+毛病不在于剩余项没被解释，而在于**把「臣妾没想到」报成了「没有」**，
+这两句讲的是两个不同的对象：人，和世界。）
+
+**Both instances are from B7-16 on 2026-08-16, and both are in this file's author's
+own text.**
+
+| what was written | the candidate that was available |
+|---|---|
+| `v1` regressed on the class main effect `m` and its slope `m'` leaves `R^2 = 0.634` with a residual **still ordered in DTI**, reported as having no candidate explanation | if the interaction is a **smooth family of curves in DTI**, then `m` and `m'` are two elements of a smooth basis and nothing says the family's modes are spanned by them. **An ordered residual is what a smooth structure predicts** after regressing on two smooth functions. It is the signature, not the anomaly |
+| in the same paragraph, that residual was said to be "what B7-17 is for" | B7-17 correlates a class's `gamma` across adjacent years in the same tract, which is a question about **time**. The residual is a question about the **shape of a loading** in one cross-section. They were joined because both were unexplained, and **"both unexplained" is not a relation** |
+
+**What each one costs.** The first made a finding sound larger than it is, which is
+the direction that gets a stage reopened for nothing. The second attached an unrun
+arm to a question it cannot answer, and that arm costs a twenty-minute parse, so
+the misattachment would have spent it on the wrong object.
+
+**The rule.**
+
+> **Before writing that something has no candidate explanation, write the most
+> boring candidate down and say why it is not enough. If it cannot be written,
+> that says the search has not happened, not that the explanation does not exist.**
+
+**Same family as the reachability rule** (fingerprints ledger discipline 15, which
+asks whether each mapped outcome still has probability mass): that one governs
+**branches**, this one governs **residuals**, and both are satisfied by
+substituting what is already in hand and doing the arithmetic. Cheap both times,
+skipped both times.
+
+**One thing worth recording separately**: both instances lean the same way, toward
+making the leftover more mysterious. **A same-direction pair is a tendency and not
+a coincidence**, and it is the reason this mode is written as its own entry rather
+than folded into mode 13.
+
+（**两次都偏向把剩余项说得更神秘。方向一致的一对不是巧合，是一种倾向**，
+这也是这一条单独立目而不是并进第十三种的理由。）
+
 ## The checklist before reporting a number　（报数之前的清单）
 
 Answer each of these before any number goes into `results/` or into a
@@ -914,6 +959,16 @@ not an option.**
 动守卫抓到的，其余十次全靠人工审视异常数字。**每个新载体标配零标定，不是可选项。**）
 
 ---
+
+16. **Am I about to write that something is unexplained?** Then what is the most
+    boring thing that would produce it, and why is that not it? A residual that is
+    left over after fitting two functions, and that still has structure, is the
+    **expected** shape when the truth is a smooth family and the two functions are
+    two of its modes. Write that down and rule it out, or do not use the word.
+    （**臣妾是不是正要写「这一块没有解释」？**那么，最无聊的那个解释是什么，
+    它为什么不成立？拟合了两个函数之后剩下的、还带结构的残差，在真值是一族光滑曲线、
+    而那两个函数是其中两个模态时，**本来就该长成那样**。把它写出来并排除掉，
+    否则不要用「没有解释」这个词。）　→ 第十四种失败模式
 
 ## One meta-rule　（一条元规则）
 
