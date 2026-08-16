@@ -1069,6 +1069,80 @@ def class_dispersions(
                                      / (big.sum() - dof)))
     return entry, cell
 
+
+# ---------------------------------------------------------------------------
+# Early stop. `claude/B7_复盘_v1.md` failure four: twenty repetitions were run on
+# arms whose first three already agreed to within a fraction of their margin.
+# ---------------------------------------------------------------------------
+
+
+def normal_tail(z: float) -> float:
+    """`P(Z > z)` for a standard normal, from `erfc`. No dependency, no table."""
+    from math import erfc, sqrt
+
+    return 0.5 * erfc(float(z) / sqrt(2.0))
+
+
+#: Fewest repetitions before the stop is even considered. **Three, because a
+#: standard deviation on two of anything has no degrees of freedom left.** That
+#: is structural and not a tolerance: at two repetitions there is no spread to
+#: compare a margin against.
+EARLY_STOP_MIN = 3
+
+
+def decisive_margin(rank: int, eigenvalues, null_max: float) -> float:
+    """How far this repetition is from returning something other than `rank`.
+
+    Positive means it read the constructed rank and by how much. The quantity is
+    the **binding** one, which for a size arm is the first eigenvalue that must
+    stay below the null and for the power arm is whichever of the two conditions
+    is closer to failing.
+    """
+    e = np.asarray(eigenvalues, dtype=np.float64)
+    if rank == 0:
+        return float(null_max - e[0])
+    if len(e) <= rank:
+        return float(e[rank - 1] - null_max)
+    return float(min(e[rank - 1] - null_max, null_max - e[rank]))
+
+
+def early_stop(margins: list[float], reps_requested: int) -> str | None:
+    """Can the repetitions still to run resolve anything? A reason, or ``None``.
+
+    **The rule is `MEASUREMENT.md` 11a and it introduces no chosen number.**
+    `N` repetitions cannot resolve a rate below `1 / N`. So: if every repetition
+    so far falls on the same side, the implied per-repetition rate of falling on
+    the other side is the normal tail at the margin's own `z`, and when that rate
+    times the requested count is below one, **the remaining repetitions measure
+    nothing about the rate and only re-test the code.**
+
+    **This never changes a computed value.** Every repetition's two seeds come
+    from its own index, so the ones that ran are bit-identical to the same ones in
+    a full run, and a checkpoint from a stopped run is a valid prefix of a longer
+    one. What it changes is how many are computed.
+    """
+    if len(margins) < EARLY_STOP_MIN:
+        return None
+    m = np.asarray(margins, dtype=np.float64)
+    if not (m > 0).all() and not (m < 0).all():
+        return None
+    sd = float(m.std(ddof=1))
+    if sd <= 0:
+        z = float("inf")
+    else:
+        z = abs(float(m.mean())) / sd
+    implied = normal_tail(z)
+    if implied * reps_requested >= 1.0:
+        return None
+    side = "returned the constructed rank" if m[0] > 0 else "did not"
+    return (
+        f"every one of {len(margins)} repetitions {side}, margin "
+        f"{m.mean():.4g} +- {sd:.4g}, z = {z:.1f}, implied per-repetition rate "
+        f"{implied:.3g}. {reps_requested} repetitions cannot resolve a rate "
+        f"below {1 / reps_requested:.3g} (MEASUREMENT.md 11a), so the rest "
+        "measure nothing"
+    )
+
 def wilson_interval(k: int, n: int, z: float = 1.959963984540054) -> tuple[float, float]:
     """Wilson score interval for a binomial rate. `z` is the two-sided 95% normal quantile.
 

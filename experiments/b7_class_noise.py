@@ -61,6 +61,8 @@ from monetary_topology.effective_price import MIN_CELL_SIZE  # noqa: E402
 from monetary_topology.interaction_rank import (  # noqa: E402
     calibration_basis,
     cell_class_table,
+    decisive_margin,
+    early_stop,
     class_dispersions,
     estimate_rank,
     matched_sample,
@@ -157,10 +159,18 @@ def main() -> int:
               f"{args.reps} repetitions at {args.draws} draws")
         if out:
             print(f"    resuming: {len(out)} done")
+        margins = [decisive_margin(0, out[str(r)]["eigenvalues"],
+                                   out[str(r)]["null_max"])
+                   for r in range(args.reps) if str(r) in out]
+        stopped = None
         for rep in range(args.reps):
             key = str(rep)
             if key in out:
                 continue
+            stopped = early_stop(margins, args.reps)
+            if stopped is not None:
+                print(f"    STOPPED after {len(margins)}: {stopped}")
+                break
             base = args.seed + 7_000_000 + 1_000 * rep + (0 if bracket == "lower"
                                                           else 500)
             v = matched_sample(basis, cells, classes, 0,
@@ -179,6 +189,7 @@ def main() -> int:
                 "second_class": lv[second],
                 "second_weight": float(abs(est.eigenvectors[second, 1])),
             }
+            margins.append(decisive_margin(0, est.eigenvalues, est.null_max))
             ckpt_file.write_text(json.dumps(out), encoding="utf-8", newline="\n")
             per = (time.monotonic() - started)
             print(f"    rep {rep + 1:>3}/{args.reps}  read {est.rank}  "
@@ -195,6 +206,7 @@ def main() -> int:
         seconds = [g["second_class"] for g in got]
         record["arms"][name] = {
             "bracket": bracket, "n": len(got), "reads": ranks,
+            "reps_requested": args.reps, "early_stop": stopped,
             "reads_at_least_one": n_ge1, "reads_exactly_two": n_eq2,
             "lambda1_mean": float(lam[:, 0].mean()),
             "lambda1_sd": float(lam[:, 0].std(ddof=1)) if len(got) > 1 else 0.0,

@@ -84,6 +84,8 @@ from b7_design import (  # noqa: E402
 )
 from monetary_topology.interaction_rank import (  # noqa: E402
     binomial_tail_at_least,
+    decisive_margin,
+    early_stop,
     calibration_basis,
     estimate_rank,
     matched_sample,
@@ -181,10 +183,20 @@ def run_arms(
 
         print(f"    {label}  constructed rank {rank}  ({kind}, fails when it "
               f"{fails_when})")
+        margins = [
+            decisive_margin(rank, out[f"{rank}:{r}"]["eigenvalues"],
+                            out[f"{rank}:{r}"]["null_max"])
+            for r in range(reps) if f"{rank}:{r}" in out
+        ]
         for rep in range(reps):
             key = f"{rank}:{rep}"
             if key in out:
                 continue
+            why = early_stop(margins, reps)
+            if why is not None:
+                out[f"{rank}:early_stop"] = {"after": len(margins), "reason": why}
+                print(f"      STOPPED after {len(margins)}: {why}")
+                break
             field_seed, null_seed = arm_seeds(seed, rank, rep)
             v = matched_sample(basis, cells, classes, rank,
                                np.random.default_rng(field_seed), floor=floor)
@@ -201,6 +213,7 @@ def run_arms(
                     float(est.eigenvalues[i] / obs[i]) for i in range(top_r)
                 ],
             }
+            margins.append(decisive_margin(rank, est.eigenvalues, est.null_max))
             done += 1
             ckpt_file.write_text(json.dumps(out), encoding="utf-8", newline="\n")
             per = (time.monotonic() - started) / done
@@ -296,9 +309,12 @@ def summarise(out: dict, reps: int, draws: int, obs: np.ndarray) -> tuple[list, 
         "B7-0  structural: every available arm completed every repetition",
         all(
             sum(1 for r in range(reps) if f"{rank}:{r}" in out) == reps
+            or f"{rank}:early_stop" in out
             for rank in GATE_RANKS if f"{rank}:unavailable" not in out
         ),
-        f"{n_ran} of {n_avail} available arms ran, {reps} repetitions each.  "
+        f"{n_ran} of {n_avail} available arms ran, up to {reps} repetitions "
+        "each; an arm that stopped early records why under its `early_stop` key "
+        "and MEASUREMENT.md 11a is the rule.  "
         "**This is the only gated criterion in the file.** It is about the code "
         "having finished and not about what it found; VOID 1 removed every "
         "threshold on a result",
