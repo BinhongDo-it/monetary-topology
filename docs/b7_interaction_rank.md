@@ -3217,3 +3217,82 @@ place-year. **No claim in §11 turns on the answer.** The rank is two either way
 the loadings are what they are either way, and neither the withdrawal nor its
 successor moves. `experiments/b7_persistence.py` therefore stays written and
 unrun, which is a decision recorded here rather than a task left pending.
+
+### 11.12 What §11 says in economic terms
+
+The technical sections above are about a matrix. This is what the matrix is a
+matrix of, written out once so that the reading is not left to be reconstructed.
+
+**What the estimator is measuring.** A cell is `(year x census tract x occupancy
+x lien x purpose x product x dwelling)`: **one local market's one product in one
+year**. The additive model says `spread = cell effect + DTI class effect`, and
+`gamma(c,a)` is what is left over. So `gamma` is
+
+> **how far each local market's own DTI pricing schedule departs from the national
+> one**,
+
+and the rank of `Stilde` is **how many independent ways those schedules can
+depart**.
+
+**The answer is two, and they have names.** `v1` falls monotonically along DTI and
+crosses zero between 38 and 39: **a tilt.** Some markets charge more for borrower
+leverage than others, and a market loading positively prices `<20%` cheap and
+`45-49` dear relative to the national schedule. `v2` is positive at the bottom of
+the scale, negative through 36-42, and positive across 45-49, with six classes
+carrying comparable weight: **a bend.** Some markets price both extremes up
+against the middle. **A tilt and a bend are the first two modes of a family of
+smooth curves**, and the rank is exactly two rather than one or seventeen.
+
+**The departure is multiplicative.** `corr(v1, m)` clears at z = +7.15 in both
+arms, where `m` is the national class main effect, so `gamma(c,a) ~ f(c) m(a)`:
+**the shape of the schedule is national and its amplitude is local.** The
+direction in which the additive model is wrong is the multiplicative one. Markets
+use the same DTI schedule, scaled up in some and flattened in others.
+
+**And the local disagreement is the size of the national gradient.** `m` runs from
+`-0.0982` to `+0.0825`, a span of `0.181`. The square root of `Stilde(a,a)` is
+that class's local dispersion:
+
+| class | local dispersion | share of the national span |
+|---|---|---|
+| `<20%` | 0.136 | **75%** |
+| `42` | 0.066 | 36% |
+| `49` | 0.062 | 34% |
+| `20%-<30%` | 0.032 | 18% |
+
+**At the low-DTI end, how much markets disagree about the discount is three
+quarters of the entire national gradient.** The national DTI schedule is not a
+solid object. It is an average of local schedules whose spread is the same order
+as its own slope.
+
+**The national schedule has a turn in it, at 43-44.** `m` rises monotonically to
+`44` and then falls: `45` through `49` price **below** `43-44`. A candidate, and
+only a candidate: 43% is the ATR/QM DTI line, so loans originated above it cleared
+a stronger underwriting bar and are a selected population, better risks at a given
+DTI and priced accordingly. **The window of this sample against the state of the
+GSE patch in those years has not been checked here, so this is a shape with a
+candidate attached and not a finding.**
+
+**In the framework's terms.** Additive separability is equivalent to every closed
+square integrating to zero, so the cell-by-class interaction **is** the
+non-integrable part. §11 therefore says:
+
+> **On this carrier the non-integrable part of the price field is
+> two-dimensional. The holonomy on squares is not a scalar; its image is a plane,
+> one axis a tilt and the other a bend.**
+
+**This is not what B7-4 wanted.** B7-4 wanted a ladder of borrower types, that is,
+the nineteen DTI classes collapsing into a few rungs. **They do not collapse. They
+lie on a curve, and there are no rungs.** What varies across cells is the curve,
+not the assignment of borrowers to groups. **The stratification is on the market
+side, not the borrower side.**
+
+**Five things this does not say**, each because a specific number says otherwise:
+no causal claim, since nothing here separates risk, competition, regulation,
+composition and measurement; **not** that the measurement explanation is excluded,
+since `corr(v1, m')` clears at z = +1.94 and +2.36 and a cell-level shift of the
+DTI axis does contribute; **not** that the factors are stable across years, which
+was never measured; **not** that the magnitude is large, since all of this is 1.5%
+of the naive `lambda_1` of 1.4674 and **the withdrawal stands**; and **not** that
+any of it is visible in the nineteen-class design, where all four statistics read
+zero because `>60%`'s diagonal consumes the eigenvector on its own.

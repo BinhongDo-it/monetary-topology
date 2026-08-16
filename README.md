@@ -30,6 +30,64 @@ predicted direction by 130 times the scale of a gap known to be zero.
 
 ---
 
+## Where the conclusions live
+
+**This README states a few results and does not state most of them. Every
+conclusion not written here is in `docs/`, one file per stage, and the machine
+record of every criterion is in [RESULTS.md](RESULTS.md).** The division is
+deliberate: a README that carried every reading would have to be rewritten every
+time one moved, and the ones that moved most are the ones worth reading in full.
+
+**What the three places are for.** `docs/` holds the pre-registration, the
+amendment trail and the reading, including the readings that were withdrawn and
+why. `RESULTS.md` is generated from the JSON records and lists failed criteria
+beside passing ones. This README is an entry point and is the least current of
+the three by construction.
+
+**A stage's own document is the authority on that stage.** Where this README and
+a `docs/` file disagree, the `docs/` file is right and this file is behind.
+
+### Track A documents
+
+| stage | document |
+|---|---|
+| A0, A0b, A2, A2c | **no separate document.** These four are recorded in [RESULTS.md](RESULTS.md) and in this README's Roadmap only. Their design lives in the experiment files |
+| A1 | [`a1_prereg.md`](docs/a1_prereg.md), availability [`a1_availability.md`](docs/a1_availability.md), inputs [`a1_inputs_availability.md`](docs/a1_inputs_availability.md) |
+| A1b, A1c, A1d | [`a1b_prereg.md`](docs/a1b_prereg.md), [`a1c_prereg.md`](docs/a1c_prereg.md), [`a1d_prereg.md`](docs/a1d_prereg.md) |
+| A3 | [`a3_asset_channel.md`](docs/a3_asset_channel.md) |
+| A3b | [`a3b_initial_construction.md`](docs/a3b_initial_construction.md) |
+| A3c | [`a3_restated.md`](docs/a3_restated.md) |
+| A4 | [`a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
+| A5 | [`a5_reachability.md`](docs/a5_reachability.md) |
+| A6 | [`a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
+| A7 | [`a7_continuous_c.md`](docs/a7_continuous_c.md) |
+
+### Track B documents
+
+| stage | document |
+|---|---|
+| scope | [`b0_claim_scope.md`](docs/b0_claim_scope.md) — what is claimed and what is deliberately not |
+| B1 | [`b1_setup.md`](docs/b1_setup.md), theorem [`b1_theorem.md`](docs/b1_theorem.md) |
+| B2 | [`b2_measurement.md`](docs/b2_measurement.md), loop B [`b2_loop_b.md`](docs/b2_loop_b.md), placebo validation [`b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
+| B3 | [`b3_cip_slice.md`](docs/b3_cip_slice.md), availability [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
+| B4 | [`b4_directed_edges.md`](docs/b4_directed_edges.md) |
+| B5 | [`b5_orphan_prereg.md`](docs/b5_orphan_prereg.md), availability [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
+| B6 | [`b6_cuba_prereg.md`](docs/b6_cuba_prereg.md), availability [`b6_cuba_availability.md`](docs/b6_cuba_availability.md) |
+| B7 | [`b7_interaction_rank.md`](docs/b7_interaction_rank.md) — **the headline is withdrawn and the stage still returns something; §11 and §11.12** |
+| B8 | [`b8_fannie_slice.md`](docs/b8_fannie_slice.md), availability [`b8_inputs_availability.md`](docs/b8_inputs_availability.md) |
+| B9 | [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
+| B10 | [`b10_freddie_availability.md`](docs/b10_freddie_availability.md) |
+
+### Across every stage
+
+[`MEASUREMENT.md`](docs/MEASUREMENT.md) — **fourteen ways a measurement in this
+repository went wrong, each with its instances named**, and a checklist of sixteen
+questions to ask before reporting a number. Every entry was written after the
+mistake, not before, and several of them cost a stage its headline. **It is the
+most useful file here for anyone who wants to know how much to trust the rest.**
+
+---
+
 ## The result
 
 ### Quantity does nothing; topology does everything
@@ -815,18 +873,18 @@ contracts depends on parameter magnitudes and cannot be settled structurally.
 
 | stage | subject | status |
 |---|---|---|
-| A0 | retention and allocation | **complete, 9/9** |
-| A0b | derived demand on the downward edge | **complete, 6/6 under both presets** |
-| A2 | support-set contraction, and the intermediate layer | **complete, 8/8 over 12 graph seeds** |
-| A2c | cycle structure of the realized graph | **complete, 7/7** |
+| A0 | retention and allocation | **complete, 9/9**; no separate document, see [RESULTS.md](RESULTS.md) |
+| A0b | derived demand on the downward edge | **complete, 6/6 under both presets**; no separate document |
+| A2 | support-set contraction, and the intermediate layer | **complete, 8/8 over 12 graph seeds**; no separate document |
+| A2c | cycle structure of the realized graph | **complete, 7/7**; no separate document |
 | A3 | **the asset price channel** | closed, **3/4 live, 1 void, 2 diagnostic**, [`docs/a3_asset_channel.md`](docs/a3_asset_channel.md) |
 | A3b | the construction the channel opens from | complete, [`docs/a3b_initial_construction.md`](docs/a3b_initial_construction.md) |
 | A3c | which parts of A3 are load-bearing | complete, A3-8 **void**, [`docs/a3_restated.md`](docs/a3_restated.md) |
 | A5 | reachability against participation | **2/6**, [`docs/a5_reachability.md`](docs/a5_reachability.md) |
 | A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
-| A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below |
-| A7 | continuous connectivity | availability check done, `experiments/a7a_continuous_c.py` |
-| A1 | default waterfall, calibrated to delinquency cross-sections | not started |
+| A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below, [`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
+| A7 | continuous connectivity | **pre-registered, not run**, [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md); availability check done, `experiments/a7a_continuous_c.py` |
+| A1 | default waterfall, calibrated to delinquency cross-sections | A1 superseded by A1b; A1b, A1c and A1d have run, see [RESULTS.md](RESULTS.md) and [`docs/a1_prereg.md`](docs/a1_prereg.md) |
 
 **A3's two failures are reported rather than repaired, and they are different
 kinds of failure.** A3-5 asks whether the gate binds at the high tier and comes
@@ -891,6 +949,23 @@ lets `C` move one thing at a time, which the binary switch does not: `uniform_ac
 collapses the adjacency, the payroll incidence, the routing, the propensities and
 the opening holdings together, and the design notes say so.
 
+**A7 is now pre-registered and has not been run.** [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md)
+files one registration with two legs, because the holonomy is not computable on
+A4's carrier: the loop sum is defined on the `terms` matrix, which lives on
+`A3Model`, while `A4Model` subclasses `Network` and has no edge field. Leg A7-A
+runs on the A3 carrier and measures `s -> H1 -> D`, where the content is that
+A3-8 already removed the same holonomy once with a parameter (`kappa_pay = 0`,
+graph fixed) and this removes it with the topology instead, with every kappa left
+alone. Leg A7-B runs on the A4 carrier and replaces `A(X)`'s cross-arm ratio with
+a slope, scoring `E` and `K` on `log(1/HHI)` and reporting `I` and `M` without
+scoring them: the stock those two transmit runs from `28.06%` to `0.00%` of a
+generation along the same axis, in the same direction as the amplification the
+leg would be claiming, while `E` and `K` are compressed the other way by the Gini
+ceiling that section 11.3 already measured. No criterion reads the whole grid,
+because A4-1 measured the complete graph to be an attractor and its zero is
+overdetermined. The construction parameter is `s`, it runs against `C`, and the
+`s = 1` endpoint is not A4's `C = 0` arm.
+
 **A3 has been redefined and it is no longer a merge.** The original plan made it
 an integrated simulator that combined the earlier stages. That is now the wrong
 target. Stages A0 through A2c measure claim circulation and report levels: a layer
@@ -939,7 +1014,12 @@ simulating instances.
 | B2 placebo validation | is the VA pool actually wide? | **6/9**, the premise survives, [`docs/b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
 | B3 | CIP deviations: the other summand of the cycle space | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md) |
 | B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
-| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, parallel trends **1/2**; two source audits returned REJECT |
+| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, parallel trends **1/2**; two source audits returned REJECT, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) |
+| B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md) |
+| B7 | matrix rank of the cell-by-class interaction on 16m loans | **the rank-2 headline is withdrawn**; the cross-fold estimator then returns **rank two on the corrected diagonal**, a tilt and a bend, at 1.5% of the withdrawn magnitude, [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
+| B8 | the slice summand on a household carrier, from loan modification | pre-registered, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md) |
+| B9 | the measured zero, and the path share | [`docs/b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
+| B10 | Freddie as a carrier: availability and the download ruling | [`docs/b10_freddie_availability.md`](docs/b10_freddie_availability.md) |
 | square complex | curl against harmonic on `Γ` | **withdrawn**, see B1 §12 |
 
 **Three of those rows are newer than the narrative that follows them**, which was
