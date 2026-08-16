@@ -391,7 +391,8 @@
       "arm=forced forced_sale_floor=0.1"
     ],
     "live_cells": 12,
-    "passed": false
+    "passed": false,
+    "from_an_earlier_run": true
   },
   "market": {
     "sales": [
@@ -436,14 +437,14 @@
       "passed": true,
       "void": false,
       "diagnostic": true,
-      "detail": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken"
+      "detail": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken"
     },
     {
       "name": "A3-4  the realised terms differential is the loop sum",
       "passed": true,
       "void": false,
       "diagnostic": false,
-      "detail": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16"
+      "detail": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`"
     },
     {
       "name": "A3-5  the gate binds at the high tier, not at ownership",

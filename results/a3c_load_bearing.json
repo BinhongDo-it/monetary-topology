@@ -22,7 +22,7 @@
       "name": "A3-8  removing the holonomy removes the divergence",
       "passed": false,
       "void": true,
-      "detail": "state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift 1.86e-16. Indistinguishable from zero across seeds: H0_only"
+      "detail": "state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift at machine precision, below `1e-10`. Indistinguishable from zero across seeds: H0_only"
     }
   ],
   "sweep": {
@@ -447,7 +447,8 @@
     "share_h1_range": null,
     "share_h0_range": null,
     "shares_are_not_gated": "no threshold is registered for either share, so their spread across the grid is reported and not judged",
-    "passed": false
+    "passed": false,
+    "from_an_earlier_run": true
   },
   "cells": {
     "both": {
