@@ -1,0 +1,373 @@
+{
+  "arm": "uniform",
+  "diagnostic_only": true,
+  "diagnostic_reason": "D_fixed, the estimator section 4.2 registers as scored, is not computed here. Every gap in this file is D_reach, which the same section registers as reported and never scored.",
+  "grid": [
+    0.0,
+    0.01,
+    0.02,
+    0.05
+  ],
+  "mode": "low",
+  "registered_parameters": false,
+  "rounds": 20,
+  "rows": [
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 1.0,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "dropped_to_intersect": 39,
+      "gap_by_seed": {
+        "H0_only": [
+          -0.3271914073,
+          1.565679217
+        ],
+        "H1_only": [
+          0.3956583559,
+          1.773356431
+        ],
+        "both": [
+          0.2120718081,
+          2.354272741
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -0.3271914073,
+          1.565679217
+        ],
+        "H1_only": [
+          0.3956583559,
+          1.773356431
+        ],
+        "both": [
+          0.2120718081,
+          2.354272741
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": 0.6192439051,
+        "H1_only": 1.084507393,
+        "both": 1.283172274,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1573374211,
+        "edges": 1039.0,
+        "layer_gap": 0.3942348008,
+        "mean_degree": 5.195
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.0489623733,
+        0.0489623733,
+        0.0489623733
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.07131541448,
+        0.07131541448,
+        0.07131541448
+      ],
+      "paired_population": 16.0,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 13.5,
+      "s": 0.0,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": true,
+        "both": true,
+        "null": false
+      },
+      "sd_ratio_vs_s0": 1.0,
+      "seconds": 0.3088955879,
+      "state": "unstable",
+      "unstable_channels": [
+        "H0_only"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.9652981325,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "dropped_to_intersect": 48,
+      "gap_by_seed": {
+        "H0_only": [
+          -0.1766304835,
+          -0.09275957865
+        ],
+        "H1_only": [
+          0.7125182267,
+          0.2627591793
+        ],
+        "both": [
+          0.2454754011,
+          0.04671349677
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -0.1766304835,
+          -0.09275957865
+        ],
+        "H1_only": [
+          0.2627591793,
+          0.7125182267
+        ],
+        "both": [
+          0.04671349677,
+          0.2454754011
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": -0.1346950311,
+        "H1_only": 0.487638703,
+        "both": 0.1460944489,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1529909868,
+        "edges": 1389.0,
+        "layer_gap": 0.3850198413,
+        "mean_degree": 6.945
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.049743681,
+        0.049743681,
+        0.049743681
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1792365938,
+        0.1792365938,
+        0.1792365938
+      ],
+      "paired_population": 11.0,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 12.0,
+      "s": 0.01,
+      "same_sign_across_seeds": {
+        "H0_only": true,
+        "H1_only": true,
+        "both": true,
+        "null": false
+      },
+      "sd_ratio_vs_s0": 0.9723750757,
+      "seconds": 0.3146297932,
+      "state": "pass",
+      "unstable_channels": []
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.9290272257,
+        "payer_jaccard_vs_s0": 0.6666666667,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "dropped_to_intersect": 38,
+      "gap_by_seed": {
+        "H0_only": [
+          0.3746870822,
+          -0.359234511
+        ],
+        "H1_only": [
+          0.1708187682,
+          -0.8296418357
+        ],
+        "both": [
+          -0.08073194577,
+          -0.07714977844
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -0.359234511,
+          0.3746870822
+        ],
+        "H1_only": [
+          -0.8296418357,
+          0.1708187682
+        ],
+        "both": [
+          -0.08073194577,
+          -0.07714977844
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": 0.007726285575,
+        "H1_only": -0.3294115338,
+        "both": -0.0789408621,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1499193381,
+        "edges": 1762.0,
+        "layer_gap": 0.3760233918,
+        "mean_degree": 8.81
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.05110860396,
+        0.05110860396,
+        0.05110860396
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1714887985,
+        0.1714887985,
+        0.1714887985
+      ],
+      "paired_population": 8.0,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 5.5,
+      "s": 0.02,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": false,
+        "both": true,
+        "null": false
+      },
+      "sd_ratio_vs_s0": 0.9528523924,
+      "seconds": 0.3118245602,
+      "state": "unstable",
+      "unstable_channels": [
+        "H1_only",
+        "H0_only"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.8256236406,
+        "payer_jaccard_vs_s0": 0.6666666667,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "dropped_to_intersect": 40,
+      "gap_by_seed": {
+        "H0_only": [
+          0.1093676819,
+          -0.4040515021
+        ],
+        "H1_only": [
+          -0.3007082674,
+          -0.1138888418
+        ],
+        "both": [
+          0.3463355099,
+          -0.2832980512
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -0.4040515021,
+          0.1093676819
+        ],
+        "H1_only": [
+          -0.3007082674,
+          -0.1138888418
+        ],
+        "both": [
+          -0.2832980512,
+          0.3463355099
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": -0.1473419101,
+        "H1_only": -0.2072985546,
+        "both": 0.03151872939,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 0.9333333333,
+        "centrality_sd": 0.1424583516,
+        "edges": 2953.0,
+        "layer_gap": 0.3321296296,
+        "mean_degree": 14.765
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.05867417173,
+        0.05867417173,
+        0.05867417173
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.2352187731,
+        0.2352187731,
+        0.2352187731
+      ],
+      "paired_population": 7.5,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 6.0,
+      "s": 0.05,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": true,
+        "both": false,
+        "null": false
+      },
+      "sd_ratio_vs_s0": 0.9054321001,
+      "seconds": 0.3275568485,
+      "state": "unstable",
+      "unstable_channels": [
+        "H0_only"
+      ]
+    }
+  ],
+  "seeds": 2,
+  "stage": "A7-A continuous connectivity"
+}

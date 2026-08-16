@@ -42,6 +42,10 @@ data/processed/*
 # read is renamed with this suffix and left where it is.
 *.expired
 *.expired[0-9]
+# Dated variant, which the fingerprints arm already uses:
+# <name>.expired_<yyyymmdd>_pre_<tag>. Added 2026-08-15 after two A7
+# backups sat in the untracked list waiting to be committed by accident.
+*.expired_*
 
 # Prepared commit messages, not part of the repository.
 COMMIT_MSG*.txt

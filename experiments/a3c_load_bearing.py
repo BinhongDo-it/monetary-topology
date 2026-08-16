@@ -40,6 +40,7 @@ reader can see the hold worked rather than trust that it did.
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
 import sys
 import time
@@ -90,14 +91,54 @@ FIXED = {
     "proceeds": "seller",
 }
 
+#: Which constructor a keyword belongs to, read off the two dataclasses rather
+#: than listed here. A hand-written list would have to be edited whenever either
+#: gains a field, and the failure of not editing it is silent: the keyword goes
+#: to the other constructor, or to neither.
+_NETWORK_FIELDS = frozenset(f.name for f in dataclasses.fields(NetworkSpec))
+_ASSET_FIELDS = frozenset(f.name for f in dataclasses.fields(AssetSpec))
 
-def build(seed: int, rounds: int, **asset_kw) -> A3Model:
-    spec = AssetSpec(**asset_kw)
+#: The split below is only well defined while the two names are disjoint, and a
+#: name in both would reach one constructor and silently not reach the other.
+#: That is `PROJECT_PLAN.md` section 11.12's defect, a parameter that reached one
+#: of two call sites, where the default path was the correct one so nothing fired
+#: until a sweep took the other branch. Checked at import so a field added to
+#: either dataclass fails here rather than in a grid cell six hours in.
+_COLLIDING_FIELDS = _NETWORK_FIELDS & _ASSET_FIELDS
+if _COLLIDING_FIELDS:
+    raise ImportError(
+        "AssetSpec and NetworkSpec now share field names, so build() cannot "
+        f"route a keyword to one of them: {sorted(_COLLIDING_FIELDS)}. Rename "
+        "one side or give build() an explicit routing table."
+    )
+
+
+def build(seed: int, rounds: int, **kw) -> A3Model:
+    """One model. Keywords are routed by which dataclass declares them.
+
+    **Changed 2026-08-15 for A7.** Every keyword used to go to ``AssetSpec``,
+    which is why `docs/a7_continuous_c.md` section 3.1 lists this as the second
+    thing A7 needs: ``shortcut_rate`` lives on ``NetworkSpec`` and could not be
+    reached from a sweep cell at all.
+
+    An unknown name still raises ``TypeError`` from ``AssetSpec``, so a typo in
+    a grid cell fails loudly rather than being dropped.
+
+    ``seed`` needs no guard here and was given one for a moment before that was
+    measured. It is a named parameter, so ``seed`` in a cell binds to it and
+    never reaches ``kw``, and Python raises before this body runs. A hand-written
+    check on ``kw`` would therefore be a condition that can never be true, which
+    is what `SESSION_INIT.md` lesson two is about. The behaviour is asserted in
+    ``tests/test_a7_kwarg_routing.py`` instead, where it can fail if a later
+    signature change makes it reachable.
+    """
+    net_kw = {k: v for k, v in kw.items() if k in _NETWORK_FIELDS}
+    asset_kw = {k: v for k, v in kw.items() if k not in _NETWORK_FIELDS}
     model = A3Model(
         A3Config(
-            asset=spec,
+            asset=AssetSpec(**asset_kw),
             network=NetworkConfig(
-                spec=NetworkSpec(seed=seed), seed=seed, rounds=rounds
+                spec=NetworkSpec(seed=seed, **net_kw), seed=seed, rounds=rounds
             ),
         )
     )

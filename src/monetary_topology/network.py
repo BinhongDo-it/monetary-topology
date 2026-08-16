@@ -144,6 +144,33 @@ OPENING_HOLDINGS: tuple[str, ...] = ("flat", "same_marginal")
 #: receiver order, which draws on ``seed + 4241``.
 _OPENING_PERMUTATION_OFFSET = 9301
 
+#: Offset for the stream that draws A7's added edges. A fresh constant, so the
+#: shortcuts cannot correlate with the stratified graph's own draw (``seed``),
+#: the payroll receiver order (``seed + 4241``) or the opening permutation
+#: (``seed + 9301``). The value is the one
+#: ``experiments/a7a_continuous_c.py`` measured the continuum with, and
+#: ``tests/test_a7_shortcut_rate.py`` asserts the two agree elementwise.
+_SHORTCUT_OFFSET = 20_749
+
+#: How A7's added edges pick their targets.
+#:
+#: ``uniform`` is the availability check's interpolation: every remaining
+#: ordered pair independently at the rate. It raises mean degree and lowers
+#: centrality dispersion together, and `docs/a7_continuous_c.md` section 4.3
+#: records that this is exactly the confound the placebo exists to break.
+#:
+#: ``preferential`` adds **the same number of edges the uniform arm added at
+#: that rate and seed**, chosen with probability proportional to the target's
+#: existing in-degree. Density therefore tracks the uniform arm edge for edge
+#: while the dispersion does not. Section 4.3 registers that the realised
+#: dispersion is reported for both arms on every row, and that an arm whose
+#: dispersion leaves the registered band is void rather than negative.
+SHORTCUT_MODES: tuple[str, ...] = ("uniform", "preferential")
+
+#: A second fresh stream, so the placebo's choice of targets cannot correlate
+#: with which pairs the uniform arm happened to draw.
+_PREFERENTIAL_OFFSET = 31_337
+
 #: Where newly issued claims are credited. ``PROJECT_PLAN.md`` §16.2 registers
 #: both arms as the two readings of the source's own claim that money is
 #: non-neutral because the path and the injection point decide everything. Only
@@ -284,6 +311,37 @@ class NetworkSpec:
     #: See ``OPENING_HOLDINGS``. Only read when ``uniform_access`` is on.
     uniform_opening: str = "flat"
 
+    #: A7's continuum. The stratified adjacency with every remaining ordered
+    #: pair added independently at this rate, so ``0.0`` returns the stratified
+    #: graph bit for bit and ``1.0`` returns the complete graph, both exactly
+    #: rather than in a limit. ``docs/a7_continuous_c.md`` section 2.
+    #:
+    #: **The documentation calls this ``s`` and it runs against ``C``.**
+    #: ``s = 0`` is A4's ``C = 1`` arm. ``s = 1`` is a complete graph and **is
+    #: not** A4's ``C = 0`` arm: only the adjacency moves with ``s``, while the
+    #: payroll incidence, the discretionary routing, the propensities and the
+    #: opening holdings keep their stratified rules, so five of the six things
+    #: ``uniform_access`` collapses are still stratified at ``s = 1``. Section
+    #: 2.4 of that file forbids comparing any ``s = 1`` number to a published
+    #: ``C = 0`` one, and section 2.1 is why the letter had to change: the two
+    #: coordinates run opposite ways and "connectivity rises" means two
+    #: different things under them.
+    #:
+    #: Two of the four rules held fixed still have outputs that move with
+    #: ``s``, because the payroll payers are selected on in-degree and the
+    #: opening holdings are weighted by it. Section 2.3 rules that the rules
+    #: run rather than that the index sets are frozen, and registers the churn
+    #: diagnostic that goes with it.
+    #:
+    #: ``0.0`` is the default and no code path changes under it, which is what
+    #: makes the bitwise reproduction of A2 and A3 checkable.
+    shortcut_rate: float = 0.0
+
+    #: See ``SHORTCUT_MODES``. Only read when ``shortcut_rate`` is strictly
+    #: between zero and one: at either endpoint both modes return the same
+    #: object, the stratified graph and the complete graph respectively.
+    shortcut_mode: str = "uniform"
+
     @property
     def size(self) -> int:
         return self.layer1_size + self.intermediate_size + self.layer2_size
@@ -324,6 +382,19 @@ class NetworkSpec:
                 f"uniform_opening must be one of {OPENING_HOLDINGS}, "
                 f"got {self.uniform_opening!r}"
             )
+        if not 0.0 <= self.shortcut_rate <= 1.0:
+            raise ValueError("shortcut_rate must lie in [0, 1]")
+        if self.shortcut_mode not in SHORTCUT_MODES:
+            raise ValueError(
+                f"shortcut_mode must be one of {SHORTCUT_MODES}, "
+                f"got {self.shortcut_mode!r}"
+            )
+        if self.uniform_access and self.shortcut_rate > 0.0:
+            raise ValueError(
+                "uniform_access and shortcut_rate are different objects and A7 "
+                "never switches uniform_access on; see docs/a7_continuous_c.md "
+                "section 2.4"
+            )
         if self.layer1_size < 2 or self.layer2_size < 2:
             raise ValueError("each layer needs at least two nodes")
         if self.downward_edges < 0:
@@ -360,6 +431,8 @@ class NetworkSpec:
             "preferential": self.preferential,
             "seed": self.seed,
             "uniform_access": self.uniform_access,
+            "shortcut_rate": self.shortcut_rate,
+            "shortcut_mode": self.shortcut_mode,
             "uniform_opening": self.uniform_opening,
         }
         fields.update(changes)
@@ -510,6 +583,53 @@ def build_graph(spec: NetworkSpec, wage_edges: np.ndarray | None = None) -> np.n
         receivers = rng.permutation(hh)
         for i in range(spec.downward_edges):
             a[payers[i % payers.size], receivers[i % receivers.size]] = 1.0
+
+    # A7's continuum, applied after the stratified graph is finished and
+    # before the payroll fold, which is the order
+    # ``experiments/a7a_continuous_c.py`` measured it in. One draw is
+    # thresholded, so the added edges are nested as the rate rises rather than
+    # redrawn, and the sweep is a path rather than seventeen unrelated graphs.
+    if spec.shortcut_rate > 0.0:
+        if spec.shortcut_rate >= 1.0:
+            # Exact rather than a limit, and the payroll fold is skipped for
+            # the reason ``uniform_access`` skips it: on a complete graph it
+            # adds nothing, and returning here keeps this endpoint bitwise
+            # equal to the object the availability check compared against.
+            return 1.0 - np.eye(n)
+        shortcut_rng = np.random.default_rng(spec.seed + _SHORTCUT_OFFSET)
+        drawn = shortcut_rng.random((n, n)) < spec.shortcut_rate
+        np.fill_diagonal(drawn, False)
+        if spec.shortcut_mode == "uniform":
+            a = np.clip(a + drawn.astype(float), 0.0, 1.0)
+        else:
+            # The same count, different targets. ``drawn`` is read only for how
+            # many edges it would have added that are not already there, so the
+            # two arms are matched edge for edge at every rate and seed and the
+            # comparison is not confounded by density.
+            free = (a == 0.0)
+            np.fill_diagonal(free, False)
+            m = int((drawn & free).sum())
+            if m > 0:
+                idx = np.flatnonzero(free.ravel())
+                # Weight by the target's existing in-degree. The plus one keeps
+                # a node with no incoming edge reachable rather than excluded,
+                # which would be a second intervention riding on this one.
+                weight = 1.0 + a.sum(axis=0)
+                w = np.repeat(weight[None, :], n, axis=0).ravel()[idx]
+                # Gumbel top-k, which is weighted sampling without replacement
+                # (Efraimidis and Spirakis) and is linear in the candidate set
+                # rather than quadratic the way repeated choice would be. At the
+                # rates where `m` approaches the whole candidate set this still
+                # terminates, because it is a sort rather than a rejection loop.
+                pick_rng = np.random.default_rng(
+                    spec.seed + _PREFERENTIAL_OFFSET
+                )
+                u = pick_rng.random(idx.size)
+                keys = np.log(w) - np.log(-np.log(u))
+                chosen = idx[np.argpartition(-keys, m - 1)[:m]]
+                flat = a.ravel()
+                flat[chosen] = 1.0
+                a = flat.reshape(n, n)
 
     if wage_edges is not None:
         a = np.maximum(a, (wage_edges > 0).astype(float))
