@@ -19,7 +19,7 @@ question of experiment files instead would miss a record whose writer was
 renamed and catch a diagnostic that prints and never writes.
 
 **It is a ratchet, not a clean sheet.** Eight records are outside the runner
-today, and `OUTSIDE_THE_RUNNER` names all eight with the reason each is there,
+today, and `OUTSIDE_THE_RUNNER` names each of them with the reason it is there,
 because a count nobody can see is not an exposure anybody will fix. The point of
 the list is that the ninth cannot be added silently.
 
@@ -56,6 +56,47 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
     ),
     "a3c_load_bearing.json": (
         "A3c, the divergence instrument A3-8 is scored on. No reason found"
+    ),
+    "b7_design.json": (
+        "B7's design audit and B7-9's share of stage B2's within term. Needs "
+        "the fetched HMDA sample, so it belongs in DATA_STAGES. **B7 is closed "
+        "and no B7 job was added**: the stage's reading was withdrawn "
+        "(docs/b7_interaction_rank.md SS3.25 to SS3.29) and rebuilding a runner "
+        "path for a withdrawn stage was judged not worth it. That is a "
+        "decision, not an oversight, and it is recorded here as one"
+    ),
+    "b7_interaction_rank.json": (
+        "B7-1, B7-2 and B7-3, the estimator's synthetic checks. Pure "
+        "construction, no download, runs in minutes. Same decision as "
+        "b7_design.json"
+    ),
+    "b7_gate_draws50_reps20.json": (
+        "B7-0a/b/c on the fine class grid under SS3.15's rate criterion. Needs "
+        "the fetched HMDA sample. Same decision"
+    ),
+    "b7_gate_coarse_draws50_reps20.json": (
+        "the same three arms on the coarse grid. Same decision"
+    ),
+    "b7_carry.json": (
+        "B7-11, what a coarsening can carry. **The one result in that stage "
+        "that survived the withdrawal**, because it measures what a coarsening "
+        "does to a direction and holds whether the direction is signal or "
+        "noise. Cited by b8_fannie_slice.md SS3.3 and b9_zero_holonomy.md SS3. "
+        "Needs the fetched HMDA sample. Same decision"
+    ),
+    "b7_hetero.json": (
+        "B7-12b and B7-14, the off-diagonal structure of S and the "
+        "seventeen-class design against its own null. **This is the record "
+        "that withdrew B7-4.** Needs the fetched HMDA sample. Same decision"
+    ),
+    "b7_class_noise_draws50_reps20.json": (
+        "B7-13: a constructed field with zero interaction and class-specific "
+        "noise reads back the stage's headline rank in 40 of 40 repetitions. "
+        "Needs the fetched HMDA sample. Same decision"
+    ),
+    "b7_class_noise_drop2_draws50_reps5.json": (
+        "B7-15, the same arm on the seventeen-class design. Five repetitions, "
+        "per MEASUREMENT.md 11c. Needs the fetched HMDA sample. Same decision"
     ),
     "b2_placebo_pool_width.json": (
         "needs the fetched HMDA sample, so it belongs in DATA_STAGES and is "

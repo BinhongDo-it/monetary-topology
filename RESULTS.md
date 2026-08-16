@@ -160,6 +160,65 @@ Derived quantities:
 
 </details>
 
+## A1 — the default cascade on crossed marginals (superseded by A1b; no level from this construction is a measurement)
+
+_no sample metadata recorded_
+
+**2/2 live criteria passed, 1 void**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A1-1  zero calibration | 60 cells over 20 seeds and 24 periods in 3 arms, every rung exactly 0.000000. 3 arm(s) could not be built and are reported rather than scored: stratified, stratified:permuted, stratified:scf-tenure |
+| VOID | A1-10 licence  the population size is an estimation setting | not tested: the main arm has no population at 10,000 households. stratum 0, mortgaged: the published debt takes 0.862 of the disposable, and a Beta with that mean cannot carry a dispersion of 0.250. Its concentration would fall to 1.552, which is two point masses at zero and one rather than a spread. The largest dispersion this mean supports is 0.231 |
+| PASS | A1-11 free parameters within the registered bound | 6 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, population.dispersion=0.25, population.buffer_months=1, cost.grace_basket=1, cost.grace_rent=4 |
+
+## A1b — the cascade on a measured population (A1-7 is void: the registration names two rankings and they disagree)
+
+_no sample metadata recorded_
+
+**6/8 live criteria passed, 1 void**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A1b-0 zero calibration, by removing the cause | income raised to cover each household's own obligations: every rung exactly 0.000000 over 24 periods |
+| **FAIL** | A1-2  the order is an output | first default among 36,292 defaulting households: card 0.4214, auto 0.0660, shelter 0.3567 (rent 0.2488, mortgage 0.1079), basket 0.1558. Among the 32,547 not short at baseline: card 0.4426, auto 0.0662, shelter 0.3915. The manuscript's sequence is what fails here, not the code |
+| PASS | A1-3  K shape, ordinally | mortgage 0.0027 < auto 0.0924 < card 0.1879. Over baseline: mortgage +0.0024, auto +0.0721, card +0.1249. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes |
+| PASS | A1-6  the subprime gradient | bottom 0.1438 against middle 0.0680, ratio x2.12. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them |
+| VOID | A1-7  the rent gradient | by net worth: bottom50 0.6577 (28,776), next40 0.3584 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. By income: bottom50 0.8129 (23,585), next40 0.1046 (7,581), next9 0.0000 (897), top1 0.0000 (35) [monotone]. Overall 0.6220 against SHED's 0.23, reported only: the source counts renters behind at some point in twelve months and this is sixty months of a model. Published by income band: 0.33/0.31/0.17/0.05. **The two readings of the registration disagree**, so this is reported on both and gated on neither. The source is banded by income and the model's strata are net worth, and A1 could not see the difference because it had one ranking |
+| PASS | A1-9  the representative arm is degenerate | every rung of the collapsed household takes values in {0, 1} across all three tenures, which is Corollary 1 with a number attached: the difference between the arms is the population |
+| PASS | A1-10 one parameter set across every rung | one rule, one attribute table, one grace table; every rung's pair is CARD 0.000/6, AUTO 0.117/3, RENT 0.250/4, MORTGAGE 0.083/12, BASKET 1.000/1 |
+| **FAIL** | A1b-1 the delinquency gradient | LATE60 by net worth: bottom50 0.0847, next40 0.0163, next9 0.0022, top1 0.0026. Model over 6 sweep cells: seed 7x1 0.301/0.174/0.017/0.000  <-; seed 7x3 0.258/0.140/0.017/0.000  <-; seed 8x1 0.301/0.177/0.017/0.000  <-; seed 8x3 0.262/0.144/0.017/0.000  <-; seed 9x1 0.280/0.158/0.017/0.000  <-; seed 9x3 0.233/0.122/0.017/0.000  <-. Decreasing in every cell: True. Ordering matches the survey in every cell: False. Group sizes at 20,000 households: [9993, 7998, 1895, 114]. Including rent, reported only: 0.483/0.191/0.017/0.000. The target's smallest adjacent gap is 0.0004, which is what the ordering turns on |
+| PASS | A1-11 free parameters within the registered bound | 5 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, cost.grace_basket=1, cost.grace_rent=4, population.buffer_months=1. A1 counted six; the service-share dispersion is measured here |
+
+## A1c — the order inside a household (the renter's cascade; the mortgage-before-car reversal is reported and never scored)
+
+_no sample metadata recorded_
+
+**2/2 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A1c-1 the sequence holds inside a household | card_before_auto: 607 in order, 533 tied, 2 inverted, of 1,142 in scope; auto_before_rent: 449 in order, 526 tied, 2 inverted, of 977 in scope; card_before_rent: 523 in order, 1,080 tied, 9 inverted, of 1,612 in scope. 17,499 of 20,000 households are in scope for no pair at all, which is the population A1-2 quantified over and the size of the mismatch between the claim and its cross-sectional form |
+| PASS | A1c-2 every inversion is attributed | 13 inversions: 13 attributed to the release clause, the later class unsavable in the period it was first missed while the earlier one was savable; 0 unattributed |
+
+## A1d — the cascade on a measured cushion (liquid assets, no floor, and a matched twelve-month window; the top pair is below both sides' resolution and is reported rather than scored)
+
+_no sample metadata recorded_
+
+**7/9 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A1d-0 zero calibration, by removing the cause | income raised to cover each household's own obligations: every rung exactly 0.000000 over 24 periods |
+| **FAIL** | A1-2  the order is an output | first default among 44,578 defaulting households: card 0.3068, auto 0.0704, shelter 0.1564 (rent 0.0965, mortgage 0.0599), basket 0.4664. Among the 39,492 not short at baseline: card 0.3163, auto 0.0741, shelter 0.1647. The manuscript's sequence is what fails here, not the code |
+| PASS | A1-3  K shape, ordinally | mortgage 0.0069 < auto 0.0807 < card 0.1810. Over baseline: mortgage +0.0054, auto +0.0615, card +0.1404. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes |
+| PASS | A1-6  the subprime gradient | bottom 0.1345 against middle 0.0518, ratio x2.60. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them |
+| PASS | A1-9  the representative arm is degenerate | every rung of the collapsed household takes values in {0, 1} across all three tenures, which is Corollary 1 with a number attached: the difference between the arms is the population |
+| PASS | A1-10 one parameter set across every rung | one rule, one attribute table, one grace table; every rung's pair is CARD 0.000/6, AUTO 0.117/3, RENT 0.250/4, MORTGAGE 0.083/12, BASKET 1.000/1 |
+| PASS | A1d-1 the delinquency gradient, matched window | LATE60 by net worth: bottom50 0.0847 (886 of 1,857 families), next40 0.0163 (155 of 1,475 families), next9 0.0022 (11 of 694 families), top1 0.0026 (5 of 569 families). Scored pairs: bottom50/next40, next40/next9. Reported and not scored: next9/top1 (0.13 sigma, expected events 0.8). Model on the last 12 periods over 6 sweep cells: seed 7x1 0.067/0.042/0.004/0.003; seed 7x3 0.066/0.045/0.005/0.000; seed 8x1 0.067/0.044/0.004/0.003; seed 8x3 0.068/0.045/0.005/0.000; seed 9x1 0.059/0.041/0.004/0.003; seed 9x3 0.061/0.038/0.005/0.000. Decreasing on every scored pair in every cell: True. Ordering matches the survey on those groups in every cell: True. Group sizes at 50,000: [25310, 20078, 4322, 290]. Reported and never scored, the other three windows on cell one: first 12 periods 0.167/0.059/0.013/0.000; whole run at sixty days 0.244/0.125/0.013/0.017; whole run on A1b-1's any-miss rule 0.361/0.177/0.024/0.034; last window including rent 0.071/0.042/0.004/0.003 |
+| **FAIL** | A1d-2 the rent gradient, on net worth | by net worth, sixty days: bottom50 0.5842 (28,776), next40 0.2562 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. Reported and not scored, by income: bottom50 0.7162 (23,585), next40 0.0877 (7,581), next9 0.0000 (897), top1 0.0000 (35). A measured cushion did not produce the monotonicity a label could not, so the non-monotonicity is a property of the data. docs/a1b_prereg.md section 8 has what the cells are made of |
+| PASS | A1d-3 free parameters within the registered bound | 4 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, cost.grace_basket=1, cost.grace_rent=4. A1b counted five; population.buffer_months left the list when the cushion became a measurement rather than a choice |
+
 ## A2 — support-set contraction and the intermediate layer
 
 `rounds=600` `seed=0`
@@ -203,8 +262,8 @@ Derived quantities:
 |---|---|---|
 | PASS | A3-1  the closed channel reproduces A2 bitwise | largest absolute difference over 5 seeds and four series: 0.000e+00. Not a tolerance: anything but zero is a different model |
 | DIAG | A3-2  a gap opens between agents who started level | entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in §5.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero |
-| DIAG | A3-3  the gap compounds rather than levelling off | largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in §5.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken |
-| PASS | A3-4  the realised terms differential is the loop sum | mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16 |
+| DIAG | A3-3  the gap compounds rather than levelling off | largest drift between a node's first and second half of trades, over 101 nodes with four or more: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in §5.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken |
+| PASS | A3-4  the realised terms differential is the loop sum | mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10` |
 | VOID | A3-5  the gate binds at the high tier, not at ownership | price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per §6.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure |
 | **FAIL** | A3-6  a stock exists, and A4's domain is exactly who holds it | median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring |
 | PASS | A3-7  non-overlapping windows agree in sign | better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing |
@@ -222,7 +281,7 @@ Derived quantities:
 
 | | criterion | detail |
 |---|---|---|
-| VOID | A3-8  removing the holonomy removes the divergence | state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift 1.86e-16. Indistinguishable from zero across seeds: H0_only |
+| VOID | A3-8  removing the holonomy removes the divergence | state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift at machine precision, below `1e-10`. Indistinguishable from zero across seeds: H0_only |
 
 ## A4 — the causal primitive (A4-4 could not be computed: no competitor is readable in both arms)
 
@@ -309,6 +368,23 @@ Derived quantities:
 | PASS | A6-3 | with retention already fair and no issuance anywhere, the stratified graph needs R* = 0.060 (> 0.02) and the flat graph 0.000 (< 0.005). That difference is the siphon |
 | PASS | A6-4 | R*(I)/R*(T) under access against 0.75: fair 0.083 (an upper bound, R*(I) is on the grid floor), stratified 0.031 (an upper bound, R*(I) is on the grid floor) |
 | **FAIL** | A6-5 | at R* = 0.005 over 2000 rounds, end over start per seed 1.66x, 0.07x, 1.60x, 1.86x, 0.15x. 2 of 5 seeds collapsed and the rest ended more open. The registered band is symmetric and scores those as the same failure |
+
+## B1H
+
+_no sample metadata recorded_
+
+**8/8 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B1H-1  the filled 5x6 grid has no first cohomology | V=  30  E=  49  c= 1  b1= 20  rank d2= 20  dim H1=  0   cells=20   (b1_setup section 5 quotes b1=20, rank d2=20, dim H1=0) |
+| PASS | B1H-2  deleting an interior grid edge is a puncture | b1 20->19, rank d2 20->18, c 1->1, dim H1 0->1   verdict=puncture   (section 5 quotes 20->19, 20->18, c fixed, 0->1) |
+| PASS | B1H-3  deleting a dumbbell bridge is a disconnection | c 1->2, b1 2->2   verdict=disconnection   (section 5 quotes c 1->2 with b1 fixed at 2) |
+| PASS | B1H-4  with no 2-cells, dim H1 = b1 | V=  30  E=  49  c= 1  b1= 20  rank d2=  0  dim H1= 20   (b1_theorem section 12.2 first row: no d1, so every 1-cochain is closed and dim H1 = b1) |
+| PASS | B1H-5  dim H1(Gamma) = b1(G) + b1(H) on six shapes | star(4 tiers) x K3: 1 vs 0+1; star(4 tiers) x K5: 6 vs 0+6; star(4 tiers) x K8: 21 vs 0+21; cycle(4) x K3: 2 vs 1+1; cycle(4) x K5: 7 vs 1+6; cycle(4) x K8: 22 vs 1+21 |
+| PASS | B1H-6  product_squares reproduces squares element for element | six shapes, walks compared as lists rather than as sets, so an ordering change would fail here rather than pass quietly |
+| PASS | B1H-7  a connected deletion need not be a puncture | grid boundary edge: c stays 1, b1 20->19, rank d2 20->19, dim H1 0->0, verdict=neither.  Section 5's connectivity test separates a disconnection from the rest and does NOT separate a puncture from a no-event |
+| PASS | B1H-8  the accreditation row is a puncture on a star G and not on a G with a cycle | STAR (tier_positions, the carrier section 5's rows live on): star m=3 k=1: 1->2 (puncture); star m=3 k=2: 1->2 (neither); star m=5 k=1: 6->9 (puncture); star m=5 k=2: 6->11 (puncture); star m=8 k=1: 21->27 (puncture); star m=8 k=2: 21->32 (puncture).  CYCLE G: cycle m=3 k=1: 2->2 (neither); cycle m=3 k=2: 2->2 (neither); cycle m=5 k=1: 7->7 (neither); cycle m=5 k=2: 7->7 (neither); cycle m=8 k=1: 22->22 (neither); cycle m=8 k=2: 22->22 (neither).  Section 5's verdict on the accreditation row holds on the star. The reason it gives, that nothing disconnects, holds in both columns and therefore is not the reason |
 
 ## B1 — the enlarged graph, and what stage B2 measured
 
@@ -509,3 +585,107 @@ Derived quantities:
 - `smallest_distance_segment_I` = 2.7932
 - `smallest_distance_segment_II` = 1.1838
 - `worst_cycle_sum_maximal` = 3.2181
+
+## B7
+
+### b7_carry
+
+_no sample metadata recorded_
+
+**6/6 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-11ctrl  coarse: the carry reproduces this partition's own reading | **2 fine directions clear this partition's `null_max` of 0.3931, and the partition's own observed rank is 2.** The largest carried value is direction 1 at 1.437 against this partition's observed `lambda_1` of 1.453, a ratio of 0.9892.  §3.21 replaced §3.20's control with this one: the old one required **direction 1** to carry, on the ground that both partitions read at least rank one. That is a quantifier error. Reading rank one means **some** direction carries and says nothing about which. This control asks the question the old one meant to ask and has power the old one did not |
+| PASS | B7-11  reported, not gated: coarse carries direction 2 | fine `lambda_2` = 0.7544 arrives as **0.7382**, fraction **0.9786**, against this partition's own `null_max` of 0.3931: **it clears**, so this index could have shown the fine grid's second direction.  The observed rank on this partition is 2.  §3.20's table says what each combination does to §10.6 |
+| PASS | B7-11m  reported, not gated: coarse manufactures an interaction | the fine class main effect alone, coarsened, arrives as **2.507e-05** against `null_max` 0.3931.  **Below it.** The coarsening manufactures nothing this index can see, and §10.5's comparison is clean on this point |
+| PASS | B7-11ctrl  complement: the carry reproduces this partition's own reading | **0 fine directions clear this partition's `null_max` of 0.241, and the partition's own observed rank is 0.** The largest carried value is direction 4 at 0.1663 against this partition's observed `lambda_1` of 0.2241, a ratio of 0.7421.  §3.21 replaced §3.20's control with this one: the old one required **direction 1** to carry, on the ground that both partitions read at least rank one. That is a quantifier error. Reading rank one means **some** direction carries and says nothing about which. This control asks the question the old one meant to ask and has power the old one did not |
+| PASS | B7-11  reported, not gated: complement carries direction 2 | fine `lambda_2` = 0.7544 arrives as **0.003593**, fraction **0.0048**, against this partition's own `null_max` of 0.241: **it does not clear**, so this index cannot carry the fine grid's second direction even if that direction is real.  The observed rank on this partition is 0.  §3.20's table says what each combination does to §10.6 |
+| PASS | B7-11m  reported, not gated: complement manufactures an interaction | the fine class main effect alone, coarsened, arrives as **0.0004031** against `null_max` 0.241.  **Below it.** The coarsening manufactures nothing this index can see, and §10.5's comparison is clean on this point |
+
+### b7_class_noise_draws50_reps20
+
+_no sample metadata recorded_
+
+**2/2 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-13 within_entry  reported, not gated: no interaction, lower bracket | a field with **zero interaction** at each class's within_entry dispersion reads back `>= 1` in **20/20** repetitions and exactly `2` in **20/20**.  Recovered `lambda_1` = 0.9137 +- 0.0079 against the observed 1.4674, `lambda_2` = 0.6164 against 0.7544.  Leading direction is **>60%** in 20/20.  §3.25: reading back `2` here confirms the mechanism behind B7-4's withdrawal; reading back `0` leaves the withdrawal standing on §3.24's table and the explanation unknown |
+| PASS | B7-13 within_cell  reported, not gated: no interaction, upper bracket | a field with **zero interaction** at each class's within_cell dispersion reads back `>= 1` in **20/20** repetitions and exactly `2` in **20/20**.  Recovered `lambda_1` = 1.3945 +- 0.0133 against the observed 1.4674, `lambda_2` = 0.7007 against 0.7544.  Leading direction is **>60%** in 20/20.  §3.25: reading back `2` here confirms the mechanism behind B7-4's withdrawal; reading back `0` leaves the withdrawal standing on §3.24's table and the explanation unknown |
+
+### b7_class_noise_drop2_draws50_reps5
+
+_no sample metadata recorded_
+
+**2/2 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-13 within_entry  reported, not gated: no interaction, lower bracket | a field with **zero interaction** at each class's within_entry dispersion reads back `>= 1` in **5/5** repetitions and exactly `2` in **0/5**.  Recovered `lambda_1` = 0.2189 +- 0.0009 against the observed 0.2755, `lambda_2` = 0.2145 against 0.2232.  Leading direction is **46** in 5/5.  §3.25: reading back `2` here confirms the mechanism behind B7-4's withdrawal; reading back `0` leaves the withdrawal standing on §3.24's table and the explanation unknown |
+| PASS | B7-13 within_cell  reported, not gated: no interaction, upper bracket | a field with **zero interaction** at each class's within_cell dispersion reads back `>= 1` in **0/5** repetitions and exactly `2` in **0/5**.  Recovered `lambda_1` = 0.2127 +- 0.0009 against the observed 0.2755, `lambda_2` = 0.2088 against 0.2232.  Leading direction is **46** in 5/5.  §3.25: reading back `2` here confirms the mechanism behind B7-4's withdrawal; reading back `0` leaves the withdrawal standing on §3.24's table and the explanation unknown |
+
+### b7_design
+
+_no sample metadata recorded_
+
+**3/3 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-9a  the decomposition is exact | within 0.327720 = between-class 0.099490 + within-class 0.228230, residual 2.776e-17. An identity, so a failure here is the code and nothing else |
+| PASS | B7-9b  every retained loan lands in exactly one class | 16,035,398 of 16,035,398 retained loans placed; dropped before the design: 164,692 blank and 4,253 filer-exempt, counted separately because they are different absences |
+| PASS | B7-9  reported, not gated: what this class index touches | **share of stage B2's within term carried by the class index: 0.3036**.  19 classes over 326,872 cells, 16,035,398 loans.  distinct classes per cell min/q1/median/q3/max = 3/12/14/16/19.  **fill = 0.7222**, against the 0.60 at which §3.5's sweep still recovered a constructed rank exactly, so B7-0 is may pass |
+
+### b7_gate_coarse_draws50_reps20
+
+_no sample metadata recorded_
+
+**4/4 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-0  structural: every available arm completed every repetition | 3 of 3 available arms ran, 20 repetitions each.  **This is the only gated criterion in the file.** It is about the code having finished and not about what it found; VOID 1 removed every threshold on a result |
+| PASS | B7-0c  reported, not gated: size, constructed rank 0 | **0/20 = 0.000** against a nominal of 1/(d+1) = 0.0196.  P(at least 0 \| 20, 0.0196) = **1.0000**, one-sided: the primary null is inflated by the class main effect it redistributes, so the nominal is an upper bound and only a rate **above** it is informative.  calibration achieved on this arm: l1/obs 0.2022 sd 0.0017 |
+| PASS | B7-0a  reported, not gated: size, constructed rank 1 | **0/20 = 0.000** against a nominal of 1/(d+1) = 0.0196.  P(at least 0 \| 20, 0.0196) = **1.0000**, one-sided: the primary null is inflated by the class main effect it redistributes, so the nominal is an upper bound and only a rate **above** it is informative.  calibration achieved on this arm: l1/obs 1.2284 sd 0.2176 |
+| PASS | B7-0b  reported, not gated: power, constructed rank 2 | **20/20 = 1.000** of repetitions returned the constructed rank, Wilson 95% [0.839, 1.000].  No nominal exists for a power arm, so there is an interval here and no line.  calibration achieved on this arm: l1/obs 1.3235 sd 0.3174  l2/obs 1.1734 sd 0.1464 |
+
+### b7_gate_draws50_reps20
+
+_no sample metadata recorded_
+
+**4/4 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-0  structural: every available arm completed every repetition | 3 of 3 available arms ran, 20 repetitions each.  **This is the only gated criterion in the file.** It is about the code having finished and not about what it found; VOID 1 removed every threshold on a result |
+| PASS | B7-0c  reported, not gated: size, constructed rank 0 | **0/20 = 0.000** against a nominal of 1/(d+1) = 0.0196.  P(at least 0 \| 20, 0.0196) = **1.0000**, one-sided: the primary null is inflated by the class main effect it redistributes, so the nominal is an upper bound and only a rate **above** it is informative.  calibration achieved on this arm: l1/obs 0.1989 sd 0.0017 |
+| PASS | B7-0a  reported, not gated: size, constructed rank 1 | **0/20 = 0.000** against a nominal of 1/(d+1) = 0.0196.  P(at least 0 \| 20, 0.0196) = **1.0000**, one-sided: the primary null is inflated by the class main effect it redistributes, so the nominal is an upper bound and only a rate **above** it is informative.  calibration achieved on this arm: l1/obs 1.0245 sd 0.0410 |
+| PASS | B7-0b  reported, not gated: power, constructed rank 2 | **20/20 = 1.000** of repetitions returned the constructed rank, Wilson 95% [0.839, 1.000].  No nominal exists for a power arm, so there is an interval here and no line.  calibration achieved on this arm: l1/obs 1.0400 sd 0.0575  l2/obs 1.0383 sd 0.0462 |
+
+### b7_hetero
+
+_no sample metadata recorded_
+
+**4/4 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-14  reported, not gated: the seventeen-class design against its own null | dropping 50%-60%, >60% and re-applying MIN_CELL_SIZE gives 323,830 cells and 15,811,056 loans; spectrum 0.2755, 0.2232, 0.2193, 0.2148 against its **own** `null_max` of 0.2333, **rank 1**.  §3.25 compared that spectrum to the nineteen-class design's null, which is a different design's null and is expected to be too high because the two dropped classes are the two largest noise sources.  **§3.26 is the correction and this line is the number it needed** |
+| PASS | B7-12b  reported, not gated: how much of S is off the diagonal | off-diagonal mass / diagonal mass = **0.8026**; off-diagonal correlations max \|r\| = **0.1417**, mean \|r\| = 0.0528.  Dropping the two thinnest classes (>60%, 50%-60%): max \|r\| = 0.1417, mean \|r\| = 0.0493.  **Noise lands on the diagonal and nowhere else**, so a near-diagonal `S` has no interaction for a rank to count, whatever its eigenvalues are. §3.24 declares the three readings |
+| PASS | B7-12a  VOIDED by §3.24, computed and printed only: does class-specific noise account for the two leading diagonals | **50%-60%**: 1.37 loans per entry, S(a,a) = 0.7477, noise predicts [0.6363, 0.7247]; **>60%**: 1.18 loans per entry, S(a,a) = 1.4471, noise predicts [0.9396, 1.4469].  **§3.23's table is voided by §3.24 and this line is not a verdict.** The upper bound is nearly an algebraic identity for a class at one loan per entry, the lower bound is estimated on the entries holding two or more and therefore on a different population from the one it bounds, and the table compared both to `S(a,a)` with exact inequalities and no width. B7-12b above replaces it |
+| PASS | B7-12c  structural: the two leading directions are the two thinnest classes | thinnest two by loans per entry: >60%, 50%-60%.  B7-11's `v1` is a near-pure indicator on `>60%` and `v2` on `50%-60%`.  **This criterion is about the coincidence and not about its cause**: a failure here would mean §3.23's premise is wrong and the whole arm is misdirected |
+
+### b7_interaction_rank
+
+_no sample metadata recorded_
+
+**5/5 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B7-1  the estimator recovers a constructed rank on a near-complete design | fill=0.85, constructed -> estimated: 0->0, 1->1, 2->2, 3->3.  Scope: this says the estimator works where the design supports it. B7-4 is where it stops working |
+| PASS | B7-2  a field with no interaction returns rank zero at every fill | constructed rank 0, fill -> estimated: 0.85->0, 0.6->0, 0.35->0, 0.2->0, 0.15->0.  **This is the one reading that survives everywhere**, and it is the zero-versus-non-zero split rather than the trichotomy |
+| PASS | B7-3  permuted data returns rank zero through the identical path | estimated rank 0 on a permutation of a true-rank-2 sample, taken through the same centring and the same second-moment matrix rather than short-circuited |
+| PASS | B7-4  reported, not judged: where the estimator stops working | fill 0.85: 0->0/1->1/2->2/3->3  fill 0.6: 0->0/1->1/2->2/3->3  fill 0.35: 0->0/1->1/2->3/3->3  fill 0.2: 0->0/1->1/2->3/3->6  fill 0.15: 0->0/1->1/2->3/3->1.  The gated form of this criterion asserted the error runs upward and never downward; that assertion is REFUTED by this sweep and was withdrawn on 2026-08-15 rather than restated until it passed. Outside its usable regime the estimate is unreliable in either direction, and a `rank >= 2` result is not admissible without B7-0 |
+| PASS | B7-0  the gate is implemented and is not vacuous | a rank-one field at the observed signal strength, read back on the same design: fill 0.85 -> 1, fill 0.6 -> 3, fill 0.35 -> 4.  **A gate that passed everywhere would not be a gate.** It fails here on designs where B7-4 says it should, which is what makes a pass on the real design mean something |

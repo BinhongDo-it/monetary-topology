@@ -216,6 +216,16 @@ DATA_STAGES = [
 #: failing and then passing is a finding, and an allowlist that swallowed it
 #: would be exactly the mechanism this file exists to avoid. Anything not on
 #: the list that fails counts as breakage, as before.
+#:
+#: **Semantics narrowed 2026-08-16.** Membership means *adjudicated not to be
+#: repaired*, and no longer merely *registered as failing*. The project-wide ban
+#: on repairing a failed criterion was lifted on that date: a criterion whose
+#: design is wrong may be rewritten, provided the stage is re-run and both
+#: numbers are kept, and provided the criterion and the retrieval convention do
+#: not move in the same commit. What this list holds is the other kind, the
+#: failures that were looked at and left alone on purpose. Each entry's string
+#: says which one it is, so adding an entry now requires stating the reason it
+#: is not being repaired rather than the reason it fails.
 EXPECTED_FAILURES = {
     "A6-1": (
         "scope defect visible on paper: it quantifies over all eight cells "

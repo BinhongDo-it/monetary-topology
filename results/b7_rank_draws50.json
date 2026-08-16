@@ -1,0 +1,194 @@
+{
+  "stage": "B7",
+  "step": "rank",
+  "seed": 20260815,
+  "draws": 50,
+  "jobs": 16,
+  "design": {
+    "n_files": 408,
+    "n_loaded": 20071900,
+    "drops": {
+      "blank": 164692,
+      "filer_exempt": 4253
+    },
+    "n_after_filters": 16035398,
+    "n_cells": 326872,
+    "n_classes": 19,
+    "class_levels": [
+      "41",
+      "36",
+      "30%-<36%",
+      "39",
+      "44",
+      "43",
+      "20%-<30%",
+      "42",
+      "37",
+      "50%-60%",
+      "48",
+      "49",
+      "<20%",
+      "45",
+      "40",
+      "38",
+      "47",
+      "46",
+      ">60%"
+    ],
+    "fill": 0.7222397371705777,
+    "bound": 20.0,
+    "rank_transform": false,
+    "n_present_entries": 4485519
+  },
+  "partition_membership": {
+    "coarse": {
+      "0": [
+        "41",
+        "36",
+        "39",
+        "44",
+        "43",
+        "42",
+        "37",
+        "48",
+        "49",
+        "45",
+        "40",
+        "38",
+        "47",
+        "46"
+      ],
+      "1": [
+        "30%-<36%"
+      ],
+      "2": [
+        "20%-<30%"
+      ],
+      "3": [
+        "50%-60%"
+      ],
+      "4": [
+        "<20%"
+      ],
+      "5": [
+        ">60%"
+      ]
+    },
+    "complement": {
+      "0": [
+        "41"
+      ],
+      "1": [
+        "36"
+      ],
+      "2": [
+        "30%-<36%",
+        "20%-<30%",
+        "50%-60%",
+        "<20%",
+        ">60%"
+      ],
+      "3": [
+        "39"
+      ],
+      "4": [
+        "44"
+      ],
+      "5": [
+        "43"
+      ],
+      "6": [
+        "42"
+      ],
+      "7": [
+        "37"
+      ],
+      "8": [
+        "48"
+      ],
+      "9": [
+        "49"
+      ],
+      "10": [
+        "45"
+      ],
+      "11": [
+        "40"
+      ],
+      "12": [
+        "38"
+      ],
+      "13": [
+        "47"
+      ],
+      "14": [
+        "46"
+      ]
+    }
+  },
+  "b7_4_fine_primary": "rank=2  null_max=0.3817  top eigenvalues [1.467, 0.7544, 0.2768, 0.224, 0.2199, 0.2155]  neg_beyond_null=0  fill=0.722  empty_pairs=0  centring iters=12 residual=5.47e-13",
+  "b7_4_fine_primary_rank": 2,
+  "b7_5_fine_residual_rank": 2,
+  "b7_6_coarse_primary_rank": 2,
+  "b7_6_coarse_residual_rank": 2,
+  "b7_10_complement_primary_rank": 0,
+  "b7_10_complement_residual_rank": 0,
+  "n_coarse_classes": 6,
+  "n_complement_classes": 15,
+  "eigenvalues_fine": [
+    1.4673583367904943,
+    0.7543938348490273,
+    0.2767672936761119,
+    0.2239655631267786,
+    0.21990740124504615,
+    0.21554302820088816,
+    0.21246585740421836,
+    0.20963583195827412
+  ],
+  "eigenvalues_coarse": [
+    1.4525870060656363,
+    0.7490311804199044,
+    0.2622347764986652,
+    0.07449563423229692,
+    0.05590315716833467,
+    0.0009367323311969838
+  ],
+  "eigenvalues_complement": [
+    0.22413182678668617,
+    0.21991287548805255,
+    0.2156431787990963,
+    0.21254524092346866,
+    0.20965857362538148,
+    0.2068660167206168,
+    0.20465833776375827,
+    0.20380311382866767
+  ],
+  "null_max_primary": 0.38170719286977906,
+  "null_max_residual": 0.3806109531327491,
+  "null_max_coarse_primary": 0.3783814759414971,
+  "null_max_complement_primary": 0.2404974247583051,
+  "criteria": [
+    {
+      "name": "B7-4  reported, not gated: the estimate",
+      "passed": true,
+      "detail": "**matrix rank 2, read as: no single ladder**.  rank=2  null_max=0.3817  top eigenvalues [1.467, 0.7544, 0.2768, 0.224, 0.2199, 0.2155]  neg_beyond_null=0  fill=0.722  empty_pairs=0  centring iters=12 residual=5.47e-13.  **no gate record for the fine grid at 50 draws.** Run `b7_gate.py --draws 50`; until then this number is unquoted"
+    },
+    {
+      "name": "B7-5  the answer does not live in the null",
+      "passed": true,
+      "detail": "primary null 2 (no single ladder), residual null 2 (no single ladder); null maxima 0.3817 and 0.3806.  Agreement is required on \u00a75's reading and not on the integer"
+    },
+    {
+      "name": "B7-6  the answer does not live in the class grid",
+      "passed": true,
+      "detail": "fine grid (19 levels) 2, coarse grid (6 levels) 2 under the primary null and 2 under the residual.  **The coarse grid's membership is printed above and is the regulator's five published buckets with the fourteen integers `36` to `49` merged.** Before \u00a73.21 it was not, and this criterion's earlier failure was against a scrambled index.  **no gate record for the coarse grid at 50 draws.** Run `b7_gate.py --grid coarse --draws 50`; until then this number is unquoted"
+    },
+    {
+      "name": "B7-10  reported, not gated: what the integer resolution carries",
+      "passed": true,
+      "detail": "complement grid (15 levels: the fourteen integers kept apart, the five buckets merged) returns 0 under the primary null and 0 under the residual, spectrum 0.2241, 0.2199, 0.2156, 0.2125 against `null_max` 0.2405.  **\u00a73.11's three declared readings are void**, along with the \u00a73.9 to \u00a73.12 chain they rested on, because all of it assumed the coarse grid expresses a second direction and does not (\u00a73.22). B7-11 is the arm that reads this one now.  **no gate record for the complement grid at 50 draws.** Run `b7_gate.py --grid complement --draws 50`; until then this number is unquoted"
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "B7-4's reading of rank 2 is WITHDRAWN, docs/b7_interaction_rank.md SS3.25 to SS3.29: it was two diagonal entries of the class second-moment matrix belonging to the two DTI classes holding about one loan per cell-class entry, and a constructed field with zero interaction reproduces it in 40 of 40 repetitions at 95% and 93% of the observed eigenvalues (b7_class_noise_draws50_reps20.json). The numbers in this file are what the estimator returned and are kept as evidence; none of them is a licensed reading of the stage."
+}

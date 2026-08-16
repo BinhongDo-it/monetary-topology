@@ -292,6 +292,50 @@ On the bare graph, with no 2-cells, neither statement is available: every
 1-cochain is closed there, `dim H¹ = b₁`, and deleting edges only lowers it. So
 any claim of this shape has to name its complex first.
 
+**Sufficient condition added 2026-08-15, when the block above finally got a
+committed source.** `experiments/b1_holes.py` reproduces every number quoted
+above and, in the course of doing so, produces a counterexample to the sentence
+in bold. **The connectivity test is necessary and is not sufficient.** It
+separates a disconnection from everything else. It does not separate a puncture
+from a no-event.
+
+The counterexample is on this section's own demonstration carrier. On the same
+filled 5×6 grid:
+
+| deleted edge | `c` | `b₁` | `rank ∂₂` | `dim H¹` | verdict |
+|---|---|---|---|---|---|
+| interior | 1 → 1 | 20 → 19 | 20 → **18** | 0 → **1** | puncture |
+| **boundary** | 1 → 1 | 20 → 19 | 20 → **19** | 0 → **0** | **neither** |
+
+A boundary edge lies in one 2-cell rather than two, so `rank ∂₂` falls exactly as
+fast as `b₁` does and nothing happens. Both deletions leave the graph connected.
+
+**The sufficient condition is that the deleted edge lie in at least two 2-cells
+that are independent given the survivors**, which `hole_kind` computes directly
+rather than assuming. Whether it holds turns out to depend on `b₁(G)`:
+
+| `G` | barring `k` classes from one position | `dim H¹` |
+|---|---|---|
+| **star**, `m = 8` | `k = 1` | 21 → **27** |
+| **star**, `m = 8` | `k = 2` | 21 → **32** |
+| a `G` carrying one cycle, `m = 3, 5, 8` | `k = 1, 2` | **unchanged in every cell** |
+
+On a `G` with a cycle the 2-cells that die are dependent on the ones that
+survive, so the identical operation moves nothing.
+
+**The accreditation row's verdict stands, and the reason given for it is not the
+reason it stands.** Six of the seven rows in this section's table have cash on one
+side, which is a **star** centred on cash, and a star is what
+`product_graph.tier_positions` builds. The verdict holds because the position
+graph is a tree. "Nothing disconnects" holds in both columns of the table above
+and therefore cannot be what decides it.
+
+**What this does not touch.** No figure moves. Everything stage B2 reports is a
+1-skeleton quantity and is invariant under the choice of `C₂`, which
+[`b1_theorem.md`](b1_theorem.md) §12.2 proves. This section is the one place in
+the repository where the choice is load-bearing, which is why the condition had to
+be right.
+
 The first row is the one to do first. It holds the position, the market, the
 quality and the unit fixed and varies only the holder, so it isolates the two-index
 structure with nothing else moving, and it needs no revaluation term, which is the

@@ -35,8 +35,22 @@ not. So the next session implements a thing with that name, and then finds a
 
 ---
 
-## Nine failure modes, each with an instance in this repository
-（九种失败模式，每一种都有本仓库的实例）
+## Failure modes, each with an instance in this repository
+（失败模式，每一种都有本仓库的实例）
+
+**The numeral left this heading on 2026-08-16.** It said "nine", then "ten", and
+each move was an edit whose only purpose was to keep a count in sync. A number in
+a heading is a second copy of what the list below already states, and the copy
+drifts. **Modes are numbered inside the list and the count is carried nowhere
+else.** Distinguish two things that were being conflated by one numeral: the
+**modes**, which are kinds and are numbered below, and the **instances**, of
+which one session produced eleven. Nothing below is rewritten; new modes are
+appended.
+
+（**2026-08-16，数字从这个标题里拿掉。**它先写「九」后写「十」，每次改动的唯一目的都是
+让计数对上。标题里的数字是下面那张表已经说过的东西的第二份拷贝，而拷贝会漂。
+**模式在表内编号，计数不再出现在任何别处。**这个数字此前混着两样东西：**模式**是种类，
+在下面编号；**实例**是次数，一个 session 出过十一次。下面的内容不重写，新模式照旧追加。）
 
 ### 1. Window error　(five instances, and the fifth is a guard's own label)　（窗口错，五次，第五次错在守卫自己的标签上）
 
@@ -440,6 +454,363 @@ remembering to enumerate.
 
 ---
 
+### 10. Calibration error　(one instance, and it decided a stage's headline)　（校准错，一次，而且它决定了一个阶段的头条）
+
+**Symptom**: a criterion compares two numbers, and **only one of them was ever
+shown to be readable**. The comparison then reports a disagreement that may be
+about the instrument rather than about the world.
+
+（**症状**：一条判据比较两个数，而**只有其中一个被证明过可读**。于是这条比较报出的分歧，
+可能是关于仪器的，不是关于世界的。）
+
+**The instance.** Stage B7 registers a gate, B7-0: lay a constructed field of
+known matrix rank on the observed design and check that the estimator reads the
+rank back. It was run three times on the **fine** class grid, at two draw counts
+and under both nulls, and passed nine of nine each time. Criterion B7-6 then
+compared the fine grid's answer, `2`, against a **coarse** grid's answer, `1`,
+and failed.
+
+Collapsing nineteen class levels to six changes the class count, the distinct
+classes per cell and the whole co-occurrence structure. **It is a different
+design, and it had never been gated.** §3.6's own words for B7-0b are that
+"without it an observed `1` could be a second dimension this design cannot
+resolve" — which is exactly the number B7-6 was treating as evidence.
+
+The gate was then run on the coarse grid (B7-6r) and it passed, at both draw
+counts. So the disagreement is real and B7-6's failure stands. **That outcome
+does not retire the rule.** It was decided by a run that only happened because
+someone noticed the asymmetry, and it could have gone the other way.
+
+**Correction, 2026-08-16, and the rule comes out stronger.** The coarse grid this
+instance is about **was not the regulator's bucket scheme**. The class levels were
+stored alphabetically and read positionally, so that grid merged the wrong classes
+and put `<20%` in the same group as `49`; see failure mode 12. On the corrected
+partition the coarse grid reads `2`, the same as the fine grid, and **B7-6 does
+not fail. The disagreement was not real.**
+
+What this mode is about is a **comparison arm that was never gated**, and the
+correction adds that it was also never checked. An ungated comparison arm computed
+on a scrambled index went through a gate, a re-gate built specifically to test it,
+a third grid built as its complement, and two published claims. **The instance is
+a better example of the mode than it was, not a worse one**, and the rule below is
+unchanged.
+
+（**2026-08-16 更正，而规则反而更强了。** 这条实例说的那张粗格**不是监管机构的分桶方
+案**：层级名字按字母序存、按位置读，那张格子合并错了类，把 `<20%` 和 `49` 放在同一组，
+见失败模式 12。在修正后的划分上粗格读出 `2`，和细格一样，**B7-6 不失败，那个分歧本来
+就不存在。** 这一条讲的是**一条从未被上闸的对照臂**，更正补上的是它也从未被核对过。规则
+不变，实例比原来更典型。）
+
+**Rule**: **every design a number is read from needs its own calibration, and a
+comparison arm is not an exception.** A criterion of the form "two constructions
+must agree" is only as strong as the weaker construction's licence, and a stage
+that gates its primary arm and not its control has not gated anything.
+
+（**规则**：**每一个被读数的设计都要有自己的校准，对照臂不是例外。** 形如「两种构造须一
+致」的判据，其强度不超过较弱那一边的许可；只给主臂上闸、不给对照上闸的阶段，等于没上闸。）
+
+**Two sub-rules, both found in the same round.**
+
+**10a. The constructed calibration field must match the observed spectrum's
+shape, not only its total energy.** B7's calibrator scales the constructed
+interaction to the observed one's Frobenius norm and then splits that energy
+roughly evenly across its directions. The observed spectrum runs `1.4674`
+against `0.7544`, about two to one. So every gate in that stage established that
+its design resolves an **evenly split** field of the right total size, and none
+of them established that it resolves a skewed one. The gate is weaker than it
+reads.
+
+（**10a. 构造校准场须匹配观测谱的形状，不只匹配总能量。** B7 的校准器把构造出的交互项缩
+放到观测项的 Frobenius 范数，然后在各方向间大致均分。观测谱是 1.4674 对 0.7544，约二比
+一。所以该阶段每一道闸证明的都是「这个设计能分辨一个**均分**的、总量正确的场」，没有一道
+证明了它能分辨偏斜的。闸比它读起来要弱。）
+
+**10b. A boundary calibrated on constructed designs is neither an upper nor a
+lower bound until the sufficient statistic is known.** B7 swept a **fill** rate
+on constructed designs and read a usable-regime boundary off it. The real design
+sat above that boundary and passed. But constructed designs at the *same* fill
+failed, in two of five seeds, because they carried three hundred cells against
+the real design's `326,872`. **Fill was not the sufficient statistic; the
+co-occurrence counts were.** Read as a ceiling, that sweep would have killed the
+stage on evidence that could not support it.
+
+（**10b. 在构造设计上标定的边界，在充分统计量未确认之前，既不是上界也不是下界。** B7 在
+构造设计上扫了**填充率**并从中读出一条可用区边界。实测设计落在边界之上并通过了闸。但同一
+个填充率的构造设计在五个种子里有两个失败，因为它们只有三百个 cell，而实测设计有 326,872
+个。**充分统计量不是填充率，是共现计数。** 把那张扫描表当天花板读，会在支撑不了的证据上
+判这个阶段死。）
+
+**A related shape worth naming, because it is not an error.** B7 put its ordering
+into what the code can do rather than into anyone's discipline: the design-audit
+file imports no estimator, the gate file cannot read the observed field, and the
+rank file refuses to compute an estimate unless the gate cleared. A stage whose
+step order is enforced by imports cannot have its steps run out of order by
+someone in a hurry.
+
+（**一个值得命名的相关形态，因为它不是错误。** B7 把次序放进代码能做什么里，而不是放进
+谁的纪律里：设计审计那个文件不 import 估计量，闸那个文件读不到观测场，读秩那个文件在闸没
+过时拒绝计算。一个步骤次序由 import 关系强制的阶段，没法被赶时间的人乱序执行。）
+
+---
+
+
+---
+
+### 11. Spending on a determined arm　(three instances in one stage)　（在已定死的臂上花钱，一个阶段里三次）
+
+**Symptom**: an arm is run whose possible outputs, enumerated in advance, contain
+exactly one that is not already implied by what is known, and that one output
+would be a bug report rather than a measurement.
+
+（**症状**：一条臂被跑了，而它事先可枚举的全部可能输出里，只有一个不是已知信息的推论，
+而那一个输出是 bug 报告，不是测量。）
+
+**The instance.** Stage B7 registered a criterion that a gate's verdict must
+agree at **two draw counts**, fifty and two hundred, and ran every gate twice.
+That is hours of a loaded machine, three times over for three class grids.
+
+`_null_seeds` takes the first `d` seeds in order from the parent generator, so
+the `d = 200` seed set **contains** the `d = 50` seed set. `null_max` is a maximum
+over a superset, therefore **monotone non-decreasing in `d`, exactly, with no
+probability in the statement**. The rank is the count of eigenvalues above it,
+therefore **monotone non-increasing in `d`, exactly**. So the second run could do
+only one thing: lower a rank.
+
+It did not, and it could not have. Measured, `null_max` went `0.38171` to
+`0.38920`, **two percent for four times the draws**. The drop needed to move the
+fine grid's rank was to `0.75439`, ninety-eight percent. Reverse-engineering the
+null's own distribution from those two order statistics gives a mean of `0.35224`
+and a standard deviation of `0.01435`, so the drop required **twenty-eight
+standard deviations**, which a maximum over `d` draws reaches at `d` of about
+`10^171`.
+
+**So the outcome set had two members and no third.** Same rank: implied in
+advance, information zero. Lower rank: at twenty-eight sigma that is a broken
+`_null_seeds` or a broken maximum, which is a unit test's job. The rank could not
+rise; that is the theorem.
+
+**Rule**: **before spending on an arm, enumerate its possible outputs and strike
+the ones already implied. If what remains is only "the code is broken", it is a
+unit test, and a unit test belongs on a synthetic fixture that runs in seconds,
+not on the full sample for half a day.**
+
+（**规则**：**在一条臂上花钱之前，先枚举它可能的输出，划掉已经被蕴含的那些。如果剩下的
+只有「代码错了」，那它是单元测试；单元测试该跑在几秒钟的合成样例上，不是跑在全样本上半
+天。**）
+
+**11a. `N` repetitions cannot resolve a rate below `1/N`.** B7's rewritten gate
+runs twenty repetitions per arm and reports a failure rate. On an arm whose
+deciding eigenvalue sits twenty percent from the null with a repetition-to-
+repetition spread of half a percent, the implied per-repetition failure rate is
+far below `1/20`, so those twenty repetitions measure nothing about the rate and
+only test the code. **Run a few, report the margin in standard deviations, and
+spend the repetitions where the implied rate exceeds `1/N`.** `1/N` is the
+resolution of `N` trials and comes from the construction, exactly as the nominal
+size `1/(d+1)` does. Neither is a chosen number.
+
+（**11a. `N` 次重复分辨不了低于 `1/N` 的比率。** 判决量离零假设二十个百分点、重复间散
+布半个百分点的臂，其隐含单次失败率远低于 `1/20`，那二十次重复测不出比率，只测代码。**先
+跑几次，报边距的 sigma 数，把重复花在隐含率高于 `1/N` 的地方。** `1/N` 是 `N` 次试验的
+分辨率，和名义大小 `1/(d+1)` 一样由构造给出，都不是选出来的数。）
+
+**11c. Do not fix a draw count or a repetition count in advance, and in any
+follow-on task restructure them for efficiency rather than inheriting them.** More
+draws and more repetitions are not better. **The right number is the smallest that
+still settles the question**, and every one above that is spent on nothing.
+
+（**11c. 不要事先把抽样次数或重复次数钉死，在后续任务里按效率重构而不是照抄。** 抽样
+更多、重复更多不等于更好。**正确的数是仍然能结掉这个问题的最小那个**，超过它的每一次
+都花在了什么都没有上。）
+
+**Reference value: five repetitions.** Above **ten** on a homogeneous arm is
+**forbidden outright unless there is a real reason stated in the same breath.**
+Homogeneous means what it meant on 2026-08-16: twenty repetitions returning the
+identical integer with a spread under one percent, twice over. **Five would have
+shown that.** The reason must be a property of the arm, not a feeling about
+rigour.
+
+（**参考值：五轮。** 同质化的臂上超过 **十轮**，除非同时给出实在的理由，否则**彻底
+禁止**。同质化的含义就是 2026-08-16 那天的样子：二十次重复返回同一个整数、离散度不到
+百分之一，而且两条臂都是。**五次就看得出来。** 理由必须是这条臂的某个性质，不是一种
+关于严谨的感觉。）
+
+**If the purpose is verification, shrink hard.** A run that exists to confirm
+something already argued needs enough repetitions to detect a broken code path and
+no more, and 11a says how many that is: `N` repetitions cannot resolve a rate below
+`1 / N`, so if the first few agree with a spread far below the margin, the rest
+measure nothing and only test the code.
+
+（**如果目的只是验证，就极速缩小。** 一次为了确认已经论证过的东西而存在的跑，只需要
+足以发现代码坏掉的重复次数，不需要更多；11a 说了那是多少。）
+
+**"I ran a lot, so I am conservative and compliant" is not a reason and is banned
+as one.** This is not a university compute centre and there is no committee to
+satisfy. Compute spent to look rigorous is compute not spent on the next question,
+and this repository has now measured the exchange rate: an afternoon of a loaded
+machine bought a two-hundred-draw confirmation of an outcome fixed in advance by
+`28` sigma.
+
+（**「我跑得够多所以我够保守够符合规矩」不是理由，并且作为理由被禁止。** 这里不是学校
+的算力中心，没有委员会要满足。为显得严谨而烧掉的算力就是没花在下一个问题上的算力，而
+这个仓库已经把汇率量出来了：一个下午的满载机器，换来一次对「事先由 28 个 sigma 定死的
+结果」的两百抽样确认。）
+
+**11b. An arm whose answer is forced by its own construction is not an arm.**
+After B7's calibration was corrected to set a constructed field at the design's
+**own** observed eigenvalues, the coarse grid's rank-two arm would construct a
+second direction at the coarse grid's observed `lambda_2`. That `lambda_2`
+already sits below the coarse grid's own null, which is why the grid reads rank
+one. The arm would then be asking whether a design can resolve a thing it has
+already failed to resolve, and the answer is a property of the question.
+**Before an arm is paid for, check that both of its outcomes are reachable.**
+
+（**11b. 答案被自己的构造逼出来的臂，不是臂。** 校准改成按设计**自己**的观测特征值定标
+之后，粗格的 rank 2 臂会把第二方向构造在粗格自己的 `lambda_2` 上，而那个 `lambda_2` 本
+来就在粗格自己的零分布之下，这正是它读出 rank 1 的原因。这条臂问的是「一个设计能不能分
+辨它已经分辨不出来的东西」，答案是问题本身的性质。**付钱之前，先确认这条臂的两种结局都
+到得了。**）
+
+---
+
+
+---
+
+### 12. Alignment error　(one instance, and it survived a day, two gates and three deductions)　（对齐错，一次，而它熬过了一天、两道闸和三条推断）
+
+**Symptom**: two orderings are assumed to correspond and the assumption is never
+checked. One is a list of names, the other a set of integer codes, and something
+reads `names[i]` as the name of code `i`. The arithmetic is correct, every count
+is right, and the object is quietly about something other than what its name says.
+
+（**症状**：两套顺序被假定对应，而这个假定从没被检验过。一边是名字的列表，一边是整数编
+码，某处把 `names[i]` 当成编码 `i` 的名字来读。算术是对的，计数全对，而这个对象悄悄地
+关于另一件事，不是它名字说的那件。）
+
+**The instance.** Stage B7 assigns each DTI class level a code by **first
+appearance in the CSV files** and stored the level names as `sorted(...)`, which
+is **alphabetical**. `coarse_classes` and `complement_classes` then read that list
+positionally. The grid the pre-registration calls "the regulator's own bucket
+scheme" therefore merged four published buckets with ten integers and put `<20%`
+in the same class as `49`.
+
+（**实例。** B7 阶段按**在 CSV 里第一次出现的顺序**给每个 DTI 层级编码，而把层级名字按
+`sorted(...)` 也就是**字母序**存下来，`coarse_classes` 和 `complement_classes` 再按位置
+去读那个列表。于是预注册里称为「监管机构自己的分桶方案」的那张格子，把四个发布桶和十个
+整数合并在一起，并且把 `<20%` 和 `49` 放进了同一类。）
+
+**Why nothing downstream could catch it.** The scrambled partition still has six
+groups, because fourteen positions carry bare integers whichever levels sit in
+them. The group count is right, the fill is right, the loan counts are right,
+**every criterion in the pre-registration is satisfiable and every gate passes.**
+It survived criterion B7-6, a re-gate B7-6r built specifically to check that grid,
+a third grid B7-10 built as its exact complement, three registered deductions
+built on the pair, and two published claims.
+
+（**为什么下游抓不到。** 打乱的划分仍然是六组，因为不管哪些层级坐在那些位置上，字母序里
+带纯数字的位置永远是十四个。组数对、fill 对、贷款数对，**预注册里每条判据都可满足，每道
+闸都过。** 它熬过了判据 B7-6、专为检查那张格子而建的复闸 B7-6r、作为它精确补集而建的第
+三张格子 B7-10、建立在这一对之上的三条注册推断，以及两条已发布的结论。）
+
+**Rule**: **when a list is read positionally against another object's codes, the
+correspondence is an assumption. Construct it in one place, or print it.**
+Constructing it in one place is the real fix: whatever assigns the codes should
+return the names in the same call. Printing it is the cheap version and it is what
+caught this one.
+
+（**规则**：**当一个列表被按位置对着另一个对象的编码读时，这种对应是一个假定。要么在一
+个地方一起构造，要么把它印出来。** 一起构造才是真修：谁分配编码，谁就在同一次调用里返
+回名字。印出来是廉价版，而抓到这一次的正是它。）
+
+**12a. Print the membership of every grouping before computing on it.** Not the
+count. The contents. **A scrambled partition is invisible in a count and obvious
+in a list.**
+
+（**12a. 在对任何分组开算之前，把它的成员印出来。** 不是计数，是内容。**打乱的划分在计
+数里看不见，在列表里一眼就看见。**）
+
+**12b. A name asserts a membership and cannot verify it.** B7's §3.8 argues at
+length that both boundaries of the coarse grid are the regulator's and that this
+project chooses neither. That was true of the intent and false of the code for the
+whole time it stood. **Prose about a mapping is not a test of the mapping**, and
+the more careful the prose, the more it is trusted in place of one.
+
+（**12b. 名字是对成员的断言，不能验证成员。** B7 的 §3.8 长篇论证粗格两个边界都是监管机
+构的、本项目一个都没选。这话对于意图是真的，对于代码在它成立的全部时间里都是假的。**关于
+一个映射的散文不是对那个映射的检验**，而散文越严谨，它越会被当成检验来信任。）
+
+---
+
+---
+
+### 13. Criterion shape error　(seven instances in one stage, five written in one day)　（判据形状错，一个阶段里七次，其中五次是同一天写的）
+
+**Symptom**: the criterion is not wrong about the world. **Its shape is wrong.**
+It takes a quantity that carries estimation error and compares it to a line, and
+the line has no width, or the rows are not disjoint, or the threshold is anchored
+on something the run happened to produce.
+
+（**症状**：判据对世界的判断没错，**它的形状错了**。它拿一个带估计误差的量去对一条线，
+而那条线没有宽度，或者各行不互斥，或者阈值锚在这次跑碰巧产出的东西上。）
+
+**The seven, all from stage B7, and the last five written on 2026-08-16.**
+
+| what it said | why the shape is wrong |
+|---|---|
+| the gate's verdict must agree at **two draw counts** | the null maximum is monotone in the draw count by construction, so the second count could only lower a rank and the margin was `28` sigma. Hours, for an outcome fixed in advance |
+| **three repetitions, all three must return the constructed rank** | a rate estimated with three trials, thresholded at one. A design whose true rate is `0.9` fails `27%` of the time. It killed a criterion on a one-in-three floor blip |
+| two designs are the same when their cell sets have **symmetric difference exactly zero** | an exact-match test on `326,872` elements at threshold zero. Cannot separate three cells from three hundred thousand, and the quantity it stands in for is the co-occurrence counts |
+| a bound table compared to `S(a,a)` with **exact inequalities** | fired on a margin of fourteen parts in a hundred thousand, against two bounds that were themselves defective |
+| a table whose first row read "at **either** bracket" and whose third read "the brackets **disagree**" | not disjoint. Both fired and they said opposite things |
+| a control requiring **direction 1** to carry, because "both grids read at least rank one" | a quantifier error. Rank one means **some** direction carries and says nothing about which |
+| a test asking whether the observed direction is `46` | `46` was what the constructed run happened to lead on. **The test was anchored on a result** |
+
+**Against those seven, what actually caught the errors in the same stage was five
+things and every one of them prints an object rather than thresholding a number**:
+the partition's membership, the eigenvector loadings, the loans per cell-class
+entry, the off-diagonal correlations of `S`, and a self-check performed on request.
+
+（**对着这七条，同一个阶段里真正抓到错误的是五件事，而且每一件都是把一个对象印出来，
+不是给一个数卡阈值**：分组的成员、特征向量载荷、每个 cell-class 条目的贷款数、`S` 的
+非对角相关，以及被要求时做的一次自检。）
+
+**Rule**: **stop writing criteria that threshold an estimated quantity.** A
+criterion should be one of two things and nothing else:
+
+1. **structural** and about the code rather than the world: did every arm finish,
+   is this decomposition an identity to `1e-16`, does this design's group count
+   match its level count;
+2. **a printed number with a reading declared in advance**, and no line drawn
+   across it.
+
+（**规则**：**停止写「给估计量卡阈值」的判据。** 一条判据只能是两种东西之一：一是
+**结构性的**、关于代码而不关于世界的（每条臂跑完没有、这个分解是不是恒等式到 `1e-16`、
+这个设计的组数和层级数对不对）；二是**一个印出来的数，外加一条事先声明的读法**，不在
+它上面画线。）
+
+**13a. Declared readings work; thresholds do not, and this stage tested both.**
+Five registered outcome tables in B7 were built on wrong inputs or on rows that
+were not disjoint and **protected nothing**. But the two that were well formed,
+`§3.24`'s and `§3.25`'s, fired correctly and settled the stage. **The failures were
+failures of construction, not of the principle**, and the construction that fails
+is always the one with a line in it.
+
+（**13a. 事先声明读法有用，卡阈值没用，而这个阶段两样都测过。** B7 里有五张注册的结果
+表建在错输入上或者行不互斥，**一次都没防住**；而形状写对的那两张（§3.24 与 §3.25）正
+确触发并且结掉了整个阶段。**失败的是构造不是原则**，而失败的构造里总有一条线。）
+
+**13b. Pre-registration's value is as a record, not as a protection.** Those five
+tables were all declared before their runs and all five were useless as gates.
+What registration did do is make each failure visible and datable: keeping
+`§3.9`-`§3.12` whole under a VOID marker is what let the pre-fix numbers be
+retrodicted from the bug, which is how the bug was confirmed. **Register to leave a
+record. Do not register expecting to be protected.**
+
+（**13b. 预注册的价值是作为记录，不是作为保护。** 那五张表全是跑前声明的，作为闸门
+五张全废；它真正做到的是让每次失败可见、可标日期。**为留记录而注册，不要指望它保护
+你。**）
+
+---
+
 ## The checklist before reporting a number　（报数之前的清单）
 
 Answer each of these before any number goes into `results/` or into a
@@ -467,6 +838,11 @@ conversation:
    读作零，而这个零不携带关于机制的信息。）
 6. **Is my tolerance the same order of magnitude as the effect being measured?**
    （**我的容差和被量的效应同量级吗？**）
+6b. **Has every design I am reading a number from been calibrated, including the
+   control arm?** And does the calibration field have the same **shape** as the
+   observed one, not merely the same total size?
+   （**我读数的每一个设计都校准过吗，包括对照臂？** 以及，校准场和观测场的**形状**一致
+   吗，还是只有总量一致？）
 7. **Is there an arm whose true value should be zero, or should not move,
    running the same machinery?**
    （**有没有一个「真值应当是零／应当不动」的臂，跑同一套机器？**）
@@ -489,6 +865,44 @@ conversation:
     （**这个阶段在 runner 里吗？** 如果没有东西重跑它，它存盘的那份是对某一版旧代码的
     记忆，不是对这一版代码的读数。以及，如果共用机器上的某个默认值动过，有哪些阶段站在
     那台机器上，它们重跑了吗？）
+
+11. **What can this arm return, and which of those does it already imply?**
+    Strike the implied ones. If the only survivor is "the code is broken", it is a
+    unit test and it belongs on a fixture, not on the full sample. And can both of
+    its outcomes actually be reached, or does its construction force one?
+    （**这条臂可能返回什么，其中哪些是它已经蕴含的？** 划掉被蕴含的。如果只剩下「代码
+    错了」，那它是单元测试，该跑在样例上而不是全样本上。以及，它的两种结局真的都到得了
+    吗，还是它的构造逼出了其中一种？）
+
+12. **Is any list here read positionally against another object's codes?** If
+    so, were the two constructed together, and have I printed the correspondence?
+    A grouping's contents, not its count.
+    （**这里有没有哪个列表是按位置对着另一个对象的编码读的？** 如果有，这两者是不是在
+    一起构造的，我有没有把对应关系印出来？分组要看内容，不是看计数。）
+
+13. **Is any claim here taken from another document's summary of a third
+    document?** Then read the third. A summary that carried a caveat and lost it
+    on the way here is the common case, and the claim usually gets **stronger** at
+    each hop because a hedge is the first thing a paraphrase drops. Stage B7 did
+    this on 2026-08-16, in three hops, and arrived at the reverse of what the
+    original said.
+    （**这里有没有哪条主张是从另一份文档对第三份文档的转述里拿来的？** 有就去读第三
+    份。转述带着 caveat 而 caveat 在路上掉了，是常见情形，而且主张往往每转一手就更
+    **强**一分，因为释义最先丢掉的就是限定。B7 阶段 2026-08-16 这么做过，转了三手，
+    到手的结论和原文相反。）
+
+14. **Does this criterion draw a line across an estimated quantity?** Then it is
+    the wrong shape. Make it structural, or make it a printed number with a
+    reading declared in advance. Mode 13 has seven instances and five of them were
+    written in one day.
+    （**这条判据是不是在一个带估计误差的量上画了一条线？** 那形状就错了。要么改成结
+    构性的，要么改成一个印出来的数加一条事先声明的读法。）
+
+15. **How many draws and repetitions, and what is the smallest that still settles
+    it?** Five repetitions is the reference. Above ten on a homogeneous arm needs a
+    stated reason that is a property of the arm. "Enough to be safe" is not one.
+    （**抽多少次、重复多少轮，仍然能结掉这个问题的最小值是多少？** 五轮是参考值。同
+    质化的臂上超过十轮要给出理由，而且理由必须是这条臂的性质。「够多才保险」不是。）
 
 Item 7 is the only one **designed to catch an error rather than to avoid one**:
 A5-6's zero calibration was the only one of the eleven caught by an automatic
@@ -513,24 +927,58 @@ error. They quietly answer a different question.
 矛盾型的（数字对不上、符号翻转）。真正危险的是那些**自洽的**漂移——它们不会报错，只会
 安静地回答一个不同的问题。）
 
-There are only two ways at them: route the judgement to a model holding a
-different context (a review session), and **require a written list of everything
-changed but believed not to matter**. The most dangerous deviation is never the
-one that was recorded. It is the one judged irrelevant and therefore never
-written down.
+Two ways at them, **both scoped as of 2026-08-16**, because the unscoped versions
+cost a session apiece and were paid on every change rather than on the ones that
+could carry a drift.
 
-（对付它们只有两个办法：把判断路由到一个 context 不同的模型上（复核 session），以及**强
-制列出「我改了但认为不影响」的清单**——因为最危险的从来不是被记录下来的偏离，是被判为
-无关紧要因而没写的那些。）
+**One: route the judgement to a model holding a different context (a review
+session). Trigger: a conclusion is about to enter the manuscript.** Not once per
+station. A station that stays inside the ledger has not yet been read by anyone
+who could be misled by it, so the review buys nothing there.
 
-**Failure mode 9 is that meta-rule's first specimen.** It raised no error, every
-verdict it carried was correct, and it quietly answered a question about an
-economy the repository had already stopped describing. The eleven counted at the
-top of this file were all of the self-contradicting kind and all found in-house
-by inspection; this one was found only by re-running. **Re-running a stage whose
-code has not changed is not a redundant action.**
+**Two: a written list of everything changed but believed not to matter. Trigger:
+the change touched `src/`.** A change confined to `experiments/` reaches one
+station by construction, so the list would enumerate a scope the file path
+already states. The most dangerous deviation is never the one that was recorded;
+it is the one judged irrelevant and therefore never written down, and that
+asymmetry lives in shared machinery, where "irrelevant" is a claim about stations
+the author was not thinking about.
 
-（**第九种失败模式就是那条元规则的第一个标本。** 它不报错，它带的每一条判词都是对的，它
-安静地回答了一个关于仓库早已不再描述的那个经济的问题。本文件开头计的十一次全部是自相矛盾
-型、全部靠人工审视在内部抓到；这一次只能靠重跑抓到。**重跑一个代码没有变过的阶段，不是一
-个多余的动作。**）
+（对付它们有两个办法，**2026-08-16 起两个都带触发条件**，因为不带条件的版本每次各花一个
+session，而且是在每一次改动上付，不是在可能载有漂移的那些改动上付。）
+
+（**其一：把判断路由到一个 context 不同的模型上（复核 session）。触发条件：某条结论
+即将进原稿。**不是每站一次。还留在台账里的站，尚未被任何会被它误导的人读到，复核在那里
+买不到东西。）
+
+（**其二：列出「我改了但认为不影响」的清单。触发条件：改动碰了 `src/`。**只改
+`experiments/` 的改动按构造只到一个站，清单会去枚举一个文件路径已经说明的作用域。
+最危险的偏离从来不是被记录下来的那个，是被判为无关紧要因而没写的那个，而这个不对称
+只住在共享机器上，那里的「无关」是一句关于改动者当时没在想的那些站的断言。）
+
+**Failure mode 9 is that meta-rule's first specimen, and it is a specimen of the
+second trigger specifically.** It raised no error, every verdict it carried was
+correct, and it quietly answered a question about an economy the repository had
+already stopped describing. The eleven instances counted at the top of this file
+were all of the self-contradicting kind and all found in-house by inspection;
+this one was found only by re-running.
+
+**What it establishes is scoped too (2026-08-16).** The commit that restated A3
+turned on a `rent_rate` default in shared machinery, and A5 ran on that
+machinery. **A stage re-runs when a default under it moved, not because a round
+ended.** The earlier phrasing here, "re-running a stage whose code has not
+changed is not a redundant action", read as a standing obligation to re-run
+everything, and that is not what mode 9 shows. The scoping rule with the checkable
+marker is in `CLAUDE.md`, section 收尾: `experiments/*.py` is single-station and
+`src/monetary_topology/*.py` is shared. This file does not keep a second copy of it.
+
+（**第九种失败模式是那条元规则的第一个标本，而且专门是第二个触发条件的标本。** 它不报错，
+它带的每一条判词都是对的，它安静地回答了一个关于仓库早已不再描述的那个经济的问题。
+本文件开头计的十一次实例全部是自相矛盾型、全部靠人工审视在内部抓到；这一次只能靠重跑抓到。）
+
+（**它确立的东西同样带作用域（2026-08-16）。**重述 A3 的那次提交在共享机器上打开了默认的
+`rent_rate`，而 A5 整个跑在那台机器上。**一个阶段要重跑，是因为它脚下的默认值动过，
+不是因为一轮结束了。**这里原来的写法「重跑一个代码没有变过的阶段，不是一个多余的动作」
+会被读成「随时都该把所有东西重跑一遍」的常设义务，而那不是第九种失败模式所证明的。
+带可查标记的作用域判别式在 `CLAUDE.md` §收尾：`experiments/*.py` 是单站的，
+`src/monetary_topology/*.py` 是共享的。本文件不另存一份拷贝。）

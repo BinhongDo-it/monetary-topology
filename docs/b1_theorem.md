@@ -34,6 +34,37 @@ result was a special case of the cohomological claim or a weaker relative. It is
 a special case, and under the assumptions of §8 it carries almost the whole
 obstruction.
 
+**Added 2026-08-15.** §13 restates Theorem 1 as the vanishing of a two-way
+interaction term. It proves nothing new about the field. What it fixes is which
+part of this document standard econometric practice already reaches, and which
+part it cannot reach under any specification.
+
+**Load-bearing order, fixed 2026-08-15.** The sentence above calling Theorem 3
+"the one that matters for the repository as it stands" is true about *what stage
+B2 measured* and is **superseded as a statement of what carries the argument**. It
+is left standing because the reasoning that replaced it is worth having beside it.
+
+The order is **Corollary 1, then Corollary 2, then Theorem 3**, and the test that
+produces it is what survives a hostile relabeling.
+
+- **Corollary 1** is an existence claim decided by a single inequality, on a
+  single edge, for a single pair of classes. Nothing in it can be dissolved by
+  renaming, and no quantity of "the deviations are small" reaches it.
+- **Corollary 2** is a prediction about **data design**: which body of evidence
+  can reach which summand, and which cannot at any sample size. It is falsifiable
+  by construction rather than by estimation. §5's scoping block is the evidence
+  that it is sharp enough to be worth scoping rather than vague enough to be safe.
+- **Theorem 3** is an algebraic identity. Its number equals stage B2's within-cell
+  variance to `1e-16`, so a reader who wants to dismiss it can say the framework
+  renamed an analysis of variance, and at the level of arithmetic be right.
+
+§13.4 supplies a second reason for the same order, reached from a different
+direction and after this one: the summand Theorem 3 quantifies **is** the
+interaction term of a saturated two-way model, which standard practice already
+estimates. Theorem 3 says *which* quantity stage B2 holds. It does not put a new
+one in anyone's hands, and Corollary 2 is what says where a new one would have to
+come from.
+
 ---
 
 ## 1. The problem this document exists to solve
@@ -240,6 +271,41 @@ carrier considered in this project that reaches the first summand.
 So the FX measurement is not a second opinion on the mortgage result. It is the
 other summand of the cycle space, and the mortgage carrier cannot reach it for
 structural reasons rather than for want of a bigger sample.
+
+**Scoped 2026-08-15.** The sentence "No amount of mortgage data will produce a
+slice cycle" is true of the carrier stage B2 uses, and the reason given for it is
+a property of that carrier's design rather than a property of mortgages. The two
+are easy to run together, so they are separated here.
+
+The structural reason is sharper than "an applicant is observed at one
+transition". **A cell is one edge (§8, A3), so a cell's position graph has two
+vertices and `b₁(G) = 0`, and a graph with no cycles has no slice cycles to
+lift.** §13.2 states the same fact from the other side, where it is what makes the
+two-way dictionary free on this carrier.
+
+That reason does not extend to every body of mortgage data. A borrower-linked
+panel, observing one borrower across purchase, refinance, sale and repurchase, is
+one agent walking several positions, which is the shape this table asks for.
+**Whether such a walk closes is a separate question and the answer is not
+automatic.** On a two-position graph `{rent, own}` an out-and-back walk sums to
+zero by antisymmetry and is not a cycle at all. A slice cycle needs `b₁(G) ≥ 1`,
+so it needs at least three positions with two distinct routes between some pair:
+`rent → own at tier q → own at tier q' → rent`, or a route through two loan
+products. `b1_setup.md` §3's tier index is exactly what supplies the extra
+positions, and `b1_setup.md` §5 already lists NMDB, which is longitudinal at loan
+level, among the sources for the vintage row. **Whether NMDB links a borrower
+across successive loans is an availability question and is not settled here.**
+
+The accurate form of the claim is therefore:
+
+> No cross-section of originations reaches the slice summand, because its
+> position graph per cell is a single edge. A borrower-linked panel over three or
+> more positions is not excluded by this argument.
+
+**Nothing downstream changes.** §9's ordering stands, and covered-parity
+deviations remain the one carrier this project holds that is already retrieved and
+whose loop provably closes. What the scoping adds is a second candidate for the
+slice summand, not a correction to any figure.
 
 The first Betti number of the enlarged graph, for the record:
 
@@ -604,3 +670,197 @@ and why, and it is better than the reordering this review proposed: loop B first
 because it completes the disconnection side, then covered-parity deviations
 because they are the one available carrier whose loop is traversed by a single
 agent through several positions.
+
+### 12.2 A shorter reason, which does not depend on which fields were run
+
+**Added 2026-08-15.** §12's argument is that filling the squares would report
+curl `100%` and harmonic `0%`, so the split is an identity dressed as a
+measurement. That argument is correct and it is **scoped**: it holds for the
+fields this project has constructed, and §11.1 and `b1_setup.md` §6 both had to
+add that scope explicitly. A second argument reaches the same withdrawal for
+stage B2's figure and carries no scope condition at all.
+
+**Theorem 3's quantity contains no 2-cells.** `x_p − x_q` is the sum of `ω`
+around a closed walk in the **1-skeleton** of `Γ`, and the within share is a
+function of `(Γ's 1-skeleton, ω)` alone. **It is invariant under every choice of
+`C₂`.** So the question "should the squares be filled" cannot move the number it
+would be reporting about, whichever way it is answered.
+
+What the choice does move is the **classification** of that number, and both
+readings are available:
+
+| choice of `C₂` | what a non-zero square sum says about `ω` |
+|---|---|
+| `C₂ = 0` | there is no `d¹`, so `Z¹ = C¹` and every 1-cochain is closed. A non-zero square sum puts `[ω] ≠ 0` in `H¹(Γ)`, and `dim H¹ = b₁(Γ)` |
+| squares filled | `d¹ω(Q) = ⟨ω, ∂₂Q⟩` is the square sum, so `ω` is **not closed**. It has a curl and defines no `H¹` class at all |
+
+**Corollary 1 is untouched by either**, because it uses only that a cycle of the
+1-skeleton has a non-zero sum, and the 1-skeleton is the same object under both
+choices. A reader who wants to fill and a reader who does not will report the same
+`0.7831`.
+
+Two things follow.
+
+**The withdrawal in §12 gains a second and stronger reason.** The first is that
+the split would be an identity, which is scoped to the fields run. The second is
+that the split cannot change the quantity it would be splitting, which is scoped
+to nothing.
+
+**Where `C₂` does matter is the hole taxonomy, and that is the only place.**
+`b1_setup.md` §5's distinction between a **puncture** (`dim H¹` rises because
+`rank ∂₂` falls faster than `b₁`) and a **disconnection** (`c` rises, `b₁` fixed)
+is a statement about the filled complex, and it has no counterpart on the bare
+graph, where deleting an edge only lowers `dim H¹ = b₁`. So the squares are
+load-bearing in exactly one place in this repository, that claim depends on them,
+and `experiments/b1_holes.py` is what has to exist for it to have a source.
+
+---
+
+## 13. The same statement in two-way form
+
+**Added 2026-08-15.** Nothing in this section changes a number, a criterion or a
+claim. It gives the results above a second name, and the second name is the one a
+reader trained in econometrics already has.
+
+### 13.1 The dictionary
+
+Suppose `w_a` is exact on `G`, so that a potential `P(a, ·)` exists with
+
+```
+w_a(i, j)  =  P(a, j) − P(a, i)
+```
+
+`P(a, g)` is the two-index effective cost that `b1_setup.md` §2 fixes as the
+object. Substituting into the square sum of §3,
+
+```
+h_ab^ij  =  w_a(i,j) − w_b(i,j)  =  P(a,j) − P(a,i) − P(b,j) + P(b,i)
+         =  Δ_a Δ_g P
+```
+
+**The square holonomy is a discrete mixed second difference.** It is the estimand
+of a difference-in-differences comparison, with the agent index in place of
+treatment and the position index in place of time.
+
+### 13.2 The precondition, and where it is free
+
+The substitution needs `P(a, ·)` to exist, which is exactly "`w_a` is exact on
+`G`", which is §7's per-agent integrability and the first half of Theorem 1
+condition (4). **It is not free in general and the dictionary must not be used
+without checking it.**
+
+**It is free on stage B2's carrier.** A cell is one edge (§8, A3); the position
+graph of a cell has two vertices and one edge, `b₁ = 0`, and every 1-cochain on a
+tree is exact. So `P(a, ·)` exists cell by cell for structural reasons, and the
+dictionary applies to stage B2 unconditionally rather than as an assumption.
+
+**It is not free on stage B3's carrier**, where `b₁(G) = C ≥ 1` by construction
+([`b3_cip_slice.md`](b3_cip_slice.md) §2). §13.5 reports what happened when it
+was measured there.
+
+### 13.3 Theorem 4
+
+**Theorem 4.** Let `G` be connected and let every `w_a` be exact on `G`, with
+potential `P(a, ·)`. The following are equivalent.
+
+1. **Theorem 1 condition (4).**
+2. **(additive separability)** `P(a, g) = A(a) + φ(g)` for some `A: A → ℝ` and
+   `φ: N → ℝ`.
+3. **(no interaction)** `Δ_a Δ_g P = 0` for every pair of classes and every edge.
+
+### Proof
+
+**(2) ⟹ (1).** `w_a(i,j) = φ(j) − φ(i)`, which is independent of `a` and is
+exact with potential `φ`.
+
+**(1) ⟹ (3).** Condition (4) gives `w_a = w_b`, so the square sum
+`w_a(i,j) − w_b(i,j)` vanishes on every edge and every pair.
+
+**(3) ⟹ (2).** (3) says `P(a,j) − P(b,j) = P(a,i) − P(b,i)` on every edge, so
+`D_ab(g) := P(a,g) − P(b,g)` takes the same value at both ends of every edge and
+is therefore constant on `G`, which is connected. Fix a class `a₀`, put
+`φ(g) := P(a₀, g)` and `A(a) := D_{a a₀}`. Then `P(a,g) = A(a) + φ(g)`. ∎
+
+### Corollary 4
+
+**A single non-zero interaction term is enough.** Write the field saturated,
+
+```
+P(a, g)  =  A(a)  +  φ(g)  +  γ_ag
+```
+
+If `γ` is non-zero anywhere then no single price vector on positions exists.
+
+Corollary 1 and Corollary 4 are the same statement. Corollary 1 is the form that
+says what cannot be written down; Corollary 4 is the form that says which
+coefficient decides it.
+
+### 13.4 What this says about Theorem 2's two summands
+
+The dictionary gives §5's split a second reading, and it is the sharper of the
+two, because it names what standard practice can and cannot reach.
+
+| summand | in two-way form | reachable by a two-way model |
+|---|---|---|
+| **square** | the interaction term `γ_ag` | **yes.** A saturated specification estimates it |
+| **slice** | `P(a, ·)` does not exist: the agent's own field has no potential | **no**, under any specification, because the dependent variable is undefined |
+
+Two consequences. Neither changes a figure.
+
+**Stage B2 measured an interaction term.** By §13.2 the dictionary holds
+unconditionally on that carrier, so the within share is the `L²` norm of `γ`. A
+saturated two-way model on the same cells reaches the same object. What Theorem 3
+adds there is not a quantity out of reach; it is the account of which quantity it
+is and which cycles it sums over. **That is worth saying plainly rather than
+leaving a reader to find it**, and it is why Corollary 2's structural statement
+carries as much weight here as Theorem 3's identity.
+
+**The non-substitutable content is in the other summand and in `H⁰`.** A field
+with no potential per agent has no slot in a two-way model of any order, because
+writing `P(a, g)` at all presumes the potential. A missing agent edge (§8 A1,
+§12.1) is likewise not a coefficient of any sign; it is the absence of the
+comparison a coefficient would be about. These are the two places where the
+framework reaches something a specification search cannot arrive at, and §9's
+ordering already puts them first.
+
+### 13.5 The precondition is no longer a conjecture
+
+§7 records per-agent integrability as presumably close to true, on the reasoning
+that an agent facing a non-zero loop in its own opportunity set would trade until
+it closed. **Stage B3 is the measurement of that sentence.**
+
+Cross-currency cycles in G10, which never touch the Treasury and are traversed by
+one dealer through several positions, run at `30.9` to `45.6` basis points against
+a measurement floor of `2.8` to `3.7`, on nine of nine tenors across eighteen
+years ([`b3_cip_slice.md`](b3_cip_slice.md) §11.1). The loop does not close.
+
+§7 stands as written. It says *presumably*, and a measurement is what a
+*presumably* is for. What follows here is only that the second row of §13.4's
+table is occupied rather than hypothetical: on the one carrier where the question
+has been put, `P(a, ·)` does not exist.
+
+### 13.6 Precedent
+
+The entries on this document's review list are mathematical. These two are the
+economic ones, and they are the reason this section exists.
+
+| object here | the standing name |
+|---|---|
+| Theorem 1 condition (4); Theorem 4 (2) | additive separability of a two-index field, and the no-interaction restriction. Tested in the flexible-functional-form literature, Christensen–Jorgenson–Lau (1973) and after |
+| the square sum `Δ_a Δ_g P` | the discrete mixed second difference; the difference-in-differences estimand |
+
+### 13.7 What this section does not do
+
+**It does not weaken Theorem 3.** The identity is unchanged and so are stage B2's
+figures. A translation cannot move a number.
+
+**It does not license the dictionary outside §13.2's condition.** Where `w_a` is
+not exact, `P(a, ·)` does not exist, the four-term expression is not available,
+and the square sum survives only as what §3 already defines it to be: the sum of
+`ω` around a four-cycle of `Γ`.
+
+**It does not decide whether the interaction has structure.** `γ ≠ 0` is Corollary
+4 and is settled. Whether `γ` is one-dimensional, so that a single scalar per
+agent class reproduces it, is a separate question with a separate answer set, and
+it is registered in [`b7_interaction_rank.md`](b7_interaction_rank.md) rather than
+here.

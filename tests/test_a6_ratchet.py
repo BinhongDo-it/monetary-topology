@@ -30,6 +30,7 @@ from monetary_topology.redistribution import (
     A6Model,
     A6RatchetModel,
     FiscalSpec,
+    LevySpec,
     RatchetSpec,
     open_band,
     run_a6,
@@ -195,6 +196,7 @@ def config_for(
     channel: str,
     rate: float,
     ratchet: RatchetSpec | None = None,
+    levy: LevySpec | None = None,
 ) -> A6Config:
     """One cell of section 4's factorial, at one levy rate."""
     return A6Config(
@@ -206,6 +208,7 @@ def config_for(
             authority=MonetaryAuthority(rule="none"),
         ),
         ratchet=ratchet or RatchetSpec(),
+        levy=levy or LevySpec(),
     )
 
 
@@ -372,3 +375,156 @@ def test_base_model_ignores_the_ratchet_entirely():
     _, b = run_a6(loud, model_cls=A6Model)
     assert np.array_equal(a.effective_support, b.effective_support)
     assert np.array_equal(a.holdings, b.holdings)
+
+
+# --------------------------------------------------------------------------
+# who pays: the levy base
+# --------------------------------------------------------------------------
+
+
+def test_default_levy_is_the_reduction_point():
+    spec = LevySpec()
+    assert spec.base == "layer"
+    assert spec.threshold_multiple == 1.0
+    assert spec.is_reduction
+    assert not LevySpec(base="threshold").is_reduction
+
+
+@pytest.mark.parametrize(
+    "kwargs",
+    [{"base": "rank"}, {"base": ""}, {"threshold_multiple": -0.1}],
+)
+def test_levy_spec_rejects_out_of_range(kwargs):
+    with pytest.raises(ValueError):
+        LevySpec(**kwargs)
+
+
+def test_threshold_levy_takes_nothing_from_a_flat_distribution():
+    """The zero calibration falls out instead of being assumed.
+
+    Under ``uniform_access`` every node opens holding exactly the mean, so at a
+    threshold of one mean there is no excess anywhere and the levy is exactly
+    zero. The layer base has no such property: it takes from twenty node
+    indices that are structurally identical to the other hundred and eighty.
+    """
+    cfg = config_for(
+        0, 10, access=False, fair=True, channel="transfer", rate=0.06,
+        levy=LevySpec(base="threshold"),
+    )
+    model = A6RatchetModel(cfg)
+    payers, amounts = model._assess()
+    assert payers is None
+    assert amounts.sum() == 0.0
+
+    layered = config_for(0, 10, access=False, fair=True, channel="transfer",
+                         rate=0.06)
+    _, taken = A6RatchetModel(layered)._assess()
+    assert taken.sum() > 0.0
+
+
+@pytest.mark.parametrize(
+    ("seed", "payers"),
+    [(0, 23), (1, 22), (2, 25), (3, 23), (4, 21)],
+)
+def test_threshold_catches_about_a_tenth_of_nodes_at_the_open(seed, payers):
+    """Measured before the multiple was registered, and pinned here.
+
+    Twenty-one to twenty-five of two hundred, so ten and a half to twelve and a
+    half percent. Norway's threshold catches roughly twelve percent of the
+    population, and that is where the registered multiple of one comes from.
+    """
+    cfg = config_for(
+        seed, 10, access=True, fair=True, channel="transfer", rate=0.06,
+        levy=LevySpec(base="threshold"),
+    )
+    _, amounts = A6RatchetModel(cfg)._assess()
+    assert int((amounts > 0.0).sum()) == payers
+
+
+@pytest.mark.parametrize(
+    ("seed", "separated"),
+    [(0, True), (1, False), (2, True), (3, False), (4, True)],
+)
+def test_layers_already_overlap_in_holdings_at_the_open(seed, separated):
+    """Position and wealth are not the same set, and not even at round zero.
+
+    Opening claims are spread within each layer in proportion to in-degree, so
+    a badly connected financial node opens poorer than a well connected
+    production one. In two of the five registered seeds they overlap, which
+    means **no** threshold reproduces the layer partition, whatever multiple it
+    is set to. That is a fact about the opening allocation rather than a defect
+    of the threshold, and the two bases therefore diverge from the first round
+    rather than only once the intervention bites.
+    """
+    cfg = config_for(seed, 10, access=True, fair=True, channel="transfer",
+                     rate=0.06)
+    model = A6RatchetModel(cfg)
+    poorest_financial = float(model.holdings[model._l1_idx].min())
+    richest_production = float(model.holdings[model._l2_idx].max())
+    assert (poorest_financial > richest_production) is separated
+
+
+def test_threshold_levy_reaches_a_rich_production_node():
+    """The tax follows the money. That is the entire change."""
+    cfg = config_for(
+        0, 10, access=True, fair=True, channel="transfer", rate=0.06,
+        levy=LevySpec(base="threshold"),
+    )
+    model = A6RatchetModel(cfg)
+    target = int(model._l2_idx[0])
+    model.holdings[target] = 50.0
+    payers, amounts = model._assess()
+    assert payers is None
+    assert amounts[target] > 0.0
+
+
+def test_layer_levy_never_reaches_the_production_layer():
+    """However rich a production node gets, the layer base cannot see it."""
+    cfg = config_for(0, 10, access=True, fair=True, channel="transfer",
+                     rate=0.06)
+    model = A6RatchetModel(cfg)
+    model.holdings[model._l2_idx[0]] = 50.0
+    payers, amounts = model._assess()
+    assert payers is not None
+    assert np.array_equal(payers, model._l1_idx)
+    assert amounts.size == model._l1_idx.size
+
+
+def test_a_levy_base_change_alone_moves_the_answer():
+    """A guard on the guard, the same shape as the one for ``g``.
+
+    If the two bases produced the same trajectory the reduction test would pass
+    for a reason that has nothing to do with the reduction.
+    """
+    cfg = config_for(0, 150, True, True, "infrastructure", 0.06)
+    _, layered = run_a6(cfg, model_cls=A6RatchetModel)
+    threshold_cfg = config_for(
+        0, 150, True, True, "infrastructure", 0.06,
+        levy=LevySpec(base="threshold"),
+    )
+    _, threshold = run_a6(threshold_cfg, model_cls=A6RatchetModel)
+    assert not np.array_equal(
+        layered.effective_support, threshold.effective_support
+    )
+
+
+def test_base_model_ignores_the_levy_spec():
+    """``A6Model`` must not read ``config.levy``, whatever it says."""
+    plain = config_for(0, 150, True, True, "infrastructure", 0.06)
+    loud = config_for(
+        0, 150, True, True, "infrastructure", 0.06,
+        levy=LevySpec(base="threshold", threshold_multiple=0.1),
+    )
+    _, a = run_a6(plain, model_cls=A6Model)
+    _, b = run_a6(loud, model_cls=A6Model)
+    assert np.array_equal(a.effective_support, b.effective_support)
+    assert np.array_equal(a.holdings, b.holdings)
+
+
+def test_layer_base_records_no_production_layer_contribution():
+    """The bookkeeping must agree with the mechanism it is recording."""
+    cfg = config_for(0, 60, True, True, "infrastructure", 0.06)
+    model, _ = run_a6(cfg, model_cls=A6RatchetModel)
+    assert model.levy_history
+    assert all(s == 0.0 for s in model.l2_levy_share_history)
+    assert all(n <= model._l1_idx.size for n in model.payer_count_history)

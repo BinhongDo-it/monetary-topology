@@ -1,0 +1,85 @@
+{
+  "stage": "B7",
+  "step": "synthetic",
+  "seed": 20260815,
+  "draws": 200,
+  "b7_1_recovery_at_fill_085": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3
+  },
+  "b7_2_zero_at_every_fill": {
+    "0.85": 0,
+    "0.6": 0,
+    "0.35": 0,
+    "0.2": 0,
+    "0.15": 0
+  },
+  "b7_3_permuted_rank": 0,
+  "b7_4_fill_sweep": {
+    "0.85": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3
+    },
+    "0.6": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3
+    },
+    "0.35": {
+      "0": 0,
+      "1": 1,
+      "2": 3,
+      "3": 3
+    },
+    "0.2": {
+      "0": 0,
+      "1": 1,
+      "2": 3,
+      "3": 6
+    },
+    "0.15": {
+      "0": 0,
+      "1": 1,
+      "2": 3,
+      "3": 1
+    }
+  },
+  "b7_4_withdrawn_upward_only_claim_holds": false,
+  "b7_0_gate_on_constructed_designs": {
+    "0.85": 1,
+    "0.6": 3,
+    "0.35": 4
+  },
+  "criteria": [
+    {
+      "name": "B7-1  the estimator recovers a constructed rank on a near-complete design",
+      "passed": true,
+      "detail": "fill=0.85, constructed -> estimated: 0->0, 1->1, 2->2, 3->3.  Scope: this says the estimator works where the design supports it. B7-4 is where it stops working"
+    },
+    {
+      "name": "B7-2  a field with no interaction returns rank zero at every fill",
+      "passed": true,
+      "detail": "constructed rank 0, fill -> estimated: 0.85->0, 0.6->0, 0.35->0, 0.2->0, 0.15->0.  **This is the one reading that survives everywhere**, and it is the zero-versus-non-zero split rather than the trichotomy"
+    },
+    {
+      "name": "B7-3  permuted data returns rank zero through the identical path",
+      "passed": true,
+      "detail": "estimated rank 0 on a permutation of a true-rank-2 sample, taken through the same centring and the same second-moment matrix rather than short-circuited"
+    },
+    {
+      "name": "B7-4  reported, not judged: where the estimator stops working",
+      "passed": true,
+      "detail": "fill 0.85: 0->0/1->1/2->2/3->3  fill 0.6: 0->0/1->1/2->2/3->3  fill 0.35: 0->0/1->1/2->3/3->3  fill 0.2: 0->0/1->1/2->3/3->6  fill 0.15: 0->0/1->1/2->3/3->1.  The gated form of this criterion asserted the error runs upward and never downward; that assertion is REFUTED by this sweep and was withdrawn on 2026-08-15 rather than restated until it passed. Outside its usable regime the estimate is unreliable in either direction, and a `rank >= 2` result is not admissible without B7-0"
+    },
+    {
+      "name": "B7-0  the gate is implemented and is not vacuous",
+      "passed": true,
+      "detail": "a rank-one field at the observed signal strength, read back on the same design: fill 0.85 -> 1, fill 0.6 -> 3, fill 0.35 -> 4.  **A gate that passed everywhere would not be a gate.** It fails here on designs where B7-4 says it should, which is what makes a pass on the real design mean something"
+    }
+  ]
+}

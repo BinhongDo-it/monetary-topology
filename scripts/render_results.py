@@ -317,10 +317,23 @@ def derived_for(record: dict) -> dict[str, float]:
     return {}
 
 
-def render_stage(record: dict) -> str:
+def render_stage(record: dict, sub: str | None = None) -> str:
+    """One record. ``sub`` demotes it to a subsection under a shared heading.
+
+    A stage with several registered records used to emit its ``##`` heading once
+    per record, which reads as several stages that happen to share a name. Stage
+    B7 has eight and that is what made it worth fixing.
+
+    ``sub`` is the record's **filename stem**, which is unique by construction
+    and is the one string a reader needs in order to open the record. A prettier
+    label would have to be derived from fields that two records of the same stage
+    can share: both B7 gates carry ``step: "gate"`` and differ only in ``grid``,
+    and both class-noise records carry ``step: "class_noise"``.
+    """
     stage = record["stage"]
+    depth = "###" if sub else "##"
     lines = [
-        f"## {STAGE_TITLES.get(stage, stage)}",
+        f"{depth} {sub if sub else STAGE_TITLES.get(stage, stage)}",
         "",
         subtitle(record),
         "",
@@ -338,7 +351,8 @@ def render_stage(record: dict) -> str:
         for key, block in record.items():
             if not isinstance(block, dict) or "criteria" not in block:
                 continue
-            lines += [f"### {PRESET_TITLES.get(key, key)}", ""]
+            lines += [f"{'#' * (len(depth) + 1)} "
+                      f"{PRESET_TITLES.get(key, key)}", ""]
             lines += render_block(
                 block["criteria"],
                 {
@@ -408,6 +422,12 @@ def main() -> int:
     parts = [HEADER]
     off: list[str] = []
     bare: list[str] = []
+    # Grouped by stage so a stage with several registered records gets one
+    # heading and one subsection per record, instead of its heading repeated.
+    # ``records`` is sorted and dicts keep insertion order, so a stage sits at
+    # the position of its first record and the output is a pure function of the
+    # filenames, which is what the `git diff --exit-code` check needs.
+    groups: dict[str, list[tuple[str, dict]]] = {}
     for path in records:
         if not is_registered(path):
             off.append(path.name)
@@ -416,7 +436,17 @@ def main() -> int:
         if is_diagnostic(record):
             bare.append(path.name)
             continue
-        parts.append(render_stage(record))
+        groups.setdefault(record.get("stage", path.stem), []).append(
+            (path.stem, record)
+        )
+
+    for stage, items in groups.items():
+        if len(items) == 1:
+            parts.append(render_stage(items[0][1]))
+            continue
+        parts.append(f"## {STAGE_TITLES.get(stage, stage)}\n")
+        for stem, record in items:
+            parts.append(render_stage(record, sub=stem))
 
     # Encoding is pinned on both ends. Without it Path.read_text/write_text use
     # the platform's preferred encoding, so the same records render to different
@@ -425,7 +455,8 @@ def main() -> int:
     # identical. The titles below contain em dashes, so this is not hypothetical.
     OUT.write_text("\n".join(parts), encoding="utf-8", newline="\n")
     print(f"wrote {OUT.relative_to(ROOT)} from "
-          f"{len(records) - len(off) - len(bare)} record(s)")
+          f"{len(records) - len(off) - len(bare)} record(s) "
+          f"in {len(groups)} stage(s)")
     # Announced rather than silent, for the reason `run_all.py` announces a
     # skipped stage: a renderer that quietly drops a file is indistinguishable
     # from one that never saw it.

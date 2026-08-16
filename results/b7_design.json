@@ -1,0 +1,65 @@
+{
+  "stage": "B7",
+  "step": "design_audit",
+  "n_files": 408,
+  "n_loaded": 20071900,
+  "drops": {
+    "blank": 164692,
+    "filer_exempt": 4253
+  },
+  "n_after_filters": 16035398,
+  "n_cells": 326872,
+  "n_classes": 19,
+  "class_levels": [
+    "20%-<30%",
+    "30%-<36%",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50%-60%",
+    "<20%",
+    ">60%"
+  ],
+  "fill": 0.7222397371705777,
+  "classes_per_cell_min_q1_median_q3_max": [
+    3.0,
+    12.0,
+    14.0,
+    16.0,
+    19.0
+  ],
+  "within_term": 0.3277201795944191,
+  "between_class_term": 0.09949027107844674,
+  "b7_9_share": 0.3035829871739183,
+  "decomposition_residual": 2.7755575615628914e-17,
+  "fill_recovered_boundary": 0.6,
+  "gate_prediction": "may pass",
+  "criteria": [
+    {
+      "name": "B7-9a  the decomposition is exact",
+      "passed": true,
+      "detail": "within 0.327720 = between-class 0.099490 + within-class 0.228230, residual 2.776e-17. An identity, so a failure here is the code and nothing else"
+    },
+    {
+      "name": "B7-9b  every retained loan lands in exactly one class",
+      "passed": true,
+      "detail": "16,035,398 of 16,035,398 retained loans placed; dropped before the design: 164,692 blank and 4,253 filer-exempt, counted separately because they are different absences"
+    },
+    {
+      "name": "B7-9  reported, not gated: what this class index touches",
+      "passed": true,
+      "detail": "**share of stage B2's within term carried by the class index: 0.3036**.  19 classes over 326,872 cells, 16,035,398 loans.  distinct classes per cell min/q1/median/q3/max = 3/12/14/16/19.  **fill = 0.7222**, against the 0.60 at which \u00a73.5's sweep still recovered a constructed rank exactly, so B7-0 is may pass"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "stage": "B1H",
+  "grid_5x6": {
+    "vertices": 30,
+    "edges": 49,
+    "components": 1,
+    "b1": 20,
+    "rank_d2": 20,
+    "dim_h1": 0,
+    "cells": 20
+  },
+  "grid_interior_edge": {
+    "kind": "puncture",
+    "after": {
+      "vertices": 30,
+      "edges": 48,
+      "components": 1,
+      "b1": 19,
+      "rank_d2": 18,
+      "dim_h1": 1
+    }
+  },
+  "dumbbell_bridge": {
+    "kind": "disconnection",
+    "after": {
+      "vertices": 6,
+      "edges": 6,
+      "components": 2,
+      "b1": 2,
+      "rank_d2": 0,
+      "dim_h1": 2
+    }
+  },
+  "kunneth": [
+    "star(4 tiers) x K3: 1 vs 0+1",
+    "star(4 tiers) x K5: 6 vs 0+6",
+    "star(4 tiers) x K8: 21 vs 0+21",
+    "cycle(4) x K3: 2 vs 1+1",
+    "cycle(4) x K5: 7 vs 1+6",
+    "cycle(4) x K8: 22 vs 1+21"
+  ],
+  "grid_boundary_edge": {
+    "kind": "neither",
+    "after": {
+      "vertices": 30,
+      "edges": 48,
+      "components": 1,
+      "b1": 19,
+      "rank_d2": 19,
+      "dim_h1": 0
+    }
+  },
+  "accreditation_star": [
+    "star m=3 k=1: 1->2 (puncture)",
+    "star m=3 k=2: 1->2 (neither)",
+    "star m=5 k=1: 6->9 (puncture)",
+    "star m=5 k=2: 6->11 (puncture)",
+    "star m=8 k=1: 21->27 (puncture)",
+    "star m=8 k=2: 21->32 (puncture)"
+  ],
+  "accreditation_cycle_g": [
+    "cycle m=3 k=1: 2->2 (neither)",
+    "cycle m=3 k=2: 2->2 (neither)",
+    "cycle m=5 k=1: 7->7 (neither)",
+    "cycle m=5 k=2: 7->7 (neither)",
+    "cycle m=8 k=1: 22->22 (neither)",
+    "cycle m=8 k=2: 22->22 (neither)"
+  ],
+  "criteria": [
+    {
+      "name": "B1H-1  the filled 5x6 grid has no first cohomology",
+      "passed": true,
+      "detail": "V=  30  E=  49  c= 1  b1= 20  rank d2= 20  dim H1=  0   cells=20   (b1_setup section 5 quotes b1=20, rank d2=20, dim H1=0)"
+    },
+    {
+      "name": "B1H-2  deleting an interior grid edge is a puncture",
+      "passed": true,
+      "detail": "b1 20->19, rank d2 20->18, c 1->1, dim H1 0->1   verdict=puncture   (section 5 quotes 20->19, 20->18, c fixed, 0->1)"
+    },
+    {
+      "name": "B1H-3  deleting a dumbbell bridge is a disconnection",
+      "passed": true,
+      "detail": "c 1->2, b1 2->2   verdict=disconnection   (section 5 quotes c 1->2 with b1 fixed at 2)"
+    },
+    {
+      "name": "B1H-4  with no 2-cells, dim H1 = b1",
+      "passed": true,
+      "detail": "V=  30  E=  49  c= 1  b1= 20  rank d2=  0  dim H1= 20   (b1_theorem section 12.2 first row: no d1, so every 1-cochain is closed and dim H1 = b1)"
+    },
+    {
+      "name": "B1H-5  dim H1(Gamma) = b1(G) + b1(H) on six shapes",
+      "passed": true,
+      "detail": "star(4 tiers) x K3: 1 vs 0+1; star(4 tiers) x K5: 6 vs 0+6; star(4 tiers) x K8: 21 vs 0+21; cycle(4) x K3: 2 vs 1+1; cycle(4) x K5: 7 vs 1+6; cycle(4) x K8: 22 vs 1+21"
+    },
+    {
+      "name": "B1H-6  product_squares reproduces squares element for element",
+      "passed": true,
+      "detail": "six shapes, walks compared as lists rather than as sets, so an ordering change would fail here rather than pass quietly"
+    },
+    {
+      "name": "B1H-7  a connected deletion need not be a puncture",
+      "passed": true,
+      "detail": "grid boundary edge: c stays 1, b1 20->19, rank d2 20->19, dim H1 0->0, verdict=neither.  Section 5's connectivity test separates a disconnection from the rest and does NOT separate a puncture from a no-event"
+    },
+    {
+      "name": "B1H-8  the accreditation row is a puncture on a star G and not on a G with a cycle",
+      "passed": true,
+      "detail": "STAR (tier_positions, the carrier section 5's rows live on): star m=3 k=1: 1->2 (puncture); star m=3 k=2: 1->2 (neither); star m=5 k=1: 6->9 (puncture); star m=5 k=2: 6->11 (puncture); star m=8 k=1: 21->27 (puncture); star m=8 k=2: 21->32 (puncture).  CYCLE G: cycle m=3 k=1: 2->2 (neither); cycle m=3 k=2: 2->2 (neither); cycle m=5 k=1: 7->7 (neither); cycle m=5 k=2: 7->7 (neither); cycle m=8 k=1: 22->22 (neither); cycle m=8 k=2: 22->22 (neither).  Section 5's verdict on the accreditation row holds on the star. The reason it gives, that nothing disconnects, holds in both columns and therefore is not the reason"
+    }
+  ]
+}

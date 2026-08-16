@@ -372,6 +372,61 @@ def main() -> int:
         "A6-5": None if long_result is None else long_result["stationary"],
     }
     live = [v for v in verdicts.values() if v is not None]
+
+    # The same verdicts in the shape ``scripts/render_results.py`` reads, so
+    # that A6's two failures appear in RESULTS.md beside everything else. Every
+    # number here goes through an explicit format spec: the file is regenerated
+    # in CI and diffed byte for byte, so a value printed through ``repr`` would
+    # turn the check red on a last-digit difference between BLAS builds.
+    # A6-6 is absent on purpose, being reported and not judged.
+    details = {
+        "A6-1": (
+            f"the support set contracts at R=0 in "
+            f"{sum(v['contracted_in_all_seeds'] for v in floor.values())} of "
+            f"{n_cells} cells, all seeds. The four that do are the access "
+            f"cells and the four that do not are the flat ones, which is what "
+            f"A6-3 predicts; the criterion's scope is what is wrong"
+        ),
+        "A6-2": (
+            f"{sum(c['unsolved_seeds'] for c in cells.values())} seed-cells "
+            f"with no rate on the grid holding the economy open"
+        ),
+        "A6-3": (
+            f"with retention already fair and no issuance anywhere, the "
+            f"stratified graph needs R* = {_fmt(siphon['median'])} "
+            f"(> {A6_3_SIPHON_FLOOR:g}) and the flat graph "
+            f"{_fmt(flat['median'])} (< {A6_3_FLAT_CEILING:g}). That "
+            f"difference is the siphon"
+        ),
+        "A6-4": (
+            "R*(I)/R*(T) under access against "
+            f"{A6_4_RATIO:g}: "
+            + ", ".join(
+                f"{tag} {_fmt(v['median'])}"
+                + (" (an upper bound, R*(I) is on the grid floor)"
+                   if v["is_upper_bound"] else "")
+                for tag, v in ratios.items()
+            )
+        ),
+        "A6-5": (
+            "not run"
+            if long_result is None
+            else (
+                f"at R* = {_fmt(star)} over {args.long} rounds, end over "
+                f"start per seed "
+                + ", ".join(f"{r:.2f}x" for r in long_result["end_over_start"])
+                + f". {long_result['seeds_collapsed']} of "
+                f"{long_result['seeds']} seeds collapsed and the rest ended "
+                f"more open. The registered band is symmetric and scores "
+                f"those as the same failure"
+            )
+        ),
+    }
+    criteria = [
+        {"name": name, "passed": bool(v), "detail": details[name]}
+        for name, v in verdicts.items()
+        if v is not None
+    ]
     print(f"\n  {sum(live)}/{len(live)} criteria passed; A6-6 is reported and "
           f"not judged")
     out.write_text(
@@ -393,6 +448,7 @@ def main() -> int:
                 "long_run": long_result,
                 "palma": palma_result,
                 "verdicts": verdicts,
+                "criteria": criteria,
                 "ratio_is_upper_bound": bounded,
             },
             indent=2,

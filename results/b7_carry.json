@@ -1,0 +1,431 @@
+{
+  "stage": "B7",
+  "step": "carry",
+  "seed": 20260816,
+  "draws": 50,
+  "jobs": 16,
+  "n_cells": 326872,
+  "n_fine_classes": 19,
+  "n_loans": 16035398,
+  "fine_eigenvalues": [
+    1.4673583367904943,
+    0.7543938348490273,
+    0.2767672936761119,
+    0.2239655631267786,
+    0.21990740124504615,
+    0.21554302820088816,
+    0.21246585740421836,
+    0.20963583195827412,
+    0.20683631805909797,
+    0.20465940106026984,
+    0.2037871119673051,
+    0.20047887307293547,
+    0.19992257456530643,
+    0.19419981508080958,
+    0.19041425122216998,
+    0.17165340272814247,
+    0.11996189040055324,
+    0.07345200347039307,
+    -0.0010222864651710849
+  ],
+  "fine_main_effect": [
+    0.0429562769496054,
+    0.009348767140500652,
+    -0.013996442141594895,
+    0.032590447830107366,
+    0.07819577747419915,
+    0.0638109275535799,
+    -0.06781500991229769,
+    0.048381197041285295,
+    0.016006178751591445,
+    0.08853852184424292,
+    0.03953963914220868,
+    0.02786304277027685,
+    -0.09095038564242335,
+    0.04596490841907061,
+    0.036067266857169065,
+    0.023856649372161608,
+    0.037024473019245004,
+    0.039485161132804016,
+    0.24125480505273172
+  ],
+  "class_levels_in_code_order": [
+    "41",
+    "36",
+    "30%-<36%",
+    "39",
+    "44",
+    "43",
+    "20%-<30%",
+    "42",
+    "37",
+    "50%-60%",
+    "48",
+    "49",
+    "<20%",
+    "45",
+    "40",
+    "38",
+    "47",
+    "46",
+    ">60%"
+  ],
+  "partition_membership": {
+    "coarse": {
+      "0": [
+        "41",
+        "36",
+        "39",
+        "44",
+        "43",
+        "42",
+        "37",
+        "48",
+        "49",
+        "45",
+        "40",
+        "38",
+        "47",
+        "46"
+      ],
+      "1": [
+        "30%-<36%"
+      ],
+      "2": [
+        "20%-<30%"
+      ],
+      "3": [
+        "50%-60%"
+      ],
+      "4": [
+        "<20%"
+      ],
+      "5": [
+        ">60%"
+      ]
+    },
+    "complement": {
+      "0": [
+        "41"
+      ],
+      "1": [
+        "36"
+      ],
+      "2": [
+        "30%-<36%",
+        "20%-<30%",
+        "50%-60%",
+        "<20%",
+        ">60%"
+      ],
+      "3": [
+        "39"
+      ],
+      "4": [
+        "44"
+      ],
+      "5": [
+        "43"
+      ],
+      "6": [
+        "42"
+      ],
+      "7": [
+        "37"
+      ],
+      "8": [
+        "48"
+      ],
+      "9": [
+        "49"
+      ],
+      "10": [
+        "45"
+      ],
+      "11": [
+        "40"
+      ],
+      "12": [
+        "38"
+      ],
+      "13": [
+        "47"
+      ],
+      "14": [
+        "46"
+      ]
+    }
+  },
+  "partitions": {
+    "coarse": {
+      "n_groups": 6,
+      "observed_rank": 2,
+      "observed_null_max": 0.3930995965541501,
+      "observed_eigenvalues": [
+        1.4525870060656363,
+        0.7490311804199044,
+        0.2622347764986652,
+        0.07449563423229692,
+        0.05590315716833467,
+        0.0009367323311969838
+      ],
+      "directions": [
+        {
+          "direction": 1,
+          "fine_lambda": 1.4673583367904943,
+          "carried_lambda": 1.4369367167448852,
+          "carried_spectrum": [
+            1.4369367167448852,
+            0.00016521053310201292,
+            5.29197158967503e-06
+          ],
+          "carry_fraction": 0.9792677635156595,
+          "clears_partition_null": true
+        },
+        {
+          "direction": 2,
+          "fine_lambda": 0.7543938348490273,
+          "carried_lambda": 0.7382267763333002,
+          "carried_spectrum": [
+            0.7382267763333002,
+            0.00011772618631114225,
+            2.507681276108758e-05
+          ],
+          "carry_fraction": 0.9785694715824891,
+          "clears_partition_null": true
+        },
+        {
+          "direction": 3,
+          "fine_lambda": 0.2767672936761119,
+          "carried_lambda": 0.24783358439177558,
+          "carried_spectrum": [
+            0.24783358439177558,
+            0.0016444596592532419,
+            3.717775616214204e-05
+          ],
+          "carry_fraction": 0.8954583509488078,
+          "clears_partition_null": false
+        },
+        {
+          "direction": 4,
+          "fine_lambda": 0.2239655631267786,
+          "carried_lambda": 0.0011178228442307145,
+          "carried_spectrum": [
+            0.0011178228442307145,
+            0.0002177404370205343,
+            3.753098734560087e-05
+          ],
+          "carry_fraction": 0.004991047858540451,
+          "clears_partition_null": false
+        }
+      ],
+      "main_effect_carried": [
+        2.5070265547846186e-05,
+        1.1442388331459863e-06,
+        8.078988305145984e-07
+      ],
+      "main_effect_manufactures_interaction": false
+    },
+    "complement": {
+      "n_groups": 15,
+      "observed_rank": 0,
+      "observed_null_max": 0.24100816563111996,
+      "observed_eigenvalues": [
+        0.22413182678668617,
+        0.21991287548805255,
+        0.2156431787990963,
+        0.21254524092346866,
+        0.20965857362538148,
+        0.2068660167206168
+      ],
+      "directions": [
+        {
+          "direction": 1,
+          "fine_lambda": 1.4673583367904943,
+          "carried_lambda": 0.0021801773688189183,
+          "carried_spectrum": [
+            0.0021801773688189183,
+            8.415978488887436e-05,
+            2.86890447267569e-05
+          ],
+          "carry_fraction": 0.001485783883974483,
+          "clears_partition_null": false
+        },
+        {
+          "direction": 2,
+          "fine_lambda": 0.7543938348490273,
+          "carried_lambda": 0.003593271485698648,
+          "carried_spectrum": [
+            0.003593271485698648,
+            0.00017305399232925221,
+            3.7672622864642494e-05
+          ],
+          "carry_fraction": 0.004763124139817168,
+          "clears_partition_null": false
+        },
+        {
+          "direction": 3,
+          "fine_lambda": 0.2767672936761119,
+          "carried_lambda": 0.023434843940809233,
+          "carried_spectrum": [
+            0.023434843940809233,
+            0.0009341142258802347,
+            0.0001878895938768995
+          ],
+          "carry_fraction": 0.08467345844785387,
+          "clears_partition_null": false
+        },
+        {
+          "direction": 4,
+          "fine_lambda": 0.2239655631267786,
+          "carried_lambda": 0.1663387423643888,
+          "carried_spectrum": [
+            0.1663387423643888,
+            0.001592695783855894,
+            0.0002414665920270047
+          ],
+          "carry_fraction": 0.7426978506969423,
+          "clears_partition_null": false
+        }
+      ],
+      "main_effect_carried": [
+        0.0004031397811402939,
+        1.5791234403058177e-05,
+        3.5518828839652005e-06
+      ],
+      "main_effect_manufactures_interaction": false
+    }
+  },
+  "fine_loadings": {
+    "v1": [
+      -0.022517558606771054,
+      -0.027437151485577196,
+      -0.02396686555337614,
+      -0.02925359475067696,
+      -0.031377874090908524,
+      -0.028569824826009123,
+      -0.02623899836765202,
+      -0.0310316042532123,
+      -0.024449427798676152,
+      0.057891718826500384,
+      -0.03699712740930257,
+      -0.032471416655883434,
+      -0.019109534862403275,
+      -0.022384160757846043,
+      -0.030201048318351808,
+      -0.019905330878602297,
+      -0.031201574618631503,
+      -0.03053363830335379,
+      0.9916677516526706
+    ],
+    "v2": [
+      -0.022863637202410452,
+      -0.02948016525615486,
+      -0.021656244527743212,
+      -0.025245888946168152,
+      -0.021307661752072986,
+      -0.020779534467125476,
+      -0.02320048239850666,
+      -0.024039244435481368,
+      -0.026224847107722302,
+      0.991966425999083,
+      -0.02983546795796406,
+      -0.027038832231344137,
+      -0.03804894410514655,
+      -0.02660348974105447,
+      -0.01866335483528215,
+      -0.023475387281040917,
+      -0.026136017430817376,
+      -0.02432571999217729,
+      -0.06974074811922423
+    ]
+  },
+  "loadings": {
+    "coarse": {
+      "v1": [
+        -0.02881582829921183,
+        -0.026611842744388187,
+        -0.029023232951034376,
+        0.049221987932560635,
+        -0.023490653890637536,
+        0.9973186526371626
+      ],
+      "v2": [
+        -0.024700298153933712,
+        -0.026795951532028857,
+        -0.02869299369629113,
+        0.9963657717820691,
+        -0.0483673450098259,
+        -0.0525778767464758
+      ]
+    },
+    "complement": {
+      "v1": [
+        0.04935558310862405,
+        0.4422125438301929,
+        0.011881054384136577,
+        0.18626548478822133,
+        -0.053047337643337265,
+        -0.07147954190002996,
+        0.050500022290961157,
+        0.38202318972932153,
+        -0.25692313875918843,
+        -0.1573116678276073,
+        -0.2630647528422363,
+        0.21885892966104326,
+        0.17431888434738566,
+        -0.4360818082677372,
+        -0.4270217971577724
+      ],
+      "v2": [
+        0.008125361974883831,
+        -0.6565862906360087,
+        -0.0016467048625132832,
+        0.020210380075906798,
+        -0.007737626341999845,
+        -0.011005230172190785,
+        0.04769892551038326,
+        0.7473625814214646,
+        -0.006621855377931176,
+        -0.009665113822339018,
+        -0.03390531613698106,
+        -0.04179965559104175,
+        -0.05699544446706407,
+        0.018316698824471737,
+        -0.028146430963931972
+      ]
+    }
+  },
+  "criteria": [
+    {
+      "name": "B7-11ctrl  coarse: the carry reproduces this partition's own reading",
+      "passed": true,
+      "detail": "**2 fine directions clear this partition's `null_max` of 0.3931, and the partition's own observed rank is 2.** The largest carried value is direction 1 at 1.437 against this partition's observed `lambda_1` of 1.453, a ratio of 0.9892.  \u00a73.21 replaced \u00a73.20's control with this one: the old one required **direction 1** to carry, on the ground that both partitions read at least rank one. That is a quantifier error. Reading rank one means **some** direction carries and says nothing about which. This control asks the question the old one meant to ask and has power the old one did not"
+    },
+    {
+      "name": "B7-11  reported, not gated: coarse carries direction 2",
+      "passed": true,
+      "detail": "fine `lambda_2` = 0.7544 arrives as **0.7382**, fraction **0.9786**, against this partition's own `null_max` of 0.3931: **it clears**, so this index could have shown the fine grid's second direction.  The observed rank on this partition is 2.  \u00a73.20's table says what each combination does to \u00a710.6"
+    },
+    {
+      "name": "B7-11m  reported, not gated: coarse manufactures an interaction",
+      "passed": true,
+      "detail": "the fine class main effect alone, coarsened, arrives as **2.507e-05** against `null_max` 0.3931.  **Below it.** The coarsening manufactures nothing this index can see, and \u00a710.5's comparison is clean on this point"
+    },
+    {
+      "name": "B7-11ctrl  complement: the carry reproduces this partition's own reading",
+      "passed": true,
+      "detail": "**0 fine directions clear this partition's `null_max` of 0.241, and the partition's own observed rank is 0.** The largest carried value is direction 4 at 0.1663 against this partition's observed `lambda_1` of 0.2241, a ratio of 0.7421.  \u00a73.21 replaced \u00a73.20's control with this one: the old one required **direction 1** to carry, on the ground that both partitions read at least rank one. That is a quantifier error. Reading rank one means **some** direction carries and says nothing about which. This control asks the question the old one meant to ask and has power the old one did not"
+    },
+    {
+      "name": "B7-11  reported, not gated: complement carries direction 2",
+      "passed": true,
+      "detail": "fine `lambda_2` = 0.7544 arrives as **0.003593**, fraction **0.0048**, against this partition's own `null_max` of 0.241: **it does not clear**, so this index cannot carry the fine grid's second direction even if that direction is real.  The observed rank on this partition is 0.  \u00a73.20's table says what each combination does to \u00a710.6"
+    },
+    {
+      "name": "B7-11m  reported, not gated: complement manufactures an interaction",
+      "passed": true,
+      "detail": "the fine class main effect alone, coarsened, arrives as **0.0004031** against `null_max` 0.241.  **Below it.** The coarsening manufactures nothing this index can see, and \u00a710.5's comparison is clean on this point"
+    }
+  ]
+}

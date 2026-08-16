@@ -1,0 +1,246 @@
+{
+  "stage": "B7",
+  "step": "gate",
+  "seed": 20260816,
+  "draws": 5,
+  "reps": 2,
+  "grid": "fine",
+  "jobs": 16,
+  "nominal_size": 0.16666666666666666,
+  "design": {
+    "n_files": 408,
+    "n_loaded": 20071900,
+    "drops": {
+      "blank": 164692,
+      "filer_exempt": 4253
+    },
+    "n_after_filters": 16035398,
+    "n_cells": 326872,
+    "n_classes": 19,
+    "class_levels": [
+      "20%-<30%",
+      "30%-<36%",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50%-60%",
+      "<20%",
+      ">60%"
+    ],
+    "fill": 0.7222397371705777,
+    "bound": 20.0,
+    "rank_transform": false,
+    "n_present_entries": 4485519
+  },
+  "observed_eigenvalues": [
+    1.4673583367904937,
+    0.7543938348490267,
+    0.276767293676112,
+    0.22396556312677854,
+    0.21990740124504593,
+    0.21554302820088825,
+    0.21246585740421836,
+    0.2096358319582741,
+    0.2068363180590979,
+    0.2046594010602699,
+    0.20378711196730517,
+    0.20047887307293547,
+    0.1999225745653065,
+    0.19419981508080955,
+    0.19041425122216987,
+    0.1716534027281424,
+    0.11996189040055333,
+    0.07345200347039309,
+    -0.0010222864651711504
+  ],
+  "noise_floor": 0.1792968318742961,
+  "noise_floor_per_draw": [
+    0.17926748108392868,
+    0.179285529018436,
+    0.17933748552052356
+  ],
+  "arms": {
+    "B7-0c": {
+      "constructed_rank": 0,
+      "kind": "size",
+      "n": 2,
+      "reads": [
+        0,
+        0
+      ],
+      "failures": 0,
+      "rate": 0.0,
+      "achieved_level": {
+        "lambda1": {
+          "mean": 0.19807199992628108,
+          "sd": 0.0033690502944996982
+        }
+      },
+      "null_max_mean": 0.2991005035528488,
+      "nominal": 0.16666666666666666,
+      "binomial_tail_at_least": 1.0
+    },
+    "B7-0a": {
+      "constructed_rank": 1,
+      "kind": "size",
+      "n": 2,
+      "reads": [
+        1,
+        1
+      ],
+      "failures": 0,
+      "rate": 0.0,
+      "achieved_level": {
+        "lambda1": {
+          "mean": 1.0512059983724469,
+          "sd": 0.0366295003248798
+        }
+      },
+      "null_max_mean": 0.36613762130631833,
+      "nominal": 0.16666666666666666,
+      "binomial_tail_at_least": 1.0
+    },
+    "B7-0b": {
+      "constructed_rank": 2,
+      "kind": "power",
+      "n": 2,
+      "reads": [
+        2,
+        2
+      ],
+      "failures": 0,
+      "rate": 0.0,
+      "achieved_level": {
+        "lambda1": {
+          "mean": 1.0226056289670318,
+          "sd": 0.053384799128365704
+        },
+        "lambda2": {
+          "mean": 1.0405057102626847,
+          "sd": 0.01441619276094976
+        }
+      },
+      "null_max_mean": 0.3843287221245515,
+      "power": 1.0,
+      "wilson_95": [
+        0.34238022750665303,
+        1.0
+      ]
+    }
+  },
+  "repetitions": {
+    "0:0": {
+      "rank": 0,
+      "null_max": 0.30037786101923686,
+      "eigenvalues": [
+        0.2871469444387424,
+        0.27198134175587274,
+        0.2111087090202823,
+        0.20926013044269892
+      ],
+      "achieved_ratio": [
+        0.1956897216168818
+      ]
+    },
+    "0:1": {
+      "rank": 0,
+      "null_max": 0.2978231460864607,
+      "eigenvalues": [
+        0.2941382563144468,
+        0.2683631155316702,
+        0.211580795001658,
+        0.20912279454465363
+      ],
+      "achieved_ratio": [
+        0.20045427823568035
+      ]
+    },
+    "1:0": {
+      "rank": 1,
+      "null_max": 0.3780408767063859,
+      "eigenvalues": [
+        1.5805018868262002,
+        0.2984943988315424,
+        0.2712451344951892,
+        0.21520470154763535
+      ],
+      "achieved_ratio": [
+        1.0771069664436443
+      ]
+    },
+    "1:1": {
+      "rank": 1,
+      "null_max": 0.3542343659062507,
+      "eigenvalues": [
+        1.5044898839657683,
+        0.2929441781269318,
+        0.26594039559167676,
+        0.212910203720949
+      ],
+      "achieved_ratio": [
+        1.0253050303012496
+      ]
+    },
+    "2:0": {
+      "rank": 2,
+      "null_max": 0.3867183694371125,
+      "eigenvalues": [
+        1.4451379467972774,
+        0.7772609623827923,
+        0.28818535411101137,
+        0.256023653602371
+      ],
+      "achieved_ratio": [
+        0.9848568754910827,
+        1.0303119226025248
+      ]
+    },
+    "2:1": {
+      "rank": 2,
+      "null_max": 0.3819390748119904,
+      "eigenvalues": [
+        1.5559198430300434,
+        0.7926412235119618,
+        0.28511462969160434,
+        0.26080363323671435
+      ],
+      "achieved_ratio": [
+        1.0603543824429809,
+        1.0506994979228448
+      ]
+    }
+  },
+  "criteria": [
+    {
+      "name": "B7-0  structural: every available arm completed every repetition",
+      "passed": true,
+      "detail": "3 of 3 available arms ran, 2 repetitions each.  **This is the only gated criterion in the file.** It is about the code having finished and not about what it found; VOID 1 removed every threshold on a result"
+    },
+    {
+      "name": "B7-0c  reported, not gated: size, constructed rank 0",
+      "passed": true,
+      "detail": "**0/2 = 0.000** against a nominal of 1/(d+1) = 0.1667.  P(at least 0 | 2, 0.1667) = **1.0000**, one-sided: the primary null is inflated by the class main effect it redistributes, so the nominal is an upper bound and only a rate **above** it is informative.  calibration achieved on this arm: l1/obs 0.1981 sd 0.0034"
+    },
+    {
+      "name": "B7-0a  reported, not gated: size, constructed rank 1",
+      "passed": true,
+      "detail": "**0/2 = 0.000** against a nominal of 1/(d+1) = 0.1667.  P(at least 0 | 2, 0.1667) = **1.0000**, one-sided: the primary null is inflated by the class main effect it redistributes, so the nominal is an upper bound and only a rate **above** it is informative.  calibration achieved on this arm: l1/obs 1.0512 sd 0.0366"
+    },
+    {
+      "name": "B7-0b  reported, not gated: power, constructed rank 2",
+      "passed": true,
+      "detail": "**2/2 = 1.000** of repetitions returned the constructed rank, Wilson 95% [0.342, 1.000].  No nominal exists for a power arm, so there is an interval here and no line.  calibration achieved on this arm: l1/obs 1.0226 sd 0.0534  l2/obs 1.0405 sd 0.0144"
+    }
+  ]
+}
