@@ -33,3 +33,22 @@ jobs:
         run: |
           python scripts/render_results.py
           git diff --exit-code RESULTS.md
+
+      # The records themselves, not only the summary rendered from them.
+      #
+      # `RESULTS.md` alone does not catch a writer that changed without its
+      # record being re-run: `a6_siphon_cost.json` gained a whole `criteria`
+      # block on 2026-08-13 and nothing failed, because that block does not
+      # reach a heading. `tests/test_runner_covers_every_record.py` asks whether
+      # a job *could* regenerate a record; this asks whether the committed one
+      # equals what the job *does* produce.
+      #
+      # Scoped to exactly the four this workflow can afford to re-run. The rest
+      # stay uncovered and that is visible here rather than assumed away.
+      - name: the records this workflow regenerates are current
+        run: |
+          git diff --exit-code \
+            results/a0_retention.json \
+            results/a0_derived_wages.json \
+            results/a2_support_contraction.json \
+            results/a2c_cycle_structure.json

@@ -1,3 +1,23 @@
-numpy>=1.24
-matplotlib>=3.7
+# Pinned exactly, 2026-08-16, and the reason is not tidiness.
+#
+# `.gitignore` says figures and results are committed because they are the
+# artefact, and `CLAUDE.md`'s generated-files rules require a committed file to
+# render to identical bytes on every machine that runs the renderer. Neither
+# holds under a floating dependency.
+#
+# matplotlib: `savefig.bbox = "tight"` sizes the canvas from rendered text
+# extents, so a version change moves the pixel dimensions of every figure. The
+# committed figures were made under 3.10.9 and an upgrade to 3.11.1 changed all
+# eleven, which sat in `git status` for days hiding a real record drift.
+#
+# numpy: this one matters more than the figures, because figures are not checked
+# by CI and `RESULTS.md` is. `CLAUDE.md`'s rule 5 is about exactly this, and it
+# records a derived table reading 1.53 on one machine and 1.92 on another from
+# byte-identical input.
+numpy==2.5.1
+matplotlib==3.11.1
+
+# Dev tooling is deliberately not pinned. Neither reaches a committed artefact,
+# and a ruff release adding a rule should surface rather than be frozen out.
 pytest>=7.4
+ruff>=0.4

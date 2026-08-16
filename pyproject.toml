@@ -9,9 +9,11 @@ description = "Mechanism models for a topological framework of claims and resour
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
+# Pinned exactly. See requirements.txt for why: committed figures and records
+# have to render to identical bytes, and a floating dependency defeats that.
 dependencies = [
-    "numpy>=1.24",
-    "matplotlib>=3.7",
+    "numpy==2.5.1",
+    "matplotlib==3.11.1",
 ]
 
 [project.optional-dependencies]

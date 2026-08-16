@@ -43,9 +43,25 @@ def apply_style() -> None:
 
 
 def save(fig: plt.Figure, path: Path) -> Path:
-    """Write ``fig`` to ``path``, creating parent directories."""
+    """Write ``fig`` to ``path``, creating parent directories.
+
+    ``metadata={"Software": None}`` suppresses the PNG ``tEXt`` chunk
+    matplotlib writes by default, which reads
+    ``Software\0Matplotlib version3.11.1, https://matplotlib.org/``.
+    `CLAUDE.md`'s generated-files rule 2 forbids library version strings in
+    files that are committed, and figures are committed: `.gitignore` says so in
+    as many words. Without this, every figure in the repository changes on any
+    environment refresh and twelve spurious modifications sit in `git status`
+    hiding the real ones, which is how the record drift in `a3_asset_channel`
+    and `a6_siphon_cost` stayed unnoticed.
+
+    **The metadata is the cheap half.** Pixel content still depends on the
+    matplotlib and freetype versions, because ``savefig.bbox = "tight"`` sizes
+    the canvas from rendered text extents, so the load-bearing fix is the pin in
+    `requirements.txt` and `pyproject.toml`.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path)
+    fig.savefig(path, metadata={"Software": None})
     plt.close(fig)
     return path
 
