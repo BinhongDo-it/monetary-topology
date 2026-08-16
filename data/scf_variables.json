@@ -1,0 +1,11 @@
+{
+  "_note": "Pinned 2026-08-15 from data/raw/scf2022_profile.txt and from three measurements on the file itself. (1) The weight column is WGT, not the raw X42001: it takes five DIFFERENT values within every one of the 4,595 households, and summing it over all 22,975 rows gives 131,306,389, which is the family count rather than five times it. So weight_divisor is 1; a divisor of 5 would report a fifth of the population and neither the share check nor the rate check could see it. (2) HOUSECL takes 1 (15,555 rows) and 2 (7,420 rows), and HOUSECL==1 agrees with HHOUSES==1 and with HOUSES>0 on every single row, so 1 is owning. (3) The weighted share of HOUSECL==1 is 0.6605 against the Bulletin's published 0.661.",
+  "wave": "2022",
+  "source": "https://www.federalreserve.gov/econres/files/scfp2022excel.zip",
+  "member": "",
+  "weight_column": "WGT",
+  "networth_column": "NETWORTH",
+  "ownership_column": "HOUSECL",
+  "owning_values": ["1"],
+  "weight_divisor": 1
+}

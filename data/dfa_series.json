@@ -1,0 +1,20 @@
+{
+  "_note": "Pinned 2026-08-13 from data/raw/dfa_inventory.txt. The archive is long-format: one row per date and category, one column per instrument. The model's top 1% is the SUM of the publisher's TopPt1 and RemainingTop1; reading TopPt1 alone drops nine tenths of the group. Verified against two independent anchors at 2026:Q1 -- the net worth vector reproduces calibration.py's (2.5, 29.6, 36.3, 31.6) exactly, and consumer credit Bottom50 reproduces WFRBSB50211 = 51.8 exactly.",
+  "vintage": "2026Q1, DFA release 2026-06-18",
+  "source": "https://www.federalreserve.gov/releases/z1/dataviz/download/zips/dfa.zip",
+  "date": "2026:Q1",
+  "member": "dfa-networth-shares.csv",
+  "date_column": "Date",
+  "category_column": "Category",
+  "groups": {
+    "bottom50": ["Bottom50"],
+    "next40": ["Next40"],
+    "next9": ["Next9"],
+    "top1": ["RemainingTop1", "TopPt1"]
+  },
+  "value_column": {
+    "consumer_credit": "Consumer credit",
+    "home_mortgages": "Home mortgages",
+    "net_worth": "Net worth"
+  }
+}

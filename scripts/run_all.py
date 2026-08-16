@@ -161,6 +161,49 @@ DATA_STAGES = [
     # confound and removes B5's zero calibration with it
     # (`b6_cuba_prereg.md` §4.3).
     ("B6-A segment typing", "experiments/b6_segments.py", "b6_segments.json"),
+    # A1 and A1b need retrieved files, so they belong here rather than with the
+    # synthetic stages: A1 reads the HHDC workbook, the DFA archive, the Z.1
+    # series, the SCF extract and the CEX table; A1b reads the SCF extract and
+    # the CEX basket. Both are added the moment they first wrote a record,
+    # rather than after somebody noticed, which is what
+    # `tests/test_runner_covers_every_record.py` exists to force.
+    #
+    # **Neither is a complete stage yet.** Both records carry `complete: false`
+    # and name the criteria not yet written. They are in the runner anyway,
+    # because a record that renders has to be reproducible whatever else is true
+    # of it, and because a stage added to the runner only once it is finished is
+    # a stage nobody re-runs while it is being written.
+    (
+        "A1   the default cascade",
+        "experiments/a1_default_cascade.py",
+        "a1_default_cascade.json",
+    ),
+    # Cost unmeasured: it needs `data/processed/cex_necessities_by_decile.csv`,
+    # which arrives with the next `data/fetch_cex.py` run. If it turns out to
+    # belong in SLOW_STAGES, it moves there with the timing in the comment
+    # rather than silently.
+    (
+        "A1b  the cascade on a measured population",
+        "experiments/a1b_default_cascade.py",
+        "a1b_default_cascade.json",
+    ),
+    # `docs/a1c_prereg.md` §5 says the job arrives with the first record rather
+    # than afterwards, which is this file's own rule read forwards instead of
+    # backwards.
+    (
+        "A1c  the order inside a household",
+        "experiments/a1c_household_order.py",
+        "a1c_household_order.json",
+    ),
+    # `docs/a1d_prereg.md` §9, same rule. This one is the heaviest of the four:
+    # its sweep runs at 50,000 rather than 20,000, and the size is forced by §5's
+    # model-side resolution floor rather than chosen. If it turns out to belong
+    # in SLOW_STAGES it moves there with a timing in the comment.
+    (
+        "A1d  the cascade on a measured cushion",
+        "experiments/a1d_measured_cushion.py",
+        "a1d_measured_cushion.json",
+    ),
 ]
 
 #: Criteria that are registered as failing and are expected to keep failing.

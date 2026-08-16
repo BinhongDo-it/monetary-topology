@@ -1,0 +1,22 @@
+{
+  "_note": "Pinned 2026-08-15 against data/raw/scf2022_profile.txt and against measurements on the file itself. This selection reads the JOINT of income and net worth rather than one margin of it, because stage A1's population was built by crossing two rankings and nothing in that construction knew how debt and income covary inside a wealth group. Column choices that are rulings rather than lookups: (1) card_column and vehicle_column are CCBAL and VEH_INST and student debt EDN_INST is deliberately NOT summed in, because this stage gives no rung to a student loan and folding it in would charge a payment on an obligation the model never issues; (2) mortgage_debt_column is NH_MORT, mortgage debt on the primary residence, and it is what separates an owner with a mortgage from an owner outright, which is a third tenure the shelter rung turns on; (3) rent_column RENT and mortgage_payment_column MORTPAY are both MONTHLY in this extract, measured against the CEX's annual figures at 1,174 and 1,703 a month nationally; (4) the payments REVPAY, CONSPAY and MORTPAY are published separately and their sum equals TPAY exactly on all 22,975 rows of this wave, which is the anchor that pins all four to one unit and one period; REVPAY is 3.7% of the revolving balance a month against the 2% minimum this project cited from practice, so the card rung uses the measured payment and no rate; CONSPAY cannot be split into its vehicle part, so that one leg keeps a literature rate of one sixtieth on a measured balance and CONSPAY is read only to check it. (5) weight_divisor is 1 for the reason data/scf_variables.json records at length. (6) liquid_column is LIQ, added 2026-08-16 for docs/a1d_prereg.md §3, which registers the model's cushion as measured liquid assets with no floor. LIQ is checking, savings, money market and call accounts; it excludes RETQLIQ, which is retirement, and every non-financial asset, and that exclusion is a registered ruling rather than a lookup. FIN and ASSET are read as ANCHOR columns only: the nesting 0 <= LIQ <= FIN <= ASSET must hold on every row, which pins LIQ as a dollar stock inside financial assets and would catch a share column or a flow. No band is placed on LIQ's level, deliberately, because a band would require reading the level this stage is registered not to have read.",
+  "wave": "2022",
+  "source": "https://www.federalreserve.gov/econres/files/scfp2022excel.zip",
+  "member": "",
+  "weight_column": "WGT",
+  "networth_column": "NETWORTH",
+  "income_column": "INCOME",
+  "ownership_column": "HOUSECL",
+  "owning_values": ["1"],
+  "mortgage_debt_column": "NH_MORT",
+  "mortgage_payment_column": "MORTPAY",
+  "rent_column": "RENT",
+  "card_column": "CCBAL",
+  "vehicle_column": "VEH_INST",
+  "card_payment_column": "REVPAY",
+  "instalment_payment_column": "CONSPAY",
+  "total_payment_column": "TPAY",
+  "liquid_column": "LIQ",
+  "weight_divisor": 1,
+  "extra_columns": ["EDN_INST", "INSTALL", "DEBT", "FOODHOME", "LATE60", "LATE", "FORECLLAST5", "BNKRUPLAST5", "FIN", "ASSET"]
+}

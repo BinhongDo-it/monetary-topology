@@ -1,0 +1,50 @@
+{
+  "_note": "Pinned 2026-08-15 from data/raw/cex_2024_layout.txt and a full listing of the workbook's 114 item labels. Three structural facts decided this file: item labels carry no numbers and the value is on the Mean row beneath them; Share sits directly under Mean and is a percentage of total expenditure, so the statistic is named rather than taken as the first numeric row; and the column headers carry embedded newlines, so whitespace is collapsed before matching. group_columns is a RULING, not a lookup: CEX publishes deciles and this project's groups are 50/40/9/1, so next9 and top1 name the same column and the top 1% is not separately observed. Shelter is deliberately NOT in necessity_labels: it is the cascade's own rung, and counting it as a necessity charges a household its rent twice (docs/a1_prereg.md 2.4b). The shelter flows are read separately, and both are per consumer unit, so each must be divided by its own tenure's share before it reaches a household. The basket labels are this vintage's exact text -- 2024 writes 'Gasoline and other fuels', not the older 'Gasoline, other fuels, and motor oil'. consumer_units_label is the one row whose values sit on the label row itself rather than on a Mean row beneath, and it carries the publisher's footnote marker 'a/' in the label text; it is read because a national aggregate has to be divided by a household count that counts the same unit of observation the income belongs to. tenure_labels names the three housing-tenure rows, which also carry their values on the label row and are published as whole percents. They are read here rather than from the SCF because the shelter flows they divide are published by income decile: dividing an income-ranked rent by a wealth-ranked renter share is a population error, and it put the next40 group's rent at 6,145 dollars a month. homeowner is read rather than derived from the two ownership rows, so the table's own arithmetic is a check.",
+  "reference_year": "2024",
+  "source": "https://www.bls.gov/cex/tables/calendar-year/mean-item-share-average-standard-error/cu-income-deciles-before-taxes-2024.xlsx",
+  "sheet": "Table 1110",
+  "label_column": 0,
+  "statistic_label": "Mean",
+  "all_units_column": "All consumer units",
+  "income_label": "Income before taxes",
+  "expenditure_label": "Average annual expenditures",
+  "necessity_labels": [
+    "Food at home",
+    "Utilities, fuels, and public services",
+    "Healthcare",
+    "Gasoline and other fuels",
+    "Public and other transportation"
+  ],
+  "rent_label": "Rented dwellings",
+  "mortgage_labels": [
+    "Mortgage interest and charges",
+    "Mortgage principal paid on owned property"
+  ],
+  "consumer_units_label": "Number of consumer units (in thousands) a/",
+  "tenure_labels": {
+    "homeowner": "Homeowner",
+    "mortgaged": "With mortgage",
+    "renter": "Renter"
+  },
+  "group_columns": {
+    "bottom50": [
+      "Lowest 10 percent",
+      "Second 10 percent",
+      "Third 10 percent",
+      "Fourth 10 percent",
+      "Fifth 10 percent"
+    ],
+    "next40": [
+      "Sixth 10 percent",
+      "Seventh 10 percent",
+      "Eighth 10 percent",
+      "Ninth 10 percent"
+    ],
+    "next9": [
+      "Highest 10 percent"
+    ],
+    "top1": [
+      "Highest 10 percent"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_note": "Fill this in from the profile, then save it as scf_variables.json. owning_values must list the values of the ownership column that mean owning a primary residence, read off the profile rather than assumed: an inverted coding produces four plausible rates with the K shape upside down, and is caught only by the published 0.661 overall rate. implicates is 5 for the summary extract, and the weight is divided by it.",
+  "implicates": 5,
+  "member": "",
+  "networth_column": "",
+  "ownership_column": "",
+  "owning_values": [],
+  "source": "https://www.federalreserve.gov/econres/files/scfp2022excel.zip",
+  "wave": "2022",
+  "weight_column": ""
+}

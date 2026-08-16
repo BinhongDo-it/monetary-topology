@@ -1,0 +1,36 @@
+{
+  "_note": "Fill this in from data/raw/dfa_inventory.txt, then save it as dfa_series.json. Every member, date column and group column must name something the inventory actually shows. Nothing in this repository's source contains a DFA series identifier, and this file is the one place a selection is recorded.",
+  "columns": {
+    "consumer_credit": {
+      "bottom50": "",
+      "next40": "",
+      "next9": "",
+      "top1": ""
+    },
+    "home_mortgages": {
+      "bottom50": "",
+      "next40": "",
+      "next9": "",
+      "top1": ""
+    },
+    "net_worth": {
+      "bottom50": "",
+      "next40": "",
+      "next9": "",
+      "top1": ""
+    }
+  },
+  "date": "",
+  "date_column": {
+    "consumer_credit": "",
+    "home_mortgages": "",
+    "net_worth": ""
+  },
+  "members": {
+    "consumer_credit": "",
+    "home_mortgages": "",
+    "net_worth": ""
+  },
+  "source": "https://www.federalreserve.gov/releases/z1/dataviz/download/zips/dfa.zip",
+  "vintage": ""
+}

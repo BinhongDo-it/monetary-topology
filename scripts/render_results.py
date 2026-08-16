@@ -68,6 +68,34 @@ STAGE_TITLES = {
         "A6-7 to A6-23 — the frontier ratchet, who the levy falls on, who "
         "the rebate reaches, and R* as a slope in lambda"
     ),
+    # A1's population crosses two rankings and A1b's is measured on one file.
+    # a1_prereg.md 11 records that no level from the first construction is a
+    # measurement, and a reader scanning a criteria count should not have to
+    # open the document to learn which of the two to read.
+    "A1": (
+        "A1 — the default cascade on crossed marginals (superseded by A1b; "
+        "no level from this construction is a measurement)"
+    ),
+    # Six of eight passing reads as a stage that mostly worked, and the three
+    # that did not are each a different kind of thing. The title names the one
+    # a count cannot show: a criterion that is void rather than failed.
+    "A1b": (
+        "A1b — the cascade on a measured population (A1-7 is void: the "
+        "registration names two rankings and they disagree)"
+    ),
+    "A1c": (
+        "A1c — the order inside a household (the renter's cascade; the "
+        "mortgage-before-car reversal is reported and never scored)"
+    ),
+    # Two changes at once, and a reader counting criteria cannot see which did
+    # the work. The title names the mechanism change, because it is the one that
+    # makes net worth mean anything in this stage at all; a1d_prereg.md 5 has the
+    # measurement change and why one pair of groups is never scored.
+    "A1d": (
+        "A1d — the cascade on a measured cushion (liquid assets, no floor, and "
+        "a matched twelve-month window; the top pair is below both sides' "
+        "resolution and is reported rather than scored)"
+    ),
     "B1": "B1 — the enlarged graph, and what stage B2 measured",
     "B2A": "B2A — dispersion in financing terms at fixed position and date",
     "B2A-placebo": "B2A placebo — conventional against FHA and VA",
