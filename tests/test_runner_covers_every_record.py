@@ -57,6 +57,21 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
     "a3c_load_bearing.json": (
         "A3c, the divergence instrument A3-8 is scored on. No reason found"
     ),
+    "b7_crossfold.json": (
+        "B7-16, the cross-fold second moment, pre-registered and run after the "
+        "stage closed. Needs the fetched HMDA sample, so it belongs in "
+        "DATA_STAGES. **Deliberately outside the runner for the same reason as "
+        "the rest of B7**: the stage's headline is withdrawn and no runner path "
+        "was rebuilt. That decision is now weaker than it was, because SS11 "
+        "reads something the withdrawal does not cover, and it is left standing "
+        "here so the next person weighs it rather than inherits it"
+    ),
+    "b7_crossfold_depth.json": (
+        "B7-16's gate: entries holding two or more loans, class by class. Same "
+        "reason as b7_crossfold.json. It estimates nothing and is the cheapest "
+        "record in the stage, so it is the first thing worth wiring back in if "
+        "a B7 runner path is ever rebuilt"
+    ),
     "b7_design.json": (
         "B7's design audit and B7-9's share of stage B2's within term. Needs "
         "the fetched HMDA sample, so it belongs in DATA_STAGES. **B7 is closed "
@@ -192,8 +207,18 @@ def test_the_allowlist_has_no_stale_entry() -> None:
 def test_the_exposure_is_counted() -> None:
     """The number is asserted so that it can only move deliberately.
 
-    Not a threshold and not a target. It is the count as of 2026-08-15, written
-    down so that a change to it shows up as an edit to this line rather than as
-    a silently longer list.
+    Not a threshold and not a target. It is the count, written down so that a
+    change to it shows up as an edit to this line rather than as a silently
+    longer list.
+
+    **This line failed to do its job once, and the miss is recorded here rather
+    than quietly corrected.** It read `8` from 2026-08-15. On 2026-08-16 the B7
+    withdrawal added **eight** entries in one commit without touching it, so the
+    count sat at 16 against an assertion of 8 and that commit went in red. The
+    docstring at the top of this file says the point of the list is that the
+    ninth cannot be added silently, and eight were. **What failed was not the
+    assertion**, which fires the moment anyone runs it. It is that nobody ran it,
+    and a guard nobody runs is not a guard. B7-16 then brought two more, which is
+    how it was found. `18` is the count including those two.
     """
-    assert len(OUTSIDE_THE_RUNNER) == 8
+    assert len(OUTSIDE_THE_RUNNER) == 18

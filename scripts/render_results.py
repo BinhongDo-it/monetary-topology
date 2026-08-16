@@ -248,9 +248,15 @@ def subtitle(record: dict) -> str:
     ):
         if key in record:
             bits.append(f"{record[key]:,} {label}")
-    loans = record.get("variance", {}).get("n_loans")
+    loans = record.get("variance", {}).get("n_loans") or record.get("n_loans")
     if loans:
         bits.insert(0, f"{loans:,} loans")
+    # A record that names its own design at the top level rather than under
+    # `variance` was printing "no sample metadata recorded" while carrying both
+    # numbers. Read the top level too, for the same reason this function reads
+    # keys off the record instead of switching on the stage name.
+    if record.get("n_cells") and record.get("n_classes"):
+        bits.append(f"{record['n_cells']:,} cells x {record['n_classes']} classes")
     real = record.get("theorem_3_on_real_data")
     if real:
         bits.insert(
@@ -274,6 +280,36 @@ def derived_for(record: dict) -> dict[str, float]:
     so they are lifted here rather than duplicated into the JSON.
     """
     stage = record.get("stage")
+    if stage == "B7" and record.get("step") == "crossfold":
+        # B7-16 carries no criteria by design (CLAUDE.md 12), so without this the
+        # stage renders as a heading and nothing else. The arm surfaced is the
+        # one the reading rests on, plus the control that reads zero.
+        arms = record.get("arms", {})
+        main = arms.get("drop_thinnest_2_balanced")
+        ctrl = arms.get("all_%d" % record.get("n_classes", 19))
+        if not main:
+            return {}
+        l1 = main["eigenvalues"][0]
+        out = {
+            "lambda1_17class_balanced": l1,
+            "off_diagonal_share_of_lambda1": main["off_diag_part_of_lambda1"] / l1,
+            "z_lambda1": main["z"],
+            "z_lambda2": main.get("lambda2_z", float("nan")),
+            "z_ordering_tau": main["tau_z"],
+            "z_corr_v1_class_profile": main["corr_z"][2],
+            "z_corr_v1_profile_slope": main["corr_z"][3],
+            "profile_slope_separability": main["profile_slope_separability"],
+            "naive_lambda1_same_sample": record["naive_eigenvalues"][0],
+        }
+        if ctrl:
+            out["z_ordering_tau_19class_control"] = ctrl["tau_z"]
+        return out
+    if stage == "B7" and record.get("step") == "crossfold_depth":
+        shares = [r["usable_share"] for r in record.get("classes", [])]
+        if not shares:
+            return {}
+        return {"min_usable_share": min(shares), "max_usable_share": max(shares),
+                "median_usable_share": sorted(shares)[len(shares) // 2]}
     if stage == "B1":
         real = record.get("theorem_3_on_real_data")
         if not real:
@@ -348,9 +384,11 @@ def render_stage(record: dict, sub: str | None = None) -> str:
     else:
         # One block per calibration preset. Both are reported: a finding that
         # holds under only one of them is a finding about that preset.
+        nested = False
         for key, block in record.items():
             if not isinstance(block, dict) or "criteria" not in block:
                 continue
+            nested = True
             lines += [f"{'#' * (len(depth) + 1)} "
                       f"{PRESET_TITLES.get(key, key)}", ""]
             lines += render_block(
@@ -363,6 +401,18 @@ def render_stage(record: dict, sub: str | None = None) -> str:
                 {},
             )
             lines.append("")
+        if not nested:
+            # A record that gates nothing still has headline numbers, and a
+            # heading with a subtitle and nothing under it is the shape a reader
+            # takes as "this stage produced no numbers". B7-16 writes no criteria
+            # **on purpose** (CLAUDE.md 12: a criterion is structural or it is a
+            # printed number with a reading declared in advance), so the file
+            # that renders criteria had no way to show it at all.
+            derived = record.get("derived", derived_for(record))
+            if derived:
+                lines += ["Derived quantities:", ""]
+                lines += [f"- `{k}` = {v:.4f}" for k, v in derived.items()]
+                lines.append("")
 
     return "\n".join(lines) + "\n"
 

@@ -590,7 +590,7 @@ Derived quantities:
 
 ### b7_carry
 
-_no sample metadata recorded_
+16,035,398 loans
 
 **6/6 live criteria passed**
 
@@ -625,9 +625,38 @@ _no sample metadata recorded_
 | PASS | B7-13 within_entry  reported, not gated: no interaction, lower bracket | a field with **zero interaction** at each class's within_entry dispersion reads back `>= 1` in **5/5** repetitions and exactly `2` in **0/5**.  Recovered `lambda_1` = 0.2189 +- 0.0009 against the observed 0.2755, `lambda_2` = 0.2145 against 0.2232.  Leading direction is **46** in 5/5.  §3.25: reading back `2` here confirms the mechanism behind B7-4's withdrawal; reading back `0` leaves the withdrawal standing on §3.24's table and the explanation unknown |
 | PASS | B7-13 within_cell  reported, not gated: no interaction, upper bracket | a field with **zero interaction** at each class's within_cell dispersion reads back `>= 1` in **0/5** repetitions and exactly `2` in **0/5**.  Recovered `lambda_1` = 0.2127 +- 0.0009 against the observed 0.2755, `lambda_2` = 0.2088 against 0.2232.  Leading direction is **46** in 5/5.  §3.25: reading back `2` here confirms the mechanism behind B7-4's withdrawal; reading back `0` leaves the withdrawal standing on §3.24's table and the explanation unknown |
 
+### b7_crossfold
+
+16,035,398 loans 326,872 cells x 19 classes
+
+Derived quantities:
+
+- `lambda1_17class_balanced` = 0.0225
+- `off_diagonal_share_of_lambda1` = 0.3572
+- `z_lambda1` = 10.3324
+- `z_lambda2` = 18.4050
+- `z_ordering_tau` = 5.1566
+- `z_corr_v1_class_profile` = 7.1525
+- `z_corr_v1_profile_slope` = 1.9427
+- `profile_slope_separability` = 0.1501
+- `naive_lambda1_same_sample` = 1.4674
+- `z_ordering_tau_19class_control` = -0.8820
+
+
+### b7_crossfold_depth
+
+16,035,398 loans 326,872 cells x 19 classes
+
+Derived quantities:
+
+- `min_usable_share` = 0.1274
+- `max_usable_share` = 0.9805
+- `median_usable_share` = 0.6259
+
+
 ### b7_design
 
-_no sample metadata recorded_
+326,872 cells x 19 classes
 
 **3/3 live criteria passed**
 
@@ -665,7 +694,7 @@ _no sample metadata recorded_
 
 ### b7_hetero
 
-_no sample metadata recorded_
+16,035,398 loans 326,872 cells x 19 classes
 
 **4/4 live criteria passed**
 

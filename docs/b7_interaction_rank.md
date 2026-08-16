@@ -2951,3 +2951,234 @@ not recorded, only its rank; and the result records store the `--jobs` flag rath
 than the thread count actually used, which does not affect any figure because the
 estimates are identical at any thread count, and is still the wrong thing to
 store.
+
+## 11. B7-16: the cross-fold second moment, run after the stage closed
+
+Pre-registered in the Claude Project as `B7-16_交叉折二阶矩_预注册_v1.md`, **before
+`experiments/b7_crossfold.py` was written**. Zero downloads: the same 16,035,398
+loans §10 ran on.
+
+**§10 stands and is not edited. What it says about the rank-2 reading is right and
+the withdrawal is not reopened.** What §11 changes is the sentence after the
+withdrawal. §10.5 closes with the stage delivering no reading of its trichotomy at
+any class resolution, and that was read downstream as "there is nothing in this
+design". **There is something in this design. It is about one part in two hundred
+of what B7-4 thought it had, and it has a shape B7 never printed.**
+
+### 11.1 What the artefact was, in one line of algebra
+
+With `gamma(c,a) = mu(c,a) + e(c,a)` and `Var(e) = sigma_a^2 / n(c,a)`:
+
+    a != b :  E[S(a,b)] = E[mu(c,a) mu(c,b)]                    clean
+    a == b :  E[S(a,a)] = E[mu(c,a)^2] + E[sigma_a^2 / n(c,a)]  the artefact
+
+`S = M + diag(noise)`. §3.25 found this by measuring the off-diagonal correlations
+and reading the entry depth. It did not have an estimator that removes the term.
+
+### 11.2 The estimator, and the null that goes with it
+
+Split each cell-class entry's loans alternately into two folds, centre each fold on
+its own, and take `Stilde(a,b) = mean_c gamma0(c,a) gamma1(c,b)`, symmetrised.
+`e0` and `e1` are disjoint loans, so `E[Stilde(a,a)] = E[mu(c,a)^2]` with **no noise
+term**. Leave-out variance components; the requirement is `n(c,a) >= 2`.
+
+**The null changes with the estimator, and this is the part that matters.**
+`Stilde` has the noise differenced out, so the hypothesis can be stated as the
+thing that was actually in doubt: **`M` is diagonal**. Drawn by permuting, per
+class, the cell index of the pair `(gamma0, gamma1)` **jointly**, which leaves each
+class's own diagonal entry **exactly** unchanged and randomises every off-diagonal.
+
+**§10's null could not do this.** It permuted class labels within a cell, so it
+replaced a thin class's loan with a typical loan of the same cell, and a `>60%`
+loan is not a typical loan. That is the whole of why it was biased low.
+
+### 11.3 The instrument, checked on a case with a known answer
+
+A toy sample with `mu` identically zero: 6,000 loans, 200 cells, 4 classes, pure
+noise, no interaction anywhere.
+
+| | four diagonal entries | `lambda_1` | smallest eigenvalue |
+|---|---|---|---|
+| naive `S` | 0.1257 / 0.1660 / 0.1061 / 0.1521 | +0.2054 | |
+| cross-fold `Stilde` | 0.0191 / 0.0412 / **−0.0049** / **−0.0131** | +0.0557 | −0.0317 |
+
+The truth is zero. All four naive diagonal entries are inflated; all four cross-fold
+entries straddle zero and two are negative. The balanced split was checked
+separately: 799 entries, zero violations.
+
+### 11.4 The gate, run before anything was estimated
+
+`--depth`, per class, entries holding two or more loans:
+
+| class | entries | with `>= 2` | usable share | loans/entry |
+|---|---|---|---|---|
+| `>60%` | 29,998 | 3,823 | **0.127** | 1.18 |
+| `50%-60%` | 96,175 | 24,180 | **0.251** | 1.37 |
+| `46` … `49` | ~220,000 each | ~117,000–167,000 | 0.53–0.66 | 2.16–2.90 |
+| `<20%` | 272,717 | 204,059 | 0.748 | 3.81 |
+| `20%-<30%` | 323,815 | 314,544 | 0.971 | 10.00 |
+| `30%-<36%` | 325,432 | 319,092 | 0.981 | 9.32 |
+
+Overall 2,969,372 of 4,485,519 entries usable, 0.6620.
+
+### 11.5 Four arms, four statistics
+
+`balanced` restricts to the cells where **every** class in the arm is usable, so one
+cell set is shared by the whole matrix, and re-centres the class effect on that set
+per fold. Without the re-centring `E[g_a] E[g_b]` is a rank-one outer product that
+arrives looking exactly like a spread direction.
+
+| arm | cells | `lambda_1` | off-diag share | `z(lambda_1)` | `z(\|tau\|)` | `z(corr(v1,m))` | `z(corr(v1,m'))` | `R^2` | residual tau |
+|---|---|---|---|---|---|---|---|---|---|
+| 19-class | all | 0.42072 | 13.5% | +11.19 | **−0.88** | **−0.29** | **+0.86** | 0.135 | +0.098 |
+| 19-class balanced | 493 | 0.51488 | 9.3% | +12.80 | +2.45 | −1.20 | −0.20 | 0.059 | −0.176 |
+| 17-class | all | 0.02478 | 60.3% | +43.22 | **+5.00** | **+5.16** | +2.36 | 0.660 | −0.233 |
+| **17-class balanced** | **11,264** | **0.02246** | **35.7%** | **+10.33** | **+5.16** | **+7.15** | +1.94 | 0.634 | −0.317 |
+
+`m(a)` is the class main effect the centring subtracts; `m'(a)` is `dm/d(DTI)`.
+`|tau|` is `v1`'s Kendall monotonicity along the class scale **after dropping the
+coordinate carrying the largest loading**, and the drop is a rule rather than a
+name so the same function applies to every null draw.
+
+### 11.6 What it returned
+
+**Rank one, not two.** `lambda_2 = 0.01649` sits below the largest diagonal entry
+`0.01860`. **Only `lambda_1` was drawn against the null. `lambda_2` was never
+tested, and "it does not clear" is not available as a reading.**
+
+**The direction is monotone in DTI.** 17-class balanced, `v1` by the class scale:
+
+    <20% +0.857 | 20-30% +0.106  30-36% +0.040  36 +0.075  37 +0.015  38 +0.027
+                | 39 -0.078  40 -0.092  41 -0.109  42 -0.148  43 -0.112  44 -0.094
+                | 45 -0.174  46 -0.208  47 -0.112  48 -0.135  49 -0.267
+
+Sign change between 38 and 39. Dropping the dominant `<20%`, the remaining sixteen
+loadings give `|tau| = 0.783` against a null of `0.122 +- 0.128`.
+
+**This is worth more than the eigenvalue.** The estimator never sees DTI as a
+continuous quantity; to the code the classes are unordered labels, and the null
+randomises the off-diagonals, so a null draw's loadings carry no ordering at all.
+**The order is external information that the construction does not contain.**
+
+**The 19-class arm is the control, and it reads nothing on all four statistics.**
+Its `v1` is `>60%` at −0.962, a genuine coordinate axis; with that coordinate
+dropped the rest gives `|tau|` z = −0.88, `corr(v1,m)` z = −0.29, `corr(v1,m')`
+z = +0.86, joint `R^2` = 0.135. **The instrument reads no structure where there is
+none, on four statistics, in the same run that reads structure elsewhere.**
+
+**The measurement-shift alternative is present and does not lead.** A cell-level
+shift of the DTI measurement axis gives `gamma(c,a) ~ -delta(c) m'(a)`: rank one,
+loading proportional to the derivative. Separability printed first:
+`|corr(m, m')| = 0.150`, `VIF 1.09`, so the two hypotheses are nearly orthogonal and
+the discriminant has power. Both arms put `m` ahead of `m'` on the calibrated
+statistic (z +7.15 vs +1.94 balanced, +5.16 vs +2.36 unbalanced). **One
+disagreement has to be stated**: on the *raw* correlation and on the joint
+regression coefficient the unbalanced arm puts `m'` ahead (0.681 vs 0.578,
+beta −0.584 vs +0.454). Calibration reverses it because `v1` meets `m'` by chance
+more easily, so the same raw correlation carries less information about `m'`.
+**Neither "the measurement explanation is excluded" nor "this is only measurement"
+may be written.**
+
+**Two-thirds explained, and the residual is still ordered.** Joint `R^2` 0.634 and
+0.660, with the residual's tau along DTI at −0.317 and −0.233. **Part of `v1` is
+neither the class main effect nor its slope and is still ordered in DTI.** Both
+arms agree, and this reading is the one with no candidate explanation attached.
+
+### 11.7 A criterion of §8's own kind, and a derivative taken on the wrong scale
+
+**§8 of the pre-registration cannot be read cleanly on this output.** Its first row
+wants the loading "spread over several classes" and its second wants it
+"near-indicator", and `<20%` carries 0.857. The reading rests on an adjective that
+needs a threshold, written by someone who was refusing to write thresholds. **Same
+family as §3.27's two rows firing at once.** What reads it cleanly is the ordering
+rather than the magnitude, and the ordering was a criterion invented after seeing
+the data, so it was re-run with its null drawn in the same pass.
+
+**And `m'` was first computed as `dm/d(class index)`.** `<20%` spans twenty DTI
+points, `20%-<30%` ten, `30%-<36%` six, and `36` through `49` one each, so the
+index derivative is inflated six- to eleven-fold on the wide buckets, which all sit
+at one end of the order:
+
+    m'(20%-<30%)   by index +0.0415   by DTI +0.0036   inflated 11.5x
+    |corr(m, m')|  by index  0.725     by DTI  0.150
+
+**That error did not merely bias the answer, it removed the power to give one**:
+by index the two hypotheses are collinear at 0.725 on sixteen points, `VIF 2.37`.
+It was caught because the run prints its own separability before the reading, which
+is the pre-registration's §4.3-style obligation doing its job. The index version is
+kept and printed beside the corrected one as `class_slope_by_index_superseded`.
+
+**A rule, alongside the entry-depth one:**
+
+> **Before differencing or differentiating across classes ordered on a scale, write
+> down the scale's actual spacing. The class index is not the scale. When the bins
+> are unequal, an index derivative differs from a scale derivative by a bin-width
+> factor, and bin width usually varies with position, so the same mistake produces
+> a bias and a collinearity at once.**
+
+### 11.8 What §10 keeps and what it now points at
+
+- **§10.5's withdrawal of the rank-2 reading stands.** Nothing here restores it.
+- **§10.5's "no reading of its trichotomy at any class resolution" is now too
+  strong as a description of the design**, though it remains right about B7-4. The
+  design carries a rank-one direction monotone in DTI at about 0.5% of B7-4's
+  magnitude. **Cite §11, not §10.5, for what the design contains.**
+- **§10.2's account of the artefact is confirmed by a second route.** The diagonal
+  really was the noise: removing it takes `lambda_1` from 1.4674 to 0.4207 in the
+  19-class design.
+- **B7-11's carry is unaffected**, as before.
+
+### 11.9 Registered and not run
+
+- **`lambda_2` against the null.** One loop. This run drew `lambda_1` only.
+- **The cross-cell autocorrelation arm**, registered in the Project's
+  `B7_收口后的跨臂影响_v1.md` §4 and still unrun. §11.6's ordered residual with no
+  candidate explanation is what it is for.
+- **B7-16's construction in B8.** B8-4's "√Z disperses across agent classes" has
+  the shape that killed B7-4, and B8's observations per entry are loan-months
+  rather than 1.18 loans, so the cross-fold is easier there than here.
+
+### 11.10 `lambda_2` was drawn, and it clears. §11.6's "rank one" is superseded
+
+**§11.6's first paragraph is wrong and the text is left standing.** It read
+`lambda_2 = 0.01649` against the **largest** diagonal entry `0.01860`, found it
+below, and wrote "rank one, not two". **That is the wrong benchmark.** Under a
+diagonal `M` the eigenvalues are the diagonal entries themselves, so `lambda_2`'s
+benchmark is the **second**-largest diagonal, not the largest. `lambda_2` being
+smaller than `lambda_1`'s benchmark says nothing at all.
+
+**§11.6's own guard is what caught it**: it recorded that `lambda_2` had never
+been drawn and that "it does not clear" was therefore not available as a reading.
+It was then drawn.
+
+| arm | `lambda_2` | 2nd-largest diagonal | null | **z** |
+|---|---|---|---|---|
+| 17-class balanced | 0.01649 | 0.00434 | 0.00735 ± 0.00050 | **+18.41** |
+| 17-class | 0.01700 | 0.00737 | 0.00858 ± 0.00037 | **+22.89** |
+| 19-class **control** | 0.05150 | 0.06272 | 0.06253 ± 0.00191 | **−5.77** |
+| 19-class balanced | 0.06154 | 0.04354 | 0.05749 ± 0.00488 | +0.83 |
+
+**Rank two.** And the control stays a control: its `lambda_2` sits *below* its own
+null at z = −5.77, so the arm with no ordering has no second direction either.
+
+`v2` in the 17-class balanced arm, by the class scale:
+
+    <20% +0.311 | 20-30% -0.036  30-36% -0.068  36 -0.185  37 -0.209  38 -0.259
+                | 39 -0.137  40 -0.180  41 -0.208  42 -0.190  43 +0.112  44 -0.106
+                | 45 +0.274  46 +0.366  47 +0.300  48 +0.400  49 +0.374
+
+**Both ends against the middle**: positive at the bottom of the scale, negative
+through 36–42, positive across 45–49, with six classes carrying comparable weight.
+`v1` is a tilt and `v2` is a bend, which is what the first two modes of a smooth
+family of curves look like.
+
+**Why `lambda_2` was thrown away for a whole run.** Every null draw computed the
+full spectrum and the loop kept `nv[0]`. It was written around `lambda_1` before
+the ordering statistic existed and nobody went back to it, while §8's first row
+had said "several eigenvalues" from the start. **An oversight, not a decision**,
+and the comment in `b7_crossfold.py` now says so at the line where it happened.
+
+**What this changes upstream**: nothing about the withdrawal, and the magnitude is
+unchanged. What changes is the count. The design carries a **two**-dimensional
+departure from additivity, not a one-dimensional one, and §11.9's first
+outstanding item is closed.

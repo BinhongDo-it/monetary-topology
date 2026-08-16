@@ -1,0 +1,180 @@
+{
+  "stage": "B7",
+  "step": "crossfold_depth",
+  "n_cells": 326872,
+  "n_classes": 19,
+  "n_loans": 16035398,
+  "classes": [
+    {
+      "level": "41",
+      "entries": 258703,
+      "entries_ge_2": 166173,
+      "usable_share": 0.6423311674004554,
+      "loans": 672194.0,
+      "loans_per_entry": 2.598323173677924,
+      "loans_in_usable": 579664.0
+    },
+    {
+      "level": "36",
+      "entries": 242321,
+      "entries_ge_2": 142681,
+      "usable_share": 0.5888098844095229,
+      "loans": 569256.0,
+      "loans_per_entry": 2.349181457653278,
+      "loans_in_usable": 469616.0
+    },
+    {
+      "level": "30%-<36%",
+      "entries": 325432,
+      "entries_ge_2": 319092,
+      "usable_share": 0.9805182034956611,
+      "loans": 3033223.0,
+      "loans_per_entry": 9.320604611716119,
+      "loans_in_usable": 3026883.0
+    },
+    {
+      "level": "39",
+      "entries": 254221,
+      "entries_ge_2": 159124,
+      "usable_share": 0.62592783444326,
+      "loans": 638657.0,
+      "loans_per_entry": 2.5122118157036595,
+      "loans_in_usable": 543560.0
+    },
+    {
+      "level": "44",
+      "entries": 260132,
+      "entries_ge_2": 170935,
+      "usable_share": 0.65710869866068,
+      "loans": 707613.0,
+      "loans_per_entry": 2.7202074331493242,
+      "loans_in_usable": 618416.0
+    },
+    {
+      "level": "43",
+      "entries": 254610,
+      "entries_ge_2": 161053,
+      "usable_share": 0.6325478182318055,
+      "loans": 652054.0,
+      "loans_per_entry": 2.560991320058128,
+      "loans_in_usable": 558497.0
+    },
+    {
+      "level": "20%-<30%",
+      "entries": 323815,
+      "entries_ge_2": 314544,
+      "usable_share": 0.9713694547812795,
+      "loans": 3238092.0,
+      "loans_per_entry": 9.999820885382086,
+      "loans_in_usable": 3228821.0
+    },
+    {
+      "level": "42",
+      "entries": 264618,
+      "entries_ge_2": 176434,
+      "usable_share": 0.6667498053798305,
+      "loans": 727594.0,
+      "loans_per_entry": 2.749601312080055,
+      "loans_in_usable": 639410.0
+    },
+    {
+      "level": "37",
+      "entries": 246700,
+      "entries_ge_2": 148301,
+      "usable_share": 0.6011390352655046,
+      "loans": 590918.0,
+      "loans_per_entry": 2.39528982569923,
+      "loans_in_usable": 492519.0
+    },
+    {
+      "level": "50%-60%",
+      "entries": 96175,
+      "entries_ge_2": 24180,
+      "usable_share": 0.25141668832856773,
+      "loans": 131860.0,
+      "loans_per_entry": 1.3710423706784507,
+      "loans_in_usable": 59865.0
+    },
+    {
+      "level": "48",
+      "entries": 226398,
+      "entries_ge_2": 128470,
+      "usable_share": 0.5674520092933684,
+      "loans": 522205.0,
+      "loans_per_entry": 2.306579563423705,
+      "loans_in_usable": 424277.0
+    },
+    {
+      "level": "49",
+      "entries": 251899,
+      "entries_ge_2": 167052,
+      "usable_share": 0.6631705564531817,
+      "loans": 730209.0,
+      "loans_per_entry": 2.898816589188524,
+      "loans_in_usable": 645362.0
+    },
+    {
+      "level": "<20%",
+      "entries": 272717,
+      "entries_ge_2": 204059,
+      "usable_share": 0.7482445172101483,
+      "loans": 1040292.0,
+      "loans_per_entry": 3.8145476812959953,
+      "loans_in_usable": 971634.0
+    },
+    {
+      "level": "45",
+      "entries": 231413,
+      "entries_ge_2": 131183,
+      "usable_share": 0.5668782652659963,
+      "loans": 526651.0,
+      "loans_per_entry": 2.275805594327026,
+      "loans_in_usable": 426421.0
+    },
+    {
+      "level": "40",
+      "entries": 255924,
+      "entries_ge_2": 161518,
+      "usable_share": 0.6311170503743299,
+      "loans": 648869.0,
+      "loans_per_entry": 2.5353972273018552,
+      "loans_in_usable": 554463.0
+    },
+    {
+      "level": "38",
+      "entries": 249914,
+      "entries_ge_2": 153405,
+      "usable_share": 0.6138311579183239,
+      "loans": 611607.0,
+      "loans_per_entry": 2.4472698608321264,
+      "loans_in_usable": 515098.0
+    },
+    {
+      "level": "47",
+      "entries": 220678,
+      "entries_ge_2": 119875,
+      "usable_share": 0.543212282148651,
+      "loans": 484632.0,
+      "loans_per_entry": 2.1961047317811473,
+      "loans_in_usable": 383829.0
+    },
+    {
+      "level": "46",
+      "entries": 219851,
+      "entries_ge_2": 117470,
+      "usable_share": 0.5343164233958454,
+      "loans": 474187.0,
+      "loans_per_entry": 2.1568562344496955,
+      "loans_in_usable": 371806.0
+    },
+    {
+      "level": ">60%",
+      "entries": 29998,
+      "entries_ge_2": 3823,
+      "usable_share": 0.12744182945529703,
+      "loans": 35285.0,
+      "loans_per_entry": 1.1762450830055338,
+      "loans_in_usable": 9110.0
+    }
+  ]
+}
