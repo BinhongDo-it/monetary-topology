@@ -44,6 +44,16 @@ RESULTS = ROOT / "results"
 #: is written where that is the truth: three A-track stages are here because
 #: nobody added them, not because anybody decided they cost too much.
 OUTSIDE_THE_RUNNER: dict[str, str] = {
+    "a7_verdicts.json": (
+        "A7's verdict sheet. The stage's own measurements are six runs across "
+        "two arms, two estimators and three round counts, about forty minutes, "
+        "and every one of them is diagnostic_only because section 4.2's scored "
+        "estimator runs under a flag rather than by default. This sheet is "
+        "assembled from those records by `--verdicts` and exists so that a "
+        "stage with eleven verdicts is not invisible in RESULTS.md. Adding a "
+        "runner job is the close-out task and is deliberately not done while "
+        "another line of work is editing run_all.py"
+    ),
     "a3_asset_channel.json": (
         "A3 itself, the stage every A-track claim about compounding rests on, "
         "and the stage whose own restatement produced failure mode 9's "

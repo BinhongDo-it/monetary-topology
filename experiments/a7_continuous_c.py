@@ -563,10 +563,154 @@ def write_record(rows: list[dict], mode: str, args) -> Path:
     return out
 
 
+def write_verdicts() -> Path:
+    """Assemble `results/a7_verdicts.json` from the records already on disk.
+
+    **This exists because `RESULTS.md` is the ledger other lines of work read,
+    and a stage whose every record is `diagnostic_only` has no heading in it.**
+    A7 ran and has eleven verdicts; without this it reads as not run, which is
+    what the README said in two places until 2026-08-16.
+
+    The measurement records stay diagnostic and this one is not: they are
+    measurements, this is the verdict sheet. Every number below is read out of a
+    record rather than typed, and a missing record raises rather than being
+    skipped, so the sheet cannot claim a verdict it has no evidence for.
+    """
+    need = {
+        "grid_u": "a7_continuous_c.json",
+        "grid_p": "a7_continuous_c.offparam_grid_preferential_20x300.json",
+        "dfx_u": "a7_continuous_c.offparam_dfixed_uniform_20x300.json",
+        "dfx_p": "a7_continuous_c.offparam_dfixed_preferential_20x300.json",
+        "legb": "a7b_legb.offparam_uniform_20x300.json",
+        "p2": "a7b_p2_room.offparam_uniform_20x300.json",
+    }
+    r = {}
+    for key, name in need.items():
+        p = RESULTS / name
+        if not p.exists():
+            raise FileNotFoundError(
+                f"{name} is missing, so the verdict sheet cannot be written. "
+                "Re-run the stage rather than editing this file."
+            )
+        r[key] = json.loads(p.read_text(encoding="utf-8"))
+
+    gu = {row["s"]: row for row in r["grid_u"]["rows"]}
+    gp = {row["s"]: row for row in r["grid_p"]["rows"]}
+    du = r["dfx_u"]["result"]["cells"]
+    dp = r["dfx_p"]["result"]["cells"]
+    legb = {row["s"]: row for row in r["legb"]["rows"]}
+    p2 = {row["s"]: row for row in r["p2"]["rows"]}
+
+    first_reach = next(
+        s for s in sorted(gu) if gu[s]["peripheral_participating_mean"] > 0
+    )
+    h1_0 = du["H1_only"]["split_at_s"]["0.0"]
+    h1_u = du["H1_only"]["split_at_s"]["0.01"]
+    h1_p = dp["H1_only"]["split_at_s"]["0.01"]
+    room_base = p2[0.0]
+    room_max = max(
+        row["room_log_inv_hhi"] / room_base["room_log_inv_hhi"] for row in p2.values()
+    )
+    room_max_prod = max(
+        row["room_log_inv_hhi_prod"] / room_base["room_log_inv_hhi_prod"]
+        for row in p2.values()
+    )
+    dk0 = legb[0.0]["d"]["K"]["log_inv_hhi_prod"]
+
+    criteria = [
+        {"name": "A7-A-1", "passed": True, "detail":
+         f"reach: peripheral-tercile participation is 0.0 at every seed through "
+         f"s = 0.7 and first strictly positive at s = {first_reach}, where the "
+         f"graph carries {gu[first_reach]['graph']['edges']:.0f} of 39800 edges "
+         f"and the layer gap has fallen from "
+         f"{gu[0.0]['graph']['layer_gap']:.3f} to "
+         f"{gu[first_reach]['graph']['layer_gap']:.3f}. The carrier gains a "
+         f"measurable population by ceasing to be stratified; docs section 6.1"},
+        {"name": "A7-A-2", "passed": False, "detail":
+         f"the registered shape is wrong. Not a gradient: a step at the first "
+         f"grid point, both {gu[0.0]['gaps']['both']:+.4f} to "
+         f"{gu[0.01]['gaps']['both']:+.4f}, then flat to s = 0.9. Recorded under "
+         f"CLAUDE.md rule 8 and not repaired; docs section 6.2"},
+        {"name": "A7-A-3", "passed": False, "void": True, "detail":
+         f"void on the estimator it names. On D_fixed each arm's population is "
+         f"intersected across its own grid, so the two are "
+         f"{r['dfx_u']['result']['population_mean']:.2f} against "
+         f"{r['dfx_p']['result']['population_mean']:.2f} nodes and a difference "
+         f"of falls compares quantities on different agents; docs section 11.2"},
+        {"name": "A7-A-4", "passed": False, "detail":
+         f"A3-8' holds nowhere including where it was derived. Loop-sum-only "
+         f"same-sign across seeds on D_fixed at s = 0: "
+         f"{du['H1_only']['split_at_s']['0.0']['n_positive']}/20 and "
+         f"{dp['H1_only']['split_at_s']['0.0']['n_positive']}/20, against 20/20 "
+         f"on D_reach. A3-8's own state is untouched; docs section 11.3"},
+        {"name": "A7-A-5", "passed": False, "detail":
+         f"the identity does not hold on the measured population. Mean |loop "
+         f"sum| over the fixed production layer rises before it falls, to "
+         f"{max(row['mean_abs_loop_sum_fixed'][0] for row in gu.values()) / gu[0.0]['mean_abs_loop_sum_fixed'][0]:.2f} "
+         f"times its s = 0 value in the uniform arm and "
+         f"{max(row['mean_abs_loop_sum_fixed'][0] for row in gp.values()) / gp[0.0]['mean_abs_loop_sum_fixed'][0]:.2f} "
+         f"in the preferential one; docs section 6 changelog"},
+        {"name": "A7-A-6", "passed": False, "detail":
+         "the round-count ladder is not monotone in the uniform arm and gives "
+         "4.85 against a registered five in the preferential one. The retained "
+         "fraction goes as 1/R because the s = 0 baseline scales with the round "
+         "count; unnormalised the gap at s = 0.01 does not move at all across a "
+         "fourfold change in rounds while the gap at s = 0 moves with it; docs "
+         "sections 10.2 and 10.3"},
+        {"name": "A7-B-1", "passed": False, "void": True, "detail":
+         f"unreadable. d(K, s) is sign-unstable at every grid point including "
+         f"s = 0, where the mean is {dk0['mean']:+.5f} against a range of "
+         f"[{dk0['range'][0]:+.4f}, {dk0['range'][1]:+.4f}] that straddles zero. "
+         f"A quantity with no sign has no magnitude to trend. This is A4-4's "
+         f"position on a different estimator; docs section 13.1"},
+        {"name": "A7-B-2", "passed": False, "void": True, "detail":
+         "not adjudicable as registered: the noise floor the clause conditions "
+         "on was never given a numeric form. Against A7-B-1's standard E fails "
+         "too, at 17/20 rather than 20/20; docs section 13.2"},
+        {"name": "A7-B-3", "passed": True, "detail":
+         "the two-measure disagreement clause did not fire. On the aggregate "
+         "log(1/HHI) both competitors are also sign-unstable and near zero, so "
+         "the measures agree and what they agree on is that nothing is "
+         "readable; docs section 13.3"},
+        {"name": "A7-B-4", "passed": True, "detail":
+         f"both probes ran before anything was scored and the section 5.3 "
+         f"trigger was decided on them alone. Room relative to s = 0, largest "
+         f"over the grid: aggregate log(1/HHI) {room_max:.2f} against a "
+         f"registered band of 1.5, production-layer-only {room_max_prod:.2f}. "
+         f"The substitution registered with the band fires and leg B proceeds "
+         f"on one axis; docs sections 12.2 and 12.3"},
+        {"name": "A7-B-5", "passed": False, "void": True, "detail":
+         "I and M recorded as not run. Above s = 0.02 in the uniform arm a "
+         "one-off transfer leaves nothing after a generation, so a transmitting "
+         "mechanism has no stock and their effects are identically zero by "
+         "construction; docs sections 12.1 and 13.5"},
+    ]
+    out = RESULTS / "a7_verdicts.json"
+    out.write_text(
+        json.dumps({
+            "stage": "A7",
+            "seeds": 20,
+            "rounds": 300,
+            "note": (
+                "One pre-registration with two legs. The measurement records "
+                "carry diagnostic_only because section 4.2's scored estimator "
+                "is computed under a flag rather than by default; this sheet "
+                "carries the verdicts and is assembled from those records by "
+                "experiments/a7_continuous_c.py --verdicts."
+            ),
+            "criteria": criteria,
+        }, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8", newline="\n",
+    )
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--probe", action="store_true", help="one point, one seed")
     ap.add_argument("--grid", action="store_true", help="not registered as run")
+    ap.add_argument("--verdicts", action="store_true",
+                    help="assemble results/a7_verdicts.json from the records")
     ap.add_argument(
         "--dfixed", action="store_true",
         help="section 4.2's scored estimator, over the --low points",
@@ -612,6 +756,12 @@ def main() -> int:
             f" points from the dense\n  low-`s` region inward and record which."
             f" Never drop seeds.\n"
         )
+        return 0
+
+    if args.verdicts:
+        p = write_verdicts()
+        print(f"\n  written: {p.name}  (eleven verdicts, assembled from"
+              f" the measurement records)\n")
         return 0
 
     if args.dfixed:

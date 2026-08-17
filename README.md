@@ -13,13 +13,14 @@ than a dozen parameters, and reports a criterion that can fail. The point is not
 to build a simulator large enough to reproduce an economy. It is to make a
 handful of structural claims checkable by someone who did not write them.
 
-**Status: stages A0, A0b, A2, A2c, B1 and B2 complete, 58/58 criteria pass.** The
-simulation stages run across two independent parameterisations, one of them
-calibrated to published Federal Reserve data, and across 12 graph seeds. The
-empirical stage runs on **28,137,985 mortgage originations** reported to HMDA for
-2018 through 2025, against a pre-registration written before retrieval began. See
-[RESULTS.md](RESULTS.md) for the full record and [ROADMAP](#roadmap) for what is
-not built yet.
+**Status, 2026-08-17.** Twelve B-track stations and eight A-track stages have run.
+Three carriers have produced measured non-zero cycle sums on real transaction
+data: mortgage origination terms, cross-currency funding, and the ETF creation
+triangle. **One station's headline was withdrawn on its own constructed
+counterexample, one failed its own pre-trend check and says so in its headline,
+and one answers the sharpest objection in the programme with "this ruler cannot
+measure it."** See [RESULTS.md](RESULTS.md) for the full record and the speedrun
+below for what each station asked, answered and retracted.
 
 The headline empirical number: hold census tract, year, lien position, loan
 purpose, occupancy and dwelling type fixed, and **78 to 85 percent of the variance
@@ -27,6 +28,61 @@ in financing terms remains inside those cells.** A single price vector on
 positions predicts zero. A pre-registered placebo, in which government programmes
 replace the credit-graded price grid with a flat schedule, moves it in the
 predicted direction by 130 times the scale of a gap known to be zero.
+
+---
+
+## Speedrun
+
+**One line per station: what it asked, and where it landed.** Full four-field
+entries, including the retraction attached to each station, are in
+[Volume II, B0–B6](claude-docs/B轨speedrun_EN_part1_v1.md),
+[Volume II, B7–B11](claude-docs/B轨speedrun_EN_part2_v1.md) and
+[Volume I, the A track](claude-docs/A轨speedrun_EN_v1.md).
+
+### Volume II — is there one global price field?
+
+| | asked | landed |
+|---|---|---|
+| **B0** | what does non-integrability entail, and what does it deliberately not | scope fixed: one inequality on one cycle; no welfare criterion, no claim that planning is better |
+| **B1** | is integrability a theorem of notation | yes on one index, no on two. Four theorems; the variance share **is** the square holonomy, verified to `1e-16` on 28 million vertices |
+| **B2** | do two applicants for the same financing get the same terms | no. Within-cell variance share **0.7831**, median within-cell IQR **0.53 points**. A gradient field predicts zero |
+| **B3** | do currency cycles that never touch the Treasury vanish | no. **30.9 to 45.6 bp** against a floor of 2.8 to 3.7, signal over floor **63 to 200**. CNH against CNY reads up to **1198×** |
+| **B4** | does a one-way conversion still mean an obstruction | **no, and this runs against the framework**: directedness helps the null. A spread makes a non-zero round trip with no obstruction |
+| **B5** | does the premium collapse when the eligibility rule is deleted | ratio **0.102** treated against **0.712 / 1.050 / 0.999** control — **and the pre-trend check failed**, accounting for 0.77 to 0.90 of the collapse |
+| **B6** | can a hole get a positive reading | structure visible without estimation: two frozen rates, one float running **410 → 624**. The `H¹` arm is blocked on a token |
+| **B7** | how many independent ways does a local market deviate | **two**: a tilt and a bend, multiplicative. **The original rank reading was withdrawn** on a constructed zero-interaction counterexample that reads it back 20/20 |
+| **B8** | does one household's terms depend on the path it walked | **yes, and this is the strongest reading in the programme.** Two realisable routes to the same state differ by **1.07e+05 to 4.18e+06 times the floor**, six of six cohorts, permutation null **0/999** |
+| **B9** | on the cleanest carrier, is it zero | no. **1.2 to 1.7 bp**, 1.05 to 5.08 times the measurement floor and about 1 against the cost floor. Quantisation falsified. **Twenty-two instrument defects on the ledger** |
+| **B10** | does the reading survive coarsening the state grid | **86% of transitions never happen**; merge the servicing states and `b₁` reads 0. On the objection itself: **the registered question has no reading** |
+| **B11** | can the ring be replicated in corporate credit | **gated, not open**: the gate needs 200 issuers against a measured ceiling of **227** |
+| **B12** | *(registered 2026-08-17, not run)* | a new ruler for B10's question: does `ω` pull back from the coarse grid? **It predicts an exact zero, so it can fail** |
+
+### Volume I — does position, rather than behaviour, decide who is reached?
+
+| | asked | landed |
+|---|---|---|
+| **A0** | is spending inside your own stratum different from saving | 9/9. Slope indistinguishable from zero with the adjacency matrix held fixed |
+| **A0b** | is there an elasticity above which the production layer cannot survive | 12/12. **Unit elasticity is the dividing line** |
+| **A1** | does the default ordering emerge rather than being hard-coded | **never started**, and it is the only stage attached to real data |
+| **A2** | can volume rise while reach shrinks | 8/8. **Flow `×44.87` while the support set goes `×0.402`**, sign flip in 12/12 seeds. Max propensity with no in-edges ends at **zero** |
+| **A2c** | can the loops disappear without deleting an edge | 7/7. Cycle rank collapses to **0.029** of potential, no edge deleted |
+| **A3** | is compound advantage literally a loop sum | the hinge: **`+0.36536` against `+0.37686`, 3.05% apart**, from two modules that share no code. **And its one externally checkable prediction failed its own diagnostic** |
+| **A4** | is connectivity upstream of the four standard explanations | connectivity alone gives Gini **0.93673**; all four opponents alone stay **below the 0.02 floor**. Two criteria void |
+| **A5** | is there a reachability threshold | 4/8. **And the stored results file could not be reproduced by the code committed beside it** |
+| **A6** | what redistribution rate does the siphon cost | **six tax points**, and that difference is the siphon, in units of tax |
+| **A7** | does continuous connectivity repair A4's void criteria | **run, both legs.** One pass, four fails, two voids, and the content is in the failures: `H¹` rises while `D` collapses 98% at the first grid point, so the divergence exists only near mean out-degree five |
+| **X01–X05, X-G** | the external checks | registered, **zero started** |
+
+### The two things this repository has not done
+
+**The coverage test has never run.** No single parameter vector has produced all
+four surfaces. Until it does, "one mechanism, many surfaces" is empty here, and
+it is the only possible empirical form of the unified claim.
+
+**No A-track prediction has been checked against real data.** The A track has
+zero external carriers; the B track has four.
+
+---
 
 ---
 
@@ -883,7 +939,7 @@ contracts depends on parameter magnitudes and cannot be settled structurally.
 | A5 | reachability against participation | **2/6**, [`docs/a5_reachability.md`](docs/a5_reachability.md) |
 | A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
 | A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below, [`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
-| A7 | continuous connectivity | **pre-registered, not run**, [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md); availability check done, `experiments/a7a_continuous_c.py` |
+| A7 | continuous connectivity | **run, both legs**, eleven verdicts, [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md) §6 to §15. The stage's own result is a negative one: A3-8's divergence is a property of the sparse graph and does not survive a 34% thickening in any direction |
 | A1 | default waterfall, calibrated to delinquency cross-sections | A1 superseded by A1b; A1b, A1c and A1d have run, see [RESULTS.md](RESULTS.md) and [`docs/a1_prereg.md`](docs/a1_prereg.md) |
 
 **A3's two failures are reported rather than repaired, and they are different

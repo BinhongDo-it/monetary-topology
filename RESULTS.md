@@ -369,6 +369,26 @@ _no sample metadata recorded_
 | PASS | A6-4 | R*(I)/R*(T) under access against 0.75: fair 0.083 (an upper bound, R*(I) is on the grid floor), stratified 0.031 (an upper bound, R*(I) is on the grid floor) |
 | **FAIL** | A6-5 | at R* = 0.005 over 2000 rounds, end over start per seed 1.66x, 0.07x, 1.60x, 1.86x, 0.15x. 2 of 5 seeds collapsed and the rest ended more open. The registered band is symmetric and scores those as the same failure |
 
+## A7
+
+`rounds=300` `20 seeds`
+
+**3/7 live criteria passed, 4 void**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A7-A-1 | reach: peripheral-tercile participation is 0.0 at every seed through s = 0.7 and first strictly positive at s = 0.8, where the graph carries 32051 of 39800 edges and the layer gap has fallen from 0.394 to 0.030. The carrier gains a measurable population by ceasing to be stratified; docs section 6.1 |
+| **FAIL** | A7-A-2 | the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under CLAUDE.md rule 8 and not repaired; docs section 6.2 |
+| VOID | A7-A-3 | void on the estimator it names. On D_fixed each arm's population is intersected across its own grid, so the two are 24.20 against 35.95 nodes and a difference of falls compares quantities on different agents; docs section 11.2 |
+| **FAIL** | A7-A-4 | A3-8' holds nowhere including where it was derived. Loop-sum-only same-sign across seeds on D_fixed at s = 0: 17/20 and 19/20, against 20/20 on D_reach. A3-8's own state is untouched; docs section 11.3 |
+| **FAIL** | A7-A-5 | the identity does not hold on the measured population. Mean \|loop sum\| over the fixed production layer rises before it falls, to 1.44 times its s = 0 value in the uniform arm and 4.13 in the preferential one; docs section 6 changelog |
+| **FAIL** | A7-A-6 | the round-count ladder is not monotone in the uniform arm and gives 4.85 against a registered five in the preferential one. The retained fraction goes as 1/R because the s = 0 baseline scales with the round count; unnormalised the gap at s = 0.01 does not move at all across a fourfold change in rounds while the gap at s = 0 moves with it; docs sections 10.2 and 10.3 |
+| VOID | A7-B-1 | unreadable. d(K, s) is sign-unstable at every grid point including s = 0, where the mean is -0.00039 against a range of [-0.0020, +0.0010] that straddles zero. A quantity with no sign has no magnitude to trend. This is A4-4's position on a different estimator; docs section 13.1 |
+| VOID | A7-B-2 | not adjudicable as registered: the noise floor the clause conditions on was never given a numeric form. Against A7-B-1's standard E fails too, at 17/20 rather than 20/20; docs section 13.2 |
+| PASS | A7-B-3 | the two-measure disagreement clause did not fire. On the aggregate log(1/HHI) both competitors are also sign-unstable and near zero, so the measures agree and what they agree on is that nothing is readable; docs section 13.3 |
+| PASS | A7-B-4 | both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3 |
+| VOID | A7-B-5 | I and M recorded as not run. Above s = 0.02 in the uniform arm a one-off transfer leaves nothing after a generation, so a transmitting mechanism has no stock and their effects are identically zero by construction; docs sections 12.1 and 13.5 |
+
 ## B1H
 
 _no sample metadata recorded_
@@ -631,16 +651,16 @@ _no sample metadata recorded_
 
 Derived quantities:
 
-- `lambda1_17class_balanced` = 0.0225
-- `off_diagonal_share_of_lambda1` = 0.3572
-- `z_lambda1` = 10.3324
-- `z_lambda2` = 18.4050
-- `z_ordering_tau` = 5.1566
-- `z_corr_v1_class_profile` = 7.1525
-- `z_corr_v1_profile_slope` = 1.9427
+- `lambda1_17class_balanced` = 0.0229
+- `off_diagonal_share_of_lambda1` = 0.3643
+- `z_lambda1` = 13.3222
+- `z_lambda2` = 16.0380
+- `z_ordering_tau` = 7.0628
+- `z_corr_v1_class_profile` = 5.0866
+- `z_corr_v1_profile_slope` = 2.3189
 - `profile_slope_separability` = 0.1501
 - `naive_lambda1_same_sample` = 1.4674
-- `z_ordering_tau_19class_control` = -0.8820
+- `z_ordering_tau_19class_control` = -1.1654
 
 
 ### b7_crossfold_depth
@@ -718,3 +738,91 @@ _no sample metadata recorded_
 | PASS | B7-3  permuted data returns rank zero through the identical path | estimated rank 0 on a permutation of a true-rank-2 sample, taken through the same centring and the same second-moment matrix rather than short-circuited |
 | PASS | B7-4  reported, not judged: where the estimator stops working | fill 0.85: 0->0/1->1/2->2/3->3  fill 0.6: 0->0/1->1/2->2/3->3  fill 0.35: 0->0/1->1/2->3/3->3  fill 0.2: 0->0/1->1/2->3/3->6  fill 0.15: 0->0/1->1/2->3/3->1.  The gated form of this criterion asserted the error runs upward and never downward; that assertion is REFUTED by this sweep and was withdrawn on 2026-08-15 rather than restated until it passed. Outside its usable regime the estimate is unreliable in either direction, and a `rank >= 2` result is not admissible without B7-0 |
 | PASS | B7-0  the gate is implemented and is not vacuous | a rank-one field at the observed signal strength, read back on the same design: fill 0.85 -> 1, fill 0.6 -> 3, fill 0.35 -> 4.  **A gate that passed everywhere would not be a gate.** It fails here on designs where B7-4 says it should, which is what makes a pass on the real design mean something |
+
+## B9-A-1
+
+_no sample metadata recorded_
+
+
+## B9-A-2
+
+_no sample metadata recorded_
+
+
+## B9 §31 variance decomposition
+
+### b9_decomp
+
+_no sample metadata recorded_
+
+
+### b9_decomp_control
+
+_no sample metadata recorded_
+
+
+### b9_decomp_recon
+
+_no sample metadata recorded_
+
+
+## B9-A-2 discriminators
+
+### b9_disc
+
+_no sample metadata recorded_
+
+
+### b9_disc_control
+
+_no sample metadata recorded_
+
+
+### b9_disc_recon
+
+_no sample metadata recorded_
+
+
+## B9-0
+
+_no sample metadata recorded_
+
+
+## B9 §26 gate speed
+
+_no sample metadata recorded_
+
+
+## B9-A-1 and A-2 against the measurement floor (§24)
+
+_no sample metadata recorded_
+
+
+## B9-A-6 four-venue (§39.3)
+
+### b9_nbbo_combined
+
+_no sample metadata recorded_
+
+
+### b9_nbbo_combined_sz100
+
+_no sample metadata recorded_
+
+
+## B9-A-6 (§36)
+
+### b9_nbbo_overlap
+
+_no sample metadata recorded_
+
+
+### b9_nbbo_overlap_ARCX_PILLAR
+
+_no sample metadata recorded_
+
+
+### b9_nbbo_overlap_ARCX_PILLAR_sz100
+
+_no sample metadata recorded_
+

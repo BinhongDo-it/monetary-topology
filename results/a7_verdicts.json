@@ -1,0 +1,67 @@
+{
+  "criteria": [
+    {
+      "detail": "reach: peripheral-tercile participation is 0.0 at every seed through s = 0.7 and first strictly positive at s = 0.8, where the graph carries 32051 of 39800 edges and the layer gap has fallen from 0.394 to 0.030. The carrier gains a measurable population by ceasing to be stratified; docs section 6.1",
+      "name": "A7-A-1",
+      "passed": true
+    },
+    {
+      "detail": "the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under CLAUDE.md rule 8 and not repaired; docs section 6.2",
+      "name": "A7-A-2",
+      "passed": false
+    },
+    {
+      "detail": "void on the estimator it names. On D_fixed each arm's population is intersected across its own grid, so the two are 24.20 against 35.95 nodes and a difference of falls compares quantities on different agents; docs section 11.2",
+      "name": "A7-A-3",
+      "passed": false,
+      "void": true
+    },
+    {
+      "detail": "A3-8' holds nowhere including where it was derived. Loop-sum-only same-sign across seeds on D_fixed at s = 0: 17/20 and 19/20, against 20/20 on D_reach. A3-8's own state is untouched; docs section 11.3",
+      "name": "A7-A-4",
+      "passed": false
+    },
+    {
+      "detail": "the identity does not hold on the measured population. Mean |loop sum| over the fixed production layer rises before it falls, to 1.44 times its s = 0 value in the uniform arm and 4.13 in the preferential one; docs section 6 changelog",
+      "name": "A7-A-5",
+      "passed": false
+    },
+    {
+      "detail": "the round-count ladder is not monotone in the uniform arm and gives 4.85 against a registered five in the preferential one. The retained fraction goes as 1/R because the s = 0 baseline scales with the round count; unnormalised the gap at s = 0.01 does not move at all across a fourfold change in rounds while the gap at s = 0 moves with it; docs sections 10.2 and 10.3",
+      "name": "A7-A-6",
+      "passed": false
+    },
+    {
+      "detail": "unreadable. d(K, s) is sign-unstable at every grid point including s = 0, where the mean is -0.00039 against a range of [-0.0020, +0.0010] that straddles zero. A quantity with no sign has no magnitude to trend. This is A4-4's position on a different estimator; docs section 13.1",
+      "name": "A7-B-1",
+      "passed": false,
+      "void": true
+    },
+    {
+      "detail": "not adjudicable as registered: the noise floor the clause conditions on was never given a numeric form. Against A7-B-1's standard E fails too, at 17/20 rather than 20/20; docs section 13.2",
+      "name": "A7-B-2",
+      "passed": false,
+      "void": true
+    },
+    {
+      "detail": "the two-measure disagreement clause did not fire. On the aggregate log(1/HHI) both competitors are also sign-unstable and near zero, so the measures agree and what they agree on is that nothing is readable; docs section 13.3",
+      "name": "A7-B-3",
+      "passed": true
+    },
+    {
+      "detail": "both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3",
+      "name": "A7-B-4",
+      "passed": true
+    },
+    {
+      "detail": "I and M recorded as not run. Above s = 0.02 in the uniform arm a one-off transfer leaves nothing after a generation, so a transmitting mechanism has no stock and their effects are identically zero by construction; docs sections 12.1 and 13.5",
+      "name": "A7-B-5",
+      "passed": false,
+      "void": true
+    }
+  ],
+  "note": "One pre-registration with two legs. The measurement records carry diagnostic_only because section 4.2's scored estimator is computed under a flag rather than by default; this sheet carries the verdicts and is assembled from those records by experiments/a7_continuous_c.py --verdicts.",
+  "rounds": 300,
+  "seeds": 20,
+  "stage": "A7"
+}
