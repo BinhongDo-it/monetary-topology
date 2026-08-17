@@ -58,7 +58,7 @@ OUT = K.ROOT / "results" / "b8_0b_floor.md"
 
 #: **The column list `analyse` opens the core table with.** Pit 30.
 COLS = ["period", "rate", "upb", "rem_legal", "mat_date", "delinq",
-        "mod_flag", "nib_upb", "defer_amt"]
+        "mod_flag", "nib_upb", "defer_amt", "zero_bal"]
 
 #: §6.4's floor on a cell, adopted by §18.4.
 MIN_CELL = 20
@@ -84,6 +84,61 @@ def zed(x: np.ndarray) -> float:
     """`Z = 2 * Var(x)`, §18.1. Population variance, not the sample one."""
     x = np.asarray(x, dtype=np.float64)
     return 2.0 * float(np.var(x)) if x.size else float("nan")
+
+
+#: Sample sizes the variance is re-estimated at, to see whether it converges.
+#: **A sample variance that keeps climbing with `n` is not estimating a
+#: population variance**; it is reporting how far into the tail the draw
+#: reached. Every ratio built on it is then a function of the sample size.
+CONV_NS = (100, 300, 1000, 3000, 10000, 30000)
+CONV_REPS = 21
+
+
+def scale_convergence(om: np.ndarray, ns=CONV_NS, reps=CONV_REPS,
+                      seed: int = 20260817) -> list[dict]:
+    """`2*Var` and the robust scale, both as a function of sample size.
+
+    The variance answers **the question the run is actually asking**: is `Z`
+    a property of the population or of how many loops were drawn. The robust
+    scale is carried beside it because if one converges and the other does not,
+    that is the whole finding in two columns.
+    """
+    om = np.asarray(om, dtype=np.float64)
+    rng = np.random.default_rng(seed)
+    out = []
+    for n in list(ns) + [om.size]:
+        if n > om.size or n < 8:
+            continue
+        vs, ms = [], []
+        for _ in range(reps):
+            s = om[rng.choice(om.size, n, replace=False)]
+            vs.append(zed(s))
+            ms.append(mad_scale(s))
+        vs, ms = np.array(vs), np.array(ms)
+        out.append({"n": int(n), "var_med": float(np.median(vs)),
+                    "var_lo": float(np.percentile(vs, 10)),
+                    "var_hi": float(np.percentile(vs, 90)),
+                    "mad_med": float(np.median(ms)),
+                    "mad_lo": float(np.percentile(ms, 10)),
+                    "mad_hi": float(np.percentile(ms, 90))})
+    return out
+
+
+def mad_scale(x: np.ndarray) -> float:
+    """Normal-consistent median absolute deviation.
+
+    **The candidate replacement for `sqrt(2*Var)` on both sides of the ratio.**
+    It is the same object computed the same way on the signal and on the floor,
+    which is what B3's shape actually requires; what B3 did not have to worry
+    about is a variable whose distribution spans five orders of magnitude, and
+    `omega` on mortgages does. `1.4826` makes it agree with the standard
+    deviation on a normal sample, so the two columns are readable side by side.
+    """
+    x = np.asarray(x, dtype=np.float64)
+    if x.size == 0:
+        return float("nan")
+    med = np.median(x)
+    return 1.4826 * float(np.median(np.abs(x - med)))
 
 
 def zed_by_enumeration(x: np.ndarray) -> float:
@@ -118,6 +173,58 @@ def check_enumeration(x: np.ndarray, cap: int = ENUM_CAP,
             "rel": rel, "ok": bool(rel < ENUM_TOL)}
 
 
+#: Two-sided trim fractions the floor is recomputed at. **Added 2026-08-17,
+#: after the first run**, and the reason is in the results file: `sqrt(N)` came
+#: back 1,669 to 6,592 times the median absolute loop sum on the same arm, and
+#: a 3,000-loop subsample of the same population gave `N` between 0.07 and 4.86
+#: times the full-population value. **A variance that moves seventy-fold under
+#: resampling is a tail statistic**, and a floor made of one is set by a handful
+#: of loops rather than by the measurement error of a typical one.
+#:
+#: This does not replace `N`. §18.1 fixed the statistic as `2*Var` and that is
+#: what B3 uses; the trimmed values sit beside it so a reader can see how much
+#: of the floor is tail and decide what to do about it. **Reporting a
+#: tail-dominated floor without saying it is tail-dominated is the defect.**
+TRIMS = (0.0, 0.001, 0.01, 0.05)
+
+#: How many of the largest-|omega| clean cures to print with their diagnostics.
+N_EXAMPLES = 5
+
+
+def trimmed_floor(om: np.ndarray, trims=TRIMS) -> list[dict]:
+    """`2*Var` after removing the largest and smallest `q` of the sample."""
+    om = np.asarray(om, dtype=np.float64)
+    out = []
+    if om.size == 0:
+        return [{"trim": q, "n": 0, "Z": float("nan")} for q in trims]
+    s = np.sort(om)
+    for q in trims:
+        k = int(np.floor(q * s.size))
+        v = s[k:s.size - k] if k else s
+        out.append({"trim": q, "n": int(v.size), "Z": zed(v)})
+    return out
+
+
+def freeze_counts(c: K.Core, lp: dict, r: np.ndarray) -> np.ndarray:
+    """Months inside each window where the interest-bearing balance did not
+    move at all.
+
+    §6.2.7 measured this: field 12 reads identical on consecutive months for
+    4.881 per cent of quiet months across the six archives, about four in ten
+    of those never recover, and **an unrecovered freeze contributes exactly one
+    missed month's worth of `omega1`**. On the clean-cure arm the true loop sum
+    is zero, so a freeze is the obvious candidate for what the tail is made of.
+    Counted rather than assumed.
+    """
+    bal = K.zero_interest_split(c)[0]
+    same = np.zeros(c.n_rows, dtype=np.int64)
+    same[1:] = (bal[1:] == bal[:-1]).astype(np.int64)
+    same[c.row_start.astype(np.int64)] = 0
+    pre = np.concatenate(([0], np.cumsum(same)))
+    a, b = lp["t_A"] + 1, lp["t_B"]
+    return pre[b + 1] - pre[a]
+
+
 # ---------------------------------------------------------------------------
 # the clean-cure arm, through the same machinery
 # ---------------------------------------------------------------------------
@@ -138,7 +245,7 @@ def clean_cure_loops(c: K.Core) -> dict:
     # §17's `t_A` and `t_B`. The first delinquent month is `t_A + 1` by
     # construction: `find_clean_cures` anchors `t0` at the last current row
     # before the episode, so the row after it is the first delinquent one.
-    return {"t_A": t0, "t_M": t0 + 1, "t_B": en,
+    return {"t_A": t0, "t_M": t0 + 1, "t_B": en, "k": k,
             "arm": np.full(t0.size, L.ARM_MOD, dtype=np.int8),
             "loan": c.loan_of_row()[t0] if t0.size else np.zeros(0, np.int32),
             "drops": drops}
@@ -199,25 +306,126 @@ def analyse(name: str, cache_root=None, pos=None, tab=None) -> dict:
         cc = clean_cure_loops(c)
         flo = Z8.loop_sums(cc, r, ok)
 
+        # **The ideal-path subset, which is where the zero actually lives.**
+        # §14.5 splits B8-0a into (i), the gate, whose clean cure reinstates by
+        # paying every missed payment at once so that the balance lands exactly
+        # where the uninterrupted schedule would have it and **the round trip is
+        # zero by arithmetic**; and (ii), the same loans with fees,
+        # capitalisation and forgiveness on, which that section says returns
+        # non-zero **for real reasons**.
+        #
+        # `N` was drawn on (ii)'s population and the zero-calibration property
+        # belongs to (i). That is why five loans out of 47,412 carried 78 per
+        # cent of the floor: their balance ran from 56,813.89 to 0.01 across
+        # nine months, which is a retirement wearing a cure's delinquency code,
+        # and nothing about it is measurement error.
+        #
+        # **This needs no new threshold.** `b8_0a_gate.episode_sums` already
+        # returns the ideal-path flag and B8-0a(i-a) already runs on it.
+        q0 = K.quiet_pairs(c)
+        pid0 = W.contract_periods(c, fill=True)
+        pay0, _known0, _p0 = W.contract_payments(c, pid0, q0)
+        es = G.episode_sums(c, pay0, cc["t_A"], cc["t_B"], cc["k"])
+        ideal = es[2]
+
         a = {"name": name, "n_rows": c.n_rows,
              "loans_refused_c13": rinfo["V"]["loans_dropped_c13"],
              "cc_drops": cc["drops"], "arms": {}}
 
         # ---- N, the zero-calibration arm -----------------------------------
-        fm = flo["measurable"]
+        fm = flo["measurable"] & ideal
+        a["N_all"] = {
+            "measurable": int(flo["measurable"].sum()),
+            "Z": zed(flo["omega"][flo["measurable"]]),
+            "absmed": (float(np.median(np.abs(flo["omega"][flo["measurable"]])))
+                       if flo["measurable"].any() else float("nan"))}
         n_om = flo["omega"][fm]
         a["N"] = {"loops": int(fm.size), "measurable": int(fm.sum()),
+                  "ideal": int(ideal.sum()),
                   "Z": zed(n_om),
                   "absmed": float(np.median(np.abs(n_om))) if n_om.size
                   else float("nan"),
                   "q": (np.percentile(n_om, [10, 50, 90]).tolist()
                         if n_om.size else [float("nan")] * 3),
                   "enum": check_enumeration(n_om),
-                  "enough": bool(n_om.size >= MIN_CELL)}
+                  "enough": bool(n_om.size >= MIN_CELL),
+                  "trimmed": trimmed_floor(n_om),
+                  "mad": mad_scale(n_om),
+                  "conv": scale_convergence(n_om)}
+
+        # **What the tail is made of.** Freezes are the registered suspect
+        # (§6.2.7); this counts them rather than asserting them, and prints the
+        # largest loops beside their counts so the reader sees the rows.
+        fz = freeze_counts(c, cc, r)[fm]
+        wl = flo["n_win"][fm]
+        # **What the balance did across the window.** `omega = -15.5` on a
+        # clean cure means `V` at the return vertex is 1.8e-7 of the
+        # counterfactual, that is a two hundred thousand dollar loan reporting
+        # a few cents. That is a **payoff**, not a cure: the delinquency field
+        # returns to `00` and `find_clean_cures` counts it, while what actually
+        # happened is the loan was retired. A zero-calibration arm cannot
+        # contain those. Two reads settle it and neither needs a threshold
+        # chosen by hand: the balance ratio at the two vertices, and field 44,
+        # the zero-balance code, which §6.2.6.3 ruled needed no filter **for a
+        # different purpose**.
+        balc = K.zero_interest_split(c)[0].astype(np.float64)
+        ta, tb = cc["t_A"][fm], cc["t_B"][fm]
+        with np.errstate(divide="ignore", invalid="ignore"):
+            bratio = np.where(balc[ta] > 0, balc[tb] / balc[ta], np.nan)
+        # **`omega` is a log ratio, so its noise scales inversely with the
+        # balance.** A fixed dollar deviation on a 3,385 balance is a large log
+        # move and the same deviation on a 300,000 one is nothing. The floor's
+        # tail turned out to be small balances; modifications happen on live
+        # mortgages. **A floor drawn from one balance regime does not judge a
+        # signal drawn from another**, so the balance at the departure vertex
+        # is carried for both arms and the floor is recomputed on the range
+        # where the signal actually lives.
+        bal_A = balc[ta] / 100.0
+        zb = c.row["zero_bal"][:]
+        zb_set = ((zb != K.U8_NA) & (zb != 0))
+        pre_zb = np.concatenate(([0], np.cumsum(zb_set.astype(np.int64))))
+        zb_in_win = (pre_zb[tb + 1] - pre_zb[ta + 1]) > 0
+        if n_om.size:
+            big = np.argsort(-np.abs(n_om))[:N_EXAMPLES]
+            a["N"]["examples"] = [
+                {"omega": float(n_om[i]), "window": int(wl[i]),
+                 "frozen": int(fz[i]), "bratio": float(bratio[i]),
+                 "zb": bool(zb_in_win[i]),
+                 "bal_A": float(balc[ta[i]]) / 100.0,
+                 "bal_B": float(balc[tb[i]]) / 100.0} for i in big.tolist()]
+            hot = np.abs(n_om) >= np.percentile(np.abs(n_om), 99.0)
+            a["N"]["tail"] = {
+                "cut": float(np.percentile(np.abs(n_om), 99.0)),
+                "n_hot": int(hot.sum()),
+                "share_of_Z": float(
+                    (n_om[hot] ** 2).sum() / max((n_om ** 2).sum(), 1e-300)),
+                "frozen_hot": float(fz[hot].mean()) if hot.any() else float("nan"),
+                "frozen_rest": float(fz[~hot].mean()) if (~hot).any() else float("nan"),
+                "any_frozen_hot": float((fz[hot] > 0).mean()) if hot.any() else float("nan"),
+                "any_frozen_rest": float((fz[~hot] > 0).mean()) if (~hot).any() else float("nan"),
+                "win_hot": float(wl[hot].mean()) if hot.any() else float("nan"),
+                "win_rest": float(wl[~hot].mean()) if (~hot).any() else float("nan"),
+                "bratio_hot": (np.nanpercentile(bratio[hot], [10, 50, 90]).tolist()
+                               if hot.any() else [float("nan")] * 3),
+                "bratio_rest": (np.nanpercentile(bratio[~hot], [10, 50, 90]).tolist()
+                                if (~hot).any() else [float("nan")] * 3),
+                "zb_hot": float(zb_in_win[hot].mean()) if hot.any() else float("nan"),
+                "zb_rest": float(zb_in_win[~hot].mean()) if (~hot).any() else float("nan"),
+                "tiny_hot": float((bratio[hot] < 0.01).mean()) if hot.any() else float("nan"),
+                "tiny_rest": float((bratio[~hot] < 0.01).mean()) if (~hot).any() else float("nan"),
+                "balA_hot": (np.percentile(bal_A[hot], [10, 50, 90]).tolist()
+                             if hot.any() else [float("nan")] * 3),
+                "balA_rest": (np.percentile(bal_A[~hot], [10, 50, 90]).tolist()
+                              if (~hot).any() else [float("nan")] * 3)}
+        else:
+            a["N"]["examples"], a["N"]["tail"] = [], {}
+        a["N"]["balA_q"] = (np.percentile(bal_A, [10, 50, 90]).tolist()
+                            if bal_A.size else [float("nan")] * 3)
 
         # ---- Z and M, per arm and pooled ------------------------------------
         meas = sig["measurable"]
         arm = lp["arm"]
+        sig_balA = balc[lp["t_A"]] / 100.0
         cell = cell_of(arm, sig["n1"] + 1, sig["n3"])
         for tag, sel in (("mod", arm == L.ARM_MOD),
                          ("defer", arm == L.ARM_DEFER),
@@ -230,6 +438,29 @@ def analyse(name: str, cache_root=None, pos=None, tab=None) -> dict:
                        else [float("nan")] * 3),
                  "enum": check_enumeration(om),
                  "M": emm(om, cell[m])}
+            # the floor **on the balance range this arm actually occupies**
+            sb = sig_balA[m]
+            if sb.size and bal_A.size:
+                lo, hi = np.percentile(sb, [10, 90])
+                keep = (bal_A >= lo) & (bal_A <= hi)
+                d["N_matched"] = {
+                    "lo": float(lo), "hi": float(hi), "n": int(keep.sum()),
+                    "Z": zed(n_om[keep]) if keep.any() else float("nan")}
+            else:
+                d["N_matched"] = {"lo": float("nan"), "hi": float("nan"),
+                                  "n": 0, "Z": float("nan")}
+            d["balA_q"] = (np.percentile(sb, [10, 50, 90]).tolist()
+                           if sb.size else [float("nan")] * 3)
+            nm = d["N_matched"]["Z"]
+            d["ratio_matched"] = (float(np.sqrt(d["Z"]) / np.sqrt(nm))
+                                  if (np.isfinite(nm) and nm > 0
+                                      and np.isfinite(d["Z"]))
+                                  else float("nan"))
+            d["mad"] = mad_scale(om)
+            d["conv"] = scale_convergence(om)
+            d["ratio_mad"] = (float(d["mad"] / a["N"]["mad"])
+                              if (np.isfinite(a["N"]["mad"])
+                                  and a["N"]["mad"] > 0) else float("nan"))
             zz, nn = d["Z"], a["N"]["Z"]
             d["ratio"] = (float(np.sqrt(zz) / np.sqrt(nn))
                           if (np.isfinite(zz) and np.isfinite(nn) and nn > 0)
@@ -296,15 +527,163 @@ def render(rows: list[dict]) -> str:
       "the first delinquent month (§18.3 N2). **The contract genuinely does "
       "not change on this arm, so the true loop sum is zero and what is left "
       "is construction error, reporting noise and freezes.**\n")
-    A("| archive | clean cures | **measurable** | `N` | `sqrt(N)` | "
-      "median abs | p10 | p50 | p90 | over MIN_CELL |")
-    A("|---|---|---|---|---|---|---|---|---|---|")
+    A("**`N` is drawn on the IDEAL-PATH subset, changed 2026-08-17 after the "
+      "run.** §14.5 splits B8-0a into (i), the gate, whose clean cure "
+      "reinstates by paying every missed payment at once so the balance lands "
+      "exactly on the uninterrupted schedule and **the round trip is zero by "
+      "arithmetic**; and (ii), the same loans with fees and capitalisation on, "
+      "which that section says returns non-zero **for real reasons**. `N` was "
+      "drawn on (ii). The zero-calibration property belongs to (i).\n")
+    A("That is why **five loans out of 47,412 carried 78 per cent of the "
+      "floor**: one ran from 56,813.89 to 0.01 across nine months and then "
+      "reported delinquency `00`. That is a retirement wearing a cure's code, "
+      "and nothing about it is measurement error. **The correction needs no "
+      "new threshold**: `b8_0a_gate.episode_sums` already returns the "
+      "ideal-path flag and B8-0a(i-a) already runs on it.\n")
+    A("Both populations are printed. `all` is what this file reported before "
+      "the correction (R01).\n")
+    A("| archive | clean cures | measurable | **ideal path** | `N` | "
+      "`sqrt(N)` | median abs | p10 | p50 | p90 | `N` on all | `sqrt` | "
+      "median abs |")
+    A("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+    for a in rows:
+        n, na = a["N"], a["N_all"]
+        A(f"| {a['name']} | {n['loops']:,} | {na['measurable']:,} | "
+          f"**{n['measurable']:,}** | {_f(n['Z'])} | {_f(np.sqrt(n['Z']))} | "
+          f"{_f(n['absmed'])} | " + " | ".join(_f(v) for v in n["q"])
+          + f" | {_f(na['Z'])} | {_f(np.sqrt(na['Z']))} | "
+          f"{_f(na['absmed'])} |")
+
+    A("\n### 2.1 `N` is a tail statistic, and this is the read that says so\n")
+    A("**Added after the first run.** `sqrt(N)` came back between 1,669 and "
+      "6,592 times the median absolute loop sum on the same arm, and a "
+      f"{ENUM_CAP:,}-loop subsample of the same population gave `N` between "
+      "0.07 and 4.86 times the full-population value. **A variance that moves "
+      "seventy-fold under resampling is made of its tail.** §18.1 fixed the "
+      "statistic as `2*Var` and that stays; these columns say how much of it "
+      "is tail, so the ratio in section 3 is read for what it is.\n")
+    A("| archive | `sqrt(N)` | median abs | ratio | " +
+      " | ".join(f"trim {q:.1%}" for q in TRIMS) + " |")
+    A("|---|---|---|" + "---|" * (len(TRIMS) + 1))
     for a in rows:
         n = a["N"]
-        A(f"| {a['name']} | {n['loops']:,} | **{n['measurable']:,}** | "
-          f"{_f(n['Z'])} | {_f(np.sqrt(n['Z']))} | {_f(n['absmed'])} | "
-          + " | ".join(_f(v) for v in n["q"])
-          + f" | {'yes' if n['enough'] else '**NO**'} |")
+        A(f"| {a['name']} | {_f(np.sqrt(n['Z']))} | {_f(n['absmed'])} | "
+          f"{np.sqrt(n['Z']) / max(n['absmed'], 1e-300):,.0f}x | "
+          + " | ".join(_f(np.sqrt(d["Z"])) for d in n["trimmed"]) + " |")
+
+    A("\n**What the tail is made of.** The top one per cent by `|omega|` "
+      "against the rest. §6.2.7 registered the suspect: field 12 reads "
+      "identical on consecutive months for 4.881 per cent of quiet months, "
+      "four in ten of those never recover, and **an unrecovered freeze "
+      "contributes exactly one missed month's worth of `omega1`** on an arm "
+      "whose true loop sum is zero.\n")
+    A("| archive | 99th pct of \\|omega\\| | loops above | share of `Z` | "
+      "frozen months, hot | rest | any freeze, hot | rest | window, hot | "
+      "rest |")
+    A("|---|---|---|---|---|---|---|---|---|---|")
+    for a in rows:
+        tl = a["N"].get("tail") or {}
+        if not tl:
+            continue
+        A(f"| {a['name']} | {_f(tl['cut'])} | {tl['n_hot']:,} | "
+          f"{tl['share_of_Z']:.4f} | {tl['frozen_hot']:.2f} | "
+          f"{tl['frozen_rest']:.2f} | {tl['any_frozen_hot']:.4f} | "
+          f"{tl['any_frozen_rest']:.4f} | {tl['win_hot']:.1f} | "
+          f"{tl['win_rest']:.1f} |")
+
+    A("\n**Is the tail a payoff rather than a cure.** `bal(t_B)/bal(t_A)` is "
+      "what the balance did across the window; a cure leaves it near one, a "
+      "retirement drives it to nothing. Field 44 is the zero-balance code, "
+      "which §6.2.6.3 ruled needed no filter **for a different purpose**. "
+      "Neither column needs a threshold picked by hand.\n")
+    A("| archive | balance ratio, hot p10 | p50 | p90 | rest p10 | p50 | p90 | "
+      "ratio < 1% , hot | rest | field 44 set in window, hot | rest |")
+    A("|---|---|---|---|---|---|---|---|---|---|---|")
+    for a in rows:
+        tl = a["N"].get("tail") or {}
+        if not tl:
+            continue
+        A(f"| {a['name']} | "
+          + " | ".join(_f(v, 3) for v in tl["bratio_hot"]) + " | "
+          + " | ".join(_f(v, 3) for v in tl["bratio_rest"])
+          + f" | {tl['tiny_hot']:.4f} | {tl['tiny_rest']:.4f} | "
+          f"{tl['zb_hot']:.4f} | {tl['zb_rest']:.4f} |")
+
+    A(f"\n**The {N_EXAMPLES} largest by `|omega|` per archive, printed.**\n")
+    A("| archive | omega | window months | frozen months | balance at `t_A` | "
+      "at `t_B` | ratio | field 44 in window |")
+    A("|---|---|---|---|---|---|---|---|")
+    for a in rows:
+        for e in a["N"].get("examples", []):
+            A(f"| {a['name']} | {e['omega']:+.4e} | {e['window']:,} | "
+              f"{e['frozen']:,} | {e['bal_A']:,.2f} | {e['bal_B']:,.2f} | "
+              f"{_f(e['bratio'], 3)} | {'yes' if e['zb'] else 'no'} |")
+
+    A("\n### 2.2 The floor and the signal live at different balances\n")
+    A("**`omega` is a log ratio, so its noise scales inversely with the "
+      "balance.** A fixed dollar deviation on a 3,385 balance is a large log "
+      "move; the same deviation on a 300,000 one is nothing. The floor's tail "
+      "is small balances and modifications happen on live mortgages, so a "
+      "floor drawn from one balance regime does not judge a signal drawn from "
+      "another. **`N` matched** is the same floor restricted to the p10-p90 "
+      "balance range of the arm it is judging.\n")
+    A("| archive | floor balance p10 | p50 | p90 | floor tail p50 | "
+      "floor rest p50 | arm | signal balance p10 | p50 | p90 | matched range | "
+      "n | `N` matched | **`sqrt(Z)/sqrt(N)` matched** |")
+    A("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+    for a in rows:
+        n = a["N"]
+        tl = n.get("tail") or {}
+        for tag in ("pooled", "mod", "defer"):
+            d = a["arms"][tag]
+            nm = d["N_matched"]
+            A(f"| {a['name']} | "
+              + " | ".join(f"{v:,.0f}" for v in n.get("balA_q", [0, 0, 0]))
+              + f" | {tl.get('balA_hot', [0, 0, 0])[1]:,.0f} | "
+              f"{tl.get('balA_rest', [0, 0, 0])[1]:,.0f} | {tag} | "
+              + " | ".join(f"{v:,.0f}" for v in d["balA_q"])
+              + f" | {nm['lo']:,.0f}-{nm['hi']:,.0f} | {nm['n']:,} | "
+              f"{_f(nm['Z'])} | **{_f(d['ratio_matched'], 3)}** |")
+
+    A("\n### 2.3 Does the variance converge, and does anything else\n")
+    A("**Three defensible population choices moved the modification arm's "
+      "ratio through 1.45, 54.70 and 1,008.** At that point the question is "
+      "not which population is right, it is whether `2*Var` estimates "
+      "anything on this distribution. `omega` on the floor arm spans five "
+      "orders of magnitude between its median and its maximum; B3's `Z` was "
+      "written for CIP deviations, which are bounded basis-point quantities.\n")
+    A("The table draws random subsamples at each size, 21 times, and reports "
+      "the median with the 10th and 90th percentiles. **A statistic that "
+      "estimates a population parameter settles down as `n` grows. One that "
+      "reports how far into the tail the draw reached does not.** `MAD` is "
+      "the normal-consistent median absolute deviation, carried beside it "
+      "because if one converges and the other does not, that is the finding.\n")
+    A("| archive | arm | n | `2*Var` p10 | median | p90 | spread | "
+      "`MAD` p10 | median | p90 | spread |")
+    A("|---|---|---|---|---|---|---|---|---|---|---|")
+    for a in rows:
+        for tag, src in (("N (clean cures)", a["N"]),
+                         ("mod", a["arms"]["mod"])):
+            for c in src.get("conv", []):
+                vs = (c["var_hi"] / c["var_lo"]) if c["var_lo"] > 0 else float("inf")
+                ms = (c["mad_hi"] / c["mad_lo"]) if c["mad_lo"] > 0 else float("inf")
+                A(f"| {a['name']} | {tag} | {c['n']:,} | {_f(c['var_lo'])} | "
+                  f"{_f(c['var_med'])} | {_f(c['var_hi'])} | {vs:.1f}x | "
+                  f"{_f(c['mad_lo'])} | {_f(c['mad_med'])} | "
+                  f"{_f(c['mad_hi'])} | {ms:.1f}x |")
+
+    A("\n**The same ratio computed with `MAD` on both sides.** Same object on "
+      "the signal and on the floor, which is what B3's shape requires; the "
+      "only change is the scale estimator.\n")
+    A("| archive | arm | `MAD` signal | `MAD` floor | **`MAD` ratio** | "
+      "`sqrt(Z)/sqrt(N)` | `sqrt(Z)/sqrt(N)` matched |")
+    A("|---|---|---|---|---|---|---|")
+    for a in rows:
+        for tag in ("pooled", "mod", "defer"):
+            d = a["arms"][tag]
+            A(f"| {a['name']} | {tag} | {_f(d['mad'])} | {_f(a['N']['mad'])} | "
+              f"**{_f(d['ratio_mad'], 3)}** | {_f(d['ratio'], 3)} | "
+              f"{_f(d['ratio_matched'], 3)} |")
 
     A("\n## 3. The headline, `sqrt(Z)/sqrt(N)`\n")
     A("§18.5's map: above 3 is B8-1's **necessary** condition, not B8-1. "
@@ -454,6 +833,42 @@ def selftest() -> int:
     if a["N"]["measurable"] == 0:
         fails.append("no clean cure is measurable on the fixture, so `N` is "
                      "nan and the gate below proves nothing")
+    # **The ideal path's loop sum is zero by arithmetic** (§14.5's B8-0a(i)),
+    # so on a fixture built to it `N` is machine noise, not a number. If this
+    # ever reads like a real quantity the ideal-path screen has stopped
+    # screening. The old population, drawn on B8-0a(ii), read 1e-2 here.
+    elif not (a["N"]["Z"] < 1e-10):
+        fails.append(f"N on the ideal-path arm reads {a['N']['Z']:.3e}; the "
+                     "fixture's clean cures reinstate exactly onto the "
+                     "schedule so it must be machine noise")
+    # -- MAD, against hand arithmetic and against a heavy tail ------------
+    # 1, 2, 3, 4, 5: median 3, deviations 2,1,0,1,2, their median 1
+    if abs(mad_scale(np.array([1., 2., 3., 4., 5.])) - 1.4826) > 1e-12:
+        fails.append(f"mad_scale = {mad_scale(np.array([1.,2.,3.,4.,5.]))}, "
+                     "hand computation 1.4826")
+    # **and it must be the thing the variance is not**: one outlier moves
+    # `2*Var` by orders and `MAD` not at all. If that stops being true the two
+    # columns of section 2.3 are the same column.
+    base = np.concatenate([np.arange(999.0), np.array([1e6])])
+    plain = np.arange(1000.0)
+    if not (zed(base) > 100 * zed(plain)):
+        fails.append("one outlier in a thousand did not move `2*Var`; the "
+                     "convergence table cannot show anything")
+    if abs(mad_scale(base) / mad_scale(plain) - 1.0) > 0.01:
+        fails.append(f"one outlier in a thousand moved MAD by "
+                     f"{mad_scale(base) / mad_scale(plain):.3f}x; it is not "
+                     "the robust half of the comparison")
+
+    # the balance match must actually restrict, or column 2.2 is a copy of `N`
+    nm = a["arms"]["mod"]["N_matched"]
+    if nm["n"] >= a["N"]["measurable"]:
+        fails.append(f"the balance-matched floor kept {nm['n']} of "
+                     f"{a['N']['measurable']} loops, so it restricts nothing "
+                     "and section 2.2 is `N` printed twice")
+    if a["N_all"]["measurable"] <= a["N"]["measurable"]:
+        fails.append("the ideal-path screen removed nothing, so the two "
+                     "floor populations are the same and the double report "
+                     "is two copies of one number")
     for tag in ("pooled", "mod", "defer"):
         if not a["arms"][tag]["enum"]["ok"]:
             fails.append(f"the two computations of Z disagree on {tag}: "
@@ -468,7 +883,33 @@ def selftest() -> int:
     txt = render([a])
     for cmpl in K.check_markdown_tables(txt):
         fails.append(f"malformed table: {cmpl}")
+    # -- the tail diagnostic must actually discriminate -------------------
+    tr = trimmed_floor(np.concatenate([np.zeros(98), np.array([50.0, -50.0])]))
+    if not (tr[0]["Z"] > 100 * tr[-1]["Z"]):
+        fails.append(f"trimming 5 per cent off a sample that is 98 per cent "
+                     f"zeros and two outliers moved the floor from "
+                     f"{tr[0]['Z']:.3e} to {tr[-1]['Z']:.3e}; it cannot see a "
+                     "tail")
+    if tr[0]["n"] != 100 or tr[-1]["n"] != 90:
+        fails.append(f"trim kept {tr[0]['n']} and {tr[-1]['n']}, expected "
+                     "100 and 90")
+    # freezes, on a hand-built two-loan case
+    with K.Core(zp.stem, cols=COLS, cache_root=cr) as c2:
+        fz = freeze_counts(c2, cc, r=None) if cc["t_A"].size else np.zeros(0)
+        bal = K.zero_interest_split(c2)[0]
+        # count them independently, the slow way, on the same windows
+        want = np.array([
+            sum(1 for x in range(int(cc["t_A"][i]) + 1, int(cc["t_B"][i]) + 1)
+                if bal[x] == bal[x - 1])
+            for i in range(cc["t_A"].size)], dtype=np.int64)
+    if cc["t_A"].size and not np.array_equal(fz, want):
+        fails.append("freeze_counts disagrees with a direct count on the "
+                     "same windows")
+
     for need in ("## 1. The gate", "## 2. `N`, the zero calibration",
+                 "### 2.1 `N` is a tail statistic",
+                 "### 2.2 The floor and the signal live at different balances",
+                 "### 2.3 Does the variance converge",
                  "## 4. `M`, the matched cells"):
         if need not in txt:
             fails.append(f"render omits `{need}`")

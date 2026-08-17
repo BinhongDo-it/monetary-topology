@@ -585,7 +585,12 @@ def _synth_loops(path: Path) -> list[str]:
         if name not in NO_TAIL:
             hold = case[-1][1]           # keep the modification flag as it is
             tail = [("00", hold, 0, 1)] * TAIL_QUIET
-        prev_mod = "N"
+        prev_mod, prev_dq, seen_z = "N", "00", False
+        # the uninterrupted schedule, carried alongside. **A real reinstatement
+        # puts the balance exactly here** (§14.5's B8-0a(i)), and without one
+        # the fixture has no ideal-path clean cure at all, which leaves
+        # `b8_0b_floor`'s zero-calibration arm empty.
+        sched = None
         for spec in [("00", "N", 0, 1)] * LEAD_QUIET + case + tail:
             dq, mod, nib, upb_pos = spec[0], spec[1], spec[2], spec[3]
             skip = spec[4] if len(spec) > 4 else 0
@@ -600,6 +605,44 @@ def _synth_loops(path: Path) -> list[str]:
                     m, y = 1, y + 1
                 rem -= 1
                 age += 1
+            # **A clean cure reinstates onto the schedule, and it has to be
+            # applied before the row is written**, not after: the reinstatement
+            # is visible *on* the cure month. Only where nothing was
+            # re-contracted and no zero-interest balance was ever raised, since
+            # a modification or a deferral moves the arrears somewhere else and
+            # the balance does **not** come back to the schedule.
+            # **Amortise BEFORE the row is written**, which is the real
+            # file's phase: a payment made in month X shows in the balance
+            # reported for month X. The generator wrote the row first and
+            # amortised after, so the drop landed one month late and every
+            # delinquent run started with a drop it should not have. That made
+            # `b8_0a_gate.episode_sums` call every clean cure non-ideal
+            # (`dev_flat` requires the delinquent months to sit flat at
+            # `bal[t_A]`), which left `b8_0b_floor`'s zero-calibration arm
+            # empty. **The convention is not a detail: it is what "a missed
+            # month is a month the balance does not fall" means in rows.**
+            if mod == "Y" and prev_mod != "Y" and rem > 0:
+                # a modification re-amortises: the payment after it is the
+                # level payment on the new rate and the new term. Without this
+                # the fixture's post-modification payment equals its
+                # pre-modification one, and then nothing can tell `V-hat`'s
+                # payment being taken from the wrong contract period.
+                pmt = float(K.level_payment([bal], [rate], [float(rem)])[0])
+            elif dq == "00" and upb_pos:
+                bal = bal * (1.0 + rate / 1200.0) - pmt
+            if sched is None and upb_pos:
+                sched = bal
+            elif sched is not None and upb_pos and rem > 0:
+                # `sched` steps on **every** balance row, delinquent or not:
+                # it is what `bal` would have been had no month been missed.
+                # A re-contracting restarts its clock, since after one the
+                # schedule is the new contract's.
+                sched = (bal if (mod == "Y" and prev_mod != "Y")
+                         else sched * (1.0 + rate / 1200.0) - pmt)
+            if (dq == "00" and prev_dq != "00" and upb_pos
+                    and mod != "Y" and prev_mod != "Y" and not seen_z
+                    and sched is not None):
+                bal = sched
             f = [""] * K.NFIELDS
             f[1] = lid
             f[2] = f"{m:02d}{y:04d}"
@@ -625,24 +668,16 @@ def _synth_loops(path: Path) -> list[str]:
             f[101] = "7"
             f[105] = "7"
             lines.append("|".join(f))
-            # amortise on a quiet, positive-balance month and hold otherwise.
-            # A missed month is a month the balance does not fall, which is
-            # §14.3 leg 1 and is what makes `omega1` positive.
-            # amortise on a quiet, positive-balance month, but **not on the
-            # modification onset itself**: that month is a re-contracting and
-            # its balance is whatever the servicer wrote, not last month's
-            # balance carried forward. Everything after the onset amortises
-            # again, which is what gives leg 3 a payment to be measured with.
-            if mod == "Y" and prev_mod != "Y" and rem > 0:
-                # **a modification re-amortises**: the payment after it is the
-                # level payment on the new rate and the new term. Without this
-                # the fixture's post-modification payment equals its
-                # pre-modification one, and then nothing can tell `V-hat`'s
-                # payment being taken from the wrong contract period.
-                pmt = float(K.level_payment([bal], [rate], [float(rem)])[0])
-            elif dq == "00" and upb_pos:
-                bal = bal * (1.0 + rate / 1200.0) - pmt
-            prev_mod = mod
+            prev_mod, prev_dq = mod, dq
+            seen_z = seen_z or bool(nib) or bool(dfr)
+            # **`sched` steps exactly where `bal` would step if no month were
+            # missed**: on any row carrying a balance, whatever the delinquency
+            # code says, and never on a zero-UPB row, where `bal` does not step
+            # either. The two must stay in phase or the "ideal" reinstatement
+            # lands one or two months of principal off and
+            # `b8_0a_gate.episode_sums` calls it non-ideal for a reason that is
+            # the generator's, not the loan's.
+
             rem -= 1
             age += 1
             m += 1
