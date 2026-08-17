@@ -479,9 +479,9 @@ delinquency resolution, **107** its count, **108** total deferral amount.
 a liability and it is signed positive.
 
 ```
-V(t) =  PV[ level payment on the interest-bearing balance
+V(t) =  PV[ level payment on the interest-bearing balance  (12) − (63) − (108)
             at rate (9), over (17) months ]
-      + PV[ the non-interest-bearing balance (63) as a balloon at (19) ]
+      + PV[ the zero-interest balance  (63) + (108)  as a balloon at (19) ]
       -  principal forgiven to date (64)
 ```
 
@@ -489,9 +489,34 @@ Discounted on the constant-maturity Treasury par yield at month `t`, interpolate
 `(17)`, as §3.1 fixes. **`ω < 0` is a gain to the household.** Stated once here and
 used with this sign everywhere in the stage.
 
-The horizon is **17**, not 18, per §13.2. Where 19 is present it agrees with 17
-exactly and either may be used; 17 is primary because it needs no arithmetic on the
-reporting date.
+The amortisation horizon is **17**, not 18, per §13.2. **The balloon horizon is 19**,
+which is what the formula says and what `b8_omega.balloon_horizon` reads; where 19 is
+missing, 17 is the fallback and the fallbacks are counted. C11-3 measured the two
+agreeing on at least 99.78 per cent of deferral rows, so reading the wrong one would
+have been invisible in every number, which is why the code refuses a balloon with no
+stated horizon rather than quietly defaulting to 17.
+
+**Corrected 2026-08-17, and the correction is one field wide.** Both terms above read
+`(63)` alone until C10-4 and C11 landed. Three changes, each with its source in
+`b8_inputs_availability.md`:
+
+| what changed | why | source |
+|---|---|---|
+| the interest-bearing balance is **written down**, as `(12) − (63) − (108)` | it was never written at all, only named "interest-bearing", and the implementation filled the gap with `12 − 63` | C8-1, C11-1 |
+| the balloon carries **`(63) + (108)`**, not `(63)` | a field-63 rising edge moves the note rate on 46.1 per cent of onsets and the legal maturity on 84.2, so it is a re-contracting; the **deferral** carrier is field 108, which shares a first onset with field 106's ADR code on 35,617 loans with zero exceptions | C10-4, §6.6.11 |
+| **`V` has a domain**, and it excludes the loans carrying both balances | all four candidate readings of field 12 sit between 11.6 and 46.2 per cent median error against the contract payment there, against 0.0000 for the same arithmetic on C11's sample. Field 12's content is not identified on them | C13, §6.6.20 |
+
+**The exclusion count travels with every `ω` figure**, at the same rank as §9's
+truncation limits. C13 counted 1,276 such loans by rising edges; the implementation
+excludes the union of that predicate with "both positive in the same month", which
+catches the left-truncated carriers a rising edge cannot see (pit 1), and prints the
+two counts separately so the difference is read rather than assumed.
+
+**On every loan that is not excluded the two carriers are never positive at once**,
+so the three readings §6.6.20.6 tabulates collapse to the single expression above,
+with every term that does not apply equal to zero. There is no branch in the
+arithmetic. The only thing the classification decides is which loans may be read at
+all.
 
 ## 14.2 `ω` is a sum of monthly residuals against a no-event counterfactual
 
@@ -556,6 +581,20 @@ trial period that converts to a permanent modification is a second re-contractin
 would land here. If `ω₃` is materially non-zero in the HAMP window and near zero
 elsewhere, that is the trial period and it is reported as such.
 
+**The carrier for that test is nearly empty, measured 2026-08-17.** The loop census
+(§17.8's count, `b8_inputs_availability.md` §6.6.6) returns **38** loops across all
+six archives with more than one same-kind onset edge inside the window, which is the
+population a trial-period conversion has to live in. And `ω₃` is measurable at all on
+only **10,449** loops, because §17.3's `t_M == t_B` shape gives leg 3 zero length by
+construction on the rest.
+
+**So the HAMP test is registered and will read a number that cannot carry weight.**
+It is still run and still printed, because a 38-loop carrier is a fact about the file
+worth having on the record. **What it cannot do is decide anything**, and no result
+in this stage may lean on it. This is a measurement of the test's own reach, not a
+result, and it is written here so that leg 3's `ω₃ ≈ 0` is read as **mostly a
+construction identity** rather than as a confirmed expectation.
+
 **Leg 3′, `deferred → current`,** has the same shape and the same expectation.
 
 **The consequence for what B8-1 is measuring, stated plainly.** With `ω₃ ≈ 0` the
@@ -575,6 +614,22 @@ and leaves rate and term alone; a modification moves the rate, the term, or both
 Merging them into one `modified` tier is exactly the operation §3.3 records as
 fatal in B7-6's complement grid: **what is merged matters, not how many levels are
 merged.**
+
+**Which column each tier is cut on, added 2026-08-17.** This section described the
+two tiers in prose and named no column for either, and that gap is where the defect
+lived: the implementation cut the `deferred` tier on **field 63**, which C10-4 then
+measured to be the modification carrier. Named here so there is nothing left to
+infer:
+
+| tier | onset column | evidence |
+|---|---|---|
+| `modified` | **field 42, or field 63, whichever comes first** | §14.3 leg 2 already said this. C10-4: at a field-63 rising edge the note rate moves on 46.1 per cent of onsets and the legal maturity on 84.2, so field 63 is a re-contracting |
+| `deferred` | **field 108** | C10-4: at a field-108 rising edge `still` reads 0.9966, so rate and term both hold, which is what a deferral is. Fields 108 and 106's ADR code share a first onset on 35,617 loans with zero exceptions, which is C0b behavioural identification |
+
+**Field 108 is not a contract-period boundary** even though it is the deferral onset:
+§6.6.17.2 rules that `contract_periods` must not cut there, because the payment does
+not change and a cut would only cost coverage. Onset and boundary are two questions
+and this file answers them differently on purpose.
 
 So the tier index gains a level:
 
@@ -597,10 +652,27 @@ and the timing pairs are retained as secondary.**
 deferred`. Secondary: `current / delinquent / modified / deferred`. Both still satisfy
 the two-grid rule and neither boundary is chosen by this project.
 
-**One thing the deferral route cannot do, declared now.** Deferral exists only in the
-COVID window, so **B8-2 cannot be run on the deferral triangle**. B8-2 remains a
+**One thing the deferral route cannot do, declared now.** ~~Deferral exists only in
+the COVID window~~, so **B8-2 cannot be run on the deferral triangle**. B8-2 remains a
 modification-route test across §6's four windows, and the deferral route is reported
 without a window comparison.
+
+**The struck clause was already contradicted by this section's own numbers, and it
+is corrected 2026-08-17.** The audit above reads **32,533** deferral triangles of
+which **31,057** are inside the COVID window: **1,476 are outside it.** Deferral is
+overwhelmingly a COVID phenomenon and it is not only one.
+
+**The conclusion survives the correction and the reason changes.** B8-2 compares a
+quantity across §6's four windows. 1,476 triangles spread over three pre-COVID
+windows will not populate that comparison at anything like the modification route's
+density, so the deferral arm is still reported without a window comparison — **on
+grounds of cell counts, which are measurable and printed, rather than on a claim of
+non-existence that this section's own table refutes.** Whether any pre-COVID window
+clears `MIN_CELL` is a number B8-2 reads, not a thing settled here.
+
+**This matters beyond the wording.** A ban resting on "it does not exist" is checked
+by looking; a ban resting on "there are too few" is checked by counting. The first
+one had been carried for two sections without anybody looking.
 
 ## 14.5 B8-0a splits into a machine gate and a reading
 
@@ -632,7 +704,14 @@ the gate becomes unambiguous, and a quantity that was going to be conflated with
 becomes a number that gets reported. §8's first falsification line now attaches to
 B8-0a(i).
 
-**Sample:** 366,345 clean cures across the six archives, from C5.
+**Sample:** ~~366,345 clean cures across the six archives, from C5.~~ **That figure is
+`legacy` and is superseded 2026-08-17.** It was drawn before the field-108 screen
+existed, so it counts loans that deferred. `b8_0a_gate.find_clean_cures` screens both
+zero-interest fields now, and O28 measured the cost: **removing up to 31.25 per cent
+of the clean cures changed the verdict not at all**, because the gate's statistic is
+a maximum over a shrinking set. The live figure is whatever `b8_0a_gate` prints under
+`require_no_defer=True`, printed beside the legacy one in the same run, and **no
+number in this stage should cite 366,345 without the word legacy attached.**
 
 ## 14.6 What "per period" divides by
 
@@ -669,7 +748,7 @@ availability record and not inside an experiment script.**
 | **C8-3** | is field 63 a balance or a cumulative deferral | the audit found 63 goes blank again on many loans, which a balance would do and a cumulative total would not |
 | **C8-4** | at the modification month, does field 12 step **up** by the capitalised arrears | if it does not, arrears are not in the balance and leg 2's residual is missing them |
 | **C8-5** | do 17 and 19 agree wherever both are present | the audit says they match exactly; confirm it on the modification months specifically |
-| **C8-6** | do 107 and 108 describe the deferral, and does 108 agree with the change in 63 | 14.4's deferred tier needs the deferred amount to be readable from one field, not inferred |
+| **C8-6** | ~~do 107 and 108 describe the deferral, and does 108 agree with the change in 63~~ **Answered and the second half's premise is dead.** C10-4 settled that fields 63 and 108 rise on different rows for different reasons, so there is no "change in 63" for 108 to agree with. What replaced it: 108 and field 106's ADR code share a first onset on 35,617 loans with **zero** exceptions (§6.6.11), and C11-1 settled that field 12 contains 108 | 14.4's deferred tier needs the deferred amount to be readable from one field, not inferred. **It is: field 108** |
 
 **C8 terminates nothing.** Every outcome is a construction choice, and the point of
 asking first is that the choice is made against the file rather than against the
@@ -860,3 +939,500 @@ registered predictions made before the run and recorded here with its reason.
 construction, C8, the four windows, §7's filters, §9's four scope limits. **B7's
 death is about an estimator that reads a class-indexed second moment. `omega` is not
 one, B8-0a is not one, B8-1 is not one and B8-3 is not one.**
+
+---
+
+# 16. B8-0a(i) 拆闸（2026-08-16）
+
+**§1 到 §15 不变，本节在冲突处覆盖它们。** 陛下裁，全文与量化在
+`claude-docs/B8_0a闸容差裁定_v1.md`，实跑记录在 `b8_inputs_availability.md`
+§6.2.6 到 §6.2.8。**写于 `omega` 编码之前，B8-0a(i) 从未跑过。**
+
+## 16.1 §14.5 的隐含假设，以及否掉它的数
+
+§14.5 把 B8-0a(i) 定为「清洁自愈往返，只用合同三元组，**精确回零到浮点容差**」，
+理由是那个零是算术的：欠缴月份的正残差与复原月份的负残差相消。
+
+**相消要成立，得有一个 §14.5 没写出来的前提：余额路径精确回到计划表。**
+1.4 亿个安静履约月份上量出来的是：
+
+- 约四分之一的安静履约月份**不落在计划表上**（C8-1c(b)）。
+- 其中约一半是**余额一个月纹丝不动**，六档合计占全部安静月份的 **4.881%**（C8-1e）。
+- 冻结之后 lag 1 补回只有 26%–28%，六个月内 52%–59%，**约四成永不恢复**（C8-1f）。
+- **一次未恢复的冻结对 `r` 的贡献等于欠缴一个月的 ω₁**（参照贷款上都是 1.336e-3）。
+- 带冻结的段落后计划表的 p10 是 −2.6% 到 −9.9%，**无冻结的段是 −0.0000**。
+
+## 16.2 拆法
+
+| id | 跑在什么上 | 判据 | 地位 |
+|---|---|---|---|
+| **B8-0a(i-a)** | 清洁自愈贷款中**每一个安静月份都落在其段众数簇内**的那些 | **精确回零到浮点容差** | **闸。** 不过则构造坏了，后面一律不能读 |
+| **B8-0a(i-b)** | **全部**清洁自愈环 | 环和分布，对着从未违约贷款在同长度窗口上的噪声底 | **读数，不是闸** |
+
+**§8 第一条证伪线改挂到 B8-0a(i-a)。** §14.5 的 B8-0a(ii)（带费用与资本化）不变，
+但按 §6.2.1 它已经收窄：字段 64 在六档上零笔为正，**减免那一项在本样本上恒为零**。
+
+## 16.3 (i-a) 的样本与两条必带的限定
+
+**19,090 笔**，即清洁自愈形状 154,768 笔的 **12.35%**，
+逐档 138 / 238 / 256 / 2,652 / 7,862 / 7,944。
+
+1. **样本严重偏向新档。** 2002Q1 只留 2.40%，2019Q1 留 19.94%。
+   **闸主要在 2017 与 2019 的 cohort 上被认证。**
+2. **该子样本按支付规则性选出**，而支付规则性与 §5 的类指标（信用分、DTI）合理相关，
+   **故它不是类分布上的随机样本，不得复用为任何 B8-4 形状读数的样本。**
+
+## 16.4 一条加进 §9 的结构性限制
+
+> 一次落在环内且未恢复的余额冻结，往 `omega` 里注入的东西与一个真实欠缴月份
+> **不可区分且大小相同**，因为两者在 `V` 上是同一件事，唯一区别是字段 40 读 `00`。
+> **这给 B8-1 的噪声底定了一个不由样本量决定的下界，引用 B8-1 的地方必须带这一句。**
+
+## 16.5 §14.10 的两处更正
+
+**字段 44 不必进过滤器。** 早先登记的「quiet 过滤器漏查零余额码、结清月份在样本里」
+那条担心**已撤回**：字段 44 在六档、约四千万个安静月份上一个都没设（`b8_inputs_availability.md`
+§6.2.6.3）。
+
+> **【2026-08-16 二次更正】上面这条撤回本身是错的，见 §16.6。**
+> 字段 44 那半仍然对，但**终止由余额归零标记，不由零余额码标记**，
+> 而 quiet 过滤器当时确实漏查了余额归零。**过滤器已加 `upb[当前行] > 0`。**
+
+**月供作为逐段 carry 的状态量**，这条已由 §6.2.5 定死，`V` 与 `V̂` 都用它。
+
+## 16.6 §16.5 那条撤回本身是错的，quiet 过滤器已加一条（2026-08-16）
+
+§16.5 写「字段 44 不必进过滤器，结清月份在样本里那条担心已撤回」。
+**那条撤回是错的。字段 44 那半仍然对（它在约四千万个安静月份上确实一个都没设），
+但终止由余额归零标记，不由零余额码标记，而 quiet 过滤器当时确实漏查了余额归零。**
+
+起因是量出了 Fannie 的一条报送惯例：**每一笔贷款的第一行 UPB 都是零**，
+六档 1.0000 一笔不漏，每笔平均 6.70 到 6.94 行，终止之后也不报
+（`b8_inputs_availability.md` §6.2.9）。于是「正 → 零」这一对能通过旧过滤器，
+`obs` 等于整个余额。
+
+**更正**：`quiet_pairs` 现同时要求 `upb[当前行] > 0`。旧口径由
+`require_cur_positive=False` 保留可逐位复现，`selftest` 同时验两套并要求它们真的不同。
+全文与影响范围在 `b8_inputs_availability.md` §6.2.10 与
+`claude-docs/B8_0a闸结果与报送惯例_v1.md` §3。
+
+**【2026-08-16 同日更正】此处原写「污染落在高于众数那一侧」。实测推翻：
+这条更正在六档上删掉零个对**（`b8_inputs_availability.md` §6.2.10.2，
+`results/b8_quiet_delta.md`）。§6.2.6 那 8.8% 与中位数确实不受影响，
+**但理由是根本没有污染，不是污染在另一侧**。
+
+**这条更正因此是防呆不是修复。** 判据不变，变的是它在真机上不承重：
+结清那一行的**剩余法定期限是空的**（六档漏网 5 / 2 / 5 / 1 / 0 / 0），
+票面利率也空（各漏几百个），两条已经把结清对全挡在外面。
+**这把 §16.6 开头那条报送惯例推广了：终止行报一个余额零，然后把合同状态整体停报。**
+
+## 16.7 B8-0a(i-a) 六档全过，但过它的是计数不是比值
+
+**§10 第 3 步到此结清。** 六档 `over 1` 全零，合格率 0.5195 到 0.6597。
+表在 `b8_inputs_availability.md` §6.2.11.1，结果在 `results/b8_0a_gate.md`。
+
+**必须跟着判定一起写的一句**：`max ratio` 六档全部落在 0.399–0.400，
+那是结构性上限 `(1 + (1+i)^(k+1)) / ((2+i)(k+1) + (1+i)^(k+1))`，
+因为路径容差与符合度的界共用同一个 `1/B`。
+**符合度那一半在数学上被路径那一半蕴含，不携带独立信息；闸的全部判别力在合格计数上。**
+
+判别力是实的：月供估错 1% 会把终点移动 $30.55，对着 $0.0101 的容差，三千倍，
+合格计数会塌到接近零。
+
+**§16.3 那两条限定之外，凡引用 (i-a) 处再加这一条。**
+
+## 16.8 (i-b) 有数：环带着 172 到 2,343 倍于噪声底的残差
+
+`b8_inputs_availability.md` §6.2.11.4。闭式已被减掉，剩下的是观测路径对理想路径的偏离，
+主要来自复原那一个月的费用、部分复原与托管。**§14.5 拆 0a 时说要保住的那个信号，
+现在有数了。**
+
+## 16.9 §7 的过滤器：三条挣不回来，一条用行为代理
+
+核心表没有产品类型列，而产品类型、单元数、留置权都不在 C0b 确认的锚点表里。
+**固息一条用行为挣回**：一笔贷款的利率只在修改月变动，它就是固息。
+浮动形状占比在 2006 与 2007 上峰值（2.46% / 3.34%），2012 之后是万分之一，
+**峰值精确落在 ARM 那一波，而臣妾没给它任何产品类型信息**。
+**这是代理，凡引用处标为代理。** 自住可筛（字段 30 已确认），单户与第一留置权不行。
+详见 `b8_inputs_availability.md` §6.2.12.2。
+
+## 16.10 §14.10 之后的顺序，按本轮结果重排
+
+**B8-0b 在国债 CMT 曲线之后，不在它之前。** 理由：`b8_omega.py` 的 P2 证明合同三元组上
+贴现曲线完全抵消，所以 B8-0a 不需要国债数据；但抵消的条件是 `V` 与 `V̂` 共用同一个
+`(i, n, d)`，而**修改当月利率变、期限也变**，`k(i, d, n)` 两侧不同，曲线进来
+（实测 `r` 在 CMT 0.5% 到 15% 上从 −0.000487 变到 −0.000494）。
+B8-0b 的 `N` 是修改三角上匹配贷款的环和离散度，**算它就得先给修改月定价**。
+
+| 序 | 站 | 理由 |
+|---|---|---|
+| 1 | **C9**（每格观测数，`min_size = 20`） | 核心表上约二十秒。它决定逐类底要不要做、B8-4 在哪张网格上跑、要不要下载全年份 |
+| 2 | **CMT 曲线站** | B8-1 之后每一条的硬阻塞。**开工前两个构造选择必须先钉死**，见 §16.11 |
+| 3 | **B8-0b 池化底**，然后 B8-1 / B8-2 / B8-3 | §15.7 的头条只需要池化 `N` |
+| 4 | **逐类底与 B8-4a / B8-4b** | §15.4 才需要 `√Z(a)/√N(a)`，且按 §15.3 被 C9 闸住 |
+
+**逐类噪声底不是必须的，它是条件性的，条件是 C9。**
+
+## 16.11 CMT 曲线站开工前必须钉死的两条（与 C8 同性质）
+
+**一、怎么插值到剩余期限**：线性于期限还是线性于对数期限。注册里只写了「插值」。
+
+**二、期限超出最长可得档位时怎么办**，而这是一个有日期的真实缺口：
+**三十年期 CMT 在 2002-02 到 2006-02 之间不存在**（财政部停发三十年债），
+那正好是 2002Q1 那批贷款年轻、剩余期限接近 360 个月的窗口；
+二十年期在 1987 到 1993 之间也缺。**外推还是封顶，跑前写下来。**
+
+## 16.12 C9 已跑：B8-4a 有五张网格，B8-4b 没有（2026-08-16）
+
+§15.3 的闸有答案了。全文 `b8_inputs_availability.md` §6.4 与
+`claude-docs/B8_C9闸结果与分档来源_v1.md`，结果 `results/b8_c9_cells.md`。
+
+**B8-4a 可用的五张，全部挂在借款人身上**（地板 20，`(类 × §6 四窗口)`，六档合并）：
+`purpose` 826 / `fthb` 237 / `fico_llpa_coarse5` 74 / `dti_complement15` 49 /
+`fico_llpa9` 36。`ltv_llpa_coarse4`（82）与 `occupancy`（36）过地板但按 §2.4
+挂在房屋上，不是 B8-4 可用的网格。**两道闸独立，都要过。**
+
+**必带的一句：过闸的里面舒服的都是粗的，细的都贴着地板。** `fthb` 两层、
+`purpose` 三层，粗到几乎不构成类指标；有分辨力的 `fico_llpa9` 九层只到 36。
+DTI 唯一过闸的是 `complement15`，而 §3.3 量出那张网格的秩是 0。
+**过 C9 只是说可以尝试读，不是说读出来可信。**
+
+**B8-4b 十一张全不过**，min 0 或 1，argmin 大半在 `2019Q1`：Flex 修改窗口是
+2017-2019，2019Q1 那批在窗口里最多一年账龄。**§15.6 的分支因此落地，
+第二域指向公司信用**，条件是 B8-3 过。**§15.3 明写这不是 B8 的失败。**
+
+## 16.13 分档边界的来源，与一条随引用一起走的不对称
+
+§5 只写「band」。**FICO 与 LTV 取发行人自己的定价划分**（Fannie LLPA Matrix
+Table 1，现行版生效 2026-01-28），与 §3.3 主 `q` 网格取「延滞状态字段自己的划分」同理。
+**DTI 没有发行人划分**：所有基于 DTI 的 LLPA 在 **2023-05-17 被移除**，
+所以 DTI 取监管的 HMDA 公布分档，即 §3.3 已量过的那张。
+**两者不是同一种来源，这条不对称随每一处 DTI 分档引用一起走。**
+
+## 16.14 §3.3 的结论被一个纯计数独立重现
+
+`dti_complement15` 十五层过闸（49），`dti_coarse6` 六层不过（11），
+差别只在 complement 把 `>60` 并进「36-49 之外」而 coarse6 单独留着。
+**层更多的活，层更少的死。** §3.3 是在 B7 的秩统计量上量的，
+**这次是一个纯计数、在另一批数据上，给出同一条结构性结论。**
+
+## 16.15 三角已搬上核心表，逐窗口对上 C3/C4
+
+`experiments/b8_triangles.py`，五个窗口全部 +0，合计 51,286。
+**这一份是三角判据在核心表上的唯一拷贝**，C9 与其后任何按三角取样的站都从它取，
+不许再手写第二份。抄写风险两处（`cured_after_mod` 的递延臂、延滞编码的长度约定）
+都量出来了，后者六档全零。
+
+## 16.16 曲线站已跑：两条构造规则实测不承重，但门后面的人估不出月供（2026-08-17）
+
+§16.11 有答案了。全文 `b8_inputs_availability.md` §6.5 与
+`claude-docs/B8_曲线站与敏感度_v1.md`。
+
+**一、30 Yr 的 47 个月缺口是曲线的性质。** Treasury 缺 2002-03 到 2006-01，FRED 不缺，
+而 **CMT 由发行人定义，发行人没发就是没有**，FRED 在那里的是别的东西。
+落在缺口里的修改 1,506 / 50,958，2.96%。
+
+**二、两条构造规则在可测总体上够不到读数。** 环和极差最大 4.974e-14，
+对 (i-b) 噪声底 6.5e-6 **低八个数量级**。P2 的抵消对每一个无递延余额的真实行都成立，
+最大极差 3.553e-15，判据是有来源的 `4·|log V|·eps`。
+**但仍须在跑前把两条规则写下来**，一个看不见的选择也要写下来，
+否则下一个人不知道它是被看过还是被漏了。
+
+**三、`log V` 单腿的敏感度是错的对象。** 第一次量出 267 到 7,110 倍噪声底，
+而那个量在 `r` 里精确约掉，因为 `r_month` 两条腿共用 `(i, n, d)`。作废件留档。
+
+## 16.17 新阻塞，排在曲线之前，且挡住 B8-3
+
+**递延腿估不出合同月供。** `r` 只在月供已知处算，月供从安静月份估，
+`quiet_pairs(require_never_deferred=True)` 排掉递延过的贷款。
+六档共 **703,504 个递延行，月供已知的是 0**，这是构造上的必然不是数据缺失。
+
+**§14.4 的 B8-3 主路径对是「修改」对「递延」，两侧各占一个**，
+所以 **B8-3 卡在这里，而它是 §5 里唯一不需要赢下节点同一性反驳的那条**。
+
+待验的路：递延不改月供，从递延前的安静月份估再 carry 过去。**那是推理，要量。**
+
+## 16.18 修改三角的环窗口至今没有定义
+
+`find_clean_cures` 定的是无修改的清洁自愈。**修改三角的环窗口哪里都没定义过。**
+`b8_cmt_sensitivity2.py` 里用的「首个延滞行到修改后首个自愈行」是为了有个东西可以求和
+而临时定的，代码与结果件里都标死了**不得作为注册件引用**。
+**B8-1 之后每一条都要它，这是一条待注册项。**
+
+---
+
+# 17. 环窗口的注册，与曲线的两条构造规则（2026-08-17）
+
+**注册件。不读任何一行预测，不改任何已跑的数。** 结清 `OBJECTIONS.md` 的
+**O25**（环窗口未定义）与 **O21**（曲线两条规则未钉死）。
+全文另存 `claude-docs/B8_环窗口与曲线规则_预注册_v1.md`。
+
+## 17.0 这一节接在哪里，以及它不是新造的
+
+**环窗口的概念层 §14.6 已经写过了**：「the duration of the closed loop, from the
+last current month before the episode to the first current month after it」。
+缺的是行级操作化，而**那个操作化已经存在一份**：`b8_0a_gate.find_clean_cures`
+的 `t0 / start / end`，它的 docstring 自己就引 §14.6，残差跑在 `t0+1 .. end` 上。
+
+**所以本节不发明窗口，它把已有的那一份推广到修改与递延两条臂，并把推广时必须
+做的选择钉死。** `find_clean_cures` 是本节 `事件起始沿计数 == 0` 的特例。
+
+## 17.1 三个行下标与求和范围
+
+```
+t_A   出发顶点，current
+t_M   修改（或递延）起始行
+t_B   归位顶点，修改之后的第一个 current
+ω(环) = Σ_{t = t_A+1}^{t_B} r(t)
+```
+
+`r(t)` 定义在相邻行对 `(t-1, t)` 上，所以求和从 `t_A+1` 起、到 `t_B` 止，
+含两端那两个行对。**出发顶点那一行本身不贡献残差**，它是 `V` 的锚。
+窗口长度 `t_B − t_A` 个月，正是 §14.6 的分母。
+
+## 17.2 起点靠修改反向锚定，且整个窗口内部一个 current 行都没有
+
+两条，缺一不可：
+
+- **(a)** 从 `t_M` 往回走到最近的 `current` 行 `t_A`，要求 `(t_A, t_M)` 之间每一行
+  都不是 `current`；
+- **(b)** `t_B` 取 `t_M` 之后的第一个 `current` 行，于是 `(t_M, t_B)` 之间按定义
+  也没有 `current`。
+
+**合起来：窗口内部 `(t_A, t_B)` 一个 `current` 行都没有。这一句是「它是一个环
+而不是两个」的全部内容，写成一句话而不是让读者自己从 (a)(b) 推。**
+
+这是与 `b8_cmt_sensitivity2.triangle_window` 的实质分歧，而且必须分歧。
+那一份取的是**贷款的首个**延滞行（`_first_pos_per_loan(is_del)`）。三条理由：
+
+1. **中途经过 `current` 的走法不是一个环，是两个。** 并成一个求和，正好抹掉
+   B8-3 要的那个区分：§5 的候选路径对里明写着「自愈-再违约-再修改」对
+   「首次违约即修改」。
+2. **与 `find_clean_cures` 同形。** 清洁自愈按构造就是一段连续延滞。两个零标定
+   用同一种切法，B8-0a 才是 B8-1 的零标定而不是另一个对象。
+3. **临时窗口会把更早那次已自愈的发作吞进来**，而那一段正是 B8-0a 的样本。
+   吞进来等于把闸的样本混进读数。
+
+## 17.3 修改与自愈落在同一行：`t_M == t_B`，leg 3 是构造上的空
+
+`b8_triangles.py` 的转写规矩写着「a row that turns the flag on and reads `00`
+counts as cured after modification, not before it」。**所以修改那一行可以同时
+读 `00`**，此时 `t_M == t_B`，`leg 3` 是空区间，环 `= leg 1 + leg 2`。
+
+**这类环要单独计数，不许混进 `ω₃` 的读数。** §14.3 写着 `ω₃ ≈ 0` 是
+「measured rather than assumed」，而在这类环上它是**构造上的恒等零**。
+两者混报，「`ω₃` 实测近零」这句话就会被一批本来就为零的环撑起来。
+**这是坑 23 的同一族：空集的和与量出来是零印得一模一样。**
+
+## 17.4 一个环里两类起始沿：那条边不在 §14.4 注册的图里
+
+连续延滞段内**同时**出现修改起始沿与递延起始沿的环，走的是
+`deferred → modified`（或反向）这条边，而 **§14.4 注册的五条边里没有它**
+（`current→delinquent`、`delinquent→modified`、`modified→current`、
+`delinquent→deferred`、`deferred→current`）。
+
+**处置：单独识别、单独计数、从两条三角臂里都排除。** 它是一个更长的走法，
+属于 §17.5 的路径材料，不是 B8-1 的三角。
+臂的归属按段内第一个起始沿的类型命名，**仅用于给这类环起名，不用于把它塞回
+某一臂**。
+
+## 17.5 路径累积 `Ω` 是另一个对象，两处引用都要写清是哪一个
+
+| 记号 | 是什么 |
+|---|---|
+| `ω(环)` | 一次闭合走法的残差和。**原子。B8-1 / B8-2 读它。** |
+| `Ω(路径)` | 到终点为止，该笔贷款走过的**所有**环的 `ω` 之和。**B8-3 读它。** |
+
+「自愈-再违约-再修改」的 `Ω` 有两项（一个清洁自愈环加一个修改三角），
+「首次违约即修改」的 `Ω` 有一项。**B8-3 的原话是 accumulated `ω`，那是 `Ω`。**
+不分开命名，B8-3 会在实现时被写成单环比较，而单环比较测不到它要测的东西。
+
+## 17.6 两个顶点的条件：两条承重，一条防呆
+
+出发顶点 `t_A` 与归位顶点 `t_B` 同样三条：
+
+| 条件 | 地位 | 来源 |
+|---|---|---|
+| `delinq == 0` | 承重 | 顶点定义 |
+| `rem_legal` 非空 | **承重** | 坑 13 二次更正：终止行报一个余额零然后把合同状态整体停报，**挡住终止行的是这一条**（六档漏网 5/2/5/1/0/0） |
+| `upb > 0` | **防呆** | 同一条更正在六档上删掉零个对，地位是防呆不是修复，照 §16.6 的处置 |
+
+**额外一条并入 `upb > 0`：出发顶点不得是贷款的首行**（坑 13，首行 UPB 恒零，
+六档 1.0000）。它被 `upb > 0` 蕴含，**但要单独印计数**，因为它是构造截断不是
+数据缺陷，两者的裁定不同。
+
+**再加一条从 `find_clean_cures` 原样继承**：窗口内报送月份必须连续
+（`period` 逐月差恒为 1）。断月的窗口做不了逐月 carry，丢弃并计数。
+
+## 17.7 不闭合的三种，分开数，不许合并成一个「掉样」
+
+1. **档末仍在延滞** —— 右删失。
+2. **已终止且从未自愈** —— 真的没有环。
+3. **修改前没有连续延滞段** —— 不是三角（字段 42 在 `current` 上翻 `Y`）。
+
+三种的计数分开报。§7 的规矩：silence about a dropped record is how a sample
+becomes a selection。**第 1 类与第 2 类合并是最容易犯的那个**：一个是观测窗口
+的性质，一个是贷款的性质。
+
+## 17.8 环内多次同类起始沿，归一个环，并单独印计数
+
+`t_M` 取连续延滞段内的**第一个**起始沿。段内之后的同类起始沿仍在窗口内，
+落进环和。**归位之后的起始沿开新环。**
+
+**段内同类起始沿多于一个的环要单独印计数**：那是 HAMP 试用期转正的
+population，§14.3 已经写了它「measured rather than assumed」，这里给它一个
+可数的载体。（不同类的起始沿走 §17.4。）
+
+## 17.9 递延臂同一条窗口规则，起始列是开着的问题，本节不裁
+
+递延三角 `current → delinquent → deferred → current` 同形，**窗口规则一字不改**。
+
+~~起始沿取哪一列（字段 63 还是字段 108）是 **O24 与 B10 §19.9** 开着的问题~~
+（实测两列上升沿差 13 到 18 倍：2012Q1 是 267 对 4,882，2019Q1 是 1,124 对
+14,777）。**本注册只写一句：窗口规则与起始沿的列选择是两件事，换列不改窗口。**
+这样 B10 裁完方法之后 B8 换列，不必重开本节。
+
+**2026-08-17 更正：那个问题已经关了，而本节写的保证正是它关掉之后兑现的东西。**
+C10-4 在两列的上升沿上同时读合同是否移动：字段 63 那一侧动利率 46.1%、动期限
+84.2%，字段 108 那一侧 `still = 0.9966`（利率与期限都不动）。**递延起始沿是字段
+108**，`b8_inputs_availability.md` §6.6.11 落的判乙，O27 已结为 D20。
+
+**换列没有改动本节任何一个字**，这是本节当初写那句保证的全部意义：
+`b8_loops.py` 的 `DEFER_FIELD` 从 63 改到 108 之后，§17.1 到 §17.8 的窗口规则
+一行未动，重跑的窗口计数按新起始沿移动而窗口的定义没有移动。
+**一个写在裁定之前、在裁定之后被兑现的保证，比一个事后补的说明可信。**
+
+## 17.10 可测性：整段月供已知，掉样按修改前后两侧分开印
+
+`r(t)` 只在合同月供已知处算。窗口按构造跨一个合同期边界
+（~~`contract_periods` 在修改起始沿与递延起始沿上都切~~）。
+**所以环可测的条件是：窗口内每一个月都有已知月供。**
+
+~~**掉样计数必须按修改前 / 修改后两侧分开印。** 理由是 O24 咬的正是修改后那一侧：
+递延臂上它恒为零（六档 703,504 个递延行，月供已知 0）。
+**一个合并的掉样数看不出这件事**，而那正是本站现在最大的阻塞。~~
+
+**2026-08-17 两处更正。掉样按两侧分开印这条留着，挂在上面的理由整个换掉了。**
+
+**一、切点。** `contract_periods` **不在字段 108 上切**，而且 §6.6.17.2 明裁
+不许切：C10-4 在字段 108 的上升沿读 `still = 0.9966`，利率与期限都不动，
+合同月供不可能变，切一刀只会把一个合同期劈成两段、每段的安静月更少、
+估计更差。**它切的是字段 63 的上升沿**，因为那一侧是再签约。
+**所以窗口跨不跨合同期边界，取决于这个环走的是哪条臂**，
+修改臂跨，递延臂不跨。原文那半句把两条臂说成同一形状。
+
+**二、703,504 这个数不是递延行。** 它是**字段 63 的在行数**，也就是修改
+population 的行数，被当成递延行引了一路（O24 已按这个重写）。
+递延臂的实测在 §6.6.15：**全路径月供已知的占 92.86%**，不是 0。
+
+**所以「本站现在最大的阻塞」这个判断也不成立，而两侧分开印这条要求活下来。**
+它现在的理由不是「有一侧恒为零」，而是**两条臂的合同期结构本来就不一样**
+（见上一条），合并的掉样数把两种不同的可测性搅在一起。
+**一个理由被推翻的要求，如果本身还站得住，要重新给它一个理由，
+而不是靠原来那句话的惯性留着。**
+
+## 17.11 腿的切分是记账，环和不依赖它，但要断言恒等式
+
+§14.2 已定。切点：
+
+```
+leg 1 = (t_A, t_M)      current → delinquent
+leg 2 = t_M 那一个月     delinquent → modified
+leg 3 = (t_M, t_B]      modified → current
+```
+
+**三段之和恒等于环和，这是恒等式不是判据**，但要在代码里断言它。
+理由是它能抓住窗口实现的错位（差一行的边界会让三段和不等于环和），
+而错位在别处是安静的。**`t_M == t_B` 时 leg 3 是空和，断言照样成立**，
+所以断言不能代替 §17.3 的计数。
+
+## 17.12 这条注册取代什么，欠谁一笔账
+
+`b8_cmt_sensitivity2.triangle_window` **作废为注册件**（它自己已标死不得引用）。
+
+`results/b8_cmt_sensitivity2.md` §3 的环级数字是在那个临时窗口下出的。
+按 R01，改口径要双报：**下一次在注册窗口下重跑曲线敏感度，必须同时印两个窗口的
+环数与环和，且必须印 delta**（坑 18：一次没法跟旧口径做差的重跑不结清双报）。
+
+临时窗口的环数留档：**6,272 / 13,134 / 17,061 / 2,954 / 5,411 / 4,647**。
+
+## 17.13 一条必须先说清的非冲突：C3/C4 数的是贷款，§17 数的是环
+
+`b8_triangles.py` 的 C3/C4 判据是**每笔贷款一次**
+（`if s.mod_period and s.seen_current and s.first_delinq and s.cured_after_mod`），
+六档合计 **51,286** 是**贷款数**。
+
+**§17 的环是每次闭合走法一个，一笔贷款可以有多个。** 两个数不是同一个对象，
+而且方向不是单向的：
+
+- 一笔贷款可以贡献多个环 → 环数可以多于 51,286；
+- 一笔被 C3/C4 数进去的贷款可以贡献**零**个注册环（例如在 `current` 上翻 `Y`
+  再违约再自愈的走法，§17.7 第 3 类）。
+
+**两个数的差必须量出来印，不许假设它小。** §16.15「三角判据唯一一份」那条纪律
+指的是三角的判据只写一份，**不是说环等于三角**。
+
+---
+
+## 17.14 曲线，插值：线性于期限（`linear_in_tenor`）
+
+**来源。** 财政部按固定档位公布 CMT，**档位之间没有发行人约定**，
+所以 §16.13 那条「取发行人自己的划分」在这里没有对象。
+落到次级规则：**取不引入自由参数的那一条**，即线性于期限。
+
+## 17.15 曲线，超出最长可得档位：封顶（`cap`）
+
+**来源不是「保守」，是与已下的裁定一致。** §16.16 第一条裁的是
+**CMT 由发行人定义，发行人没发就是没有**，30 Yr 那 47 个月缺口据此判成曲线的
+性质而不是下载工件（两来源互校）。
+
+**外推等于给一个发行人不卖的期限造一个价，与那条裁定直接冲突。**
+同一条原则，两处结论必须一致，否则那条裁定就只是为了解释缺口临时找的说法。
+
+**后果，写明并随引用一起走：** 2002-03 到 2006-01 之间，剩余期限 360 个月的
+贷款读到的是当月最长可得档位（那段里是 20 Yr）。
+落在缺口里的修改 **1,506 / 50,958，2.96%**。
+
+## 17.16 这两条规则今天够不着任何一行，而这**不等于**「实测不承重」
+
+§16.16 写的「两条构造规则实测不承重」**偏松，本节把它改准**。逐条：
+
+1. **无递延余额的行上，六种构造的 `r` 逐位相同**（最大极差 3.553e-15，
+   判据 `4·|log V|·eps` = 1.243e-14）。**那是代数抵消，不是曲线鲁棒**：
+   `V = LP(bal, i, n)·A(d, n)`，`LP` 线性于余额，两腿共用 `(i, n, d)`，
+   年金因子整个约掉。
+2. **曲线唯一进得来的门是气球项** `nib·(1+d)^-bn`。
+3. **带气球的行里月供已知的是 0，带气球的环是 0**，六档全零。
+4. 所以 **4.974e-14 不是曲线规则的效应量，是抵消之后剩下的舍入**。
+   正确的写法是**今天够不着**，不是「不承重」。
+5. **什么时候会变**：O24 解开、递延臂进来之后，气球项才第一次有已知月供的行。
+   **那一天要重跑这张表。不许引今天的读数说它不承重。**
+
+**2026-08-17：那一天到了，这张表现在是欠的。** 触发条件是本节第 5 条自己写的，
+两半都已发生：O24 已按 §6.6.15 重写（那 703,504 是字段 63 的行数，递延臂的
+全路径月供覆盖率是 **92.86%**），载体也已由 C10-4 定到字段 108。
+**气球项第一次有已知月供的行，所以第 3 条的「带气球的环是 0」不再成立。**
+
+**账记在这里：`b8_cmt_sensitivity` 的六种构造对比要在 `V` 改口径之后重跑**，
+而且要在**带气球且月供已知**的行上重读，那是第 2 条说的曲线唯一进得来的门。
+**在重跑之前，本节 1 到 4 条的读数只对无气球的行成立，不许引它们说曲线规则
+不承重。** 本节当初把「不承重」改成「今天够不着」，就是为了让这一天到来时
+有一笔可以还的账，而不是一个已经写死的结论。
+
+## 17.17 一条新登记的缺陷：空集印零，坑 23 在同一份文件里隔一节复发
+
+`results/b8_cmt_sensitivity2.md` §2 已经把不可测的格子改成 `not measurable`，
+**而 §3 的「loops with a balloon / their p50 / their max」三列仍然印
+`0` 与 `0.000e+00`。** 空集上的中位数与「量出来是零」印得一模一样，
+正是坑 23 的原话。**同一轮、同一份文件、隔一节复发。**
+已加进 `HANDOFF_B8.md` 坑表第 26 条。
+
+## 17.18 本节不裁什么
+
+| 项 | 为什么不在这里裁 |
+|---|---|
+| ~~递延起始沿取 63 还是 108~~ **已裁：字段 108** | ~~O24 / B10 §19.9~~ C10-4 判乙，O27 结为 D20（2026-08-17）。**§17.9 保证的「换列不改窗口」已经兑现**，换列时本节一字未动 |
+| `MIN_QUIET_FOR_PAYMENT` 提不提高 | 覆盖分布已印，是另一件事 |
+| §7 的三个未施加过滤器（单户 / 一顺位 / 自住） | 与窗口无关，另记 |
+| O18 那 46.65% 未命名的少付月份 | 与窗口无关 |
+| 环和的符号预期 | §14.3 已写，是两项赛跑，事先定不下来 |
