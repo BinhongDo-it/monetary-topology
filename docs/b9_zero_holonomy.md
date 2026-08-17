@@ -4855,3 +4855,92 @@ series — the published `30`-day median spread, the fee, shares outstanding.
 
 > **More data measures the same quantities better. It does not turn a prediction
 > a competing account also makes into one it gets wrong.**
+
+---
+
+# 55. The two zeros, and why this stage's wedge is not one of them
+
+**Ruling, recorded 2026-08-17. Nothing was run for it.** It is here because the
+stage is named for zero holonomy and every reading it took is non-zero, so a
+reader is entitled to ask where the zero is. **No verdict below is new; every
+number is §18.5, §24 or §25.1.**
+
+## 55.1 Two zeros, and §24's discriminator is what separates them
+
+| | the statement | this stage |
+|---|---|---|
+| **mathematical zero** | `λ ≡ 0` on every cycle: `ω` is exact, a potential exists, closed walks cancel | **no.** `1.05` to `5.08` times `F_m`, `11/11` at `f = 0` (§25.1) |
+| **economic zero** | `\|λ\| / F_c ≤ 1`: the wedge exists and no one can act on it | **yes, and it is measured: the main arm reads about `1`** (§18.5) |
+
+The separation is §24's, and it is the same discriminator that falsified
+quantisation: **a measurement floor falls when the measurement improves, a cost
+floor does not.** Two floors, two zeros, **and a reading has a size only against
+one of them.**
+
+> **The main arm's reading is that the wedge is about the size of the cost of
+> removing it.** That is the empirical content of no free lunch, **and it is a
+> different sentence from `λ = 0`.**
+
+The comparison arm at `17` to `28` is the control and it points the other way:
+that premium is stale-NAV measurement, **not an opportunity** (§20.3).
+
+## 55.2 Improving the measurement moves away from the mathematical zero
+
+By §24.8, `F_m` falls when the instrument improves and `λ` does not follow it
+down. **So no improvement in measurement can produce a mathematical zero here.**
+It can leave `|λ| / F_m` where it is or raise it.
+
+**One correction to how this was first stated.** Obtaining TAQ does **not** lower
+`F_m` for the reading actually taken, because §54.3 established that
+`disclosed_price` **already is** the closing NBBO midpoint. The closing price is
+not improvable, it is the object. What an intraday NBBO buys is a **different**
+price object, an average over many midpoints whose quantisation error falls as
+`1/√n`, **and that is what would lower the floor.** §25.1's generous corner
+already carries the one-sample version of this, `F_m/√12`.
+
+**The looser first version was written into the stage report before this section
+was drafted, and is carried in the ledger as defect twenty-one**, caught by
+reconciling a new section against §54.3 rather than by any guard. **The sign and
+the verdict did not move; the mechanism was wrong.**
+
+> **The sign is the same either way, and it is the point: §54.4's route leads to
+> a more distinguishable non-zero, never to a zero.** Anyone expecting better
+> data to close this gap has the discriminator backwards.
+
+## 55.3 Where a mathematical zero lives, and it is not this carrier
+
+`λ ≡ 0` is a property of **how the prices are made**, not of how well the market
+clears. It holds by construction wherever one leg is **derived from** the others
+rather than quoted against them.
+
+> **The standard case is a cross rate computed from two majors: the triangle
+> closes identically, to the last digit, because the third quote was never
+> independent.** The same instrument family also carries independently made
+> crosses, **and those do not close.** A family holding both is a calibration:
+> the same machine reads exact zero on one member and non-zero on another.
+
+**This carrier cannot supply it**, and the reason is structural rather than
+effort: `b₁` is small (§48 raises it to `2`, not further), there is no grid to
+vary (§14 is why §1.1 does not bite here), and **every edge has someone charging
+for it** (§16.4's fee interval, §48's `δ ≈ 5.6` basis points). **No member of
+this family has a derived third leg.**
+
+**This is a statement about where to look. B9 does not open it and does not
+claim it.**
+
+## 55.4 Standing prohibition
+
+**The wedge may not be reported as a found zero.** A reading of `1.05` to `5.08`
+against `F_m` is a non-zero, and calling it zero is reading it against the wrong
+floor — **the error §24 charged this stage for once and §33 charged it for a
+second time.**
+
+**What it may be reported as, and this is worth as much:**
+
+> **the main arm sits at about `1` against `F_c`, which is direct evidence the
+> wedge was not left on the table.** The framework's non-zero and the market's
+> no-arbitrage **both hold here and do not conflict**, because they are distances
+> to two different floors.
+
+**Any later stage citing §18.5 or §25.1 must carry the floor with the number.**
+A ratio without its denominator is not a reading.
