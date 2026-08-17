@@ -62,6 +62,7 @@ TARGETS = {
     "b8_c13_double_balance.py": (["COLS"], ["selftest"]),
     "b8_loop_omega.py": (["COLS"], ["selftest"]),
     "b8_0b_floor.py": (["COLS"], ["selftest"]),
+    "b8_3_paths.py": (["COLS"], ["selftest"]),
 }
 
 
