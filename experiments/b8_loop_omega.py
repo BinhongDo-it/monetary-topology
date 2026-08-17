@@ -137,13 +137,24 @@ IDENTITY_TOL = 4.0 * 300.0 * 14.0 * np.finfo(np.float64).eps
 # the curve, as a row-indexed array
 # ---------------------------------------------------------------------------
 
-def curve_table(rule=RULE):
+def curve_table_from(src, rule=RULE):
     """``(month_index -> table row, table[months, MAX_H+1])`` of yields.
 
-    Missing months and horizons are NaN, so a lookup that should not have
-    happened surfaces as a NaN rather than as a plausible number.
+    ``src`` is `b8_cmt_fetch.load_treasury`'s **first** element, that is
+    ``{(month_index, tenor_label): [values]}``. Missing months and horizons are
+    NaN, so a lookup that should not have happened surfaces as a NaN rather
+    than as a plausible number.
+
+    **Split from `curve_table` so the selftest can enter it.** The loader is
+    the only part that needs the Treasury CSVs on disk; the table build is pure
+    and is where a format mismatch shows up. It showed up on the first real run
+    as `'tuple' object has no attribute 'items'`, because `load_treasury`
+    returns ``(dict, filenames)`` and this passed the pair straight through.
+    Nothing in the selftest reached this function: it builds its own flat table
+    instead, so the whole loader boundary was uncovered. **Pit 30's family, at
+    a module boundary rather than a column list.**
     """
-    curves = S1.month_curve(F.load_treasury())
+    curves = S1.month_curve(src)
     months = sorted(curves)
     pos = {mi: k for k, mi in enumerate(months)}
     tab = np.full((len(months), MAX_H + 1), np.nan)
@@ -154,6 +165,18 @@ def curve_table(rule=RULE):
             if y is not None:
                 tab[k, h] = y
     return pos, tab
+
+
+def curve_table(rule=RULE):
+    """:func:`curve_table_from` on the saved Treasury CSVs."""
+    src, files = F.load_treasury()
+    if not src:
+        raise SystemExit(
+            "no Treasury curve under data/raw/cmt. Run: python "
+            "experiments/b8_cmt_fetch.py fetch")
+    print(f"  curve: {len(files)} file(s), {len(src):,} (month, tenor) cells",
+          file=sys.stderr)
+    return curve_table_from(src, rule)
 
 
 # ---------------------------------------------------------------------------
@@ -606,8 +629,95 @@ def _selftest_leg2(cache_root, pos, tab) -> list[str]:
     return out
 
 
+def _selftest_curve() -> list[str]:
+    """`curve_table_from`, on a source in `load_treasury`'s exact format.
+
+    **The run path had no coverage at all here** and died on its first real
+    invocation, because `load_treasury` returns ``(dict, filenames)`` and
+    `curve_table` passed the pair on as if it were the dict. The selftest built
+    its own flat table and never crossed the boundary.
+
+    So this builds a source the way the loader does, keys and all, and checks
+    that a lookup out of the table equals `yield_at` called directly. **A stub
+    that invents its own format would reproduce the same defect**, which is why
+    the tenor labels come from `b8_cmt_fetch.TENOR_MONTHS` rather than from a
+    literal here.
+    """
+    out: list[str] = []
+    labs = sorted(F.TENOR_MONTHS.items(), key=lambda kv: kv[1])
+    if len(labs) < 3:
+        return ["b8_cmt_fetch.TENOR_MONTHS has fewer than three tenors"]
+    # two months, so `pos` has to actually index; daily values per cell, so the
+    # monthly mean is exercised rather than a single value passed through
+    src = {}
+    for mi in (240, 241):
+        for j, (lab, n) in enumerate(labs):
+            base = 1.0 + 0.25 * j + 0.1 * (mi - 240)
+            src[(mi, lab)] = [base - 0.05, base + 0.05]
+    pos, tab = curve_table_from(src)
+
+    if sorted(pos) != [240, 241]:
+        out.append(f"curve_table_from indexed months {sorted(pos)}, want "
+                   "[240, 241]")
+        return out
+    if tab.shape != (2, W.MAX_H + 1):
+        out.append(f"curve table shape {tab.shape}, want (2, {W.MAX_H + 1})")
+        return out
+
+    pts = sorted((n, 1.0 + 0.25 * j) for j, (_lab, n) in enumerate(labs))
+    for h in (1, labs[0][1], labs[len(labs) // 2][1], labs[-1][1],
+              W.MAX_H):
+        want = S1.yield_at(pts, h, *RULE)
+        got = float(tab[pos[240], h])
+        if want is None or abs(got - want) > 1e-12:
+            out.append(f"curve table at horizon {h} reads {got}, `yield_at` "
+                       f"says {want}")
+    if np.isfinite(tab[:, 0]).any():
+        out.append("horizon 0 is not NaN; a lookup that should not have "
+                   "happened would read as a number")
+    # the two months must differ, or the month index is untested
+    if float(tab[pos[240], 120]) == float(tab[pos[241], 120]):
+        out.append("both months read the same yield, so `pos` could map "
+                   "anywhere and nothing here would notice")
+
+    # **The loader boundary itself**, which is where the defect actually was.
+    # `curve_table_from` being right does not make `curve_table` right, and
+    # only `curve_table` is on the run path.
+    #
+    # Two halves, and both are needed. First: call the real loader and check
+    # what shape it returns. It reads whatever CSVs are on disk and returns an
+    # empty pair when there are none, so **this needs no data** and it is the
+    # half that keeps the stub below honest. A stub whose shape is invented
+    # rather than observed reproduces the very defect it is meant to catch.
+    real = F.load_treasury()
+    if not (isinstance(real, tuple) and len(real) == 2
+            and hasattr(real[0], "items")):
+        out.append(f"load_treasury returned {type(real).__name__} of "
+                   f"{len(real) if isinstance(real, tuple) else '?'}; the stub "
+                   "below is built to the wrong contract and proves nothing")
+        return out
+    # Second: run `curve_table` end to end against a loader of that shape.
+    saved = F.load_treasury
+    try:
+        F.load_treasury = lambda: (src, ["stub.csv"])
+        pos2, tab2 = curve_table()
+    finally:
+        F.load_treasury = saved
+    if pos2 != pos or not np.array_equal(np.nan_to_num(tab2, nan=-1.0),
+                                         np.nan_to_num(tab, nan=-1.0)):
+        out.append("curve_table and curve_table_from disagree on the same "
+                   "source; the loader is unpacked wrong")
+
+    print(f"  curve table: {tab.shape[0]} months x {tab.shape[1]} horizons, "
+          f"240@120m {tab[pos[240], 120]:.4f} vs 241@120m "
+          f"{tab[pos[241], 120]:.4f}; loader boundary crossed",
+          file=sys.stderr)
+    return out
+
+
 def selftest() -> int:
     fails: list[str] = []
+    fails += _selftest_curve()
 
     # -- the range helper, against hand arithmetic -------------------------
     r = np.array([np.nan, 1.0, 2.0, 4.0, 8.0, 16.0])
@@ -788,8 +898,17 @@ def main() -> None:
     args = ap.parse_args()
     if args.command == "selftest":
         raise SystemExit(selftest())
-    names = args.only or sorted(
-        p.name for p in (K.CACHE / K.SCHEMA_VERSION).iterdir() if p.is_dir())
+    # **The same discovery `b8_0a_gate` uses**, including the two guards it has
+    # and an earlier draft of this file did not: a missing cache root raises
+    # rather than reporting "no core table", and a half-built archive with no
+    # manifest would have been read as a finished one.
+    root = K.CACHE / K.SCHEMA_VERSION
+    names = sorted(p.name for p in root.iterdir()
+                   if p.is_dir() and (p / "manifest.json").exists()) \
+        if root.exists() else []
+    if args.only:
+        keep = set(args.only)
+        names = [n for n in names if n in keep]
     if not names:
         print("no core table. Run: python experiments/b8_core.py build",
               file=sys.stderr)
