@@ -663,17 +663,15 @@ and the timing pairs are retained as secondary.**
 deferred`. Secondary: `current / delinquent / modified / deferred`. Both still satisfy
 the two-grid rule and neither boundary is chosen by this project.
 
-**One thing the deferral route cannot do, declared now.** ~~Deferral exists only in
-the COVID window~~, so **B8-2 cannot be run on the deferral triangle**. B8-2 remains a
-modification-route test across §6's four windows, and the deferral route is reported
-without a window comparison.
+**One thing the deferral route cannot do, declared now.** **B8-2 is not run on the
+deferral triangle.** B8-2 remains a modification-route test across §6's four windows,
+and the deferral route is reported without a window comparison.
 
-**The struck clause was already contradicted by this section's own numbers, and it
-is corrected 2026-08-17.** The audit above reads **32,533** deferral triangles of
-which **31,057** are inside the COVID window: **1,476 are outside it.** Deferral is
-overwhelmingly a COVID phenomenon and it is not only one.
-
-**The conclusion survives the correction and the reason changes.** B8-2 compares a
+**The reason was rewritten 2026-08-17 and the old one was deleted, not struck.** It
+had read "deferral exists only in the COVID window", which this section's own audit
+contradicts: **32,533** deferral triangles, **31,057** inside the COVID window,
+**1,476 outside it.** Deferral is overwhelmingly a COVID phenomenon and it is not
+only one. B8-2 compares a
 quantity across §6's four windows. 1,476 triangles spread over three pre-COVID
 windows will not populate that comparison at anything like the modification route's
 density, so the deferral arm is still reported without a window comparison — **on
@@ -715,8 +713,9 @@ the gate becomes unambiguous, and a quantity that was going to be conflated with
 becomes a number that gets reported. §8's first falsification line now attaches to
 B8-0a(i).
 
-**Sample:** ~~366,345 clean cures across the six archives, from C5.~~ **That figure is
-`legacy` and is superseded 2026-08-17.** It was drawn before the field-108 screen
+**Sample:** whatever `b8_0a_gate` prints under `require_no_defer=True`.
+**The figure that stood here, 366,345 from C5, is deleted and superseded
+2026-08-17.** It was drawn before the field-108 screen
 existed, so it counts loans that deferred. `b8_0a_gate.find_clean_cures` screens both
 zero-interest fields now, and O28 measured the cost: **removing up to 31.25 per cent
 of the clean cures changed the verdict not at all**, because the gate's statistic is
@@ -759,7 +758,7 @@ availability record and not inside an experiment script.**
 | **C8-3** | is field 63 a balance or a cumulative deferral | the audit found 63 goes blank again on many loans, which a balance would do and a cumulative total would not |
 | **C8-4** | at the modification month, does field 12 step **up** by the capitalised arrears | if it does not, arrears are not in the balance and leg 2's residual is missing them |
 | **C8-5** | do 17 and 19 agree wherever both are present | the audit says they match exactly; confirm it on the modification months specifically |
-| **C8-6** | ~~do 107 and 108 describe the deferral, and does 108 agree with the change in 63~~ **Answered and the second half's premise is dead.** C10-4 settled that fields 63 and 108 rise on different rows for different reasons, so there is no "change in 63" for 108 to agree with. What replaced it: 108 and field 106's ADR code share a first onset on 35,617 loans with **zero** exceptions (§6.6.11), and C11-1 settled that field 12 contains 108 | 14.4's deferred tier needs the deferred amount to be readable from one field, not inferred. **It is: field 108** |
+| **C8-6** | **Answered.** 108 and field 106's ADR code share a first onset on 35,617 loans with **zero** exceptions (§6.6.11), and C11-1 settled that field 12 contains 108. **The original question's second half asked whether 108 agrees with the change in 63; that half is deleted, its premise killed by C10-4**, which settled that the two fields rise on different rows for different reasons, so there is no "change in 63" for 108 to agree with | 14.4's deferred tier needs the deferred amount to be readable from one field, not inferred. **It is: field 108** |
 
 **C8 terminates nothing.** Every outcome is a construction choice, and the point of
 asking first is that the choice is made against the file rather than against the
@@ -1298,12 +1297,12 @@ population，§14.3 已经写了它「measured rather than assumed」，这里�
 
 递延三角 `current → delinquent → deferred → current` 同形，**窗口规则一字不改**。
 
-~~起始沿取哪一列（字段 63 还是字段 108）是 **O24 与 B10 §19.9** 开着的问题~~
-（实测两列上升沿差 13 到 18 倍：2012Q1 是 267 对 4,882，2019Q1 是 1,124 对
-14,777）。**本注册只写一句：窗口规则与起始沿的列选择是两件事，换列不改窗口。**
-这样 B10 裁完方法之后 B8 换列，不必重开本节。
+**递延起始沿是字段 108。** 两列上升沿实测差 13 到 18 倍（2012Q1 是 267 对 4,882，
+2019Q1 是 1,124 对 14,777）。**本注册写一句：窗口规则与起始沿的列选择是两件事，
+换列不改窗口。**
 
-**2026-08-17 更正：那个问题已经关了，而本节写的保证正是它关掉之后兑现的东西。**
+**原文把列的选择写成 O24 与 B10 §19.9 开着的问题，那句已删除。**
+问题在 2026-08-17 关了，而本节写的保证正是它关掉之后兑现的东西。
 C10-4 在两列的上升沿上同时读合同是否移动：字段 63 那一侧动利率 46.1%、动期限
 84.2%，字段 108 那一侧 `still = 0.9966`（利率与期限都不动）。**递延起始沿是字段
 108**，`b8_inputs_availability.md` §6.6.11 落的判乙，O27 已结为 D20。
@@ -1315,15 +1314,15 @@ C10-4 在两列的上升沿上同时读合同是否移动：字段 63 那一侧�
 
 ## 17.10 可测性：整段月供已知，掉样按修改前后两侧分开印
 
-`r(t)` 只在合同月供已知处算。窗口按构造跨一个合同期边界
-（~~`contract_periods` 在修改起始沿与递延起始沿上都切~~）。
-**所以环可测的条件是：窗口内每一个月都有已知月供。**
+`r(t)` 只在合同月供已知处算，**而要的是前一行的月供**（§14.2 的反事实是 `t−1`
+的合同往前推一个月）。修改臂的窗口按构造跨一个合同期边界，递延臂不跨。
+**所以环可测的条件是：窗口内每一个月的前一行都有已知月供。**
 
-~~**掉样计数必须按修改前 / 修改后两侧分开印。** 理由是 O24 咬的正是修改后那一侧：
-递延臂上它恒为零（六档 703,504 个递延行，月供已知 0）。
-**一个合并的掉样数看不出这件事**，而那正是本站现在最大的阻塞。~~
+**掉样计数必须按修改前 / 修改后两侧分开印。**
 
-**2026-08-17 两处更正。掉样按两侧分开印这条留着，挂在上面的理由整个换掉了。**
+**2026-08-17 两处删除与更正。原文有两句已删：一句写 `contract_periods`
+「在修改起始沿与递延起始沿上都切」，一句写递延行月供已知 0（六档 703,504）。
+掉样按两侧分开印这条留着，挂在上面的理由整个换掉了。**
 
 **一、切点。** `contract_periods` **不在字段 108 上切**，而且 §6.6.17.2 明裁
 不许切：C10-4 在字段 108 的上升沿读 `still = 0.9966`，利率与期限都不动，
@@ -1353,11 +1352,10 @@ leg 3 = (t_M, t_B]      modified → current
 ```
 
 **三段之和恒等于环和，这是恒等式不是判据**，但要在代码里断言它。
-~~理由是它能抓住窗口实现的错位（差一行的边界会让三段和不等于环和），
-而错位在别处是安静的。~~ **`t_M == t_B` 时 leg 3 是空和，断言照样成立**，
-所以断言不能代替 §17.3 的计数。
+**`t_M == t_B` 时 leg 3 是空和，断言照样成立**，所以断言不能代替 §17.3 的计数。
 
-**2026-08-17 更正：划掉那半句给的理由不成立，而要求本身留着。**
+**2026-08-17 删除并更正：原文给的理由是「它能抓住窗口实现的错位」，那句已删，
+因为它不成立。要求本身留着。**
 四个量都从同一个前缀和数组来，三条腿望远镜式抵消，**`t_M` 取什么都成立**
 ——错一行、错十行、甚至属于另一笔贷款都成立。**在前缀和实现下这条断言测的是
 浮点加法器，抓不住它被写下来要抓的那个错位。**
@@ -1455,7 +1453,7 @@ leg 3 = (t_M, t_B]      modified → current
 
 | 项 | 为什么不在这里裁 |
 |---|---|
-| ~~递延起始沿取 63 还是 108~~ **已裁：字段 108** | ~~O24 / B10 §19.9~~ C10-4 判乙，O27 结为 D20（2026-08-17）。**§17.9 保证的「换列不改窗口」已经兑现**，换列时本节一字未动 |
+| **递延起始沿：已裁为字段 108** | C10-4 判乙，O27 结为 D20（2026-08-17）。**§17.9 保证的「换列不改窗口」已经兑现**，换列时本节一字未动 |
 | `MIN_QUIET_FOR_PAYMENT` 提不提高 | 覆盖分布已印，是另一件事 |
 | §7 的三个未施加过滤器（单户 / 一顺位 / 自住） | 与窗口无关，另记 |
 | O18 那 46.65% 未命名的少付月份 | 与窗口无关 |
