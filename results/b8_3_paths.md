@@ -129,6 +129,59 @@ Arm labels shuffled inside each cell, 999 draws. **Within cell**, so the path an
 | 2019Q1 | COVID | 2,857 | 1.4578e-01 | 13,023 | 1.6866e-02 | 1.2891e-01 | yes |
 | 2019Q1 | post-2022 | 1,012 | 1.0933e-01 | 926 | 8.1763e-03 | 1.0115e-01 | yes |
 
+## 5. Window against remaining term, pooled across cohorts
+
+**Inside one cohort the window and the loan's age are the same variable**: an archive name is an acquisition quarter, so calendar month minus that quarter is the age exactly. They separate only across cohorts, which is why this table pools all archives and prints how many contribute to each cell.
+
+The term is read at the **departure vertex**, before the event, so it is a pre-treatment covariate and conditioning on it is not the circularity §19.4 bars. **The term rather than the age, because the term is what enters `omega`** (§19.4's note on `EDGES_TERM`); the balance is not a confound at all, `omega` being homogeneous of degree zero in it.
+
+**A cell is comparable only when both arms reach 20 in it AND more than one cohort contributes**, because a single-cohort cell has the collinearity back inside it.
+
+| window | remaining term at `t_A` | cohorts | n mod | n defer | median mod | median defer | **`delta`** | / floor | **comparable** |
+|---|---|---|---|---|---|---|---|---|---|
+| pre-crisis | <60 | 1 | 1 | 0 | 1.0131e-01 | nan | not comparable | - | no |
+| pre-crisis | 60-119 | 2 | 42 | 0 | 1.2287e-01 | nan | not comparable | - | no |
+| pre-crisis | 120-179 | 3 | 343 | 0 | 8.3184e-02 | nan | not comparable | - | no |
+| pre-crisis | 180-239 | 3 | 121 | 0 | 7.0061e-02 | nan | not comparable | - | no |
+| pre-crisis | 240-299 | 2 | 137 | 0 | 7.0302e-02 | nan | not comparable | - | no |
+| pre-crisis | 300-359 | 3 | 1,501 | 0 | 5.8280e-02 | nan | not comparable | - | no |
+| HAMP | <60 | 3 | 199 | 0 | 6.1352e-01 | nan | not comparable | - | no |
+| HAMP | 60-119 | 4 | 836 | 0 | 3.3751e-01 | nan | not comparable | - | no |
+| HAMP | 120-179 | 4 | 1,231 | 0 | 1.4412e-01 | nan | not comparable | - | no |
+| HAMP | 180-239 | 4 | 1,256 | 0 | 1.8211e-01 | nan | not comparable | - | no |
+| HAMP | 240-299 | 4 | 5,625 | 0 | 8.2977e-02 | nan | not comparable | - | no |
+| HAMP | 300-359 | 4 | 15,762 | 0 | 2.4217e-02 | nan | not comparable | - | no |
+| Flex | <60 | 4 | 105 | 0 | 3.4019e-01 | nan | not comparable | - | no |
+| Flex | 60-119 | 5 | 221 | 0 | 1.9178e-01 | nan | not comparable | - | no |
+| Flex | 120-179 | 5 | 333 | 0 | 1.8502e-01 | nan | not comparable | - | no |
+| Flex | 180-239 | 5 | 696 | 0 | 2.4179e-01 | nan | not comparable | - | no |
+| Flex | 240-299 | 4 | 733 | 0 | 1.1533e-01 | nan | not comparable | - | no |
+| Flex | 300-359 | 4 | 1,037 | 0 | 8.1914e-02 | nan | not comparable | - | no |
+| COVID | <60 | 5 | 23 | 117 | 1.1063e+00 | 2.4378e-01 | **8.6250e-01** | 2.595e+07 | yes |
+| COVID | 60-119 | 6 | 116 | 983 | 4.0215e-01 | 7.1074e-02 | **3.3107e-01** | 9.959e+06 | yes |
+| COVID | 120-179 | 6 | 435 | 2,567 | 2.8829e-01 | 4.1163e-02 | **2.4712e-01** | 7.434e+06 | yes |
+| COVID | 180-239 | 6 | 348 | 1,857 | 3.3187e-01 | 3.0098e-02 | **3.0177e-01** | 9.078e+06 | yes |
+| COVID | 240-299 | 6 | 457 | 3,626 | 1.9415e-01 | 2.2011e-02 | **1.7214e-01** | 5.178e+06 | yes |
+| COVID | 300-359 | 6 | 4,751 | 22,066 | 1.4906e-01 | 1.7160e-02 | **1.3190e-01** | 3.968e+06 | yes |
+| COVID | >=360 | 6 | 2 | 963 | -6.9347e-02 | 1.7811e-02 | not comparable | - | no |
+| post-2022 | <60 | 5 | 29 | 16 | 2.1247e-01 | 1.3524e-01 | not comparable | - | no |
+| post-2022 | 60-119 | 6 | 115 | 104 | 1.4755e-01 | 4.1483e-02 | **1.0606e-01** | 3.191e+06 | yes |
+| post-2022 | 120-179 | 6 | 183 | 150 | 2.2126e-01 | 2.8420e-02 | **1.9284e-01** | 5.801e+06 | yes |
+| post-2022 | 180-239 | 6 | 168 | 111 | 1.3374e-01 | 1.9553e-02 | **1.1419e-01** | 3.435e+06 | yes |
+| post-2022 | 240-299 | 5 | 831 | 669 | 7.5686e-02 | 9.7479e-03 | **6.5938e-02** | 1.984e+06 | yes |
+| post-2022 | 300-359 | 5 | 962 | 442 | 1.1962e-01 | 1.2329e-02 | **1.0729e-01** | 3.228e+06 | yes |
+| post-2022 | >=360 | 6 | 5 | 604 | -2.7077e-01 | 5.3264e-03 | not comparable | - | no |
+
+**How many term bands each window can be read at**, which is what decides whether B8-2's four-window comparison exists.
+
+| window | comparable term bands |
+|---|---|
+| pre-crisis | 0 |
+| HAMP | 0 |
+| Flex | 0 |
+| COVID | 6 |
+| post-2022 | 5 |
+
 ## What this does not decide
 
 - **It makes no causal claim.** B8-3 is an existence claim about the state space (§15.7, §19.1). Section 2 is stronger than B8-3 needs and section 3 tests only whether the arm label carries information given the path and the window.

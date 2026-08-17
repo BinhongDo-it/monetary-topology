@@ -43,6 +43,7 @@ import b8_loops as L                                           # noqa: E402
 import b8_loop_omega as Z8                                     # noqa: E402
 import b8_0b_floor as F                                        # noqa: E402
 import b8_triangles as T                                       # noqa: E402
+import b8_cache as C                                           # noqa: E402
 
 OUT = K.ROOT / "results" / "b8_3_paths.md"
 
@@ -71,6 +72,22 @@ PERM_SEED = 20260817
 #: necessary because §6.6.16's circularity was only found after the run.
 EDGES_MISSED = (1, 2, 3, 6, 12)
 EDGES_CURE = (0, 1, 2, 3, 6, 12)
+
+#: Remaining legal term at the **departure vertex**, months, for §5's grid.
+#:
+#: **This is a contract quantity and §19.4 bars those from the cell keys above.
+#: The bar is against circularity and this is not a case of it**: the term is
+#: read at `t_A`, before the event, so it is a pre-treatment covariate, and
+#: conditioning on one of those is not conditioning on the outcome. **It must
+#: be read at `t_A` and never at `t_M` or `t_B`**, which the modification has
+#: already moved.
+#:
+#: The term rather than the loan's age, because **the term is what enters
+#: `omega`**: extending by 120 months on a loan with 340 left is not the same
+#: relative change as on one with 60 left. Age is only its proxy. The balance
+#: is not a confound at all here: `omega` is homogeneous of degree zero in it
+#: (§6.6.26.4).
+EDGES_TERM = (60, 120, 180, 240, 300, 360)
 
 
 def med(x) -> float:
@@ -202,74 +219,138 @@ def permutation_null(om, arm, cell, n=N_PERM, seed=PERM_SEED,
                        else [float("nan")] * 3)}
 
 
+def term_grid(win, tband, arm, om, coh, min_cell=MIN_CELL) -> list[dict]:
+    """§5's grid, as data. **Lifted out of `render` so it can be tested.**
+
+    A 40-line computation inside a writer is untestable by construction, which
+    is pit 40's shape at a different address: the fixture is far too small to
+    populate a cell, so two mutations of this logic passed while it sat in the
+    renderer.
+
+    A cell is ``comparable`` only when both arms reach ``min_cell`` **and more
+    than one cohort contributes**. The cohort test is the load-bearing half:
+    inside one cohort the window and the loan's age are the same variable, so
+    a single-cohort cell has the collinearity back inside it and comparing
+    across windows there measures nothing new.
+    """
+    win, tband = np.asarray(win), np.asarray(tband)
+    arm, coh = np.asarray(arm), np.asarray(coh)
+    om = np.asarray(om, dtype=np.float64)
+    out = []
+    for w in range(len(T.WINDOWS)):
+        for k in range(len(EDGES_TERM) + 1):
+            m = (win == w) & (tband == k)
+            if not m.any():
+                continue
+            a_ = om[m & (arm == L.ARM_MOD)]
+            b_ = om[m & (arm == L.ARM_DEFER)]
+            nc = int(np.unique(coh[m]).size)
+            out.append({
+                "w": w, "k": k, "cohorts": nc,
+                "n_mod": int(a_.size), "n_defer": int(b_.size),
+                "med_mod": med(a_), "med_defer": med(b_),
+                "delta": med(a_) - med(b_),
+                "comparable": bool(a_.size >= min_cell
+                                   and b_.size >= min_cell and nc > 1)})
+    return out
+
+
 def analyse(name: str, cache_root=None, pos=None, tab=None,
-            n_perm: int = N_PERM) -> dict:
-    if pos is None or tab is None:
-        pos, tab = Z8.curve_table()
-    c = K.Core(name, cols=COLS, cache_root=cache_root)
-    try:
-        disc, _ = W.disc_of_row(c, pos, tab)
-        r, ok, rinfo = W.row_residuals(c, disc)
-        lp = L.find_loops(c)
-        sig = Z8.loop_sums(lp, r, ok)
+            n_perm: int = N_PERM, use_cache: bool = True,
+            core_root=None) -> dict:
+    """**Reads `b8_cache` by default**; see `b8_2_windows.analyse` for why.
 
-        # the floor, from B8-0b, on the same archive and the same code path
-        cc = F.clean_cure_loops(c)
-        flo = Z8.loop_sums(cc, r, ok)
-        q0 = K.quiet_pairs(c)
-        pid0 = W.contract_periods(c, fill=True)
-        pay0, _k0, _p0 = W.contract_payments(c, pid0, q0)
-        es = F.G.episode_sums(c, pay0, cc["t_A"], cc["t_B"], cc["k"])
-        fm = flo["measurable"] & es[2]
-        floor = F.mad_scale((flo["omega"] - es[1])[fm])
+    ``use_cache=False`` keeps the direct path and the selftest compares them.
+    """
+    if use_cache:
+        d = C.get(name, pos=pos, tab=tab, core_root=core_root or cache_root)
+        s, fl = d["sig"], d["floor"]
+        omega, n1, n3 = s["omega"], s["n1"], s["n3"]
+        meas, arm, win = s["measurable"].astype(bool), s["arm"], s["window"]
+        rem_A = s["rem_A"]
+        fm = fl["measurable"].astype(bool) & fl["ideal"].astype(bool)
+        floor = F.mad_scale((fl["omega"] - fl["closed"])[fm])
+    else:
+        if pos is None or tab is None:
+            pos, tab = Z8.curve_table()
+        c = K.Core(name, cols=COLS, cache_root=cache_root)
+        try:
+            disc, _ = W.disc_of_row(c, pos, tab)
+            r, ok, _rinfo = W.row_residuals(c, disc)
+            lp = L.find_loops(c)
+            sig = Z8.loop_sums(lp, r, ok)
+            cc = F.clean_cure_loops(c)
+            flo = Z8.loop_sums(cc, r, ok)
+            q0 = K.quiet_pairs(c)
+            pid0 = W.contract_periods(c, fill=True)
+            pay0, _k0, _p0 = W.contract_payments(c, pid0, q0)
+            es = F.G.episode_sums(c, pay0, cc["t_A"], cc["t_B"], cc["k"])
+            fm = flo["measurable"] & es[2]
+            floor = F.mad_scale((flo["omega"] - es[1])[fm])
+            omega, n1, n3 = sig["omega"], sig["n1"], sig["n3"]
+            meas, arm = sig["measurable"], lp["arm"]
+            win = C._window_of(c, lp["t_M"])
+            rem_A = c.row["rem_legal"][:].astype(np.int64)[lp["t_A"]]
+        finally:
+            c.close()
 
-        meas = sig["measurable"]
-        arm = lp["arm"]
-        # §19.6: measurability itself differs by arm and stratifying cannot fix
-        # it, so it is printed rather than absorbed.
-        win = T.window_of(c, lp["t_M"]) if hasattr(T, "window_of") \
-            else _window_of(c, lp["t_M"])
-        cell = cell_of(win, sig["n1"] + 1, sig["n3"])
+    # §19.6: measurability itself differs by arm and stratifying cannot fix
+    # it, so it is printed rather than absorbed.
+    cell = cell_of(win, n1 + 1, n3)
+    tband = np.searchsorted(np.asarray(EDGES_TERM), rem_A, side="right")
+    sig = {"omega": omega, "n1": n1, "n3": n3, "measurable": meas}
 
-        a = {"name": name, "floor": floor,
-             "floor_n": int(fm.sum()),
-             "arms": {}, "windows": []}
+    a = {"name": name, "floor": floor,
+         "floor_n": int(fm.sum()),
+         # carried so the selftest can compare the cached path against the
+         # direct one on the cell assignment itself: swapping two cached
+         # fields moves the cells and moves nothing else the fixture can see
+         "cell": cell[meas].astype(np.int64),
+         "arms": {}, "windows": []}
+    for tag, code in (("mod", L.ARM_MOD), ("defer", L.ARM_DEFER)):
+        s = arm == code
+        m = s & meas
+        v = sig["omega"][m]
+        a["arms"][tag] = {
+            "loops": int(s.sum()), "measurable": int(m.sum()),
+            "rate": (float(m.sum() / s.sum()) if s.sum() else float("nan")),
+            "median": med(v), "mad": F.mad_scale(v),
+            "q": (np.percentile(v, [10, 25, 50, 75, 90]).tolist()
+                  if v.size else [float("nan")] * 5)}
+
+    # 1. existence
+    dm = a["arms"]["mod"]["median"] - a["arms"]["defer"]["median"]
+    a["existence"] = {
+        "delta": dm,
+        "over_floor": (abs(dm) / floor if floor > 0 else float("nan"))}
+
+    # 2. stratified, and 3. the null
+    st = stratified_delta(sig["omega"][meas], arm[meas], cell[meas])
+    a["strat"] = st
+    a["perm"] = permutation_null(sig["omega"][meas], arm[meas], cell[meas],
+                                 n=n_perm)
+
+    # per window, because deferral is overwhelmingly COVID (§19.6)
+    for wi, (wname, _lo, _hi) in enumerate(T.WINDOWS):
+        wm = meas & (win == wi)
+        row = {"window": wname}
         for tag, code in (("mod", L.ARM_MOD), ("defer", L.ARM_DEFER)):
-            s = arm == code
-            m = s & meas
-            v = sig["omega"][m]
-            a["arms"][tag] = {
-                "loops": int(s.sum()), "measurable": int(m.sum()),
-                "rate": (float(m.sum() / s.sum()) if s.sum() else float("nan")),
-                "median": med(v), "mad": F.mad_scale(v),
-                "q": (np.percentile(v, [10, 25, 50, 75, 90]).tolist()
-                      if v.size else [float("nan")] * 5)}
+            v = sig["omega"][wm & (arm == code)]
+            row[tag] = {"n": int(v.size), "median": med(v)}
+        row["delta"] = row["mod"]["median"] - row["defer"]["median"]
+        row["readable"] = bool(row["mod"]["n"] >= MIN_CELL
+                               and row["defer"]["n"] >= MIN_CELL)
+        a["windows"].append(row)
 
-        # 1. existence
-        dm = a["arms"]["mod"]["median"] - a["arms"]["defer"]["median"]
-        a["existence"] = {
-            "delta": dm,
-            "over_floor": (abs(dm) / floor if floor > 0 else float("nan"))}
-
-        # 2. stratified, and 3. the null
-        st = stratified_delta(sig["omega"][meas], arm[meas], cell[meas])
-        a["strat"] = st
-        a["perm"] = permutation_null(sig["omega"][meas], arm[meas], cell[meas],
-                                     n=n_perm)
-
-        # per window, because deferral is overwhelmingly COVID (§19.6)
-        for wi, (wname, _lo, _hi) in enumerate(T.WINDOWS):
-            wm = meas & (win == wi)
-            row = {"window": wname}
-            for tag, code in (("mod", L.ARM_MOD), ("defer", L.ARM_DEFER)):
-                v = sig["omega"][wm & (arm == code)]
-                row[tag] = {"n": int(v.size), "median": med(v)}
-            row["delta"] = row["mod"]["median"] - row["defer"]["median"]
-            row["readable"] = bool(row["mod"]["n"] >= MIN_CELL
-                                   and row["defer"]["n"] >= MIN_CELL)
-            a["windows"].append(row)
-    finally:
-        c.close()
+    # **Carried raw so `render` can pool across archives.** The whole point
+    # of §5 is that window and term are collinear *inside* a cohort and
+    # only separate across them, so a per-archive table cannot show it.
+    a["grid"] = {"win": win[meas].astype(np.int8),
+                 "tband": tband[meas].astype(np.int8),
+                 "arm": arm[meas].astype(np.int8),
+                 "omega": sig["omega"][meas].astype(np.float64),
+                 "rem_A": rem_A[meas].astype(np.int32),
+                 "meas": meas.copy()}
     return a
 
 
@@ -395,6 +476,53 @@ def render(rows: list[dict]) -> str:
               f"{_f(w['defer']['median'])} | "
               + (f"{_f(w['delta'])}" if w["readable"] else "not readable")
               + f" | {'yes' if w['readable'] else 'no'} |")
+
+    A("\n## 5. Window against remaining term, pooled across cohorts\n")
+    A("**Inside one cohort the window and the loan's age are the same "
+      "variable**: an archive name is an acquisition quarter, so calendar "
+      "month minus that quarter is the age exactly. They separate only across "
+      "cohorts, which is why this table pools all archives and prints how many "
+      "contribute to each cell.\n")
+    A("The term is read at the **departure vertex**, before the event, so it "
+      "is a pre-treatment covariate and conditioning on it is not the "
+      "circularity §19.4 bars. **The term rather than the age, because the "
+      "term is what enters `omega`** (§19.4's note on `EDGES_TERM`); the "
+      "balance is not a confound at all, `omega` being homogeneous of degree "
+      "zero in it.\n")
+    A(f"**A cell is comparable only when both arms reach {MIN_CELL} in it "
+      "AND more than one cohort contributes**, because a single-cohort cell "
+      "has the collinearity back inside it.\n")
+    if not rows or "grid" not in rows[0]:
+        A("_no grid_\n")
+    else:
+        win = np.concatenate([a["grid"]["win"] for a in rows])
+        tb = np.concatenate([a["grid"]["tband"] for a in rows])
+        ar = np.concatenate([a["grid"]["arm"] for a in rows])
+        om = np.concatenate([a["grid"]["omega"] for a in rows])
+        coh = np.concatenate([np.full(a["grid"]["win"].size, i, dtype=np.int8)
+                              for i, a in enumerate(rows)])
+        floor = float(np.median([a["floor"] for a in rows]))
+        A("| window | remaining term at `t_A` | cohorts | n mod | n defer | "
+          "median mod | median defer | **`delta`** | / floor | "
+          "**comparable** |")
+        A("|---|---|---|---|---|---|---|---|---|---|")
+        n_ok = {}
+        for g in term_grid(win, tb, ar, om, coh):
+            n_ok[g["w"]] = n_ok.get(g["w"], 0) + int(g["comparable"])
+            A(f"| {T.WINDOWS[g['w']][0]} | {_band(EDGES_TERM, g['k'])} | "
+              f"{g['cohorts']} | {g['n_mod']:,} | {g['n_defer']:,} | "
+              f"{_f(g['med_mod'])} | {_f(g['med_defer'])} | "
+              + (f"**{_f(g['delta'])}**" if g["comparable"]
+                 else "not comparable")
+              + " | " + (f"{abs(g['delta']) / floor:,.3e}"
+                         if g["comparable"] and floor > 0 else "-")
+              + f" | {'yes' if g['comparable'] else 'no'} |")
+        A("\n**How many term bands each window can be read at**, which is "
+          "what decides whether B8-2's four-window comparison exists.\n")
+        A("| window | comparable term bands |")
+        A("|---|---|")
+        for w in range(len(T.WINDOWS)):
+            A(f"| {T.WINDOWS[w][0]} | {n_ok.get(w, 0)} |")
 
     A("\n## What this does not decide\n")
     A("- **It makes no causal claim.** B8-3 is an existence claim about the "
@@ -532,7 +660,32 @@ def selftest() -> int:
         months = np.unique(c.row["period"][:])
         months = months[months != K.U16_NA]
         pos, tab = Z8._flat_curve(months)
-    a = analyse(zp.stem, cache_root=cr, pos=pos, tab=tab, n_perm=19)
+    a = analyse(zp.stem, cache_root=cr, pos=pos, tab=tab, n_perm=19,
+                use_cache=False)
+    # **both paths, compared** -- see `b8_2_windows.analyse`'s docstring
+    a_c = analyse(zp.stem, cache_root=cr, pos=pos, tab=tab, n_perm=19,
+                  use_cache=True, core_root=cr)
+    if abs(a["floor"] - a_c["floor"]) > 0:
+        fails.append(f"the cached floor {a_c['floor']} differs from the "
+                     f"direct one {a['floor']}")
+    for tag_ in ("mod", "defer"):
+        for f in ("measurable", "median", "mad"):
+            if not np.allclose(a["arms"][tag_][f], a_c["arms"][tag_][f],
+                               rtol=0, atol=0, equal_nan=True):
+                fails.append(f"the cached path differs on arms.{tag_}.{f}")
+    if a["strat"]["delta"] != a_c["strat"]["delta"] and not (
+            np.isnan(a["strat"]["delta"]) and np.isnan(a_c["strat"]["delta"])):
+        fails.append("the cached path differs on the stratified delta")
+    # **the cell assignment itself.** On a fixture too small to fill a cell the
+    # deltas are all nan and comparing them proves nothing; the cell ids move
+    # the moment a cached field is read into the wrong slot.
+    if not np.array_equal(a["cell"], a_c["cell"]):
+        fails.append("the cached path assigns loops to different cells than "
+                     "the direct one; a cached field is being read into the "
+                     "wrong argument")
+    if np.unique(a["cell"]).size < 2:
+        fails.append("every fixture loop lands in one cell, so the cell "
+                     "comparison above cannot see a mix-up")
     for tag in ("mod", "defer"):
         if a["arms"][tag]["measurable"] == 0:
             fails.append(f"no measurable loop on the {tag} arm, so the "
@@ -545,12 +698,97 @@ def selftest() -> int:
           f"{a['floor']:.3e}, delta {a['existence']['delta']:+.4e}",
           file=sys.stderr)
 
+    # -- §5's grid, on hand-built arrays ----------------------------------
+    # **The fixture is far too small to populate a cell**, so testing this
+    # through `analyse` tests nothing: two mutations of the grid passed while
+    # it lived inside `render`. Hand arrays instead.
+    nn = MIN_CELL
+    gw = np.zeros(4 * nn, np.int8)
+    gk = np.concatenate([np.zeros(2 * nn, np.int8), np.ones(2 * nn, np.int8)])
+    ga = np.concatenate([np.full(nn, L.ARM_MOD, np.int8),
+                         np.full(nn, L.ARM_DEFER, np.int8)] * 2)
+    go = np.concatenate([np.full(nn, 2.0), np.full(nn, 1.0),
+                         np.full(nn, 5.0), np.full(nn, 1.0)])
+    # band 0: two cohorts. band 1: one cohort.
+    gc = np.concatenate([np.tile([0, 1], nn), np.zeros(2 * nn, np.int8)])
+    g = {(x["w"], x["k"]): x for x in term_grid(gw, gk, ga, go, gc)}
+    if not g[(0, 0)]["comparable"]:
+        fails.append(f"a cell with {nn} per arm and two cohorts read not "
+                     "comparable")
+    if abs(g[(0, 0)]["delta"] - 1.0) > 1e-12:
+        fails.append(f"grid delta {g[(0, 0)]['delta']}, hand computation 1.0")
+    if g[(0, 1)]["comparable"]:
+        fails.append("a SINGLE-cohort cell read comparable; inside one cohort "
+                     "the window and the age are the same variable and the "
+                     "whole point of pooling is lost")
+    if g[(0, 1)]["cohorts"] != 1 or g[(0, 0)]["cohorts"] != 2:
+        fails.append(f"cohort counts {g[(0, 0)]['cohorts']} and "
+                     f"{g[(0, 1)]['cohorts']}, expected 2 and 1")
+    # one arm short of the floor is not comparable either
+    ga2 = ga.copy()
+    ga2[:nn - 1] = L.ARM_DEFER
+    g2 = {(x["w"], x["k"]): x for x in term_grid(gw, gk, ga2, go, gc)}
+    if g2[(0, 0)]["comparable"]:
+        fails.append("a cell with one arm below MIN_CELL read comparable")
+
+    # -- the term must be read at `t_A`, and that has to be checkable ------
+    with K.Core(zp.stem, cols=COLS, cache_root=cr) as c5:
+        lp5 = L.find_loops(c5)
+        rem = c5.row["rem_legal"][:].astype(np.int64)
+        want_A = rem[lp5["t_A"]]
+        at_M = rem[lp5["t_M"]]
+    # non-vacuity first: on a fixture where no modification moves the term the
+    # two are the same and this check would pass under either reading
+    moved = int((at_M != want_A - (lp5["t_M"] - lp5["t_A"])).sum())
+    if moved == 0:
+        fails.append("no loop in the fixture has its term moved by the "
+                     "modification, so reading it at `t_M` instead of `t_A` "
+                     "would be invisible here")
+    mm = a["grid"]["meas"]
+    got = a["grid"]["rem_A"]
+    if not np.array_equal(got.astype(np.int64), want_A[mm]):
+        fails.append("§5's remaining term is not `rem_legal` at `t_A`; the "
+                     "modification has already moved it at `t_M` and `t_B`")
+    if got.size and np.array_equal(got.astype(np.int64), at_M[mm]):
+        fails.append("§5's remaining term equals `rem_legal` at `t_M` on "
+                     "every loop, so the fixture cannot tell the two apart")
+    print(f"  term at t_A: {moved} loop(s) had their term moved at t_M, so "
+          f"the choice is visible", file=sys.stderr)
+
+    # -- §5's grid: the cohort count is what makes it work ----------------
+    # **A single-cohort cell has the collinearity back inside it**, so the
+    # comparability flag must require more than one. The fixture has one
+    # archive, so `render` must mark every cell not comparable; a version that
+    # forgot the cohort test would mark some of them yes.
     txt = render([a])
+    g5 = txt.split("## 5. Window against remaining term")[-1]
+    if "| yes |" in g5:
+        fails.append("a single-archive run produced a comparable cell in §5; "
+                     "the cohort count is not being required and the whole "
+                     "point of pooling is lost")
+    # and the grid must not be empty, or the section proves nothing
+    if "_no grid_" in g5 or g5.count("|") < 20:
+        fails.append("§5's grid came out empty on the fixture")
+    # the term bands must invert, same check as the path bands
+    for v in range(0, int(EDGES_TERM[-1]) + 80, 7):
+        k = int(np.searchsorted(np.asarray(EDGES_TERM), v, side="right"))
+        b = _band(EDGES_TERM, k)
+        if b.startswith("<"):
+            okb = v < EDGES_TERM[0]
+        elif b.startswith(">="):
+            okb = v >= EDGES_TERM[-1]
+        else:
+            lo, hi = (int(x) for x in b.split("-")) if "-" in b else (int(b),) * 2
+            okb = lo <= v <= hi
+        if not okb:
+            fails.append(f"_band(EDGES_TERM, {k}) = {b!r} does not contain {v}")
+
     for cmpl in K.check_markdown_tables(txt):
         fails.append(f"malformed table: {cmpl}")
     for need in ("## 1. Existence", "## 2. Stratified, and the sign tally",
                  "**Every used cell, printed.**",
-                 "## 3. The within-cell permutation null", "## 4. By window"):
+                 "## 3. The within-cell permutation null", "## 4. By window",
+                 "## 5. Window against remaining term"):
         if need not in txt:
             fails.append(f"render omits `{need}`")
 

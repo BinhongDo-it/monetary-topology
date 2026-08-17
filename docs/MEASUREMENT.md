@@ -856,6 +856,65 @@ than folded into mode 13.
 （**两次都偏向把剩余项说得更神秘。方向一致的一对不是巧合，是一种倾向**，
 这也是这一条单独立目而不是并进第十三种的理由。）
 
+### 15. Generalisation error　(one instance, and the generalisation was chosen because it used more of the data)　（推广错，一次，而那个推广正是因为「用上了更多信息」才被选中的）
+
+**Symptom**: a quantity with one unambiguous meaning in a poor setting is carried
+into a richer one where **two different objects answer to its name**. The richer
+version is picked, and it is picked for the reason that makes it wrong: it is the
+one that uses the extra structure. The two agree exactly where the setting is
+poor and diverge exactly where it is rich, **that is, on the part of the data the
+move was made in order to exploit**. Nothing about the code looks wrong. The name
+is the same, the formula is a textbook formula, and the arithmetic is exact.
+
+（**症状**：一个在贫瘠设定里含义唯一的量，被搬进一个更丰富的设定，
+而在那里**有两个不同的对象都叫这个名字**。丰富版被选中，而选中它的理由正是它错的理由：
+它是那个「用上了新结构」的版本。两者**恰好在设定贫瘠处相等，恰好在设定丰富处分歧**，
+也就是在「当初做这次搬迁正是为了利用」的那部分数据上分歧。
+代码没有一处看着不对：名字一样，公式是教科书公式，算术精确。）
+
+| Instance（实例） | What went wrong（错在哪） | 原文 |
+|---|---|---|
+| B10 `b10_support.py` v1, `b1_directed` | `b1` on an undirected graph is the cycle space, and that is what `H^1(G)` means. Moving to the observed **directed** transition graph, the version that uses the direction is the digraph's circulation space, and it counts a reciprocal pair `u -> v`, `v -> u` as `2 - 2 + 1 = 1`. **An out-and-back is not a cycle**: `b1_theorem.md` §5's scoping block says so in as many words, *on a two-position graph {rent, own} an out-and-back walk sums to zero by antisymmetry and is not a cycle at all*. The two definitions coincide on every graph with no reciprocal edges, and reciprocal edges are the whole reason the transition data is worth having. | B10 `b10_support.py` v1 的 `b1_directed`：无向图上 `b1` 是环空间，那正是 `H¹(G)` 的意思。搬到观测到的**有向**转移图上，「用上方向」的那个版本是有向图的循环空间，它把互相的一对 `u→v`、`v→u` 算成 `2−2+1 = 1`。**往返不是环**，`b1_theorem.md` §5 的 scoping block 原话就是这句。两个定义在任何没有互相边的图上重合，**而互相边正是这份转移数据值得要的全部理由** |
+
+**How it was caught, and it is the only reason it was caught**: both versions
+printed side by side, and on grid g3 the walkable count came out **larger** than
+the undirected one. A walkable cycle is a cycle, so that ordering cannot hold.
+**A quantity printed alone cannot violate an ordering it was supposed to
+satisfy.** The generalisation had been introduced by the same author in the same
+file's §16.6, with a sentence that asserted the ordering without checking it.
+
+（**它是怎么被抓到的，而这也是它被抓到的唯一原因**：两个版本并排印出来，
+在网格 g3 上「走得完的」那个数**大于**无向的那个。走得完的环是环，那个序不可能成立。
+**一个单独印出来的量，违反不了一条它本该满足的序。**
+这个推广是同一个作者在同一份文件的 §16·6 里引入的，
+那里那句话**断言了这条序而没有检查它**。）
+
+**Rule**: when a quantity is generalised into a richer setting, **write down the
+ordering or equality that must hold between the old form and the new one, print
+both, and check it in the code.** Two forms of the same name in one output is not
+redundancy, it is the only place the substitution can be caught, because every
+other symptom of this mode is invisible: the name is right, the formula is
+standard, the arithmetic is exact, and the number is plausible.
+
+（**规矩**：一个量被推广进更丰富的设定时，**先写下新旧两式之间必须成立的序或等式，
+两个都印，并且在代码里检查它。** 同一个名字的两种形式同时出现在输出里不是冗余，
+**它是这一模式唯一能被抓住的地方**，因为这一模式的其他每一个症状都是隐形的：
+名字对，公式标准，算术精确，数字看着也合理。）
+
+**A note on where the check belongs.** `b10_support.py` now computes the invariant
+`b1_walkable <= b1_undirected` inside the estimator and prints a loud line if it
+fails, rather than leaving it to a reader who happens to compare two columns. The
+proof is one line: the walkable cycles are the cycle spaces of **vertex-disjoint**
+subgraphs, hence independent subspaces of the whole cycle space. **An invariant
+with a one-line proof belongs in the code, not in a document**, because the
+document is read once and the code runs every time.
+
+（**关于这道检查该放在哪。** `b10_support.py` 现在把不变式
+`b1_walkable <= b1_undirected` 算在估计量内部，不成立就大声印一行，
+而不是留给一个碰巧去比两列的读者。证明只有一行：走得完的那些环是**顶点不相交**
+子图的环空间，故是整个环空间的独立子空间。
+**一条证明只有一行的不变式该进代码不该进文档**，因为文档只被读一次，而代码每次都跑。）
+
 ## The checklist before reporting a number　（报数之前的清单）
 
 Answer each of these before any number goes into `results/` or into a
@@ -1037,3 +1096,56 @@ marker is in `CLAUDE.md`, section 收尾: `experiments/*.py` is single-station a
 会被读成「随时都该把所有东西重跑一遍」的常设义务，而那不是第九种失败模式所证明的。
 带可查标记的作用域判别式在 `CLAUDE.md` §收尾：`experiments/*.py` 是单站的，
 `src/monetary_topology/*.py` 是共享的。本文件不另存一份拷贝。）
+
+---
+
+## 结果缓存与它的标签（2026-08-17 设计定案）
+
+**问题。** B8 有五个站各自从核心表重建同一条流水线：`disc_of_row`、
+`row_residuals`、`find_loops`、`loop_sums`。一遍是 1.7 亿行的四次扫描，
+里面最贵的 `contract_payments` 是几百万个合同段的 Python 循环，
+**每一次重跑任何一站都再付一次**。缓存的东西很小：六档八万多个环、
+几十个字段、几兆。它替掉的是一次全档扫描。
+
+### 一、缓存不是文件名，是内容寻址
+
+**一份过期的缓存比没有缓存坏。** 本仓库的坑表大半是「曾经为真、后来还在被读」，
+所以一个只按档名做键的缓存是制造这类缺陷的机器。
+
+键是**产出这些数字的全部函数源码的哈希**，加上曲线规则与核心表 schema。
+改动其中任何一个，标签就变，缓存重建，**没有人需要记得去失效它**。
+标签存在数据旁边、加载时核对；过期或缺失时 `load` 抛错，绝不返回旧数。
+
+**清单必须是整模块，不是这份文件恰好调到的函数**：往下三层的辅助函数一样承重，
+而按函数点名的清单会过期。**产出缓存的那个模块自己也必须在清单里**
+（第一版漏了，于是新加一个写进缓存字段的函数时标签纹丝不动）。
+
+### 二、数字没变而标签变了，怎么办
+
+散文改动（docstring、注释、空白）会推动源码哈希，于是陛下为一次注释改动
+重扫 1.7 亿行。这是纯损失。**三条路，只有两条能走。**
+
+| 方案 | 判定 |
+|---|---|
+| **无条件 retag**：一个把现有缓存里的标签改写成当前值的开关 | **禁止。** 它是一个撒谎按钮：用在真改动之后，会静默污染全部下游数字，而且事后无从分辨。这正是标签存在所要防的那一类缺陷，加了个按钮 |
+| **哈希 AST 而不是源码**：`ast.parse` 之后剥掉 docstring 节点再 `ast.dump` | **走这条。** 注释与 docstring 改了标签不动，**因为它们本来就不可能改动数字**。这不是开关，是一个正确的等价关系。约十行 |
+| **`retag --verified`**：真改了代码但相信数字没动时，先重算再逐位比对，只有全等才改写标签 | **保留，作为兜底。** 它要付一次重算，所以救不了散文改动那个场景，但它是「我改了真代码且认为数字不变」唯一诚实的走法 |
+
+**AST 方案的唯一附带条件，记在这里**：若将来有代码去读自己的 docstring 来决定
+一个数（`inspect.getsource`、`__doc__`），AST 哈希就不再覆盖它。本仓库
+现在有两处用 `inspect.getsource`（标签自身、自检里的存在性断言），
+**都不产出数字**，所以条件成立。**这一条要跟着 AST 方案一起走**，
+它是这个方案在什么条件下正确的说明，不是脚注。
+
+### 三、为什么这一条值得单独写下来
+
+**「省时间」不是理由，「不撒谎」才是。** 缓存的收益是运行时间，
+而运行时间在本项目里从来不是瓶颈；真正的成本是**每一次不必要的重建都在训练人
+把重建当噪声**，而一个被当成噪声的信号，在它真的该响的那一次也不会被听见。
+无条件 retag 走得更远：它把「标签动了」这个信号直接接到人的判断上，
+**而人的判断正是标签存在所要替代的那个东西**。
+
+**元规则的实例。** 上一节写「自查抓得到自相矛盾，抓不到自洽的漂移」。
+一个手动 retag 之后的缓存是**完美自洽的**：数字之间互相对得上，
+每一条自检都过，只是它们回答的是上一版代码的问题。
+**这是那条元规则能举出的最干净的一个例子。**

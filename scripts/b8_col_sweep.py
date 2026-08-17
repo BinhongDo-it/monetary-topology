@@ -63,6 +63,7 @@ TARGETS = {
     "b8_loop_omega.py": (["COLS"], ["selftest"]),
     "b8_0b_floor.py": (["COLS"], ["selftest"]),
     "b8_3_paths.py": (["COLS"], ["selftest"]),
+    "b8_2_windows.py": (["COLS"], ["selftest"]),
 }
 
 
