@@ -1,0 +1,112 @@
+{
+  "diagnostic_only": false,
+  "funds": {
+    "JNK": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "SPAB": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "SPDW": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "SPEM": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "SPY": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLB": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLC": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLE": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLF": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLI": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLK": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLP": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLRE": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLU": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLV": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    },
+    "XLY": {
+      "exact_zero": 404,
+      "examples": [],
+      "non_zero": 0,
+      "skipped": 0
+    }
+  },
+  "gate_asserts": [
+    "degenerate out-and-back is zero (a construction check, §49.1, cannot fail)",
+    "a NaN fee survives the loop sum",
+    "the cochain agrees with an independent expression"
+  ],
+  "note": "退化环 cash→etf→cash 走 path_sum，费用传 NaN，所以任何一次误走含费边都会得到 NaN 而不是零。",
+  "passed": true,
+  "probe_fee": 0.00037,
+  "stage": "B9-0",
+  "worst_abs_cochain_vs_direct": 9.082903699997313e-16,
+  "worst_note": "max over **every** fund-day, not over failures. log(p/n) and log(p)-log(n) are not bit-identical; a run reporting exactly 0.0 here is reporting a branch artefact, not agreement."
+}

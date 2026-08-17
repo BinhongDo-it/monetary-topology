@@ -1,0 +1,917 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "§5 的 F1 可通行性审计。阈值是扫描不是选定（纪律 8）。不算 ω、不算 λ。",
+  "funds": {
+    "JNK": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 374,
+        "25000": 404,
+        "50000": 404,
+        "500000": 403
+      },
+      "delta_known": 4705,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 176849208.0,
+        "min": 324.0,
+        "n": 3927,
+        "p01": 100000.0,
+        "p25": 500000.0,
+        "p50": 1100000.0,
+        "p75": 2400000.0,
+        "p99": 11000000.0
+      },
+      "delta_zero": 778,
+      "delta_zero_share": 0.165356,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 200000,
+        "known": 404,
+        "multiples_of_50k": 348,
+        "non_multiple_rows": [],
+        "nonzero_total": 348,
+        "smallest_nonzero": [
+          200000,
+          200000,
+          200000,
+          200000,
+          200000
+        ],
+        "zero": 56,
+        "zero_share": 0.138614
+      },
+      "navhist_rows": 4706,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        324,
+        1661,
+        3801,
+        96673,
+        100000
+      ]
+    },
+    "SPAB": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 312,
+        "25000": 404,
+        "50000": 404,
+        "500000": 374
+      },
+      "delta_known": 4835,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 19000132.0,
+        "min": 1.0,
+        "n": 1547,
+        "p01": 43.0,
+        "p25": 200000.0,
+        "p50": 400000.0,
+        "p75": 900000.0,
+        "p99": 7400000.0
+      },
+      "delta_zero": 3288,
+      "delta_zero_share": 0.680041,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 100000,
+        "known": 404,
+        "multiples_of_50k": 231,
+        "non_multiple_rows": [],
+        "nonzero_total": 231,
+        "smallest_nonzero": [
+          100000,
+          100000,
+          100000,
+          100000,
+          100000
+        ],
+        "zero": 173,
+        "zero_share": 0.428218
+      },
+      "navhist_rows": 4836,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    "SPDW": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 305,
+        "1": 305,
+        "1000": 305,
+        "100000": 305,
+        "1000000": 279,
+        "25000": 305,
+        "50000": 305,
+        "500000": 305
+      },
+      "delta_known": 4862,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 22800000.0,
+        "min": 200000.0,
+        "n": 486,
+        "p01": 200000.0,
+        "p25": 400000.0,
+        "p50": 1200000.0,
+        "p75": 2200000.0,
+        "p99": 14200000.0
+      },
+      "delta_zero": 4376,
+      "delta_zero_share": 0.900041,
+      "gcd_of_changes": 100000,
+      "in_window": {
+        "days": 404,
+        "gcd": 100000,
+        "known": 404,
+        "multiples_of_50k": 51,
+        "non_multiple_rows": [],
+        "nonzero_total": 51,
+        "smallest_nonzero": [
+          800000,
+          800000,
+          800000,
+          1000000,
+          1000000
+        ],
+        "zero": 353,
+        "zero_share": 0.873762
+      },
+      "navhist_rows": 4863,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        200000,
+        200000,
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "SPEM": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 240,
+        "1": 240,
+        "1000": 240,
+        "100000": 240,
+        "1000000": 190,
+        "25000": 240,
+        "50000": 240,
+        "500000": 238
+      },
+      "delta_known": 4885,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 7800000.0,
+        "min": 100000.0,
+        "n": 405,
+        "p01": 100000.0,
+        "p25": 200000.0,
+        "p50": 600000.0,
+        "p75": 1400000.0,
+        "p99": 5500000.0
+      },
+      "delta_zero": 4480,
+      "delta_zero_share": 0.917093,
+      "gcd_of_changes": 100000,
+      "in_window": {
+        "days": 404,
+        "gcd": 100000,
+        "known": 404,
+        "multiples_of_50k": 50,
+        "non_multiple_rows": [],
+        "nonzero_total": 50,
+        "smallest_nonzero": [
+          300000,
+          400000,
+          400000,
+          500000,
+          600000
+        ],
+        "zero": 354,
+        "zero_share": 0.876238
+      },
+      "navhist_rows": 4886,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        100000,
+        100000,
+        100000,
+        100000,
+        100000
+      ]
+    },
+    "SPY": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 404,
+        "25000": 404,
+        "50000": 404,
+        "500000": 404
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 182850000.0,
+        "min": 23586.0,
+        "n": 5039,
+        "p01": 100000.0,
+        "p25": 2100000.0,
+        "p50": 4600000.0,
+        "p75": 8600000.0,
+        "p99": 39650000.0
+      },
+      "delta_zero": 46,
+      "delta_zero_share": 0.009046,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 50000,
+        "known": 404,
+        "multiples_of_50k": 402,
+        "non_multiple_rows": [],
+        "nonzero_total": 402,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 2,
+        "zero_share": 0.00495
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        23586,
+        50000,
+        50000,
+        50000,
+        50000
+      ]
+    },
+    "XLB": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 345,
+        "25000": 404,
+        "50000": 404,
+        "500000": 402
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 56073725.0,
+        "min": 802.0,
+        "n": 4482,
+        "p01": 50000.0,
+        "p25": 300000.0,
+        "p50": 650000.0,
+        "p75": 1350000.0,
+        "p99": 7000000.0
+      },
+      "delta_zero": 603,
+      "delta_zero_share": 0.118584,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 25,
+        "known": 404,
+        "multiples_of_50k": 370,
+        "non_multiple_rows": [
+          {
+            "date": "2025-12-05",
+            "delta": 56073725,
+            "shares_after": 112947450.0,
+            "shares_before": 56873725.0
+          }
+        ],
+        "nonzero_total": 371,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 33,
+        "zero_share": 0.081683
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        802,
+        1128,
+        1586,
+        50000,
+        50000
+      ]
+    },
+    "XLC": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 369,
+        "25000": 404,
+        "50000": 404,
+        "500000": 403
+      },
+      "delta_known": 2049,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 20600000.0,
+        "min": 50000.0,
+        "n": 1876,
+        "p01": 50000.0,
+        "p25": 200000.0,
+        "p50": 500000.0,
+        "p75": 1000000.0,
+        "p99": 8800000.0
+      },
+      "delta_zero": 173,
+      "delta_zero_share": 0.084431,
+      "gcd_of_changes": 50000,
+      "in_window": {
+        "days": 404,
+        "gcd": 50000,
+        "known": 404,
+        "multiples_of_50k": 385,
+        "non_multiple_rows": [],
+        "nonzero_total": 385,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 19,
+        "zero_share": 0.04703
+      },
+      "navhist_rows": 2050,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ]
+    },
+    "XLE": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 400,
+        "25000": 404,
+        "50000": 404,
+        "500000": 404
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 300774200.0,
+        "min": 50000.0,
+        "n": 4958,
+        "p01": 50000.0,
+        "p25": 500000.0,
+        "p50": 1200000.0,
+        "p75": 2450000.0,
+        "p99": 11250000.0
+      },
+      "delta_zero": 127,
+      "delta_zero_share": 0.024975,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 200,
+        "known": 404,
+        "multiples_of_50k": 399,
+        "non_multiple_rows": [
+          {
+            "date": "2025-12-05",
+            "delta": 300774200,
+            "shares_after": 602248400.0,
+            "shares_before": 301474200.0
+          }
+        ],
+        "nonzero_total": 400,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 4,
+        "zero_share": 0.009901
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ]
+    },
+    "XLF": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 404,
+        "25000": 404,
+        "50000": 404,
+        "500000": 404
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 381050000.0,
+        "min": 50000.0,
+        "n": 5002,
+        "p01": 100000.0,
+        "p25": 1900000.0,
+        "p50": 4550000.0,
+        "p75": 8700000.0,
+        "p99": 35100000.0
+      },
+      "delta_zero": 83,
+      "delta_zero_share": 0.016323,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 50000,
+        "known": 404,
+        "multiples_of_50k": 404,
+        "non_multiple_rows": [],
+        "nonzero_total": 404,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 0,
+        "zero_share": 0.0
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ]
+    },
+    "XLI": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 381,
+        "25000": 404,
+        "50000": 404,
+        "500000": 404
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 61200000.0,
+        "min": 712.0,
+        "n": 4729,
+        "p01": 50000.0,
+        "p25": 400000.0,
+        "p50": 950000.0,
+        "p75": 1950000.0,
+        "p99": 8250000.0
+      },
+      "delta_zero": 356,
+      "delta_zero_share": 0.07001,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 50000,
+        "known": 404,
+        "multiples_of_50k": 385,
+        "non_multiple_rows": [],
+        "nonzero_total": 385,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 19,
+        "zero_share": 0.04703
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        712,
+        1426,
+        2288,
+        50000,
+        50000
+      ]
+    },
+    "XLK": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 297,
+        "25000": 404,
+        "50000": 404,
+        "500000": 391
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 324805897.0,
+        "min": 260.0,
+        "n": 4432,
+        "p01": 50000.0,
+        "p25": 350000.0,
+        "p50": 750000.0,
+        "p75": 1600000.0,
+        "p99": 10250000.0
+      },
+      "delta_zero": 653,
+      "delta_zero_share": 0.128417,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 1,
+        "known": 404,
+        "multiples_of_50k": 385,
+        "non_multiple_rows": [
+          {
+            "date": "2025-12-05",
+            "delta": 324805897,
+            "shares_after": 650611794.0,
+            "shares_before": 325805897.0
+          }
+        ],
+        "nonzero_total": 386,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 18,
+        "zero_share": 0.044554
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        260,
+        50000,
+        50000,
+        50000,
+        50000
+      ]
+    },
+    "XLP": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 402,
+        "25000": 404,
+        "50000": 404,
+        "500000": 404
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 21950000.0,
+        "min": 640.0,
+        "n": 4541,
+        "p01": 50000.0,
+        "p25": 450000.0,
+        "p50": 1000000.0,
+        "p75": 1950000.0,
+        "p99": 9700000.0
+      },
+      "delta_zero": 544,
+      "delta_zero_share": 0.106981,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 50000,
+        "known": 404,
+        "multiples_of_50k": 391,
+        "non_multiple_rows": [],
+        "nonzero_total": 391,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 13,
+        "zero_share": 0.032178
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        640,
+        711,
+        1138,
+        1503,
+        50000
+      ]
+    },
+    "XLRE": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 332,
+        "25000": 404,
+        "50000": 404,
+        "500000": 386
+      },
+      "delta_known": 2727,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 89250000.0,
+        "min": 50000.0,
+        "n": 1917,
+        "p01": 50000.0,
+        "p25": 200000.0,
+        "p50": 450000.0,
+        "p75": 850000.0,
+        "p99": 5000000.0
+      },
+      "delta_zero": 810,
+      "delta_zero_share": 0.29703,
+      "gcd_of_changes": 50000,
+      "in_window": {
+        "days": 404,
+        "gcd": 50000,
+        "known": 404,
+        "multiples_of_50k": 315,
+        "non_multiple_rows": [],
+        "nonzero_total": 315,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 89,
+        "zero_share": 0.220297
+      },
+      "navhist_rows": 2728,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ]
+    },
+    "XLU": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 398,
+        "25000": 404,
+        "50000": 404,
+        "500000": 404
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 249874160.0,
+        "min": 1673.0,
+        "n": 4687,
+        "p01": 50000.0,
+        "p25": 450000.0,
+        "p50": 1000000.0,
+        "p75": 2000000.0,
+        "p99": 8650000.0
+      },
+      "delta_zero": 398,
+      "delta_zero_share": 0.078269,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 80,
+        "known": 404,
+        "multiples_of_50k": 385,
+        "non_multiple_rows": [
+          {
+            "date": "2025-12-05",
+            "delta": 249874160,
+            "shares_after": 496148320.0,
+            "shares_before": 246274160.0
+          }
+        ],
+        "nonzero_total": 386,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 18,
+        "zero_share": 0.044554
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        1673,
+        2513,
+        2609,
+        2719,
+        3981
+      ]
+    },
+    "XLV": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 390,
+        "25000": 404,
+        "50000": 404,
+        "500000": 404
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 67750000.0,
+        "min": 666.0,
+        "n": 4545,
+        "p01": 50000.0,
+        "p25": 350000.0,
+        "p50": 750000.0,
+        "p75": 1500000.0,
+        "p99": 6600000.0
+      },
+      "delta_zero": 540,
+      "delta_zero_share": 0.106195,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 50000,
+        "known": 404,
+        "multiples_of_50k": 393,
+        "non_multiple_rows": [],
+        "nonzero_total": 393,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 11,
+        "zero_share": 0.027228
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        666,
+        846,
+        50000,
+        50000,
+        50000
+      ]
+    },
+    "XLY": {
+      "candidates": 404,
+      "cleared_by_threshold": {
+        "0": 404,
+        "1": 404,
+        "1000": 404,
+        "100000": 404,
+        "1000000": 279,
+        "25000": 404,
+        "50000": 404,
+        "500000": 378
+      },
+      "delta_known": 5085,
+      "delta_non_integral": 0,
+      "delta_quantiles": {
+        "max": 96603252.0,
+        "min": 43.0,
+        "n": 4478,
+        "p01": 50000.0,
+        "p25": 250000.0,
+        "p50": 500000.0,
+        "p75": 1050000.0,
+        "p99": 6850000.0
+      },
+      "delta_zero": 607,
+      "delta_zero_share": 0.119371,
+      "gcd_of_changes": 1,
+      "in_window": {
+        "days": 404,
+        "gcd": 4,
+        "known": 404,
+        "multiples_of_50k": 372,
+        "non_multiple_rows": [
+          {
+            "date": "2025-12-05",
+            "delta": 96603252,
+            "shares_after": 198306504.0,
+            "shares_before": 101703252.0
+          }
+        ],
+        "nonzero_total": 373,
+        "smallest_nonzero": [
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
+        ],
+        "zero": 31,
+        "zero_share": 0.076733
+      },
+      "navhist_rows": 5714,
+      "neighbourhood_truncated": 5,
+      "smallest_nonzero_changes": [
+        43,
+        66,
+        81,
+        155,
+        50000
+      ]
+    }
+  },
+  "stage": "B9-A F1",
+  "thresholds": [
+    0,
+    1,
+    1000,
+    25000,
+    50000,
+    100000,
+    500000,
+    1000000
+  ],
+  "window_trading_days": 5
+}

@@ -1,0 +1,454 @@
+{
+  "aggregation": "median of |λ|/√N over calm, F1-cleared fund-days; verdict read at §17.3's worst corner",
+  "creation_unit_shares": 50000,
+  "diagnostic_only": false,
+  "funds": {
+    "JNK": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": null,
+      "fixed_fee_usd": null,
+      "ratio_best_median": 6.883378542478124,
+      "ratio_worst_median": 20.650135627434373,
+      "share_below_1_best": 0.03940886699507389,
+      "share_below_1_worst": 0.009852216748768473,
+      "spread_fraction": 0.0001,
+      "spread_note": "percent_string",
+      "spread_raw": "0.01%",
+      "sqrtN_hi": 0.00015000000000000001,
+      "sqrtN_lo": 5e-05,
+      "verdict": "fail",
+      "vol_median": 0.002142011433894683
+    },
+    "SPAB": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": null,
+      "fixed_fee_usd": null,
+      "ratio_best_median": 0.5547974058665796,
+      "ratio_worst_median": 0.713310950399888,
+      "share_below_1_best": 0.8620689655172413,
+      "share_below_1_worst": 0.7241379310344828,
+      "spread_fraction": 0.0004,
+      "spread_note": "percent_string",
+      "spread_raw": "0.04%",
+      "sqrtN_hi": 0.00045000000000000004,
+      "sqrtN_lo": 0.00035,
+      "verdict": "pass",
+      "vol_median": 0.002776331304237129
+    },
+    "SPDW": {
+      "calm_days": 196,
+      "days_in_window": 404,
+      "days_used": 305,
+      "dropped": {
+        "band": 0,
+        "no_f1": 99,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": null,
+      "fixed_fee_usd": null,
+      "ratio_best_median": 10.124001122682317,
+      "ratio_worst_median": 16.87333520447053,
+      "share_below_1_best": 0.04081632653061224,
+      "share_below_1_worst": 0.02040816326530612,
+      "spread_fraction": 0.0002,
+      "spread_note": "percent_string",
+      "spread_raw": "0.02%",
+      "sqrtN_hi": 0.00025,
+      "sqrtN_lo": 0.00015000000000000001,
+      "verdict": "fail",
+      "vol_median": 0.007685445462619715
+    },
+    "SPEM": {
+      "calm_days": 136,
+      "days_in_window": 404,
+      "days_used": 240,
+      "dropped": {
+        "band": 0,
+        "no_f1": 164,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": null,
+      "fixed_fee_usd": null,
+      "ratio_best_median": 16.561228349604445,
+      "ratio_worst_median": 27.602047249340742,
+      "share_below_1_best": 0.029411764705882353,
+      "share_below_1_worst": 0.014705882352941176,
+      "spread_fraction": 0.0002,
+      "spread_note": "percent_string",
+      "spread_raw": "0.02%",
+      "sqrtN_hi": 0.00025,
+      "sqrtN_lo": 0.00015000000000000001,
+      "verdict": "fail",
+      "vol_median": 0.008113979266062936
+    },
+    "SPY": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "fixed_fee_usd": null,
+      "note": "§17.3: a fund published at 0.00% has a floor below the reporting resolution and gets no ratio.",
+      "spread_fraction": 0.0,
+      "spread_note": "percent_string",
+      "spread_raw": "0.00%",
+      "verdict": "no_floor_published",
+      "vol_median": 0.008164725115996682
+    },
+    "XLB": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 1.1333076850693433,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": true,
+        "quantum_necessary": false,
+        "worst_without_fee": 0.8740093722341937,
+        "worst_without_quantum": 1.0202958925479249
+      },
+      "ratio_best_median": 0.29353076977566067,
+      "ratio_worst_median": 1.360394523397233,
+      "share_below_1_best": 0.9014778325123153,
+      "share_below_1_worst": 0.3103448275862069,
+      "spread_fraction": 0.0002,
+      "spread_note": "percent_string",
+      "spread_raw": "0.02%",
+      "sqrtN_hi": 0.00025,
+      "sqrtN_lo": 0.00015000000000000001,
+      "verdict": "fee_indeterminate",
+      "vol_median": 0.011912869096456986
+    },
+    "XLC": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 0.43536162451324173,
+      "fixed_fee_usd": 250.0,
+      "flip_diagnostics": {
+        "fee_necessary": false,
+        "quantum_necessary": false,
+        "worst_without_fee": 2.5873673545288103,
+        "worst_without_quantum": 1.520484400500558
+      },
+      "ratio_best_median": 0.7235868609455702,
+      "ratio_worst_median": 3.040968801001116,
+      "share_below_1_best": 0.6502463054187192,
+      "share_below_1_worst": 0.08374384236453201,
+      "spread_fraction": 0.0001,
+      "spread_note": "percent_string",
+      "spread_raw": "0.01%",
+      "sqrtN_hi": 0.00015000000000000001,
+      "sqrtN_lo": 5e-05,
+      "verdict": "floor_indeterminate",
+      "vol_median": 0.00912827468748812
+    },
+    "XLE": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 1.1349044329889209,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": true,
+        "quantum_necessary": false,
+        "worst_without_fee": 0.851587721141019,
+        "worst_without_quantum": 1.0013997131664116
+      },
+      "ratio_best_median": 0.31801264116998645,
+      "ratio_worst_median": 1.3351996175552152,
+      "share_below_1_best": 0.8817733990147784,
+      "share_below_1_worst": 0.3448275862068966,
+      "spread_fraction": 0.0002,
+      "spread_note": "percent_string",
+      "spread_raw": "0.02%",
+      "sqrtN_hi": 0.00025,
+      "sqrtN_lo": 0.00015000000000000001,
+      "verdict": "fee_indeterminate",
+      "vol_median": 0.014325794253593689
+    },
+    "XLF": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 1.873301922056478,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": true,
+        "quantum_necessary": false,
+        "worst_without_fee": 0.9138626330064695,
+        "worst_without_quantum": 1.1654034287377457
+      },
+      "ratio_best_median": 0.2921706702027708,
+      "ratio_worst_median": 1.5538712383169944,
+      "share_below_1_best": 0.8719211822660099,
+      "share_below_1_worst": 0.20689655172413793,
+      "spread_fraction": 0.0002,
+      "spread_note": "percent_string",
+      "spread_raw": "0.02%",
+      "sqrtN_hi": 0.00025,
+      "sqrtN_lo": 0.00015000000000000001,
+      "verdict": "fee_indeterminate",
+      "vol_median": 0.009107804182119155
+    },
+    "XLI": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 0.6547990022434724,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": false,
+        "quantum_necessary": false,
+        "worst_without_fee": 2.4743530542640255,
+        "worst_without_quantum": 1.420154270812598
+      },
+      "ratio_best_median": 0.5058858602189439,
+      "ratio_worst_median": 2.840308541625196,
+      "share_below_1_best": 0.7586206896551724,
+      "share_below_1_worst": 0.07389162561576355,
+      "spread_fraction": 0.0001,
+      "spread_note": "percent_string",
+      "spread_raw": "0.01%",
+      "sqrtN_hi": 0.00015000000000000001,
+      "sqrtN_lo": 5e-05,
+      "verdict": "floor_indeterminate",
+      "vol_median": 0.009828171134509076
+    },
+    "XLK": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 0.3888760708854657,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": false,
+        "quantum_necessary": false,
+        "worst_without_fee": 2.3177342921186135,
+        "worst_without_quantum": 1.4107004915269934
+      },
+      "ratio_best_median": 0.6640997427034875,
+      "ratio_worst_median": 2.821400983053987,
+      "share_below_1_best": 0.6551724137931034,
+      "share_below_1_worst": 0.09359605911330049,
+      "spread_fraction": 0.0001,
+      "spread_note": "percent_string",
+      "spread_raw": "0.01%",
+      "sqrtN_hi": 0.00015000000000000001,
+      "sqrtN_lo": 5e-05,
+      "verdict": "floor_indeterminate",
+      "vol_median": 0.0162865326628494
+    },
+    "XLP": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 1.2543284523023104,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": false,
+        "quantum_necessary": false,
+        "worst_without_fee": 2.245873896540857,
+        "worst_without_quantum": 1.8671717462193997
+      },
+      "ratio_best_median": 0.41205393227107256,
+      "ratio_worst_median": 3.7343434924387995,
+      "share_below_1_best": 0.7684729064039408,
+      "share_below_1_worst": 0.0,
+      "spread_fraction": 0.0001,
+      "spread_note": "percent_string",
+      "spread_raw": "0.01%",
+      "sqrtN_hi": 0.00015000000000000001,
+      "sqrtN_lo": 5e-05,
+      "verdict": "floor_indeterminate",
+      "vol_median": 0.008285075008334726
+    },
+    "XLRE": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 2.4000102336436364,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": true,
+        "quantum_necessary": false,
+        "worst_without_fee": 0.8477460972068301,
+        "worst_without_quantum": 1.2215007814329701
+      },
+      "ratio_best_median": 0.2590483880773432,
+      "ratio_worst_median": 1.6286677085772936,
+      "share_below_1_best": 0.9261083743842364,
+      "share_below_1_worst": 0.14285714285714285,
+      "spread_fraction": 0.0002,
+      "spread_note": "percent_string",
+      "spread_raw": "0.02%",
+      "sqrtN_hi": 0.00025,
+      "sqrtN_lo": 0.00015000000000000001,
+      "verdict": "fee_indeterminate",
+      "vol_median": 0.00953298620075682
+    },
+    "XLU": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 1.2144836109201604,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": true,
+        "quantum_necessary": true,
+        "worst_without_fee": 0.7498911564959518,
+        "worst_without_quantum": 0.9085521432840861
+      },
+      "ratio_best_median": 0.2533119789608465,
+      "ratio_worst_median": 1.2114028577121148,
+      "share_below_1_best": 0.9408866995073891,
+      "share_below_1_worst": 0.3793103448275862,
+      "spread_fraction": 0.0002,
+      "spread_note": "percent_string",
+      "spread_raw": "0.02%",
+      "sqrtN_hi": 0.00025,
+      "sqrtN_lo": 0.00015000000000000001,
+      "verdict": "fee_and_floor_indeterminate",
+      "vol_median": 0.010748174196978377
+    },
+    "XLV": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 0.6775573715267545,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": false,
+        "quantum_necessary": false,
+        "worst_without_fee": 3.365283112381217,
+        "worst_without_quantum": 1.9372123482987023
+      },
+      "ratio_best_median": 0.854239493882849,
+      "ratio_worst_median": 3.8744246965974045,
+      "share_below_1_best": 0.5911330049261084,
+      "share_below_1_worst": 0.03940886699507389,
+      "spread_fraction": 0.0001,
+      "spread_note": "percent_string",
+      "spread_raw": "0.01%",
+      "sqrtN_hi": 0.00015000000000000001,
+      "sqrtN_lo": 5e-05,
+      "verdict": "floor_indeterminate",
+      "vol_median": 0.00957819052706745
+    },
+    "XLY": {
+      "calm_days": 203,
+      "days_in_window": 404,
+      "days_used": 404,
+      "dropped": {
+        "band": 0,
+        "no_f1": 0,
+        "no_premium": 0,
+        "no_vol": 0
+      },
+      "f_max_median_bp": 0.44526690188632867,
+      "fixed_fee_usd": 500.0,
+      "flip_diagnostics": {
+        "fee_necessary": false,
+        "quantum_necessary": false,
+        "worst_without_fee": 2.054505521210154,
+        "worst_without_quantum": 1.3529947421154058
+      },
+      "ratio_best_median": 0.5398467281770777,
+      "ratio_worst_median": 2.7059894842308116,
+      "share_below_1_best": 0.7093596059113301,
+      "share_below_1_worst": 0.11822660098522167,
+      "spread_fraction": 0.0001,
+      "spread_note": "percent_string",
+      "spread_raw": "0.01%",
+      "sqrtN_hi": 0.00015000000000000001,
+      "sqrtN_lo": 5e-05,
+      "verdict": "floor_indeterminate",
+      "vol_median": 0.013248126078372138
+    }
+  },
+  "spread_quantum": 0.0001,
+  "stage": "B9-A-1",
+  "tau_shares": 50000
+}

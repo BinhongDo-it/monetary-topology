@@ -1,0 +1,204 @@
+{
+  "calm_rate": 0.5512982900569982,
+  "datasets": [
+    "ARCX.PILLAR",
+    "XNAS.ITCH",
+    "XNYS.PILLAR",
+    "BATS.PITCH"
+  ],
+  "diagnostic_only": false,
+  "exact_rate": 0.5456313827200518,
+  "funds": {
+    "JNK": {
+      "calm_exact": 163,
+      "calm_n": 201,
+      "exact": 304,
+      "n": 401,
+      "stress_exact": 141,
+      "stress_n": 200
+    },
+    "SPAB": {
+      "calm_exact": 191,
+      "calm_n": 201,
+      "exact": 377,
+      "n": 401,
+      "stress_exact": 186,
+      "stress_n": 200
+    },
+    "SPDW": {
+      "calm_exact": 127,
+      "calm_n": 194,
+      "exact": 186,
+      "n": 302,
+      "stress_exact": 59,
+      "stress_n": 108
+    },
+    "SPEM": {
+      "calm_exact": 76,
+      "calm_n": 135,
+      "exact": 134,
+      "n": 238,
+      "stress_exact": 58,
+      "stress_n": 103
+    },
+    "SPY": {
+      "calm_exact": 96,
+      "calm_n": 202,
+      "exact": 169,
+      "n": 403,
+      "stress_exact": 73,
+      "stress_n": 201
+    },
+    "XLB": {
+      "calm_exact": 93,
+      "calm_n": 203,
+      "exact": 196,
+      "n": 402,
+      "stress_exact": 103,
+      "stress_n": 199
+    },
+    "XLC": {
+      "calm_exact": 65,
+      "calm_n": 201,
+      "exact": 134,
+      "n": 402,
+      "stress_exact": 69,
+      "stress_n": 201
+    },
+    "XLE": {
+      "calm_exact": 123,
+      "calm_n": 203,
+      "exact": 252,
+      "n": 402,
+      "stress_exact": 129,
+      "stress_n": 199
+    },
+    "XLF": {
+      "calm_exact": 144,
+      "calm_n": 203,
+      "exact": 281,
+      "n": 403,
+      "stress_exact": 137,
+      "stress_n": 200
+    },
+    "XLI": {
+      "calm_exact": 79,
+      "calm_n": 202,
+      "exact": 165,
+      "n": 402,
+      "stress_exact": 86,
+      "stress_n": 200
+    },
+    "XLK": {
+      "calm_exact": 91,
+      "calm_n": 203,
+      "exact": 190,
+      "n": 403,
+      "stress_exact": 99,
+      "stress_n": 200
+    },
+    "XLP": {
+      "calm_exact": 101,
+      "calm_n": 202,
+      "exact": 180,
+      "n": 402,
+      "stress_exact": 79,
+      "stress_n": 200
+    },
+    "XLRE": {
+      "calm_exact": 124,
+      "calm_n": 203,
+      "exact": 243,
+      "n": 403,
+      "stress_exact": 119,
+      "stress_n": 200
+    },
+    "XLU": {
+      "calm_exact": 108,
+      "calm_n": 201,
+      "exact": 215,
+      "n": 401,
+      "stress_exact": 107,
+      "stress_n": 200
+    },
+    "XLV": {
+      "calm_exact": 88,
+      "calm_n": 202,
+      "exact": 188,
+      "n": 402,
+      "stress_exact": 100,
+      "stress_n": 200
+    },
+    "XLY": {
+      "calm_exact": 72,
+      "calm_n": 202,
+      "exact": 152,
+      "n": 402,
+      "stress_exact": 80,
+      "stress_n": 200
+    }
+  },
+  "halfcent_steps": {
+    "0": 3366,
+    "1": 1604,
+    "10": 12,
+    "103": 1,
+    "11": 10,
+    "12": 12,
+    "13": 8,
+    "14": 7,
+    "15": 5,
+    "16": 6,
+    "17": 1,
+    "18": 1,
+    "19": 2,
+    "2": 551,
+    "20": 3,
+    "206": 1,
+    "21": 5,
+    "22": 1,
+    "227": 1,
+    "23": 3,
+    "24": 3,
+    "25": 2,
+    "26": 2,
+    "27": 1,
+    "28": 4,
+    "29": 3,
+    "3": 217,
+    "30": 2,
+    "32": 1,
+    "33": 1,
+    "34": 2,
+    "35": 1,
+    "37": 1,
+    "38": 2,
+    "4": 125,
+    "41": 1,
+    "42": 1,
+    "43": 1,
+    "44": 1,
+    "48": 1,
+    "5": 75,
+    "50": 1,
+    "54": 1,
+    "56": 1,
+    "6": 42,
+    "60": 1,
+    "7": 29,
+    "8": 28,
+    "9": 19
+  },
+  "min_size": 100,
+  "n": 6169,
+  "offset_s": 0,
+  "stage": "B9-A-6 four-venue (§39.3)",
+  "stress_rate": 0.5396878113583528,
+  "venue_at_inside": {
+    "ARCX.PILLAR": 9463,
+    "BATS.PITCH": 477,
+    "XNAS.ITCH": 1144,
+    "XNYS.PILLAR": 1254
+  },
+  "verdict": "fails_and_stops"
+}

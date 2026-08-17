@@ -1,0 +1,1063 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "§10 第 3 步的 --depth。只印连接的对账与列的原始分布，不算 ω、不算 λ、不算 π，不读任何一条预测。",
+  "funds": {
+    "JNK": {
+      "join": {
+        "both": 404,
+        "navhist_only": 4302,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 110.20852,
+        "min": 26.185917,
+        "n": 4706,
+        "p01": 28.853308,
+        "p25": 37.19547,
+        "p50": 40.566664,
+        "p75": 95.610944,
+        "p99": 109.691974
+      },
+      "navhist": {
+        "dated": 4706,
+        "duplicate_dates": 0,
+        "rows": 4864,
+        "span": [
+          "2007-12-03",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® SPDR® Bloomberg High Yield Bond ETF",
+          "Ticker Symbol: | JNK",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 1.634245,
+        "min": -0.719917,
+        "n": 405,
+        "p01": -0.345429,
+        "p25": 0.035052,
+        "p50": 0.098423,
+        "p75": 0.172343,
+        "p99": 0.392085
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "SPAB": {
+      "join": {
+        "both": 404,
+        "navhist_only": 4432,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 59.73154,
+        "min": 23.696239,
+        "n": 4836,
+        "p01": 24.521713,
+        "p25": 27.771788,
+        "p50": 53.130995,
+        "p75": 57.406686,
+        "p99": 59.291835
+      },
+      "navhist": {
+        "dated": 4836,
+        "duplicate_dates": 0,
+        "rows": 4994,
+        "span": [
+          "2007-05-30",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® SPDR® Portfolio Aggregate Bond ETF",
+          "Ticker Symbol: | SPAB",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.315028,
+        "min": -0.077382,
+        "n": 405,
+        "p01": -0.04079,
+        "p25": 0.008218,
+        "p50": 0.024278,
+        "p75": 0.038689,
+        "p99": 0.104313
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "SPDW": {
+      "join": {
+        "both": 404,
+        "navhist_only": 4459,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 51.970254,
+        "min": 0.0,
+        "n": 4863,
+        "p01": 16.543826,
+        "p25": 25.779245,
+        "p50": 29.1088,
+        "p75": 32.58189,
+        "p99": 49.818383
+      },
+      "navhist": {
+        "dated": 4863,
+        "duplicate_dates": 0,
+        "rows": 5021,
+        "span": [
+          "2007-04-20",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® SPDR® Portfolio Developed World ex-US ETF",
+          "Ticker Symbol: | SPDW",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 6.246339,
+        "min": -2.480201,
+        "n": 405,
+        "p01": -1.434223,
+        "p25": -0.138746,
+        "p50": 0.118922,
+        "p75": 0.354879,
+        "p99": 1.64631
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "SPEM": {
+      "join": {
+        "both": 404,
+        "navhist_only": 4482,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 84.381663,
+        "min": 0.0,
+        "n": 4886,
+        "p01": 30.53162,
+        "p25": 37.333671,
+        "p50": 51.930104,
+        "p75": 64.26346,
+        "p99": 77.558406
+      },
+      "navhist": {
+        "dated": 4886,
+        "duplicate_dates": 0,
+        "rows": 5044,
+        "span": [
+          "2007-03-19",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® SPDR® Portfolio Emerging Markets ETF",
+          "Ticker Symbol: | SPEM",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 4.269515,
+        "min": -2.702862,
+        "n": 405,
+        "p01": -2.32785,
+        "p25": -0.22366,
+        "p50": 0.183703,
+        "p75": 0.498066,
+        "p99": 1.770458
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "SPY": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 777.608172,
+        "min": 68.130803,
+        "n": 5714,
+        "p01": 84.422023,
+        "p25": 129.37,
+        "p50": 201.91089,
+        "p75": 362.635342,
+        "p99": 737.641387
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® SPDR® S&P 500® ETF Trust",
+          "Ticker Symbol: | SPY",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.071032,
+        "min": -0.468279,
+        "n": 405,
+        "p01": -0.098774,
+        "p25": -0.016456,
+        "p50": -0.000736,
+        "p75": 0.016913,
+        "p99": 0.054841
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLB": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 97.649369,
+        "min": 18.02434,
+        "n": 5714,
+        "p01": 22.171556,
+        "p25": 34.885401,
+        "p50": 46.741015,
+        "p75": 60.357211,
+        "p99": 92.817312
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Materials Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLB",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.061881,
+        "min": -0.129091,
+        "n": 405,
+        "p01": -0.055661,
+        "p25": -0.0118,
+        "p50": 0.00144,
+        "p75": 0.013257,
+        "p99": 0.039989
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLC": {
+      "join": {
+        "both": 404,
+        "navhist_only": 1646,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 120.097976,
+        "min": 38.991329,
+        "n": 2050,
+        "p01": 42.726398,
+        "p25": 52.388975,
+        "p50": 67.356634,
+        "p75": 85.642972,
+        "p99": 118.074871
+      },
+      "navhist": {
+        "dated": 2050,
+        "duplicate_dates": 0,
+        "rows": 2208,
+        "span": [
+          "2018-06-18",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Communication Services Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLC",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.121332,
+        "min": -0.129227,
+        "n": 405,
+        "p01": -0.069363,
+        "p25": -0.015348,
+        "p50": -0.001699,
+        "p75": 0.012723,
+        "p99": 0.051182
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLE": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 101.263756,
+        "min": 23.559352,
+        "n": 5714,
+        "p01": 28.54,
+        "p25": 54.669685,
+        "p50": 67.446149,
+        "p75": 78.435797,
+        "p99": 96.968571
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Energy Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLE",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.085612,
+        "min": -0.073282,
+        "n": 405,
+        "p01": -0.060593,
+        "p25": -0.010927,
+        "p50": 0.0031,
+        "p75": 0.015069,
+        "p99": 0.056281
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLF": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 58.238793,
+        "min": 6.12977,
+        "n": 5714,
+        "p01": 9.82696,
+        "p25": 21.161058,
+        "p50": 27.20959,
+        "p75": 33.651894,
+        "p99": 54.236839
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Financial Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLF",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.068018,
+        "min": -0.143541,
+        "n": 405,
+        "p01": -0.067653,
+        "p25": -0.011997,
+        "p50": 0.001155,
+        "p75": 0.017659,
+        "p99": 0.059508
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLI": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 186.367136,
+        "min": 15.387109,
+        "n": 5714,
+        "p01": 20.713154,
+        "p25": 34.48419,
+        "p50": 54.203484,
+        "p75": 85.502859,
+        "p99": 175.037918
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Industrial Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLI",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.046691,
+        "min": -0.119522,
+        "n": 405,
+        "p01": -0.062304,
+        "p25": -0.011237,
+        "p50": 0.001859,
+        "p75": 0.014704,
+        "p99": 0.040111
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLK": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 304.15166,
+        "min": 13.118572,
+        "n": 5714,
+        "p01": 15.218898,
+        "p25": 23.507993,
+        "p50": 41.26306,
+        "p75": 121.661811,
+        "p99": 271.464253
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Technology Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLK",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.170777,
+        "min": -0.405657,
+        "n": 405,
+        "p01": -0.105328,
+        "p25": -0.015521,
+        "p50": -0.003376,
+        "p75": 0.009178,
+        "p99": 0.04384
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLP": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 90.00348,
+        "min": 19.333791,
+        "n": 5714,
+        "p01": 21.495802,
+        "p25": 27.437414,
+        "p50": 48.647122,
+        "p75": 65.613332,
+        "p99": 84.692029
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Consumer Staples Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLP",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.061313,
+        "min": -0.121353,
+        "n": 405,
+        "p01": -0.049133,
+        "p25": -0.012377,
+        "p50": 0.001123,
+        "p75": 0.013191,
+        "p99": 0.044903
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLRE": {
+      "join": {
+        "both": 404,
+        "navhist_only": 2324,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 51.807374,
+        "min": 25.529539,
+        "n": 2728,
+        "p01": 29.31785,
+        "p25": 32.778703,
+        "p50": 37.314283,
+        "p75": 41.518148,
+        "p99": 49.270989
+      },
+      "navhist": {
+        "dated": 2728,
+        "duplicate_dates": 0,
+        "rows": 2886,
+        "span": [
+          "2015-10-07",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Real Estate Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLRE",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.061081,
+        "min": -0.110837,
+        "n": 405,
+        "p01": -0.055545,
+        "p25": -0.010561,
+        "p50": 0.004164,
+        "p75": 0.016544,
+        "p99": 0.050117
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLU": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 92.872772,
+        "min": 22.13,
+        "n": 5714,
+        "p01": 23.365501,
+        "p25": 33.838646,
+        "p50": 43.314518,
+        "p75": 60.681513,
+        "p99": 86.077387
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Utilities Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLU",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.061514,
+        "min": -0.139141,
+        "n": 405,
+        "p01": -0.049713,
+        "p25": -0.014299,
+        "p50": 0.001065,
+        "p75": 0.011507,
+        "p99": 0.041401
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLV": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 168.47888,
+        "min": 21.826682,
+        "n": 5714,
+        "p01": 24.707224,
+        "p25": 32.449919,
+        "p50": 68.416781,
+        "p75": 111.284743,
+        "p99": 157.267664
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Health Care Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLV",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.104801,
+        "min": -0.160527,
+        "n": 405,
+        "p01": -0.071923,
+        "p25": -0.016785,
+        "p50": 0.001404,
+        "p75": 0.015729,
+        "p99": 0.052689
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    },
+    "XLY": {
+      "join": {
+        "both": 404,
+        "navhist_only": 5310,
+        "pdhist_only": 1,
+        "span": [
+          "2025-01-02",
+          "2026-08-13"
+        ]
+      },
+      "nav_column_raw": {
+        "max": 242.162607,
+        "min": 16.03673,
+        "n": 5714,
+        "p01": 19.96288,
+        "p25": 34.76,
+        "p50": 74.17227,
+        "p75": 124.532688,
+        "p99": 234.132033
+      },
+      "navhist": {
+        "dated": 5714,
+        "duplicate_dates": 0,
+        "rows": 5872,
+        "span": [
+          "2003-12-01",
+          "2026-08-13"
+        ],
+        "undated": 20
+      },
+      "pdhist": {
+        "dated": 405,
+        "duplicate_dates": 0,
+        "rows": 563,
+        "span": [
+          "2025-01-02",
+          "2026-08-14"
+        ],
+        "undated": 20,
+        "undated_sample": [
+          "Fund Name: | State Street® Consumer Discretionary Select Sector SPDR® ETF",
+          "Ticker Symbol: | XLY",
+          "Date | Premium/Discount",
+          "State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.",
+          "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate",
+          "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be con"
+        ]
+      },
+      "premium_column_raw": {
+        "max": 0.059369,
+        "min": -0.305053,
+        "n": 405,
+        "p01": -0.07352,
+        "p25": -0.01402,
+        "p50": -0.001362,
+        "p75": 0.009681,
+        "p99": 0.041439
+      },
+      "reconciliation": {
+        "pdhist_blank": 138,
+        "pdhist_dated": 405,
+        "pdhist_rows": 563,
+        "pdhist_undated": 20,
+        "reconciles": true
+      }
+    }
+  },
+  "stage": "B9-A"
+}
