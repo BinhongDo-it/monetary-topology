@@ -327,6 +327,15 @@ def analyse(name: str, cache_root=None, pos=None, tab=None) -> dict:
         pay0, _known0, _p0 = W.contract_payments(c, pid0, q0)
         es = G.episode_sums(c, pay0, cc["t_A"], cc["t_B"], cc["k"])
         ideal = es[2]
+        # **P4's closed form: the ideal clean cure's round trip is NOT zero.**
+        # `b8_omega.loop_residual_ideal` reads -9.04e-06 / -5.45e-05 /
+        # -1.93e-04 at k = 1 / 3 / 6, and the measured floor's median absolute
+        # value came back 8.9e-6 to 1.4e-5 with every percentile negative.
+        # Same order, same sign. **So the floor may not be noise at all: it may
+        # be the construction's own monthly-discretisation residual, which is a
+        # deterministic function of (B0, i, P, k).** Measured here rather than
+        # asserted: `omega - closed` is what is left after removing it.
+        closed = es[1]
 
         a = {"name": name, "n_rows": c.n_rows,
              "loans_refused_c13": rinfo["V"]["loans_dropped_c13"],
@@ -339,8 +348,21 @@ def analyse(name: str, cache_root=None, pos=None, tab=None) -> dict:
             "Z": zed(flo["omega"][flo["measurable"]]),
             "absmed": (float(np.median(np.abs(flo["omega"][flo["measurable"]])))
                        if flo["measurable"].any() else float("nan"))}
-        n_om = flo["omega"][fm]
+        # **`N` is the residual after removing the closed form**, changed
+        # 2026-08-17 after §2.4 read `corr(omega, closed) = +1.0000` on five
+        # archives and `+0.9993` on the sixth, with the two median absolute
+        # values agreeing to four significant figures. **The clean cure's loop
+        # sum is not noise: it is `loop_residual_ideal`, a deterministic
+        # function of `(B0, i, P, k)` that P4 proved non-zero.** What is left
+        # after removing it has a median absolute deviation of 2.7e-8 to
+        # 5.2e-8, which on the floor arm's median balance of about 165,000 is
+        # **half a cent** -- the quantisation of field 12 itself.
+        n_raw = flo["omega"][fm]
+        n_om = (flo["omega"] - closed)[fm]
         a["N"] = {"loops": int(fm.size), "measurable": int(fm.sum()),
+                  "legacy_Z": zed(n_raw), "legacy_mad": mad_scale(n_raw),
+                  "legacy_absmed": (float(np.median(np.abs(n_raw)))
+                                    if n_raw.size else float("nan")),
                   "ideal": int(ideal.sum()),
                   "Z": zed(n_om),
                   "absmed": float(np.median(np.abs(n_om))) if n_om.size
@@ -351,6 +373,16 @@ def analyse(name: str, cache_root=None, pos=None, tab=None) -> dict:
                   "enough": bool(n_om.size >= MIN_CELL),
                   "trimmed": trimmed_floor(n_om),
                   "mad": mad_scale(n_om),
+                  # the floor after removing P4's analytically known residual
+                  "resid": {
+                      "mad": mad_scale(n_om),
+                      "absmed": float(np.median(np.abs(n_om))) if n_om.size
+                      else float("nan"),
+                      "closed_absmed": float(np.median(np.abs(closed[fm])))
+                      if fm.any() else float("nan"),
+                      "corr": (float(np.corrcoef(n_raw, closed[fm])[0, 1])
+                               if fm.sum() > 2 else float("nan")),
+                      "n_finite": int(np.isfinite(closed[fm]).sum())},
                   "conv": scale_convergence(n_om)}
 
         # **What the tail is made of.** Freezes are the registered suspect
@@ -685,6 +717,44 @@ def render(rows: list[dict]) -> str:
               f"**{_f(d['ratio_mad'], 3)}** | {_f(d['ratio'], 3)} | "
               f"{_f(d['ratio_matched'], 3)} |")
 
+    A("\n### 2.4 Is the floor noise, or is it the construction\n")
+    A("**P4 proved the ideal clean cure's round trip is not zero** and "
+      "`b8_omega.loop_residual_ideal` gives it in closed form: `-9.04e-06`, "
+      "`-5.45e-05`, `-1.93e-04` at `k = 1, 3, 6`. The measured floor's median "
+      "absolute value came back between `8.9e-6` and `1.4e-5` with every "
+      "printed percentile negative. **Same order, same sign.** So the floor "
+      "may be the construction's own monthly-discretisation residual, which is "
+      "a deterministic function of `(B0, i, P, k)` and not measurement error "
+      "at all. `omega - closed` is what is left after removing it.\n")
+    A("**Answered: it is the construction.** `corr(omega, closed)` reads "
+      "`+1.0000` on five archives and `+0.9993` on the sixth, and the two "
+      "median absolute values agree to four significant figures. **The clean "
+      "cure's loop sum IS `loop_residual_ideal`.** What is left after removing "
+      "it has a median absolute deviation of 2.7e-8 to 5.2e-8; on this arm's "
+      "median balance of about 165,000 **half a cent is 3.0e-8**. The floor of "
+      "this construction is the cent the balance is reported to.\n")
+    A("**So `N` is now the residual** and the raw loop sum is `legacy` (R01). "
+      "This is also the strongest check the `omega` construction has had: the "
+      "full pipeline, curve and balloon and §17 windows included, reproduces a "
+      "closed-form analytic prediction at correlation 1.0000 over 24,033 to "
+      "144,941 loops per archive, by a **different code path** from the "
+      "streaming sum B8-0a(i-a) used.\n")
+    A("| archive | legacy `MAD` | legacy median abs | closed form, median abs "
+      "| corr(omega, closed) | **`N`'s `MAD`** | its median abs | shrink | "
+      "half a cent / median balance |")
+    A("|---|---|---|---|---|---|---|---|---|")
+    for a in rows:
+        n = a["N"]
+        rs = n.get("resid") or {}
+        if not rs:
+            continue
+        sh = (n["legacy_mad"] / rs["mad"]) if rs["mad"] > 0 else float("inf")
+        bq = (0.005 / n["balA_q"][1]) if n.get("balA_q", [0, 0, 0])[1] else float("nan")
+        A(f"| {a['name']} | {_f(n['legacy_mad'])} | {_f(n['legacy_absmed'])} | "
+          f"{_f(rs['closed_absmed'])} | {rs['corr']:+.4f} | "
+          f"**{_f(rs['mad'])}** | {_f(rs['absmed'])} | {sh:,.1f}x | "
+          f"{_f(bq)} |")
+
     A("\n## 3. The headline, `sqrt(Z)/sqrt(N)`\n")
     A("§18.5's map: above 3 is B8-1's **necessary** condition, not B8-1. "
       "Between 1 and 3 is a recorded failure. At or below 1 the signal is "
@@ -859,6 +929,35 @@ def selftest() -> int:
                      f"{mad_scale(base) / mad_scale(plain):.3f}x; it is not "
                      "the robust half of the comparison")
 
+    # §2.4 must be computable, or the column that decides whether the floor is
+    # noise or arithmetic is silently empty
+    rs = a["N"].get("resid") or {}
+    # **`N` must be the residual, not the raw loop sum.** The ratio between
+    # them is 101x to 273x on the real archives but only about 3x on this
+    # fixture, whose clean cures carry k = 2 on a large balance so the closed
+    # form is small; **pinning the ratio here would pin a fixture property**.
+    # What is pinned instead is the claim itself: the raw loop sum tracks the
+    # closed form. On the real file that correlation reads +1.0000.
+    if a["N"]["legacy_mad"] <= a["N"]["mad"]:
+        fails.append(f"N's MAD {a['N']['mad']:.3e} is not below the legacy "
+                     f"{a['N']['legacy_mad']:.3e}; the closed form is not "
+                     "being subtracted at all")
+    # **The correlation is a real-archive read and is said so.** This fixture
+    # carries two ideal clean cures; a correlation on two points is ±1 by
+    # construction and asserting it would be theatre. What the fixture *can*
+    # pin is the substantive claim in absolute terms: after removing the
+    # closed form, what is left is at the cent the balance is written to.
+    # 200,000 written to two decimals gives half a cent at 2.5e-8.
+    _r = (a["N"].get("resid") or {}).get("absmed", float("nan"))
+    if not (np.isfinite(_r) and _r < 1e-6):
+        fails.append(f"|omega - closed| has median {_r}; on a 200,000 balance "
+                     "written to the cent it should sit near 2.5e-8, so the "
+                     "closed form is not what the clean cure returns")
+    if not rs or rs.get("n_finite", 0) != a["N"]["measurable"]:
+        fails.append(f"the closed form is finite on "
+                     f"{rs.get('n_finite')} of {a['N']['measurable']} "
+                     "ideal-path loops; section 2.4 cannot be read")
+
     # the balance match must actually restrict, or column 2.2 is a copy of `N`
     nm = a["arms"]["mod"]["N_matched"]
     if nm["n"] >= a["N"]["measurable"]:
@@ -910,6 +1009,7 @@ def selftest() -> int:
                  "### 2.1 `N` is a tail statistic",
                  "### 2.2 The floor and the signal live at different balances",
                  "### 2.3 Does the variance converge",
+                 "### 2.4 Is the floor noise, or is it the construction",
                  "## 4. `M`, the matched cells"):
         if need not in txt:
             fails.append(f"render omits `{need}`")
