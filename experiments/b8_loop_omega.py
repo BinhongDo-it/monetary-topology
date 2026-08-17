@@ -122,15 +122,28 @@ COLS = ["period", "rate", "upb", "rem_legal", "mat_date", "delinq",
 #: **The cap is printed**, because a silent truncation reads as full coverage.
 REPLAY_N = 4000
 
-#: The identity's tolerance, **with a source**. `r` is a difference of two
-#: logarithms of `V`; `V` runs to a few hundred thousand so `log V` is of order
-#: 13, and a window of a few hundred months accumulates at most a few hundred
-#: such differences. Four cancelling partial sums of that size carry about
-#: `4 * 300 * 14 * eps`. A misaligned window moves the sum by one month's
-#: residual, which is of order 1e-3, so this tolerance is nine orders of
-#: magnitude away from what it has to distinguish and the choice is not close
-#: to any boundary.
-IDENTITY_TOL = 4.0 * 300.0 * 14.0 * np.finfo(np.float64).eps
+#: Slack in the replay tolerance, in units of `eps * max|P|`.
+#:
+#: **The first derivation was wrong and the first real run showed it.** It read
+#: `4 * 300 * 14 * eps = 3.7e-12`, reasoning from the size of a *window*. But a
+#: window sum is a difference of two entries of a prefix array accumulated over
+#: **the whole archive**, so what it carries is the rounding of a quantity of
+#: size `max|P|`, which on 2002Q1 runs to about 4e4. The observed worst was
+#: 2.7e-10, seventy times the literal, and the literal would have failed a
+#: correct implementation.
+#:
+#: So the tolerance is `REPLAY_SLACK * eps * max|P|`, **computed per archive at
+#: run time** rather than written down. That is the standard shape for a
+#: floating-point comparison: a constant times machine epsilon times the
+#: magnitude of the thing being differenced. The constant is slack for
+#: cancellation during accumulation.
+#:
+#: **What keeps this from being a number fitted to the data**: the run prints
+#: the observed worst as a *ratio* to `eps * max|P|`, and beside it the gap to
+#: what the check has to distinguish, which is one month's residual, of order
+#: 1e-3. Nine orders. A future archive that pushes the ratio near the slack is
+#: visible in the table rather than absorbed by it.
+REPLAY_SLACK = 64.0
 
 
 # ---------------------------------------------------------------------------
@@ -223,6 +236,9 @@ def loop_sums(lp: dict, r: np.ndarray, ok: np.ndarray) -> dict:
 
     resid = np.abs(l1 + l2 + l3 - om)
     return {
+        # the magnitude the window sums are differences OF. The replay
+        # tolerance is derived from this at run time, see REPLAY_SLACK.
+        "prefix_scale": float(np.abs(P).max()) if P.size else 0.0,
         "omega": om, "leg1": l1, "leg2": l2, "leg3": l3,
         "n_win": n_win, "n_have": have, "measurable": measurable,
         "n1": t_M - 1 - t_A, "n2": np.ones_like(n_win), "n3": t_B - t_M,
@@ -234,7 +250,7 @@ def loop_sums(lp: dict, r: np.ndarray, ok: np.ndarray) -> dict:
 
 
 def replay(lp: dict, r: np.ndarray, ok: np.ndarray, sums: dict,
-           n: int = REPLAY_N, seed: int = 20260817) -> dict:
+           n: int = REPLAY_N, seed: int = 20260817, tol: float | None = None):
     """Re-sum a sample of loops **month by month**, and compare.
 
     This is the check §17.11 was reaching for. The vectorised answer comes from
@@ -248,10 +264,15 @@ def replay(lp: dict, r: np.ndarray, ok: np.ndarray, sums: dict,
     per-month mask rather than from a count.
     """
     t_A, t_M, t_B = lp["t_A"], lp["t_M"], lp["t_B"]
+    scale = sums.get("prefix_scale", 0.0)
+    unit = np.finfo(np.float64).eps * max(scale, 1.0)
+    if tol is None:
+        tol = REPLAY_SLACK * unit
     k = int(min(n, t_A.size))
     if k == 0:
-        return {"checked": 0, "capped": False, "worst": 0.0,
-                "worst_leg": 0.0, "mismatched": 0, "meas_mismatched": 0}
+        return {"checked": 0, "capped": False, "worst": 0.0, "worst_leg": 0.0,
+                "mismatched": 0, "meas_mismatched": 0, "tol": tol,
+                "scale": scale, "ratio": 0.0}
     rng = np.random.default_rng(seed)
     pick = rng.choice(t_A.size, size=k, replace=False)
 
@@ -276,11 +297,12 @@ def replay(lp: dict, r: np.ndarray, ok: np.ndarray, sums: dict,
                  abs(legs[2] - float(sums["leg3"][e])))
         worst = max(worst, d)
         worst_leg = max(worst_leg, dl)
-        if d > IDENTITY_TOL or dl > IDENTITY_TOL:
+        if d > tol or dl > tol:
             bad += 1
     return {"checked": k, "capped": k < t_A.size, "worst": worst,
             "worst_leg": worst_leg, "mismatched": bad,
-            "meas_mismatched": meas_bad}
+            "meas_mismatched": meas_bad, "tol": tol, "scale": scale,
+            "ratio": max(worst, worst_leg) / unit}
 
 
 def analyse(name: str, cache_root=None, pos=None, tab=None,
@@ -299,7 +321,17 @@ def analyse(name: str, cache_root=None, pos=None, tab=None,
         a = {"name": name, "n_rows": c.n_rows, "n_loans": c.n_loans,
              "n_loops": int(arm.size), "curve": dinfo, "rows": rinfo,
              "replay": rep, "identity_max": sums["identity_max"],
-             "excluded_two_arms": int(np.size(lp["excluded_two_arms"])),
+             # `excluded_two_arms` is a **dict of arrays**, not an array.
+             # `np.size` on it returns 1, and the first published run of
+             # this file printed a 1 in that column on all six archives.
+             # **Six identical ones is what an artefact looks like**, and
+             # it took a person reading the table to see it. Counted from
+             # a named key now, and the selftest asserts the fixture's
+             # own value, which is 1 for a real reason.
+             "excluded_two_arms": int(
+                 lp["excluded_two_arms"]["t_A"].size),
+             "two_arms_by_counts": int(
+                 lp["counts"].get("drop_two_arms", -1)),
              "loans_refused_c13": rinfo["V"]["loans_dropped_c13"],
              "c13_edges": rinfo["V"]["carrier"]["both_edges"],
              "c13_beyond": rinfo["V"]["carrier"]["excluded_beyond_c13"],
@@ -411,18 +443,30 @@ def render(rows: list[dict]) -> str:
       "cannot catch the misplaced vertex §17.11 says it catches. `replay` "
       "re-sums a sample of loops month by month from the window indices and "
       "can.\n")
-    A(f"Tolerance `{IDENTITY_TOL:.3e}`, derived in the module docstring. A "
-      "misaligned window moves a sum by one month's residual, of order 1e-3, "
-      "**nine orders away**.\n")
+    A("**The tolerance is computed per archive, not written down.** A window "
+      "sum is a difference of two entries of a prefix array accumulated over "
+      "the whole archive, so it carries the rounding of a quantity of size "
+      f"`max|P|`; the tolerance is `{REPLAY_SLACK:.0f} * eps * max|P|`. The "
+      "first version of this file reasoned from the size of a *window* "
+      "instead, wrote a literal `3.7e-12`, and **that literal would have "
+      "failed a correct implementation on every archive**.\n")
+    A("`ratio` is the observed worst in units of `eps * max|P|`, so a run "
+      f"that creeps toward the slack of {REPLAY_SLACK:.0f} is visible here "
+      "rather than absorbed. What the check must distinguish is one month's "
+      "residual, of order 1e-3; `headroom` is that against the observed "
+      "worst.\n")
     A("| archive | identity, worst | replayed | capped | worst loop | "
-      "worst leg | **mismatched** | measurability mismatched |")
-    A("|---|---|---|---|---|---|---|---|")
+      "worst leg | tolerance | ratio | headroom | **mismatched** | "
+      "measurability mismatched |")
+    A("|---|---|---|---|---|---|---|---|---|---|---|")
     for a in rows:
         rp = a["replay"]
+        w = max(rp["worst"], rp["worst_leg"])
         A(f"| {a['name']} | {a['identity_max']:.3e} | {rp['checked']:,} | "
           f"{'yes' if rp['capped'] else 'no'} | {rp['worst']:.3e} | "
-          f"{rp['worst_leg']:.3e} | **{rp['mismatched']:,}** | "
-          f"{rp['meas_mismatched']:,} |")
+          f"{rp['worst_leg']:.3e} | {rp['tol']:.3e} | {rp['ratio']:.1f} | "
+          + (f"{1e-3 / w:.1e}x" if w > 0 else "exact") + " | "
+          f"**{rp['mismatched']:,}** | {rp['meas_mismatched']:,} |")
 
     A("\n## 4. How many loops are measurable\n")
     A("§17.10: **every** month in the window must carry a residual. Drops are "
@@ -464,8 +508,15 @@ def render(rows: list[dict]) -> str:
     for a in rows:
         for tag in ("mod", "defer"):
             d = a["arms"][tag]
+            # **A median over a set that is mostly empty legs is a zero
+            # nobody measured.** §17.3's `t_M == t_B` shape gives leg 3 no
+            # months at all, and where those are more than half the arm the
+            # median is exactly 0.0 by construction. The first published run
+            # printed `+0.0000e+00` in this column on all twelve rows.
+            half = d["leg3_empty_meas"] * 2 >= max(d["measurable"], 1)
+            l3 = ("mostly empty" if half else _f(d["leg3_q"][1]))
             A(f"| {a['name']} | {tag} | {_f(d['leg1_q'][1])} | "
-              f"{_f(d['leg2_q'][1])} | {_f(d['leg3_q'][1])} | "
+              f"{_f(d['leg2_q'][1])} | {l3} | "
               f"{d['leg3_empty_meas']:,} | "
               f"**{d['leg3_where_it_exists']:,}** | "
               + ("not measurable" if not np.isfinite(d["leg3_nz_absmed"])
@@ -770,7 +821,7 @@ def selftest() -> int:
     s_bad = loop_sums(lp_bad, r, ok)
     # the identity, computed the way §17.11 asks, on a deliberately wrong t_M
     if abs(float(s_bad["leg1"][0] + s_bad["leg2"][0] + s_bad["leg3"][0]
-                 - s_bad["omega"][0])) > IDENTITY_TOL:
+                 - s_bad["omega"][0])) > 1e-12:
         fails.append("the telescoping identity failed on its own terms")
     # now hand replay the CORRECT sums against the WRONG window: it must差
     rp = replay(lp, r, ok, s_bad, n=10)
@@ -816,11 +867,24 @@ def selftest() -> int:
     if a["replay"]["checked"] < a["n_loops"]:
         fails.append("the fixture's loops were sampled rather than all "
                      "replayed, so the end-to-end check is partial")
-    if a["identity_max"] > IDENTITY_TOL:
-        fails.append(f"identity worst {a['identity_max']:.3e} over tolerance")
+    if a["identity_max"] > a["replay"]["tol"]:
+        fails.append(f"identity worst {a['identity_max']:.3e} over tolerance "
+                     f"{a['replay']['tol']:.3e}")
     # **Both arms, or one arm's whole column is an empty set that prints like a
     # measurement** (坑 23). The deferral arm is one loop in this fixture and
     # that is enough to keep the column honest.
+    # **The §17.4 column, against `b8_loops`' own independently computed
+    # count.** It reached a published file as `np.size` of a dict, which is 1,
+    # and the fixture had exactly one such loan so nothing could see it. There
+    # are two now, and the two numbers come from different code.
+    if a["excluded_two_arms"] != a["two_arms_by_counts"]:
+        fails.append(f"§17.4 population read {a['excluded_two_arms']} from the "
+                     f"returned arrays and {a['two_arms_by_counts']} from "
+                     "`b8_loops`' own counter")
+    if a["excluded_two_arms"] < 2:
+        fails.append(f"only {a['excluded_two_arms']} two-arm loan in the "
+                     "fixture; a count of 1 is also what `np.size` on a dict "
+                     "returns, so this column cannot be checked")
     for tag in ("mod", "defer"):
         if a["arms"][tag]["measurable"] == 0:
             fails.append(f"no measurable loop on the {tag} arm, so its whole "

@@ -438,6 +438,19 @@ CASES = {
         ("02", "Y", 0, 1, 0, None, 0, 0), ("03", "Y", 0, 1, 0, 4.0, 0, 5000),
         ("00", "Y", 0, 1, 0, None, 0, 5000),
     ],
+    # **A second two-arm loan, deferral first.** One of them is not enough:
+    # `b8_loop_omega` counted this population with `np.size` on a dict, which
+    # returns 1, and with a single case in the fixture **no test could tell
+    # that apart from the right answer**. It reached a published results file
+    # as a 1 on all six archives. The ordering differs from `two_arms` too, so
+    # the case earns its place twice.
+    "two_arms_defer_first": [
+        ("00", "N", 0, 0, 0, None, 0, 0), ("00", "N", 0, 1, 0, None, 0, 0),
+        ("00", "N", 0, 1, 0, None, 0, 0), ("01", "N", 0, 1, 0, None, 0, 0),
+        ("02", "N", 0, 1, 0, None, 0, 5000),
+        ("03", "Y", 0, 1, 0, 4.0, 0, 5000),
+        ("00", "Y", 0, 1, 0, None, 0, 5000),
+    ],
     # §17.8: the flag reverts to N and turns on again inside one run
     "two_mod_onsets": [
         ("00", "N", 0, 0), ("00", "N", 0, 1), ("00", "N", 0, 1),
@@ -508,6 +521,7 @@ EXPECT = {
     "cure_then_mod": ("loop", ARM_MOD),
     "mod_equals_cure": ("loop", ARM_MOD),
     "two_arms": ("drop", "two_arms"),
+    "two_arms_defer_first": ("drop", "two_arms"),
     "two_mod_onsets": ("loop", ARM_MOD),
     "never_cures": ("drop", "not_closed"),
     "mod_while_current": ("drop", "no_delinquency"),
@@ -693,14 +707,21 @@ def selftest() -> int:
             print(f"  {name:<22} loops={len(got)} "
                   f"arms={[ARM_NAME[a] for a in got]}", file=sys.stderr)
 
-        # the named drop reasons must each have fired exactly once, or the case
-        # was rejected for a different reason than the one it tests
+        # Each named drop reason must fire exactly as many times as there are
+        # cases expecting it, or a case was rejected for a different reason
+        # than the one it tests. **Counted rather than fixed at one**, because
+        # `two_arms` now has two cases: one of them made the §17.4 population
+        # untestable, since a count of 1 is what `np.size` on a dict also
+        # returns and `b8_loop_omega` shipped exactly that to a results file.
+        wanted: dict[str, int] = {}
         for name, (want, detail) in EXPECT.items():
-            if want != "drop":
-                continue
-            if cnt.get(f"drop_{detail}", 0) != 1:
-                fails.append(f"{name}: drop_{detail} fired "
-                             f"{cnt.get(f'drop_{detail}')} times, expected 1")
+            if want == "drop":
+                wanted[detail] = wanted.get(detail, 0) + 1
+        for detail, k in wanted.items():
+            if cnt.get(f"drop_{detail}", 0) != k:
+                fails.append(f"drop_{detail} fired "
+                             f"{cnt.get(f'drop_{detail}')} times, expected "
+                             f"{k} (one per case expecting it)")
 
         if cnt["loops_mod_equals_cure"] != 1:
             fails.append(f"loops_mod_equals_cure {cnt['loops_mod_equals_cure']}"

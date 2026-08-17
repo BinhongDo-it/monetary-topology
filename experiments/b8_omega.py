@@ -781,6 +781,20 @@ def row_residuals(c: K.Core, disc, pay_row=None, known_row=None,
 
     note = rate.astype(np.float64) / 1000.0
     remf = rem.astype(np.float64)
+
+    # **The counterfactual balance must stay positive**, or `log V-hat` is not
+    # a number. `b_hat = bal_prev * (1 + i) - P` goes non-positive near payoff,
+    # when one more contract payment would clear the loan. The first real run
+    # counted 303 to 1,948 such rows per archive under the name "r came back
+    # non-finite on a row we admitted", which is a **symptom, not a cause**:
+    # that backstop exists to catch what nobody predicted, and leaving a
+    # predictable case in it means the backstop's count no longer means
+    # "something unexpected happened".
+    bhat_all = np.zeros(n)
+    bhat_all[1:] = (bal[:-1] * (1.0 + note[:-1] / 1200.0) - pay_row[:-1])
+    ok = step("the counterfactual balance would be non-positive (near payoff)",
+              np.isfinite(bhat_all) & (bhat_all > 0), ok)
+
     r = np.full(n, np.nan)
     sel = np.flatnonzero(ok)
     if sel.size:
