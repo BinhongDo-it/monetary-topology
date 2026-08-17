@@ -302,7 +302,8 @@ def carry_forward(balance_ib_prev, note_pct, payment):
 
 def r_month(bal_now, bal_prev, note_pct, payment, n_now, disc_pct,
             zib_now=0.0, zib_prev=0.0, balloon_n=None,
-            forgiven_now=0.0, forgiven_prev=0.0):
+            forgiven_now=0.0, forgiven_prev=0.0,
+            note_prev=None, n_prev=None, balloon_n_prev=None):
     """``r(t) = log V(t) - log V-hat(t)``, both priced on the curve at ``t``.
 
     Passing a different ``disc_pct`` to the two sides is the error §14.2 calls
@@ -312,11 +313,32 @@ def r_month(bal_now, bal_prev, note_pct, payment, n_now, disc_pct,
     ``zib_now`` and ``zib_prev`` were ``nib_now`` and ``nib_prev``. §14.2 says
     ``V-hat`` carries the **same** balloon forward, so the two differ exactly
     when the balloon moved, which is the deferral onset itself.
+
+    **The three ``_prev`` arguments are the 2026-08-17 correction and they are
+    load-bearing exactly where all the signal is.** §14.2 defines ``V-hat`` as
+    *the unchanged contract carried one month forward from ``t-1``: same note
+    rate, ``(17)`` reduced by one, same deferred balloon*. This function used
+    ``note_pct`` and ``n_now`` on **both** sides. On a quiet month the note
+    rate does not move and ``n_now == n_prev - 1``, so the two readings
+    coincide and every property P1 through P5 passes either way. **At the
+    modification month they do not coincide**: the rate moves on 46.1 per cent
+    of onsets and the legal maturity on 84.2 (C10-4), and the old code priced
+    the counterfactual at the *new* rate over the *new* term. That is leg 2,
+    which §14.3 calls the dominant term, so the defect sat precisely on the
+    quantity the stage is built to measure.
+
+    Omitting them reproduces the old behaviour bit for bit, which is what keeps
+    the four gate properties comparable across the change. **Nothing that reads
+    a real archive may omit them**; `row_residuals` passes all three.
     """
+    note_prev = note_pct if note_prev is None else note_prev
+    n_prev = n_now if n_prev is None else n_prev
+    if balloon_n_prev is None:
+        balloon_n_prev = balloon_n
     v_now = V(bal_now, note_pct, n_now, disc_pct, zib_now, balloon_n,
               forgiven_now)
-    b_hat = carry_forward(bal_prev, note_pct, payment)
-    v_hat = V(b_hat, note_pct, n_now, disc_pct, zib_prev, balloon_n,
+    b_hat = carry_forward(bal_prev, note_prev, payment)
+    v_hat = V(b_hat, note_prev, n_prev, disc_pct, zib_prev, balloon_n_prev,
               forgiven_prev)
     return np.log(v_now) - np.log(v_hat)
 
@@ -646,6 +668,155 @@ def probe(name: str, cache_root=None) -> dict:
     return a
 
 
+#: Horizons are integer months and the archives never exceed a few hundred, so
+#: the curve is read once into a table rather than per row. A per-row read is a
+#: Python call per row, which on 170 million rows is not a table lookup.
+MAX_H = 600
+
+
+def disc_of_row(c: K.Core, pos, tab) -> tuple[np.ndarray, dict]:
+    """The curve read at each row's own month and horizon, per cent, NaN where
+    it does not reach. §14.1: interpolated to field 17."""
+    n = c.n_rows
+    period = c.row["period"][:].astype(np.int64)
+    rem = c.row["rem_legal"][:].astype(np.int64)
+
+    mrow = np.full(n, -1, dtype=np.int64)
+    known_m = period != K.U16_NA
+    if known_m.any():
+        keys = np.unique(period[known_m])
+        lut = np.full(int(keys.max()) + 1, -1, dtype=np.int64)
+        for mi in keys.tolist():
+            lut[mi] = pos.get(int(mi), -1)
+        mrow[known_m] = lut[period[known_m]]
+
+    good = (mrow >= 0) & (rem >= 1) & (rem <= MAX_H)
+    disc = np.full(n, np.nan)
+    gi = np.flatnonzero(good)
+    if gi.size:
+        disc[gi] = tab[mrow[gi], rem[gi]]
+    return disc, {
+        "rows": int(n),
+        "no_curve_that_month": int((mrow < 0).sum()),
+        "horizon_out_of_table": int(((mrow >= 0) & ~good).sum()),
+        "curve_nan": int((good & ~np.isfinite(disc)).sum()),
+        "usable": int(np.isfinite(disc).sum()),
+    }
+
+
+def row_residuals(c: K.Core, disc, pay_row=None, known_row=None,
+                  period_id=None) -> tuple[np.ndarray, np.ndarray, dict]:
+    """``r(t)`` for **every row**, plus the mask of rows where it is computable.
+
+    ``disc`` is the discount curve read at each row's horizon, in per cent, and
+    NaN wherever the curve does not reach. **The caller supplies it** rather
+    than this function building it, because the curve tables live in
+    `b8_cmt_sensitivity` and importing them here would put the whole Treasury
+    fetch behind this module's selftest.
+
+    This is **the single copy** of the per-row residual. It was written twice:
+    once here for the loop assembly and once in
+    `b8_cmt_sensitivity2.per_row_r`, and the second copy still read the balance
+    as ``12 - 63``, priced the balloon at field 17 and passed the old ``nib_``
+    keywords. Two copies of the residual is how the sensitivity table and the
+    loop sum end up measuring two different quantities and nobody notices.
+
+    Returns ``(r, ok, info)``. Every row that is not ``ok`` has ``r`` NaN, and
+    ``info`` says how many rows each condition removed, **counted in the order
+    applied so the counts partition rather than overlap**.
+    """
+    n = c.n_rows
+    period = c.row["period"][:].astype(np.int32)
+    rate = c.row["rate"][:].astype(np.int32)
+    rem = c.row["rem_legal"][:].astype(np.int32)
+
+    bal, zib, bn, vinfo = rows_for_V(c)
+    if period_id is None:
+        period_id = contract_periods(c, fill=True)
+    if pay_row is None or known_row is None:
+        q = K.quiet_pairs(c)
+        pay_row, known_row, _ = contract_payments(c, period_id, q)
+
+    idx = np.arange(n, dtype=np.int64)
+    start = np.repeat(c.row_start.astype(np.int64),
+                      c.n_per_loan.astype(np.int64))
+    same = idx > start                    # has a previous row in the same loan
+
+    steps = []
+
+    def step(name, cond, ok):
+        new = ok & cond
+        steps.append((name, int((ok & ~cond).sum())))
+        return new
+
+    ok = same.copy()
+    steps.append(("first row of a loan", int((~same).sum())))
+    # **The payment `V-hat` needs is the PREVIOUS row's**, not this row's.
+    # §14.2's counterfactual is the contract as it stood at `t-1` carried one
+    # month forward, so at the modification month it wants the pre-modification
+    # payment, which lives in the previous contract period. Requiring a known
+    # payment on *this* row would drop the modification month itself, and that
+    # month is leg 2.
+    prev_known = np.zeros(n, dtype=bool)
+    prev_known[1:] = known_row[:-1]
+    ok = step("no contract payment on the previous row", prev_known, ok)
+    prev_ok = np.zeros(n, dtype=bool)
+    prev_ok[1:] = np.isfinite(bal[:-1]) & (bal[:-1] > 0)
+    ok = step("balance not readable (C13 refusal, blank 12, no horizon)",
+              np.isfinite(bal) & (bal > 0) & prev_ok, ok)
+    prev_field = np.zeros(n, dtype=bool)
+    prev_field[1:] = ((rate[:-1] != K.U16_NA) & (rem[:-1] != K.U16_NA)
+                      & (rem[:-1] > 1))
+    ok = step("rate or horizon missing on either row",
+              (rate != K.U16_NA) & (rem != K.U16_NA) & (rem > 0)
+              & (period != K.U16_NA) & prev_field, ok)
+    # the previous row's balloon needs a horizon too, and only when it exists.
+    # Left as an explicit counted drop rather than letting a NaN horizon ride
+    # through `np.where`'s unselected branch, where it is invisible.
+    prev_bn = np.zeros(n, dtype=bool)
+    prev_bn[1:] = (zib[:-1] <= 0) | (np.isfinite(bn[:-1]) & (bn[:-1] > 1))
+    ok = step("previous row carries a balloon with no horizon", prev_bn, ok)
+    ok = step("curve does not reach this month and horizon", np.isfinite(disc),
+              ok)
+
+    note = rate.astype(np.float64) / 1000.0
+    remf = rem.astype(np.float64)
+    r = np.full(n, np.nan)
+    sel = np.flatnonzero(ok)
+    if sel.size:
+        # **Every `_prev` argument is passed.** `V-hat` is priced at the
+        # previous row's rate, the previous row's horizon less one month, and
+        # the previous row's balloon at the previous row's maturity less one
+        # month. Omitting any of them prices the counterfactual on the new
+        # contract, which is the 2026-08-17 defect in `r_month`'s docstring.
+        r[sel] = r_month(
+            bal[sel], bal[sel - 1], note[sel], pay_row[sel - 1],
+            remf[sel], disc[sel],
+            zib_now=zib[sel], zib_prev=zib[sel - 1],
+            balloon_n=bn[sel],
+            note_prev=note[sel - 1],
+            n_prev=remf[sel - 1] - 1.0,
+            balloon_n_prev=bn[sel - 1] - 1.0)
+    # a NaN out of `r_month` on a row we called `ok` is a defect, not a filter
+    bad = ok & ~np.isfinite(r)
+    if bad.any():
+        ok = ok & np.isfinite(r)
+        steps.append(("r came back non-finite on a row we admitted",
+                      int(bad.sum())))
+
+    prev_zib = np.concatenate(([False], zib[:-1] > 0))
+    info = {"rows": int(n), "ok": int(ok.sum()), "dropped": steps,
+            "V": vinfo,
+            "rows_with_balloon": int((ok & (zib > 0)).sum()),
+            "rows_with_balloon_prev": int((ok & prev_zib).sum()),
+            # **The only door the curve rules reach through** (§17.16). Handed
+            # back as a mask because `b8_cmt_sensitivity2` reads its sweep on
+            # exactly these rows, and it used to derive them from its own copy
+            # of the balance.
+            "balloon_row": ok & ((zib > 0) | prev_zib)}
+    return r, ok, info
+
+
 def pct(x, y):
     return f"{x / y:.4f}" if y else "-"
 
@@ -940,6 +1111,40 @@ def selftest() -> int:
     print(f"  P6 balloon needs a horizon  V {v_no:,.2f} -> {v_bl:,.2f} "
           f"with a 5,000 balloon at {N0} months", file=sys.stderr)
 
+    # -- P8: V-hat is priced on the OLD contract, and that is leg 2 --------
+    # §14.2: *the unchanged contract carried one month forward from t-1*. On a
+    # quiet month the old and new readings coincide, which is why P1 to P5 pass
+    # under both. **The month where they differ is the modification month**,
+    # and that is the only month leg 2 has.
+    NEW_NOTE, NEW_N = NOTE - 2.0, N0 + 119     # rate cut, term extended
+    bal_after = f(B0)                          # no capitalisation, isolate it
+    r_old = float(r_month(bal_after, B0, NEW_NOTE, P, NEW_N, 4.0))
+    r_new = float(r_month(bal_after, B0, NEW_NOTE, P, NEW_N, 4.0,
+                          note_prev=NOTE, n_prev=N0 - 1))
+    # the counterfactual is the OLD contract, so V-hat must not move when the
+    # new terms move. Hand-computed, not compared to another call of the code.
+    v_hat_want = float(V(carry_forward(B0, NOTE, P), NOTE, N0 - 1, 4.0))
+    r_want = float(np.log(V(bal_after, NEW_NOTE, NEW_N, 4.0)))- np.log(v_hat_want)
+    if abs(r_new - r_want) > 1e-12:
+        fails.append(f"P8 corrected r = {r_new:.6e}, hand computation "
+                     f"{r_want:.6e}")
+    if abs(r_old - r_new) < 1e-3:
+        fails.append(f"P8 the two readings differ by only {abs(r_old-r_new):.2e} "
+                     "on a rate cut plus a term extension, so this fixture "
+                     "cannot tell them apart and P8 proves nothing")
+    # and they must still agree exactly on a quiet month, or the correction
+    # silently re-bases every number this file has ever printed
+    q_old = float(r_month(f(B0), B0, NOTE, P, N0 - 1, 4.0))
+    q_new = float(r_month(f(B0), B0, NOTE, P, N0 - 1, 4.0,
+                          note_prev=NOTE, n_prev=N0 - 1))
+    if q_old != q_new:
+        fails.append(f"P8 the two readings differ on a QUIET month "
+                     f"({q_old!r} vs {q_new!r}); the correction is supposed to "
+                     "be inert there")
+    print(f"  P8 V-hat on the old contract  r {r_old:+.6e} -> {r_new:+.6e} "
+          f"at a 2 pct rate cut and a 120 month extension, quiet month "
+          f"unchanged", file=sys.stderr)
+
     print("  P1 quiet month            r = 0 exactly", file=sys.stderr)
     print(f"  P2 curve spread over 0.5-15 pct  {max(rs) - min(rs):.2e}  "
           f"(r = {rs[0]:+.6e})", file=sys.stderr)
@@ -1053,7 +1258,7 @@ def selftest() -> int:
           f"{h['from_19']:,} rows, disagreeing with field 17 on "
           f"{h['disagree']:,}", file=sys.stderr)
 
-    print("selftest: ok, seven properties hold and `probe` runs end to end",
+    print("selftest: ok, eight properties hold and `probe` runs end to end",
           file=sys.stderr)
     return 0
 

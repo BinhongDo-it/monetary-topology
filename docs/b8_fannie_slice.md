@@ -549,6 +549,17 @@ else. That is the property the theorem needs: if the terms were a scalar `φ` on
 servicing state, each transition would contribute `φ(v) − φ(u)` and the triangle
 would cancel; the amortisation drift is not a transition and never enters.
 
+**`V̂` is priced on the OLD contract, and that had to be said twice.** "Same note
+rate" and "`(17)` reduced by one" mean **`t−1`'s** rate and **`t−1`'s** term, not
+`t`'s. On a quiet month the two coincide, so an implementation that uses `t`'s
+passes every property proved on quiet months; **the month where they differ is the
+modification month, which is the only month leg 2 has.** Measured 2026-08-17 on a
+two point rate cut and a 120 month extension: `+1.670e-03` under the wrong reading
+against `-1.792e-01` under the right one, **two orders of magnitude and the sign
+flips** (`b8_inputs_availability.md` §6.6.23.1). The same applies to the payment:
+the counterfactual wants the **pre-event** payment, which lives in the previous
+contract period.
+
 **Attribution across legs is bookkeeping and the loop sum does not depend on it.**
 Arrears capitalisation shows up in the file at the modification month, so it lands in
 leg 2's residual rather than leg 1's, which is not what §3.2's wording implies. The
@@ -1342,9 +1353,22 @@ leg 3 = (t_M, t_B]      modified → current
 ```
 
 **三段之和恒等于环和，这是恒等式不是判据**，但要在代码里断言它。
-理由是它能抓住窗口实现的错位（差一行的边界会让三段和不等于环和），
-而错位在别处是安静的。**`t_M == t_B` 时 leg 3 是空和，断言照样成立**，
+~~理由是它能抓住窗口实现的错位（差一行的边界会让三段和不等于环和），
+而错位在别处是安静的。~~ **`t_M == t_B` 时 leg 3 是空和，断言照样成立**，
 所以断言不能代替 §17.3 的计数。
+
+**2026-08-17 更正：划掉那半句给的理由不成立，而要求本身留着。**
+四个量都从同一个前缀和数组来，三条腿望远镜式抵消，**`t_M` 取什么都成立**
+——错一行、错十行、甚至属于另一笔贷款都成立。**在前缀和实现下这条断言测的是
+浮点加法器，抓不住它被写下来要抓的那个错位。**
+
+断言留着（它确实能抓住前缀和或范围助手本身写坏），
+**另加一条真的能干那件事的**：`b8_loop_omega.replay` 从窗口下标出发、
+逐月用 Python 重新求和，与向量化的答案比。自检里把 `t_M` 故意挪一行，
+**断言恒等式仍然成立而 `replay` 报不符**，那一条是对检查本身的检查。
+
+**教训不在这一节，在方法层**：一条断言写下来的时候要问它在**将要采用的实现下**
+能不能失败，而不是在概念上能不能失败。详见 `b8_inputs_availability.md` §6.6.23.3。
 
 ## 17.12 这条注册取代什么，欠谁一笔账
 
