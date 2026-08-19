@@ -124,7 +124,7 @@ class Arch:
 def analyse(name: str) -> Arch:
     a = Arch(name)
     c = K.Core(name, cols=["period", "rate", "upb", "loan_age", "rem_legal",
-                           "delinq", "mod_flag", "zero_bal", "nib_upb",
+                           "delinq", "mod_flag", "zero_bal", "nib_upb", "defer_amt",
                            "assist"],
                loan_cols=["orig_term"])
     try:

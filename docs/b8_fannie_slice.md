@@ -984,7 +984,10 @@ million quiet performing months:
 - about a quarter of quiet performing months **do not lie on the schedule**
   (C8-1c(b));
 - about half of those are **a balance that does not move for a month**, which is
-  **4.881 percent** of all quiet months across the six vintages (C8-1e);
+  **4.880 percent** of all quiet months across the six vintages (C8-1e)
+  (`4.881` until 2026-08-19, when C8-1e and C8-1f were re-run for the first time
+  since the `ib_net` default flipped; **the figure is not printed by any product**
+  and is summed by hand from C8-1f's population table);
 - after a freeze, lag-1 recovery is only 26 to 28 percent and within six months
   52 to 59 percent, so **about four in ten never recover** (C8-1f);
 - **one unrecovered freeze contributes to `r` exactly what one underpaid month's

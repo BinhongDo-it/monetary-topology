@@ -183,7 +183,7 @@ DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 
 def _tokens(text: str) -> list[str]:
-    """Number-like substrings, with trailing sentence punctuation removed.
+    r"""Number-like substrings, with trailing sentence punctuation removed.
 
     The regex's `[\d,]*` happily eats the comma that ends a clause, which
     turned `6,632,539` into `6,632,539,` and reported a real number as

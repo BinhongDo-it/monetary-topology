@@ -136,7 +136,7 @@ class Arch:
 def analyse(name: str) -> Arch:
     a = Arch(name)
     c = K.Core(name, cols=["period", "rate", "upb", "rem_legal", "delinq",
-                           "mod_flag", "nib_upb", "assist"],
+                           "mod_flag", "nib_upb", "defer_amt", "assist"],
                loan_cols=["orig_term"])
     try:
         q = K.quiet_pairs(c)
@@ -324,13 +324,35 @@ def render(archs: list[Arch]) -> str:
       "months**, read off §2's lag histogram. This is the fraction that cancels "
       "inside a loop of that length, and one minus it bounds the boundary "
       "cases.\n")
+    # **Marked as a lower bound where the histogram cannot reach, 2026-08-19.**
+    # The histogram stops at `MAX_LAG`, so any `L` beyond it was being filled
+    # with the `MAX_LAG` value and printed under a longer label: at the
+    # registered 6, `L = 12` and `L = 24` both read the six-month number and
+    # said 12 and 24. **Found by the first off-parameter run** (`--max-lag 12`
+    # moved those two columns from 0.5435 to 0.5942 and 0.5989 on 2002Q1 while
+    # leaving every lag-1-to-6 column byte-identical, which is what the constant
+    # above says must happen).
+    #
+    # The direction was safe and that is why it survived: a share that stops
+    # short is a **lower** bound on the cancelling fraction, so one minus it is
+    # an **upper** bound on the boundary cases, which is the conservative side
+    # of the sentence above. It was still a number labelled as something it was
+    # not. Now it says so.
+    if any(w - 1 > MAX_LAG for w in WINDOWS):
+        A(f"**`>=` marks a window longer than the lag histogram reaches.** "
+          f"The histogram stops at `MAX_LAG = {MAX_LAG}`, so those cells are "
+          f"the share recovered within {MAX_LAG} months, which is a lower "
+          f"bound on the share recovered within `L`. Re-run with "
+          f"`--max-lag {max(w - 1 for w in WINDOWS)}` to fill them; that lands "
+          f"in an `.offparam_` file beside this one.\n")
     A("| archive | " + " | ".join(f"L = {w}" for w in WINDOWS) + " |")
     A("|---|" + "---|" * len(WINDOWS))
     for a in archs:
         row = []
         for w in WINDOWS:
             k = min(w - 1, MAX_LAG)
-            row.append(pct(sum(a.lag_hist[:k]), a.lag_n))
+            cell = pct(sum(a.lag_hist[:k]), a.lag_n)
+            row.append(f"`>=` {cell}" if w - 1 > MAX_LAG else cell)
         A(f"| {a.name} | " + " | ".join(row) + " |")
 
     A("\n## 5. Field 102, repaired\n")

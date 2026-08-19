@@ -19,6 +19,42 @@ documents (`results/b8_c8_arithmetic.md`, `b8_c8_1c_contract_payment.md`,
 
 ---
 
+## 0. Addendum, 2026-08-19: the products that name the old path
+
+**Seventeen files under `results/b8_*.md` carry a header line reading
+"Registered in `docs/b8_inputs_availability.md`".** That file moved; this one
+replaces it. The writers were corrected, so any product regenerated after the
+correction names the register without a path. The seventeen on disk are older
+outputs.
+
+**They are not being regenerated for this.** Clearing a header line would cost a
+re-run of seventeen stations, several of which rescan 2.9 GB of archives, and
+their numbers were verified on 2026-08-18, digit for digit.
+
+**Two exceptions, and they are exceptions to the numbers and not only to the
+header, found on 2026-08-19.** `b8_c8_1e_undermode.md` and
+`b8_c8_1f_freeze_recovery.md` come from writers that **could not run at all**
+between 2026-08-17 and 2026-08-19: both opened the core table without
+`defer_amt`, and `quiet_pairs` has netted the zero-interest balance since the
+`ib_net` default flipped that day, so `zero_interest_split` raised rather than
+silently netting field 63 alone. **Those two products therefore predate C11-1's
+`12 - 63 - 108` and their numbers will move when the writers are re-run.** The
+column has been added to both; the re-run is `run_b8_package.py --minimal`.
+Everything below this paragraph concerns the remaining fifteen, whose numbers
+stand. **This is the same ruling made on 2026-08-18 for the
+thirty references inside `HANDOFF_B8.md`**, which were handled by annotating the
+replacement rather than by editing thirty places, on the ground that editing
+them loses the history of where they pointed.
+
+**So, for a reader who meets one of those seventeen headers:**
+
+- The register it names is this file plus `b8_fannie_slice.md`.
+- **Section numbers are unchanged.** A product citing section 6.2.5.4 means the
+  register's 6.2.5.4, which is outside this repository.
+- `scripts/run_b8_package.py --check-pointers` lists which seventeen they are at
+  any moment, and a full pass of that runner clears them as a side effect
+  whenever one is run for a reason that justifies its cost.
+
 ## 1. `V` is a contractual present value and never a market price
 
 `b8_fannie_slice.md` section 3.1 defines `V` as the present value of the

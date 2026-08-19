@@ -26,11 +26,16 @@ Judged against `4 * |log V| * eps` = **1.243e-14**, taking `|log V|` at 14. **Th
 
 ## 2. The one door the curve comes through, and it is shut
 
-`nib * (1+d)^-bn` is the only term that does not cancel, so a deferred balance is the only way a construction reaches `r`. **The measured count is zero on every archive and that does not mean there are no deferred rows.** `r` is computed only where the contract payment is known; the payment is estimated from quiet months; and `quiet_pairs(require_never_deferred=True)` excludes ever-deferred loans. **A deferred row therefore cannot carry a known payment, by construction.** The raw count is printed beside the measured one so the two are not confused.
+`nib * (1+d)^-bn` is the only term that does not cancel, so a zero-interest balance is the only way a construction reaches `r`. **The two counts below are two populations, not a numerator and a denominator, and the second is routinely the larger.**
 
-**This is an open item upstream of the curve question.** The one population where the curve rule could bind is the one the present payment estimator cannot reach.
+- The first counts rows whose **field 63** deferred balance is positive, over every row in the file, with no requirement that the contract payment be known.
+- The second counts the rows the pricing actually reached: the contract payment is known under **every** curve rule, and the zero-interest balance is positive on that row or on the one before it. That balance is **fields 63 and 108** together (C8-1 and C11-1), not 63 alone.
 
-| archive | **deferred rows in the file** | **of those, with a known payment** | spread p50 | max | **(i-b) floor** |
+**So the second exceeds the first for two reasons at once**: it takes a wider balance, and it admits the row after a balloon as well as the balloon row itself.
+
+**O34, corrected 2026-08-19.** This section used to say that `quiet_pairs(require_never_deferred=True)` excludes ever-deferred loans, so a deferred row could not carry a known payment by construction, and it used that to explain a measured count of zero. **That default became `False` on 2026-08-17** (section 6.6.17), with `ib_net` netting the deferred balance instead, and the exclusion only ever looked at field 63. The measured count now runs 41,658 to 521,941, **so the zero it explained does not exist.** Per the ruling of that day the sentence is deleted rather than struck through, and this paragraph is the record that it was there.
+
+| archive | **field 63 deferred rows, payment not required** | **priced balloon rows (63+108, this row or the previous), payment known** | spread p50 | max | **(i-b) floor** |
 |---|---|---|---|---|---|
 | 2002Q1 | 29,193 | 41,658 | 6.683e-11 | 5.349e-02 | 6.469e-06 |
 | 2006Q1 | 233,970 | 242,420 | 6.149e-11 | 6.533e-02 | 7.909e-06 |

@@ -33,12 +33,19 @@ merits:
   column-name correction in one writer (O34), a new `--max-lag` flag whose
   registered default is untouched, and a check added to the verdict sheet. **No
   verdict moves and no measurement is stale.**
-- **Exactly one product's content is out of date**, `results/b8_cmt_sensitivity2.md`,
-  because its writer's section 2 was rewritten. That is `--minimal`, and it reads
-  the core table rather than the archives.
-- **The other seventeen products are stale in a header line only**: they name
+- **Three products' content is out of date, not one.** `b8_cmt_sensitivity2.md`
+  because its writer's section 2 was rewritten; and `b8_c8_1e_undermode.md` and
+  `b8_c8_1f_freeze_recovery.md` for a worse reason, **found 2026-08-19 when the
+  off-parameter run raised instead of running**: both open the core table without
+  `defer_amt`, and `quiet_pairs` has netted the zero-interest balance since the
+  `ib_net` default flipped on 2026-08-17, so `zero_interest_split` raises rather
+  than half-correcting. **Those two writers had not run since that day**, at the
+  registered parameters or any other, and the products on disk predate the
+  change. The column is now in both. That is `--minimal`, and all three read the
+  core table rather than the archives.
+- **The remaining products are stale in a header line only**: they name
   `docs/b8_inputs_availability.md`, which moved. Clearing that costs a full
-  re-run of seventeen stations, several of which rescan the 2.9 GB of archives.
+  re-run of those stations, several of which rescan the 2.9 GB of archives.
   **That trade is bad, and this project has already ruled the other way once**:
   the thirty references inside `HANDOFF_B8.md` were handled on 2026-08-18 by
   annotating the replacement file rather than by editing thirty places
@@ -153,7 +160,7 @@ STEPS: list[tuple[str, list[str], str]] = [
 #: What the 2026-08-19 edits actually make necessary. Everything outside this
 #: list would be re-run to correct a header line, which is not worth an archive
 #: scan; see the note at the top of this file.
-MINIMAL = ("cmt_sensitivity2", "verdicts", "render")
+MINIMAL = ("c8_1e", "c8_1f", "cmt_sensitivity2", "verdicts", "render")
 
 #: Runs at a parameter other than the registered one. They write `.offparam_`
 #: files, which `render_results.py` keeps out of `RESULTS.md` by filename. Off
