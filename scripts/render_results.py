@@ -45,6 +45,17 @@ STAGE_TITLES = {
         "(B8-4b does not run for want of C9, and section 15.3 registers "
         "that as not a failure of the stage)"
     ),
+    # B13's title has to carry the withdrawal, because the stage's headline and
+    # the explanation it first gave for that headline are not both surviving.
+    "B13": (
+        "B13 — the zero domain: the framework names where its own quantity must "
+        "be zero, and then measures it on a venue where the order can actually "
+        "be placed. Never worse than the two-leg derivation in 81,968 states "
+        "over nine products, and exactly equal on six of them, while the "
+        "directly quoted member of the same family is non-zero in 65 to 96 per "
+        "cent of states. **Why those six and not all nine is not established**: "
+        "the explanation the station first gave is withdrawn in B13-2"
+    ),
     # B14 is a gate and not the stage's own question, and the title has to say
     # so: the invariance claim it was opened for lives on the index half, which
     # Appendix B.I does not carry. A reader scanning "fourteen of fourteen"
@@ -274,6 +285,13 @@ def subtitle(record: dict) -> str:
     # neither a round count nor a loan count exists for it and the generic
     # branch below would print "no sample metadata recorded" for a record that
     # carries both numbers.
+    if record.get("stage") == "B13":
+        return (
+            f"{record['states_gate']:,} states over {record['products']} "
+            f"products and {record['channels']} channels, one ten-minute window "
+            f"of {record['capture_day']}, from the vendor's free public sample"
+        )
+
     if record.get("stage") == "B14":
         start, end = record["window"]
         tail = f"{start} to {end}, October 2016 dropped as the pilot's phase-in month"

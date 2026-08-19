@@ -1,0 +1,223 @@
+B13 path multiplicity, read from the instrument listing and no price at all.
+A listed calendar spread (A, B) has a second route whenever some listed C
+gives both (A, C) and (B, C), because (A,B) = (A,C) - (B,C).
+
+== ch382 NYMEX energy ==  46519 symbols, 22876 calendar spreads
+   root     listed    multi   unique   example second route
+   CL          906      906        0   CLF4-CLF5 via CLF6   <- B13 measured on this root
+   RB          861      861        0   RBF4-RBF5 via RBF6   <- B13 measured on this root
+   38          300      300        0   38F4-38F5 via 38G4
+   7D           85       80        5   7DF4-7DG4 via 7DH4
+   7F          648      642        6   7FF4-7FF5 via 7FF6
+   A0D          85       80        5   A0DF4-A0DG4 via A0DH4
+   A0F          85       80        5   A0FF4-A0FG4 via A0FH4
+   AA6         171      171        0   AA6F4-AA6F5 via AA6G4
+   ABY         253      253        0   ABYF4-ABYF5 via ABYG4
+   AE5         276      276        0   AE5F4-AE5F5 via AE5G4
+   AEZ         171      171        0   AEZF4-AEZF5 via AEZG4
+   AFF         300      300        0   AFFF4-AFFF5 via AFFG4
+   AFH         276      276        0   AFHF4-AFHF5 via AFHG4
+   AFK          83       80        3   AFKF4-AFKG4 via AFKH4
+   AHL         171      171        0   AHLF4-AHLF5 via AHLG4
+   ARE         171      171        0   AREF4-AREF5 via AREG4
+   AUI          84       80        4   AUIF4-AUIG4 via AUIH4
+   AWJ         300      300        0   AWJF4-AWJF5 via AWJG4
+   AYV         276      276        0   AYVF4-AYVF5 via AYVG4
+   AYX         300      300        0   AYXF4-AYXF5 via AYXG4
+   B7H         171      171        0   B7HF4-B7HF5 via B7HG4
+   BB          253      253        0   BBF4-BBF5 via BBG4
+   BK          300      300        0   BKF4-BKF5 via BKG4
+   BOO          80       78        2   BOOF4-BOOG4 via BOOH4
+   BZ         4095     4095        0   BZF0-BZF1 via BZF4
+   BZL           3        3        0   BZLU3-BZLV3 via BZLX3
+   BZS           3        3        0   BZSU3-BZSV3 via BZSX3
+   BZT          78       78        0   BZTF4-BZTG4 via BZTH4
+   CLL           5        5        0   CLLQ3-CLLU3 via CLLV3
+   CLS           5        5        0   CLSQ3-CLSU3 via CLSV3
+   CLT          22       20        2   CLTF4-CLTG4 via CLTU3
+   CSX         300      300        0   CSXF4-CSXF5 via CSXG4
+   CU          630      630        0   CUF4-CUF5 via CUF6
+   CY          300      300        0   CYF4-CYF5 via CYG4
+   EN          171      171        0   ENF4-ENF5 via ENG4
+   EVC          85       80        5   EVCF4-EVCG4 via EVCH4
+   FO           80       78        2   FOF4-FOG4 via FOH4
+   FSS          85       80        5   FSSF4-FSSG4 via FSSH4
+   GCI          80       78        2   GCIF4-GCIG4 via GCIH4
+   GCU          80       78        2   GCUF4-GCUG4 via GCUH4
+   GZ          171      171        0   GZF4-GZF5 via GZG4
+   HIL         300      300        0   HILF4-HILF5 via HILG4
+   HO          861      861        0   HOF4-HOF5 via HOF6
+   HOB         861      861        0   HOBF4-HOBF5 via HOBF6
+   HOL           3        3        0   HOLQ3-HOLU3 via HOLV3
+   HOT          20       20        0   HOTF4-HOTG4 via HOTU3
+   HTT         276      276        0   HTTF4-HTTF5 via HTTG4
+   JCC         276      276        0   JCCF4-JCCF5 via JCCG4
+   LPS          66       66        0   LPSF4-LPSG4 via LPSH4
+   LT          666      666        0   LTF4-LTF5 via LTF6
+   MB          276      276        0   MBF4-MBF5 via MBG4
+   MCL          66       66        0   MCLF4-MCLG4 via MCLH4
+   ME          666      666        0   MEF4-MEF5 via MEF6
+   MEO         171      171        0   MEOF4-MEOF5 via MEOG4
+   MFB          80       78        2   MFBF4-MFBG4 via MFBH4
+   MFR          85       80        5   MFRF4-MFRG4 via MFRH4
+   MGH          80       78        2   MGHF4-MGHG4 via MGHH4
+   MHO          77       77        0   MHOF4-MHOG4 via MHOH4
+   MM          300      300        0   MMF4-MMF5 via MMG4
+   MPX         171      171        0   MPXF4-MPXF5 via MPXG4
+   MRB          77       77        0   MRBF4-MRBG4 via MRBH4
+   MTS          85       80        5   MTSF4-MTSG4 via MTSH4
+   NLS         171      171        0   NLSF4-NLSF5 via NLSG4
+   QH           66       66        0   QHF4-QHG4 via QHH4
+   QM         2080     2080        0   QMF4-QMF5 via QMF6
+   QU           77       77        0   QUF4-QUG4 via QUH4
+   RBB         861      861        0   RBBF4-RBBF5 via RBBF6
+   RBL           3        3        0   RBLQ3-RBLU3 via RBLV3
+   RBT          20       20        0   RBTF4-RBTG4 via RBTU3
+   RLX         171      171        0   RLXF4-RLXF5 via RLXG4
+   RT           66       66        0   RTF4-RTG4 via RTH4
+   SD           85       80        5   SDF4-SDG4 via SDH4
+   SE           85       80        5   SEF4-SEG4 via SEH4
+   SGB         171      171        0   SGBF4-SGBF5 via SGBG4
+   T7K         171      171        0   T7KF4-T7KF5 via T7KG4
+   UA           85       80        5   UAF4-UAG4 via UAH4
+   UV           80       78        2   UVF4-UVG4 via UVH4
+   VR           80       78        2   VRF4-VRG4 via VRH4
+   WS           66       66        0   WSF4-WSG4 via WSH4
+   WTT         276      276        0   WTTF4-WTTF5 via WTTG4
+
+== ch386 NG ==  55038 symbols, 26360 calendar spreads
+   root     listed    multi   unique   example second route
+   NG         1127     1124        3   NGF4-NGF5 via NGF6   <- B13 measured on this root
+   TTF         630      630        0   TTFF4-TTFF5 via TTFF6   <- B13 measured on this root
+   A1R         300      300        0   A1RF4-A1RF5 via A1RG4
+   A7E         300      300        0   A7EF4-A7EF5 via A7EG4
+   A7Q         300      300        0   A7QF4-A7QF5 via A7QG4
+   A8I         300      300        0   A8IF4-A8IF5 via A8IG4
+   A8K         300      300        0   A8KF4-A8KF5 via A8KG4
+   A8L         300      300        0   A8LF4-A8LF5 via A8LG4
+   A8M         300      300        0   A8MF4-A8MF5 via A8MG4
+   A9N         276      276        0   A9NF4-A9NF5 via A9NG4
+   AB3          66       66        0   AB3F4-AB3G4 via AB3H4
+   AC0         300      300        0   AC0F4-AC0F5 via AC0G4
+   ACB         300      300        0   ACBF4-ACBF5 via ACBG4
+   AD0         300      300        0   AD0F4-AD0F5 via AD0G4
+   AEB         300      300        0   AEBF4-AEBF5 via AEBG4
+   AH3          66       66        0   AH3F4-AH3G4 via AH3H4
+   AL1          66       66        0   AL1F4-AL1G4 via AL1H4
+   APS         300      300        0   APSF4-APSF5 via APSG4
+   AU6          66       66        0   AU6F4-AU6G4 via AU6H4
+   AZ9          66       66        0   AZ9F4-AZ9G4 via AZ9H4
+   B0          300      300        0   B0F4-B0F5 via B0G4
+   B6L          15       15        0   B6LQ3-B6LF4 via B6LU3
+   D2L          15       15        0   D2LQ3-D2LF4 via D2LU3
+   D3L          15       15        0   D3LQ3-D3LF4 via D3LU3
+   D4L          15       15        0   D4LQ3-D4LF4 via D4LU3
+   D7L          15       15        0   D7LQ3-D7LF4 via D7LU3
+   DEB          28       28        0   DEBF4-DEBJ4 via DEBN3
+   DEP          28       28        0   DEPF4-DEPJ4 via DEPN3
+   E4L          15       15        0   E4LQ3-E4LF4 via E4LU3
+   EJL          15       15        0   EJLQ3-EJLF4 via EJLU3
+   FRC         300      300        0   FRCF4-FRCF5 via FRCG4
+   FRS         276      276        0   FRSF4-FRSF5 via FRSG4
+   H2L          15       15        0   H2LQ3-H2LF4 via H2LU3
+   H5L          15       15        0   H5LQ3-H5LF4 via H5LU3
+   HH          630      630        0   HHF4-HHF5 via HHF6
+   HHT           5        5        0   HHTQ3-HHTU3 via HHTV3
+   HP           66       66        0   HPF4-HPG4 via HPH4
+   ITB          28       28        0   ITBF4-ITBJ4 via ITBN3
+   ITP          28       28        0   ITPF4-ITPJ4 via ITPN3
+   J4L          15       15        0   J4LQ3-J4LF4 via J4LU3
+   JBK         299      299        0   JBKF4-JBKF5 via JBKG4
+   JBT         299      299        0   JBTF4-JBTF5 via JBTG4
+   JKM         253      253        0   JKMF4-JKMF5 via JKMG4
+   JPK         299      299        0   JPKF4-JPKF5 via JPKG4
+   JPT         299      299        0   JPTF4-JPTF5 via JPTG4
+   K2L          15       15        0   K2LQ3-K2LF4 via K2LU3
+   K3L          15       15        0   K3LQ3-K3LF4 via K3LU3
+   K4L          15       15        0   K4LQ3-K4LF4 via K4LU3
+   L3L          15       15        0   L3LQ3-L3LF4 via L3LU3
+   LNG1         55       55        0   LNG1F4-LNG1G4 via LNG1H4
+   LNG2         55       55        0   LNG2F4-LNG2G4 via LNG2H4
+   LNG3         55       55        0   LNG3F4-LNG3G4 via LNG3H4
+   LNG4         54       54        0   LNG4F4-LNG4G4 via LNG4H4
+   LNG5          6        6        0   LNG5H4-LNG5M4 via LNG5V3
+   MBE         300      300        0   MBEF4-MBEF5 via MBEG4
+   MBR         300      300        0   MBRF4-MBRF5 via MBRG4
+   MFF         300      300        0   MFFF4-MFFF5 via MFFG4
+   MNB         300      300        0   MNBF4-MNBF5 via MNBG4
+   MTF         300      300        0   MTFF4-MTFF5 via MTFG4
+   N3L          15       15        0   N3LQ3-N3LF4 via N3LU3
+   N9L          15       15        0   N9LQ3-N9LF4 via N9LU3
+   NBP         630      630        0   NBPF4-NBPF5 via NBPF6
+   NGT          77       77        0   NGTF4-NGTG4 via NGTH4
+   NN          276      276        0   NNF4-NNF5 via NNG4
+   NNT           5        5        0   NNTQ3-NNTU3 via NNTV3
+   NPG         276      276        0   NPGF4-NPGF5 via NPGG4
+   NWM         253      253        0   NWMF4-NWMF5 via NWMG4
+   PGG         300      300        0   PGGF4-PGGF5 via PGGG4
+   QG         2080     2080        0   QGF4-QGF5 via QGF6
+   R7L          15       15        0   R7LQ3-R7LF4 via R7LU3
+   T2D         300      300        0   T2DF4-T2DF5 via T2DG4
+   T3L          15       15        0   T3LQ3-T3LF4 via T3LU3
+   T5C         300      300        0   T5CF4-T5CF5 via T5CG4
+   TC6         276      276        0   TC6F4-TC6F5 via TC6G4
+   TD3         300      300        0   TD3F4-TD3F5 via TD3G4
+   TD8         300      300        0   TD8F4-TD8F5 via TD8G4
+   TFU         276      276        0   TFUF4-TFUF5 via TFUG4
+   TH          300      300        0   THF4-THF5 via THG4
+   TK          300      300        0   TKF4-TKF5 via TKG4
+   TL          300      300        0   TLF4-TLF5 via TLG4
+   TM          300      300        0   TMF4-TMF5 via TMG4
+   TTB        2080     2080        0   TTBF4-TTBF5 via TTBF6
+   TTE         630      630        0   TTEF4-TTEF5 via TTEF6
+   TTG        2080     2080        0   TTGF4-TTGF5 via TTGF6
+   TTI        2080     2080        0   TTIF4-TTIF5 via TTIF6
+   UKG         630      630        0   UKGF4-UKGF5 via UKGF6
+   USC         300      300        0   USCF4-USCF5 via USCG4
+   USE         300      300        0   USEF4-USEF5 via USEG4
+   V3L          15       15        0   V3LQ3-V3LF4 via V3LU3
+   XUK         300      300        0   XUKF4-XUKF5 via XUKG4
+
+== ch360 COMEX ==  10001 symbols, 8239 calendar spreads
+   root     listed    multi   unique   example second route
+   GC          231      231        0   GCG4-GCG5 via GCJ4   <- B13 measured on this root
+   HG          820      820        0   HGF4-HGF5 via HGG4   <- B13 measured on this root
+   MHG         780      780        0   MHGF4-MHGF5 via MHGG4   <- B13 measured on this root
+   QI           55       55        0   QIF4-QIF5 via QIH4   <- B13 measured on this root
+   4GC         231      231        0   4GCG4-4GCG5 via 4GCJ4
+   AEP          78       78        0   AEPF4-AEPG4 via AEPH4
+   ALI         667      666        1   ALIF4-ALIF5 via ALIF6
+   AUP          78       78        0   AUPF4-AUPG4 via AUPH4
+   BUS          15       15        0   BUSQ3-BUSF4 via BUSU3
+   COB         300      300        0   COBF4-COBF5 via COBG4
+   EDP          78       78        0   EDPF4-EDPG4 via EDPH4
+   EHR         153      153        0   EHRF4-EHRG4 via EHRH4
+   GCK          21       21        0   GCKG4-GCKJ4 via GCKM4
+   GCT          14       14        0   GCTG4-GCTJ4 via GCTM4
+   HDG         861      861        0   HDGF4-HDGF5 via HDGF6
+   HGT           6        6        0   HGTH4-HGTK4 via HGTU3
+   HRC         861      861        0   HRCF4-HRCF5 via HRCF6
+   HRP         861      861        0   HRPF4-HRPF5 via HRPF6
+   LED          66       66        0   LEDF4-LEDG4 via LEDH4
+   LTC         276      276        0   LTCF4-LTCF5 via LTCG4
+   LTH         276      276        0   LTHF4-LTHF5 via LTHG4
+   MGC          66       66        0   MGCG4-MGCG5 via MGCJ4
+   MGT           5        5        0   MGTG4-MGTJ4 via MGTZ3
+   MJP          78       78        0   MJPF4-MJPG4 via MJPH4
+   QC          740      740        0   QCF4-QCF5 via QCG4
+   QO           66       66        0   QOG4-QOG5 via QOJ4
+   SGC          28       28        0   SGCG4-SGCJ4 via SGCM4
+   SGU          28       28        0   SGUG4-SGUJ4 via SGUM4
+   SHR          15       15        0   SHRQ3-SHRF4 via SHRU3
+   SI          208      208        0   SIF4-SIF5 via SIH4
+   SIL          34       34        0   SILF4-SILH4 via SILK4
+   SIT          10       10        0   SITH4-SITK4 via SITN4
+   TIO          78       78        0   TIOF4-TIOG4 via TIOH4
+   UX           78       78        0   UXF4-UXG4 via UXH4
+   ZNC          77       77        0   ZNCF4-ZNCG4 via ZNCH4
+
+Read per B13 section 12.2 item 2: this is a listing test, not an
+availability test. It does not read the exchange's implied-depth
+configuration, and a listed route the engine does not generate is not a
+route. What it does settle is that the listing does not leave the
+two-leg path alone on the products where exact equality was measured.

@@ -1,0 +1,10 @@
+spread                   grid        obs | near                   grid | far                    grid   verdict
+NGQ3-NGK4          1000000000       1003 | NGQ3             1000000000 | NGK4             1000000000   EQUAL
+NGV3-NGK4          1000000000        762 | NGV3             1000000000 | NGK4             1000000000   EQUAL
+NGU3-NGK4          1000000000        785 | NGU3             1000000000 | NGK4             1000000000   EQUAL
+NGQ3-NGH4          1000000000       1136 | NGQ3             1000000000 | NGH4             1000000000   EQUAL
+TTFQ3-TTFU3        5000000000        712 | TTFQ3            5000000000 | TTFU3            5000000000   EQUAL
+NGH4-NGQ4          1000000000       1507 | NGH4             1000000000 | NGQ4             1000000000   EQUAL
+NGU3-NGJ4          1000000000        746 | NGU3             1000000000 | NGJ4             1000000000   EQUAL
+
+equal 7, different 0, no data 0

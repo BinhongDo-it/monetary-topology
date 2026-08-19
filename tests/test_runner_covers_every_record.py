@@ -293,6 +293,16 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
         "its own 136 MB order-type panel under data/cache/b14/, which "
         "`.gitignore` excludes for the same reason it excludes data/raw"
     ),
+    "b13_zero_domain.json": (
+        "B13. The gate reads CME MDP 3.0 packet captures, 6.8 GB compressed for "
+        "one ten-minute window, which are not in the repository and are not "
+        "redistributable. **The products are**: `b13_verdicts.py` copies the "
+        "station's ten console outputs into `results/` on every run, so the "
+        "evidence a criterion cites is present even though the capture that "
+        "produced it is not. Wiring it back in costs the download and nothing "
+        "else, and until someone does, the number check inside that sheet is "
+        "what stands between the criteria and the products going out of step"
+    ),
     "b14_gate0.json": (
         "B14-0. Needs the ten Tick Pilot Appendix B.I monthly files, 1.07 GB "
         "compressed, hand-downloaded from ftp.nyxdata.com and not in the "

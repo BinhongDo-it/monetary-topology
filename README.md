@@ -43,6 +43,7 @@ four fields per station — is in [`speedrun/`](speedrun/):
 |---|---|
 | [Volume II, B0–B6](speedrun/volume-ii-part-1.md) | the B track's first six stations |
 | [Volume II, B7–B11](speedrun/volume-ii-part-2.md) | where the carriers are |
+| [Volume II, B12–B14](speedrun/volume-ii-part-3.md) | the zero domain, and the first carrier built to be able to fail |
 | [Volume I, the A track](speedrun/volume-i.md) | the mechanism models |
 
 **The retraction attached to each station is part of the entry, not a footnote.**
@@ -168,6 +169,8 @@ a `docs/` file disagree, the `docs/` file is right and this file is behind.
 | B8 | [`b8_fannie_slice.md`](docs/b8_fannie_slice.md) — the pre-registration. Instrument conclusions in [`b8_instrument_notes.md`](docs/b8_instrument_notes.md); the full inputs register is held outside this repository |
 | B9 | [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | no document here. The stage has no section in [RESULTS.md](RESULTS.md) and every record carries `diagnostic_only`, so its availability register is held outside this repository |
+| B13 | no document here either, and for a different reason: the station was **specified inside B9's**, [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) section 57, which states the carrier requirement and says in the same breath that meeting it is not B9's work. Its design and result files are held outside this repository. **What is here is the evidence**: `experiments/b13_*.py` and `b4_two_classes.py`, and the ten console outputs they wrote, copied into `results/b13_*.txt` by [`b13_verdicts.py`](experiments/b13_verdicts.py) so a criterion's sources travel with the criterion |
+| B14 | no document here; same arrangement as B13. The carrier requirement it answers is stated in [`b4_directed_edges.md`](docs/b4_directed_edges.md) section 9, and Theorem 6(4) in that file's section 5 came out of building it |
 
 ### Across every stage
 
@@ -495,7 +498,9 @@ simulating instances.
 | B9 | the measured zero, and the path share | ran; the ETF creation triangle carries a non-zero holonomy of 1.2 to 1.7 bp and its quantization explanation is falsified. The stage is under re-audit, [`docs/b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | Freddie as a carrier: availability and the download ruling | availability answered; **every record is `diagnostic_only` and the stage is deliberately absent from [RESULTS.md](RESULTS.md) until it closes**. Nothing published rests on it, so its register is held outside this repository until the stage closes |
 | B11 | corporate credit as the second domain | **open.** The branch table in B8 section 15.6 sends the second domain here. The gate is 200 issuers against a measured ceiling of 227, so the investment-grade filter has to retain 88 percent to clear it, and it has not been run. No document here: the stage has no section in [RESULTS.md](RESULTS.md), every record it writes carries `diagnostic_only`, and its registers are held outside this repository until it closes |
-| B12 | grid invariance | **pre-registered, not run.** It re-asks B10's question with a ruler that predicts an exact zero, which is what makes it able to fail. No code and no record yet; the registration is held outside this repository until the stage runs |
+| B12 | grid invariance | **pre-registered, code written, every record `diagnostic_only`.** It re-asks B10's question with a ruler that predicts an exact zero, which is what makes it able to fail. [`experiments/b12_pullback.py`](experiments/b12_pullback.py) exists; nothing it writes reaches [RESULTS.md](RESULTS.md) yet |
+| B13 | the zero domain | **closed, 7/7 criteria, in a day, on the vendor's free public sample.** The framework names where its own quantity must be zero and then measures it on CME implied quotes: never worse than the two-leg derivation in **81,968 states** over nine products and three channels, exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states. **The explanation first given for the six-versus-nine split is withdrawn** and B13-2 carries the withdrawal. It also produced the first measurement of both halves of B4 section 5.1's split |
+| B14 | a dated, exogenous, symmetric friction change | **the gate passes and the mirror does not.** The SEC tick size pilot is the carrier B4 section 9 asked for. Imposing the 5-cent grid in 2016 widens the treated spread against the control, six inequalities of six, and it holds under every weighting and adversarial convention tried, thirty of thirty. **Running the same test on the pilot's end in 2018 returns three of six on the venues' own spreads and six of six on the consolidated spread**, so B14-0 is registered as under question and the second stage stays locked |
 | square complex | curl against harmonic on `Γ` | **withdrawn**, see B1 §12 |
 
 **Three of those rows are newer than the narrative that follows them**, which was

@@ -1,0 +1,57 @@
+R1  structural check: |S - S'| <= -(S + S'), Theorem 4 on each of the two four-cycles separately
+    49116 states, 0 violations
+    zero violations, so the readings below stand
+
+R2  rho = |S - S'| / -(S + S'), in [0, 1]
+    median 0.2000   rho=0 in 12637 (0.2573)   rho=1 in 0 (0.0000)   friction exactly zero in 0
+    (a state at rho=1 has one of S, S' exactly zero: one direction of the round trip is free)
+
+R3  is S - S' identically zero?
+    non-zero in 36479 of 49116 states (0.7427). identically zero: **no**
+
+R5  per instrument, share of non-zero states with index > 0 (symmetric noise gives about 0.5)
+    spread           states non-zero  share > 0    rho med       grid
+    CLQ3-CLV3         10883     6960     0.8474     0.2000 1000000000
+    CLQ3-CLX3          7687     5176     0.5398     0.1429 1000000000
+    CLZ3-CLZ4          7094     4893     0.1839     0.1429 1000000000
+    CLU3-CLX3          6614     4566     0.3261     0.2000 1000000000
+    CLU3-CLV3          5159     4443     0.9397     0.3333 1000000000
+    CLV3-CLM4          3947     2952     0.1121     0.1429 1000000000
+    RBU3-RBX3          3944     3856     0.2777     0.4321 1000000000
+    RBU3-RBV3          3788     3633     0.0190     0.4667 1000000000
+    5 of 8 instruments sit further than 0.25 from 0.5
+
+R4  sign persistence against the null computed from the data's own marginal, p^2 + (1-p)^2
+    spread            p(>0)     null lag1        lag10       lag100      lag1000     lag10000  
+    CLQ3-CLV3        0.8474   0.7414 0.9994  0.9280  0.8366  0.7972  0.9282  
+    CLQ3-CLX3        0.5398   0.5032 0.9754  0.8568  0.6817  0.4581     -    
+    CLZ3-CLZ4        0.1839   0.6998 0.9991  0.8778  0.7944  0.6818     -    
+    CLU3-CLX3        0.3261   0.5605 0.9691  0.8297  0.6532  0.6154     -    
+    CLU3-CLV3        0.9397   0.8866 0.9995  0.9954  0.9610  0.8359     -    
+    CLV3-CLM4        0.1121   0.8009 0.9910  0.9342  0.8530  0.7957     -    
+    RBU3-RBX3        0.2777   0.5988 0.9851  0.9132  0.8278  0.6221     -    
+    RBU3-RBV3        0.0190   0.9627 0.9970  0.9776  0.9715  0.9604     -    
+
+    read per design file section 14.3 R4: no threshold, the curve is the reading. **Declared on reading, 2026-08-19: this null absorbs the very thing R5 measures.** p is the whole-sample marginal, so a constant one-sided wedge raises the null by exactly as much as it raises the agreement rate. R4 therefore tests for structure *in excess of* a constant wedge and does not bear on whether there is a wedge. R5 and R6 are the readings that do.
+
+R6  parity control (post hoc, declared 2026-08-19, not in the pre-registration)
+    All four tops are integers on the instrument's tick grid, and
+      index = (db+da) - (eb+ef),   friction = -[(da-db) + (ef-eb)]
+    both reduce mod 2 to db+da+eb+ef, so **index and friction always share parity**.
+    Where the friction is an odd number of ticks, index = 0 is not among the available values, and a non-zero index there says nothing about the two classes. The reading below is R3 and R5 restricted to the states where zero was available and was not taken.
+
+    parity identity violated in 0 of 49116 states (must be 0)
+
+    spread           states   fr odd  fr even even, ix=0 even>0 share
+    CLQ3-CLV3         10883     5664     5219       3923     0.9460
+    CLQ3-CLX3          7687     3647     4040       2511     0.5912
+    CLZ3-CLZ4          7094     3760     3334       2201     0.0282
+    CLU3-CLX3          6614     3492     3122       2048     0.2523
+    CLU3-CLV3          5159     4443      716        716          -
+    CLV3-CLM4          3947     1879     2068        995     0.0373
+    RBU3-RBX3          3944     1966     1978         88     0.2471
+    RBU3-RBV3          3788     1893     1895        155     0.0109
+    all               49116    26744    22372      12637
+
+    where parity allowed a zero, the index is zero in 0.5649 of states; over the whole sample it is zero in 0.2573
+    read per design file section 14: the verdict is **per position edge**, because section 5.1's construction is about one edge (i, j) and not about the two mechanisms in general.

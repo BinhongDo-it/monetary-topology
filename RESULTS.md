@@ -394,42 +394,58 @@ _no sample metadata recorded_
 | PASS | A7-B-4 | both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3 |
 | VOID | A7-B-5 | I and M recorded as not run. Above s = 0.02 in the uniform arm a one-off transfer leaves nothing after a generation, so a transmitting mechanism has no stock and their effects are identically zero by construction; docs sections 12.1 and 13.5 |
 
+## B13 — the zero domain: the framework names where its own quantity must be zero, and then measures it on a venue where the order can actually be placed. Never worse than the two-leg derivation in 81,968 states over nine products, and exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states. **Why those six and not all nine is not established**: the explanation the station first gave is withdrawn in B13-2
+
+81,968 states over 9 products and 3 channels, one ten-minute window of 2023-07-17, from the vendor's free public sample
+
+**7/7 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B13-0  the gate: one spread, both multicast sides, a book class that implements every action it is sent | 34923 end-of-event states with a book change on one of the three instruments, 2442 of them republished the spread's implied book and are paired. Update actions this book class does not implement: 0. Reading only the A-side of an A+B deduplicated capture had cost 2 per cent of updates and produced a bid agreement of 0.9229 that looked like a finding; with both sides it is 0.9990 |
+| PASS | B13-1  section 4.A.2, load-bearing: the exchange's published implied price is never worse than the two-leg derivation | 0 violations in 63168 states on ch382, 0 in 5336 on ch386 and 0 in 13464 on ch360, over nine products and three channels. The criterion is a one-sided inequality and not an equality, which is what makes zero violations the whole of it |
+| PASS | B13-2  on six of the nine products the inequality is an equality, bit for bit, and why those six is not established | equality rate 1.0000 on both sides of both ch386 and ch360, which is 2668 offer and 2668 bid states there and 6732 of each on ch360, 18800 in all. **The explanation the station first gave is withdrawn**: it said those products have only one derivation path, and the instrument listing says otherwise for every root measured, CL 906 of 906 multi-path, NG 1124 of 1127, GC 231 of 231, HG 820 of 820, MHG 780 of 780, QI 55 of 55. The reading stands and the attribution does not |
+| PASS | B13-3  the same apparatus on the directly quoted member of the same family returns non-zero | share of states with a non-zero gap between the directly quoted book and the two-leg derivation, by channel: 0.8751 offer and 0.9240 bid on ch382, 0.7470 and 0.6516 on ch386, 0.9478 and 0.9610 on ch360. Nine products, no exception. **Not an economic statement**: it is ordinary queueing and market-making difference, and the design file forbids reading it as more |
+| PASS | B13-4  section 5.2's precondition: the spread quotes on the same grid as its legs | equal 10 different 0 no data 0 on ch382, equal 7 different 0 no data 0 on ch386, equal 8 different 0 no data 0 on ch360. **This registered check was skipped when the gate first ran and was performed afterwards**, so the readings above stood on luck until it passed. Measured as the gcd of the observed prices rather than read off the definition field |
+| PASS | B13-5  B4's section 5.1 split, both halves computed on live quotes for the first time in this repository | the split is available in 49116 of 50055 states, 0.981; Theorem 6(1)'s sign constraint has 0 counterexamples in those 49116; the index part is exactly zero in 12637 of them. B5 could report the index half and never the friction half, and this is the first carrier that quotes all four legs natively |
+| PASS | B13-6  Theorem 6(4)'s bound, and section 5.1's own criterion for two agent classes, adjudicated per position edge | 0 violations of \|S - S'\| <= -(S + S') in 49116 states; rho median 0.2000 with 0 states at rho = 1. Under the parity control the index is zero in 0.5649 of the states where zero was available: CLU3-CLV3 takes it 716 times out of 716 and is one class, RBU3-RBX3 takes it 88 times out of 1978 and RBU3-RBV3 155 out of 1895, and those two are two classes |
+
 ## B14 — a dated, exogenous, symmetric friction change (the SEC tick size pilot). B14-0 only: the friction half moves, on both venues and under every weighting convention tried. The invariance claim in `docs/b4_directed_edges.md` section 5.1 is about the index half, which Appendix B.I does not carry, so this stage does not test it
 
 ### b14_gate0.authoritative
 
-2,915 venue-symbols (N 679, P 2,236), 20160801 to 20161231, October 2016 dropped as the pilot's phase-in month
+2,944 venue-symbols (N 679, P 2,265), 20160801 to 20161231, October 2016 dropped as the pilot's phase-in month
 
-**14/14 live criteria passed, 12 diagnostic**
+**13/14 live criteria passed, 12 diagnostic**
 
 | | criterion | detail |
 |---|---|---|
 | PASS | B14-0  G1 on venue N: median delta exceeds control | G1 +0.515392 over 115 symbols, C +0.120200 over 338, margin +0.395193 |
 | PASS | B14-0  G2 on venue N: median delta exceeds control | G2 +0.399441 over 112 symbols, C +0.120200 over 338, margin +0.279242 |
 | PASS | B14-0  G3 on venue N: median delta exceeds control | G3 +0.454552 over 114 symbols, C +0.120200 over 338, margin +0.334352 |
-| PASS | B14-0  G1 on venue P: median delta exceeds control | G1 +0.158091 over 375 symbols, C +0.068396 over 1117, margin +0.089695 |
-| PASS | B14-0  G2 on venue P: median delta exceeds control | G2 +0.172069 over 369 symbols, C +0.068396 over 1117, margin +0.103673 |
-| PASS | B14-0  G3 on venue P: median delta exceeds control | G3 +0.178484 over 375 symbols, C +0.068396 over 1117, margin +0.110088 |
+| PASS | B14-0  G1 on venue P: median delta exceeds control | G1 +0.158091 over 379 symbols, C +0.074414 over 1135, margin +0.083677 |
+| PASS | B14-0  G2 on venue P: median delta exceeds control | G2 +0.174435 over 375 symbols, C +0.074414 over 1135, margin +0.100021 |
+| PASS | B14-0  G3 on venue P: median delta exceeds control | G3 +0.178528 over 376 symbols, C +0.074414 over 1135, margin +0.104114 |
 | PASS | B14-0  the verdict does not turn on the weighting convention | share-weighted verdict PASS, order-count-weighted verdict PASS (design file D3-3: disagreement makes the gate unadjudicable) |
 | DIAG | B14-0  cross-check on the consolidated spread: G1 on N | margin +0.411207; design file section 4 excludes this from the verdict |
 | DIAG | B14-0  cross-check on the consolidated spread: G2 on N | margin +0.307160; design file section 4 excludes this from the verdict |
 | DIAG | B14-0  cross-check on the consolidated spread: G3 on N | margin +0.389522; design file section 4 excludes this from the verdict |
-| DIAG | B14-0  cross-check on the consolidated spread: G1 on P | margin +0.198421; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G1 on P | margin +0.191746; design file section 4 excludes this from the verdict |
 | DIAG | B14-0  cross-check on the consolidated spread: G2 on P | margin +0.174114; design file section 4 excludes this from the verdict |
-| DIAG | B14-0  cross-check on the consolidated spread: G3 on P | margin +0.190323; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G3 on P | margin +0.190657; design file section 4 excludes this from the verdict |
 | PASS | B14-0/T5  adverse convention, G1 on venue N | margin +0.398135 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
 | PASS | B14-0/T5  adverse convention, G2 on venue N | margin +0.282184 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
 | PASS | B14-0/T5  adverse convention, G3 on venue N | margin +0.337295 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
-| PASS | B14-0/T5  adverse convention, G1 on venue P | margin +0.062282 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
-| PASS | B14-0/T5  adverse convention, G2 on venue P | margin +0.084684 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
-| PASS | B14-0/T5  adverse convention, G3 on venue P | margin +0.076010 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G1 on venue P | margin +0.061189 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G2 on venue P | margin +0.087231 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G3 on venue P | margin +0.075680 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
 | DIAG | B14-0/T6  blanks and zeros both forced to zero, G1 on venue N | margin +0.390106; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
 | DIAG | B14-0/T6  blanks and zeros both forced to zero, G2 on venue N | margin +0.281569; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
 | DIAG | B14-0/T6  blanks and zeros both forced to zero, G3 on venue N | margin +0.321898; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
-| DIAG | B14-0/T6  blanks and zeros both forced to zero, G1 on venue P | margin +0.029276; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
-| DIAG | B14-0/T6  blanks and zeros both forced to zero, G2 on venue P | margin +0.025477; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
-| DIAG | B14-0/T6  blanks and zeros both forced to zero, G3 on venue P | margin +0.023019; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
-| PASS | B14-0  the six registered margins reproduce on the v2 cache | 6 margins compared, 0 differ |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G1 on venue P | margin +0.026127; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G2 on venue P | margin +0.025701; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G3 on venue P | margin +0.020256; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| **FAIL** | B14-0  the six registered margins reproduce on the v2 cache | 6 margins compared, 3 differ |
 
 Derived quantities:
 
@@ -437,9 +453,9 @@ Derived quantities:
 - `median_delta_N_G1` = 0.5154
 - `median_delta_N_G2` = 0.3994
 - `median_delta_N_G3` = 0.4546
-- `median_delta_P_C` = 0.0684
+- `median_delta_P_C` = 0.0744
 - `median_delta_P_G1` = 0.1581
-- `median_delta_P_G2` = 0.1721
+- `median_delta_P_G2` = 0.1744
 - `median_delta_P_G3` = 0.1785
 
 ### b14_gate0

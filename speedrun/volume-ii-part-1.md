@@ -1,7 +1,8 @@
 # Volume II speedrun: what each station asked, what it answered, what it retracted
 
-**Part 1 of 2. Stations B0 through B6.** Part 2 covers B7 through B11, which are the three
-carriers that produced the headline readings.
+**Part 1 of 3. Stations B0 through B6.** Part 2 covers B7 through B11, which are the three
+carriers that produced the headline readings. Part 3 covers B12 through B14, which were built after
+the programme knew what it was short of, and two of the three were built to be able to fail.
 
 Every entry has the same four fields, in the same order. The third field is the point of the
 document: a station that never retracted anything has not been tested by anything.

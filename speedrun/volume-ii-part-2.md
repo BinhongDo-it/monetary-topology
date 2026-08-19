@@ -1,6 +1,6 @@
 # Volume II speedrun, Part 2: B7 through B11
 
-**Part 2 of 2.** Part 1 covers B0 through B6. These five stations are where the carriers are, and
+**Part 2 of 3.** Part 1 covers B0 through B6, Part 3 covers B12 through B14. These five stations are where the carriers are, and
 where most of the retractions are.
 
 Same four fields per entry. Figures quoted exactly as the record carries them; where the record
@@ -391,3 +391,12 @@ channel that reads code catches any of them.
 **wrong**, as opposed to one that a competing account also gets right. Every registered route to
 one has so far closed by derivation. The single test ever built with an opposed sign ran, and lost.
 That is the open problem, and it is stated here rather than left for a reader to notice.
+
+> **This paragraph is answered in part by a station written after it.** B13 delivered the
+> programme's first zero domain, and the discriminating part of it is not the zero but the **sort**:
+> the same apparatus returns exact zero on the member of a family whose edge is derived and non-zero
+> on the member whose edge is quoted, with the framework naming which in advance. An account that
+> calls `ω` noise, or a spread artefact, gets that sort wrong. The account that gets it right is the
+> framework's own mechanism in the exchange's vocabulary. **It is short of the thing this paragraph
+> asks for and it is closer than "none".** See [Part 3](volume-ii-part-3.md), and note that B13's own
+> record is what forbids calling it the answer.

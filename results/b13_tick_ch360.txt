@@ -1,0 +1,11 @@
+spread                   grid        obs | near                   grid | far                    grid   verdict
+GCQ3-GCZ3          1000000000       3435 | GCQ3             1000000000 | GCZ3             1000000000   EQUAL
+HGU3-HGZ3          5000000000       2734 | HGU3             5000000000 | HGZ3             5000000000   EQUAL
+HGU3-HGH4          5000000000       2291 | HGU3             5000000000 | HGH4             5000000000   EQUAL
+HGU3-HGN4          5000000000       1131 | HGU3             5000000000 | HGN4             5000000000   EQUAL
+MHGU3-MHGZ3        5000000000       2901 | MHGU3            5000000000 | MHGZ3            5000000000   EQUAL
+QIU3-QIK4        125000000000        345 | QIU3           125000000000 | QIK4           125000000000   EQUAL
+HGZ3-HGK4          5000000000       1021 | HGZ3             5000000000 | HGK4             5000000000   EQUAL
+HGK4-HGN4          5000000000         86 | HGK4             5000000000 | HGN4             5000000000   EQUAL
+
+equal 8, different 0, no data 0

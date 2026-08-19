@@ -1,0 +1,15 @@
+spread           events    split      FR>0 | friction med friction min |   index med index |max|    idx=0
+CLQ3-CLV3         10940    10883         0 |        -5.0        -8.0 |         1.0           3     3923
+CLQ3-CLX3          7726     7687         0 |        -6.0       -12.0 |         0.0           5     2511
+CLZ3-CLZ4          7115     7094         0 |        -7.0       -10.0 |        -1.0           4     2201
+CLU3-CLX3          6658     6614         0 |        -6.0       -12.0 |         0.0           5     2048
+CLU3-CLV3          5392     5159         0 |        -3.0        -4.0 |         1.0           1      716
+CLV3-CLM4          4032     3947         0 |        -7.0       -12.0 |        -1.0           5      995
+RBU3-RBX3          4248     3944         0 |       -75.0      -129.0 |       -26.0          64       88
+RBU3-RBV3          3944     3788         0 |       -15.0       -29.0 |        -7.0          17      155
+
+events 50055, split available 49116, unavailable 939
+**friction positive: 0**  (Theorem 4: a positive two-cycle means P(omega) is empty at that instant)
+implied book crossed 0, direct book crossed 0
+index exactly zero in 12637 of 49116 states
+units are each instrument's own grid, measured as the gcd of the observed spreads and index values

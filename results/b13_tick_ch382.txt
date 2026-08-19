@@ -1,0 +1,13 @@
+spread                   grid        obs | near                   grid | far                    grid   verdict
+CLQ3-CLV3          1000000000      16104 | CLQ3             1000000000 | CLV3             1000000000   EQUAL
+CLQ3-CLX3          1000000000      11624 | CLQ3             1000000000 | CLX3             1000000000   EQUAL
+CLU3-CLV3          1000000000       6768 | CLU3             1000000000 | CLV3             1000000000   EQUAL
+CLU3-CLX3          1000000000       9658 | CLU3             1000000000 | CLX3             1000000000   EQUAL
+CLV3-CLM4          1000000000       7094 | CLV3             1000000000 | CLM4             1000000000   EQUAL
+RBU3-RBV3          1000000000       6781 | RBU3             1000000000 | RBV3             1000000000   EQUAL
+RBU3-RBX3          1000000000       7849 | RBU3             1000000000 | RBX3             1000000000   EQUAL
+CLU3-CLH4          1000000000       4684 | CLU3             1000000000 | CLH4             1000000000   EQUAL
+CLV3-CLH4          1000000000       3745 | CLV3             1000000000 | CLH4             1000000000   EQUAL
+CLZ3-CLZ4          1000000000      10586 | CLZ3             1000000000 | CLZ4             1000000000   EQUAL
+
+equal 10, different 0, no data 0

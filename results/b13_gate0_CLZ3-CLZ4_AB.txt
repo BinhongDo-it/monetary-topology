@@ -1,0 +1,41 @@
+B13-0 on CLZ3-CLZ4 (id 6128), legs CLZ3 (215236) and CLZ4 (258644)
+34923 end-of-event states with a book change on one of the three
+2442 of those republished the spread's implied book and are paired
+prices are raw PRICE9; 1e9 is one tick, so the tables below are ticks
+update actions this book class does not implement: 0
+
+identity         legs read as      checked      exact     share
+implied bid      direct legs          2098       2096   0.9990
+implied bid      implied legs         2440       1394   0.5713
+implied offer    direct legs          2098       2003   0.9547
+implied offer    implied legs         2440       1140   0.4672
+
+misses on implied bid / direct legs, by size in ticks:
+        +1           2
+
+misses on implied bid / implied legs, by size in ticks:
+        -1         504
+        +1         465
+        +2          41
+        -2          34
+        +3           2
+
+misses on implied offer / direct legs, by size in ticks:
+        -1          92
+        -2           3
+
+misses on implied offer / implied legs, by size in ticks:
+        +1         687
+        -1         438
+        +2          97
+        -2          57
+        +3          21
+
+independent side: ask(spread, directly quoted) - [ask(CLZ3) - bid(CLZ4)]
+2098 states, 5 distinct values
+      lambda       states     share
+          -4           24   0.0114
+          -3          449   0.2140
+          -2         1249   0.5953
+          -1          367   0.1749
+           0            9   0.0043
