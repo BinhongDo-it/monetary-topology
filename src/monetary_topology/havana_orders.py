@@ -210,6 +210,118 @@ def round_trip_report(quotes: dict[str, dict[str, float]],
     }
 
 
+# ---------------------------------------------------------------------------
+# B6-18: the zero calibration, and B6-16-S: the weighted specification
+# ---------------------------------------------------------------------------
+
+#: elTOQUE's stated outlier filter for the dollar, the euro and MLC.
+OUTLIER_SIGMAS = 2.0
+
+
+def trimmed_median(prices: list[float],
+                   sigmas: float = OUTLIER_SIGMAS) -> float | None:
+    """The publisher's stated estimator, applied to the orders it is built from.
+
+    Pool the day's prices, drop what lies more than ``sigmas`` standard
+    deviations from the mean, take the median of the rest. Returns ``None`` when
+    the filter leaves nothing, which is recorded rather than back-filled.
+
+    **Both sides are pooled.** elTOQUE describes one central value formed from
+    buy and sell offers, not a midpoint of two, so pooling is the reading of its
+    own words. §3.3's assumption A1 is the other reading and B6-16 is what tests
+    it; this function is not the place to settle that and does not try.
+    """
+    if len(prices) < 2:
+        return None
+    mean = sum(prices) / len(prices)
+    var = sum((p - mean) ** 2 for p in prices) / len(prices)
+    sd = var ** 0.5
+    if sd == 0:
+        return median(prices)
+    kept = [p for p in prices if abs(p - mean) <= sigmas * sd]
+    return median(kept) if kept else None
+
+
+def recomputed_series(book: dict[str, list[dict]]) -> dict[str, float]:
+    """``{date: trimmed median}`` over the classified orders of each day."""
+    out: dict[str, float] = {}
+    for when, orders in book.items():
+        buys, sells = sides(orders)
+        value = trimmed_median(buys + sells)
+        if value is not None:
+            out[when] = value
+    return out
+
+
+def calibration_report(recomputed: dict[str, float],
+                       published: dict[str, float],
+                       round_trip_median: float) -> dict:
+    """B6-18. Two paths to one number, compared on the scale of the market."""
+    rows = [
+        (when, math.log(recomputed[when] / published[when]))
+        for when in sorted(recomputed)
+        if when in published and published[when] > 0 and recomputed[when] > 0
+    ]
+    if not rows:
+        raise GuardFailed("no day carries both a recomputation and a published "
+                          "value, so there is nothing to calibrate against")
+    gaps = [abs(g) for _, g in rows]
+    signed = [g for _, g in rows]
+    return {
+        "days": len(rows),
+        "median_abs_log_gap": median(gaps),
+        "p90_abs_log_gap": percentile(gaps, 90.0),
+        "max_abs_log_gap": max(gaps),
+        "median_signed_log_gap": median(signed),
+        "round_trip_median": round_trip_median,
+        "days_beyond_one_round_trip": sum(1 for g in gaps
+                                          if g > round_trip_median),
+        "days_beyond_two_round_trips": sum(1 for g in gaps
+                                           if g > 2 * round_trip_median),
+        "passed": bool(median(gaps) < round_trip_median),
+    }
+
+
+def weighted_median(prices: list[float], volumes: list[float]) -> float | None:
+    """The price at which half the volume sits below.
+
+    Ties go to the lower price, which is the convention that makes a book of
+    identical quotes return that quote rather than an interpolation of it.
+    """
+    if not prices or len(prices) != len(volumes):
+        return None
+    pairs = sorted(zip(prices, volumes, strict=True))
+    total = sum(v for _, v in pairs)
+    if total <= 0:
+        return None
+    seen = 0.0
+    for price, volume in pairs:
+        seen += volume
+        if seen >= total / 2.0:
+            return price
+    return pairs[-1][0]
+
+
+def weighted_quotes(book: dict[str, list[dict]]) -> dict[str, dict[str, float]]:
+    """B6-16-S. The same two sides, weighted by the volume each order names."""
+    out: dict[str, dict[str, float]] = {}
+    for when in sorted(book):
+        buys = [(o["price"], o.get("volume", 0.0)) for o in book[when]
+                if o.get("sign") == SIGN_BUY and o.get("price", 0) > 0]
+        sells = [(o["price"], o.get("volume", 0.0)) for o in book[when]
+                 if o.get("sign") == SIGN_SELL and o.get("price", 0) > 0]
+        if len(buys) < MIN_PER_SIDE or len(sells) < MIN_PER_SIDE:
+            continue
+        bid = weighted_median([p for p, _ in buys], [v for _, v in buys])
+        ask = weighted_median([p for p, _ in sells], [v for _, v in sells])
+        if bid is None or ask is None:
+            continue
+        out[when] = {"bid": bid, "ask": ask,
+                     "n_buy": float(len(buys)), "n_sell": float(len(sells)),
+                     "classified": classified_share(book[when])}
+    return out
+
+
 def guard_span(book: dict[str, list[dict]]) -> None:
     """The file is the one this project registered against.
 

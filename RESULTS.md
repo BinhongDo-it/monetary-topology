@@ -726,7 +726,7 @@ Derived quantities:
 
 _no sample metadata recorded_
 
-**8/8 live criteria passed, 1 void**
+**9/9 live criteria passed, 1 void**
 
 | | criterion | detail |
 |---|---|---|
@@ -739,6 +739,7 @@ _no sample metadata recorded_
 | PASS | B6-15 the posted return leg does not clear the informal market | a(t) positive on 100.0% of 207 publication days; critical spread 0.0507 against a threshold of 0.02; a runs 0.0070 to 0.1925 |
 | PASS | B6-16 assumption A1, measured on the dollar leg | published median inside the book on 95.4% of 1,321 days; 61 above the ask, 0 below the bid |
 | VOID | B6-17 the informal round trip, measured | VOID: the round trip is measured 2021-07-23 to 2025-03-04 and the critical spread it is compared against is measured over B6-A's window from 2025-12-19. The spans do not overlap and cannot be made to: the order book ends before the window opens. The distribution stands as a reading: median 0.0148, p90 0.0392, p99 0.0747, max 0.1214 over 1,321 days |
+| PASS | B6-18 the zero calibration the stage did not have | two paths to the same daily number over 1,321 days: median \|log gap\| 0.0000 against a median round trip of 0.0148; 112 days beyond one round trip, 18 beyond two |
 
 ## B7
 

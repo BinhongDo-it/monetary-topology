@@ -86,11 +86,14 @@ from monetary_topology.cuba_segments import (
 from monetary_topology.havana_orders import (
     A1_SHARE,
     ORDERS_PATH,
+    calibration_report,
     daily_quotes,
     guard_span,
     inside,
     load_orders,
+    recomputed_series,
     round_trip_report,
+    weighted_quotes,
     which_side,
 )
 
@@ -926,11 +929,15 @@ def main() -> int:
     # fetches. Absent, they are recorded as not evaluated rather than as failed:
     # a criterion nobody could run is not a criterion that lost.
     quotes: dict[str, dict[str, float]] = {}
+    weighted: dict[str, dict[str, float]] = {}
+    recomputed: dict[str, float] = {}
     order_note = ""
     if ORDERS_PATH.exists():
         book = load_orders()
         guard_span(book)
         quotes = daily_quotes(book)
+        weighted = weighted_quotes(book)
+        recomputed = recomputed_series(book)
     else:
         order_note = (
             f"not evaluated: {ORDERS_PATH} is absent. "
@@ -940,6 +947,13 @@ def main() -> int:
              else {"passed": None, "void": order_note})
     b6_17 = (b6_17_round_trip(quotes, b6_15.get("critical_spread", 0.0))
              if quotes else {"passed": None, "void": order_note})
+
+    published_usd = {d: v["USD"] for d, v in informal.items() if "USD" in v}
+    b6_18 = (calibration_report(recomputed, published_usd, b6_17["median"])
+             if recomputed and b6_17.get("median") is not None
+             else {"passed": None, "void": order_note})
+    b6_16_s = (b6_16_assumption_a1(informal, weighted) if weighted
+               else {"passed": None, "void": order_note})
 
     criteria = [
         criterion(
@@ -1043,6 +1057,22 @@ def main() -> int:
             void=True,
         ))
 
+    if b6_18.get("passed") is not None:
+        criteria.append(criterion(
+            "B6-18 the zero calibration the stage did not have",
+            b6_18["passed"],
+            f"two paths to the same daily number over {b6_18['days']:,} days: "
+            f"median |log gap| {b6_18['median_abs_log_gap']:.4f} against a "
+            f"median round trip of {b6_18['round_trip_median']:.4f}; "
+            f"{b6_18['days_beyond_one_round_trip']} days beyond one round trip, "
+            f"{b6_18['days_beyond_two_round_trips']} beyond two",
+        ))
+    if b6_16_s.get("passed") is not None:
+        # A specification check, not a verdict. B6-16's reading stands as
+        # registered; this says whether its 61 misses are the market or the
+        # weighting. prereg §5, B6-16-S.
+        b6_16_s["diagnostic"] = True
+
     out = {
         "stage": "B6-B",
         "window": [min(informal), max(informal)],
@@ -1058,6 +1088,8 @@ def main() -> int:
         "B6-15": b6_15,
         "B6-16": b6_16,
         "B6-17": b6_17,
+        "B6-18": b6_18,
+        "B6-16-S": b6_16_s,
         "noise_floor": {
             "quantisation": quant,
             "window": window,

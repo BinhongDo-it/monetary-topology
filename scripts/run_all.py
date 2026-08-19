@@ -161,6 +161,17 @@ DATA_STAGES = [
     # confound and removes B5's zero calibration with it
     # (`b6_cuba_prereg.md` §4.3).
     ("B6-A segment typing", "experiments/b6_segments.py", "b6_segments.json"),
+    # Needs the retrieved elTOQUE series, so it belongs here for the same reason
+    # B6-A does. It reads B6-A's own BCC archive as well, for the official leg
+    # of B6-13 and B6-15, but it does not read B6-A's record and does not gate
+    # on it: the two halves answer different questions and B6-B's own header
+    # says what it may not conclude, which is anything about a positive cycle
+    # through an edge that publishes one number.
+    (
+        "B6-B informal leg",
+        "experiments/b6b_informal.py",
+        "b6b_informal.json",
+    ),
     # A1 and A1b need retrieved files, so they belong here rather than with the
     # synthetic stages: A1 reads the HHDC workbook, the DFA archive, the Z.1
     # series, the SCF extract and the CEX table; A1b reads the SCF extract and
@@ -323,8 +334,36 @@ def announce(label: str) -> None:
 
 
 def run(cmd: list[str]) -> tuple[int, str]:
+    """Run one child, time it, and say why it failed if it did.
+
+    **The encoding is explicit, and it is not a style preference.** ``text=True``
+    alone decodes with ``locale.getpreferredencoding()``, which on a Chinese
+    Windows install is GBK. ``ruff`` renders its diagnostics with box-drawing
+    characters, so the first byte of a ``U+2500`` is ``0x80`` in UTF-8 and the
+    reader thread dies with ``UnicodeDecodeError`` before ``run`` ever returns.
+    **The bug only fires when there is something to report**: a clean ruff prints
+    ``All checks passed!``, which is ASCII, so this harness looked correct for as
+    long as it had nothing to say. Observed 2026-08-18.
+
+    **The output goes to stderr on failure only.** The digest this file prints is
+    meant to be pasted whole, and ``announce`` above already establishes stderr
+    as the channel for anything that must not disturb it, so redirecting stdout
+    still gives exactly what it gave before, to the byte. Before this, a failing
+    lint printed ``FAILED`` and the name of no rule, so the next step was always
+    to run the same command again by hand.
+    """
     started = time.time()
-    proc = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
+    proc = subprocess.run(
+        cmd, capture_output=True, text=True, cwd=ROOT,
+        encoding="utf-8", errors="replace",
+    )
+    if proc.returncode != 0:
+        detail = (proc.stdout or "") + (proc.stderr or "")
+        if detail.strip():
+            print(f"  --- {' '.join(cmd[-3:])} said:", file=sys.stderr)
+            for line in detail.rstrip().splitlines():
+                print(f"  {line}", file=sys.stderr)
+            print("  ---", file=sys.stderr, flush=True)
     return proc.returncode, f"{time.time() - started:.1f}s"
 
 

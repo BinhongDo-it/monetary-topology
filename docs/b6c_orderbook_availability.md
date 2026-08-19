@@ -91,11 +91,38 @@ name read without its code is exactly the shape of error `MEASUREMENT.md` failur
 mode 7 is about, and because this one was written into this document before the
 code was read.
 
-**2. Retire B6-13's offer ratio `r`.** §4.3 converts an hour-against-day
-dispersion into the full-day estimator's scale by dividing by `sqrt(r - 1)`, and
-`r` is not observed, which is why B6-13 reports a critical value of 44% instead
-of leaning on 24. `Order.time_stamp` gives the arrival distribution inside the
-day directly, so the constant is measurable.
+**2. ~~Retire B6-13's offer ratio `r`.~~ Not possible from this source.
+Closed 2026-08-19.**
+
+§4.3 converts an hour-against-day dispersion into the full-day estimator's scale
+by dividing by `sqrt(r - 1)`, and `r` is not observed, which is why B6-13 reports
+a critical value of 44%. This section originally said `Order.time_stamp` gives
+the intraday arrival distribution. **It does not. It is a sequence counter.**
+
+```
+date          orders   ts min   ts max   span   span/orders
+2021-10-31        74    15154    15227     73          0.99
+2022-12-05       614   197077   197690    613          1.00
+2024-01-09       459   432705   433163    458          1.00
+2025-02-12       336   669911   670246    335          1.00
+```
+
+The span of a day equals that day's order count, and the last stamp of one day
+and the first of the next differ by **1**. It indexes the message stream. The raw
+`data/messages/*.parquet` carry three columns, `messages`,
+`processed_messages` and `orders`, and **no timestamp either**: the only time in
+the artefact is the date in the filename.
+
+**B6-13 keeps its critical-ratio sensitivity and there is no route here to
+replace it.**
+
+> **Twice in this document a field was read by its name.** `bid_rate_distance`
+> was written up as the published rate's distance from the book before the code
+> was read, and `time_stamp` as a clock before the values were. Both were wrong
+> and both are corrected in place. `MEASUREMENT.md` failure mode 7 covers the
+> shape; what this pair adds is that **an availability check is exactly where it
+> happens**, because that is the document written fastest and with the least of
+> the artefact opened.
 
 **3. Put a measured distribution behind B6-15's critical spread.** B6-15(b)
 reports that the standing gap survives an informal round trip of up to 5.07% and
@@ -143,8 +170,8 @@ already is: kept out of the repository, cited, and reported in aggregate.
 
 ## 6. Verdict
 
-**Open, on the dollar leg, for four instrument-level questions, two of which
-retire assumptions that live criteria currently carry.** The retrieval is one
+**Open, on the dollar leg, for three of the four instrument-level questions.**
+The offer ratio is closed: the artefact carries no wall-clock time anywhere. The retrieval is one
 `git clone`; the book's best quotes and its spread are inside
 `daily_info.pickle` and need an aggregation from event level to daily, which is
 a registered choice rather than a read.

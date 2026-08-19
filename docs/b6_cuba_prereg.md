@@ -71,12 +71,312 @@ status and by the operation you are performing.
 | **III** | `tasaEspecial` | the managed float opened 2025-12-18, with a cap of USD 100 per purchase operation for individuals | **both directions quoted**, buy and sell, at every channel in §2.2 |
 
 **The eligibility rules are cited to the regulation, not to the press.** They are
-established by `Resolución 127/2025` and `Resolución 128/2025` of the Banco
-Central de Cuba, *Reglamento del Mercado Cambiario*, published in the Gaceta
-Oficial and effective 2025-12-18. **The `H⁰` typing of §3.4 rests entirely on
-what those resolutions say about the return leg**, so the write-up cites them
-and not a newspaper's account of them, the same discipline `b5` applied to
-BCRA's own annex over press transcriptions of it.
+established by `Resolución 127/2025` and `Resolución 128/2025` **of the Banco
+Central de Cuba**, the second being the *Reglamento del Mercado Cambiario*,
+published in **Gaceta Oficial No. 94 Ordinaria de 2025** and effective
+2025-12-18. `127/2025` carries the identifier **`GOC-2025-576-O94`**, summarised
+as *establece las bases generales para la implementación de la política
+cambiaria*, and derogates the Banco Central's Resolutions 127, 136 and 137 of
+2022.
+
+**Cite by issuing body and by `GOC-` identifier, never by number alone.**
+Resolution numbers repeat across issuing bodies in the same year: searching
+`Resolución 128/2025` returns a **Ministerio de Finanzas y Precios** resolution
+in Gaceta No. 23 Extraordinaria, `GOC-2025-223-EX23`, which modifies Resolución
+83/2012 on state patrimony and has nothing to do with the exchange market. That
+namesake was pulled up on 2026-08-19 while checking this very citation.
+
+**The `H⁰` typing of §3.4 rests entirely on what those resolutions say about the
+return leg**, so the write-up cites them and not a newspaper's account of them,
+the same discipline `b5` applied to BCRA's own annex over press transcriptions
+of it.
+
+### 2.1.1 The regulation was read on 2026-08-19, and it says the opposite
+
+Gaceta Oficial No. 94 Ordinaria, 18 December 2025, pages 1379 to 1389, both
+resolutions in full. **The reverse edge is granted on all three segments.**
+
+| segment | the clause | what it grants |
+|---|---|---|
+| **I** | Res 127 **Art. 14** | institutions **do** sell, up to the balance of the participant's `Asignación de Capacidad de Acceso a la Divisa` |
+| **II** | Res 127 **Art. 17** | institutions **may** sell, meeting requirements set by the BCC |
+| **III** | Res 127 **Art. 21** | institutions **do** sell to this segment's participants, same condition |
+
+And for individuals specifically, Reglamento **Art. 36**: *"Los intermediarios
+proporcionan acceso al mercado cambiario **a las personas naturales** para el
+retiro de efectivo y adquisición de fondos en depósitos de divisas... conforme se
+establezca en las circulares del Banco Central de Cuba."*
+
+**So the sentence this section used to carry, that the missing return leg is
+written into the regulation, is false.** What the regulation withholds is not the
+edge; it is the quantity, and it withholds it by deferral: **Art. 37** puts the
+limits in a *Circular*, and **Art. 43** suspends Art. 42.1's formula until that
+Circular is issued. **The Circular is not published in the Gaceta.**
+
+**The claim this replaces it with is sharper, not weaker.** B6-15 measures the
+informal rate above the official ask on 207 of 207 publication days. The reading
+is no longer "the law does not grant the edge" but **"the law grants the edge and
+the edge is not walked"**, which is a statement about enforcement and supply
+rather than about entitlement, and which the data can carry.
+
+**The USD 100 cap is in no resolution, and calling it press was wrong.** It
+appears in neither resolution and in neither the Circular's operative summary nor
+the implementing bank's notice. **It is an administrative limit carried over from
+the 2022 cash window, and it was restated on the record on the day of the reform
+by the Banco Central's Director of Macroeconomic Policy.** §2.1.1b is the
+correction and it is the sharper reading, not the weaker one.
+
+### 2.1.1a Circular No. 3 de 2025, and who the return leg was opened for
+
+**`Circular No. 3 de 2025` of the vice-president of the BCC** is the instrument
+Art. 37 and Art. 43 defer to. It is not published in the Gaceta; its operative
+content appears on the Banco Central's own page *Venta de divisas a Actores
+Económicos No Estatales*, updated 2026-01-18, and in Banco Metropolitano's notice
+of 2026-01-09.
+
+**It supplies Art. 42.1's missing parameter.** `Capacidad de Acceso (%)` is
+**50%**:
+
+```
+Venta de divisas (USD) = (mean CUP income of the last three months x 50%)
+                         / TC_Segmento III vigente
+```
+
+One operation per calendar month, executed entirely through the banking system
+with no cash at any stage, pesos debited from the fiscal current account and
+foreign currency credited to the participant's currency account, at the Segment
+III rate in force on the day of execution plus the authorised commercial
+margins.
+
+**And it names who it is for: `cooperativas no agropecuarias` and `micro,
+pequeñas y medianas empresas no estatales`.** The Banco Central's page is titled
+for *Actores Económicos No Estatales* and its text names those two classes and no
+other. That matches the regulation exactly: Reglamento Art. 38 lists Art. 19
+incisos b) through g) and **omits inciso a), natural persons**.
+
+**Natural persons are granted the channel and no circular has appeared for
+them.** Reglamento Art. 36 gives them access *conforme se establezca en las
+circulares del Banco Central de Cuba*, and the searches recorded in §2.1.1b found
+none. **What does not follow, and what an earlier draft of this section wrongly
+inferred, is that they have no access.** They do. §2.1.1b is what they have.
+
+It agrees with the field record already in §8: thirty-nine MSMEs in the whole
+province of Villa Clara had bought currency between January and 2026-03-11, and
+no first-hand account of an individual buying at the float has been found in
+eight months.
+
+### 2.1.1b The individual channel, which exists, and what actually rations it
+
+**Corrected 2026-08-19, second reading, after an external search of the sources
+this sandbox cannot reach.** The `.cu` domains time out here, so the Banco
+Central's own question-and-answer page, CADECA's, and Granma's report of the day
+were all read at one remove, through outlets that quote them. §2.1.1c grades that
+evidence. **Four independent secondary sources agree, and one fact already in
+this repository corroborates them.**
+
+**Natural persons buy at the float, from the day of the reform.**
+
+> `utilizando la nueva tasa de cambio correspondiente al segmento flotante`
+> (Directorio Cubano, 2025-12-18, under the headline that the population may now
+> buy and sell dollars at CADECA and at banks at the new floating rate)
+
+> `Para las personas naturales, se mantiene un límite de operación de solo 100
+> dólares por cada operación` and `Las colas actuales de la aplicación Ticket se
+> mantienen`
+> (Periódico Cubano, 2025-12-18, quoting **Ian Pedro Carbonell**, Director of
+> Macroeconomic Policy at the Banco Central de Cuba)
+
+CiberCuba on 2025-12-30 puts the CADECA counter at 409 to 417 CUP per dollar,
+which is the float and not the old 123.60. América TeVé on the same expansion
+reports `Cadeca aplicará un "margen comercial" sobre la tasa fijada por el BCC`
+and criticises the margin for not being published.
+
+**So the two classes do not differ in whether they reach the float. They both
+reach it. They differ in what rations them, and in what kind of instrument does
+the rationing.**
+
+| | natural persons | `CNA` and `MIPYME` |
+|---|---|---|
+| rate | Segment III float | Segment III float |
+| channel | CADECA counter and bank cash window | bank, fully bankarised, no cash at any stage |
+| quantity | **USD 100 per operation** | 50% of the last three months' mean CUP income, one operation per calendar month |
+| rationed by | a queue: the `Ticket` and `MiTurno` systems, 41 outlets at the reform and about 61 by 2025-12-30 | a formula on the participant's own fiscal account |
+| the instrument | **none published.** An administrative limit carried over from the 2022 cash window, restated by an official on the day | **`Circular No. 3 de 2025`** |
+
+**This is the institutional shape B6-15 measures**, and it is a sharper statement
+than the one it replaces:
+
+> **Both classes are granted the edge and both reach the float. The enterprise
+> side's quantity is fixed by a published formula in a circular. The individual
+> side's quantity is fixed by an unpublished administrative limit inherited from
+> a previous regime, plus a queue across sixty-odd counters for eleven million
+> people. And the informal rate sits above the official ask on 207 of 207
+> publication days.**
+
+**And the third layer, which this section had better carry or it will be read as
+saying individuals buy dollars.** They may. There is no record that they do.
+`b6b_eltoque_prereg.md` §11 already holds it: eight months after Segment III
+opened, **no first-hand account was found of an ordinary individual buying at the
+float**; selling to a bank worked from the first week; and bank staff in Havana in
+the reform's first week said they had had no instruction to sell,
+`Hasta el momento no tengo noticias de que se este vendiendo dolares` and
+`ahora todos los bancos lo que estan haciendo es la recogida`.
+`b6_cuba_availability.md` adds that on 2025-12-26 branches were still buying and
+not selling.
+
+**So the individual channel fails at a different layer from the enterprise one,
+and naming the layer is the finding:**
+
+| layer | natural persons | `CNA` and `MIPYME` |
+|---|---|---|
+| entitlement | granted, Reglamento Art. 36 | granted, Res 127 Art. 21 |
+| price | the float, posted | the float, posted |
+| quantity, on paper | **USD 100 per operation, in no instrument** | a published formula, `Circular No. 3 de 2025` |
+| transaction observed | **none in eight months** | 39 MSMEs in Villa Clara by 2026-03-11 |
+
+**The reason the earlier reading has to go is that it was explaining the wrong
+thing at the wrong layer.** "The circular opens it for one class and not the
+other" locates the failure at entitlement, and entitlement is not where it is.
+**Both classes are entitled and both are priced. One transacts and the other has
+not been observed to.** What 207 of 207 days needs explaining by is capacity and
+supply, not entitlement, and both are now visible: one hundred dollars, one queue
+slot at a time, conditional on the branch holding cash it has not been instructed
+to sell.
+
+**B6's headline is unchanged and is now three-layered instead of asserted.**
+Posted two-way, transacted one-way, and the layer at which the second leg fails
+is named.
+
+**One fact already in this repository corroborates all of it, and it was sitting
+in a registered constant.** `MARKUP_SCHEDULE` in `src/monetary_topology/
+cuba_segments.py` carries a `venta` leg on `efectivo_ventanilla` (1.020),
+`efectivo_aeropuertos_hoteles` (1.060), `efectivo_domingos_feriados` (1.060),
+`transferencia_de_cup_a_divisas` (1.015),
+`deposito_efectivo_cup_a_cuenta_en_divisas` (1.015) and `usd_legal_preferencial`
+(1.010). **A central bank does not publish a sell markup for airports, hotels and
+Sundays unless individuals are buying at the counter**, and enterprises do not
+buy dollars at a hotel on a Sunday. **B6-A has been computing `a(t)` against
+`efectivo_ventanilla`'s ask since 2026-08-12, which is exactly the price an
+individual pays**, so B6-15's arithmetic was already the right arithmetic and
+only its interpretation was wrong.
+
+**And the margin the Cuban press reports as undisclosed is a fifteen-channel
+schedule this repository holds as a registered constant.** That is worth one
+sentence in the write-up.
+
+### 2.1.1c The evidence grade on §2.1.1b, and what is still not read
+
+**None of §2.1.1b was read from a `.cu` source.** `bc.gob.cu`, `cadeca.cu` and
+`granma.cu` all time out from this sandbox, which is the same limit
+`HANDOFF` §3.7 has recorded since 2026-08-12. **Four secondary outlets, two of
+them quoting a named Banco Central official, plus one internal corroboration
+from a registered constant.** That is strong enough to correct a section and it
+is not strong enough to be the citation in a paper.
+
+**Still to be read from source, in the order that decides anything:**
+
+| item | why |
+|---|---|
+| `bc.gob.cu/noticia/preguntas-y-respuestas-sobre-la-compra-venta-de-divisas/1626` | the Banco Central's own question and answer page. It is the primary for every row of §2.1.1b's table |
+| `cadeca.cu/es/noticias/venta-de-divisas-preguntas-y-respuestas` | the operator's own terms for the individual window |
+| Granma, 2025-12-18, `mercado-cambiario-propio-un-fin-o-un-medio-para-estabilizar-la-economia` | the Carbonell interview. **This is now the load-bearing citation for the hundred-dollar limit** and it is quoted here at one remove |
+| `Circular No. 3 de 2025`, full text | still not public. §2.1.1d says why, and it is a property of the institution rather than a gap in the search |
+
+**Nothing in §5's criteria depends on any of these.** They interpret B6-15; they
+do not enter it.
+
+### 2.1.1d Why the Circular is not public, which is itself a finding
+
+**The Banco Central publishes `Resolución` and `Decreto Ley` in the Gaceta because
+it must, and circulates `Circular` to the intermediaries it regulates because it
+may.** The BCC maintains a `Manual de Regulaciones` on its own site; circulars
+generally reach only the banks, and the exceptions that surface publicly are
+mostly interest-rate notices.
+
+**So Art. 37 and Art. 43 do not merely defer the quantities. They move them into
+a class of instrument that is not published.** The regulation is drafted so that
+every limit in the reform sits in the one document type the public does not see,
+and the enterprise limit became known only because the Banco Central summarised
+it on a web page and a commercial bank repeated it to its customers.
+
+**And the individual limit sits below even that.** It is in no instrument of any
+class. It is a practice, inherited, and its only public statement is an
+official's answer to a journalist.
+
+**Volumes are not published either.** `bc.gob.cu/indicadores` and the exchange
+rate pages carry the daily rate per segment and nothing about the quantity
+transacted: no volume, no operation count, no book. **So the one measurement that
+would settle whether the posted edge is walked is withheld by the same
+institution that posts the edge.** `bolivia_availability.md` §7.4 is where that
+observation goes to be answered, because Bolivia publishes exactly that record by
+statute, per bank and per rate tier, and publishes it for purchases only.
+
+### 2.1.2 Three things the regulation supplies that this stage had modelled
+
+**The markup schedule is the regulation's own arithmetic.** Reglamento
+**Art. 8.1** and **8.2**:
+
+```
+Tasa de compra = TC - TC x Margen comercial(%)
+Tasa de venta  = TC + TC x Margen comercial(%)
+```
+
+`MARKUP_SCHEDULE` and `published_column` were built as a model of the publisher's
+behaviour and validated against thirty-nine XLSX exports by guard 1. **They are
+the statute.**
+
+**The forward fill is the regulation's own rule.** **Art. 10.1**: the rate
+applies from 00:00 of the day following notification and holds for the next
+twenty-four hours. **Art. 10.2**: absent a new notification, intermediaries use
+the last one received. §3.2 confined the estimator to publication days because
+the XLSX carries every calendar day and the extra days looked like forward fills
+of the previous published value. **They are forward fills, by law.**
+
+**There is a priced edge between the segments, and this stage modelled it as
+free.** Res 127 **Art. 10.1** lets exporting entities in Segments I and II order
+the sale, in Segment III, of the part of their retained foreign currency the
+Ministry of Economy and Planning authorises; **Art. 10.4** says a monetary
+discount applies. Reglamento **Art. 32.2** gives the number:
+
+```
+Tasa de compra = Tasa de Cambio SIII x (1 - 0,2)
+```
+
+**Twenty percent.** `build_segment_field` gives every agent edge weight `0.0`.
+
+### 2.1.3 What that does to B6-6 and B6-7
+
+**B6-6a and B6-7 do not move in substance.** The maximal model's headline cycle
+runs `CUP_I -> USD_I -> USD_III -> CUP_III -> CUP_I`, and substituting the
+regulation's own rate for the leg it prices:
+
+| | as built, agent edges free | at `TC_SIII x 0.8` |
+|---|---|---|
+| 2025-12-19 | 2.7981 | 2.5952 |
+| 2026-08-12 | **3.2181** | **3.0152** |
+
+The positive cycle survives with room to spare, a twenty-fold arbitrage rather
+than a twenty-five-fold one, and B6-7's growth across the window is 0.42 either
+way. **The recorded readings stand; what the regulation revises is the size of
+the thing they found, by `log(0.8) = -0.2231`.**
+
+**B6-6b's sink claim is about the registered reading, not about the legal
+graph.** The `directed` model sets `agent_at = (CUP,)`, entitlement acquires and
+does not transfer, and the sinks at `{(USD, I)}` and `{(USD, II)}` follow from
+that. **Art. 10 and Art. 32 grant an exit from exactly those vertices**: an
+authorised Segment I or II entity may hand over its dollars and receive pesos at
+the Segment III rate less twenty percent. The sinks are sinks of the published
+columns under one reading, and the write-up says so rather than calling them
+sinks.
+
+**And the bracket B6-6 could only report is now located.** §5's B6-6 registers
+four models side by side because the truth lies between `maximal`, where the
+agent edge at the dollar position is free, and `directed`, where it does not
+exist, and because **which one is right is a question about quantity that the
+table cannot see**. The regulation answers it: **the edge exists, it is gated on
+ministerial authorisation, and it costs twenty percent.** B6-A could only
+bracket this and B6-B could not narrow it either, because a one-sided informal
+quote yields only an upper bound. Reading the statute located it.
 
 **This is `b2_measurement.md`'s cell structure printed by a central bank**: one
 position pair, several agent classes, terms differing by who the agent is rather
@@ -673,8 +973,12 @@ reports of scattered dates, which would be selection on the outcome.
 
 **The framework has no capacity, and the agent factor in this data is coarser
 than in the law.** Segment III caps an individual at USD 100 per operation and
-gates it behind an appointment. That quota does work, and it does it **through
-the topology**: the edge exists for someone buying a hundred dollars for travel
+gates it behind an appointment. **This paragraph was written on 2026-08-12 from
+press reporting, was contradicted by §2.1.1 on 2026-08-19 when the Gaceta was
+read, and was confirmed the same day by §2.1.1b.** It is the one part of this
+document that survived being called press, and the reason is that the cap is real
+and lives outside the Gaceta rather than not existing. That quota does work, and
+it does it **through the topology**: the edge exists for someone buying a hundred dollars for travel
 and does not exist for anyone moving arbitrage size, which is two agent classes
 of which one has the edge. **The response is not to give edges a capacity** —
 that would turn `H⁰` and `H¹` from different objects into a difference of

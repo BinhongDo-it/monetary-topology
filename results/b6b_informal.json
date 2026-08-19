@@ -410,6 +410,159 @@
     "share_inside": 0.9538228614685844,
     "threshold": 0.95
   },
+  "B6-16-S": {
+    "classified_share_median": 0.7923076923076923,
+    "days": 1321,
+    "diagnostic": true,
+    "first_misses": [
+      {
+        "ask": 68.0,
+        "bid": 67.0,
+        "date": "2021-11-03",
+        "published": 69.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 67.0,
+        "bid": 66.0,
+        "date": "2021-11-20",
+        "published": 67.5,
+        "side": "above the ask"
+      },
+      {
+        "ask": 73.0,
+        "bid": 73.0,
+        "date": "2022-01-01",
+        "published": 72.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 185.0,
+        "bid": 180.0,
+        "date": "2022-09-23",
+        "published": 187.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 190.0,
+        "bid": 190.0,
+        "date": "2022-09-26",
+        "published": 193.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 195.0,
+        "bid": 193.0,
+        "date": "2023-05-14",
+        "published": 192.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 262.0,
+        "bid": 262.0,
+        "date": "2023-11-15",
+        "published": 260.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 265.0,
+        "bid": 261.0,
+        "date": "2023-11-19",
+        "published": 260.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 274.0,
+        "bid": 272.0,
+        "date": "2024-01-12",
+        "published": 270.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 305.0,
+        "bid": 303.0,
+        "date": "2024-02-14",
+        "published": 300.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 305.0,
+        "bid": 305.0,
+        "date": "2024-02-15",
+        "published": 302.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 295.0,
+        "bid": 280.0,
+        "date": "2024-06-04",
+        "published": 300.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 310.0,
+        "bid": 300.0,
+        "date": "2024-06-05",
+        "published": 320.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 370.0,
+        "bid": 335.0,
+        "date": "2024-06-07",
+        "published": 380.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 370.0,
+        "bid": 365.0,
+        "date": "2024-06-23",
+        "published": 360.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 325.0,
+        "bid": 321.0,
+        "date": "2024-09-27",
+        "published": 320.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 325.0,
+        "bid": 322.0,
+        "date": "2024-09-29",
+        "published": 320.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 330.0,
+        "bid": 330.0,
+        "date": "2024-11-08",
+        "published": 327.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 330.0,
+        "bid": 330.0,
+        "date": "2024-11-18",
+        "published": 328.0,
+        "side": "below the bid"
+      },
+      {
+        "ask": 330.0,
+        "bid": 327.0,
+        "date": "2024-12-13",
+        "published": 326.0,
+        "side": "below the bid"
+      }
+    ],
+    "misses_above_the_ask": 7,
+    "misses_below_the_bid": 17,
+    "passed": true,
+    "scope": "the dollar leg only, and the classified share of it. A1 remains an assumption for the euro, MLC and tether legs, and this span ends before B6-A's window opens.",
+    "share_inside": 0.9818319454958365,
+    "threshold": 0.95
+  },
   "B6-17": {
     "critical_spread": 0.05072023173691172,
     "days": 1321,
@@ -424,6 +577,17 @@
     "scope": "median-to-median rather than touch-to-touch, which is the wider of the two and the one an arbitrage that walks the book would pay.",
     "void": true,
     "void_reason": "the round trip is measured 2021-07-23 to 2025-03-04 and the critical spread it is compared against is measured over B6-A's window from 2025-12-19. The spans do not overlap and cannot be made to: the order book ends before the window opens."
+  },
+  "B6-18": {
+    "days": 1321,
+    "days_beyond_one_round_trip": 112,
+    "days_beyond_two_round_trips": 18,
+    "max_abs_log_gap": 0.08961215868968717,
+    "median_abs_log_gap": 0.0,
+    "median_signed_log_gap": 0.0,
+    "p90_abs_log_gap": 0.013605652055778678,
+    "passed": true,
+    "round_trip_median": 0.014815085785140682
   },
   "B6-9": {
     "absent_days": 0,
@@ -572,6 +736,12 @@
       "name": "B6-17 the informal round trip, measured",
       "passed": false,
       "void": true
+    },
+    {
+      "detail": "two paths to the same daily number over 1,321 days: median |log gap| 0.0000 against a median round trip of 0.0148; 112 days beyond one round trip, 18 beyond two",
+      "name": "B6-18 the zero calibration the stage did not have",
+      "passed": true,
+      "void": false
     }
   ],
   "ema_signature": {
@@ -725,6 +895,7 @@
     "B6-14": true,
     "B6-15": true,
     "B6-16": true,
+    "B6-18": true,
     "B6-9": true
   },
   "voided": {

@@ -597,3 +597,48 @@ world bitcoin price is **-0.021**. The column is pesos per dollar of bitcoin, an
 the three control instruments are three more claims on a dollar rather than a
 placebo against an outside market. Having established that, the price series
 enters nothing else.
+
+## Bolivia
+
+Opened 2026-08-19 as B6's control carrier. **Availability only, nothing measured
+yet.** `docs/bolivia_availability.md` carries the check and §6 of it carries the
+list of things still to be read from source.
+
+### The regulation
+
+| document | body | date | held |
+|---|---|---|---|
+| `Resolución Ministerial N° 245` | Ministerio de Economía y Finanzas Públicas | 2026-06-26 | **no**, identity confirmed, articles unread |
+| `Resolución de Directorio N° 88/2026` | Banco Central de Bolivia | 2026-06-26 | **no**, four articles quoted from a fetch summary |
+| `Decreto Supremo 25870` Art. 20 | Presidencia | pre-existing | **no**, quoted at second hand |
+| Aduana Nacional comunicado | Aduana Nacional | `La Paz, Junio de 2026` | **yes** |
+
+`data/raw/bolivia/aduana_comunicado_2026-06_RM245.pdf`, supplied by hand and read
+from disk. One page, text layer plus page image. It is the only Bolivian document
+this project has actually read, and it does three things: it confirms `RM 245` by
+number, date and ministerial character; it fixes `6,96 Bs/USD` as **vigente al
+26/06/2026**, which anchors the last day of the peg; and it quotes `Art. 20` of
+`D.S. 25870`, under which the customs tax base is struck at the previous week's
+closing **venta**, held flat for a week. That last is a priced edge granted to one
+agent class and it was not in the design before this file arrived.
+
+**Its own date is not on it.** Signed `La Paz, Junio de 2026` with no day, filename
+`19 JUN`, PDF `ModDate` 2026-06-29, and it supersedes a comunicado of 2026-06-27.
+It cannot postdate what it supersedes, so `19 JUN` is not its date of issue. Cited
+by body and subject, never by filename.
+
+### The series, found and not yet pulled
+
+| source | what it gives | from | terms |
+|---|---|---|---|
+| `bcb.gob.bo/tiposDeCambioHistorico/xls.php?anio=YYYY` | official, **compra and venta**, one file per year | 1940 | public |
+| `bcb.gob.bo/tco_reporte_detalle_historico.php` | the microdata behind the TCO: per bank, per rate tier, count and amount. **Compra only** | 2026-06-26 | public, CSV export |
+| `api.dolarbluebolivia.click/v1/chart/all.csv` | both legs, both sides, 15-minute | 2024-07-21 | attribution `Powered by dolarbluebolivia.click`; bulk history nominally wants registration |
+| `paralelo.bo/api/v1/historical.csv` | **median only**, daily | 2024-01-01 | **CC-BY 4.0**, cite as `paralelo.bo (https://paralelo.bo)` |
+| `github.com/mauforonda/dolares` | buy/sell, official, and an amount file; 25,627 commits | to check | to check |
+
+**Nothing here has been downloaded.** Every line of this table came from a
+fetching tool that returns a summary rather than the page, which is sound about
+what exists and unsound about numbers: one such read reported a value for
+31 August 2026, a date that has not happened. **No Bolivian number is recorded in
+this project.**

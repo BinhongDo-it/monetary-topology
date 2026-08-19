@@ -590,3 +590,45 @@ cannot open.
     `live_cls` selected by the gate has to reach both `perm_null`'s blocks and
     `equal_n`, or the observed statistic and its null are drawn on different class
     sets, which is what B8-5 was fixed for.
+
+51. **A resolution number identifies nothing on its own, and searching one
+    returns the wrong instrument with full confidence.** Paid for twice in one
+    day. In Cuba, `Resolución 128/2025` is a Banco Central de Cuba instrument
+    **and** a Ministerio de Finanzas y Precios instrument about state patrimony
+    in the same year; the BCC's is `GOC-2025-577-O94` and the other is
+    `GOC-2025-223-EX23`, and a search on the number alone brings back whichever
+    the search engine likes. In Bolivia, `Resolución 245` turned out to belong to
+    the **Ministerio de Economía y Finanzas Públicas**, while the central bank's
+    instrument for the same reform on the same day is `Resolución de Directorio
+    N° 88/2026`; `bolivia_availability.md` §4 was written with the number
+    attached to the wrong body and the error survived a round of review because
+    the number was right. **Treatment**: cite by issuing body, number **and**
+    year, plus the official gazette identifier where one exists, and treat a
+    citation carrying only a number as unread. **The corollary is the expensive
+    part**: a citation nobody has opened is not evidence, however many secondary
+    pages repeat it. B6's `H⁰` typing rested on one for two months and the text,
+    when finally read, said the opposite.
+
+52. **A primary source's silence is not a refutation, and reading one can make
+    you overwrite what you already correctly knew.** On 2026-08-19 the Cuban
+    Gaceta was opened for the first time and the USD 100 per-operation cap on
+    individual currency purchases was not in it, so `b6_cuba_prereg.md` §2.1.1
+    was written to say the cap "is press". **The repository already held the
+    correct account in four places**: `b6_cuba_availability.md` had the 2022
+    origin, the `MiTurno` queue and the cap's retention after the reform;
+    `b6_cuba_prereg.md` §8 had the cap and the appointment gate and built a scope
+    argument on them; `b6b_eltoque_prereg.md` §11 had the cap, the queue waits
+    and the bank staff who had no instruction to sell; and `MARKUP_SCHEDULE` had
+    a sell markup for airport, hotel and Sunday cash windows, which no central
+    bank publishes unless individuals buy at the counter. **The cap is real. It
+    lives in an administrative practice inherited from 2022 and was restated on
+    the record by a central bank official on the day of the reform.** The Gaceta
+    is silent about it because the Gaceta is not where it lives.
+    **Treatment**: when a primary source is read for the first time, diff it
+    against what the register already claims and treat every disagreement as a
+    question rather than as a correction in the primary's favour. **A statute is
+    authoritative about what it says and says nothing about what it omits.**
+    The specific trap here is that the omission was structural: Art. 37 and
+    Art. 43 move every quantity into `Circular`, which is a document class that
+    is not published, so the Gaceta was guaranteed to be silent about all of
+    them.
