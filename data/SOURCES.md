@@ -509,3 +509,91 @@ days**, each of them a day the reference itself moved about a percent with the
 sign reversed. A one-business-day lag removes all three, which is a diagnostic
 and is not the registered comparison.
 
+
+---
+
+## Stage B6-B: elTOQUE's representative informal exchange rate (Cuba)
+
+| dataset | use | source |
+|---|---|---|
+| elTOQUE **Tasa Representativa del Mercado Informal**, daily, 2021-01-01 onward | the informal leg of B6-13, B6-14 and B6-15. One median per instrument per requested window | `tasas.eltoque.com/v1/trmi`, bearer JWT |
+| CryptoDataDownload **Binance spot daily**, BTCUSDT / TRXUSDT / BNBUSDT | **one reading only**: it fixes the units of elTOQUE's crypto columns. Enters no criterion | `cryptodatadownload.com/cdd/Binance_<PAIR>_d.csv` |
+
+**Attribution is a condition of use, not a courtesy.** elTOQUE's terms require
+that it be named as the source of anything obtained through the API, forbid
+resale and redistribution, and forbid passing the key to a third party. The
+series is therefore **not committed**: `data/raw/` is excluded and only
+`data/raw/eltoque_manifest.json` is tracked. The key lives in `.env`, which the
+same file excludes.
+
+### What the instrument is, and the four things it will not do
+
+`docs/b6b_eltoque_prereg.md` §2 is the full account. In brief:
+
+1. **One number per instrument, formed from buy and sell offers pooled by the
+   publisher.** There is no bid and no ask, so the informal edge carries an index
+   part and no friction part, and no criterion certifies a positive cycle through
+   it.
+2. **One request buys one day.** A window longer than 24 hours is refused with
+   `El intervalo de tiempo debe ser menor a 24 horas`.
+3. **The response carries no echo of the day it answers for.** Its `date`, `hour`,
+   `minutes` and `seconds` are the server clock at the moment of the request, so
+   the same day refetched hashes differently and the row key comes from the
+   request.
+4. **The timestamps are read in Havana time**, which no document states and which
+   was established by a refusal: the main pass ran 310 days and then returned
+   HTTP 400 on 2021-11-07, a window that is under the cap everywhere except a
+   zone whose clocks go back that night.
+
+**The rate limit is not the documented one.** The specification states 60 per
+minute with a 10 per second burst cap and adds that a key may carry a different
+quota; this key carries **ten requests per 156-second window**, measured, which
+is a ten-hour main pass rather than a thirty-five minute one.
+`X-RateLimit-Remaining` reported `10` on all fifteen requests of the rate probe
+including the three that came back 429, so it is recorded and disbelieved.
+
+### The construction has been through peer review
+
+Pavel Vidal, Carlos Enrique Muñiz Cuza and Abraham Calas Torres, *Using AI in the
+Informal Currency Market: Evidence from Cuba*, **Applied Economics**, October
+2024, doi:`10.1080/00036846.2024.2416091`. The methodology page states that the
+dollar, the euro and MLC use a median with a two-standard-deviation outlier
+filter, and that thin currencies use an exponential moving average instead.
+**`USDT_TRC20` is named on neither list**; the variance ratios in
+`results/b6b_informal.json` come in below one and falling, which is measurement
+noise rather than smoothing, so it is read as median-based.
+
+### Retrieval
+
+`data/fetch_eltoque.py`. Resumable by file existence, one file per day under
+`data/raw/eltoque/`, two digests per response of which only the one over the
+`tasas` object survives a refetch, an empty `tasas` recorded as an empty day and
+never filled in either direction, and pacing read from the headers rather than
+assumed. 2,056 days plus twelve one-hour sensitivity windows plus twelve replays
+of the probe answers written down before any criterion existed.
+`data/raw/eltoque_manifest.json` carries every response, the served-instrument
+set per day, the five shortened windows and the six short-span days.
+
+### The world crypto prices, and why they are here at all
+
+Downloaded by hand on 2026-08-19, so there is no fetcher and these digests are
+the only thing between a swapped file and a silent wrong answer:
+
+| file | rows | span | sha256 |
+|---|---|---|---|
+| `Binance_BTCUSDT_d.csv` | 3,262 | 2017-08-17 → 2026-08-18 | `49839f18be0d820950ef4dff798123cc799682787274eeceede652b5e2d07150` |
+| `Binance_TRXUSDT_d.csv` | 2,964 | 2018-06-11 → 2026-08-18 | `0a314da9663bf3b71c8cfcf90abe4cc6bf380b318d2cde6daf7c1cff5c467dab` |
+| `Binance_BNBUSDT_d.csv` | 3,181 | 2017-11-06 → 2026-08-18 | `efb8cfa4af31225580af74be4a6de12555feb5dff2048aebfcae2f72a3710f55` |
+
+Twenty-seven days are missing from all three inside the window, on the same
+dates, which is the collector's gap rather than the market's, since these
+instruments trade every day. They are left absent.
+
+**They answer one question and then stop.** elTOQUE's `BTC` column sat at 737.75
+on 2026-08-18 while a bitcoin was worth 64,725 dollars, so it cannot be pesos per
+bitcoin. The median of `BTC / USD` is **0.9930** over 2,027 overlapping days and
+the correlation between the daily change in `BTC` and the daily change in the
+world bitcoin price is **-0.021**. The column is pesos per dollar of bitcoin, and
+the three control instruments are three more claims on a dollar rather than a
+placebo against an outside market. Having established that, the price series
+enters nothing else.

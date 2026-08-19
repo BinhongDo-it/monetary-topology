@@ -1,0 +1,86 @@
+{
+  "archives": [
+    {
+      "anchor": "00",
+      "archive": "2019Q1",
+      "arms": {
+        "defer": {
+          "alive": {
+            "max": 13874.0,
+            "min": 13710.0,
+            "p50": 13719.0,
+            "real_at": 0.9989423585404548
+          },
+          "classes": {
+            "max": 49.0,
+            "min": 2.0,
+            "p50": 8.0,
+            "real_at": 0.9941829719725013
+          },
+          "real": {
+            "alive": 13873,
+            "classes": 41,
+            "classes_ge_min": 9,
+            "spread": 0.008313132595503703
+          },
+          "spread": {
+            "finite": 1026,
+            "max": 0.03057610386122178,
+            "min": 0.0022735721263416053,
+            "p50": 0.01660813654143567,
+            "real_at": 0.15497076023391812
+          },
+          "spread_over_floor": {
+            "max": 1140771.6994822142,
+            "min": 84825.28546586596,
+            "p50": 619637.2249910708,
+            "real": 310156.7957133046
+          }
+        },
+        "mod": {
+          "alive": {
+            "max": 3869.0,
+            "min": 3767.0,
+            "p50": 3790.0,
+            "real_at": 0.994711792702274
+          },
+          "classes": {
+            "max": 26.0,
+            "min": 3.0,
+            "p50": 7.0,
+            "real_at": 0.9994711792702274
+          },
+          "real": {
+            "alive": 3867,
+            "classes": 25,
+            "classes_ge_min": 9,
+            "spread": 0.055523357440506516
+          },
+          "spread": {
+            "finite": 1505,
+            "max": 0.055523357440506516,
+            "min": 0.004640603107304742,
+            "p50": 0.023492603672405465,
+            "real_at": 1.0
+          },
+          "spread_over_floor": {
+            "max": 2071535.1804091528,
+            "min": 173137.45130413544,
+            "p50": 876491.5745403673,
+            "real": 2071535.1804091528
+          }
+        }
+      },
+      "codes": 64,
+      "cuts": 1891,
+      "rows_above_98": 0,
+      "rungs": 63
+    }
+  ],
+  "bins": 3,
+  "diagnostic_only": true,
+  "diagnostic_reason": "Enumeration over threshold cuts of the delinquency ladder, opened after the permutation route was found capped by the construction. The station is not closed and no criterion has been pinned on the spread yet.",
+  "min_cycles": 20,
+  "stage": "B12",
+  "step": "ladder_enumeration"
+}

@@ -91,3 +91,14 @@ data/fetch_rocr.py
 data/fetch_gleif.py
 data/raw/rocr_manifest.json
 data/raw/gleif_manifest.json
+
+# B14 的派生面板缓存（data/cache/
+
+# B14 的派生面板缓存（data/cache/b14/panel_*.csv，约 60 MB）。
+# 与 data/raw/* 同理：可从原始 .gzip 两分钟重建，不进仓库。
+# 重建：python experiments/b14_tickpilot_panel.py --build
+data/cache/
+
+# B8 打包器的逐步日志。它们是一次运行的痕迹，不是产物：
+# 重跑即覆盖，且内容里带机器与时长。产物是 results/b8_*.md 与 b8_verdicts.json。
+results/_b8_package_log/

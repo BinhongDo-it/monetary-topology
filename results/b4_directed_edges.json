@@ -33,6 +33,9 @@
     "worst_sum": 1.1102230246251565e-15,
     "worst_diff": 8.881784197001252e-16,
     "worst_invariance": 8.881784197001252e-16,
+    "squares_both_cycles_nonpositive": 52,
+    "squares_satisfying_the_index_bound": 52,
+    "equivalence_breaks": 0,
     "worst_friction_move": 0.22229612155648804
   },
   "one_way": {
@@ -56,7 +59,7 @@
     {
       "name": "B4-3  Theorem 5: a sink component gives an unbounded ray",
       "passed": true,
-      "detail": "31 graphs with a proper sink; worst violation over shifts up to 1e+06 is 1.179e-11"
+      "detail": "31 graphs with a proper sink; the worst violation over shifts up to 1e+06 is at machine precision for that scale, below 1e-09"
     },
     {
       "name": "B4-4  Theorem 5: strong connectivity bounds the polytope",
@@ -76,12 +79,17 @@
     {
       "name": "B4-7  section 5.1: the directed square splits into friction and index",
       "passed": true,
-      "detail": "worst |S+S' - friction| 1.110e-15, worst |S-S' - index| 8.882e-16 over 226 squares"
+      "detail": "|S+S' - friction| and |S-S' - index| are both at machine precision, below `1e-10`, over 226 squares"
     },
     {
       "name": "B4-8  section 5.1: a common spread moves the friction and not the index",
       "passed": true,
-      "detail": "index unchanged to 8.882e-16; friction moved by at least 2.223e-01"
+      "detail": "index unchanged to machine precision, below `1e-10`; friction moved by at least 2.223e-01"
+    },
+    {
+      "name": "B4-9  Theorem 6(4): the index part is bounded by the friction part",
+      "passed": true,
+      "detail": "`S <= 0 and S' <= 0` and `|S-S'| <= -(S+S')` agree on all 226 squares, 52 of which have both cycles non-positive; the bound is what Theorem 4 buys once it is applied to each cycle rather than to their sum"
     }
   ]
 }

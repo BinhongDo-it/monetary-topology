@@ -189,12 +189,22 @@ def run(names) -> int:
                 worst = float("nan")
             n_plain = int(plain.sum())
             n_bal = int((oks & bals).sum())
-            # **A zero in the balloon column has two meanings** and printing
-            # one number for both is the defect this file exists to avoid.
-            # `ok` requires a known contract payment, the payment is estimated
-            # from quiet months, and `quiet_pairs` excludes ever-deferred
-            # loans, so a deferred row can never carry a known payment. The
-            # raw count of deferred rows is taken separately.
+            # Two different populations, counted separately on purpose.
+            # `n_bal` is what the pricing reached: the contract payment is
+            # known under **every** curve rule and the zero-interest balance
+            # (fields 63 **and** 108, C8-1 and C11-1) is positive on this row
+            # or the one before it. `n_defer_rows` is the raw field-63 count
+            # over every row, with no payment requirement.
+            #
+            # **O34, corrected 2026-08-19.** This comment used to say that
+            # `quiet_pairs` excludes ever-deferred loans so a deferred row can
+            # never carry a known payment. That default became `False` on
+            # 2026-08-17 (section 6.6.17), `ib_net` nets the deferred balance
+            # instead, and the exclusion only ever looked at field 63. The
+            # measured `n_bal` now runs 41,658 to 521,941, so the zero that
+            # sentence explained does not exist. It is deleted rather than
+            # struck through, per the ruling of 2026-08-17, and this note is
+            # the record that it was here.
             nib_raw = c.row["nib_upb"][:]
             n_defer_rows = int(((nib_raw != K.U32_NA) & (nib_raw > 0)).sum())
             checks.append((name, n_plain, worst, n_bal, n_defer_rows))
@@ -285,20 +295,34 @@ def run(names) -> int:
           f"**{'cancels to floating point' if okk else 'DOES NOT CANCEL'}** |")
 
     A("\n## 2. The one door the curve comes through, and it is shut\n")
-    A("`nib * (1+d)^-bn` is the only term that does not cancel, so a deferred "
-      "balance is the only way a construction reaches `r`. **The measured "
-      "count is zero on every archive and that does not mean there are no "
-      "deferred rows.** `r` is computed only where the contract payment is "
-      "known; the payment is estimated from quiet months; and "
+    A("`nib * (1+d)^-bn` is the only term that does not cancel, so a "
+      "zero-interest balance is the only way a construction reaches `r`. "
+      "**The two counts below are two populations, not a numerator and a "
+      "denominator, and the second is routinely the larger.**\n")
+    A("- The first counts rows whose **field 63** deferred balance is "
+      "positive, over every row in the file, with no requirement that the "
+      "contract payment be known.\n"
+      "- The second counts the rows the pricing actually reached: the "
+      "contract payment is known under **every** curve rule, and the "
+      "zero-interest balance is positive on that row or on the one before "
+      "it. That balance is **fields 63 and 108** together (C8-1 and C11-1), "
+      "not 63 alone.\n")
+    A("**So the second exceeds the first for two reasons at once**: it takes "
+      "a wider balance, and it admits the row after a balloon as well as the "
+      "balloon row itself.\n")
+    A("**O34, corrected 2026-08-19.** This section used to say that "
       "`quiet_pairs(require_never_deferred=True)` excludes ever-deferred "
-      "loans. **A deferred row therefore cannot carry a known payment, by "
-      "construction.** The raw count is printed beside the measured one so "
-      "the two are not confused.\n")
-    A("**This is an open item upstream of the curve question.** The one "
-      "population where the curve rule could bind is the one the present "
-      "payment estimator cannot reach.\n")
-    A("| archive | **deferred rows in the file** | **of those, with a known "
-      "payment** | spread p50 | max | **(i-b) floor** |")
+      "loans, so a deferred row could not carry a known payment by "
+      "construction, and it used that to explain a measured count of zero. "
+      "**That default became `False` on 2026-08-17** (section 6.6.17), with "
+      "`ib_net` netting the deferred balance instead, and the exclusion only "
+      "ever looked at field 63. The measured count now runs 41,658 to "
+      "521,941, **so the zero it explained does not exist.** Per the ruling "
+      "of that day the sentence is deleted rather than struck through, and "
+      "this paragraph is the record that it was there.\n")
+    A("| archive | **field 63 deferred rows, payment not required** | "
+      "**priced balloon rows (63+108, this row or the previous), payment "
+      "known** | spread p50 | max | **(i-b) floor** |")
     A("|---|---|---|---|---|---|")
     defer = {n: d for n, _, _, _, d in checks}
     for name, n_bal, q, mx in rows_out:

@@ -288,6 +288,22 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
     "b5_p2p.json": (
         "the second source audit, same standing as b5_friction.json"
     ),
+    "b14_t1_order_type.json": (
+        "B14's T1. Same standing as b14_gate0.json and the same download, plus "
+        "its own 136 MB order-type panel under data/cache/b14/, which "
+        "`.gitignore` excludes for the same reason it excludes data/raw"
+    ),
+    "b14_gate0.json": (
+        "B14-0. Needs the ten Tick Pilot Appendix B.I monthly files, 1.07 GB "
+        "compressed, hand-downloaded from ftp.nyxdata.com and not in the "
+        "repository, plus the 30 MB derived panel under data/cache/b14/. The "
+        "gate itself runs in seconds off that cache, so wiring it back in "
+        "costs only the download. **What this costs is stated rather than "
+        "implied**: nothing regenerates this record, so it goes stale "
+        "invisibly, and the thing that limits the damage is that the record "
+        "carries its own reproduction check (the six registered margins are "
+        "recomputed and compared on every run)"
+    ),
 }
 
 #: `render_results.py`'s own filename filter, kept in step by importing it below
@@ -395,6 +411,13 @@ def test_the_exposure_is_counted() -> None:
     anyway, because the alternative is no signal at all, but the honest reading
     of this line is "something changed", never "nothing changed".
 
+    **`40`, 2026-08-19.** Two B14 records went in, `b14_gate0.json` and
+    `b14_t1_order_type.json`, sixteen lines in one edit, and this line was not
+    touched. Found by running the suite rather than by anyone noticing, which is
+    the same way the last three drifts were found. **This time the entries are
+    identifiable**, because the edit was still uncommitted when the check ran, so
+    for once the honest reading of this line is not merely "something changed".
+
     `36` is the count after B9's went in on 2026-08-18 (the author ruled the stage
     historical and unmaintained), which is the largest single addition this
     list has taken. Sixteen arrived with that ruling and a seventeenth,
@@ -403,4 +426,4 @@ def test_the_exposure_is_counted() -> None:
     exposure grew because a record stopped being a diagnostic, not because
     anybody wrote new code.
     """
-    assert len(OUTSIDE_THE_RUNNER) == 38
+    assert len(OUTSIDE_THE_RUNNER) == 40

@@ -1,0 +1,50 @@
+{
+  "criteria": [
+    {
+      "detail": "N/G1 +0.396871; N/G2 +0.297419; N/G3 +0.353596; P/G1 +0.124935; P/G2 +0.133975; P/G3 +0.116206",
+      "name": "B14-0/T1a  the gate survives holding the order-type mix fixed",
+      "passed": true
+    },
+    {
+      "detail": "N/G1 +0.356010; N/G2 +0.294862; N/G3 +0.324250; P/G1 +0.014818; P/G2 +0.023667; P/G3 -0.007879",
+      "diagnostic": true,
+      "name": "B14-0/T1b  order type 22 alone, share 0.2733",
+      "passed": false
+    },
+    {
+      "detail": "N/G1 +0.423699; N/G2 +0.278610; N/G3 +0.399114; P/G1 +0.106153; P/G2 +0.096050; P/G3 +0.082576",
+      "diagnostic": true,
+      "name": "B14-0/T1b  order type 14 alone, share 0.2395",
+      "passed": true
+    },
+    {
+      "detail": "N/G1 +0.269830; N/G2 +0.115138; N/G3 +0.313197; P/G1 -0.140343; P/G2 -0.120063; P/G3 -0.063262",
+      "diagnostic": true,
+      "name": "B14-0/T1b  order type 16 alone, share 0.1527",
+      "passed": false
+    },
+    {
+      "detail": "N/G1 +0.597949; N/G2 +0.435025; N/G3 +0.420669; P/G1 +0.374891; P/G2 +0.332816; P/G3 +0.306158",
+      "diagnostic": true,
+      "name": "B14-0/T1b  order type 12 alone, share 0.1300",
+      "passed": true
+    },
+    {
+      "detail": "N/G1 +0.414677; N/G2 +0.239191; N/G3 +0.335008; P/G1 +0.096932; P/G2 +0.077592; P/G3 +0.086523",
+      "diagnostic": true,
+      "name": "B14-0/T1b  order type 13 alone, share 0.1203",
+      "passed": true
+    },
+    {
+      "detail": "N/G1 +0.719268; N/G2 +0.530232; N/G3 +0.654006; P/G1 +0.165324; P/G2 +0.158829; P/G3 +0.135239",
+      "diagnostic": true,
+      "name": "B14-0/T1b  order type 11 alone, share 0.0772",
+      "passed": true
+    }
+  ],
+  "stage": "B14",
+  "window": [
+    "20160801",
+    "20161231"
+  ]
+}

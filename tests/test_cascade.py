@@ -1071,10 +1071,41 @@ def test_a_household_is_not_short_by_a_summation_order() -> None:
     """The defect A1b's zero calibration found, as a guard.
 
     The constructor totals a household's dues in the order it built them and
-    ``step`` totals them in the order of ``Obligation``. Floating-point addition
-    is not associative, so the two differ in the last bit, and a household whose
-    buffer is exactly its scheduled obligations was judged short by 2e-13
-    dollars and defaulted with no shock at all.
+    ``step`` totals them in the order of ``Obligation``. The two orders really do
+    differ: the record constructor inserts ``CARD, AUTO, BASKET`` and then rent
+    or mortgage, while ``step`` walks ``[k for k in Obligation if k in due]``,
+    which puts rent **before** basket. Floating-point addition is not
+    associative, so the two totals differed in the last bit, and a household
+    whose buffer was exactly its scheduled obligations was judged short by 2e-13
+    dollars and defaulted with no shock at all. ``SHORTFALL_TOLERANCE`` is the
+    fix and this test is its guard.
+
+    **The knife edge is an interpreter-version fact and is no longer asserted.**
+    Both totals go through ``sum()``, and **CPython 3.12 made ``sum()`` over
+    floats compensated**, which is order-independent for a handful of terms of
+    this size. Measured on this fixture:
+
+    ====================  ==========  ==========================
+    interpreter           built       ``sum()``
+    ====================  ==========  ==========================
+    3.10, 3.11            ``367.0``   ``366.99999999999994``
+    3.12, 3.13            ``367.0``   ``367.0``
+    ====================  ==========  ==========================
+
+    So on 3.12 and later **this route to the defect is closed by the
+    interpreter**, not by anything in this repository, and a fixture cannot be
+    chosen to reopen it. Asserting the knife edge turned the suite red on a
+    supported interpreter (``requires-python = ">=3.10"``) for a reason that was
+    not a defect.
+
+    **What is asserted is the part that means something on every version**: the
+    household clears every rung with no shock. On an older interpreter that
+    tests the tolerance against a real last-bit gap; on a newer one it tests that
+    nothing else has reopened the same wound. The knife edge is reported instead,
+    because "the fixture no longer bites here" is worth a reader knowing and is
+    not worth stopping a run for. What replaces the knife-edge assertion is one
+    that holds on every interpreter: the gap between the two totals stays inside
+    the tolerance that exists to absorb it.
     """
     house = bare_household(
         {Obligation.CARD: 1.0 / 3.0, Obligation.RENT: 1_000.0 / 3.0,
@@ -1086,9 +1117,12 @@ def test_a_household_is_not_short_by_a_summation_order() -> None:
                     + house.due[Obligation.RENT])
     house.income = house.buffer
     step_order = sum(house.due[k] for k in Obligation if k in house.due)
-    assert step_order != house.buffer, (
-        "this fixture must sit on the knife edge or it tests nothing"
-    )
+    # Version-independent and still worth asserting: whatever the interpreter
+    # does with the two orders, the gap between them stays inside the tolerance
+    # that exists to absorb it. A gap larger than that is a real shortfall
+    # rather than a summation artefact, and this line is what tells the two
+    # apart if anything ever widens it.
+    assert abs(step_order - house.buffer) < SHORTFALL_TOLERANCE
     model = CascadeModel([house], CostRule())
     result = model.run(flat_path(12, n_strata=1))
     for kind in Obligation:

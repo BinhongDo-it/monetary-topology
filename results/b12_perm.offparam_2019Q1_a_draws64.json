@@ -1,0 +1,97 @@
+{
+  "archives": [
+    {
+      "archive": "2019Q1",
+      "arms": {
+        "defer": {
+          "MDE": 6.728161668698354,
+          "T": 0.6782735297457643,
+          "blocks": 27,
+          "cycles": 13878,
+          "degenerate_draws": 0,
+          "distinct_words": 503,
+          "n_dead_real": 168,
+          "n_unmatched_real": 0,
+          "null_B": {
+            "p05": 12442.9,
+            "p50": 13878.0,
+            "p95": 13878.0,
+            "quantile_of_real": 0.015625
+          },
+          "null_T": {
+            "mean": 1.9756175471759687,
+            "p05": 0.19801847897728003,
+            "p50": 1.1508405707201252,
+            "p95": 5.98891929034218,
+            "sd": 1.9113388785531407
+          },
+          "p_two_sided": 0.27586206896551724,
+          "quantile_of_T": 0.13793103448275862,
+          "usable_draws": 29,
+          "verdict": "indistinguishable_from_random_cut"
+        },
+        "mod": {
+          "MDE": 9.59475882883117,
+          "T": 0.6794933849952287,
+          "blocks": 31,
+          "cycles": 3869,
+          "degenerate_draws": 0,
+          "distinct_words": 431,
+          "n_dead_real": 102,
+          "n_unmatched_real": 0,
+          "null_B": {
+            "p05": 3627.05,
+            "p50": 3862.5,
+            "p95": 3869.0,
+            "quantile_of_real": 0.015625
+          },
+          "null_T": {
+            "mean": 1.58431026704374,
+            "p05": 0.5718628947238704,
+            "p50": 0.986365419020772,
+            "p95": 2.1738098568057223,
+            "sd": 3.22157593476269
+          },
+          "p_two_sided": 0.2553191489361702,
+          "quantile_of_T": 0.1276595744680851,
+          "usable_draws": 47,
+          "verdict": "indistinguishable_from_random_cut"
+        }
+      },
+      "distinct_partitions": 45760,
+      "fibre_shape": [
+        63,
+        1,
+        1,
+        1
+      ],
+      "n_draws": 64,
+      "null_class": "alone",
+      "pair": [
+        "g0m",
+        "g2"
+      ],
+      "real_singletons": [
+        "00",
+        "deferred",
+        "modified"
+      ],
+      "seed": 0,
+      "vertices": 66
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered as a post-run redesign on 2026-08-19 after the pullback prohibition was found to fail at the finest grid, where no coarsening is involved. The station is not closed, the companion pullback reading is withdrawn as an answer to the station's question, and this record is not a licensed reading.",
+  "min_cycles": 20,
+  "n_draws": 64,
+  "null_classes": [
+    "alone"
+  ],
+  "pair": [
+    "g0m",
+    "g2"
+  ],
+  "seed": 0,
+  "stage": "B12",
+  "step": "permutation"
+}

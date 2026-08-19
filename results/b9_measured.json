@@ -6,6 +6,8 @@
     "JNK": {
       "a1_conservative": 19.812955174940857,
       "a1_f0_quantum": 19.812955174940857,
+      "a1_f0_sd": 68.63409002216456,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 68.63409002216456,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.1751359082061097,
@@ -20,6 +22,8 @@
     "SPAB": {
       "a1_conservative": 1.2816623048813824,
       "a1_f0_quantum": 1.2816623048813824,
+      "a1_f0_sd": 4.439808460400774,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 4.439808460400774,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.0197419700201384,
@@ -34,6 +38,8 @@
     "SPDW": {
       "a1_conservative": 20.310730406210368,
       "a1_f0_quantum": 20.310730406210368,
+      "a1_f0_sd": 70.35843400478083,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 70.35843400478083,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.0993033599341964,
@@ -48,6 +54,8 @@
     "SPEM": {
       "a1_conservative": 36.18756013527153,
       "a1_f0_quantum": 36.18756013527153,
+      "a1_f0_sd": 125.35738551248872,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 125.35738551248872,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 0.9201596938083687,
@@ -62,6 +70,8 @@
     "SPY": {
       "a1_conservative": 19.2502365326763,
       "a1_f0_quantum": 19.2502365326763,
+      "a1_f0_sd": 66.68477546462778,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 66.68477546462778,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.4756376247000715,
@@ -76,6 +86,8 @@
     "XLB": {
       "a1_conservative": 1.1483858984634006,
       "a1_f0_quantum": 2.1094963218284386,
+      "a1_f0_sd": 7.3075096155730455,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 10.905944149219478,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 0.9453927518468535,
@@ -90,6 +102,8 @@
     "XLC": {
       "a1_conservative": 2.494475819149987,
       "a1_f0_quantum": 2.9665050781273785,
+      "a1_f0_sd": 10.276275032455402,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 12.105143967481453,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.2340168236649054,
@@ -104,6 +118,8 @@
     "XLE": {
       "a1_conservative": 1.404458464104043,
       "a1_f0_quantum": 2.096569370659186,
+      "a1_f0_sd": 7.262729343148831,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 11.792993734930159,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.0687434380819243,
@@ -118,6 +134,8 @@
     "XLF": {
       "a1_conservative": 0.7905170761592493,
       "a1_f0_quantum": 1.475924226754058,
+      "a1_f0_sd": 5.112751497719674,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 8.600168901754918,
       "a1_verdict": "not_resolvable_at_the_conservative_corner",
       "a2_ratio_frozen_floor": 1.1719273755314699,
@@ -132,6 +150,8 @@
     "XLI": {
       "a1_conservative": 2.304546472925984,
       "a1_f0_quantum": 3.7655476256755445,
+      "a1_f0_sd": 13.044239611980789,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 14.911134972442012,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.2108314081073166,
@@ -146,6 +166,8 @@
     "XLK": {
       "a1_conservative": 4.596949139924865,
       "a1_f0_quantum": 5.082967394020605,
+      "a1_f0_sd": 17.607915559319316,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 22.852350544672984,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.2878858663137034,
@@ -160,6 +182,8 @@
     "XLP": {
       "a1_conservative": 0.9794559563658545,
       "a1_f0_quantum": 1.8037001164234159,
+      "a1_f0_sd": 6.24820048652651,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 10.205356483659395,
       "a1_verdict": "not_resolvable_at_the_conservative_corner",
       "a2_ratio_frozen_floor": 1.3023054666969185,
@@ -174,6 +198,8 @@
     "XLRE": {
       "a1_conservative": 0.5566094594953762,
       "a1_f0_quantum": 1.0499240274282358,
+      "a1_f0_sd": 3.6370435191860877,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 7.075711191170823,
       "a1_verdict": "not_resolvable_at_the_conservative_corner",
       "a2_ratio_frozen_floor": 1.1677157854669702,
@@ -188,6 +214,8 @@
     "XLU": {
       "a1_conservative": 0.8883144832842431,
       "a1_f0_quantum": 1.385275140464093,
+      "a1_f0_sd": 4.7987338514918445,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 8.661527827226612,
       "a1_verdict": "not_resolvable_at_the_conservative_corner",
       "a2_ratio_frozen_floor": 1.269871382204061,
@@ -202,6 +230,8 @@
     "XLV": {
       "a1_conservative": 3.8205955265620957,
       "a1_f0_quantum": 4.9738839642729,
+      "a1_f0_sd": 17.230039474145528,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 20.162903359161493,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 0.8809304215243737,
@@ -216,6 +246,8 @@
     "XLY": {
       "a1_conservative": 2.925990818474566,
       "a1_f0_quantum": 3.8696444614098917,
+      "a1_f0_sd": 13.40484162877887,
+      "a1_f0_sd_note": "same numerator and same fund-days as a1_f0_quantum, dividing by the standard deviation of the quantisation error rather than by the grid step. Exactly sqrt(12) larger by construction. Section 4.2b of the design file: neither column changes a verdict, and the test that rules quantisation out (B9-24-2, the tick spans 15.83x while |lambda| spans 1.42x) does not use a floor at all.",
       "a1_generous": 17.06396437461796,
       "a1_verdict": "resolvable",
       "a2_ratio_frozen_floor": 1.3649009700017924,

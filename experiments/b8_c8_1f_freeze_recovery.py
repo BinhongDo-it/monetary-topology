@@ -91,6 +91,22 @@ REC_FRAC, REC_FLOOR = 0.10, 1.00
 
 #: Lags checked explicitly. Compensation the following month is the hypothesis,
 #: so the interesting resolution is at the short end.
+#:
+#: **Registered value, and it does not move: 6.** `--max-lag` exists so the
+#: leftover on the project ledger (seven.2.2, "C8-1f's MAX_LAG raised and
+#: re-run") can be answered without editing this line. A run at any other value
+#: lands beside the registered record and not over it: `write` renames its
+#: output `b8_c8_1f_freeze_recovery.offparam_lag<N>.md`, which is the filename
+#: marker `scripts/render_results.py` already keys on for "not a claim".
+#:
+#: **What a larger value can and cannot do.** `lag_hist` gains bins, and
+#: `lag_none_room` and `lag_censored` re-partition, because the boundary
+#: between "had room and did not recover" and "ran out of segment" moves with
+#: it. **No already-recovered row can change lag**, because the loop assigns
+#: the first `m` that matches and a larger ceiling only adds later chances.
+#: So the short-lag columns are invariant to this parameter by construction,
+#: and that is the reason the ledger says this item cannot move a published
+#: verdict.
 MAX_LAG = 6
 
 #: Ratio bins for the month after a freeze. 2.00 is one freeze paid back.
@@ -405,13 +421,33 @@ def selftest() -> int:
 
 
 def main() -> None:
+    # Declared up front: `--max-lag`'s default reads the module constant and the
+    # override below rebinds it, and Python wants the declaration before either.
+    global MAX_LAG, OUT
+    registered = MAX_LAG
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", action="append", default=None)
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--max-lag", type=int, default=MAX_LAG,
+                    help="lag ceiling; anything other than the registered %d "
+                         "writes an .offparam_ file beside the record"
+                         % MAX_LAG)
     args = ap.parse_args()
 
     if args.selftest:
         raise SystemExit(selftest())
+
+    # The registered value stays in the module constant; an override is applied
+    # here and renames the output so it lands beside the record, never over it.
+    if args.max_lag != registered:
+        if args.max_lag < 1:
+            ap.error("--max-lag must be at least 1")
+        MAX_LAG = args.max_lag
+        OUT = OUT.with_name("b8_c8_1f_freeze_recovery.offparam_lag%d.md"
+                            % args.max_lag)
+        print("off-parameter run: MAX_LAG %d instead of the registered %d. "
+              "Writing beside the registered result, not over it: %s"
+              % (MAX_LAG, registered, OUT.name), file=sys.stderr)
 
     root = K.CACHE / K.SCHEMA_VERSION
     names = sorted(p.name for p in root.iterdir()

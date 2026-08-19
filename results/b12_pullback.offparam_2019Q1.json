@@ -1,0 +1,351 @@
+{
+  "archives": [
+    {
+      "archive": "2019Q1",
+      "arms": {
+        "defer": {
+          "L_beyond_floor_range": 21,
+          "MDE": 0.9564956315108377,
+          "control_trivial_at_finest_grid": {
+            "median_abs_omega": 0.014558649217178754,
+            "n": 71,
+            "ratio_L_corrected": 559047.1040683362,
+            "readable": true
+          },
+          "fine_cycles": 13873,
+          "loops_selected": 13949,
+          "median_abs_omega": 0.01719522470557422,
+          "null": {
+            "mean": 0.7152682777808447,
+            "n": 999,
+            "p90": 0.8242005286533728,
+            "p99": 0.9692312265365529,
+            "quantile_of_observed": 1.0,
+            "sd": 0.09701482152824975
+          },
+          "per_block": [
+            {
+              "L_hi": 4,
+              "L_lo": 4,
+              "N": 3.5219020406174194e-08,
+              "median_abs_omega": 0.01925977522660105,
+              "n_floor": 504,
+              "n_signal": 1,
+              "ratio_local": 546857.2096691437,
+              "ratio_pooled": 718572.611195835,
+              "readable": false
+            },
+            {
+              "L_hi": 5,
+              "L_lo": 5,
+              "N": 3.592632824833686e-08,
+              "median_abs_omega": 0.010998497618857073,
+              "n_floor": 198,
+              "n_signal": 3,
+              "ratio_local": 306140.319790855,
+              "ratio_pooled": 410348.4625457934,
+              "readable": false
+            },
+            {
+              "L_hi": 6,
+              "L_lo": 6,
+              "N": 4.3950712120377485e-08,
+              "median_abs_omega": 0.006421168756787665,
+              "n_floor": 164,
+              "n_signal": 1,
+              "ratio_local": 146099.3109554311,
+              "ratio_pooled": 239570.60485945843,
+              "readable": false
+            },
+            {
+              "L_hi": 7,
+              "L_lo": 7,
+              "N": 3.885039387903077e-08,
+              "median_abs_omega": 0.007676380937482463,
+              "n_floor": 77,
+              "n_signal": 12,
+              "ratio_local": 197588.23968129023,
+              "ratio_pooled": 286401.9454994528,
+              "readable": false
+            },
+            {
+              "L_hi": 8,
+              "L_lo": 8,
+              "N": 4.25934871111977e-08,
+              "median_abs_omega": 0.01191920867859153,
+              "n_floor": 64,
+              "n_signal": 9,
+              "ratio_local": 279836.41366282984,
+              "ratio_pooled": 444699.73313780397,
+              "readable": false
+            },
+            {
+              "L_hi": 9,
+              "L_lo": 9,
+              "N": 5.0098371007933905e-08,
+              "median_abs_omega": 0.01603287768557493,
+              "n_floor": 57,
+              "n_signal": 19,
+              "ratio_local": 320027.9243218479,
+              "ratio_pooled": 598178.6728016863,
+              "readable": false
+            },
+            {
+              "L_hi": 10,
+              "L_lo": 10,
+              "N": 7.100478541612886e-08,
+              "median_abs_omega": 0.013073197544372306,
+              "n_floor": 22,
+              "n_signal": 13,
+              "ratio_local": 184117.1333418706,
+              "ratio_pooled": 487754.4823661184,
+              "readable": false
+            },
+            {
+              "L_hi": 11,
+              "L_lo": 11,
+              "N": 8.871542556576628e-08,
+              "median_abs_omega": 0.015269740621079109,
+              "n_floor": 21,
+              "n_signal": 13,
+              "ratio_local": 172120.46860733803,
+              "ratio_pooled": 569706.4094090329,
+              "readable": false
+            },
+            {
+              "L_hi": 13,
+              "L_lo": 12,
+              "N": 4.3584861874279563e-08,
+              "median_abs_omega": 0.02054268825395411,
+              "n_floor": 22,
+              "n_signal": 16,
+              "ratio_local": 471326.22131990344,
+              "ratio_pooled": 766437.4566136043,
+              "readable": false
+            },
+            {
+              "L_hi": 15,
+              "L_lo": 14,
+              "N": 8.31242467221216e-08,
+              "median_abs_omega": 0.021400118861492956,
+              "n_floor": 21,
+              "n_signal": 16,
+              "ratio_local": 257447.3719206385,
+              "ratio_pooled": 798427.7650844656,
+              "readable": false
+            },
+            {
+              "L_hi": 56,
+              "L_lo": 16,
+              "N": 1.1265964667241945e-07,
+              "median_abs_omega": 0.033035567911611,
+              "n_floor": 32,
+              "n_signal": 60,
+              "ratio_local": 293233.3704868483,
+              "ratio_pooled": 1232540.567960356,
+              "readable": true
+            }
+          ],
+          "ratio_L_corrected": 253190.64297955556,
+          "ratio_pooled_floor": 641545.260596698,
+          "survives": 13710,
+          "trivial_image": 163,
+          "verdict": "pullback_fails"
+        },
+        "mod": {
+          "L_beyond_floor_range": 30,
+          "MDE": 1.1272450581844355,
+          "control_trivial_at_finest_grid": {
+            "median_abs_omega": NaN,
+            "n": 0,
+            "ratio_L_corrected": NaN,
+            "readable": false
+          },
+          "fine_cycles": 3867,
+          "loops_selected": 3869,
+          "median_abs_omega": 0.11646029802773228,
+          "null": {
+            "mean": 0.7204581431945206,
+            "n": 999,
+            "p90": 0.9705393119066051,
+            "p99": 1.1350108888119539,
+            "quantile_of_observed": 1.0,
+            "sd": 0.16359819625574704
+          },
+          "per_block": [
+            {
+              "L_hi": 6,
+              "L_lo": 6,
+              "N": 4.3950712120377485e-08,
+              "median_abs_omega": 0.14124112674102207,
+              "n_floor": 164,
+              "n_signal": 1,
+              "ratio_local": 3213625.443751035,
+              "ratio_pooled": 5269636.018927171,
+              "readable": false
+            },
+            {
+              "L_hi": 10,
+              "L_lo": 10,
+              "N": 7.100478541612886e-08,
+              "median_abs_omega": 0.1405241522443248,
+              "n_floor": 22,
+              "n_signal": 3,
+              "ratio_local": 1979080.0214488711,
+              "ratio_pooled": 5242886.05792342,
+              "readable": false
+            },
+            {
+              "L_hi": 11,
+              "L_lo": 11,
+              "N": 8.871542556576628e-08,
+              "median_abs_omega": 0.0894342473143297,
+              "n_floor": 21,
+              "n_signal": 9,
+              "ratio_local": 1008102.5565055825,
+              "ratio_pooled": 3336747.1773103047,
+              "readable": false
+            },
+            {
+              "L_hi": 13,
+              "L_lo": 12,
+              "N": 4.3584861874279563e-08,
+              "median_abs_omega": 0.08028006955919409,
+              "n_floor": 22,
+              "n_signal": 10,
+              "ratio_local": 1841925.5242969857,
+              "ratio_pooled": 2995209.369341842,
+              "readable": false
+            },
+            {
+              "L_hi": 15,
+              "L_lo": 14,
+              "N": 8.31242467221216e-08,
+              "median_abs_omega": 0.10256778030816349,
+              "n_floor": 21,
+              "n_signal": 8,
+              "ratio_local": 1233909.2906434417,
+              "ratio_pooled": 3826752.745213877,
+              "readable": false
+            },
+            {
+              "L_hi": 56,
+              "L_lo": 16,
+              "N": 1.1265964667241945e-07,
+              "median_abs_omega": 0.121364131116934,
+              "n_floor": 32,
+              "n_signal": 69,
+              "ratio_local": 1077263.551782872,
+              "ratio_pooled": 4528035.222433877,
+              "readable": true
+            }
+          ],
+          "ratio_L_corrected": 1133483.2701463122,
+          "ratio_pooled_floor": 4345075.654821203,
+          "survives": 3767,
+          "trivial_image": 100,
+          "verdict": "pullback_fails"
+        }
+      },
+      "blocks": [
+        {
+          "L_hi": 2,
+          "L_lo": 2,
+          "N": 2.6041900783013714e-08,
+          "n_floor": 20950
+        },
+        {
+          "L_hi": 3,
+          "L_lo": 3,
+          "N": 2.9437411920341104e-08,
+          "n_floor": 1901
+        },
+        {
+          "L_hi": 4,
+          "L_lo": 4,
+          "N": 3.5219020406174194e-08,
+          "n_floor": 504
+        },
+        {
+          "L_hi": 5,
+          "L_lo": 5,
+          "N": 3.592632824833686e-08,
+          "n_floor": 198
+        },
+        {
+          "L_hi": 6,
+          "L_lo": 6,
+          "N": 4.3950712120377485e-08,
+          "n_floor": 164
+        },
+        {
+          "L_hi": 7,
+          "L_lo": 7,
+          "N": 3.885039387903077e-08,
+          "n_floor": 77
+        },
+        {
+          "L_hi": 8,
+          "L_lo": 8,
+          "N": 4.25934871111977e-08,
+          "n_floor": 64
+        },
+        {
+          "L_hi": 9,
+          "L_lo": 9,
+          "N": 5.0098371007933905e-08,
+          "n_floor": 57
+        },
+        {
+          "L_hi": 10,
+          "L_lo": 10,
+          "N": 7.100478541612886e-08,
+          "n_floor": 22
+        },
+        {
+          "L_hi": 11,
+          "L_lo": 11,
+          "N": 8.871542556576628e-08,
+          "n_floor": 21
+        },
+        {
+          "L_hi": 13,
+          "L_lo": 12,
+          "N": 4.3584861874279563e-08,
+          "n_floor": 22
+        },
+        {
+          "L_hi": 15,
+          "L_lo": 14,
+          "N": 8.31242467221216e-08,
+          "n_floor": 21
+        },
+        {
+          "L_hi": 56,
+          "L_lo": 16,
+          "N": 1.1265964667241945e-07,
+          "n_floor": 32
+        }
+      ],
+      "floor_loops": 24033,
+      "pair": [
+        "g1",
+        "g2"
+      ],
+      "pooled_N": 2.6802823996519008e-08,
+      "published_N": 2.6803e-08,
+      "vertex_map_clashes": 0
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "The placebo ladder registered beside this test has not run, and until it does a separation from the floor cannot be told from one a size-preserving relabel of the grid would also produce. The station is not closed and this record is not a licensed reading.",
+  "min_cycles": 20,
+  "n_null": 999,
+  "pair": [
+    "g1",
+    "g2"
+  ],
+  "signal_over_noise": 4.0,
+  "stage": "B12",
+  "step": "pullback"
+}

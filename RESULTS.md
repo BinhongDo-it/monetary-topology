@@ -394,6 +394,116 @@ _no sample metadata recorded_
 | PASS | A7-B-4 | both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3 |
 | VOID | A7-B-5 | I and M recorded as not run. Above s = 0.02 in the uniform arm a one-off transfer leaves nothing after a generation, so a transmitting mechanism has no stock and their effects are identically zero by construction; docs sections 12.1 and 13.5 |
 
+## B14 — a dated, exogenous, symmetric friction change (the SEC tick size pilot). B14-0 only: the friction half moves, on both venues and under every weighting convention tried. The invariance claim in `docs/b4_directed_edges.md` section 5.1 is about the index half, which Appendix B.I does not carry, so this stage does not test it
+
+### b14_gate0.authoritative
+
+2,915 venue-symbols (N 679, P 2,236), 20160801 to 20161231, October 2016 dropped as the pilot's phase-in month
+
+**14/14 live criteria passed, 12 diagnostic**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B14-0  G1 on venue N: median delta exceeds control | G1 +0.515392 over 115 symbols, C +0.120200 over 338, margin +0.395193 |
+| PASS | B14-0  G2 on venue N: median delta exceeds control | G2 +0.399441 over 112 symbols, C +0.120200 over 338, margin +0.279242 |
+| PASS | B14-0  G3 on venue N: median delta exceeds control | G3 +0.454552 over 114 symbols, C +0.120200 over 338, margin +0.334352 |
+| PASS | B14-0  G1 on venue P: median delta exceeds control | G1 +0.158091 over 375 symbols, C +0.068396 over 1117, margin +0.089695 |
+| PASS | B14-0  G2 on venue P: median delta exceeds control | G2 +0.172069 over 369 symbols, C +0.068396 over 1117, margin +0.103673 |
+| PASS | B14-0  G3 on venue P: median delta exceeds control | G3 +0.178484 over 375 symbols, C +0.068396 over 1117, margin +0.110088 |
+| PASS | B14-0  the verdict does not turn on the weighting convention | share-weighted verdict PASS, order-count-weighted verdict PASS (design file D3-3: disagreement makes the gate unadjudicable) |
+| DIAG | B14-0  cross-check on the consolidated spread: G1 on N | margin +0.411207; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G2 on N | margin +0.307160; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G3 on N | margin +0.389522; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G1 on P | margin +0.198421; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G2 on P | margin +0.174114; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G3 on P | margin +0.190323; design file section 4 excludes this from the verdict |
+| PASS | B14-0/T5  adverse convention, G1 on venue N | margin +0.398135 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G2 on venue N | margin +0.282184 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G3 on venue N | margin +0.337295 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G1 on venue P | margin +0.062282 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G2 on venue P | margin +0.084684 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G3 on venue P | margin +0.076010 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G1 on venue N | margin +0.390106; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G2 on venue N | margin +0.281569; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G3 on venue N | margin +0.321898; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G1 on venue P | margin +0.029276; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G2 on venue P | margin +0.025477; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G3 on venue P | margin +0.023019; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| PASS | B14-0  the six registered margins reproduce on the v2 cache | 6 margins compared, 0 differ |
+
+Derived quantities:
+
+- `median_delta_N_C` = 0.1202
+- `median_delta_N_G1` = 0.5154
+- `median_delta_N_G2` = 0.3994
+- `median_delta_N_G3` = 0.4546
+- `median_delta_P_C` = 0.0684
+- `median_delta_P_G1` = 0.1581
+- `median_delta_P_G2` = 0.1721
+- `median_delta_P_G3` = 0.1785
+
+### b14_gate0
+
+2,943 venue-symbols (N 679, P 2,264), 20160801 to 20161231, October 2016 dropped as the pilot's phase-in month
+
+**14/14 live criteria passed, 12 diagnostic**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B14-0  G1 on venue N: median delta exceeds control | G1 +0.515392 over 115 symbols, C +0.120200 over 338, margin +0.395193 |
+| PASS | B14-0  G2 on venue N: median delta exceeds control | G2 +0.399441 over 112 symbols, C +0.120200 over 338, margin +0.279242 |
+| PASS | B14-0  G3 on venue N: median delta exceeds control | G3 +0.454552 over 114 symbols, C +0.120200 over 338, margin +0.334352 |
+| PASS | B14-0  G1 on venue P: median delta exceeds control | G1 +0.158091 over 379 symbols, C +0.072771 over 1136, margin +0.085320 |
+| PASS | B14-0  G2 on venue P: median delta exceeds control | G2 +0.174556 over 374 symbols, C +0.072771 over 1136, margin +0.101785 |
+| PASS | B14-0  G3 on venue P: median delta exceeds control | G3 +0.178572 over 375 symbols, C +0.072771 over 1136, margin +0.105801 |
+| PASS | B14-0  the verdict does not turn on the weighting convention | share-weighted verdict PASS, order-count-weighted verdict PASS (design file D3-3: disagreement makes the gate unadjudicable) |
+| DIAG | B14-0  cross-check on the consolidated spread: G1 on N | margin +0.411207; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G2 on N | margin +0.307160; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G3 on N | margin +0.389522; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G1 on P | margin +0.191953; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G2 on P | margin +0.174736; design file section 4 excludes this from the verdict |
+| DIAG | B14-0  cross-check on the consolidated spread: G3 on P | margin +0.192207; design file section 4 excludes this from the verdict |
+| PASS | B14-0/T5  adverse convention, G1 on venue N | margin +0.398135 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G2 on venue N | margin +0.282184 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G3 on venue N | margin +0.337295 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G1 on venue P | margin +0.061611 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G2 on venue P | margin +0.087728 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| PASS | B14-0/T5  adverse convention, G3 on venue P | margin +0.076866 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1 |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G1 on venue N | margin +0.390106; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G2 on venue N | margin +0.281569; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G3 on venue N | margin +0.321898; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G1 on venue P | margin +0.026542; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G2 on venue P | margin +0.026354; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| DIAG | B14-0/T6  blanks and zeros both forced to zero, G3 on venue P | margin +0.021057; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2) |
+| PASS | B14-0  the six registered margins reproduce on the v2 cache | 6 margins compared, 0 differ |
+
+Derived quantities:
+
+- `median_delta_N_C` = 0.1202
+- `median_delta_N_G1` = 0.5154
+- `median_delta_N_G2` = 0.3994
+- `median_delta_N_G3` = 0.4546
+- `median_delta_P_C` = 0.0728
+- `median_delta_P_G1` = 0.1581
+- `median_delta_P_G2` = 0.1746
+- `median_delta_P_G3` = 0.1786
+
+### b14_t1_order_type
+
+20160801 to 20161231, October 2016 dropped as the pilot's phase-in month
+
+**1/1 live criteria passed, 6 diagnostic**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B14-0/T1a  the gate survives holding the order-type mix fixed | N/G1 +0.396871; N/G2 +0.297419; N/G3 +0.353596; P/G1 +0.124935; P/G2 +0.133975; P/G3 +0.116206 |
+| DIAG | B14-0/T1b  order type 22 alone, share 0.2733 | N/G1 +0.356010; N/G2 +0.294862; N/G3 +0.324250; P/G1 +0.014818; P/G2 +0.023667; P/G3 -0.007879 |
+| DIAG | B14-0/T1b  order type 14 alone, share 0.2395 | N/G1 +0.423699; N/G2 +0.278610; N/G3 +0.399114; P/G1 +0.106153; P/G2 +0.096050; P/G3 +0.082576 |
+| DIAG | B14-0/T1b  order type 16 alone, share 0.1527 | N/G1 +0.269830; N/G2 +0.115138; N/G3 +0.313197; P/G1 -0.140343; P/G2 -0.120063; P/G3 -0.063262 |
+| DIAG | B14-0/T1b  order type 12 alone, share 0.1300 | N/G1 +0.597949; N/G2 +0.435025; N/G3 +0.420669; P/G1 +0.374891; P/G2 +0.332816; P/G3 +0.306158 |
+| DIAG | B14-0/T1b  order type 13 alone, share 0.1203 | N/G1 +0.414677; N/G2 +0.239191; N/G3 +0.335008; P/G1 +0.096932; P/G2 +0.077592; P/G3 +0.086523 |
+| DIAG | B14-0/T1b  order type 11 alone, share 0.0772 | N/G1 +0.719268; N/G2 +0.530232; N/G3 +0.654006; P/G1 +0.165324; P/G2 +0.158829; P/G3 +0.135239 |
+
 ## B1H
 
 _no sample metadata recorded_
@@ -525,18 +635,19 @@ _no sample metadata recorded_
 
 `shapes_drawn=24`
 
-**8/8 live criteria passed**
+**9/9 live criteria passed**
 
 | | criterion | detail |
 |---|---|---|
 | PASS | B4-1  Theorem 4: Bellman-Ford agrees with cycle enumeration | 24 agree, 0 disagree over 24 graphs; 5 admit a sub-potential and 19 carry a positive cycle |
 | PASS | B4-2  the returned potential satisfies every edge inequality | worst breach 0.000e+00 over 5 potentials against 1e-09 |
-| PASS | B4-3  Theorem 5: a sink component gives an unbounded ray | 31 graphs with a proper sink; worst violation over shifts up to 1e+06 is 1.179e-11 |
+| PASS | B4-3  Theorem 5: a sink component gives an unbounded ray | 31 graphs with a proper sink; the worst violation over shifts up to 1e+06 is at machine precision for that scale, below 1e-09 |
 | PASS | B4-4  Theorem 5: strong connectivity bounds the polytope | 24 strongly connected graphs; every proper subset breaks (smallest breach 1.000e+06); every coordinate interval is finite, non-empty and contains the returned potential, widest 2.055 |
 | PASS | B4-5  Theorem 6(1): the symmetric part is non-positive | worst w_bar -4.284e-04 over 24 fields against 1e-09 |
 | PASS | B4-6  Theorem 6(3): the antisymmetric case reproduces Theorem 1 bitwise | 12 fields, 0 mismatches; potentials compared as raw bytes after centring on the minimum |
-| PASS | B4-7  section 5.1: the directed square splits into friction and index | worst \|S+S' - friction\| 1.110e-15, worst \|S-S' - index\| 8.882e-16 over 226 squares |
-| PASS | B4-8  section 5.1: a common spread moves the friction and not the index | index unchanged to 8.882e-16; friction moved by at least 2.223e-01 |
+| PASS | B4-7  section 5.1: the directed square splits into friction and index | \|S+S' - friction\| and \|S-S' - index\| are both at machine precision, below `1e-10`, over 226 squares |
+| PASS | B4-8  section 5.1: a common spread moves the friction and not the index | index unchanged to machine precision, below `1e-10`; friction moved by at least 2.223e-01 |
+| PASS | B4-9  Theorem 6(4): the index part is bounded by the friction part | `S <= 0 and S' <= 0` and `\|S-S'\| <= -(S+S')` agree on all 226 squares, 52 of which have both cycles non-positive; the bound is what Theorem 4 buys once it is applied to each cycle rather than to their sum |
 
 ## B5 source audit — the friction column has no source (REJECT)
 
@@ -610,6 +721,24 @@ Derived quantities:
 - `smallest_distance_segment_I` = 2.7932
 - `smallest_distance_segment_II` = 1.1838
 - `worst_cycle_sum_maximal` = 3.2181
+
+## B6-B
+
+_no sample metadata recorded_
+
+**8/8 live criteria passed, 1 void**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B6-9 retrieval integrity | 2,056 of 2,056 days, 0 empty, 11 probe windows compared and 0 disagreeing; independent replay checked 7 with 0 disagreeing |
+| PASS | B6-10 the known-answer arm | 2021-01-01 USD 40.0 against 40.0; 2025-09-30 EUR 500.0 against 500.0; 2026-08-11 USD 670.0 against 670.0 |
+| PASS | B6-11 the informal edge has no friction column | asking for either side raises, and no reporting path names one |
+| PASS | B6-12 a positive substituted cycle is not a finding | positive under substitution, which is an upper bound and therefore NOT established |
+| PASS | B6-13 the euro crosses disagree, and the disagreement decays | 207 publication days, margin 27; floor 0.00328, band 0.01311; first block 0.05595, last block 0.01547; the verdict flips only if one hour holds 44% of a day's offers |
+| PASS | B6-14 three claims on the dollar, three prices | USD/MLC 3 regimes, 94.3% against a null whose 99th percentile is 75.2%; tether 4 regimes, 85.9% against 62.4%; median \|log(USD/MLC)\| 0.2719 against a widest official round trip of 0.0939 |
+| PASS | B6-15 the posted return leg does not clear the informal market | a(t) positive on 100.0% of 207 publication days; critical spread 0.0507 against a threshold of 0.02; a runs 0.0070 to 0.1925 |
+| PASS | B6-16 assumption A1, measured on the dollar leg | published median inside the book on 95.4% of 1,321 days; 61 above the ask, 0 below the bid |
+| VOID | B6-17 the informal round trip, measured | VOID: the round trip is measured 2021-07-23 to 2025-03-04 and the critical spread it is compared against is measured over B6-A's window from 2025-12-19. The spans do not overlap and cannot be made to: the order book ends before the window opens. The distribution stands as a reading: median 0.0148, p90 0.0392, p99 0.0747, max 0.1214 over 1,321 days |
 
 ## B7
 
@@ -754,10 +883,10 @@ _no sample metadata recorded_
 |---|---|---|
 | PASS | B8-0a | the gate holds on the split registered after the closed form was found. (i-a) runs on the clean cures whose every quiet month sits in its segment's modal cluster and requires an exact return to zero within floating-point tolerance; all six vintages pass. (i-b) is a reading and not a gate. What passes it is the qualifying count and not the ratio: max ratio reads 0.399 to 0.400 in every vintage because the path tolerance and the agreement bound share one 1/B, so the ratio is capped by the path filter itself and carries no independent information |
 | PASS | B8-0b | the floor is MAD(omega - closed) on the clean-cure arm, 2.68e-08 to 5.22e-08, against a construction that predicts half a cent divided by the median balance, 3.03e-08. Two further quantities in this repository are also called a floor and one of them is a signal; they are named N_cure, N_placebo(L) and IB_RESIDUAL, and any quotation of a floor has to say which |
-| PASS | B8-1 | necessary condition holds in all six vintages. Ratio 2,412,840 to 6,765,767; subtract the closed form for leg 1 and it is 2,135,052 to 6,632,539, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of the signal is construction. The threshold was demoted to a readability line rather than a significance test: corr(omega, closed) is +1.0000 in five of six vintages, which makes the residual instrument resolution rather than a sampling distribution |
+| PASS | B8-1 | necessary condition holds in all six vintages. Ratio 2,412,840 to 6,765,767; subtract the closed form for leg 1 and it is 2,135,051.8 to 6,632,538.5, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of the signal is construction. The threshold was demoted to a readability line rather than a significance test: corr(omega, closed) is +1.0000 in five of six vintages, which makes the residual instrument resolution rather than a sampling distribution. The leg-1 shortfall behind that subtraction is a constant integer month count, n1 - eff of 3.98 to 4.99, and not a proportion; section 21.6's discriminant does not settle it, since flat equals round(eff) on 0.5525 to 0.7137 of loops and on none of the six archives outright, though the residual class that would break the reading is zero at the median in all six. B8-1's verdict does not move on it: section 21.6 registered in advance that removing a quantity 1.2 to 1.6 times the measured leg 1 changes the net ratio by at most 11.5 per cent |
 | PASS | B8-2 | sign agreement across windows. 29 readable cells of 32, all 29 same-sign with intervals clear of zero, in all five windows, and re-run under the far-corner curve construction with zero cells flipping. leg 2 came back positive in every readable cell where section 14.3 had registered negative, and is not small: \|leg2\|/\|leg1\| has a median of 3.67 |
 | PASS | B8-3 | the two paths to the same state differ, and the verdict is carried by per-cell signs and permutation rather than by margin. Re-run under the far-corner construction: all six vintages keep their sign, permutation p is 0.001 throughout, and the per-cell sign counts are identical under both constructions. delta/N_cure is 5.78e4 to 4.30e6. The earlier exemption, that the gap ran two to four orders above the curve spread, used the wrong denominator and is withdrawn; at 2007Q1 the two are 1.4 times apart, not an order of magnitude |
-| PASS | B8-4a | class ordering reproduces on fico_llpa9, the finest grid that clears both gates. Six vintages same direction, sign test p = 0.0312, three significant on their own and surviving equal-n. The loading monotonicity, median Spearman -0.82 and 6/6 negative, is a post-hoc reading and is labelled as one. Of eleven grids only five clear the floor of 20 and hang on the borrower rather than the house or the location, and the comfortable ones among them are the coarse ones |
+| PASS | B8-4a | class ordering reproduces on fico_llpa9, the finest grid that clears both gates. Six vintages same direction, sign test p = 0.0312, three significant on their own and surviving equal-n. The loading monotonicity, median Spearman -0.82 and 6/6 negative, is a post-hoc reading, is labelled as one, and **no product on disk prints it**: section 3 of b8_4_class.md carries mean rank and span, not a Spearman, so that number is carried by this sheet alone and cannot be checked against the stage's own output (found 2026-08-19 by the number check below). Of eleven grids only five clear the floor of 20 and hang on the borrower rather than the house or the location, and the comfortable ones among them are the coarse ones |
 | VOID | B8-4b | does not run, for want of C9. On (class x origination cohort) inside the Flex window every one of eleven grids has a minimum of 0 or 1. This is not a thin-cohort problem but the quantified form of a comparability one: the Flex window is 2017-2019, so the 2019Q1 vintage has at most a year of age in it and cannot complete a triangle, while 2002Q1 has fifteen. Section 15.3 registers this as not a failure of B8, and the branch table sends the second domain to corporate credit |
 | PASS | B8-5 | read per cell and not pooled. 554 cells, 132 endpoint-stable, 20 with p < 0.05. Twelve of the twenty are on the two FICO grids and all twelve point the same way: conditional on already being delinquent, the lower the score the higher the share modified, with no counterexample across six vintages, three windows, five entry tiers and two grids. The label is an admission threshold that differs by class, not a hole: section 5 asks whether an edge never exists, and what was measured is a rate |
 | PASS | B8-6 | satisfied by construction on B8-2 and a real test on B8-5, per sections 20.2 and 22.2 |

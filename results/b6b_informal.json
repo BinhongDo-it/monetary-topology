@@ -1,0 +1,745 @@
+{
+  "B6-10": {
+    "boundary": {
+      "2018-01-01 empty": true,
+      "2020-12-31 empty": true,
+      "2021-01-01 served": true,
+      "2027-06-01 empty": true
+    },
+    "checks": {
+      "2021-01-01 USD": {
+        "agrees": true,
+        "expected": 40.0,
+        "got": 40.0
+      },
+      "2025-09-30 EUR": {
+        "agrees": true,
+        "expected": 500.0,
+        "got": 500.0
+      },
+      "2026-08-11 USD": {
+        "agrees": true,
+        "expected": 670.0,
+        "got": 670.0
+      }
+    },
+    "passed": true
+  },
+  "B6-11": {
+    "forbidden_names_in_this_file": [],
+    "guard_raises": {
+      "ask": true,
+      "bid": true
+    },
+    "passed": true
+  },
+  "B6-12": {
+    "non_positive_allowed_by_guard": true,
+    "non_positive_established": true,
+    "passed": true,
+    "positive_established": false,
+    "positive_refused_by_guard": true,
+    "reading": "positive under substitution, which is an upper bound and therefore NOT established"
+  },
+  "B6-13": {
+    "a_first_block_clears_the_band": true,
+    "b_last_block_smaller": true,
+    "band": 0.013106565136737882,
+    "break_diagnostic": {
+      "break": "2026-06-18",
+      "days_before": 155,
+      "median_abs_h_after_break": 0.011836343337296704,
+      "median_abs_h_before_break": 0.030230250458438884
+    },
+    "critical_offer_ratio": 2.2623577138308093,
+    "critical_offer_share_of_day": 0.44201674822975634,
+    "days_needed_for_two_blocks": 180,
+    "first_block": [
+      "2025-12-19",
+      "2026-04-12"
+    ],
+    "first_block_median_abs_h": 0.055945040051139455,
+    "h_max": 0.0916749353626398,
+    "h_median": 0.025325717435768752,
+    "h_min": -0.028223681254127164,
+    "last_block": [
+      "2026-05-10",
+      "2026-08-12"
+    ],
+    "last_block_median_abs_h": 0.015471319640141715,
+    "margin": 27,
+    "noise_floor": 0.0032766412841844705,
+    "passed": true,
+    "publication_days_used": 207
+  },
+  "B6-14": {
+    "a_clears_null": true,
+    "a_null_p99": 0.7517039922103214,
+    "a_observed": 0.9430379746835443,
+    "a_p_value": 0.001,
+    "b_clears_null": true,
+    "b_null_p99": 0.6235408560311284,
+    "b_observed": 0.8589494163424124,
+    "b_p_value": 0.001,
+    "c_days_in_window": 207,
+    "c_median_abs_log_usd_over_mlc": 0.27185732951223557,
+    "c_multiple_of_the_band": 2.8952999189601223,
+    "c_widest_official_round_trip": 0.09389608576712702,
+    "minimum_run_days": 30,
+    "pairs": {
+      "USD/MLC": {
+        "agreement_inside_regimes": 0.9430379746835443,
+        "days": 2054,
+        "null": {
+          "clears_null_p99": true,
+          "draws": 999,
+          "draws_at_or_above_observed": 0,
+          "null_max": 0.7517039922103214,
+          "null_median": 0.7517039922103214,
+          "null_p99": 0.7517039922103214,
+          "observed": 0.9430379746835443,
+          "p_value": 0.001
+        },
+        "raw_share_positive": 0.7517039922103214,
+        "regimes": 3,
+        "segments": [
+          {
+            "days_agreeing": 112,
+            "from": "2021-01-03",
+            "internal_agreement": 0.7044025157232704,
+            "length": 159,
+            "sign": 1,
+            "to": "2021-06-10"
+          },
+          {
+            "days_agreeing": 420,
+            "from": "2021-06-11",
+            "internal_agreement": 0.8993576017130621,
+            "length": 467,
+            "sign": -1,
+            "to": "2022-09-20"
+          },
+          {
+            "days_agreeing": 1405,
+            "from": "2022-09-21",
+            "internal_agreement": 0.9838935574229691,
+            "length": 1428,
+            "sign": 1,
+            "to": "2026-08-18"
+          }
+        ],
+        "sweep": {
+          "7": {
+            "agreement": 0.9634858812074002,
+            "regimes": 9
+          },
+          "14": {
+            "agreement": 0.9513145082765336,
+            "regimes": 5
+          },
+          "30": {
+            "agreement": 0.9430379746835443,
+            "regimes": 3
+          },
+          "60": {
+            "agreement": 0.9201557935735151,
+            "regimes": 3
+          },
+          "90": {
+            "agreement": 0.9201557935735151,
+            "regimes": 3
+          }
+        }
+      },
+      "USDT_TRC20/USD": {
+        "agreement_inside_regimes": 0.8589494163424124,
+        "days": 2056,
+        "null": {
+          "clears_null_p99": true,
+          "draws": 999,
+          "draws_at_or_above_observed": 0,
+          "null_max": 0.6235408560311284,
+          "null_median": 0.6235408560311284,
+          "null_p99": 0.6235408560311284,
+          "observed": 0.8589494163424124,
+          "p_value": 0.001
+        },
+        "raw_share_positive": 0.6235408560311284,
+        "regimes": 4,
+        "segments": [
+          {
+            "days_agreeing": 300,
+            "from": "2021-01-01",
+            "internal_agreement": 0.9287925696594427,
+            "length": 323,
+            "sign": -1,
+            "to": "2021-11-19"
+          },
+          {
+            "days_agreeing": 57,
+            "from": "2021-11-20",
+            "internal_agreement": 0.9193548387096774,
+            "length": 62,
+            "sign": 1,
+            "to": "2022-01-20"
+          },
+          {
+            "days_agreeing": 371,
+            "from": "2022-01-21",
+            "internal_agreement": 0.6052202283849919,
+            "length": 613,
+            "sign": -1,
+            "to": "2023-09-25"
+          },
+          {
+            "days_agreeing": 1038,
+            "from": "2023-09-26",
+            "internal_agreement": 0.9810964083175804,
+            "length": 1058,
+            "sign": 1,
+            "to": "2026-08-18"
+          }
+        ],
+        "sweep": {
+          "7": {
+            "agreement": 0.9129377431906615,
+            "regimes": 16
+          },
+          "14": {
+            "agreement": 0.8827821011673151,
+            "regimes": 10
+          },
+          "30": {
+            "agreement": 0.8589494163424124,
+            "regimes": 4
+          },
+          "60": {
+            "agreement": 0.8321984435797666,
+            "regimes": 2
+          },
+          "90": {
+            "agreement": 0.8321984435797666,
+            "regimes": 2
+          }
+        }
+      }
+    },
+    "passed": true,
+    "spread_now": {
+      "BTC": 735.63,
+      "EUR": 770.0,
+      "MLC": 450.17,
+      "USD": 665.0,
+      "USDT_TRC20": 675.74,
+      "date": "2026-08-18"
+    }
+  },
+  "B6-15": {
+    "a_first": {
+      "date": "2025-12-19",
+      "value": 0.05081493991777286
+    },
+    "a_last": {
+      "date": "2026-08-12",
+      "value": 0.05132471671940397
+    },
+    "a_max": 0.19253000791381414,
+    "a_median": 0.07038309034241141,
+    "a_min": 0.006999647083075544,
+    "a_share_positive": 1.0,
+    "a_threshold": 0.95,
+    "critical_spread": 0.05072023173691172,
+    "critical_spread_threshold": 0.02,
+    "days": 207,
+    "passed": true,
+    "widest_official_round_trip_diagnostic": {
+      "a_median_over_band": 0.7495849243063176,
+      "band": 0.09389608576712702,
+      "note": "a different channel's round trip, reported and judging nothing. The arbitrage's own cost is the informal spread, which is what critical_spread reports instead."
+    }
+  },
+  "B6-16": {
+    "classified_share_median": 0.7923076923076923,
+    "days": 1321,
+    "first_misses": [
+      {
+        "ask": 68.0,
+        "bid": 67.0,
+        "date": "2021-11-03",
+        "published": 69.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 74.0,
+        "bid": 73.0,
+        "date": "2022-01-10",
+        "published": 75.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 75.0,
+        "bid": 75.0,
+        "date": "2022-01-12",
+        "published": 76.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 92.0,
+        "bid": 85.0,
+        "date": "2022-01-21",
+        "published": 94.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 98.0,
+        "bid": 94.5,
+        "date": "2022-01-24",
+        "published": 100.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 117.0,
+        "bid": 115.0,
+        "date": "2022-07-18",
+        "published": 118.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 154.0,
+        "bid": 150.0,
+        "date": "2022-09-07",
+        "published": 155.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 156.0,
+        "bid": 155.0,
+        "date": "2022-09-09",
+        "published": 157.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 165.0,
+        "bid": 160.0,
+        "date": "2022-09-14",
+        "published": 168.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 175.0,
+        "bid": 170.0,
+        "date": "2022-09-18",
+        "published": 176.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 178.0,
+        "bid": 174.5,
+        "date": "2022-09-19",
+        "published": 180.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 182.0,
+        "bid": 180.0,
+        "date": "2022-09-21",
+        "published": 184.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 185.0,
+        "bid": 180.0,
+        "date": "2022-09-23",
+        "published": 187.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 190.0,
+        "bid": 186.5,
+        "date": "2022-09-26",
+        "published": 193.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 183.0,
+        "bid": 180.0,
+        "date": "2023-04-01",
+        "published": 184.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 194.5,
+        "bid": 190.5,
+        "date": "2023-05-22",
+        "published": 195.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 199.0,
+        "bid": 198.0,
+        "date": "2023-06-11",
+        "published": 200.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 206.0,
+        "bid": 205.0,
+        "date": "2023-07-03",
+        "published": 207.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 208.0,
+        "bid": 206.5,
+        "date": "2023-07-06",
+        "published": 209.0,
+        "side": "above the ask"
+      },
+      {
+        "ask": 224.0,
+        "bid": 220.0,
+        "date": "2023-07-27",
+        "published": 225.0,
+        "side": "above the ask"
+      }
+    ],
+    "misses_above_the_ask": 61,
+    "misses_below_the_bid": 0,
+    "passed": true,
+    "scope": "the dollar leg only, and the classified share of it. A1 remains an assumption for the euro, MLC and tether legs, and this span ends before B6-A's window opens.",
+    "share_inside": 0.9538228614685844,
+    "threshold": 0.95
+  },
+  "B6-17": {
+    "critical_spread": 0.05072023173691172,
+    "days": 1321,
+    "days_above_the_critical_spread": 56,
+    "inverted_days": 0,
+    "max": 0.12136085700426753,
+    "median": 0.014815085785140682,
+    "min": 0.0,
+    "p90": 0.03922071315328133,
+    "p99": 0.0747426409692385,
+    "passed": false,
+    "scope": "median-to-median rather than touch-to-touch, which is the wider of the two and the one an arbitrage that walks the book would pay.",
+    "void": true,
+    "void_reason": "the round trip is measured 2021-07-23 to 2025-03-04 and the critical spread it is compared against is measured over B6-A's window from 2025-12-19. The spans do not overlap and cannot be made to: the order book ends before the window opens."
+  },
+  "B6-9": {
+    "absent_days": 0,
+    "absent_days_carrying_values": [],
+    "days_expected": 2056,
+    "days_present": 2056,
+    "duplicated": [],
+    "extra": [],
+    "independent_replay": {
+      "checked": 7,
+      "disagreeing": [],
+      "not_compared": [
+        "2026-08-18"
+      ]
+    },
+    "missing": [],
+    "outside_the_span": [
+      "2018-01-01",
+      "2020-12-31",
+      "2027-06-01"
+    ],
+    "passed": true,
+    "replay_compared": 11,
+    "replay_disagreeing": [],
+    "replay_not_compared": [
+      "2026-08-18 00:00:00"
+    ],
+    "short_span_days": [
+      "2021-03-14",
+      "2022-03-13",
+      "2023-03-12",
+      "2024-03-10",
+      "2025-03-09",
+      "2026-03-08"
+    ],
+    "shortened_windows": [
+      "2021-11-07",
+      "2022-11-06",
+      "2023-11-05",
+      "2024-11-03",
+      "2025-11-02"
+    ],
+    "without_digests": []
+  },
+  "control_arm": {
+    "BNB": {
+      "days": 1356,
+      "from": "2021-01-16",
+      "noise_multiple_of_cash": 6.33117960651265,
+      "over_cash_median": 0.9479500000000001,
+      "over_cash_p10": 0.5249408716854618,
+      "over_cash_p90": 1.1421912371134022,
+      "sd_daily_step": 0.09856296046904035,
+      "sd_daily_step_cash": 0.015567866747557167,
+      "to": "2026-05-29",
+      "units_check": {
+        "corr_daily_change_against_world_price": 0.06160753914903877,
+        "days": 1346,
+        "reading": "near zero confirms the column is pesos per dollar of the coin rather than pesos per coin"
+      }
+    },
+    "BTC": {
+      "days": 2054,
+      "from": "2021-01-03",
+      "noise_multiple_of_cash": 6.790218947355966,
+      "over_cash_median": 0.9935478260869566,
+      "over_cash_p10": 0.8894392898052692,
+      "over_cash_p90": 1.0578801687763713,
+      "sd_daily_step": 0.06935781099345445,
+      "sd_daily_step_cash": 0.010214370336388282,
+      "to": "2026-08-18",
+      "units_check": {
+        "corr_daily_change_against_world_price": -0.020728651092973237,
+        "days": 2027,
+        "reading": "near zero confirms the column is pesos per dollar of the coin rather than pesos per coin"
+      }
+    },
+    "TRX": {
+      "days": 2033,
+      "from": "2021-01-04",
+      "noise_multiple_of_cash": 7.173519452898673,
+      "over_cash_median": 0.9054117647058822,
+      "over_cash_p10": 0.2979792569659443,
+      "over_cash_p90": 1.0501908771929824,
+      "sd_daily_step": 0.07360801335027492,
+      "sd_daily_step_cash": 0.010261073916866766,
+      "to": "2026-07-29",
+      "units_check": {
+        "corr_daily_change_against_world_price": 0.03902936440608303,
+        "days": 2006,
+        "reading": "near zero confirms the column is pesos per dollar of the coin rather than pesos per coin"
+      }
+    }
+  },
+  "criteria": [
+    {
+      "detail": "2,056 of 2,056 days, 0 empty, 11 probe windows compared and 0 disagreeing; independent replay checked 7 with 0 disagreeing",
+      "name": "B6-9 retrieval integrity",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "2021-01-01 USD 40.0 against 40.0; 2025-09-30 EUR 500.0 against 500.0; 2026-08-11 USD 670.0 against 670.0",
+      "name": "B6-10 the known-answer arm",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "asking for either side raises, and no reporting path names one",
+      "name": "B6-11 the informal edge has no friction column",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "positive under substitution, which is an upper bound and therefore NOT established",
+      "name": "B6-12 a positive substituted cycle is not a finding",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "207 publication days, margin 27; floor 0.00328, band 0.01311; first block 0.05595, last block 0.01547; the verdict flips only if one hour holds 44% of a day's offers",
+      "name": "B6-13 the euro crosses disagree, and the disagreement decays",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "USD/MLC 3 regimes, 94.3% against a null whose 99th percentile is 75.2%; tether 4 regimes, 85.9% against 62.4%; median |log(USD/MLC)| 0.2719 against a widest official round trip of 0.0939",
+      "name": "B6-14 three claims on the dollar, three prices",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "a(t) positive on 100.0% of 207 publication days; critical spread 0.0507 against a threshold of 0.02; a runs 0.0070 to 0.1925",
+      "name": "B6-15 the posted return leg does not clear the informal market",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "published median inside the book on 95.4% of 1,321 days; 61 above the ask, 0 below the bid",
+      "name": "B6-16 assumption A1, measured on the dollar leg",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "VOID: the round trip is measured 2021-07-23 to 2025-03-04 and the critical spread it is compared against is measured over B6-A's window from 2025-12-19. The spans do not overlap and cannot be made to: the order book ends before the window opens. The distribution stands as a reading: median 0.0148, p90 0.0392, p99 0.0747, max 0.1214 over 1,321 days",
+      "name": "B6-17 the informal round trip, measured",
+      "passed": false,
+      "void": true
+    }
+  ],
+  "ema_signature": {
+    "EUR": {
+      "from": "2021-01-01",
+      "longest_clean_run": 2056,
+      "to": "2026-08-18",
+      "vr_10": 2.7174396820162747,
+      "vr_2": 1.3014680334421604,
+      "vr_5": 2.1445482617767646
+    },
+    "MLC": {
+      "from": "2021-01-03",
+      "longest_clean_run": 2054,
+      "to": "2026-08-18",
+      "vr_10": 1.8292548339689316,
+      "vr_2": 1.0912222961628444,
+      "vr_5": 1.415733342428429
+    },
+    "USD": {
+      "from": "2021-01-01",
+      "longest_clean_run": 2056,
+      "to": "2026-08-18",
+      "vr_10": 2.4369481734634504,
+      "vr_2": 1.252863806751821,
+      "vr_5": 1.969000586454492
+    },
+    "USDT_TRC20": {
+      "from": "2021-01-01",
+      "longest_clean_run": 2056,
+      "to": "2026-08-18",
+      "vr_10": 0.45194824606876943,
+      "vr_2": 0.7068350445995951,
+      "vr_5": 0.5251704405751938
+    }
+  },
+  "informal_days": 2056,
+  "membership": {
+    "BNB": {
+      "days": 1356,
+      "first": "2021-01-16",
+      "gaps": -604,
+      "last": "2026-05-29"
+    },
+    "BTC": {
+      "days": 2054,
+      "first": "2021-01-03",
+      "gaps": 0,
+      "last": "2026-08-18"
+    },
+    "EUR": {
+      "days": 2056,
+      "first": "2021-01-01",
+      "gaps": 0,
+      "last": "2026-08-18"
+    },
+    "MLC": {
+      "days": 2054,
+      "first": "2021-01-03",
+      "gaps": 0,
+      "last": "2026-08-18"
+    },
+    "TRX": {
+      "days": 2033,
+      "first": "2021-01-04",
+      "gaps": 0,
+      "last": "2026-07-29"
+    },
+    "USD": {
+      "days": 2056,
+      "first": "2021-01-01",
+      "gaps": 0,
+      "last": "2026-08-18"
+    },
+    "USDT_TRC20": {
+      "days": 2056,
+      "first": "2021-01-01",
+      "gaps": 0,
+      "last": "2026-08-18"
+    }
+  },
+  "noise_floor": {
+    "band": 0.013106565136737882,
+    "quantisation": {
+      "floor": 0.0017767295597484276,
+      "gap_percentiles": {
+        "EUR": {
+          "10.0": 2.0,
+          "50.0": 5.0
+        },
+        "USD": {
+          "10.0": 1.0,
+          "50.0": 5.0
+        }
+      },
+      "levels": {
+        "EUR": 600.0,
+        "USD": 530.0
+      },
+      "ticks": {
+        "EUR": 0.5,
+        "USD": 0.5
+      }
+    },
+    "used": 0.0032766412841844705,
+    "window": {
+      "dates": [
+        "2025-08-15",
+        "2025-09-15",
+        "2025-10-15",
+        "2025-11-15",
+        "2025-12-15",
+        "2026-01-15",
+        "2026-02-15",
+        "2026-03-15",
+        "2026-04-15",
+        "2026-05-15",
+        "2026-06-15",
+        "2026-07-15"
+      ],
+      "floor": 0.0032766412841844705,
+      "offer_ratio": 24.0,
+      "per_date": {
+        "2025-08-15": 0.001599,
+        "2025-09-15": 0.000385,
+        "2025-10-15": -0.002214,
+        "2025-11-15": -0.015764,
+        "2025-12-15": 0.003909,
+        "2026-01-15": -0.01527,
+        "2026-02-15": 0.000393,
+        "2026-03-15": 0.000402,
+        "2026-04-15": 0.004009,
+        "2026-05-15": -0.00396,
+        "2026-06-15": -0.037894,
+        "2026-07-15": -0.001172
+      },
+      "raw_dispersion": 0.015714219561279753
+    }
+  },
+  "not_evaluated": {},
+  "publication_days_in_window": 207,
+  "spring_forward_days_in_window": [
+    "2026-03-08"
+  ],
+  "stage": "B6-B",
+  "verdicts": {
+    "B6-10": true,
+    "B6-11": true,
+    "B6-12": true,
+    "B6-13": true,
+    "B6-14": true,
+    "B6-15": true,
+    "B6-16": true,
+    "B6-9": true
+  },
+  "voided": {
+    "B6-17": "VOID: the round trip is measured 2021-07-23 to 2025-03-04 and the critical spread it is compared against is measured over B6-A's window from 2025-12-19. The spans do not overlap and cannot be made to: the order book ends before the window opens. The distribution stands as a reading: median 0.0148, p90 0.0392, p99 0.0747, max 0.1214 over 1,321 days"
+  },
+  "window": [
+    "2021-01-01",
+    "2026-08-18"
+  ],
+  "window_span_seconds": {
+    "2026-03-08": 82799
+  },
+  "world_price_digests": {
+    "BNB": "efb8cfa4af31225580af74be4a6de12555feb5dff2048aebfcae2f72a3710f55",
+    "BTC": "49839f18be0d820950ef4dff798123cc799682787274eeceede652b5e2d07150",
+    "TRX": "0a314da9663bf3b71c8cfcf90abe4cc6bf380b318d2cde6daf7c1cff5c467dab"
+  }
+}

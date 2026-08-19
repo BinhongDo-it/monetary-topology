@@ -11,7 +11,7 @@
       "passed": true
     },
     {
-      "detail": "necessary condition holds in all six vintages. Ratio 2,412,840 to 6,765,767; subtract the closed form for leg 1 and it is 2,135,052 to 6,632,539, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of the signal is construction. The threshold was demoted to a readability line rather than a significance test: corr(omega, closed) is +1.0000 in five of six vintages, which makes the residual instrument resolution rather than a sampling distribution",
+      "detail": "necessary condition holds in all six vintages. Ratio 2,412,840 to 6,765,767; subtract the closed form for leg 1 and it is 2,135,051.8 to 6,632,538.5, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of the signal is construction. The threshold was demoted to a readability line rather than a significance test: corr(omega, closed) is +1.0000 in five of six vintages, which makes the residual instrument resolution rather than a sampling distribution. The leg-1 shortfall behind that subtraction is a constant integer month count, n1 - eff of 3.98 to 4.99, and not a proportion; section 21.6's discriminant does not settle it, since flat equals round(eff) on 0.5525 to 0.7137 of loops and on none of the six archives outright, though the residual class that would break the reading is zero at the median in all six. B8-1's verdict does not move on it: section 21.6 registered in advance that removing a quantity 1.2 to 1.6 times the measured leg 1 changes the net ratio by at most 11.5 per cent",
       "name": "B8-1",
       "passed": true
     },
@@ -26,7 +26,7 @@
       "passed": true
     },
     {
-      "detail": "class ordering reproduces on fico_llpa9, the finest grid that clears both gates. Six vintages same direction, sign test p = 0.0312, three significant on their own and surviving equal-n. The loading monotonicity, median Spearman -0.82 and 6/6 negative, is a post-hoc reading and is labelled as one. Of eleven grids only five clear the floor of 20 and hang on the borrower rather than the house or the location, and the comfortable ones among them are the coarse ones",
+      "detail": "class ordering reproduces on fico_llpa9, the finest grid that clears both gates. Six vintages same direction, sign test p = 0.0312, three significant on their own and surviving equal-n. The loading monotonicity, median Spearman -0.82 and 6/6 negative, is a post-hoc reading, is labelled as one, and **no product on disk prints it**: section 3 of b8_4_class.md carries mean rank and span, not a Spearman, so that number is carried by this sheet alone and cannot be checked against the stage's own output (found 2026-08-19 by the number check below). Of eleven grids only five clear the floor of 20 and hang on the borrower rather than the house or the location, and the comfortable ones among them are the coarse ones",
       "name": "B8-4a",
       "passed": true
     },
@@ -51,16 +51,24 @@
   "loops_modification": 49649,
   "n_loans": 2942295,
   "n_rows": 170013011,
-  "note": "B8 writes markdown rather than JSON, so none of its thirty-one products reaches RESULTS.md through the renderer's glob and the stage was absent from this file entirely. This sheet is the bridge. It re-measures nothing: each verdict names the products it is read from, and every one of them must be present on disk or the sheet is not written. The durable repair is for the writers to emit JSON beside each markdown product; until then the guarantee here is that the evidence exists, not that the numbers were extracted from it programmatically.",
+  "note": "B8 writes markdown rather than JSON, so none of its thirty-one products reaches RESULTS.md through the renderer's glob and the stage was absent from this file entirely. This sheet is the bridge. It re-measures nothing: each verdict names the products it is read from, and every one of them must be present on disk or the sheet is not written. The durable repair is for the writers to emit JSON beside each markdown product; until then the guarantee here is that every number quoted below is printed by one of the products that verdict names, checked at the quote's own precision, with the non-readings listed separately and the one number no product carries said so in place.",
+  "numbers_not_read_off_a_product": {
+    "-0.82": "**the one real gap.** The loading monotonicity's median Spearman is printed by no product on disk. Section 3 of b8_4_class.md carries mean rank and span. The detail string says so.",
+    "1.4": "a ratio this sheet forms from two numbers b8_3_paths.md prints separately; no product prints the ratio itself",
+    "2017": "calendar year, the near edge of the Flex window, a definition",
+    "2019": "calendar year, the far edge of the Flex window, a definition"
+  },
   "sources": {
     "B8-0a": [
       "b8_0a_gate.md"
     ],
     "B8-0b": [
-      "b8_0a_gate.md"
+      "b8_0a_gate.md",
+      "b8_0b_floor.md"
     ],
     "B8-1": [
-      "b8_1_signal.md"
+      "b8_1_signal.md",
+      "b8_residue.md"
     ],
     "B8-2": [
       "b8_2_windows.md",

@@ -45,6 +45,17 @@ STAGE_TITLES = {
         "(B8-4b does not run for want of C9, and section 15.3 registers "
         "that as not a failure of the stage)"
     ),
+    # B14 is a gate and not the stage's own question, and the title has to say
+    # so: the invariance claim it was opened for lives on the index half, which
+    # Appendix B.I does not carry. A reader scanning "fourteen of fourteen"
+    # would otherwise take the stage as having tested that claim.
+    "B14": (
+        "B14 — a dated, exogenous, symmetric friction change (the SEC tick "
+        "size pilot). B14-0 only: the friction half moves, on both venues and "
+        "under every weighting convention tried. The invariance claim in "
+        "`docs/b4_directed_edges.md` section 5.1 is about the index half, "
+        "which Appendix B.I does not carry, so this stage does not test it"
+    ),
     "A0": "A0 — retention and allocation",
     "A0b": "A0b — derived demand on the downward edge",
     "A2": "A2 — support-set contraction and the intermediate layer",
@@ -258,6 +269,23 @@ def subtitle(record: dict) -> str:
             f"{record['publication_days']:,} publication days, {start} to {end}, "
             f"`segment_channel={record['segment_channel']}`"
         )
+
+    # B14 is identified by the two windows and the venue-symbol counts, because
+    # neither a round count nor a loan count exists for it and the generic
+    # branch below would print "no sample metadata recorded" for a record that
+    # carries both numbers.
+    if record.get("stage") == "B14":
+        start, end = record["window"]
+        tail = f"{start} to {end}, October 2016 dropped as the pilot's phase-in month"
+        # B14 has more than one record and they do not all carry the venue
+        # counts. The gate does; the order-type robustness record does not, and
+        # keying on the stage while indexing a field only one of them has is how
+        # this function died the first time it met the second record.
+        by = record.get("symbols_by_venue")
+        if not by:
+            return tail
+        venues = ", ".join(f"{k} {v:,}" for k, v in sorted(by.items()))
+        return f"{sum(by.values()):,} venue-symbols ({venues}), {tail}"
 
     bits = []
     for key in ("min_cell_size", "spread_bound", "registered_min_gap", "shapes_drawn"):

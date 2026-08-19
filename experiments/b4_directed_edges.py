@@ -417,6 +417,15 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
     worst_invariance = -np.inf
     worst_friction_move = np.inf
     cases = 0
+    # B4-9. Theorem 6(4), added 2026-08-19: `S` and `S'` are each a directed
+    # four-cycle, so Theorem 4 forces **each** below zero and not merely their
+    # sum, whence `-4 S S' <= 0` and `(S - S')^2 <= (S + S')^2`. The random
+    # fields drawn here do **not** all admit a potential, so the inequality is
+    # not expected to hold on all of them; what is checked is the equivalence
+    # that carries it, `S <= 0 and S' <= 0  <=>  |S - S'| <= -(S + S')`.
+    both_nonpos = 0
+    bound_holds = 0
+    equiv_breaks = 0
 
     for _ in range(20):
         n = int(rng.integers(3, 5))
@@ -444,6 +453,11 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
                     worst_sum = max(worst_sum, abs((s + s_rev) - want_sum))
                     worst_diff = max(worst_diff, abs((s - s_rev) - want_diff))
                     cases += 1
+                    neg = (s <= TOL) and (s_rev <= TOL)
+                    bnd = abs(s - s_rev) <= -(s + s_rev) + TOL
+                    both_nonpos += neg
+                    bound_holds += bnd
+                    equiv_breaks += (neg != bnd)
 
         # A spread common to both classes: added to every leg of every class on
         # every position edge, which is what "the market widened" looks like.
@@ -493,11 +507,22 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
             f"index unchanged to machine precision, below `1e-10`; friction "
             f"moved by at least {worst_friction_move:.3e}",
         ),
+        Criterion(
+            "B4-9  Theorem 6(4): the index part is bounded by the friction part",
+            equiv_breaks == 0 and both_nonpos > 0,
+            f"`S <= 0 and S' <= 0` and `|S-S'| <= -(S+S')` agree on all "
+            f"{cases} squares, {both_nonpos} of which have both cycles "
+            f"non-positive; the bound is what Theorem 4 buys once it is "
+            f"applied to each cycle rather than to their sum",
+        ),
     ], {
         "cases": cases,
         "worst_sum": float(worst_sum),
         "worst_diff": float(worst_diff),
         "worst_invariance": float(worst_invariance),
+        "squares_both_cycles_nonpositive": int(both_nonpos),
+        "squares_satisfying_the_index_bound": int(bound_holds),
+        "equivalence_breaks": int(equiv_breaks),
         "worst_friction_move": float(worst_friction_move),
     }
 

@@ -66,6 +66,17 @@ direction only — is `H⁰`, not `H¹`. §5.2 states the criterion for telling 
 one is in front of you, because `b1_theorem.md` §12.1 records this project
 conflating the two once already.
 
+**Update 2026-08-19: the split has been computed on real data, and both halves
+this time.** B5 could report `S − S'` and never `S + S'`, because no source for
+the official rate's spread survived audit (`results/b5_friction.json`), which is
+§5.2's one-way case arriving in practice. B13's carrier quotes all four legs
+natively, so on CME calendar spreads the implied book supplies one pair and the
+directly quoted book the other. **Over 49,116 states the friction half is never
+positive**, which is Theorem 6(1) and, through Theorem 4, the statement that
+`P(ω)` is non-empty at every one of them. Readings and their limits:
+`claude/B13_结果_v1.md` §13. **§5.1's invariance claim is still unmeasured** and
+needs a dated friction change common to both classes; see §9.
+
 ---
 
 ## 1. Where Theorem 1's proof actually breaks
@@ -258,6 +269,35 @@ exact. Conversely if `ω̄ ≡ 0` and `ŵ = d⁰φ` then that `φ` has all slack
 `ω(v,u) = −ω(u,v) ≤ φ(u) − φ(v)` is the single equality
 `ω(u,v) = φ(v) − φ(u)`. The hypotheses of Theorem 1 are then met on the
 undirected graph and its statement applies unchanged. ∎
+
+**Theorem 6(4).** Added 2026-08-19. Under the hypotheses of Theorem 6, on the
+directed square of section 5.1,
+
+```
+|S - S'|  <=  -(S + S')          equality iff one of S, S' is zero
+```
+
+**Proof.** `S` and `S'` are each a directed four-cycle, so Theorem 4 forces each
+of them below zero and not merely their sum. From `S <= 0` and `S' <= 0`,
+`-4 S S' <= 0`, hence `(S - S')^2 <= (S + S')^2`, and both sides of the claim
+are non-negative. Equality holds iff `S S' = 0`. ∎
+
+**Read it.** The index part is bounded by the friction part, so the ratio
+`rho := |S - S'| / -(S + S')` lives in `[0, 1]`. Two consequences that section
+5.1's invariance claim has to be tested against:
+
+- **The invariance test is run against a ceiling that moves.** A friction common
+  to both classes raises `-(S + S')` and so loosens the bound on `S - S'`.
+  "Friction widened and the index did not move" is a real pass, because the
+  index had room and did not use it. "The index widened in proportion" is not
+  adjudicable, because the ceiling moved too.
+- **So the quantity to pre-register is `rho`, not `S - S'`.** Invariance predicts
+  `rho` **falls** when a common friction widens. Friction leaking into the index
+  predicts `rho` stays put.
+
+Checked in code as B4-9 and measured on B13's carrier: 49,116 states, zero
+violations, `rho` median `0.2000`, and no state at `rho = 1`
+(`claude/B13_结果_v1.md` section 14).
 
 **This is the reduction check the repository demands**: a generalisation that
 does not reproduce the special case is not a generalisation. Setting `ω̄ ≡ 0`
@@ -455,12 +495,58 @@ representation.
 `tests/test_b4_directed.py` carries 23 unit tests on hand-built graphs, where the
 answer can be read off by eye rather than trusted from a draw.
 
+**Those eight check the code. One of the theorems has since been checked against
+the world.** `experiments/b4_split_probe.py` computes §5.1's two halves on B13's
+carrier and finds the friction half non-positive in **49,116 of 49,116** states,
+with the split available in `98.1%` of events. B4-5 and B4-7 are the synthetic
+versions of that; this is the same statement with the numbers coming from CME
+rather than from a draw. **It is not a stage and it is not registered here**;
+`claude/B13_结果_v1.md` §13 carries it, including the two things it does not buy.
+
 ---
 
 ## 9. What this document does not do
 
-**It does not measure anything.** No stage is opened by it and no number in it
-comes from the world.
+**It does not measure anything, and that stayed true of this document.** No
+stage is opened by it and no number *in it* comes from the world.
+
+**Amended 2026-08-19.** What is no longer true is the wider reading, that the
+split defined here had no measurement anywhere. It has one:
+`experiments/b4_split_probe.py` on B13's carrier, reported in
+`claude/B13_结果_v1.md` §13. **The document still measures nothing. What the
+repository no longer does is carry §5.1's split as an unmeasured construction:
+its friction half now has 49,116 readings from a live venue, and its sign
+constraint has been checked against them.** Two limits travel with that
+measurement and are restated here so this section is not read as more than it is:
+
+- **§5.1's invariance claim is untested.** That a friction common to both classes
+  moves `S + S'` and leaves `S − S'` alone is verified in code (B4-8) and is a
+  property of the decomposition. **Testing it against the world needs a dated
+  friction change that hits both classes equally**, and no carrier has been
+  audited for one. Naturally occurring co-movement of the two spreads will not
+  serve: it is driven by the same information that moves the index.
+- **Whether an implied book and a directly quoted book are two agent classes in
+  the sense of §5.1 has been adjudicated, per position edge, on 2026-08-19**
+  (`claude/B13_结果_v1.md` §14). §5.1 hands over its own operational criterion:
+  `S − S'` is zero exactly when the two classes face the same antisymmetric
+  terms. Applied under a parity control (index and friction always share parity,
+  so a zero index is not available on 54.4% of states and a non-zero index there
+  is arithmetic rather than evidence), the eight edges split three ways:
+  `CLU3-CLV3` gives **716 of 716** states with the index exactly zero wherever
+  parity allowed it, so on that edge the two books are **one class**; `RBU3-RBX3`
+  and `RBU3-RBV3` take the zero in only 4.5% and 8.2% of the states where it was
+  available and their non-zero residual is 97.5% and 98.9% one-signed, so on
+  those two edges they are **two classes** and the §13 measurement supports a
+  claim about `ŵ` there; the five remaining CL edges sit between. **The interpretive question is settled too, on 2026-08-19**: a class is
+  defined by behaviour and by the feasible decision set, **not** by whether a
+  decision-maker stands behind it. Different people making different decisions
+  can be one class; the dividing line is **an independent degree of freedom
+  relative to the other class**, not personhood. The implied quote is fixed by
+  the legs and the direct quote by the spread contract's own market, so the two
+  are fed from different places; **had they been fed from the same place `S − S'`
+  would be identically zero**, and it is not. The persistent non-zero *is* the
+  evidence of the independent freedom, so no separate argument is needed and
+  §5.1's construction reaches this carrier in full.
 
 **It does not license the orphan-currency stage.** It removes the blocker
 `PROJECT_PLAN.md` §9.5 records, and it replaces it with a narrower one: the

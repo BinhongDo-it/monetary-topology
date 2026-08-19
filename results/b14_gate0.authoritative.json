@@ -1,0 +1,579 @@
+{
+  "criteria": [
+    {
+      "detail": "G1 +0.515392 over 115 symbols, C +0.120200 over 338, margin +0.395193",
+      "name": "B14-0  G1 on venue N: median delta exceeds control",
+      "passed": true
+    },
+    {
+      "detail": "G2 +0.399441 over 112 symbols, C +0.120200 over 338, margin +0.279242",
+      "name": "B14-0  G2 on venue N: median delta exceeds control",
+      "passed": true
+    },
+    {
+      "detail": "G3 +0.454552 over 114 symbols, C +0.120200 over 338, margin +0.334352",
+      "name": "B14-0  G3 on venue N: median delta exceeds control",
+      "passed": true
+    },
+    {
+      "detail": "G1 +0.158091 over 375 symbols, C +0.068396 over 1117, margin +0.089695",
+      "name": "B14-0  G1 on venue P: median delta exceeds control",
+      "passed": true
+    },
+    {
+      "detail": "G2 +0.172069 over 369 symbols, C +0.068396 over 1117, margin +0.103673",
+      "name": "B14-0  G2 on venue P: median delta exceeds control",
+      "passed": true
+    },
+    {
+      "detail": "G3 +0.178484 over 375 symbols, C +0.068396 over 1117, margin +0.110088",
+      "name": "B14-0  G3 on venue P: median delta exceeds control",
+      "passed": true
+    },
+    {
+      "detail": "share-weighted verdict PASS, order-count-weighted verdict PASS (design file D3-3: disagreement makes the gate unadjudicable)",
+      "name": "B14-0  the verdict does not turn on the weighting convention",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.411207; design file section 4 excludes this from the verdict",
+      "diagnostic": true,
+      "name": "B14-0  cross-check on the consolidated spread: G1 on N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.307160; design file section 4 excludes this from the verdict",
+      "diagnostic": true,
+      "name": "B14-0  cross-check on the consolidated spread: G2 on N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.389522; design file section 4 excludes this from the verdict",
+      "diagnostic": true,
+      "name": "B14-0  cross-check on the consolidated spread: G3 on N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.198421; design file section 4 excludes this from the verdict",
+      "diagnostic": true,
+      "name": "B14-0  cross-check on the consolidated spread: G1 on P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.174114; design file section 4 excludes this from the verdict",
+      "diagnostic": true,
+      "name": "B14-0  cross-check on the consolidated spread: G2 on P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.190323; design file section 4 excludes this from the verdict",
+      "diagnostic": true,
+      "name": "B14-0  cross-check on the consolidated spread: G3 on P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.398135 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "name": "B14-0/T5  adverse convention, G1 on venue N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.282184 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "name": "B14-0/T5  adverse convention, G2 on venue N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.337295 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "name": "B14-0/T5  adverse convention, G3 on venue N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.062282 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "name": "B14-0/T5  adverse convention, G1 on venue P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.084684 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "name": "B14-0/T5  adverse convention, G2 on venue P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.076010 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "name": "B14-0/T5  adverse convention, G3 on venue P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.390106; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "diagnostic": true,
+      "name": "B14-0/T6  blanks and zeros both forced to zero, G1 on venue N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.281569; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "diagnostic": true,
+      "name": "B14-0/T6  blanks and zeros both forced to zero, G2 on venue N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.321898; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "diagnostic": true,
+      "name": "B14-0/T6  blanks and zeros both forced to zero, G3 on venue N",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.029276; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "diagnostic": true,
+      "name": "B14-0/T6  blanks and zeros both forced to zero, G1 on venue P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.025477; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "diagnostic": true,
+      "name": "B14-0/T6  blanks and zeros both forced to zero, G2 on venue P",
+      "passed": true
+    },
+    {
+      "detail": "margin +0.023019; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "diagnostic": true,
+      "name": "B14-0/T6  blanks and zeros both forced to zero, G3 on venue P",
+      "passed": true
+    },
+    {
+      "detail": "6 margins compared, 0 differ",
+      "name": "B14-0  the six registered margins reproduce on the v2 cache",
+      "passed": true
+    }
+  ],
+  "derived": {
+    "median_delta_N_C": 0.12019951093554693,
+    "median_delta_N_G1": 0.5153920161901762,
+    "median_delta_N_G2": 0.399441321906432,
+    "median_delta_N_G3": 0.45455177273372627,
+    "median_delta_P_C": 0.06839626375336105,
+    "median_delta_P_G1": 0.15809110841366647,
+    "median_delta_P_G2": 0.1720688933596346,
+    "median_delta_P_G3": 0.17848449166200453
+  },
+  "measures": {
+    "bbo_cnt": {
+      "desc": "权重口径核：WA_BBO_Spd 按笔数加权",
+      "inequalities": [
+        {
+          "ctr": "N",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.4393659706654549
+        },
+        {
+          "ctr": "N",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.2955393100200914
+        },
+        {
+          "ctr": "N",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.3844630776101391
+        },
+        {
+          "ctr": "P",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.09331436018659844
+        },
+        {
+          "ctr": "P",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.09648329555332116
+        },
+        {
+          "ctr": "P",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.07340982640859584
+        }
+      ],
+      "table": {
+        "N/C": {
+          "delta": 0.08890828113121052,
+          "n": 338
+        },
+        "N/G1": {
+          "delta": 0.5282742517966654,
+          "n": 115
+        },
+        "N/G2": {
+          "delta": 0.3844475911513019,
+          "n": 112
+        },
+        "N/G3": {
+          "delta": 0.4733713587413496,
+          "n": 114
+        },
+        "P/C": {
+          "delta": 0.09613397565603998,
+          "n": 1117
+        },
+        "P/G1": {
+          "delta": 0.18944833584263843,
+          "n": 375
+        },
+        "P/G2": {
+          "delta": 0.19261727120936115,
+          "n": 369
+        },
+        "P/G3": {
+          "delta": 0.16954380206463582,
+          "n": 375
+        }
+      }
+    },
+    "bbo_shr": {
+      "desc": "主口径：WA_BBO_Spd 按股数加权",
+      "inequalities": [
+        {
+          "ctr": "N",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.39519250525462923
+        },
+        {
+          "ctr": "N",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.2792418109708851
+        },
+        {
+          "ctr": "N",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.33435226179817934
+        },
+        {
+          "ctr": "P",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.08969484466030542
+        },
+        {
+          "ctr": "P",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.10367262960627355
+        },
+        {
+          "ctr": "P",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.11008822790864348
+        }
+      ],
+      "table": {
+        "N/C": {
+          "delta": 0.12019951093554693,
+          "n": 338
+        },
+        "N/G1": {
+          "delta": 0.5153920161901762,
+          "n": 115
+        },
+        "N/G2": {
+          "delta": 0.399441321906432,
+          "n": 112
+        },
+        "N/G3": {
+          "delta": 0.45455177273372627,
+          "n": 114
+        },
+        "P/C": {
+          "delta": 0.06839626375336105,
+          "n": 1117
+        },
+        "P/G1": {
+          "delta": 0.15809110841366647,
+          "n": 375
+        },
+        "P/G2": {
+          "delta": 0.1720688933596346,
+          "n": 369
+        },
+        "P/G3": {
+          "delta": 0.17848449166200453,
+          "n": 375
+        }
+      }
+    },
+    "bbo_shr_adv": {
+      "desc": "T5 对抗口径：零价差行按真实股数权重当作价差为零收进来（设计件 §4·补1）",
+      "inequalities": [
+        {
+          "ctr": "N",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.39813492986684085
+        },
+        {
+          "ctr": "N",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.2821842355830967
+        },
+        {
+          "ctr": "N",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.33729468641039095
+        },
+        {
+          "ctr": "P",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.06228229373247385
+        },
+        {
+          "ctr": "P",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.08468416903311476
+        },
+        {
+          "ctr": "P",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.07601029021444616
+        }
+      ],
+      "table": {
+        "N/C": {
+          "delta": 0.11725708632333531,
+          "n": 338
+        },
+        "N/G1": {
+          "delta": 0.5153920161901762,
+          "n": 115
+        },
+        "N/G2": {
+          "delta": 0.399441321906432,
+          "n": 112
+        },
+        "N/G3": {
+          "delta": 0.45455177273372627,
+          "n": 114
+        },
+        "P/C": {
+          "delta": 0.08422284681159797,
+          "n": 1117
+        },
+        "P/G1": {
+          "delta": 0.14650514054407182,
+          "n": 375
+        },
+        "P/G2": {
+          "delta": 0.16890701584471274,
+          "n": 369
+        },
+        "P/G3": {
+          "delta": 0.16023313702604414,
+          "n": 375
+        }
+      }
+    },
+    "bbo_shr_adv2": {
+      "desc": "T6 算术敏感度：零与空都按真实股数权重当作价差为零收进来（设计件 §4·补2）",
+      "inequalities": [
+        {
+          "ctr": "N",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.3901057515372681
+        },
+        {
+          "ctr": "N",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.281568980830885
+        },
+        {
+          "ctr": "N",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.3218980247201423
+        },
+        {
+          "ctr": "P",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.029275789211918868
+        },
+        {
+          "ctr": "P",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.025476535860516236
+        },
+        {
+          "ctr": "P",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.023018622717505696
+        }
+      ],
+      "table": {
+        "N/C": {
+          "delta": 0.12434949832576159,
+          "n": 338
+        },
+        "N/G1": {
+          "delta": 0.5144552498630297,
+          "n": 115
+        },
+        "N/G2": {
+          "delta": 0.4059184791566466,
+          "n": 112
+        },
+        "N/G3": {
+          "delta": 0.44624752304590387,
+          "n": 114
+        },
+        "P/C": {
+          "delta": 0.0921014757994556,
+          "n": 1117
+        },
+        "P/G1": {
+          "delta": 0.12137726501137447,
+          "n": 375
+        },
+        "P/G2": {
+          "delta": 0.11757801165997184,
+          "n": 369
+        },
+        "P/G3": {
+          "delta": 0.1151200985169613,
+          "n": 375
+        }
+      }
+    },
+    "nbbo_shr": {
+      "desc": "旁证：WA_NBBO_Spd 按股数加权，不参与裁定",
+      "inequalities": [
+        {
+          "ctr": "N",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.4112069743154283
+        },
+        {
+          "ctr": "N",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.3071598917732261
+        },
+        {
+          "ctr": "N",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.38952219492797435
+        },
+        {
+          "ctr": "P",
+          "grp": "G1",
+          "holds": true,
+          "margin": 0.19842066965199145
+        },
+        {
+          "ctr": "P",
+          "grp": "G2",
+          "holds": true,
+          "margin": 0.17411419980009502
+        },
+        {
+          "ctr": "P",
+          "grp": "G3",
+          "holds": true,
+          "margin": 0.19032309927802615
+        }
+      ],
+      "table": {
+        "N/C": {
+          "delta": 0.2110911711718937,
+          "n": 338
+        },
+        "N/G1": {
+          "delta": 0.622298145487322,
+          "n": 115
+        },
+        "N/G2": {
+          "delta": 0.5182510629451198,
+          "n": 112
+        },
+        "N/G3": {
+          "delta": 0.600613366099868,
+          "n": 114
+        },
+        "P/C": {
+          "delta": 0.05536916791454427,
+          "n": 1165
+        },
+        "P/G1": {
+          "delta": 0.2537898375665357,
+          "n": 389
+        },
+        "P/G2": {
+          "delta": 0.22948336771463929,
+          "n": 381
+        },
+        "P/G3": {
+          "delta": 0.24569226719257042,
+          "n": 388
+        }
+      }
+    }
+  },
+  "min_days": 10,
+  "post": [
+    "20161101",
+    "20161231"
+  ],
+  "pre": [
+    "20160801",
+    "20160930"
+  ],
+  "reproduction_check": {
+    "checked": 6,
+    "diffs": [],
+    "identical": true
+  },
+  "stage": "B14",
+  "symbols_by_venue": {
+    "N": 679,
+    "P": 2236
+  },
+  "t5": {
+    "failing": [],
+    "measure": "bbo_shr_adv",
+    "settled": true
+  },
+  "t6": {
+    "all_hold": true,
+    "failing": [],
+    "measure": "bbo_shr_adv2",
+    "note": "blanks are states with no quote, i.e. the widest kind; imputing them at zero is a bound on the arithmetic and not on the world, so a failure here is not a threat to B14-0 (design file section 4 supplement 2)"
+  },
+  "verdict": {
+    "B14-0": "PASS",
+    "per_measure": {
+      "bbo_cnt": true,
+      "bbo_shr": true,
+      "bbo_shr_adv": true,
+      "bbo_shr_adv2": true,
+      "nbbo_shr": true
+    },
+    "primary": "bbo_shr",
+    "weight_agrees": true
+  },
+  "window": [
+    "20160801",
+    "20161231"
+  ]
+}

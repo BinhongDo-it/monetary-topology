@@ -1812,6 +1812,14 @@ def measured(tickers: list[str]) -> dict:
         cons = med([r["best"] / r["fq"] for r in calm])       # conservative
         gene = med([r["worst"] / r["fsd"] for r in calm])      # generous
         plain = med([r["hi"] / r["fq"] for r in calm])         # f = 0, quantum
+        # Section 4.2b. `plain` divides by the grid **step**, which is twice the
+        # largest error a step-q grid can produce and sqrt(12) times its standard
+        # deviation. **Both are reported and neither changes a verdict**: the
+        # index end is 11/11 on either. Reported side by side rather than swapped
+        # because the floor was already changed once, in section 24, and a second
+        # change made after seeing the readings has to let the reader do the
+        # comparison. `gene` is not this quantity: it swaps the numerator too.
+        plain_sd = med([r["hi"] / r["fsd"] for r in calm])     # f = 0, sd
 
         fq_calm_med = med([r["fq"] for r in calm])
         a2_var_c = med([r["hi"] / r["fq"] for r in calm])
@@ -1823,6 +1831,15 @@ def measured(tickers: list[str]) -> dict:
         rec = {
             "n_calm": len(calm), "n_stress": len(strs),
             "a1_conservative": cons, "a1_generous": gene, "a1_f0_quantum": plain,
+            "a1_f0_sd": plain_sd,
+            "a1_f0_sd_note": (
+                "same numerator and same fund-days as a1_f0_quantum, dividing by "
+                "the standard deviation of the quantisation error rather than by "
+                "the grid step. Exactly sqrt(12) larger by construction. Section "
+                "4.2b of the design file: neither column changes a verdict, and "
+                "the test that rules quantisation out (B9-24-2, the tick spans "
+                "15.83x while |lambda| spans 1.42x) does not use a floor at all."
+            ),
             "a1_verdict": ("resolvable" if cons and cons > 1.0
                            else "not_resolvable_at_the_conservative_corner"),
             "a2_ratio_varying_floor": (a2_var_s / a2_var_c) if a2_var_c else None,
@@ -1833,7 +1850,8 @@ def measured(tickers: list[str]) -> dict:
             "floor_quantum_bp_median": 1e4 * fq_calm_med,
         }
         out[t] = rec
-        print(f"{t:6s} A1 cons={cons:6.2f} f0={plain:6.2f} gen={gene:7.2f}  "
+        print(f"{t:6s} A1 cons={cons:6.2f} f0={plain:6.2f} f0sd={plain_sd:7.2f} "
+              f"gen={gene:7.2f}  "
               f"{rec['a1_verdict'][:11]:11s} | A2 var={rec['a2_ratio_varying_floor']:.3f}"
               f"{'UP' if rec['a2_rises_varying'] else 'dn':>3s} "
               f"frozen={rec['a2_ratio_frozen_floor']:.3f}"
@@ -2065,6 +2083,19 @@ def selftest() -> int:
     check("the rounding standard deviation is the quantum over root twelve",
           abs(floor_measurement(50.0, "sd") * math.sqrt(12) -
               floor_measurement(50.0)) < 1e-15)
+    # Section 4.2b. **The step is not the standard deviation**, and for a long
+    # time only the step was reported. These three fix the arithmetic that made
+    # the headline look like it hung on XLRE's 1.050.
+    check("the grid step is twice the largest error the grid can produce",
+          abs(floor_measurement(50.0) / (floor_measurement(50.0) / 2) - 2.0)
+          < 1e-15)
+    check("the step floor is conservative by sqrt(12) against the sd floor",
+          abs(floor_measurement(50.0) / floor_measurement(50.0, "sd")
+              - math.sqrt(12)) < 1e-12,
+          f"{floor_measurement(50.0) / floor_measurement(50.0, 'sd'):.4f}")
+    check("XLRE's 1.050 and XLK's 5.083 both clear 1 on the sd floor too",
+          1.050 * math.sqrt(12) > 3.6 and 5.083 * math.sqrt(12) > 17.6,
+          f"{1.050 * math.sqrt(12):.2f} to {5.083 * math.sqrt(12):.2f}")
     check("the measurement floor falls when the price rises, as a floor must",
           floor_measurement(200.0) < floor_measurement(50.0))
     # §24.3's logic, made into an assertion rather than a paragraph
