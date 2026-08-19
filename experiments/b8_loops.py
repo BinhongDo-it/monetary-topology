@@ -2,7 +2,7 @@
 """B8 loop assembly, block one: **the windows only. No ``omega`` is computed.**
 
 Registered in ``docs/b8_fannie_slice.md`` §17 and
-``claude-docs/B8_环窗口与曲线规则_预注册_v1.md``. **Reads no prediction.**
+the B8 loop-window and curve-rule pre-registration (outside this repository). **Reads no prediction.**
 
 --------------------------------------------------------------------------
 What this block does and, more importantly, what it does not
@@ -542,7 +542,7 @@ EXPECT = {
 #: What they give is a contract period with enough quiet months for
 #: `b8_omega.contract_payments` to estimate a payment from, without which
 #: **every loop in this fixture is unmeasurable and `b8_loop_omega`'s
-#: end-to-end run is over an empty set** (坑 23's family: a distribution over
+#: end-to-end run is over an empty set** (pit 23's family: a distribution over
 #: nothing prints exactly like a measured one).
 #:
 #: `MIN_QUIET_FOR_PAYMENT` is 2 and `modal_cluster` wants a mode, so eight is

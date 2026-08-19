@@ -299,8 +299,8 @@ def depth(tickers: list[str]) -> dict:
         OUT.parent.mkdir(parents=True, exist_ok=True)
         OUT.write_text(json.dumps(
             {"diagnostic_only": True,
-             "diagnostic_reason": "§10 第 3 步的 --depth。只印连接的对账与列的原始分布，"
-                                  "不算 ω、不算 λ、不算 π，不读任何一条预测。",
+             "diagnostic_reason": "the --depth of step 3 in section 10. prints only the join reconciliation and the raw column distributions; "
+                                  "computes no ω, no λ and no π, and reads no prediction.",
              "stage": "B9-A", "funds": out},
             sort_keys=True, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8", newline="\n")
@@ -404,8 +404,8 @@ def gate(tickers: list[str]) -> dict:
                             "a NaN fee survives the loop sum",
                             "the cochain agrees with an independent expression"],
            "funds": per_fund,
-           "note": "退化环 cash→etf→cash 走 path_sum，费用传 NaN，"
-                   "所以任何一次误走含费边都会得到 NaN 而不是零。"}
+           "note": "the degenerate loop cash→etf→cash goes through path_sum with the fee passed as NaN, "
+                   "so any accidental traversal of a fee-bearing edge yields NaN rather than zero."}
     GATE_OUT.parent.mkdir(parents=True, exist_ok=True)
     GATE_OUT.write_text(json.dumps(rec, sort_keys=True, ensure_ascii=False,
                                    indent=2) + "\n", encoding="utf-8", newline="\n")
@@ -621,8 +621,8 @@ def f1_audit(tickers: list[str]) -> dict:
         F1_OUT.parent.mkdir(parents=True, exist_ok=True)
         F1_OUT.write_text(json.dumps(
             {"stage": "B9-A F1", "diagnostic_only": True,
-             "diagnostic_reason": "§5 的 F1 可通行性审计。阈值是扫描不是选定"
-                                  "（纪律 8）。不算 ω、不算 λ。",
+             "diagnostic_reason": "section 5's F1 traversability audit. the threshold is swept, not chosen"
+                                  " (engineering rule 8). computes no ω and no λ.",
              "window_trading_days": F1_WINDOW,
              "thresholds": F1_THRESHOLDS, "funds": out},
             sort_keys=True, ensure_ascii=False, indent=2) + "\n",
@@ -895,14 +895,78 @@ def midpoint_grid_check(tickers: list[str]) -> dict:
           "group the second number is far below the first, so it does not.**")
     print("       **The comparison arm is not a test of this**: its λ is "
           "dominated by stale NAV, which §6.1 registered as a confound.")
+    # --- the record, and why it is not a diagnostic ------------------------
+    # **Flipped 2026-08-18, the author ruled.** This record carried
+    # `diagnostic_only: True` with the reason "reads no prediction", which is
+    # true and is **not this field's test**. the project's engineering rule 8 fixes the field
+    # as "the numbers in this record are not this stage's licensed readings",
+    # and these two are: §24.1 is what identifies the disclosed price as the
+    # closing NBBO midpoint, and §24.3 is what rejects the quantisation account.
+    # **Scoring no registered prediction and not being a licensed reading are
+    # different things**, and §24 is the case that separates them: it exists
+    # because §4 was found to be wrong, so there was no prediction of it to
+    # score, which the project's engineering rule 8 allows for exactly this shape.
+    #
+    # **The criteria below are written after the data and say so.** Both could
+    # have failed and the second one does fail on the wrong sample, which is
+    # what the third entry is for.
+    us = [t for t in out if t in US_EQUITY]
+    tk = [out[t]["tick_bp"] for t in us]
+    lm = [out[t]["median_abs_lambda_bp"] for t in us]
+    tick_span, lam_span = max(tk) / min(tk), max(lm) / min(lm)
+    all_tk = [out[t]["tick_bp"] for t in out]
+    all_lm = [out[t]["median_abs_lambda_bp"] for t in out]
+    pooled_tick, pooled_lam = max(all_tk) / min(all_tk), max(all_lm) / min(all_lm)
+    n_prices = sum(v["n"] for v in out.values())
+    worst_off = max(v["off_grid"] for v in out.values())
+    criteria = [
+        {"name": "B9-24-1  the disclosed price is a half-cent midpoint",
+         "passed": worst_off == 0.0,
+         "detail": (f"off-grid share = {worst_off:.3f} across {len(out)} funds "
+                    f"and {n_prices} reconstructed closes. Half a cent is not a "
+                    f"price a trade can print at, so P is the closing NBBO "
+                    f"midpoint and the reconstruction is exact rather than "
+                    f"approximate. **Written after the data** (§24 exists "
+                    f"because §4 was wrong); it could have failed, and a "
+                    f"non-zero here would mean λ is not what this stage thinks")},
+        {"name": "B9-24-2  |λ| does not scale with the tick, so it is not quantisation",
+         "passed": lam_span < tick_span,
+         "detail": (f"on the {len(us)} US-listed equity funds the tick spans "
+                    f"{tick_span:.2f}x while |λ| spans {lam_span:.2f}x. "
+                    f"Quantisation noise must scale with the quantum. SPY "
+                    f"carries the point alone: its tick is the finest in the "
+                    f"group and its |λ| is the same 1.7 bp as the rest")},
+        {"name": "B9-24-3  the same comparison inverts when the stale-NAV arm is pooled in",
+         "passed": pooled_lam > lam_span,
+         "diagnostic": True,
+         "detail": (f"all {len(out)} funds: tick spans {pooled_tick:.2f}x, "
+                    f"|λ| spans {pooled_lam:.2f}x, which reads as quantisation "
+                    f"confirmed. It is SPDW, SPEM and JNK carrying 11 to 39 bp "
+                    f"of stale-NAV premium, a confound §6.1 registered before "
+                    f"any of this ran. **This entry is here to show B9-24-2 "
+                    f"could have failed**, and the first version of this run "
+                    f"printed exactly this pooled line")},
+    ]
     FM_OUT.parent.mkdir(parents=True, exist_ok=True)
     FM_OUT.write_text(json.dumps(
-        {"stage": "B9-A §24", "diagnostic_only": True,
-         "diagnostic_reason": "§24.1 的网格检验与 §24.3 的跨基金比较。不读任何预测。",
+        {"stage": "B9-A §24", "diagnostic_only": False,
+         "criteria": criteria,
+         "post_hoc_note": ("§24 was written after §18 to §23, as the diagnosis "
+                           "of a defect in §4, so neither criterion was "
+                           "pre-registered. the project's engineering rule 8 covers this "
+                           "shape: a pre-registration that could not have been "
+                           "written without seeing the data is written after "
+                           "it. Both are stated with the alternative they "
+                           "could have returned."),
          "midpoint_grid_usd": MIDPOINT_GRID_USD, "funds": out},
         sort_keys=True, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8", newline="\n")
     print(f"wrote {FM_OUT.relative_to(ROOT)}")
+    print(f"§24     criteria: {sum(1 for c in criteria if not c.get('diagnostic') and c['passed'])}"
+          f"/{sum(1 for c in criteria if not c.get('diagnostic'))} live passed, "
+          f"1 diagnostic. **This record is no longer diagnostic_only** (the author "
+          f"2026-08-18): it carries the grid identification and the "
+          f"quantisation rejection, and both are licensed readings.")
     return out
 SPREAD_QUANTUM = 0.0001        # one basis point, §17.1
 F1_TAU = 50_000                # §16.2
@@ -1596,7 +1660,7 @@ def pi_check(tickers: list[str]) -> dict:
     PI_OUT_P.parent.mkdir(parents=True, exist_ok=True)
     PI_OUT_P.write_text(json.dumps(
         {"stage": "B9-A-4 derivation check", "diagnostic_only": True,
-         "diagnostic_reason": "§22.4：本跑检验 §22.2 的推导，不检验世界。",
+         "diagnostic_reason": "section 22.4: this run tests the derivation in section 22.2, not the world.",
          "funds": out}, sort_keys=True, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8", newline="\n")
     print(f"wrote {PI_OUT_P.relative_to(ROOT)}")
@@ -2232,6 +2296,39 @@ def selftest() -> int:
           50_000 in F1_THRESHOLDS)
 
     print("§31: the identity that ties D1 to D1b, and its four cells")
+    # **A regression guard on a revert, and it is registered as that rather
+    # than as a test of the world.** The shipped divisor was `se_stress` alone
+    # for four sections. These two lines fire on any version that goes back to
+    # it: on the real pair counts the two divisors differ by `39%`, which is
+    # the whole of the correction. **They say nothing about the data**, and
+    # §49's lesson is that a check whose only property is being true is not a
+    # check, so what they are is written here rather than implied.
+    _SE_C, _SE_S, _D = 1.0 / math.sqrt(209), 1.0 / math.sqrt(194), 0.069132
+    check("the difference's se is the root sum of squares, not either end's",
+          abs(_se_of_difference(_SE_C, _SE_S)
+              - math.sqrt(_SE_C ** 2 + _SE_S ** 2)) < 1e-15
+          and _se_of_difference(_SE_C, _SE_S) > 1.35 * max(_SE_C, _SE_S),
+          f"se(diff)={_se_of_difference(_SE_C, _SE_S):.4f} against "
+          f"se_stress={_SE_S:.4f}")
+    check("the corrected divisor moves d(rho_c) off 0.96 and onto 0.69",
+          abs(_D / _se_of_difference(_SE_C, _SE_S) - 0.693) < 0.002
+          and abs(_D / _SE_S - 0.963) < 0.002,
+          "the wrong divisor is kept here on purpose so a revert fails")
+    check("a missing end gives no difference se rather than a wrong one",
+          _se_of_difference(None, _SE_S) is None
+          and _se_of_difference(_SE_C, None) is None)
+    # **This one bites on the divergence, and it fired on the first print.**
+    # `8 / d^2` on the `recon` arm's `d = 9.7e-05` returns `859,039,612` pairs.
+    # The flag beside it has to be false there and true nowhere near it.
+    _SD = _se_of_difference(_SE_C, _SE_S)
+    check("the window figure diverges as the difference goes to zero",
+          8.0 / (9.7e-05 ** 2) > 8.0e8 and 8.0 / (_D ** 2) < 2.0e3,
+          f"recon-shaped {8.0 / (9.7e-05 ** 2):.3e} against "
+          f"main-shaped {8.0 / (_D ** 2):.0f}")
+    check("the flag reads the estimate against its own se, not a constant",
+          (_D / _SD >= 1.0) is False and (0.15 / _SD >= 1.0) is True,
+          f"0.0691 is {_D / _SD:.2f} se so the flag is false; "
+          f"0.15 is {0.15 / _SD:.2f} se so it is true")
     check("§31.5's table has exactly the four sign cells",
           len(DECOMP_CELLS) == 4 and set(DECOMP_CELLS) ==
           {(a, b) for a in ("rises", "falls")
@@ -2592,6 +2689,25 @@ def _var(xs):
     return sum((x - m) ** 2 for x in xs) / n
 
 
+def _se_of_difference(se_a, se_b):
+    """The standard error of `a - b` when `a` and `b` are estimated on disjoint
+    samples.
+
+    **One place, because the two callers of this quantity drifted apart into
+    one caller using the wrong divisor.** `rho_c` is estimated twice, once on
+    the calm pairs and once on the stress pairs, and those two sets partition
+    the consecutive pairs of the window. Neither estimate is a known constant
+    to the other, so the difference carries both sampling errors and its
+    standard error is the root sum of squares, about `1.41x` either end's.
+
+    Returns `None` if either end is missing, which is the same convention every
+    other quantity in this module uses.
+    """
+    if se_a is None or se_b is None:
+        return None
+    return math.sqrt(se_a ** 2 + se_b ** 2)
+
+
 def market_day_order(series, main):
     """§15.2 says the main arm shares a trading calendar over the connect
     window. **It does not say the funds share an index.** `order` is a row
@@ -2725,6 +2841,40 @@ def decomp(tickers: list[str]) -> dict:
 
     d_rho = (None if None in (head["calm"]["rho_c"], head["stress"]["rho_c"])
              else head["stress"]["rho_c"] - head["calm"]["rho_c"])
+    # **The divisor, corrected 2026-08-18.** `Delta rho_c` is a difference of two
+    # lag-one correlations estimated on **disjoint** pair sets: calm and stress
+    # partition the consecutive pairs, `209 + 194 = 403 = 404 - 1`. Its standard
+    # error is therefore `sqrt(se_calm^2 + se_stress^2)`, about `1.41x` either
+    # end's. The earlier line divided by `se_stress` alone, which treats the
+    # calm estimate as a known constant. It is not one, and the stage carried
+    # `0.96 se` through four sections on that arithmetic; the difference's own
+    # standard error gives `0.69`.
+    #
+    # **The consequence is not the ratio, it is the window.** Two standard
+    # errors on the difference needs `se_diff <= |d| / 2`, and with equal `n`
+    # per regime `se_diff = sqrt(2/n)`, hence `n = 8 / d^2` pairs per regime and
+    # twice that in trading days. On `d = 0.0691` that is about `1,674` and
+    # `3,348`, against the `837` and `1,600` the single-end divisor implied.
+    se_d_rho = _se_of_difference(head["calm"]["se_rho_c"],
+                                 head["stress"]["se_rho_c"])
+    d_rho_in_se = (None if (d_rho is None or not se_d_rho)
+                   else abs(d_rho) / se_d_rho)
+    pairs_for_2se = (None if not d_rho else 8.0 / (d_rho ** 2))
+    # **The divergence, caught on the first print of the corrected field.**
+    # `8 / d^2` is a function of the **point estimate** of the difference, and
+    # that point estimate has its own error. On the `recon` arm `d_rho` is
+    # `9.7e-05` and the formula returns `859,039,612` pairs, `1.7` billion
+    # trading days. **That number is arithmetic about a quantity
+    # indistinguishable from zero, and it reads like a window requirement.**
+    #
+    # This is §32.6's family with a different denominator: a figure whose size
+    # is a property of how close its divisor sits to zero. §32.6 kept the badly
+    # normalised value under its own name rather than deleting it, and that is
+    # what happens here: the number is stored, and the flag beside it says
+    # whether the estimate it extrapolates from is itself bigger than its own
+    # standard error. **The threshold is the quantity's own se, so it is not a
+    # calibrated constant**, which is the same rule §24 and §33 cost this stage.
+    d_rho_over_1se = (d_rho_in_se is not None and d_rho_in_se >= 1.0)
     ve_ratio = (None if not (head["calm"]["v_e"] and head["stress"]["v_e"])
                 else head["stress"]["v_e"] / head["calm"]["v_e"])
     vc_ratio = (None if not (head["calm"]["v_c"] and head["stress"]["v_c"])
@@ -2858,8 +3008,21 @@ def decomp(tickers: list[str]) -> dict:
     print(f"§31.5  V_e stress/calm = {_f(ve_ratio)}   "
           f"V_c stress/calm = {_f(vc_ratio)}   "
           f"d(rho_c) = {_f(d_rho)}"
-          + (f" = {abs(d_rho)/head['stress']['se_rho_c']:.2f} se"
-             if (d_rho is not None and head['stress']['se_rho_c']) else ""))
+          + (f" = {d_rho_in_se:.2f} se(diff), se(diff)={se_d_rho:.4f}"
+             if d_rho_in_se is not None else ""))
+    if pairs_for_2se:
+        print(f"§34.6  two se on the **difference** needs about "
+              f"{pairs_for_2se:.0f} pairs per regime, that is about "
+              f"{2 * pairs_for_2se:.0f} trading days. The window is "
+              f"{len(all_days)}.")
+        if not d_rho_over_1se:
+            print(f"       **and that figure extrapolates from a point "
+                  f"estimate of {d_rho:+.5f}, which is {d_rho_in_se:.2f} of "
+                  f"its own standard error.** It inherits that uncertainty. "
+                  f"Read it as an order of magnitude, never as a target, and "
+                  f"**not at all** when the difference is near zero: the "
+                  f"formula diverges there and its size is a statement about "
+                  f"the divisor.")
     tot_c = sum(v["candidates"] for k, v in LAMBDA_DROPS.items() if k in main)
     tot_k = sum(v["kept"] for k, v in LAMBDA_DROPS.items() if k in main)
     agg = {}
@@ -2973,7 +3136,23 @@ def decomp(tickers: list[str]) -> dict:
            "market_stress_majority": MARKET_STRESS_MAJORITY,
            "market_stress_days": n_ms, "days": len(all_days),
            "headline": head, "v_e_ratio": ve_ratio, "v_c_ratio": vc_ratio,
-           "d_rho_c": d_rho, "verdict": cell, "verdict_note": why,
+           "d_rho_c": d_rho, "se_d_rho_c": se_d_rho,
+           "d_rho_c_in_se": d_rho_in_se,
+           "d_rho_c_se_note": ("se of the difference, sqrt(se_calm^2 + "
+                               "se_stress^2), because the two regimes "
+                               "partition the pairs. Dividing by one end's se "
+                               "understates the spread by about sqrt(2)."),
+           "pairs_per_regime_for_2se": pairs_for_2se,
+           "d_rho_c_over_own_se": d_rho_over_1se,
+           "pairs_for_2se_note": ("8 / d^2, a function of the point estimate "
+                                  "of the difference. It inherits that "
+                                  "estimate's error and diverges as the "
+                                  "difference goes to zero, so it is only "
+                                  "readable when d_rho_c_over_own_se is true, "
+                                  "and then only as an order of magnitude."),
+           "trading_days_for_2se": (None if not pairs_for_2se
+                                    else 2.0 * pairs_for_2se),
+           "verdict": cell, "verdict_note": why,
            "closure_breaches": [list(b) for b in breaches],
            "cross_term": cross,
            "loo_verdict": loo_cell, "loo_verdict_note": loo_why,

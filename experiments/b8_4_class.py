@@ -290,7 +290,7 @@ def loading(med: np.ndarray, classes: np.ndarray, grid: str) -> list[dict]:
 
 
 def floor_by_class(fom, fclosed, flab, classes, min_cell=None) -> dict:
-    """§15.4's per-class floor, in §18.7 and §21.1's口径.
+    """§15.4's per-class floor, in §18.7 and section 21.1's definition.
 
     ``N(a) = MAD(omega - closed)`` on that class's clean cures. **Both
     corrections are in it**: the MAD rather than `2*Var`, because the floor

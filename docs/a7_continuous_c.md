@@ -693,8 +693,8 @@ grid shows is a **step at the first grid point and then flat**: `both` goes
 from there to `s = 0.9`. A rank correlation would return a negative number and
 would read as a gradient, which the data do not contain.
 
-Recorded as an actual-result-disagrees-with-registration item under `CLAUDE.md`
-rule 8. Not repaired.
+Recorded as an actual-result-disagrees-with-registration item under the project's
+engineering rule 8. Not repaired.
 
 This also fixes the scope of §2.6's "no cliff": **there is no cliff in the
 dispersion and there is one in the measured quantity.** The availability check
@@ -822,7 +822,7 @@ cycle.** Dilute the margin and compounding erases the stock.
    centre. The load-bearing variable is at the periphery: how many counterparties
    the marginal agent has. Two economies with identical concentration can carry
    positional rents that differ by orders of magnitude. This is consistent with
-   and sharpens `指纹清单` conclusion 34, which found top-end concentration
+   and sharpens the fingerprint register conclusion 34, which found top-end concentration
    realised by turnover rather than by incumbent lock-in.
 2. **Breaking up the top and adding alternatives at the bottom are different
    interventions, and the second dominates exponentially.** The first moves the

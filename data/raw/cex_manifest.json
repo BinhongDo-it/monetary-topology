@@ -1,0 +1,93 @@
+{
+  "all_units_income": 104207.0,
+  "consumer_units": 135760000.0,
+  "consumer_units_by_decile": {
+    "Eighth 10 percent": 13672000.0,
+    "Fifth 10 percent": 13467000.0,
+    "Fourth 10 percent": 13574000.0,
+    "Highest 10 percent": 13594000.0,
+    "Lowest 10 percent": 13665000.0,
+    "Ninth 10 percent": 13678000.0,
+    "Second 10 percent": 13474000.0,
+    "Seventh 10 percent": 13533000.0,
+    "Sixth 10 percent": 13492000.0,
+    "Third 10 percent": 13612000.0
+  },
+  "decile_mean_income": 104068.6,
+  "income": {
+    "bottom50": 36891.2,
+    "next40": 127322.0,
+    "next9": 346942.0,
+    "top1": 346942.0
+  },
+  "mortgage_label_signs": {
+    "Mortgage interest and charges": 1.0,
+    "Mortgage principal paid on owned property": -1.0
+  },
+  "mortgage_payment_per_consumer_unit": {
+    "bottom50": 2295.6,
+    "next40": 8301.0,
+    "next9": 20916.0,
+    "top1": 20916.0
+  },
+  "necessities": {
+    "bottom50": 15025.0,
+    "next40": 24709.25,
+    "next9": 35286.0,
+    "top1": 35286.0
+  },
+  "necessities_by_decile": {
+    "Eighth 10 percent": 25660.0,
+    "Fifth 10 percent": 18534.0,
+    "Fourth 10 percent": 17373.0,
+    "Highest 10 percent": 35286.0,
+    "Lowest 10 percent": 10593.0,
+    "Ninth 10 percent": 29202.0,
+    "Second 10 percent": 13337.0,
+    "Seventh 10 percent": 23212.0,
+    "Sixth 10 percent": 20763.0,
+    "Third 10 percent": 15288.0
+  },
+  "necessity_labels": [
+    "Food at home",
+    "Utilities, fuels, and public services",
+    "Healthcare",
+    "Gasoline and other fuels",
+    "Public and other transportation"
+  ],
+  "provenance": "Bureau of Labor Statistics, Consumer Expenditure Survey, deciles of income before taxes, reference year 2024, released 2025-12-19. Income and expenditure come from one table so they share a denominator and a unit of observation. Two disclosures travel with every number: the ranking is income while the model's population is ranked by net worth, and the top 1% is not separately observed because a decile is the finest published cut. See docs/a1_inputs_availability.md sections 3 and 4. The basket excludes shelter, which is read separately as the cascade's own rung; both shelter lines are per consumer unit and must be divided by their own tenure's share. The owner's payment is the sum of the magnitudes of two lines: mortgage interest is an expenditure and mortgage principal sits in the addenda published negative at every decile, so adding them as published nets 3,646 against -2,924 and destroys the gradient in income. The consumer-unit count is read from this same table so that a Z.1 aggregate is divided by the population its income belongs to. Housing tenure is read from this table for the same reason: a shelter flow published by income decile has to be divided by a tenure share ranked the same way, and taking the share from the SCF's net-worth percentiles put the next40 group's rent at 6,145 dollars a month. The two sources agree nationally, 0.65 against 0.6605, and disagree about the distribution.",
+  "reference_year": "2024",
+  "rent_per_consumer_unit": {
+    "bottom50": 6161.8,
+    "next40": 5560.0,
+    "next9": 3592.0,
+    "top1": 3592.0
+  },
+  "retrieved_utc": "2026-08-15T21:10:54+00:00",
+  "selection_file": "cex_items.json",
+  "selection_sha256": "6bd105cabfd8a537845ef3f11242621433faca08fe7c47c77b9c07e1475370ff",
+  "sha256": "ba34aca4e319d04ea466cd15af49d209b5df03e8fde0c446e03e79fd26d01ca1",
+  "stage": "A1",
+  "tenure": {
+    "homeowner": {
+      "bottom50": 0.522,
+      "next40": 0.7425,
+      "next9": 0.9,
+      "top1": 0.9
+    },
+    "mortgaged": {
+      "bottom50": 0.19,
+      "next40": 0.505,
+      "next9": 0.7000000000000001,
+      "top1": 0.7000000000000001
+    },
+    "renter": {
+      "bottom50": 0.4779999999999999,
+      "next40": 0.25749999999999995,
+      "next9": 0.1,
+      "top1": 0.1
+    }
+  },
+  "top_groups_share_a_column": true,
+  "url": "https://www.bls.gov/cex/tables/calendar-year/mean-item-share-average-standard-error/cu-income-deciles-before-taxes-2024.xlsx"
+}

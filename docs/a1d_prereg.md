@@ -250,7 +250,7 @@ is a stronger statement than it was, because nothing is absorbing a shortfall.
 > matches `LATE60`'s ordering of the same groups, **in every cell of the shock
 > sweep**.
 
-Ordinal only. The direction is 卷一·十八's and not the data's. The sweep is
+Ordinal only. The direction is Volume One section 18's and not the data's. The sweep is
 A1b's registered one, three seeds by two round lengths.
 
 **Still not a level, and the window correction does not make it one.** The model
@@ -354,7 +354,7 @@ sweep had not been run at the size §5 forces.
 
 **What was found.** `relieved` raised each household's income to its scheduled
 obligations and left its cash alone. `CascadeSpec.income_arrives_after_due` is
-卷一·四's settlement asymmetry and it is `True`, so a household whose income
+Volume One section 4's settlement asymmetry and it is `True`, so a household whose income
 exactly covers its bills and whose cash is zero **still cannot pay in period 0**.
 Raising the flow leaves the stock cause standing.
 
@@ -383,7 +383,7 @@ is. That reading was put and was not taken.
 
 **What the finding is worth regardless of the ruling.** `6,440` of `20,000`
 households, `32%`, cannot meet period 0 out of cash even when their income
-exactly covers their bills. That is 卷一·四's settlement asymmetry with a
+exactly covers their bills. That is Volume One section 4's settlement asymmetry with a
 number attached, on a measured population, and it is a finding of this stage
 whichever way A1d-0 is scored. It is reported and not gated: no criterion here
 registers it in advance, and one written after seeing it would be a criterion
@@ -465,7 +465,7 @@ no rent obligation and are therefore not renters in the criterion's sense. The
 arm's numbers are the criterion's population and the hand count was not; both
 are recorded because the hand count is what this ruling was argued from.
 
-**The ruling, taken 2026-08-16: 丙.** Both readings go on the record. **A1d-2
+**The ruling, taken 2026-08-16: C.** Both readings go on the record. **A1d-2
 stands as failed** on its registered count. A **reported and never scored** arm
 is added giving each renter cell's distinct-family count and saying what the
 criterion would have read under a floor counting families. Nothing is gated on

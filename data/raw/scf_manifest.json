@@ -1,0 +1,26 @@
+{
+  "overall_ownership": 0.6605001203812372,
+  "population_shares": {
+    "bottom50": 0.4999841738972356,
+    "next40": 0.39999226657507025,
+    "next9": 0.09001032166830499,
+    "top1": 0.010013237859389151
+  },
+  "provenance": "Survey of Consumer Finances summary extract, wave 2022, computed rather than published: no source gives homeownership by net worth percentile. Households are ranked by NETWORTH, weighted, and cut at the 50th, 90th and 99th weighted percentiles. The five implicate rows are pooled; this extract's WGT is already split across them, so the divisor is one. Three anchors are checked before any rate is written: the weights must sum to a national family count, the four groups must weigh 0.50, 0.40, 0.09 and 0.01 of the population, and the overall rate must reproduce the Bulletin's published 66.1%. This input is a 2022 vintage while the rest of the stage is 2024 to 2026; see docs/a1_inputs_availability.md.",
+  "published_overall_ownership": 0.661,
+  "rates": {
+    "bottom50": 0.39054984478655547,
+    "next40": 0.9245975887203118,
+    "next9": 0.952913627057719,
+    "top1": 0.9614703784602201
+  },
+  "retrieved_utc": "2026-08-15T06:18:32+00:00",
+  "selection_file": "scf_variables.json",
+  "selection_sha256": "07024af0b671d31825d76e1aa77c0bfa356bb7344c07b33de9154332d45c2f47",
+  "sha256": "9721aa73ef1df237d0c5a7ce2578ff9a45c8e5a2ef8efc4fab132c6885ace050",
+  "stage": "A1",
+  "url": "https://www.federalreserve.gov/econres/files/scfp2022excel.zip",
+  "wave": "2022",
+  "weight_divisor": 1,
+  "weighted_families": 131306389.38347022
+}

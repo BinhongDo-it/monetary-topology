@@ -30,11 +30,11 @@ otherwise break:
   on the fund's own page and prints them with the keyword that matched. A human
   picks. Guessing an endpoint would produce a probe that reports "unavailable"
   for a field that is published, which is the worst outcome this step can have.
-* **It never promotes a truncated payload.** ``CLAUDE.md`` rule 6. Bytes land in
+* **It never promotes a truncated payload.** the project's engineering rule 6. Bytes land in
   ``<name>.partial``, the declared length is checked, and only then is the final
   name written. A ``.partial`` is kept, never deleted, and never read as data.
 
-Nothing is ever deleted (``CLAUDE.md`` rule 5). Re-running is free: a payload
+Nothing is ever deleted (the project's engineering rule 5). Re-running is free: a payload
 whose sidecar hash still matches is not fetched again.
 
 Usage::
@@ -136,7 +136,7 @@ FIELDS = [
 # equities. International and fixed-income funds are **reported beside** it and
 # are not in it.
 #
-# `structure` is 待核 on purpose. §7 says "Rule 6c-11 funds", and 6c-11 covers
+# `structure` is unverified on purpose. §7 says "Rule 6c-11 funds", and 6c-11 covers
 # ETFs organised as open-end funds. SPY, QQQ and DIA are unit investment trusts
 # operating under exemptive relief that predates the rule, so they are neither
 # arm here and are carried only as a labelled comparison. **Which regime a fund
@@ -156,86 +156,86 @@ FUNDS = [
     # the cross-fund dispersion of √N (§13.3 item 2) a comparison between funds
     # rather than between issuers' disclosure habits.
     {"ticker": "XLB", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US materials equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US materials equity", "landing": ""},
     {"ticker": "XLC", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US communication services equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US communication services equity", "landing": ""},
     {"ticker": "XLE", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US energy equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US energy equity", "landing": ""},
     {"ticker": "XLI", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US industrials equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US industrials equity", "landing": ""},
     {"ticker": "XLK", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US technology equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US technology equity", "landing": ""},
     {"ticker": "XLP", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US consumer staples equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US consumer staples equity", "landing": ""},
     {"ticker": "XLRE", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US real estate equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US real estate equity", "landing": ""},
     {"ticker": "XLU", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US utilities equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US utilities equity", "landing": ""},
     {"ticker": "XLV", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US health care equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US health care equity", "landing": ""},
     {"ticker": "XLY", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US consumer discretionary equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "US consumer discretionary equity", "landing": ""},
 
     # === comparison arm, §6.1: stale NAV expected, reported beside =======
     {"ticker": "SPDW", "issuer": "SSGA", "arm": "comparison",
-     "structure": "open-end 待核", "underlying": "developed ex-US equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "developed ex-US equity", "landing": ""},
     {"ticker": "SPEM", "issuer": "SSGA", "arm": "comparison",
-     "structure": "open-end 待核", "underlying": "emerging markets equity", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "emerging markets equity", "landing": ""},
     {"ticker": "SPAB", "issuer": "SSGA", "arm": "comparison",
-     "structure": "open-end 待核", "underlying": "aggregate bonds", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "aggregate bonds", "landing": ""},
     {"ticker": "JNK", "issuer": "SSGA", "arm": "comparison",
-     "structure": "open-end 待核", "underlying": "high yield corporate bonds", "landing": ""},
+     "structure": "open-end, unverified", "underlying": "high yield corporate bonds", "landing": ""},
 
     # === retired by availability, kept because nothing is deleted ========
     # §13.5: retrieval works at SSGA and does not at iShares. These rows stay
     # declared so that the sample this stage started from is visible, and so a
     # later run can retry them with one flag. **They are in no arm and enter no
     # reading.** Their soft-404 evidence is in
-    # claude-docs/B9_可得性_iShares实测_v1.md.
+    # the B9 iShares availability measurement, outside this repository.
     {"ticker": "IVV", "issuer": "iShares", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "US large-cap equity",
+     "structure": "open-end, unverified", "underlying": "US large-cap equity",
      "landing": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf"},
     {"ticker": "IJR", "issuer": "iShares", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "US small-cap equity",
+     "structure": "open-end, unverified", "underlying": "US small-cap equity",
      "landing": "https://www.ishares.com/us/products/239774/ishares-core-sp-smallcap-etf"},
     {"ticker": "IWM", "issuer": "iShares", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "US small-cap equity",
+     "structure": "open-end, unverified", "underlying": "US small-cap equity",
      "landing": "https://www.ishares.com/us/products/239710/ishares-russell-2000-etf"},
     {"ticker": "VOO", "issuer": "Vanguard", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "US large-cap equity",
+     "structure": "open-end, unverified", "underlying": "US large-cap equity",
      "landing": "https://investor.vanguard.com/investment-products/etfs/profile/voo"},
     {"ticker": "SCHX", "issuer": "Schwab", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "US large-cap equity",
+     "structure": "open-end, unverified", "underlying": "US large-cap equity",
      "landing": "https://www.schwabassetmanagement.com/products/schx"},
     {"ticker": "RSP", "issuer": "Invesco", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "US large-cap equity, equal weight",
+     "structure": "open-end, unverified", "underlying": "US large-cap equity, equal weight",
      "landing": "https://www.invesco.com/us/financial-products/etfs/product-detail"
                 "?audienceType=Investor&ticker=RSP"},
     {"ticker": "XLF", "issuer": "SSGA", "arm": "contemporaneous",
-     "structure": "open-end 待核", "underlying": "US financials equity",
+     "structure": "open-end, unverified", "underlying": "US financials equity",
      "landing": "https://www.sectorspdrs.com/mainfund/xlf"},
 
     # --- comparison arm: §6.1, stale NAV expected, reported beside -------
     {"ticker": "EFA", "issuer": "iShares", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "developed ex-US equity",
+     "structure": "open-end, unverified", "underlying": "developed ex-US equity",
      "landing": "https://www.ishares.com/us/products/239623/ishares-msci-eafe-etf"},
     {"ticker": "EWJ", "issuer": "iShares", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "Japan equity, non-overlapping session",
+     "structure": "open-end, unverified", "underlying": "Japan equity, non-overlapping session",
      "landing": "https://www.ishares.com/us/products/239665/ishares-msci-japan-etf"},
     {"ticker": "VEA", "issuer": "Vanguard", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "developed ex-US equity",
+     "structure": "open-end, unverified", "underlying": "developed ex-US equity",
      "landing": "https://investor.vanguard.com/investment-products/etfs/profile/vea"},
     {"ticker": "LQD", "issuer": "iShares", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "IG corporate bonds",
+     "structure": "open-end, unverified", "underlying": "IG corporate bonds",
      "landing": "https://www.ishares.com/us/products/239566/"
                 "ishares-iboxx-investment-grade-corporate-bond-etf"},
     {"ticker": "VCIT", "issuer": "Vanguard", "arm": "retired_availability",
-     "structure": "open-end 待核", "underlying": "IG corporate bonds, intermediate",
+     "structure": "open-end, unverified", "underlying": "IG corporate bonds, intermediate",
      "landing": "https://investor.vanguard.com/investment-products/etfs/profile/vcit"},
 
     # --- neither arm: carried only to record the regime question ---------
     {"ticker": "SPY", "issuer": "SSGA", "arm": "neither",
-     "structure": "UIT 待核，早于 6c-11 的豁免令",
+     "structure": "UIT, unverified; predates the 6c-11 exemptive order",
      "underlying": "US large-cap equity",
      "landing": "https://www.ssga.com/us/en/intermediary/etfs/spdr-sp-500-etf-trust-spy"},
 ]
@@ -245,7 +245,7 @@ EXCLUDED_BY_SECTION_7 = [
     "secondary listings of a fund whose primary listing is elsewhere",
 ]
 
-#: Declared third-party fallback for the closing price only. CLAUDE.md rule 9
+#: Declared third-party fallback for the closing price only. the project's engineering rule 9
 #: permits third-party data that is real and usable; provenance is kept separate
 #: from issuer-published data so the two never merge silently.
 THIRD_PARTY_CLOSE = "https://stooq.com/q/d/l/?s={t}.us&i=d"
@@ -434,7 +434,7 @@ def payload_profile(text: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Cache with resume and truncation detection. CLAUDE.md rule 6.
+# Cache with resume and truncation detection. the project's engineering rule 6.
 # ---------------------------------------------------------------------------
 
 
@@ -682,39 +682,39 @@ def scan_assets(tickers: list[str], max_assets: int, force: bool) -> dict:
 #: them, and it is documented rather than guessed: two independent third-party
 #: scrapers use `1467271812596.ajax?fileType=csv&fileName={ticker}_holdings
 #: &dataType=fund`, and a third uses the same id with
-#: `fileType=json&tab=all&asOfDate=`. Cited as literature per CLAUDE.md 9;
+#: `fileType=json&tab=all&asOfDate=`. Cited as literature per engineering rule 9;
 #: nothing here is taken from them as a measurement.
 CONSTRUCTED_ENDPOINTS = {
     "iShares": [
         {"id": "control_holdings", "control": True,
          "path": "{prod}/latest-holdings.csv",
-         "source": "--discover 实测 200，阳性对照（不同 URL 形状）"},
+         "source": "--discover measured 200; positive control, a different URL shape"},
         {"id": "control_ajax_holdings", "control": True,
          "path": "{prod}/1467271812596.ajax?fileType=csv&fileName={T}_holdings"
                  "&dataType=fund",
-         "source": "skiamu/ETF 与 talsan/ishares 两处使用，**ajax 形状本身的阳性对照**"},
+         "source": "skiamu/ETF and talsan/ishares, used in two places, a positive control for the ajax shape itself"},
         {"id": "nav_history",
          "path": "{prod}/1467271812596.ajax?fileType=csv&fileName={T}_NAV&dataType=fund",
-         "source": "凭记忆写下，第一轮实测软 404，留档双报"},
+         "source": "written from memory，measured a soft 404 on the first pass，logged with both reported"},
         {"id": "nav_history_alt",
          "path": "{prod}/1467271812596.ajax?fileType=csv&fileName={T}_fund&dataType=fund",
-         "source": "同上，第一轮实测软 404，留档双报"},
+         "source": "as above; measured a soft 404 on the first pass，logged with both reported"},
         {"id": "premium_discount",
          "path": "{prod}/1467271812596.ajax?fileType=csv&fileName={T}_premium_discount"
                  "&dataType=fund",
-         "source": "同上，第一轮实测软 404，留档双报"},
+         "source": "as above; measured a soft 404 on the first pass，logged with both reported"},
         {"id": "distributions",
          "path": "{prod}/1467271812596.ajax?fileType=csv&fileName={T}_distributions"
                  "&dataType=fund",
-         "source": "同上，第一轮实测软 404，留档双报"},
+         "source": "as above; measured a soft 404 on the first pass，logged with both reported"},
         {"id": "performance",
          "path": "{prod}/1467271812596.ajax?fileType=csv&fileName={T}_performance"
                  "&dataType=fund",
-         "source": "报表词的新候选，未核"},
+         "source": "a new candidate for the report term，unverified"},
         {"id": "nav_history_token",
          "path": "{prod}/1467271812596.ajax?fileType=csv&fileName={T}_nav_history"
                  "&dataType=fund",
-         "source": "报表词的新候选，未核"},
+         "source": "a new candidate for the report term，unverified"},
     ],
     # **SSGA publishes static files at predictable paths.** No product id, no
     # ajax, no session. Enumerated off the XLF and SPY pages on 2026-08-16, each
@@ -730,20 +730,20 @@ CONSTRUCTED_ENDPOINTS = {
         {"id": "control_holdings", "control": True, "abs": True,
          "path": "https://www.ssga.com/library-content/products/fund-data/etfs/us/"
                  "holdings-daily-us-en-{t}.xlsx",
-         "source": "XLF 与 SPY 两页均标为 Download All Holdings: Daily，阳性对照"},
+         "source": "XLF and SPY, both pages labelled Download All Holdings: Daily, positive control"},
         {"id": "premium_discount_history", "abs": True,
          "path": "https://www.ssga.com/library-content/products/fund-data/etfs/us/"
                  "pdhist-us-en-{t}.xlsx",
-         "source": "两页均标为 Fund Data，未实测"},
+         "source": "both pages are labelled Fund Data，not measured"},
         {"id": "nav_history", "abs": True,
          "path": "https://www.ssga.com/library-content/products/fund-data/etfs/us/"
                  "navhist-us-en-{t}.xlsx",
-         "source": "两页均标为 Most Recent NAV / NAV History，未实测"},
+         "source": "both pages are labelled Most Recent NAV / NAV History，not measured"},
         {"id": "product_data_all_funds", "abs": True,
          "path": "https://www.ssga.com/library-content/products/fund-data/etfs/us/"
                  "spdr-product-data-us-en.xlsx",
-         "source": "SPY 页标为 Download Product Data，跨基金一张表，"
-                   "可能带各基金的 30 日中位价差快照，未实测"},
+         "source": "SPY page labelled Download Product Data, one table across funds; "
+                   "may carry a 30-day median spread snapshot per fund，not measured"},
     ],
 }
 
@@ -2102,10 +2102,12 @@ def daily_capture(force: bool = False) -> dict:
                     "first": caps[0] if caps else "", "last": caps[-1] if caps else "",
                     "pdhist_days": pdays, "pdhist_day_count": len(pdays),
                     "pdhist_funds_per_day": len(pd_out),
-                    "note": "§13.3 item 4. 2025-01-02 到首个 capture 之间没有价差，"
-                            "那是关于这一次跑的事实，不是可以补的缺口。"
-                            "§34.7 更正：pdhist 是滚动 404 天，不存就从后面掉，"
-                            "所以窗口能不能加长取决于这一项而不是上面那张表。"},
+                    "note": "Section 13.3 item 4. There is no spread between 2025-01-02 and the "
+                            "first capture, and that is a fact about this run rather than a "
+                            "gap that can be filled. Section 34.7 correction: pdhist is a "
+                            "rolling 404 days and drops off the back if it is not stored, so "
+                            "whether the window can be lengthened depends on this and not on "
+                            "the table above."},
                    sort_keys=True, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8", newline="\n")
     return {"date": day, "status": rec.get("status"), "kind": kind,
@@ -2153,19 +2155,24 @@ def build_record(discovered: dict) -> dict:
         "schema_version": 1,
         "diagnostic_only": True,
         "diagnostic_reason": (
-            "本站只回答「哪个字段在免费口径下取得到、取到的是历史还是快照」。"
-            "它不构造 ω、不算 λ、不算 π，不承载 B9-0 到 B9-B-2 的任何一条读数。"
-            "B9-A-1 的零尚未计算，本文件里没有任何量进入证据。"
+            "This station answers only which fields are obtainable on free terms and "
+            "whether what is obtained is history or a snapshot. It constructs no omega, "
+            "computes no lambda and no pi, and carries none of the readings B9-0 through "
+            "B9-B-2. B9-A-1's zero has not been computed and no quantity in this file "
+            "enters the evidence."
         ),
         "fields": FIELDS,
         "excluded_by_section_7": EXCLUDED_BY_SECTION_7,
         "funds": per_fund,
         "open_questions": [
-            "median_bid_ask_spread 是历史还是 30 日快照。§12.1 要求 √N 落在 F1 清过之后"
-            "的那批 fund-day 上，快照办不到，这一条是本步的头条。",
-            "structure 一列全部待核：6c-11 覆盖开放式基金，SPY/QQQ/DIA 是早于该规则的 UIT。"
-            "由基金自己的文件挣得，不由本文件的注释断言。",
-            "landing 一列是候选 URL，其中若干条凭记忆写下。404 是输入错误，不是关于发行人的发现。",
+            "Whether median_bid_ask_spread is history or a 30-day snapshot. Section 12.1 "
+            "requires the square root of N to land on the fund-days that survive F1, and a "
+            "snapshot cannot do that. This is the headline item for this step.",
+            "The structure column is entirely unverified: 6c-11 covers open-end funds, and "
+            "SPY, QQQ and DIA are UITs predating that rule. It has to be earned from each "
+            "fund's own filings, not asserted by a comment in this file.",
+            "The landing column holds candidate URLs, several of them written from memory. "
+            "A 404 is an input error and not a finding about the issuer.",
         ],
     }
 
@@ -2336,7 +2343,7 @@ def selftest() -> int:
     check("one control is on a different shape, so they can disagree",
           any(".ajax?" not in s["path"] for s in ctl))
     check("every non-control line records why it is there",
-          all(("未核" in s["source"] or "留档双报" in s["source"])
+          all(("unverified" in s["source"] or "logged with both reported" in s["source"])
               for s in specs if not s.get("control")))
     check("ids are unique", len({s["id"] for s in specs}) == len(specs))
     built = next(s for s in specs if s["id"] == "control_ajax_holdings"

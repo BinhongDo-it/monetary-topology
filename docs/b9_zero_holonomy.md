@@ -445,8 +445,8 @@ and what a band-indexed `π` has to survive before it is quoted.
 
 **Ruled 2026-08-16, before any `λ` was computed.** §4 and §12.1 stand as written;
 this section governs where they disagree with it. The availability findings behind
-it are in `claude-docs/B9_可得性_iShares实测_v1.md` and
-`claude-docs/B9_可得性_发行人普查与SSGA_v1.md`.
+it are in the B9 iShares availability measurement (outside this repository) and
+the B9 issuer census and SSGA note (outside this repository).
 
 ## 13.1 What was measured, since the ruling rests on it
 
@@ -976,7 +976,7 @@ capture is not later mistaken for a solution to it.**
 # 18. B9-A-1's reading: uninformative, and why a finer floor would not change it
 
 **Run 2026-08-16. Record `results/b9_a1.json`.** The first run's record is archived
-as `b9_a1.json.expired_20260816_归因标反_双报`: its pass/fail/indeterminate layer
+as `b9_a1.json.expired_20260816_attribution_sign_flipped_both_reported`: its pass/fail/indeterminate layer
 was correct and its **attribution sub-label was wrong for five funds**, because the
 necessity test was written in the wrong order. Both are on disk; the archived one
 is not deleted and the correction is stated rather than folded in.
@@ -2108,7 +2108,7 @@ against the files here; nothing in B8 or B10 was modified.**
 
 ## 28.1 The two findings, verified
 
-**One, the transfer function on two carriers.** `b10_freddie_availability.md`
+**One, the transfer function on two carriers.** the B10 availability register
 §19.2, threshold 100, undirected `b₁`:
 
 ```
@@ -3028,7 +3028,7 @@ right file.
 
 # 35. "Why does this need the future, can the past not be used?" — three layers, and one of them was not looked at
 
-**陛下 asked it after §34, and the answer has three layers rather than one.**
+**The author asked it after §34, and the answer has three layers rather than one.**
 Two of them were already in the record. **The third was not, and it is a route
 this stage never went down.**
 
@@ -3134,7 +3134,7 @@ answer there is `0.96` standard errors on a `404`-day window.
 
 ## 36.1 The ruling this rests on
 
-陛下 ruled that a free signup credit is not a purchase, **and that anyone can
+The author ruled that a free signup credit is not a purchase, **and that anyone can
 obtain the same credit, so a result built on it is reproducible without payment,
 only with more trouble.** §18.3's prohibition was on buying a quote source to
 rescue B9-A-1; this is neither a purchase nor B9-A-1. **The reproducibility
@@ -3280,7 +3280,7 @@ prerequisites are not discharged by §37.
 
 §12.1 recorded that **no issuer publishes a bid-ask spread history**, measured on
 two issuers rather than argued from one, and that is what forced the ruling of
-2026-08-16: `√N` a per-fund constant, option 甲.
+2026-08-16: `√N` a per-fund constant, option A.
 
 **A quote feed carries the spread at any instant**, so the history the issuers do
 not publish is constructible from `2018` for any symbol.
@@ -3295,7 +3295,7 @@ not publish is constructible from `2018` for any symbol.
 - **Touches §18.5's dynamic range**, `|λ|` over the cost floor, which is
   currently one number per fund and would become a series.
 
-> **The ruling of 甲 was correct given what was retrievable and its premise has
+> **The ruling of A was correct given what was retrievable and its premise has
 > changed.** It is not reopened here, and it is recorded as reopenable.
 
 ## 37.4 §34.6's window, which is the whole point and is not yet established
@@ -3706,7 +3706,7 @@ objection in §36.2 was to an unmeasured construction.
 
 # 42. §41.2's mechanism was asserted too confidently, and the odd-lot account is testable for free
 
-**陛下 asked whether the asynchrony can be solved, whether the records carry
+**The author asked whether the asynchrony can be solved, whether the records carry
 timestamps, and whether the venues can be pulled at the same instant.**
 
 ## 42.1 The records do carry timestamps, and they were already used correctly
@@ -4173,7 +4173,7 @@ and the old quarters fall off it.**
 
 | route | defect |
 |---|---|
-| **WRDS / TAQ consolidated NBBO** | **parked** pending access. Would give the disclosed convention directly and would reopen §44, not just D2. §18.3's prohibition was written about B9-A-1 and this is not that, and the reproducibility argument is weaker than the one 陛下 ruled on for a public signup credit: it needs an institutional affiliation |
+| **WRDS / TAQ consolidated NBBO** | **parked** pending access. Would give the disclosed convention directly and would reopen §44, not just D2. §18.3's prohibition was written about B9-A-1 and this is not that, and the reproducibility argument is weaker than the one the author ruled on for a public signup credit: it needs an institutional affiliation |
 | **free official closing prices** | **a different measurement, not an extension.** §20.1's series is on the NBBO midpoint; an auction close is a real trade at the bid or the ask. It could be run as its own object with the convention declared, and it would not be D2 continued |
 | **another fund family's published table** | **does not exist for live funds** (§47.1) |
 
@@ -4333,7 +4333,7 @@ dict**. So `z = −x + x` for one evaluation of `log(price/nav)`.
 
 **§6 made `--a1`, `--a2` and `--f1` conditional on `b9_gate.json["passed"]`, and
 that field reduces to "at least one fund had a workbook on disk".** The account's
-first established row, "B9-0 通过, `6,464` fund-days exactly `0.0`", is `6,464`
+first established row, "B9-0 passed, `6,464` fund-days exactly `0.0`", is `6,464`
 evaluations of `−x + x`.
 
 **What it did test**: antisymmetry, which §14.1 enforces by construction. **What
@@ -4504,8 +4504,10 @@ that they are all the same mistake wearing different clothes.**
 
 §28.4 handed B8 the gate-speed test on a breathing gate, and named LTV:
 
-> 十一个网格里过地板且不靠裁定的只有两个：`ltv_llpa_coarse4` 与 `occupancy`。
-> **这两个里只有 LTV 会呼吸**，`occupancy` 是固定属性，是分割不是阈值。
+> Of the eleven grids, only two clear the floor without leaning on a ruling:
+> `ltv_llpa_coarse4` and `occupancy`.
+> **Of those two only LTV breathes**; `occupancy` is a fixed attribute, a
+> partition rather than a threshold.
 
 **`experiments/b8_core.py` puts `ltv` in `LOAN_COLS`, whose own comment reads
 "Read once, from each loan's first row."** It is the acquisition file's
@@ -4847,7 +4849,7 @@ account also makes.**
 | **§40.3's B9-A-7** | re-runs as `--recon control` against `--recon recon`, identical samples, differing only in the price |
 | **if both pass** | the binding constraint moves from the price to the NAV history: `navhist` carries `5,734` rows, about twenty-two years. **§34.6 asked for about `1,600` trading days** |
 | **what that puts on real stress** | `ρ_c`, `V_e`, `V_c`, D1, D1b and D2 across `2008`, `2020` and `2022`, which answers §35.4's objection with range rather than with argument |
-| **§12.1** | relaxes further: a quote feed carries the spread at any instant, so §37.3's note that the ruling of 甲 is reopenable gains a second source |
+| **§12.1** | relaxes further: a quote feed carries the spread at any instant, so §37.3's note that the ruling of A is reopenable gains a second source |
 
 **What it does not reopen**, and each was closed by derivation rather than by
 data: **`π`** (§48), **§7's fourth link** (§46, §52, §53), and the issuer-side
@@ -4899,9 +4901,10 @@ price object, an average over many midpoints whose quantisation error falls as
 already carries the one-sample version of this, `F_m/√12`.
 
 **The looser first version was written into the stage report before this section
-was drafted, and is carried in the ledger as defect twenty-one**, caught by
-reconciling a new section against §54.3 rather than by any guard. **The sign and
-the verdict did not move; the mechanism was wrong.**
+was drafted**, and was caught by reconciling a new section against §54.3 rather
+than by any guard. **The sign and the verdict did not move; the mechanism was
+wrong.** The correction is filed in the engineering record, which is not part of
+this repository.
 
 > **The sign is the same either way, and it is the point: §54.4's route leads to
 > a more distinguishable non-zero, never to a zero.** Anyone expecting better
@@ -4944,3 +4947,210 @@ second time.**
 
 **Any later stage citing §18.5 or §25.1 must carry the floor with the number.**
 A ratio without its denominator is not a reading.
+
+---
+
+# 56. The fee is a third party, and it belongs in the friction part, not the index part
+
+**Ruling, recorded 2026-08-17, after §55.** Nothing was run for it. It corrects how §25's two
+ends are labelled and it names where the mathematical zero of §55.3 already exists on disk.
+
+## 56.1 The objection, stated at full strength
+
+`λ = log(1 + premium) − log(1 + f)`, and `f` is paid to a **third party**. Scope the loop to the
+two counterparties of each trade and value leaves the system on every circuit. **A closed walk that
+returns you to your starting position and costs you a fee has a non-zero sum by conservation alone.**
+On that reading a weak non-zero is guaranteed wherever anyone charges anything, and demonstrates
+nothing about integrability.
+
+**The objection is correct about the raw loop sum.** It is answered, and the answer was already
+proved in B4 rather than being invented here.
+
+## 56.2 B4's decomposition already separates the two
+
+On a two-way edge `ω` splits **uniquely** into an index part and a friction part:
+
+| | form | what it is |
+|---|---|---|
+| **friction** | `(S + S') / 2 ≤ 0` | the round-trip cost. **This is where a third party's fee lives** |
+| **index** | `(S − S') / 2` | twice B1's square sum. **This is the non-integrability quantity** |
+
+A fee that is charged the same in both directions is **symmetric under reversal**, so it lands
+entirely in the friction part and **cancels exactly out of the index part**.
+
+> **So the fee cannot manufacture an index reading. It can only manufacture a friction reading, and
+> a friction reading was never the claim.**
+
+## 56.3 Consequence: §25.1's two ends are mislabelled, and the correction runs in our favour
+
+§25.1 reports `|λ| / F_m` at two ends of §16.4's fee interval and calls them a generous corner and a
+conservative corner. **That framing is wrong on B4's decomposition.**
+
+| §25.1's label | what it actually is |
+|---|---|
+| `f = 0`, "the generous end", **11/11 above 1**, `1.05` to `5.08` | **the index part with the symmetric friction removed. This is the quantity the framework is about.** |
+| `f = f_max`, "the conservative corner", 7/11 | **index plus the whole of one direction's friction**, which B4 and §26.1 both forbid adding |
+
+**The correction is registered, and it is uncomfortable in the right direction**: the reading this
+station has been quoting as its cautious number is the one that adds two objects the project's own
+theorem says may not be added. **The `f = 0` end is not optimism. It is the index part.**
+
+**This does not raise any measured number.** Every figure stands as printed; what changes is which
+of them answers the question.
+
+## 56.4 The gap this opens, and it is cheap to close
+
+**The split needs both directions and B9 measured one.**
+
+Creation and redemption are both charged, and the fee schedule publishes both. If the creation fee
+and the redemption fee are **equal**, the cancellation in §56.2 is exact and the `f = 0` end is the
+index part outright. If they **differ**, the asymmetry survives into the index part, and the
+surviving amount is exactly half their difference.
+
+> **Registered as B9-A-9, unrun**: read the redemption-side fee from the same SAI section §16.4 was
+> read from, form `S'`, and report `(S − S')/2` and `(S + S')/2` separately.
+> **The prediction, written before reading: the two fees are equal or nearly so, because they are
+> named in one sentence of one fee table.** If they differ materially, the index part must be
+> re-reported and the size of the correction is a published number, not an estimate.
+
+**§16.4's own defect is the reason this was not done already**: that section quoted half a sentence
+of the fee table and §48 had to go back for the other half. **This is the third item to come out of
+one paragraph.**
+
+## 56.5 Where the mathematical zero is, and the answer is that we already have it
+
+§55.3 said `λ ≡ 0` lives where one leg is **derived** rather than independently quoted, gave the
+cross-rate example, and said this carrier cannot supply it. **The programme already holds such a
+reading, measured on a real published price system, and filed it as instrument validation.**
+
+**B6, the Banco Central de Cuba table, `2025-12-18` onward, 238 publication days:**
+
+| reading | value |
+|---|---|
+| nineteen channel columns, each a segment base times a fixed constant | **ratio varies by at most `3.5e-6`** across all 238 days and all six files |
+| the publisher truncates rather than rounds | **`27,132` of `27,132`** channel values |
+| **the euro cross implied by the three segments** | **agrees to `2.2e-16`** |
+
+`2.2e-16` is machine epsilon. **That is `λ ≡ 0` on a real, published, third-party price system**, and
+it holds for exactly the structural reason §55.3 named: the third leg is not independently quoted,
+it is computed from the base by a published multiplier.
+
+**And the same table carries a non-zero.** Its floating segment against the informal street rate
+does not close, and the two frozen segments admit no return leg at all.
+
+> **Same publisher, same table, same machine: an exact zero on one member and a non-zero on
+> another. That is the calibration §55.3 said this programme did not have.**
+
+**It is also falsifiable rather than tautological**: the zero holds only while the channel columns
+are derived. If the publisher ever quoted one independently, the cross would stop closing, and the
+238-day series is long enough to see it.
+
+## 56.6 What this repairs
+
+Objection O11 ruled the coverage test invalid as self-validation, because it lists what is explained
+and never what is forbidden, and the repair adopted was a **zero domain**: the framework must name
+where its own quantity should be zero, and then measure it.
+
+**That repair was assigned to B9, and B9 cannot carry it** — §55.3 established the reason is
+structural, not effort. **B6 can, and has, without anyone noticing what it was.**
+
+> **Registered here, for whoever writes the joint account: the zero domain is B6's derived channel
+> columns, and the reading is `2.2e-16`. B9 is not the zero domain and never was.**
+
+**Two limits, both mandatory.** The Cuban reading is one publisher over 238 days, and the euro
+agreement is an internal consistency of one table rather than an agreement with an outside
+reference — B6's external referee against an independent fixing **failed** on 3 of 147 days, worst
+`1.134%`, and stays failed. **The exact zero is a statement about the publisher's arithmetic. That
+is precisely what a mathematical zero is, and it must not be upgraded into a statement about the
+market.**
+
+---
+
+# 57. §56.5 was overstated. What the Cuban reading can and cannot be used for
+
+**Correction and ruling, recorded 2026-08-17, same day as §56.** Nothing was run for it.
+
+## 57.1 The measurement is `3.5e-6`, not `2.2e-16`
+
+§56.5 quoted the euro cross agreeing to `2.2e-16` as the finding. **That is wrong, and it is wrong
+in a way this programme has already charged itself for once.**
+
+Two readings, and only one of them is a measurement:
+
+| reading | what it is |
+|---|---|
+| **nineteen channel columns are each a segment base times a fixed constant, ratio varying by at most `3.5e-6` across 238 days and six files** | **a measurement.** It could have failed. A publisher that quoted channels independently would drift, and this one does not |
+| **the euro cross implied by three segments agrees to `2.2e-16`** | **an arithmetic consequence of the line above.** Given `column_i = base × k_i`, the implied cross is `k_i / k_j`, a constant, and its closure is `x / x`. **Machine epsilon is the floating-point residue of an identity** |
+
+**A3-3 was demoted from criterion to diagnostic for exactly this**: `adjusted return = −log γ` holds by
+construction, so reading it at machine precision reads the identity and not the world. And the
+repository carries a ratchet whose entire purpose is to stop a reduction's residue being printed
+into a record.
+
+> **`2.2e-16` may not be quoted as a finding. `3.5e-6` may.** §56.5's headline is withdrawn and
+> replaced by the line above.
+
+## 57.2 What it can be used for, and it is worth having
+
+**One thing, and it is not small.**
+
+> **It is the only zero in this programme measured on somebody else's numbers.**
+
+Every other zero here is a construction zero on our own construction: B9-0 was `−x + x`, A3-1
+reproduces a closed channel bitwise, B1-8's square sums are structurally zero on a synthetic field,
+B3-2's degenerate cycle is a degenerate cycle. **Those check that the instrument does not invent a
+reading.** The Cuban table checks something strictly stronger and cheaper: **the instrument reads
+zero when zero is there, in a real published price system that nobody built for us.**
+
+**Record it as an instrument check on external data.** That is its rank, and at that rank it is
+free and it should be cited.
+
+**A second, weaker use**: it makes §55.3's structural condition concrete. "One leg derived rather
+than quoted, therefore the loop closes" stops being a hypothetical and becomes a case with a
+publisher, a date range and a published multiplier. **That is an illustration, not evidence, and it
+must be labelled as one.**
+
+## 57.3 What it cannot be used for, three, each with its reason
+
+**1. It cannot calibrate `λ`.** B9's `λ` sits on a **realisable** cycle and carries a fee. The
+Cuban zero sits on the publisher's arithmetic, and **two of the three segments admit no return leg
+at all**, so the cycle it lives on is one no agent can walk. §14.6 and §26.1 both forbid citing two
+objects of different kinds for one another, and this is that.
+
+**2. It cannot be reported as "the framework's quantity reads zero where the framework predicts
+zero", without a qualifier that swallows the claim.** The framework's `ω` is the effective terms
+faced by an agent on a reachable transaction graph — that is B4's whole content. A zero on a cycle
+that is not reachable is a statement about how a table was computed.
+
+**3. It is therefore not the zero domain O11 asked for.** A zero domain needs three things at once:
+the framework predicts zero; a non-zero was possible; **and the cycle is in the same class as the
+cycles that read non-zero.** The Cuban reading has the first two and **fails the third**. B8-3's
+entire strength is that **both routes are realised**; a zero on an unrealisable route is not its
+counterpart.
+
+> **§56.6 said this repairs O11. It does not. That sentence is withdrawn.**
+> **O11's zero domain is still missing, and §55.3's ruling that B9 cannot supply it still stands.**
+
+## 57.4 What a real zero domain would need, stated so it can be gone and got
+
+The gap is now narrow enough to name a carrier requirement rather than a wish:
+
+> **One venue that publishes, in the same feed and on the same instruments, both a cross it derives
+> from two majors and a cross it quotes independently.** The derived member closes by construction;
+> the quoted member need not. **Same machine, same class of cycle, both realisable, one exact zero
+> and one non-zero.**
+
+**That is checkable and it is free to check.** Registered as a candidate, unassigned, and it is
+**not** B9's to run: this station has no grid, no second member, and no reason to hold it.
+
+**Two things it must not become.** It must not become a reason to buy a feed (§18.3 stands). And a
+venue that publishes only derived crosses supplies half a calibration, which is the position we are
+already in.
+
+## 57.5 The ledger entry, both halves
+
+| | ruling |
+|---|---|
+| **usable** | as an **instrument check on external data**, the only one in the programme; and as a labelled **illustration** of §55.3's structural condition |
+| **not usable** | as a finding at `2.2e-16` (identity residue); as a calibration for `λ` (different class of cycle); as O11's zero domain (fails the realisability requirement) |
+| **still open** | **O11's zero domain**, with the carrier requirement now written out in §57.4 |

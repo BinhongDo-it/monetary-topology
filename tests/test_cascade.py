@@ -399,7 +399,7 @@ def test_only_rent_is_outside_the_credit_file() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 卷一·四: settlement asymmetry
+# Volume One section 4: settlement asymmetry
 # ---------------------------------------------------------------------------
 def test_income_arriving_after_the_due_date_cannot_pay_it() -> None:
     due = {Obligation.CARD: 1.0}

@@ -343,7 +343,7 @@ def main() -> int:
             # nothing reads this number past the second.
             #
             # The float reaches the record through `round` and never through
-            # `repr`, which is `CLAUDE.md`'s determinism rule. Fixed
+            # `repr`, which is the project's determinism rule. Fixed
             # 2026-08-13 together with the two residuals in `b1_theorem.py`,
             # which are the same rule in its other form.
             "sweeps": sweeps | {"floor_slope": round(sweeps["floor_slope"], 9)},

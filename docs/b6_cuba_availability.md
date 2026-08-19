@@ -342,7 +342,7 @@ The nineteen channel columns need not be retrieved per day, since each is the
 base times a constant; they are **reconstructed** from `tasaEspecial` and the
 markup schedule, and the XLSX is retained as the validator of that schedule
 rather than as the daily source. Resumable by date range, which is trivial here,
-and required to detect truncation per `CLAUDE.md` rule 6.
+and required to detect truncation per the project's engineering rule 6.
 
 **`fetch_eltoque.py`.** Roughly 2 050 daily requests for 2021-01-01 to the
 present at one per second, so under an hour of wall clock, subject to §3.4's

@@ -712,11 +712,11 @@ file, and no number in `RESULTS.md` is produced or changed by it.
 `A4Model` subclasses `Network`; it has no `AssetSpec`, no asset market and no
 `cycles`. **§10 was registered against a class that cannot compute it**, and
 there is no `experiments/a4_*.py` at all, so this was found while the runner was
-being designed rather than after it ran. §13.2's "代码已写，判据跑不了" is
+being designed rather than after it ran. §13.2's "the code is written and the criterion cannot run" is
 accurately "the model is written, the experiment is not".
 
-Two ways out. **甲**: reparent `A4Model` onto `A3Model` with a closed asset
-channel as the default, so the control cell reproduces bitwise. **丙**: set §10
+Two ways out. **A**: reparent `A4Model` onto `A3Model` with a closed asset
+channel as the default, so the control cell reproduces bitwise. **C**: set §10
 aside as A4's discriminant, restore §4's `A(X)` to primary, and take the stock
 from §16.2's injection. Three claims decide it and each is a count.
 
@@ -812,7 +812,7 @@ What survives of §10's three registered readings:
   claimed.* **Alive.** Falsifiable, and it lives entirely inside the `C = 1`
   arm, needing no contrast and no denominator from the other one.
 
-#### The ruling: 丙
+#### The ruling: C
 
 **A4 keeps `A4Model(Network)`.** §10 is set aside as A4's discriminant, §4's
 `A(X)` is restored to primary, and §16.2's injection supplies the stock. §10 is
@@ -820,7 +820,7 @@ not withdrawn and nothing in it is deleted.
 
 The arithmetic, since neither side is free.
 
-**甲 costs**: a reparent onto `A3Model`; a `_post_round` chain that neither class
+**A costs**: a reparent onto `A3Model`; a `_post_round` chain that neither class
 currently threads, since `A3Model._post_round` and `A4Model._post_round` both
 override the base without calling `super()`, so a naive merge by multiple
 inheritance would drop the entire asset market silently, and a straight reparent
@@ -828,11 +828,11 @@ to `A3Model` would drop it just as silently unless `A4Model._post_round` is
 edited to call up; a third registered
 ordering beside `channel_order` and `event_order`, for asset market against
 capital returns against household pooling; and a third rewrite of A4's
-discriminant, after §4 and §10, before any A4 code is written. **甲 delivers**,
+discriminant, after §4 and §10, before any A4 code is written. **A delivers**,
 after that rewrite, one falsifiable reading measured on 16 to 17 nodes, all
 financial layer, at every horizon.
 
-**丙 costs** nothing structural, and its population is all two hundred agents,
+**C costs** nothing structural, and its population is all two hundred agents,
 because the Gini is computed on the full holdings vector. §10.2's fifth
 inherited item does not arise for it at all. Its stock comes from issuance
 rather than from A3's asset layer, which also turns the deliverable from a point
@@ -869,7 +869,7 @@ failure can be told apart from a ceiling.
 §10's third reading is the one live thing the reparenting would buy, and it is
 named here so that it stays a decision rather than becoming an omission:
 **is `routed(X | C = 1)` near zero for every competitor.** It is deferred until
-§4's `A(X)` has run under injection, at which point 甲's cost can be weighed
+§4's `A(X)` has run under injection, at which point A's cost can be weighed
 against a result instead of against a hope. If it is taken up, §10.1's formula
 has to be repaired first: report `D(C=1, κ=1) − D(C=1, κ=0)` in levels, and
 record `routed(C = 0) ≡ 0` as an identity of the construction rather than as a

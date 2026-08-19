@@ -7,14 +7,14 @@ run and the criteria cannot quietly change shape inside it.
 
 What the manuscript says, and where each half lands in this file
 -----------------------------------------------------------------
-卷一·十八 gives the cascade: card, then auto loan, then shelter, then
+Volume One section 18 gives the cascade: card, then auto loan, then shelter, then
 displacement. It is implemented in :class:`CostRule` and in
 :meth:`CascadeModel.step`, and **no sequence is written down**. Each obligation
 class carries a pair, the cost incurred now and the cost incurred later, and a
 household short of cash drops the cheapest-now obligation it holds, then the
 next, until what remains can be paid. The sequence is what comes out.
 
-卷一·四 gives settlement asymmetry: an obligation due before income arrives
+Volume One section 4 gives settlement asymmetry: an obligation due before income arrives
 cannot be paid by that income. It is a switch in :class:`CascadeSpec`. Turning it
 off is a control arm and is expected to remove most of the stage, because on a
 period-average basis most of the defaulting households here are solvent.
@@ -1230,7 +1230,7 @@ class CascadeSpec:
     #: one-month-per-period rule, and it is a separate field so that the two
     #: thresholds cannot drift into agreeing by arithmetic accident.
     sixty_day_misses: int = 2
-    #: 卷一·四. False nets income against obligations inside the period, which
+    #: Volume One section 4. False nets income against obligations inside the period, which
     #: is the control arm that removes the mechanism.
     income_arrives_after_due: bool = True
 

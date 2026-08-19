@@ -82,7 +82,7 @@ LOAN_TYPES = ("MORTGAGE", "HELOC", "AUTO", "CC", "STUDENT LOAN", "OTHER", "ALL")
 #: A quarterly series starting 2003Q1 has more than eighty observations by any
 #: vintage this project will see. A workbook yielding fewer has been truncated
 #: or restructured, and either way it must not be read in silently
-#: (``CLAUDE.md`` item 6).
+#: (the project's engineering rule 6).
 MIN_QUARTERS = 80
 
 #: Retrieval integrity, not a criterion. These are the values the pinned vintage
@@ -329,7 +329,7 @@ def read_flow(path: Path) -> DelinquencyTable:
 def validate(path: Path, vintage: str = PINNED_VINTAGE) -> dict[str, object]:
     """Read both tables and report. Raises on anything a caller must not ignore.
 
-    This is the corruption and truncation check ``CLAUDE.md`` item 6 requires:
+    This is the corruption and truncation check the project's engineering rule 6 requires:
     a workbook that is unreadable, restructured, short, or no longer carrying
     the values its vintage published fails loudly here rather than being read in
     silently and scored against later.

@@ -197,7 +197,7 @@ the coherent-drift kind its meta-rule says a self-check will not catch.
    returns.
 2. Forward-filled dates are recorded in the manifest and **skipped by the
    loader**. Nothing is deleted and no file is edited; the loader ignores what it
-   should not read, per `CLAUDE.md` rule 5 and the `VALID_NAME` precedent.
+   should not read, per the project's engineering rule 5 and the `VALID_NAME` precedent.
 3. Every headline is computed **twice, on publication days and on all calendar
    days**, and both are reported, per `b5_orphan_availability.md` §7.6b. A
    material difference is the finding, not a defect to be cleaned away.
@@ -731,8 +731,8 @@ arrives before B6-A has run, B6-A still runs first.
 
 `data/fetch_bcc.py`, following `data/fetch_bcra.py`.
 
-1. **Resumable, and truncation is detected rather than read.** `CLAUDE.md` rule
-   6. The API returns the whole window in one response, so the failure mode is a
+1. **Resumable, and truncation is detected rather than read.** the project's engineering
+   rule 6. The API returns the whole window in one response, so the failure mode is a
    short page rather than a missing chunk; the fetcher asserts that the returned
    span covers the requested span and fails on a short answer.
 2. **Bytes are stored verbatim**, with `sha256` of what arrived and of what was
@@ -754,7 +754,7 @@ arrives before B6-A has run, B6-A still runs first.
 
 ### 2026-08-12, written. What was already known
 
-`CLAUDE.md` rule 8 permits a pre-registration written after real data has been
+The project's engineering rule 8 permits a pre-registration written after real data has been
 seen; what it requires is that a result which does not match be reported. This
 entry states what had been observed when the criteria above were fixed, so that
 a reader can discount each one accordingly.
@@ -785,7 +785,7 @@ primary form changed from a comparison against a derived tolerance to a strict
 equality against `published_from`, which is **stricter**, and the tolerance
 form was demoted to a fallback with its constant corrected from `5e-5` to
 `1e-4`. Recorded because it tightened a registered criterion; no headline had
-been computed, and `CLAUDE.md` rule 8 covers a design change that produced no
+been computed, and the project's engineering rule 8 covers a design change that produced no
 evidence.
 
 ### 2026-08-12, while implementing. B6-6 rewritten, and why
@@ -810,7 +810,7 @@ this table cannot answer: how much of a return leg the informal market supplies
 in practice. Running both bounds it from either side instead of assuming one.
 
 **No data had been analysed under the superseded form**, and no headline had
-been computed. `CLAUDE.md` rule 8 covers a design that produced no evidence; the
+been computed. the project's engineering rule 8 covers a design that produced no evidence; the
 entry is here because the correction is a substantive one and a reader comparing
 this document against a draft would otherwise find two different B6-6.
 
@@ -997,3 +997,50 @@ already encoded. Nothing changed.
   is open.
 - The path of the float between its endpoints, and therefore whether B6-6 holds
   on **every** publication day rather than on the two that have been seen.
+
+### 2026-08-18, the elTOQUE token arrived. §10 corrected against the instrument
+
+**Three probe rounds, fourteen requests, before B6-B's document was written.**
+Every window and every value is listed in `b6b_eltoque_prereg.md` §11. Two
+entries in §10 above are wrong as written and are corrected here rather than
+edited in place.
+
+**§10 rule 1 is falsified.** It reads: *"The API returns the whole window in one
+response, so the failure mode is a short page rather than a missing chunk; the
+fetcher asserts that the returned span covers the requested span and fails on a
+short answer."* Neither half survives contact with the instrument. A range longer
+than twenty-four hours is refused outright with HTTP 400 and the body `El
+intervalo de tiempo debe ser menor a 24 horas`, so one request buys one day and
+there is no whole window to return. And the response body carries **no span at
+all**: its `date`, `hour`, `minutes` and `seconds` are the server clock at the
+moment of the request, identical across three probes for three different past
+days whose rates differed correctly. There is nothing to assert the requested
+span against.
+
+**What replaces it is stronger than what it replaced.** A window the instrument
+cannot serve comes back `"tasas":{}`, measured at both ends: 2018-01-01 and
+2020-12-31 empty, 2021-01-01 populated, 2027-06-01 empty. **The empty object is
+the source's own statement of absence**, it is distinguishable from a populated
+answer without inference, and it makes a silent fallback detectable, which the
+missing echo would otherwise have made invisible.
+
+**§10's pacing constant survives and its justification does not.** `1 req/s` was
+taken from elTOQUE's announcement of 2023-12-01 removing an earlier 2-per-minute
+and 5,000-per-month cap. The API's own specification states 60 per minute with a
+10 per second burst cap, applied per key rather than per address, and the
+observed `X-RateLimit-*` headers on this project's key report a limit of 10 that
+refills inside two seconds. **60 per minute is 1 per second**, so the number does
+not move. What moves is that the fetcher reads the headers instead of trusting a
+figure from a news article, and that a `429` is handled through `Retry-After`
+rather than by a fixed sleep.
+
+**The request count is now measured rather than estimated.** `about 2050` was
+written before the domain was known. 2021-01-01 through 2026-08-17 inclusive is
+**2055 days**.
+
+**One thing §9 got right and it is worth saying so.** §9 wrote the friction column
+on the informal leg conditionally, *"if two-sided quotes are served"*. They are
+not: the endpoint returns one number per instrument, formed from buy and sell
+offers pooled by the publisher. **The condition resolves to the negative branch
+and nothing had to be rewritten**, which is the whole point of writing a
+conditional deferral instead of an assumption.

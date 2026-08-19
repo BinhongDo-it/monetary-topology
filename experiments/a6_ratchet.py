@@ -1710,7 +1710,7 @@ def main() -> int:
             f"rounds in each of eight cells; {guard['mismatch_count']} "
             f"mismatches. A gate: nothing below it runs if it fails"
         ),
-        # `CLAUDE.md` rule 6. The relative error is a residual against a closed
+        # The project's engineering rule 6. The relative error is a residual against a closed
         # form, so it sits at machine precision and its digits come from the
         # BLAS build; `a6_ratchet.py` line 1499 already prints it to the job
         # log, which is where a per-machine value belongs. Written here it made
@@ -1803,7 +1803,7 @@ def main() -> int:
             + "; ".join(
                 f"{k} {c['worst_both_sides']}" for k, c in sides["cells"].items()
             )
-            # `CLAUDE.md` rule 6, as for A6-8 above. The drift is a residual
+            # The project's engineering rule 6, as for A6-8 above. The drift is a residual
             # against conservation and sits at machine precision. The counts
             # either side of it are integers and stay.
             + ". Worst claim drift at machine precision, below "

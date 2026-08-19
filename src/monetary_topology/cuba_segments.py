@@ -358,7 +358,7 @@ def bcc_path(raw_dir: Path, currency: str) -> Path:
 #: The export is behind a form rather than behind a URL, so the six files cannot
 #: be fetched. The loader accepts only names matching this pattern, which is the
 #: device ``parallel_rates.VALID_NAME`` uses: **a file that should not be read is
-#: ignored by the code rather than deleted from the disk** (``CLAUDE.md`` rule 5).
+#: ignored by the code rather than deleted from the disk** (the project's engineering rule 5).
 #:
 #: **The separators are optional, and the reason is a mistake worth recording.**
 #: The download name is ``tasas-historicas-USD-Segmento-III-2026-08-12.xlsx``.

@@ -36,6 +36,15 @@ character-for-character identical.
 """
 
 STAGE_TITLES = {
+    # B8 writes markdown, so none of its thirty-one products reaches this
+    # file through the glob below and the stage was absent from RESULTS.md
+    # entirely while the roadmap still called it pre-registered. The sheet
+    # named here is the bridge, assembled by experiments/b8_verdicts.py.
+    "B8": (
+        "B8 — the modification triangle on Fannie Mae loan performance "
+        "(B8-4b does not run for want of C9, and section 15.3 registers "
+        "that as not a failure of the stage)"
+    ),
     "A0": "A0 — retention and allocation",
     "A0b": "A0b — derived demand on the downward edge",
     "A2": "A2 — support-set contraction and the intermediate layer",
@@ -155,14 +164,26 @@ def mark_of(c: dict) -> str:
     return "PASS" if c["passed"] else "**FAIL**"
 
 
+def _cell(text: str) -> str:
+    """A pipe inside a table cell ends the cell, so every cell escapes its own.
+
+    **Both columns, because for a long time only one did.** `detail` was escaped
+    and `name` was not, for no reason either side records, and the asymmetry sat
+    unexercised until a criterion was named `|λ| does not scale with the tick`
+    and split its own row into five cells. **A guard applied to one of two
+    identical inputs is a guard nobody has tested on the other.**
+    """
+    return text.replace("|", r"\|")
+
+
 def criteria_table(criteria: list[dict]) -> list[str]:
     lines = ["| | criterion | detail |", "|---|---|---|"]
     for c in criteria:
         # Rendered rather than raised. A stage that forgets its detail strings
         # should show a visible gap in this table, not take the whole CI run
         # down with a KeyError before anything else is checked.
-        detail = c.get("detail", "_no detail recorded_").replace("|", r"\|")
-        lines.append(f"| {mark_of(c)} | {c['name']} | {detail} |")
+        detail = _cell(c.get("detail", "_no detail recorded_"))
+        lines.append(f"| {mark_of(c)} | {_cell(c['name'])} | {detail} |")
     return lines
 
 
@@ -281,7 +302,7 @@ def derived_for(record: dict) -> dict[str, float]:
     """
     stage = record.get("stage")
     if stage == "B7" and record.get("step") == "crossfold":
-        # B7-16 carries no criteria by design (CLAUDE.md 12), so without this the
+        # B7-16 carries no criteria by design, so without this the
         # stage renders as a heading and nothing else. The arm surfaced is the
         # one the reading rests on, plus the control that reads zero.
         arms = record.get("arms", {})
@@ -405,7 +426,7 @@ def render_stage(record: dict, sub: str | None = None) -> str:
             # A record that gates nothing still has headline numbers, and a
             # heading with a subtitle and nothing under it is the shape a reader
             # takes as "this stage produced no numbers". B7-16 writes no criteria
-            # **on purpose** (CLAUDE.md 12: a criterion is structural or it is a
+            # **on purpose** (a criterion is structural or it is a
             # printed number with a reading declared in advance), so the file
             # that renders criteria had no way to show it at all.
             derived = record.get("derived", derived_for(record))
@@ -463,6 +484,22 @@ def is_diagnostic(record: dict) -> bool:
     return bool(record.get("diagnostic_only"))
 
 
+def is_record(record) -> bool:
+    """Is this a stage record at all, or something else that landed in
+    `results/`?
+
+    **The third filter, extracted 2026-08-18 so that it stops being invisible.**
+    `main` applied it inline while `tests/test_runner_covers_every_record.py`
+    reimplemented the other two and not this one, so the guard demanded a runner
+    job for `b9_datasets.json` while this file refused to render it. That test's
+    own docstring says reimplementing the filter would let the two drift and
+    that a guard which drifts from the thing it guards is `centrality_bins`
+    with a different name. **It then reimplemented the filter.** The repair is
+    the one that docstring asks for: one predicate, both callers.
+    """
+    return isinstance(record, dict) and "stage" in record
+
+
 def main() -> int:
     records = sorted(RESULTS.glob("*.json"))
     if not records:
@@ -472,6 +509,19 @@ def main() -> int:
     parts = [HEADER]
     off: list[str] = []
     bare: list[str] = []
+    # A third list, added 2026-08-16. `results/` had held only stage records, and
+    # `render_stage` reads `record["stage"]` directly while the grouping below
+    # already tolerated its absence with a fallback key: an inconsistency that sat
+    # there until something exercised it. `b9_datasets.json` did, a dataset
+    # catalogue with venue codes at the top level and no `stage` anywhere, and the
+    # renderer died on a `KeyError` naming nothing.
+    #
+    # **Skipped and named, not skipped quietly**, for the reason the two lists
+    # above are printed: a file this script silently ignores is a file nobody
+    # knows is being ignored. **Whether a non-record belongs in `results/` at all
+    # is a question for whoever put it there**, and this list is how they find out
+    # it is here.
+    notrecord: list[str] = []
     # Grouped by stage so a stage with several registered records gets one
     # heading and one subsection per record, instead of its heading repeated.
     # ``records`` is sorted and dicts keep insertion order, so a stage sits at
@@ -483,6 +533,9 @@ def main() -> int:
             off.append(path.name)
             continue
         record = json.loads(path.read_text(encoding="utf-8"))
+        if not is_record(record):
+            notrecord.append(path.name)
+            continue
         if is_diagnostic(record):
             bare.append(path.name)
             continue
@@ -513,6 +566,7 @@ def main() -> int:
     for names, why in (
         (off, "off-parameter or smoke runs, kept on disk and not rendered"),
         (bare, "declared diagnostic by the writer, so not stages"),
+        (notrecord, "**no `stage` key, so not a record this file can render**; whoever wrote it into `results/` decides whether it belongs there"),
     ):
         if names:
             print(f"  {why}: {', '.join(names)}")

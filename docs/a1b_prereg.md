@@ -176,7 +176,7 @@ a separate response. The model predicts who falls behind from a balance sheet;
 this says who reported falling behind.
 
 **Registered as ordinal only, and the direction comes from the manuscript rather
-than from the data.** 卷一·十八 says the failure concentrates in the strata
+than from the data.** Volume One section 18 says the failure concentrates in the strata
 holding consumer credit against little net worth. So:
 
 > the model's share of households ever behind is **decreasing in net-worth
@@ -239,7 +239,7 @@ verdict, both are reported and the disagreement is the finding.
 ## 7. Outputs
 
 `results/a1b_default_cascade.json`, `data/processed/a1b_model_v1.csv` in the
-shape `claude/模型对表规格_v1.md` requires, and rows in `RESULTS.md` written by
+shape the measurement side requires, and rows in `RESULTS.md` written by
 the renderer.
 
 ---
@@ -312,7 +312,7 @@ written here before any criterion runs on it.
 
 **The quantity is `History.terminating[t, s]`**, the claims landing on stratum
 `s` in round `t`, normalised by the same stratum's opening round. That is the
-quantity 卷一·十八 is about, what reaches a household against what it owes, and
+quantity Volume One section 18 is about, what reaches a household against what it owes, and
 the normalisation makes period zero exactly one by construction rather than by a
 level this project chose.
 
@@ -384,7 +384,7 @@ no mortgage, one missed payment there consuming a twelfth of the foreclosure
 clock against a third of the repossession clock. Only `6.5%` of households are
 in that position.
 
-**What this refutes, stated precisely.** 卷一·十八's sequence describes *one*
+**What this refutes, stated precisely.** Volume One section 18's sequence describes *one*
 squeezed household walking down its own rungs. A1-2 turned that into a
 cross-section of first defaults, and a cross-section is dominated by which rungs
 a household holds at all. In a population where 40.6% hold neither a revolving
@@ -485,7 +485,7 @@ here because the ambiguity was found by the two disagreeing.
 worth is `0.0847 / 0.0163 / 0.0022 / 0.0026`: the survey puts the top 1%
 `0.0004` above the next 9%. The model is `0.301 / 0.174 / 0.017 / 0.000` at
 seed 7, and **strictly decreasing in every one of the six sweep cells**. So the
-gradient's direction, which is what 卷一·十八 says, holds everywhere; the
+gradient's direction, which is what Volume One section 18 says, holds everywhere; the
 ordering does not match, and the whole of the mismatch is that the survey's two
 smallest cells are the wrong way round by four basis points while the model's
 are the right way round.

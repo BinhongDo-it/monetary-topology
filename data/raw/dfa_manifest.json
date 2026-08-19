@@ -1,0 +1,39 @@
+{
+  "dfa_date": "2026:Q1",
+  "dfa_sha256": "a7804fb240cb6153d6beb04335ac558cb4e0c5c2ba221eba7c41b9c62ce36274",
+  "dfa_url": "https://www.federalreserve.gov/releases/z1/dataviz/download/zips/dfa.zip",
+  "dfa_vintage": "2026Q1, DFA release 2026-06-18",
+  "mortgage_to_consumer_credit": 2.7244036159053633,
+  "provenance": "Distributional Financial Accounts, shares by wealth group, read from the publisher's own archive under a selection pinned in data/dfa_series.json rather than from a guessed series identifier. The Z.1 ratio is one-to-four-family residential mortgages over consumer credit, both not seasonally adjusted, both named instruments: it replaced a ratio built on total liabilities, of which 12.4% is neither instrument. See docs/a1_inputs_availability.md.",
+  "retrieved_utc": "2026-08-15T05:56:01+00:00",
+  "selection_file": "dfa_series.json",
+  "selection_sha256": "b322c50b203ed628ad538a8e8a53648fc9385aeb7b4b139e065af652f06f179f",
+  "shares": {
+    "consumer_credit": [
+      0.518,
+      0.349,
+      0.10099999999999999,
+      0.033
+    ],
+    "home_mortgages": [
+      0.225,
+      0.49,
+      0.244,
+      0.04100000000000001
+    ],
+    "net_worth": [
+      0.025,
+      0.29600000000000004,
+      0.363,
+      0.316
+    ]
+  },
+  "stage": "A1",
+  "z1_consumer_credit": 5073031.0,
+  "z1_date": "2026-01-01",
+  "z1_home_mortgages": 13820984.0,
+  "z1_series": {
+    "consumer_credit": "CCLBSHNO",
+    "home_mortgages": "HMLBSHNO"
+  }
+}

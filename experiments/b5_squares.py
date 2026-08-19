@@ -280,7 +280,7 @@ def main() -> int:
 
     # `worst_machinery`, the max of B5-1's two discrepancies, was computed here
     # for the detail string below and is no longer written into the record
-    # (`CLAUDE.md` rule 6, since it is a residual at machine precision whose
+    # (the project's engineering rule 6, since it is a residual at machine precision whose
     # digits vary by build). It is not recomputed for the log either: `main`
     # already prints **both** components, and the max of two printed numbers is
     # not a third number a reader needs.
@@ -312,7 +312,7 @@ def main() -> int:
             {
                 "name": "B5-1 walked square equals the closed form",
                 "passed": b5_1["passed"],
-                # `CLAUDE.md` rule 6. The discrepancy between the walked square
+                # The project's engineering rule 6. The discrepancy between the walked square
                 # and the closed form is a residual against an identity, so it
                 # sits at machine epsilon and its digits vary by build; written
                 # into `RESULTS.md` it makes CI's `git diff --exit-code` fail

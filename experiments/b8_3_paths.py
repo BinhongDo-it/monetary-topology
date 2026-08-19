@@ -257,13 +257,21 @@ def term_grid(win, tband, arm, om, coh, min_cell=MIN_CELL) -> list[dict]:
 
 def analyse(name: str, cache_root=None, pos=None, tab=None,
             n_perm: int = N_PERM, use_cache: bool = True,
-            core_root=None) -> dict:
+            core_root=None, data=None) -> dict:
     """**Reads `b8_cache` by default**; see `b8_2_windows.analyse` for why.
 
     ``use_cache=False`` keeps the direct path and the selftest compares them.
+
+    ``data`` hands in a cache-shaped dict instead of reading one. **It exists
+    so B8-3 can be run under a second curve construction through this exact
+    code path** rather than through a second copy of the cells, the
+    stratified delta and the permutation: `b8_3_curve` rebuilds `sig.omega`
+    and `floor.omega` under the alternative rule and passes the rest through
+    unchanged, because nothing else here is a function of the curve.
     """
     if use_cache:
-        d = C.get(name, pos=pos, tab=tab, core_root=core_root or cache_root)
+        d = (C.get(name, pos=pos, tab=tab, core_root=core_root or cache_root)
+             if data is None else data)
         s, fl = d["sig"], d["floor"]
         omega, n1, n3 = s["omega"], s["n1"], s["n3"]
         meas, arm, win = s["measurable"].astype(bool), s["arm"], s["window"]

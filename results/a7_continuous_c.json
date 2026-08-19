@@ -1,6 +1,5 @@
 {
   "arm": "uniform",
-  "diagnostic_only": true,
   "diagnostic_reason": "D_fixed, the estimator section 4.2 registers as scored, is not computed here. Every gap in this file is D_reach, which the same section registers as reported and never scored.",
   "grid": [
     0.0,

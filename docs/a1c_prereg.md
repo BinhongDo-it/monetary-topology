@@ -12,7 +12,7 @@ by reference. What is new is one measured quantity and one criterion.
 
 ## 1. Why a different proposition, and what the difference is
 
-卷一·十八 gives a sequence: card, then auto loan, then shelter, then
+Volume One section 18 gives a sequence: card, then auto loan, then shelter, then
 displacement. A1-2 turned that into a **cross-section**, the share of defaulting
 households whose *first* default is each class. The first scored run of A1b
 showed what a cross-section of that kind measures, and it is not the sequence:
@@ -84,7 +84,7 @@ For **each** of the three pairs, among the households in scope for that pair:
 
 > households in order **strictly exceed** households inverted.
 
-Ordinal, no level, no tolerance. **Source of the direction**: 卷一·十八 and
+Ordinal, no level, no tolerance. **Source of the direction**: Volume One section 18 and
 nothing else. **Fails** if any pair inverts, and a failure is the manuscript's
 sequence being wrong for that pair rather than the code being wrong.
 
@@ -203,7 +203,7 @@ cascade is a renter's cascade."
 scope that had already excluded the mortgage from the cascade three days
 earlier. A1c-1 as written therefore asks the sequence to hold for a class the
 project had registered as not being in it. The criterion fails as written and
-that stands; what it refutes is this document's §2 rather than 卷一·十八.
+that stands; what it refutes is this document's §2 rather than Volume One section 18.
 
 **The size of the claim's domain, reported and not scored.** `16,518` of
 `20,000` households, `82.6%`, are in scope for no pair at all: they never miss

@@ -8,7 +8,7 @@ measured, and the answer would be about the shock.
 What is taken
 ---------------
 ``History.terminating[t, s]`` is the claims **landing** on stratum ``s`` in round
-``t``. That is the quantity the manuscript's 卷一·十八 is about: what reaches a
+``t``. That is the quantity the manuscript's Volume One section 18 is about: what reaches a
 household, against what it owes. The multiplier this module hands the cascade is
 
     multiplier[t][s] = terminating[t, s] / terminating[0, s]

@@ -21,7 +21,7 @@ Items that could not be verified from a page actually retrieved are marked
 
 `PROJECT_PLAN.md` §A1 states the property that makes A1 attractive:
 
-> **这是唯一挂真实数据的阶段，因此最可引。**
+> **This is the only stage attached to real data and therefore the most citable.**
 
 The same property is the exposure. A0, A2, A3, A5 and A6 register *shapes*\:
 signs, orders, whether a channel closes. A1 registers **six levels**, and a level
@@ -85,7 +85,7 @@ same product:
 | Credit card | **13\.12** | 7\.10 |
 
 The New York Fed's phrase "serious delinquency" attaches to the flow table
-(Pages 14, 24\-28). The plan calls target 2 "车贷 90 天\+ **严重逾期** 5.6%", which
+(Pages 14, 24\-28). The plan calls target 2 "auto loans 90+ days, seriously delinquent, 5.6 percent", which
 takes the number from the stock table and the name from the flow table. Nothing
 is wrong with the number. The pre\-registration has to declare which quantity the
 model emits, and the target column then follows from that declaration rather than
@@ -103,7 +103,7 @@ first time the New York Fed reorders a page.
 
 `PROJECT_PLAN.md` §12's source table registers:
 
-> **NY Fed HHDC**，按产品**且按收入分位/信用分层** | A1 校准。**分层是关键，K 型的证据在拆分里不在总数里**
+> **NY Fed HHDC**，by product **and by income quantile / credit tier** | A1 calibration. **The stratification is the point: the evidence for the K shape is in the split, not in the total**
 
 Full inventory of the workbook in hand (36 data sheets, from its own table of
 contents, vintage May 2026 \= 2026Q1):
@@ -136,8 +136,7 @@ readable:
 - **Liberty Street Economics, 2025\-02**, chart data xlsx. Subprime `580-619` /
   midprime / prime / very prime auto transitions.
 
-Both are single publications rather than maintained series. Under `CLAUDE.md`
-item 9 they are usable as literature. They cannot be a measurement leg that gets
+Both are single publications rather than maintained series. Under the project's engineering rule 9 they are usable as literature. They cannot be a measurement leg that gets
 re\-run.
 
 **What this does and does not cost A1.** The registered K\-shape criterion is a
@@ -158,7 +157,7 @@ supplies.
   60\+ index, reported through trade press and Fitch's "North American Auto ABS
   Monitor 2H25" (2026\-03\-11). `fitchratings.com` could not be retrieved
   (**paywall status unverified**); no free machine\-readable file was found.
-- **No S&P 2026 value was verified.** The joint attribution "惠誉/标普" is not
+- **No S&P 2026 value was verified.** The joint attribution "Fitch / S&P" is not
   supported and should become Fitch alone.
 - **Population.** The index covers loans inside rated ABS trusts, not subprime
   borrowers. Loans held on balance sheet and buy\-here\-pay\-here paper are outside
@@ -183,7 +182,7 @@ with its own threshold and denominator.
 this rung becomes the FEDS Note series (`15.78%`, 2025Q3; subprime `<620`; 30\+
 days; share of balances; New York Fed Consumer Credit Panel/Equifax), with the
 threshold and the denominator written into the criterion rather than left
-implicit. Fitch's index moves to literature under `CLAUDE.md` item 9, cited with
+implicit. Fitch's index moves to literature under the project's engineering rule 9, cited with
 the ABS\-pool qualifier attached, never fitted. Two consequences the
 pre\-registration inherits:
 
@@ -192,7 +191,7 @@ pre\-registration inherits:
   criterion text instead of being smoothed over by calling all three
   "delinquency".
 - **The FEDS Note is a single publication, not a maintained series.** Under
-  `CLAUDE.md` item 6 the accessible HTML table is snapshotted into
+  the project's engineering rule 6 the accessible HTML table is snapshotted into
   `data/raw/fingerprints/` on first pull and treated as non\-regenerable; every
   re\-run reads the snapshot rather than the site. The Liberty Street 2025\-02
   chart\-data xlsx is pulled in the same way, as the second reading of the same
@@ -261,12 +260,12 @@ Tracker**, discontinued January 2022, final xlsx still downloadable, last point
 | 1\.26 million | calendar 2024 | same | filings |
 | 3\.6 million | 2018 | national | filings, **model\-based estimate** imputing about a million cases for counties without usable records |
 
-`124万` is most plausibly a transcription of `1.23M`. Whatever its origin, the
+`1.24 million` is most plausibly a transcription of `1.23M`. Whatever its origin, the
 quantity it names is not national and not a twelve\-month rolling window that the
 site publishes.
 
 **Filings are not displacement, and the framework's own vocabulary says so.** The
-cascade in Volume One ends at 驱逐（物理位移）, a resource\-side event. The Eviction
+cascade in Volume One ends at eviction, a physical displacement, a resource\-side event. The Eviction
 Lab's 2022 methodology states that its records "do not allow us to measure how
 many households were displaced following the case filing". Post\-2018 there is no
 judgment or execution series at all. The only source carrying both is the older
@@ -283,7 +282,7 @@ it.
 `eviction-lab-data-downloads.s3.amazonaws.com/ets/` and `evictionlab.org/uploads/`
 (**liveness unverified**, robots.txt blocked the checking agent). No API found.
 The filenames still read `_2020_2021` while the page is stamped 2026\-08\-08, so
-**files are replaced in place with no dated vintage**\: under `CLAUDE.md` item 6
+**files are replaced in place with no dated vintage**\: under the project's engineering rule 6
 the fetcher must snapshot by retrieval date locally, or the criterion becomes
 unreproducible the next time the Lab refreshes. Terms are citation only for ETS
 aggregates; the 2000\-2018 national database asks for an email, so it is one
@@ -315,14 +314,14 @@ visible before the stage runs rather than after.
    - **The six levels themselves belong in `calibration.py`**, beside the DFA
      block that already announces itself as holding A1's targets. Constants in
      source are frozen by git; a workbook on disk is frozen by nobody.
-   - **If the shape comparison of `模型对表规格` V1 is wanted** (model default
+   - **If the shape comparison of `the model correspondence spec` V1 is wanted** (model default
      cascade against the observed K shape), the 5.7 KB derived series is copied
      into `data/processed/` once, with a provenance header naming the sibling
      repository, the extractor and the vintage. A frozen copy, not a live path
      into another working tree.
    - The sibling repository's own fetcher writes every vintage to one filename, so
      its copy of the 2026Q1 workbook is one URL bump away from replacement. That
-     is a note for **that** repository under `CLAUDE.md` item 6, and it is not an
+     is a note for **that** repository under the project's engineering rule 6, and it is not an
      A\-track task.
 
 2. **Declare stock or flow once**, with the two numbers from §3 in the
@@ -336,7 +335,7 @@ visible before the stage runs rather than after.
    scored as a sequence, plus **levels only where the model's denominator is the
    source's denominator**.
 
-4. **Split measurement from literature explicitly**, per `CLAUDE.md` item 9, as
+4. **Split measurement from literature explicitly**, per the project's engineering rule 9, as
    amended by the two rulings of 2026\-08\-13:
    
    | Measurement (re\-runnable, machine readable) | Literature (cited, never fitted) |
@@ -375,7 +374,7 @@ visible before the stage runs rather than after.
    needs no heterogeneity, which is a result about the stage rather than a defect
    in it.
 
-8. **Recount the parameter budget.** §A1 registers 参数总数 ≤ 12, counted for a
+8. **Recount the parameter budget.** §A1 registers a total parameter count of ≤ 12, counted for a
    single household. A stratified population has to recount it before that
    criterion can bind on either arm.
 

@@ -501,7 +501,7 @@ def render(rows: list[dict]) -> str:
     A("\n**The legs.** §14.2: the split is bookkeeping and no claim rests on "
       "it. Leg 3 is printed twice, because §17.3's `t_M == t_B` shape gives it "
       "**no months at all** on much of the sample, and a median over an empty "
-      "leg is not a measurement of zero (坑 23).\n")
+      "leg is not a measurement of zero (pit 23).\n")
     A("| archive | arm | leg1 p50 | leg2 p50 | leg3 p50 | leg3 empty | "
       "**leg3 where it exists** | its median abs |")
     A("|---|---|---|---|---|---|---|---|")
@@ -823,7 +823,7 @@ def selftest() -> int:
     if abs(float(s_bad["leg1"][0] + s_bad["leg2"][0] + s_bad["leg3"][0]
                  - s_bad["omega"][0])) > 1e-12:
         fails.append("the telescoping identity failed on its own terms")
-    # now hand replay the CORRECT sums against the WRONG window: it must差
+    # now hand replay the CORRECT sums against the WRONG window: it must differ
     rp = replay(lp, r, ok, s_bad, n=10)
     if rp["mismatched"] == 0:
         fails.append("replay agreed with a leg split taken from a window one "
@@ -871,7 +871,7 @@ def selftest() -> int:
         fails.append(f"identity worst {a['identity_max']:.3e} over tolerance "
                      f"{a['replay']['tol']:.3e}")
     # **Both arms, or one arm's whole column is an empty set that prints like a
-    # measurement** (坑 23). The deferral arm is one loop in this fixture and
+    # measurement** (pit 23). The deferral arm is one loop in this fixture and
     # that is enough to keep the column honest.
     # **The §17.4 column, against `b8_loops`' own independently computed
     # count.** It reached a published file as `np.size` of a dict, which is 1,

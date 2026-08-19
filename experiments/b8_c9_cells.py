@@ -183,7 +183,7 @@ MISSING_LABEL = {
     "state": -1,
 }
 
-#: Levels excluded from the floor test, per 陛下's ruling of 2026-08-16: a
+#: Levels excluded from the floor test, per the author's ruling of 2026-08-16: a
 #: blank class field and a self-reported unknown code are both measurement
 #: gaps rather than agent classes, and each is excluded **carrying its count**,
 #: which is §7's form.
@@ -404,7 +404,7 @@ def report(res, res_flex_cohort, q_same, names) -> str:
           f"{r.loans_in_short:,} | **{r.min_cell:,}** | {r.argmin} |")
 
     A("\n### 2.1 The verdict, on the ruling of 2026-08-16\n")
-    A("**陛下 ruled that a blank class field and a self-reported unknown code "
+    A("**the author ruled that a blank class field and a self-reported unknown code "
       "are both excluded, each carrying its count.** Neither is an agent "
       "class; both are measurement gaps, and §7's form for a measurement gap "
       "is exclusion with the count printed. **The all-levels-kept column is "

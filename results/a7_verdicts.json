@@ -6,7 +6,7 @@
       "passed": true
     },
     {
-      "detail": "the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under CLAUDE.md rule 8 and not repaired; docs section 6.2",
+      "detail": "the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs section 6.2",
       "name": "A7-A-2",
       "passed": false
     },

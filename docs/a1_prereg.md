@@ -19,7 +19,7 @@ retention mechanism is A0's and is not re-derived here.
 
 ## 1. What this stage is for, and what it can end
 
-**The claim under test** is 卷一·十八 and 卷一·四: when the claims reaching a
+**The claim under test** is Volume One section 18 and Volume One section 4: when the claims reaching a
 household fall below what it owes, it does not default on everything at once and
 does not default at random. It defaults in an order, and the order is produced by
 the relative cost of each default rather than by a rule written down in advance.
@@ -138,7 +138,7 @@ at, and the failure is then informative rather than opaque.
 
 ### 2.3 Settlement asymmetry is what makes a shortfall bite
 
-卷一·四. Obligations fall due on a schedule and claims arrive on another, and a
+Volume One section 4. Obligations fall due on a schedule and claims arrive on another, and a
 claim arriving after the due date does not discharge an obligation due before it.
 The model therefore has a due date and an arrival date per period, and a
 shortfall is evaluated at the due date. **A model that nets income against
@@ -184,14 +184,14 @@ forever.
 it. The CEX `Shelter` line is rent plus owned-dwelling costs, so a household paid
 its rent once as an undefaultable necessity and again as a defaultable rung, and
 the correction is not only arithmetic: putting shelter in a senior basket asserts
-that the dwelling cannot be given up, which is the opposite of what 卷一·十八
+that the dwelling cannot be given up, which is the opposite of what Volume One section 18
 says. Shelter is a rung; the basket is the five other items.
 
 **Arrears carry forward.** A missed payment does not vanish; the household owes
 it again next period, and becomes current only by clearing the arrears together
 with the current due. Without this the delinquency counter oscillates between one
 and zero and nothing ever reaches ninety days, which would make section 2.5's
-mapping unreachable in principle. This is also the ratchet 卷一·十八 describes:
+mapping unreachable in principle. This is also the ratchet Volume One section 18 describes:
 falling behind makes catching up harder, at no extra parameter.
 
 ### 2.6 How a household is built, and why none of them can be infeasible
@@ -328,7 +328,7 @@ Among households defaulting at least once:
       > share whose first default is the auto loan
       > share whose first default is rent or mortgage
 
-Strict inequalities, no level. **Source of the ordering**: 卷一·十八. **Fails**
+Strict inequalities, no level. **Source of the ordering**: Volume One section 18. **Fails**
 if any inequality reverses. A reversal is the manuscript's sequence being wrong,
 not the code being wrong, and it is recorded as such.
 
@@ -459,7 +459,7 @@ runs at one size.
 ### A1-11. The free-parameter count
 
 **Free** means not taken from a cited published source. `PROJECT_PLAN.md` §A1
-registers `参数总数 ≤ 12`, counted when the setting was one household. The count
+registers `a total parameter count of ≤ 12`, counted when the setting was one household. The count
 is re-taken here for the stratified arm and the bound is kept: **at most twelve
 free parameters**, printed by the experiment with a provenance line each. Values
 from DFA, from Fagereng, Holm & Natvik, from the HHDC workbook and from the
@@ -501,8 +501,8 @@ and are recomputed by the experiment from the workbook rather than typed in.
 
 | outcome | what it refutes |
 |---|---|
-| A1-2 reverses (rent defaults before the card) | 卷一·十八's cost ordering. The manuscript's sequence is wrong and is rewritten |
-| A1-10 fails: rungs need per-rung parameters | the coverage test of 第十三节. This is not a cascade model, it is four fits, and the stage stops rather than reporting a partial pass |
+| A1-2 reverses (rent defaults before the card) | Volume One section 18's cost ordering. The manuscript's sequence is wrong and is rewritten |
+| A1-10 fails: rungs need per-rung parameters | the coverage test of section 13. This is not a cascade model, it is four fits, and the stage stops rather than reporting a partial pass |
 | A1-3 holds only with a mortgage-specific parameter | the K shape as an emergent property. Recorded as "K requires an exogenous homeowner-protection assumption", which is itself a claim about policy rather than about the mechanism |
 | A1-1 nonzero | the instrument. Nothing else in the stage is readable |
 | A1-2 fails in **both** arms | the ordering rule, localized by A1-9 |
@@ -562,7 +562,7 @@ claim/resource line.
 renderer rather than by hand.
 
 Also `data/processed/a1_model_v1.csv`, the model V1 series that
-`claude/模型对表规格_v1.md` requires of the simulation side: the default rate by
+the measurement side requires of the simulation side: the default rate by
 claim type per model period, first column the period index, csv, utf-8, LF,
 explicit float formatting, no wall clock. The shape it is compared against is the
 K type and the rung-by-rung transmission, not a numerical fit, and the comparison
@@ -854,7 +854,7 @@ mean, so the minimum falls monotonically towards zero as arms accumulate. The
 rule is well defined only over a **closed** list of arms, and this stage's list
 was not closed: the permutation arm exists because a tenure ruling three entries
 above made it necessary. An infimum over an open set is not an estimate. This is
-the same shape as the defect the `复检 i` note records, a derived quantity read as
+the same shape as the defect the the re-check i note note records, a derived quantity read as
 an estimator when it was never defined on a closed object. The caps are now
 printed per arm, labelled as properties of that arm's crossing, and the
 dispersion is the registered `0.25` unless a run states otherwise.
@@ -937,7 +937,7 @@ written here before any criterion runs on it.
 
 **The quantity is `History.terminating[t, s]`**, the claims landing on stratum
 `s` in round `t`, normalised by the same stratum's opening round. That is the
-quantity 卷一·十八 is about, what reaches a household against what it owes, and
+quantity Volume One section 18 is about, what reaches a household against what it owes, and
 the normalisation makes period zero exactly one by construction rather than by a
 level this project chose.
 

@@ -252,7 +252,7 @@ def synthetic_criteria(seed: int = 0) -> tuple[list[Criterion], dict]:
     # log, where a machine-dependent number belongs.
     #
     # This is the treatment `a0_derived_wages.py` already gives A0b-5 and the
-    # second instance of `CLAUDE.md`'s determinism rule in this repository. It
+    # second instance of the project's determinism rule in this repository. It
     # is applied to **both** residuals rather than only to the one that moved,
     # because they are one construction written twice and fixing the half that
     # happened to drift today would leave the other to drift tomorrow.
@@ -380,7 +380,7 @@ def real_data_criterion(
         "b2_within_share_restricted": split.within_share,
     }
 
-    # `CLAUDE.md` rule 6, the same treatment B1-1 and B1-3 get above. Both
+    # The project's engineering rule 6, the same treatment B1-1 and B1-3 get above. Both
     # relative errors are residuals against an identity and sit at machine
     # epsilon. The two aggregates they are the ratio of are measurements and
     # stay, at a fixed eight places, which is rule 5.

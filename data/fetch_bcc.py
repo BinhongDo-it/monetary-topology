@@ -50,7 +50,7 @@ The export is behind a form on ``bc.gob.cu`` rather than behind a URL, so the si
 files are downloaded by hand and dropped into ``data/raw/bcc_xlsx/``. The loader
 accepts only names matching ``VALID_XLSX``, which is the same device
 ``parallel_rates.VALID_NAME`` uses: **a file that should not be read is ignored
-by the code rather than deleted from the disk** (``CLAUDE.md`` rule 5). If the
+by the code rather than deleted from the disk** (the project's engineering rule 5). If the
 directory is absent, guards 1 and 2 are reported as not run, and they are
 reported as not run rather than as passed.
 """

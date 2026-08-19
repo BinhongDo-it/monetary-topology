@@ -8,6 +8,13 @@ dist/
 .venv/
 venv/
 .env
+# Case matters here: the files on disk are HANDOFF_B8.md and friends, and the
+# lowercase pattern only ever matched because Windows git defaults to
+# core.ignorecase=true. On the Linux CI runner it does not, so four handoff
+# files would have shown up as untracked. Both cases are listed on purpose.
+*handoff*.md
+HANDOFF*.md
+*HANDOFF*.md
 
 # Raw data is not redistributed. data/SOURCES.md records where to get it.
 # 3.8 GB across three programmes, and the retrieval script rebuilds it.
@@ -49,3 +56,38 @@ data/processed/*
 
 # Prepared commit messages, not part of the repository.
 COMMIT_MSG*.txt
+
+# Git scratch for a single stage: prepared add-lists and how-to notes, written
+# for one commit and not part of the repository. COMMIT_MSG*.txt and HANDOFF*.md
+# were already excluded and these were not, so `git add -A` would have swept
+# them in. Found 2026-08-18 while auditing what an outside reader would see.
+GIT_HOWTO*.md
+GIT_ADD*.txt
+b8_paths.txt
+
+# Retired out of the repository rather than deleted, because this repository
+# does not delete. Nothing here is on any code path.
+_to_delete/
+
+# B10 and B11: stages with no section in RESULTS.md, whose registers are held
+# outside this repository (2026-08-18). Their code and records are excluded so
+# that `git add -A` cannot sweep in a stage whose pre-registration does not ship.
+# Nothing published rests on either stage; every record they write carries
+# `diagnostic_only` and the renderer skips it.
+experiments/b10_*.py
+experiments/b11_*.py
+results/b10_*.json
+results/b11_*.json
+results/b10_*.json.*
+
+# B11's retrieval side, found 2026-08-19 while preparing the add-list. The rule
+# above excluded `experiments/b11_*.py` and `results/b11_*.json` but not the two
+# fetchers those files import, nor the two manifests they write. Each is reached
+# only from an already-excluded B11 file, so committing them would ship half a
+# stage whose pre-registration is held outside this repository. The manifest
+# negation `!data/raw/*_manifest.json` is above, so these two lines have to come
+# after it: last match wins.
+data/fetch_rocr.py
+data/fetch_gleif.py
+data/raw/rocr_manifest.json
+data/raw/gleif_manifest.json

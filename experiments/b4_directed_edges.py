@@ -305,7 +305,7 @@ def theorem_5(rng: np.random.Generator, shapes: int) -> tuple[list[Criterion], d
         Criterion(
             "B4-3  Theorem 5: a sink component gives an unbounded ray",
             rays_tested > 0 and ray_worst <= TOL,
-            # `CLAUDE.md` rule 6, as for B4-7 and B4-8 below. The violation is
+            # The project's engineering rule 6, as for B4-7 and B4-8 below. The violation is
             # machine epsilon amplified by the shift magnitude, which is why it
             # reads `1e-11` rather than `1e-16`; its digits still come from the
             # BLAS build. The shift magnitude itself is a design constant and
@@ -463,7 +463,7 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
                         worst_friction_move, abs((s1 + r1) - (s0 + r0))
                     )
 
-    # `CLAUDE.md` rule 6. The three residuals below are deviations from an
+    # The project's engineering rule 6. The three residuals below are deviations from an
     # identity and sit at machine epsilon, so their last digits are a property
     # of the BLAS build and writing them into `RESULTS.md`, which CI checks
     # with `git diff --exit-code`, makes that check fail between machines on

@@ -1,6 +1,6 @@
 """B7-16: the cross-fold second moment, which takes the noise off the diagonal.
 
-Pre-registered in the Claude Project as `claude/B7-16_交叉折二阶矩_预注册_v1.md`,
+Pre-registered in the project's document set as B7's design file, section 2,
 **before this file was written**. Every reading it can return is declared there.
 
 Why
@@ -43,7 +43,7 @@ The reading is a `z`, not an exceedance count
 `lambda_1` under this null sits just above `max(diag)`, so "did it beat all the
 draws" wastes the information in the draws. This prints the null's mean and sd
 and the observed margin in sd units, plus the sd's own relative error so the
-draw count can be judged rather than assumed. Per CLAUDE.md 12 there is **no
+draw count can be judged rather than assumed. Per engineering rule 12 there is **no
 threshold anywhere in this file**.
 
 Usage::
@@ -85,7 +85,7 @@ SEED_NULL = 20260817
 #: Default null draws. **Not a pinned constant**: the reading is a `z` against
 #: the null's own sd, an sd on `d` draws carries relative error `1/sqrt(2(d-1))`,
 #: and the run prints that error so the count can be revised against the arm
-#: rather than inherited. CLAUDE.md 13.
+#: rather than inherited. engineering rule 13.
 DRAWS_DEFAULT = 20
 
 
@@ -108,8 +108,16 @@ def entry_folds(cells, classes, n_classes, rng):
     grp = np.cumsum(new) - 1
     start = np.flatnonzero(new)
     pos = np.arange(f_sorted.size) - start[grp]
+    # **The parity offset is drawn per entry, not fixed at zero.** With a fixed
+    # start every odd entry hands its extra loan to fold 0 and every `n = 1`
+    # entry lands entirely in fold 0, which put 9,355,723 loans against 6,679,675
+    # in the first run: a 58/42 split. That biases nothing, since both folds
+    # estimate the same additive fit, but it leaves fold 1's centring on 29% less
+    # data, which raises `Var(Stilde)` while its mean stays put. A per-entry
+    # offset balances the folds and costs one array.
+    offset = (rng.random(start.size) < 0.5).astype(np.int8)
     fold = np.empty(f_sorted.size, dtype=np.int8)
-    fold[order] = (pos % 2).astype(np.int8)
+    fold[order] = ((pos + offset[grp]) % 2).astype(np.int8)
     return fold
 
 
@@ -319,10 +327,30 @@ def restrict_and_recentre(g0, g1, present2, cols):
     a0, a1 = g0.copy(), g1.copy()
     pre = {}
     for a in cols:
-        v0, v1 = a0[rows, a], a1[rows, a]
-        pre[int(a)] = (float(v0.mean()), float(v1.mean()))
-        a0[rows, a] = v0 - v0.mean()
-        a1[rows, a] = v1 - v1.mean()
+        pre[int(a)] = (float(a0[rows, a].mean()), float(a1[rows, a].mean()))
+    # **Both margins, not just the columns.** The first version subtracted class
+    # means and left the row means alone, and the row means over `cols` are not
+    # zero: the original centring zeroed the **count-weighted** row mean over all
+    # nineteen classes, and this block asks for the **unweighted** one over
+    # seventeen. What is left over enters `Stilde` as an all-ones component, which
+    # is the same shape of contamination the class means would have produced. The
+    # function guarded one margin and not the other.
+    #
+    # `rows x cols` is a **complete** block by construction, since `rows` is the
+    # set of cells where every class in `cols` is usable. On a complete block the
+    # two centrings commute and one pass of each is exact, so no iteration is
+    # needed and none is done.
+    #
+    # **Unweighted, and that is a choice worth naming**: `cross_second_moment`
+    # averages over cells without weights, so the centring is matched to the
+    # moment it feeds. The library's `alternating_centre` is count-weighted, which
+    # is a mismatch it inherited; changing that would move the unbalanced arms and
+    # is not done here.
+    for arr in (a0, a1):
+        blk = arr[np.ix_(np.flatnonzero(rows), cols)]
+        blk = blk - blk.mean(axis=1, keepdims=True)
+        blk = blk - blk.mean(axis=0, keepdims=True)
+        arr[np.ix_(np.flatnonzero(rows), cols)] = blk
     return a0, a1, p, rows, pre
 
 
@@ -415,6 +443,14 @@ def cmd_run(draws: int, balanced: bool = False) -> int:
           f"({present2.sum() / table.present.sum():.4f})")
 
     s, cooccur = cross_second_moment(c0.gamma, c1.gamma, present2)
+    # **The three-way comparison, because two of them are not the same data.**
+    # The naive spectrum above is computed on all 4,485,519 entries and `Stilde`
+    # on the 2,969,372 that hold two or more loans, and the entries left out are
+    # exactly the noisiest ones. Quoting `1.4674` against `0.4207` therefore mixes
+    # an estimator change with a domain change. The middle row holds the domain
+    # fixed and changes only the estimator, and it is the one the reading needs.
+    s_naive_r, _ = pairwise_second_moment(naive.gamma, present2)
+    eig_naive_r = np.linalg.eigvalsh(s_naive_r)[::-1]
     rows = depth_table(table, lv)
     thin = sorted(range(n_classes), key=lambda i: rows[i]["loans_per_entry"])[:2]
     keep = np.array([i for i in range(n_classes) if i not in thin])
@@ -473,7 +509,8 @@ def cmd_run(draws: int, balanced: bool = False) -> int:
         draws_prof = np.array(nprof)
         mu, sd = float(draws_l1.mean()), float(draws_l1.std(ddof=1))
         z = (float(vals[0]) - mu) / sd if sd > 0 else float("nan")
-        sd_relerr = 1.0 / np.sqrt(2.0 * (draws - 1))
+        sd_relerr = (1.0 / np.sqrt(2.0 * (draws - 1))
+                     if draws > 1 else float("inf"))
         diag = np.diag(sub)
         print(f"\n  === arm {name} ({sub.shape[0]} classes) ===")
         print("  spectrum (all of it, negatives included):")
@@ -485,6 +522,11 @@ def cmd_run(draws: int, balanced: bool = False) -> int:
               f"(sd's own relative error {sd_relerr:.2f})")
         print(f"  observed lambda_1 {vals[0]:+.4f}, margin over the null "
               f"**z = {z:+.2f}**")
+        if vals.size < 2:
+            print("  one class in this arm, so there is no lambda_2 to read")
+            arms[name] = {"labels": labels,
+                          "eigenvalues": [float(v) for v in vals]}
+            continue
         mu2 = float(np.nanmean(draws_l2))
         sd2 = float(np.nanstd(draws_l2, ddof=1))
         z2 = (float(vals[1]) - mu2) / sd2 if sd2 > 0 else float("nan")
@@ -495,6 +537,11 @@ def cmd_run(draws: int, balanced: bool = False) -> int:
         tmu, tsd = float(draws_tau.mean()), float(draws_tau.std(ddof=1))
         tz = (tau_obs - tmu) / tsd if tsd > 0 else float("nan")
         diagpart = float(sum(vecs[i, 0] ** 2 * diag[i] for i in range(sub.shape[0])))
+        k_arm = sub.shape[0]
+        all_ones = float(sub.sum() / k_arm)
+        v1_ones = float(vecs[:, 0].sum() / np.sqrt(k_arm))
+        print(f"  all-ones component: 1'S1/k = {all_ones:+.5f}; v1's projection "
+              f"on it {v1_ones:+.4f} (a pure all-ones direction would give 1.0)")
         print(f"  lambda_1 splits: diagonal {diagpart:+.5f}, off-diagonal "
               f"{float(vals[0]) - diagpart:+.5f} "
               f"({100 * (float(vals[0]) - diagpart) / float(vals[0]):.1f}% off)")
@@ -539,6 +586,7 @@ def cmd_run(draws: int, balanced: bool = False) -> int:
             "null_sd_relative_error": float(sd_relerr),
             "z": float(z),
             "diag_part_of_lambda1": diagpart,
+            "all_ones_component": all_ones, "v1_on_all_ones": v1_ones,
             "off_diag_part_of_lambda1": float(vals[0]) - diagpart,
             "class_profile": [float(x) for x in prof],
             "class_slope": [float(x) for x in slope],
@@ -557,9 +605,23 @@ def cmd_run(draws: int, balanced: bool = False) -> int:
             "v2": [float(x) for x in vecs[:, 1]],
         }
 
-    print("\n  For contrast, the naive estimator on the same sample:")
-    print("    " + ", ".join(f"{v:+.4f}" for v in eig_naive[:5]))
-    print("  **The two spectra are the deliverable. Same data, two estimators.**")
+    print("\n  Three spectra, and only the last two are on the same entries:")
+    print(f"    naive, all {int(table.present.sum()):,} entries        "
+          + ", ".join(f"{v:+.4f}" for v in eig_naive[:5]))
+    print(f"    naive, the {int(present2.sum()):,} usable entries  "
+          + ", ".join(f"{v:+.4f}" for v in eig_naive_r[:5]))
+    print("    cross-fold, the same entries          "
+          + ", ".join(f"{v:+.4f}" for v in np.linalg.eigvalsh(s)[::-1][:5]))
+    print("  **Row 1 to row 2 is the domain. Row 2 to row 3 is the estimator.**")
+    print("\n  per class, the same three, and the two ratios:")
+    print(f"    {'level':<12} {'naive all':>10} {'naive same':>11} "
+          f"{'crossfold':>10} {'domain x':>9} {'estimator x':>12}")
+    dn, dr, dc = np.diag(s_naive), np.diag(s_naive_r), np.diag(s)
+    for a in sorted(range(n_classes), key=lambda i: -dn[i]):
+        dom = dn[a] / dr[a] if dr[a] else float("nan")
+        est = dr[a] / dc[a] if dc[a] else float("nan")
+        print(f"    {lv[a]:<12} {dn[a]:>10.5f} {dr[a]:>11.5f} {dc[a]:>10.5f} "
+              f"{dom:>9.2f} {est:>12.2f}")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = RESULTS / "b7_crossfold.json"
@@ -572,6 +634,9 @@ def cmd_run(draws: int, balanced: bool = False) -> int:
          "entries_usable": int(present2.sum()),
          "entries_total": int(table.present.sum()),
          "naive_eigenvalues": [float(v) for v in eig_naive],
+         "naive_eigenvalues_same_entries": [float(v) for v in eig_naive_r],
+         "naive_diag_all_entries": [float(v) for v in np.diag(s_naive)],
+         "naive_diag_same_entries": [float(v) for v in np.diag(s_naive_r)],
          "dropped_thinnest": [lv[i] for i in thin],
          "arms": arms}, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"\n  wrote {out.relative_to(ROOT)}")

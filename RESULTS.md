@@ -369,6 +369,11 @@ _no sample metadata recorded_
 | PASS | A6-4 | R*(I)/R*(T) under access against 0.75: fair 0.083 (an upper bound, R*(I) is on the grid floor), stratified 0.031 (an upper bound, R*(I) is on the grid floor) |
 | **FAIL** | A6-5 | at R* = 0.005 over 2000 rounds, end over start per seed 1.66x, 0.07x, 1.60x, 1.86x, 0.15x. 2 of 5 seeds collapsed and the rest ended more open. The registered band is symmetric and scores those as the same failure |
 
+## A7-A continuous connectivity
+
+`rounds=300` `20 seeds`
+
+
 ## A7
 
 `rounds=300` `20 seeds`
@@ -378,7 +383,7 @@ _no sample metadata recorded_
 | | criterion | detail |
 |---|---|---|
 | PASS | A7-A-1 | reach: peripheral-tercile participation is 0.0 at every seed through s = 0.7 and first strictly positive at s = 0.8, where the graph carries 32051 of 39800 edges and the layer gap has fallen from 0.394 to 0.030. The carrier gains a measurable population by ceasing to be stratified; docs section 6.1 |
-| **FAIL** | A7-A-2 | the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under CLAUDE.md rule 8 and not repaired; docs section 6.2 |
+| **FAIL** | A7-A-2 | the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs section 6.2 |
 | VOID | A7-A-3 | void on the estimator it names. On D_fixed each arm's population is intersected across its own grid, so the two are 24.20 against 35.95 nodes and a difference of falls compares quantities on different agents; docs section 11.2 |
 | **FAIL** | A7-A-4 | A3-8' holds nowhere including where it was derived. Loop-sum-only same-sign across seeds on D_fixed at s = 0: 17/20 and 19/20, against 20/20 on D_reach. A3-8's own state is untouched; docs section 11.3 |
 | **FAIL** | A7-A-5 | the identity does not hold on the measured population. Mean \|loop sum\| over the fixed production layer rises before it falls, to 1.44 times its s = 0 value in the uniform arm and 4.13 in the preferential one; docs section 6 changelog |
@@ -739,6 +744,24 @@ _no sample metadata recorded_
 | PASS | B7-4  reported, not judged: where the estimator stops working | fill 0.85: 0->0/1->1/2->2/3->3  fill 0.6: 0->0/1->1/2->2/3->3  fill 0.35: 0->0/1->1/2->3/3->3  fill 0.2: 0->0/1->1/2->3/3->6  fill 0.15: 0->0/1->1/2->3/3->1.  The gated form of this criterion asserted the error runs upward and never downward; that assertion is REFUTED by this sweep and was withdrawn on 2026-08-15 rather than restated until it passed. Outside its usable regime the estimate is unreliable in either direction, and a `rank >= 2` result is not admissible without B7-0 |
 | PASS | B7-0  the gate is implemented and is not vacuous | a rank-one field at the observed signal strength, read back on the same design: fill 0.85 -> 1, fill 0.6 -> 3, fill 0.35 -> 4.  **A gate that passed everywhere would not be a gate.** It fails here on designs where B7-4 says it should, which is what makes a pass on the real design mean something |
 
+## B8 — the modification triangle on Fannie Mae loan performance (B8-4b does not run for want of C9, and section 15.3 registers that as not a failure of the stage)
+
+2,942,295 loans
+
+**8/8 live criteria passed, 1 void**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B8-0a | the gate holds on the split registered after the closed form was found. (i-a) runs on the clean cures whose every quiet month sits in its segment's modal cluster and requires an exact return to zero within floating-point tolerance; all six vintages pass. (i-b) is a reading and not a gate. What passes it is the qualifying count and not the ratio: max ratio reads 0.399 to 0.400 in every vintage because the path tolerance and the agreement bound share one 1/B, so the ratio is capped by the path filter itself and carries no independent information |
+| PASS | B8-0b | the floor is MAD(omega - closed) on the clean-cure arm, 2.68e-08 to 5.22e-08, against a construction that predicts half a cent divided by the median balance, 3.03e-08. Two further quantities in this repository are also called a floor and one of them is a signal; they are named N_cure, N_placebo(L) and IB_RESIDUAL, and any quotation of a floor has to say which |
+| PASS | B8-1 | necessary condition holds in all six vintages. Ratio 2,412,840 to 6,765,767; subtract the closed form for leg 1 and it is 2,135,052 to 6,632,539, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of the signal is construction. The threshold was demoted to a readability line rather than a significance test: corr(omega, closed) is +1.0000 in five of six vintages, which makes the residual instrument resolution rather than a sampling distribution |
+| PASS | B8-2 | sign agreement across windows. 29 readable cells of 32, all 29 same-sign with intervals clear of zero, in all five windows, and re-run under the far-corner curve construction with zero cells flipping. leg 2 came back positive in every readable cell where section 14.3 had registered negative, and is not small: \|leg2\|/\|leg1\| has a median of 3.67 |
+| PASS | B8-3 | the two paths to the same state differ, and the verdict is carried by per-cell signs and permutation rather than by margin. Re-run under the far-corner construction: all six vintages keep their sign, permutation p is 0.001 throughout, and the per-cell sign counts are identical under both constructions. delta/N_cure is 5.78e4 to 4.30e6. The earlier exemption, that the gap ran two to four orders above the curve spread, used the wrong denominator and is withdrawn; at 2007Q1 the two are 1.4 times apart, not an order of magnitude |
+| PASS | B8-4a | class ordering reproduces on fico_llpa9, the finest grid that clears both gates. Six vintages same direction, sign test p = 0.0312, three significant on their own and surviving equal-n. The loading monotonicity, median Spearman -0.82 and 6/6 negative, is a post-hoc reading and is labelled as one. Of eleven grids only five clear the floor of 20 and hang on the borrower rather than the house or the location, and the comfortable ones among them are the coarse ones |
+| VOID | B8-4b | does not run, for want of C9. On (class x origination cohort) inside the Flex window every one of eleven grids has a minimum of 0 or 1. This is not a thin-cohort problem but the quantified form of a comparability one: the Flex window is 2017-2019, so the 2019Q1 vintage has at most a year of age in it and cannot complete a triangle, while 2002Q1 has fifteen. Section 15.3 registers this as not a failure of B8, and the branch table sends the second domain to corporate credit |
+| PASS | B8-5 | read per cell and not pooled. 554 cells, 132 endpoint-stable, 20 with p < 0.05. Twelve of the twenty are on the two FICO grids and all twelve point the same way: conditional on already being delinquent, the lower the score the higher the share modified, with no counterexample across six vintages, three windows, five entry tiers and two grids. The label is an admission threshold that differs by class, not a hole: section 5 asks whether an edge never exists, and what was measured is a rate |
+| PASS | B8-6 | satisfied by construction on B8-2 and a real test on B8-5, per sections 20.2 and 22.2 |
+
 ## B9-A-1
 
 _no sample metadata recorded_
@@ -782,6 +805,18 @@ _no sample metadata recorded_
 
 _no sample metadata recorded_
 
+
+## B9-A §24
+
+_no sample metadata recorded_
+
+**2/2 live criteria passed, 1 diagnostic**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B9-24-1  the disclosed price is a half-cent midpoint | off-grid share = 0.000 across 16 funds and 6464 reconstructed closes. Half a cent is not a price a trade can print at, so P is the closing NBBO midpoint and the reconstruction is exact rather than approximate. **Written after the data** (§24 exists because §4 was wrong); it could have failed, and a non-zero here would mean λ is not what this stage thinks |
+| PASS | B9-24-2  \|λ\| does not scale with the tick, so it is not quantisation | on the 12 US-listed equity funds the tick spans 15.83x while \|λ\| spans 1.42x. Quantisation noise must scale with the quantum. SPY carries the point alone: its tick is the finest in the group and its \|λ\| is the same 1.7 bp as the rest |
+| DIAG | B9-24-3  the same comparison inverts when the stale-NAV arm is pooled in | all 16 funds: tick spans 25.97x, \|λ\| spans 33.00x, which reads as quantisation confirmed. It is SPDW, SPEM and JNK carrying 11 to 39 bp of stale-NAV premium, a confound §6.1 registered before any of this ran. **This entry is here to show B9-24-2 could have failed**, and the first version of this run printed exactly this pooled line |
 
 ## B9-0
 

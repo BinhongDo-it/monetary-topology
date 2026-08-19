@@ -368,7 +368,7 @@ def a3_3(models: list[A3Model]) -> Criterion:
             "A3-3  the gap compounds rather than levelling off", False,
             "void: no node completed four resale round trips", void=True,
         )
-    # `CLAUDE.md` rule 6, and this is one of eleven instances of it swept on
+    # The project's engineering rule 6, and this is one of eleven instances of it swept on
     # 2026-08-13. The value is a residual against an identity, so it sits at
     # machine epsilon and its last digits are a property of the BLAS build.
     # Written into the record it made `RESULTS.md` differ between machines on
@@ -429,7 +429,7 @@ def a3_4(models: list[A3Model]) -> Criterion:
     holonomy = float(np.mean([r[1] for r in rows]))
     price_free = max(r[2] for r in rows)
     rel = abs(observed - holonomy) / abs(holonomy) if holonomy else np.inf
-    # `CLAUDE.md` rule 6, as in `a3_3` above. `price_free` is a zero
+    # The project's engineering rule 6, as in `a3_3` above. `price_free` is a zero
     # calibration: the claim is that the holonomy does not move under unrelated
     # prices, and the number is how far it did not move. It is machine epsilon
     # and it varies by build. `observed`, `holonomy` and `rel` are measurements

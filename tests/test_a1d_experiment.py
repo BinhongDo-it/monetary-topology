@@ -69,7 +69,7 @@ def test_the_relief_arm_does_not_move_a_scheduled_cushion() -> None:
 def test_the_relief_arm_covers_a_household_with_no_cash() -> None:
     """The A1d-0 defect, as a guard.
 
-    ``income_arrives_after_due`` is 卷一·四's settlement asymmetry, so a
+    ``income_arrives_after_due`` is Volume One section 4's settlement asymmetry, so a
     household whose income exactly covers its bills and whose cash is zero still
     cannot pay in period 0. Raising the flow alone leaves that cause standing.
     """

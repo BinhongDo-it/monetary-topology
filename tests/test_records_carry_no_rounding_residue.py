@@ -1,6 +1,6 @@
 """A regenerated record must not print a reduction's rounding residue.
 
-`CLAUDE.md`'s rule 5 for files under `git diff --exit-code` says to fix the
+The project's engineering rule 5 for files under `git diff --exit-code` says to fix the
 float formatting so that a difference in the last digit between BLAS builds
 does not surface as a text diff. This file is that rule as a guard for the one
 class it keeps being violated by: **a quantity the theory says is exactly zero,

@@ -1,4 +1,33 @@
 # Measurement conventions: run through this before reporting any number
+
+> **[2026-08-18] The trap ledger is kept in two books, one per arm.** This is the
+> book for the simulation arm (`monetary-topology`), and it covers **how this
+> code and these measurement practices will bite you**.
+> **The data traps of the empirical arm (`topology-fingerprints`) are in a
+> separate file**, `topology-fingerprints/docs/MEASUREMENT_FINGERPRINTS.md`,
+> covering **how that data will bite you** (ICIO benchmark-year seams, the
+> absence of an official Japanese chronology, the illusion of a century-long WID
+> panel, and so on).
+> **The two books do not cite each other and do not share a numbering scheme.
+> They are told apart by filename.**
+>
+> （**2026-08-18：坑账按臂分两本。** 本文件是模拟臂（`monetary-topology`）的那一本，
+> 管的是**这套代码与测量实践**会怎么咬你。
+> **实证臂（`topology-fingerprints`）的数据坑另在**
+> **`topology-fingerprints/docs/MEASUREMENT_FINGERPRINTS.md`**，
+> 管的是**那批数据**会怎么咬你（ICIO 的基准年接缝、日本没有官方年表、
+> WID 的百年面板是假象……）。
+> **两份互不引用，不交叉编号，靠文件名区分。**）
+
+
+> **Scope of this file.** This is the project's record of measurement traps: each entry is a
+> failure mode with an instance in this repository, followed by the checklist to run before
+> reporting a number and one meta-rule.
+>
+> **It is not the project's rulebook.** The engineering and research disciplines that govern what
+> may be registered, run, and quoted are maintained outside this repository and are not published.
+> Nothing here depends on them: every failure mode below stands on its own instance.
+
 （度量约定：报任何数之前先过这一遍）
 
 > **Bilingual by design.** This file was written in Chinese and translated. The
@@ -643,17 +672,13 @@ measure nothing and only test the code.
 （**如果目的只是验证，就极速缩小。** 一次为了确认已经论证过的东西而存在的跑，只需要
 足以发现代码坏掉的重复次数，不需要更多；11a 说了那是多少。）
 
-**"I ran a lot, so I am conservative and compliant" is not a reason and is banned
-as one.** This is not a university compute centre and there is no committee to
-satisfy. Compute spent to look rigorous is compute not spent on the next question,
-and this repository has now measured the exchange rate: an afternoon of a loaded
-machine bought a two-hundred-draw confirmation of an outcome fixed in advance by
-`28` sigma.
+**What this cost, measured rather than asserted.** An afternoon of a loaded
+machine bought a two-hundred-draw confirmation of an outcome that was fixed in
+advance by `28` sigma. The draws were not wrong; they were spent on a question
+that was already closed.
 
-（**「我跑得够多所以我够保守够符合规矩」不是理由，并且作为理由被禁止。** 这里不是学校
-的算力中心，没有委员会要满足。为显得严谨而烧掉的算力就是没花在下一个问题上的算力，而
-这个仓库已经把汇率量出来了：一个下午的满载机器，换来一次对「事先由 28 个 sigma 定死的
-结果」的两百抽样确认。）
+（**这一次的代价是量出来的，不是断言的。** 一个下午的满载机器，换来一次对「事先由 28 个
+sigma 定死的结果」的两百抽样确认。那些抽样本身没有错，只是花在了一个已经结掉的问题上。）
 
 **11b. An arm whose answer is forced by its own construction is not an arm.**
 After B7's calibration was corrected to set a constructed field at the design's
@@ -773,8 +798,9 @@ entry, the off-diagonal correlations of `S`, and a self-check performed on reque
 不是给一个数卡阈值**：分组的成员、特征向量载荷、每个 cell-class 条目的贷款数、`S` 的
 非对角相关，以及被要求时做的一次自检。）
 
-**Rule**: **stop writing criteria that threshold an estimated quantity.** A
-criterion should be one of two things and nothing else:
+**What this stage's record supports**: on the seven instances above, a criterion
+that put a threshold on an estimated quantity did not do the job it was written
+for. The two that worked were of one of two other shapes:
 
 1. **structural** and about the code rather than the world: did every arm finish,
    is this decomposition an identity to `1e-16`, does this design's group count
@@ -782,10 +808,10 @@ criterion should be one of two things and nothing else:
 2. **a printed number with a reading declared in advance**, and no line drawn
    across it.
 
-（**规则**：**停止写「给估计量卡阈值」的判据。** 一条判据只能是两种东西之一：一是
-**结构性的**、关于代码而不关于世界的（每条臂跑完没有、这个分解是不是恒等式到 `1e-16`、
-这个设计的组数和层级数对不对）；二是**一个印出来的数，外加一条事先声明的读法**，不在
-它上面画线。）
+（这一阶段的实测是：判据落在两种形状里的一种时它有用 —— 一是**结构性的**、关于代码而
+不关于世界的（每条臂跑完没有、这个分解是不是恒等式到 `1e-16`、这个设计的组数和层级数对
+不对）；二是**一个印出来的数，外加一条事先声明的读法**。落在第三种形状上的那五张，
+一次都没防住。）
 
 **13a. Declared readings work; thresholds do not, and this stage tested both.**
 Five registered outcome tables in B7 were built on wrong inputs or on rows that
@@ -802,8 +828,8 @@ is always the one with a line in it.
 tables were all declared before their runs and all five were useless as gates.
 What registration did do is make each failure visible and datable: keeping
 `§3.9`-`§3.12` whole under a VOID marker is what let the pre-fix numbers be
-retrodicted from the bug, which is how the bug was confirmed. **Register to leave a
-record. Do not register expecting to be protected.**
+retrodicted from the bug, which is how the bug was confirmed. **On this stage's evidence, registration
+earned its keep as a record and not as a gate.**
 
 （**13b. 预注册的价值是作为记录，不是作为保护。** 那五张表全是跑前声明的，作为闸门
 五张全废；它真正做到的是让每次失败可见、可标日期。**为留记录而注册，不要指望它保护
@@ -820,7 +846,7 @@ reported as "there is not one"**, and those are claims about two different
 objects: the person and the world.
 
 （**症状**：一块剩余项被写成「没有候选解释」，而最平凡的那个候选一直在手边，只是没写下来。
-毛病不在于剩余项没被解释，而在于**把「臣妾没想到」报成了「没有」**，
+毛病不在于剩余项没被解释，而在于**把「我没想到」报成了「没有」**，
 这两句讲的是两个不同的对象：人，和世界。）
 
 **Both instances are from B7-16 on 2026-08-16, and both are in this file's author's
@@ -995,19 +1021,6 @@ conversation:
     **强**一分，因为释义最先丢掉的就是限定。B7 阶段 2026-08-16 这么做过，转了三手，
     到手的结论和原文相反。）
 
-14. **Does this criterion draw a line across an estimated quantity?** Then it is
-    the wrong shape. Make it structural, or make it a printed number with a
-    reading declared in advance. Mode 13 has seven instances and five of them were
-    written in one day.
-    （**这条判据是不是在一个带估计误差的量上画了一条线？** 那形状就错了。要么改成结
-    构性的，要么改成一个印出来的数加一条事先声明的读法。）
-
-15. **How many draws and repetitions, and what is the smallest that still settles
-    it?** Five repetitions is the reference. Above ten on a homogeneous arm needs a
-    stated reason that is a property of the arm. "Enough to be safe" is not one.
-    （**抽多少次、重复多少轮，仍然能结掉这个问题的最小值是多少？** 五轮是参考值。同
-    质化的臂上超过十轮要给出理由，而且理由必须是这条臂的性质。「够多才保险」不是。）
-
 Item 7 is the only one **designed to catch an error rather than to avoid one**:
 A5-6's zero calibration was the only one of the eleven caught by an automatic
 guard, and the other ten were all caught by a human inspecting a number that
@@ -1019,12 +1032,12 @@ not an option.**
 
 ---
 
-16. **Am I about to write that something is unexplained?** Then what is the most
+14. **Am I about to write that something is unexplained?** Then what is the most
     boring thing that would produce it, and why is that not it? A residual that is
     left over after fitting two functions, and that still has structure, is the
     **expected** shape when the truth is a smooth family and the two functions are
     two of its modes. Write that down and rule it out, or do not use the word.
-    （**臣妾是不是正要写「这一块没有解释」？**那么，最无聊的那个解释是什么，
+    （**我是不是正要写「这一块没有解释」？**那么，最无聊的那个解释是什么，
     它为什么不成立？拟合了两个函数之后剩下的、还带结构的残差，在真值是一族光滑曲线、
     而那两个函数是其中两个模态时，**本来就该长成那样**。把它写出来并排除掉，
     否则不要用「没有解释」这个词。）　→ 第十四种失败模式
@@ -1083,7 +1096,7 @@ machinery. **A stage re-runs when a default under it moved, not because a round
 ended.** The earlier phrasing here, "re-running a stage whose code has not
 changed is not a redundant action", read as a standing obligation to re-run
 everything, and that is not what mode 9 shows. The scoping rule with the checkable
-marker is in `CLAUDE.md`, section 收尾: `experiments/*.py` is single-station and
+The scope marker is checkable without any external document: `experiments/*.py` is single-station and
 `src/monetary_topology/*.py` is shared. This file does not keep a second copy of it.
 
 （**第九种失败模式是那条元规则的第一个标本，而且专门是第二个触发条件的标本。** 它不报错，
@@ -1094,7 +1107,7 @@ marker is in `CLAUDE.md`, section 收尾: `experiments/*.py` is single-station a
 `rent_rate`，而 A5 整个跑在那台机器上。**一个阶段要重跑，是因为它脚下的默认值动过，
 不是因为一轮结束了。**这里原来的写法「重跑一个代码没有变过的阶段，不是一个多余的动作」
 会被读成「随时都该把所有东西重跑一遍」的常设义务，而那不是第九种失败模式所证明的。
-带可查标记的作用域判别式在 `CLAUDE.md` §收尾：`experiments/*.py` 是单站的，
+作用域判别式本身是可查的，不依赖任何外部文档：`experiments/*.py` 是单站的，
 `src/monetary_topology/*.py` 是共享的。本文件不另存一份拷贝。）
 
 ---
@@ -1122,7 +1135,7 @@ marker is in `CLAUDE.md`, section 收尾: `experiments/*.py` is single-station a
 
 ### 二、数字没变而标签变了，怎么办
 
-散文改动（docstring、注释、空白）会推动源码哈希，于是陛下为一次注释改动
+散文改动（docstring、注释、空白）会推动源码哈希，于是一次注释改动就要
 重扫 1.7 亿行。这是纯损失。**三条路，只有两条能走。**
 
 | 方案 | 判定 |
@@ -1149,3 +1162,60 @@ marker is in `CLAUDE.md`, section 收尾: `experiments/*.py` is single-station a
 一个手动 retag 之后的缓存是**完美自洽的**：数字之间互相对得上，
 每一条自检都过，只是它们回答的是上一版代码的问题。
 **这是那条元规则能举出的最干净的一个例子。**
+
+---
+
+## 失效模式 16：文本替换的补丁，没匹配上不是错误而是静默的空操作
+## Failure mode 16: a patch applied by text substitution, where a miss is a no-op and not an error
+
+**实例（2026-08-17，`b10_o18_assistance.py` 的 `--age-split`）。**
+
+给一个已有脚本加一个新维度，改动是用一段文本替换脚本打进去的：一处替换插入
+计算 `two_by_two` 的代码块，另一处替换在写盘的字典里加上 `"two_by_two_age_code":
+two_by_two`。**第二处匹配上了，第一处没有。**
+
+替换脚本随后跑了 `ast.parse`，**通过**。
+`ast.parse` 检查的是文法，而**一个未定义的名字在文法上完全合法**，
+它只在运行到那一行的时候才是 `NameError`。
+
+于是缺陷一路活到：**扫完 74,937,616 行 perf、印完全部读数、
+写盘那一刻才炸。** 全部计算作废，一次全扫的时间是纯损失。
+
+### 为什么它不属于已有的任何一条
+
+- 它不是「判据不可能失败」（模式 11 那一族）：这里根本没有判据。
+- 它不是「取不到误报成不存在」：数字一个都没产出。
+- **它是一个工具的失败模式：`str.replace` 匹配不上时返回原串，不报错。**
+  一个「应当改而没改成」的补丁，与一个「不需要改」的补丁，**在返回值上不可区分。**
+
+### 两条处置，都要
+
+**一、文本替换必须断言它改动了东西。**
+
+```python
+before = s
+s = s.replace(old, new, 1)
+assert s != before, f"replacement did not match: {old[:60]!r}"
+```
+
+**没有这一行的替换脚本，等于把「改没改成」交给运气。**
+
+**二、语法检查不是验证，调用才是。**
+
+`ast.parse` 能证明文件能被解析，**不能证明任何一行会跑。**
+凡是新加的代码路径，**自检里必须有一个用例真的调用它**，
+而且**调用到它的打印与序列化**，因为这一次炸的正是序列化那一行。
+
+修复之后加的用例长这样：构造一个假的累加器，调 `two_by_two_table`，
+核四个格子加起来等于总数，**然后真的调 `print_two_by_two`，
+再把结果 `json.dumps` 一遍**。三步里任何一步缺席，这个缺陷都还在。
+
+### 一条更一般的
+
+> **一个补丁的正确性有两层：它写对了没有，和它装上了没有。**
+> **语法检查只看第一层。而第二层的失败在本项目里更贵，
+> 因为它总是在最长的那条路径的末尾才现形。**
+
+**与结果缓存那一节同族**（§「结果缓存与它的标签」）：那里的危险是
+「代码动了而数字没重算」，这里的危险是「代码没动而以为动了」。
+**两者都是源码与它所产出的东西之间的对应关系失效，方向相反。**

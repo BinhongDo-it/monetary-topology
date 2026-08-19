@@ -300,7 +300,7 @@ def relieved(households: list, cost: CostRule) -> list:
     balances, same tenure, same code path.
 
     **Both, because under this mechanism a shortfall has two components.**
-    ``CascadeSpec.income_arrives_after_due`` is 卷一·四's settlement asymmetry
+    ``CascadeSpec.income_arrives_after_due`` is Volume One section 4's settlement asymmetry
     and it is ``True``: income lands after the due date. A household whose
     income exactly covers its bills and whose cash is zero therefore cannot pay
     in period 0, and no amount of income repairs that. Raising the flow alone
@@ -409,7 +409,7 @@ def a1_2(scored, unstressed) -> Criterion:
     """Card before car before shelter, as shares of the defaulting households.
 
     ``docs/a1_prereg.md`` A1-2, inherited unchanged. Strict inequalities and no
-    level: a reversal is 卷一·十八's sequence being wrong rather than the code
+    level: a reversal is Volume One section 18's sequence being wrong rather than the code
     being wrong, and it is recorded as such.
 
     **The shares are of households that default at all**, which in this
@@ -858,7 +858,7 @@ def a1b_1(respondents: list[Respondent], sweep: list[dict],
     """Decreasing in net worth, and matching the survey's own ordering.
 
     ``docs/a1b_prereg.md`` §5.3. **Ordinal only**, the direction taken from
-    卷一·十八 rather than from the data, and required in every cell of the sweep
+    Volume One section 18 rather than from the data, and required in every cell of the sweep
     registered in §8. Four denominator facts forbid a level comparison and they
     are in §5.3; none of them touches an ordering.
     """

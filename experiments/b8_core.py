@@ -38,7 +38,7 @@ source zips are 3.1 GB and their uncompressed content is 46.9 GB, so the core
 table sits between the two and is read at memory-map speed. At the full vintage
 download the same layout is about 100 GB, which is **not** the format to use
 there; the encodings that fix it are registered in
-``docs/b8_inputs_availability.md`` §6.3 and are deliberately not implemented
+the B8 inputs register §6.3 and are deliberately not implemented
 here, because a dense format is the one that can be checked bit for bit against
 the scripts it replaces.
 
@@ -494,7 +494,7 @@ CARRIER_NAMES = ["none", "63 only", "108 only", "both (excluded)",
 
 def zero_interest_carrier(c: Core) -> tuple[np.ndarray, dict]:
     """Which zero-interest balance each loan carries. `b8_fannie_slice.md` §14.1
-    as amended, disposition in `b8_inputs_availability.md` §6.6.20.6.
+    as amended, disposition in the B8 inputs register §6.6.20.6.
 
     Returns ``(cls_of_loan, info)``, ``cls`` an int8 over **loans**::
 
@@ -672,7 +672,7 @@ def quiet_pairs(c: Core, require_never_deferred: bool = False,
 
       * **``ib_net`` nets the deferred balances out of the reported one.** C8-1
         settled that field 12 contains field 63; C11-1 settled that it contains
-        field 108 as well (`b8_inputs_availability.md` §6.6.14.1, criterion B,
+        field 108 as well (the B8 inputs register §6.6.14.1, criterion B,
         median error exactly zero against 3.5 to 8.9 per cent for the
         alternative on 1.05 M months). The interest-bearing balance is therefore
         ``12 - 63 - 108``, and an implied payment computed on the reported
@@ -899,7 +899,7 @@ def check_markdown_tables(text: str) -> list[str]:
 
     **A backslash-escaped pipe is not a cell separator.** The first version of
     this counted them, which made it report a false complaint on the one table
-    in `b8_inputs_availability.md` that quotes ``|dP|/P`` inside a cell, and
+    in the B8 inputs register that quotes ``|dP|/P`` inside a cell, and
     would have **hidden** a real width error in any table containing one. A
     checker that cries wolf gets its output skimmed, which is how the defect it
     was written for happened in the first place.
@@ -1149,7 +1149,7 @@ def _reference(zip_path: Path, require_cur_positive: bool = True):
     return np.array(pairs, dtype=np.int64), np.array(segs, dtype=np.int64)
 
 
-#: The selftest fixture lives on disk and **is never removed**. `CLAUDE.md` §5
+#: The selftest fixture lives on disk and **is never removed**. the project's engineering rule 5
 #: forbids a script from containing a delete of any kind, ``shutil.rmtree``
 #: named explicitly, and ``tempfile.TemporaryDirectory`` deletes on exit. Keeping
 #: it also means a failure leaves something to look at, and a re-run skips the
@@ -1306,7 +1306,7 @@ def _selftest_carrier(cache_root: Path) -> list[str]:
         if balloon.tolist() != want_bln:
             out.append("zero_interest_split's balloon is not 63 + 108")
         # and the split must be non-trivial on this fixture, or it proves
-        # nothing: **坑 32's family, an all-zero column reads as a pass**
+        # nothing: **pit 32's family, an all-zero column reads as a pass**
         if not any(want_bln):
             out.append("the carrier fixture carries no balloon at all")
     print(f"  carrier: classes {cls.tolist()}, excluded {info['excluded']} "

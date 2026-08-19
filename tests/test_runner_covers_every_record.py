@@ -18,10 +18,16 @@ is therefore exactly the set that has to be reproducible on demand. Asking the
 question of experiment files instead would miss a record whose writer was
 renamed and catch a diagnostic that prints and never writes.
 
-**It is a ratchet, not a clean sheet.** Eight records are outside the runner
-today, and `OUTSIDE_THE_RUNNER` names each of them with the reason it is there,
-because a count nobody can see is not an exposure anybody will fix. The point of
-the list is that the ninth cannot be added silently.
+**It is a ratchet, not a clean sheet.** `OUTSIDE_THE_RUNNER` names every
+record that is outside the runner together with the reason it is there, because
+a count nobody can see is not an exposure anybody will fix. The point of the
+list is that the next one cannot be added silently.
+
+**The count lives in one place, and it is an assertion rather than prose.** An
+earlier version of this docstring said "eight records", the list grew past it,
+and the sentence stayed wrong: a number in prose beside a list that is the truth
+is a second source that only ever drifts. `test_the_exposure_is_counted` carries
+the number instead, because an assertion fires and a sentence does not.
 
 **Checked in both directions**, the same discipline `run_all.py` applies to
 `EXPECTED_FAILURES`. An entry that is not a rendered record, or that has since
@@ -44,6 +50,27 @@ RESULTS = ROOT / "results"
 #: is written where that is the truth: three A-track stages are here because
 #: nobody added them, not because anybody decided they cost too much.
 OUTSIDE_THE_RUNNER: dict[str, str] = {
+    "b8_verdicts.json": (
+        "B8's verdict sheet. The stage writes markdown, so none of its "
+        "thirty-one products reaches RESULTS.md through the renderer's glob "
+        "and the strongest carrier in the programme was absent from that file "
+        "entirely. This sheet is assembled by experiments/b8_verdicts.py from "
+        "products that must already be on disk, and it re-measures nothing, so "
+        "a runner job would run a transcription rather than a stage. The "
+        "close-out task is for B8's writers to emit JSON beside each markdown "
+        "product; this entry goes away when they do"
+    ),
+    "a7_continuous_c.json": (
+        "A7-A's measurement record. Its diagnostic_only flag was cleared on "
+        "2026-08-18 (M-46) so the stage's own readings are visible in RESULTS.md "
+        "and not only its verdict sheet. It is listed here rather than given a "
+        "runner job because the run is about forty minutes and nothing about it "
+        "has changed; re-running it on every CI pass buys nothing. THE CAVEAT THE "
+        "CLEARED FLAG USED TO CARRY, which must travel with any citation: D_fixed, "
+        "the estimator section 4.2 registers as scored, is not computed in this "
+        "file. Every gap here is D_reach, which the same section registers as "
+        "reported and never scored."
+    ),
     "a7_verdicts.json": (
         "A7's verdict sheet. The stage's own measurements are six runs across "
         "two arms, two estimators and three round counts, about forty minutes, "
@@ -123,6 +150,125 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
         "B7-15, the same arm on the seventeen-class design. Five repetitions, "
         "per MEASUREMENT.md 11c. Needs the fetched HMDA sample. Same decision"
     ),
+    # --- B9, all sixteen, added 2026-08-18 ---------------------------------
+    # **the author ruled: B9 is a historical stage and is not maintained.** The stage
+    # closed on 2026-08-17 and its two authority documents are
+    # B9's design and result files (outside this repository) (D19, eleven
+    # files merged). No runner path was built and none will be: the retrieval
+    # side needs `DATABENTO_API_KEY` and the cached venue captures under
+    # `data/raw/b9/`, and the `--nbbo-*` jobs are the expensive ones.
+    #
+    # **What that costs, stated rather than implied.** These sixteen are the
+    # records a reader sees under the B9 headings in `RESULTS.md`, and nothing
+    # regenerates them, so failure mode 9 is live on every one. It is a
+    # decision, not an oversight, and the thing that makes it survivable is
+    # that the stage is closed and its readings were re-verified against these
+    # files on 2026-08-18, every one of them, digit for digit.
+    "b9_floor_measurement.json": (
+        "SS24, **flipped out of diagnostic_only on 2026-08-18 by the author's "
+        "ruling**. It carries the two readings this stage is hardest on: "
+        "`off-grid = 0.000` across sixteen funds and 6,464 reconstructed "
+        "closes, which is what identifies the disclosed price as the closing "
+        "NBBO midpoint, and the tick comparison, `15.83x` against `1.42x`, "
+        "which rejects the quantisation account. The field had said \"reads no "
+        "prediction\", which is true and is not that field's test. Needs only "
+        "the cached SSGA workbooks, so `--grid` is the cheapest B9 job to wire "
+        "back in if anyone ever does. Historical stage, not maintained"
+    ),
+    "b9_gate.json": (
+        "B9-0. **Relabelled from a test to a construction check** "
+        "(docs/b9_zero_holonomy.md SS49.1): the reversed edge is "
+        "`-omega(v, u, st)` on the same state dict, so the sum is `-x + x` and "
+        "cannot be non-zero. The record now carries that in `gate_asserts` and "
+        "the `worst_note` says an exact `0.0` in the agreement column is a "
+        "branch artefact. Historical stage, not maintained"
+    ),
+    "b9_a1.json": (
+        "B9-A-1 against the published spread, which SS24 established is the "
+        "**cost** floor and not the measurement floor. The verdict labels are "
+        "readings about arbitrageability. Superseded as the headline by "
+        "b9_measured.json. Historical stage, not maintained"
+    ),
+    "b9_a2.json": (
+        "B9-A-2, the calm-to-stress gradient, and **the home of SS18.1's "
+        "headline `1.027 / 0.562 / 1.683`**, which SS18 mis-cites to "
+        "b9_a1.json. Historical stage, not maintained"
+    ),
+    "b9_measured.json": (
+        "B9-A-1 and A-2 against the measurement floor `F_m = 0.005 / NAV`. "
+        "**This is the station's headline record**: the index part reads "
+        "`1.050` to `5.083`, eleven of eleven above one. Historical stage, "
+        "not maintained"
+    ),
+    "b9_disc.json": (
+        "D1, D1b and D2, the three discriminators with a point prediction "
+        "under the noise null. Historical stage, not maintained"
+    ),
+    "b9_disc_control.json": (
+        "the same three on the B9-A-7 control sample, which exists so that a "
+        "restricted run is not compared against a full one. Historical stage, "
+        "not maintained"
+    ),
+    "b9_disc_recon.json": (
+        "the same three on the reconstructed price. **The pair with "
+        "b9_disc_control.json is the whole of B9-A-7 on D2.** Historical "
+        "stage, not maintained"
+    ),
+    "b9_decomp.json": (
+        "SS31's variance decomposition: `rho_c`, `V_c`, `V_e`, `w`, the "
+        "four-cell verdict, and SS33's circular-shift null. **Re-run "
+        "2026-08-18** to land the corrected `se_d_rho_c` (the difference's own "
+        "standard error, not one end's) and the divergence guard on "
+        "`pairs_per_regime_for_2se`. Historical stage, not maintained"
+    ),
+    "b9_decomp_control.json": (
+        "the same decomposition on the B9-A-7 control sample. Note its market-"
+        "stress split is `193/404` where the main run's is `194/404`, so its "
+        "`d_rho_c` is `0.069422` and not `0.069132`. Historical stage, not "
+        "maintained"
+    ),
+    "b9_decomp_recon.json": (
+        "the same on the reconstructed price. **This is the record that failed "
+        "B9-A-7**: `d_rho_c` collapses from `+0.0694` to `+0.0001` and the "
+        "`V_e` stress-over-calm ratio reverses. Historical stage, not "
+        "maintained"
+    ),
+    "b9_gate_speed.json": (
+        "SS26, **the only prediction anywhere in B9 registered with opposed "
+        "signs**. It ran and landed on the flow account's side: the zero-"
+        "change share falls in ten of eleven. Historical stage, not maintained"
+    ),
+    "b9_nbbo_overlap.json": (
+        "B9-A-6 on `XNAS.ITCH`, exact-match `0.5256`. Needs the cached venue "
+        "captures under `data/raw/b9/_nbbo` and a vendor key. **Also written "
+        "by an older version of the writer**: it carries neither `dataset` nor "
+        "`offset_s`, which the current code emits. Historical stage, not "
+        "maintained"
+    ),
+    "b9_nbbo_overlap_ARCX_PILLAR.json": (
+        "B9-A-6 on the listing venue, `0.8975`, the best candidate and still a "
+        "failure against the registered `0.90`. Written by an intermediate "
+        "version: no `min_size`, `registered_fund_days`, `never_compared` or "
+        "`header_only_captures`. Historical stage, not maintained"
+    ),
+    "b9_nbbo_overlap_ARCX_PILLAR_sz100.json": (
+        "the round-lot filter on the same venue. **The test it was built for "
+        "is void, not negative** (SS43): `bbo-1s` carries no deeper level, so a "
+        "record failing the size filter is dropped rather than corrected and "
+        "the comparison falls back to a staler snapshot. Historical stage, not "
+        "maintained"
+    ),
+    "b9_nbbo_combined.json": (
+        "the four-venue best, `0.5564`, **worse than the listing venue alone**, "
+        "which is what fired SS39.3's stopping rule. Its `halfcent_steps` "
+        "carries the vendor's undefined-price sentinel in the tail; see "
+        "B9's result file (outside this repository), section 8.5. Historical stage, not maintained"
+    ),
+    "b9_nbbo_combined_sz100.json": (
+        "the four-venue best under the round-lot filter, `0.5456`. Same void-"
+        "not-negative standing as the other `sz100` record. Historical stage, "
+        "not maintained"
+    ),
     "b2_placebo_pool_width.json": (
         "needs the fetched HMDA sample, so it belongs in DATA_STAGES and is "
         "not in it"
@@ -163,6 +309,13 @@ def rendered_records() -> set[str]:
 
     Reimplementing the filter here would let the two drift, and a guard that
     drifts from the thing it guards is `centrality_bins` with a different name.
+
+    **And it had drifted, found 2026-08-18.** `main` filters on three things and
+    this function called two of them, so a file with no `stage` key counted as
+    rendered here and was skipped there. `b9_datasets.json` is the file that
+    exercised it: this test demanded a runner job for a record that never
+    reaches `RESULTS.md`. The third filter is now `renderer.is_record` and both
+    callers use it, which is what this docstring was asking for all along.
     """
     renderer = _load(_RENDERER)
     out = set()
@@ -170,6 +323,8 @@ def rendered_records() -> set[str]:
         if not renderer.is_registered(path):
             continue
         record = json.loads(path.read_text(encoding="utf-8"))
+        if not renderer.is_record(record):
+            continue
         if renderer.is_diagnostic(record):
             continue
         out.add(path.name)
@@ -229,6 +384,23 @@ def test_the_exposure_is_counted() -> None:
     ninth cannot be added silently, and eight were. **What failed was not the
     assertion**, which fires the moment anyone runs it. It is that nobody ran it,
     and a guard nobody runs is not a guard. B7-16 then brought two more, which is
-    how it was found. `18` is the count including those two.
+    how it was found. `18` was the count including those two.
+
+    **It drifted again, and by one this time.** On 2026-08-18 the list held
+    **19** against an assertion of `18`, so a nineteenth had gone in without
+    this line being touched and the test had been red for however long that
+    was. Which entry it was is not recoverable from the file, and that is the
+    point: **a count checked only when somebody happens to run the check tells
+    you an exposure moved without telling you which.** It stays a number
+    anyway, because the alternative is no signal at all, but the honest reading
+    of this line is "something changed", never "nothing changed".
+
+    `36` is the count after B9's went in on 2026-08-18 (the author ruled the stage
+    historical and unmaintained), which is the largest single addition this
+    list has taken. Sixteen arrived with that ruling and a seventeenth,
+    `b9_floor_measurement.json`, arrived an hour later when its
+    `diagnostic_only` was flipped, which is the shape this list is for: the
+    exposure grew because a record stopped being a diagnostic, not because
+    anybody wrote new code.
     """
-    assert len(OUTSIDE_THE_RUNNER) == 18
+    assert len(OUTSIDE_THE_RUNNER) == 38

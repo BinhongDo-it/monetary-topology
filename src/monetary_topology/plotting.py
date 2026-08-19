@@ -48,7 +48,7 @@ def save(fig: plt.Figure, path: Path) -> Path:
     ``metadata={"Software": None}`` suppresses the PNG ``tEXt`` chunk
     matplotlib writes by default, which reads
     ``Software\0Matplotlib version3.11.1, https://matplotlib.org/``.
-    `CLAUDE.md`'s generated-files rule 2 forbids library version strings in
+    The generated-files rule 2 forbids library version strings in
     files that are committed, and figures are committed: `.gitignore` says so in
     as many words. Without this, every figure in the repository changes on any
     environment refresh and twelve spurious modifications sit in `git status`

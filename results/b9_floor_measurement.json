@@ -1,6 +1,23 @@
 {
-  "diagnostic_only": true,
-  "diagnostic_reason": "§24.1 的网格检验与 §24.3 的跨基金比较。不读任何预测。",
+  "criteria": [
+    {
+      "detail": "off-grid share = 0.000 across 16 funds and 6464 reconstructed closes. Half a cent is not a price a trade can print at, so P is the closing NBBO midpoint and the reconstruction is exact rather than approximate. **Written after the data** (§24 exists because §4 was wrong); it could have failed, and a non-zero here would mean λ is not what this stage thinks",
+      "name": "B9-24-1  the disclosed price is a half-cent midpoint",
+      "passed": true
+    },
+    {
+      "detail": "on the 12 US-listed equity funds the tick spans 15.83x while |λ| spans 1.42x. Quantisation noise must scale with the quantum. SPY carries the point alone: its tick is the finest in the group and its |λ| is the same 1.7 bp as the rest",
+      "name": "B9-24-2  |λ| does not scale with the tick, so it is not quantisation",
+      "passed": true
+    },
+    {
+      "detail": "all 16 funds: tick spans 25.97x, |λ| spans 33.00x, which reads as quantisation confirmed. It is SPDW, SPEM and JNK carrying 11 to 39 bp of stale-NAV premium, a confound §6.1 registered before any of this ran. **This entry is here to show B9-24-2 could have failed**, and the first version of this run printed exactly this pooled line",
+      "diagnostic": true,
+      "name": "B9-24-3  the same comparison inverts when the stale-NAV arm is pooled in",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": false,
   "funds": {
     "JNK": {
       "lambda_over_half_tick": 22.119550090189126,
@@ -180,5 +197,6 @@
     }
   },
   "midpoint_grid_usd": 0.005,
+  "post_hoc_note": "§24 was written after §18 to §23, as the diagnosis of a defect in §4, so neither criterion was pre-registered. the project's engineering rule 8 covers this shape: a pre-registration that could not have been written without seeing the data is written after it. Both are stated with the alternative they could have returned.",
   "stage": "B9-A §24"
 }

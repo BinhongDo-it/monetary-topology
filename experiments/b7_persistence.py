@@ -1,6 +1,6 @@
 """B7-17: does a thin class's `gamma` persist into the next year's same tract?
 
-Registered in the Claude Project as `B7_收口后的跨臂影响_v1.md` section 4, with all
+Registered in the project's document set as B7's results file, section 3.4, with all
 three readings written down there **before this file existed**. This file adds no
 criterion of its own.
 

@@ -262,7 +262,7 @@ def a1d_1(respondents: list[Respondent], sweep: list[dict],
           households: int) -> tuple[Criterion, dict]:
     """The delinquency gradient on a matched window, on resolvable pairs only.
 
-    ``docs/a1d_prereg.md`` §6.3. Ordinal, the direction 卷一·十八's, required in
+    ``docs/a1d_prereg.md`` §6.3. Ordinal, the direction Volume One section 18's, required in
     every cell of A1b's registered sweep. **Still not a level**, and §6.3 refuses
     that reading in advance: the model runs a shock scenario over sixty months
     and the survey asks about the twelve months before a 2022 interview. Matching
@@ -399,7 +399,7 @@ def renter_families(records: list[HouseholdRecord], households: int,
                     built: list) -> list[dict]:
     """How many distinct SCF **families** stand behind each renter cell.
 
-    ``docs/a1d_prereg.md`` §10, 2026-08-16, ruling 丙. Reported and never
+    ``docs/a1d_prereg.md`` §10, 2026-08-16, ruling C. Reported and never
     scored. ``RENTER_FLOOR`` counts model households, which are copies twice
     over: the extract carries five implicates of each family, and the allocation
     then hands weight-proportional copies to each implicate. A cell of 37 model
@@ -445,7 +445,7 @@ def print_families(rows: list[dict], by_wealth) -> None:
     invisible in the output.
     """
     print("\nthe renter cells by distinct SCF family. docs/a1d_prereg.md "
-          "section 10, ruling 丙: reported, scored on nothing")
+          "section 10, ruling C: reported, scored on nothing")
     print(f"    {'group':<10}{'model renters':>15}{'families':>11}"
           f"{'behind':>9}{'clears floor':>14}")
     for row in rows:
@@ -796,7 +796,7 @@ def main() -> int:
                     "months_per_round": 1,
                 },
                 "renter_families": {
-                    "why": ("docs/a1d_prereg.md section 10, ruling 丙: "
+                    "why": ("docs/a1d_prereg.md section 10, ruling C: "
                             "RENTER_FLOOR counts model households, which are "
                             "copies of implicates of families. Reported and "
                             "scored on nothing"),

@@ -14,7 +14,7 @@ measure. A rule that big has to be chosen on evidence.
 **The comparison that decides it.** `b8_omega.py` P2 already showed the whole
 curve level moving thirty-fold shifts `r` by about `7e-6` on a deferred balloon,
 while the B8-0a(i-b) noise floor runs `6.5e-06` to `6.7e-05` by archive
-(`b8_inputs_availability.md` §6.2.11.4). **If the spread across construction
+(the B8 inputs register §6.2.11.4). **If the spread across construction
 rules sits below that floor, the choice is not load bearing and any rule
 serves, which is itself a result. If it sits above, the choice must be ruled and
 this file supplies the magnitude.**
@@ -55,7 +55,7 @@ import b8_triangles as T  # noqa: E402
 
 OUT = K.ROOT / "results" / "b8_cmt_sensitivity.md"
 
-#: B8-0a(i-b), `b8_inputs_availability.md` §6.2.11.4. The bar this has to clear
+#: B8-0a(i-b), the B8 inputs register §6.2.11.4. The bar this has to clear
 #: to be load bearing. Per archive, median absolute loop sum.
 FLOOR = {"2002Q1": 6.469e-06, "2006Q1": 7.909e-06, "2007Q1": 7.679e-06,
          "2012Q1": 1.138e-05, "2017Q1": 2.042e-05, "2019Q1": 6.707e-05}
@@ -227,7 +227,7 @@ def run(names) -> int:
 
     A("\n## 1. The spread against the B8-0a(i-b) noise floor\n")
     A("The floor is the median absolute loop sum on the same archive "
-      "(`b8_inputs_availability.md` §6.2.11.4). **A spread below it means the "
+      "(the B8 inputs register §6.2.11.4). **A spread below it means the "
       "choice cannot be seen through the measurement and any rule serves. "
       "Above it, the choice must be ruled.**\n")
     A("| archive | priced | **spread p50** | p90 | p99 | max | "

@@ -21,7 +21,7 @@ which is what makes a past vintage re-fetchable rather than merely archived.
 
 Three properties of this fetcher, each answering a rule
 --------------------------------------------------------
-**One file per vintage.** ``CLAUDE.md`` item 6 treats retrieved data as
+**One file per vintage.** the project's engineering rule 6 treats retrieved data as
 non-regenerable. The filename carries the quarter, so a later quarter can never
 land on the file an earlier criterion was written against. The sibling
 repository's fetcher writes every vintage to one name, which is how a 2026Q1
@@ -30,14 +30,14 @@ repository and this one does not copy the habit.
 
 **Nothing is removed.** A cached file that fails validation, and the file being
 replaced under ``--force``, are renamed with an ``.expired`` suffix and left in
-place (``CLAUDE.md`` item 5). A partial download that fails validation is renamed
+place (the project's engineering rule 5). A partial download that fails validation is renamed
 rather than unlinked for the same reason: it is evidence about what the server
 returned.
 
 **Validation happens before the file takes its name.** The download lands as a
 ``.partial``, is opened and checked by ``monetary_topology.hhdc.validate``, and
 only then is moved into place. A truncated or restructured workbook therefore
-never occupies the path that later code will read (``CLAUDE.md`` item 6, second
+never occupies the path that later code will read (the project's engineering rule 6, second
 half: recognise a damaged file rather than read it in silently).
 """
 

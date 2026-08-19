@@ -4,7 +4,7 @@
 Registered in ``docs/b8_fannie_slice.md`` §16.11. **This file measures; it does
 not settle the two construction choices §16.11 requires.** Those are ruled after
 this runs, on the numbers, because the last time this stage reasoned from a
-document instead of counting it was wrong (`b8_inputs_availability.md` §6.2.10.2).
+document instead of counting it was wrong (the B8 inputs register §6.2.10.2).
 
 **Why the curve matters and where it sits.** `b8_omega.py` P2 proves the
 discount curve cancels on a contract triple, so B8-0a needed no Treasury data.

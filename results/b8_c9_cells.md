@@ -54,7 +54,7 @@ Cells are `(level x window)` over §6's four windows, pooled across the six arch
 
 ### 2.1 The verdict, on the ruling of 2026-08-16
 
-**陛下 ruled that a blank class field and a self-reported unknown code are both excluded, each carrying its count.** Neither is an agent class; both are measurement gaps, and §7's form for a measurement gap is exclusion with the count printed. **The all-levels-kept column is retained beside it as the double report**, so the effect of the ruling is visible rather than absorbed.
+**the author ruled that a blank class field and a self-reported unknown code are both excluded, each carrying its count.** Neither is an agent class; both are measurement gaps, and §7's form for a measurement gap is exclusion with the count printed. **The all-levels-kept column is retained beside it as the double report**, so the effect of the ruling is visible rather than absorbed.
 
 | grid | min, all levels kept | on which level | **min, ruling applied** | **on which level** | loans excluded | **B8-4 runs?** | **the ruling decided it?** |
 |---|---|---|---|---|---|---|---|

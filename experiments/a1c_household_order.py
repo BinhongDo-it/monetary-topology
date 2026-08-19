@@ -20,7 +20,7 @@ neither a revolving balance nor a car loan, so a cross-section of first defaults
 is the cost rule composed with the holdings and the registered inequality cannot
 hold whatever the cost ordering is.
 
-卷一·十八's claim is about **one household over time**. A household holding a
+Volume One section 18's claim is about **one household over time**. A household holding a
 card, a car loan and a tenancy, squeezed, gives them up in that order. That is
 what this file measures, on the households that hold both rungs of each pair.
 

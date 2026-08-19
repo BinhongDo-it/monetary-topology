@@ -6,9 +6,9 @@ reasons on record, and re-reading them as pending was an error.**
 
 | item | status |
 |---|---|
-| C13-b | registered with a **trigger condition** (`b8_inputs_availability.md` §6.6.20.5): it runs when excluding those 1,276 loans becomes load-bearing. They are a small part of 85,308 loops. **The trigger has not fired**, so this is not pending, it is conditional |
-| C10-5 | §6.6.11's own text: **"不做 C10-5"** -- it needs a payment estimator the file does not carry. A declined test, not an owed one |
-| §19.2 secondary pairs | §19.2's own text: **"本节不跑，登记"**, because timing contrasts are blocked by the "the two endpoints have different arrears histories" objection, which §14.4 answered by moving B8-3's primary pair to the institutional contrast |
+| C13-b | registered with a **trigger condition** (the B8 inputs register §6.6.20.5): it runs when excluding those 1,276 loans becomes load-bearing. They are a small part of 85,308 loops. **The trigger has not fired**, so this is not pending, it is conditional |
+| C10-5 | §6.6.11's own text: **"C10-5 is not run"** -- it needs a payment estimator the file does not carry. A declined test, not an owed one |
+| §19.2 secondary pairs | §19.2's own text: **"this section does not run; registered"**, because timing contrasts are blocked by the "the two endpoints have different arrears histories" objection, which §14.4 answered by moving B8-3's primary pair to the institutional contrast |
 
 What is genuinely owed is two things, and only one of them needs new code:
 

@@ -824,7 +824,7 @@ def dispersion_report(inputs: Inputs, households: int
     tenure ruling made it necessary, days after the criteria were written. An
     infimum over an open set is not an estimate of anything.
 
-    The same shape as the defect the ``复检 i`` note records: a derived quantity
+    The same shape as the defect the the re-check i note note records: a derived quantity
     read as if it were an estimator, when it was never defined on a closed
     object.
 

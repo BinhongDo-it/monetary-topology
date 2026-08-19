@@ -170,7 +170,7 @@ def main_effect_cells() -> dict[str, Switches]:
     Nine settings per arm: the null, each competitor alone, and each
     transmitting mechanism on top of each generating one. Insertion order is
     fixed by module constants rather than by a set or by dataclass field order,
-    which `CLAUDE.md`'s determinism rule requires.
+    which the project's determinism rule requires.
 
     **Both generators are used as bases and both are reported.** Registering
     only the stronger one would be choosing a base after seeing which base is
@@ -870,7 +870,7 @@ def evaluate(
 def _round(value: float, places: int = 6) -> float:
     """Floats into the record through `round`, never through `repr`.
 
-    `CLAUDE.md`'s determinism rule, and the third instance of it: a float
+    The project's determinism rule, and the third instance of it: a float
     written at full precision differs in its last digits between platforms and
     the CI step that diffs `RESULTS.md` fails on content that is identical.
     """

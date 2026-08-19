@@ -1071,7 +1071,7 @@ def class_dispersions(
 
 
 # ---------------------------------------------------------------------------
-# Early stop. `claude/B7_复盘_v1.md` failure four: twenty repetitions were run on
+# Early stop. B7's result file (outside this repository), section 7 failure four: twenty repetitions were run on
 # arms whose first three already agreed to within a fraction of their margin.
 # ---------------------------------------------------------------------------
 

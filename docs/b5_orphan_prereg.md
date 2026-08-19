@@ -1506,3 +1506,122 @@ guard must compare the quantity that is actually reported — and both were
 invisible until real data arrived. Recorded here rather than only in the code,
 because a guard that was wrong once is a fact about this stage.
 
+
+---
+
+## 12. How many of B5's squares are independent, measured 2026-08-16
+
+This section exists because the script that produced these numbers has been
+retired. It was a one-off measurement, it has already done its work, and a
+measurement whose conclusion has been absorbed into a rule should not stay on
+disk pretending to be a stage. Everything it found is below, so that an auditor
+of B5 does not need it.
+
+### 12.1 What was asked
+
+An outside proposal argued that an event-study design over payment topology
+would beat the project's existing cross-country panel, on the grounds that
+"20 events x 500,000 transactions" is more power than "30 countries". The power
+arithmetic behind that claim multiplies events by pairs, taking 50 pairs per
+event.
+
+Two things were unmeasured in it. The first is how many of those pairs are
+independent. The second is how correlated the ones that are left turn out to be.
+B5 is the only stage in this project that already has both an event and a set of
+squares over the same positions, so both were measured here, on records already
+in this repository, with no new retrieval.
+
+### 12.2 The structural bound, which is arithmetic rather than an estimate
+
+B5 has **four** classes: `ccl`, `informal`, `mep`, `oficial`. A complete graph on
+four positions carries **six** pairwise squares, and the number of independent
+cycles is
+
+    b1 = E - V + 1 = 6 - 4 + 1 = 3
+
+So at most **three** of those six squares are independent. **The count of
+independent comparisons is set by the number of positions, not by the number of
+squares that can be written down.** Writing more squares over the same four
+positions adds no independent content, and any power calculation that multiplies
+by the square count rather than by `b1` is inflated by construction.
+
+This is not a fact about the proposal. It is a fact about B5, and it bounds what
+this stage's own criteria can carry: **the six pairs in section 2 rest on three
+independent cycles.** Section 3.2's prohibition on what may be reported is the
+same constraint arriving from the directed-theorem side.
+
+The project already has the machinery for this bound: B1H-5 computes
+`dim H1(G x H) = b1(G) + b1(H)` and verifies it on six shapes against exact
+integer agreement.
+
+### 12.3 The correlation, measured, as a cross-check on the bound
+
+Measured on the **control pairs only** (`informal-ccl`, `informal-mep`,
+`mep-ccl`), because those are untreated and therefore pure co-movement with no
+treatment effect in them. Input was the bucket-level `rms_per_bucket` series
+from `results/b5_parallel_trends.json`, one pass per registered window. Pairwise
+correlations were averaged by Fisher-z transform, and turned into an effective
+count by the standard intra-cluster deflation `N_eff = N / (1 + (N-1) * rho)`.
+
+| window | pair | pair | corr | buckets |
+|---|---|---|---|---|
+| `primary_rung` (2024-04-14 to 2025-04-13) | `informal-ccl` | `informal-mep` | +0.5985 | 12 |
+| `primary_rung` | `informal-ccl` | `mep-ccl` | +0.3087 | 12 |
+| `primary_rung` | `informal-mep` | `mep-ccl` | -0.1986 | 12 |
+| `second_rung` (2023-04-14 to 2025-04-13) | `informal-ccl` | `informal-mep` | +0.3653 | 24 |
+| `second_rung` | `informal-ccl` | `mep-ccl` | +0.2793 | 24 |
+| `second_rung` | `informal-mep` | `mep-ccl` | +0.7241 | 24 |
+
+| window | `rho` (Fisher-z mean) | `N_eff` out of 3 nominal control pairs |
+|---|---|---|
+| `primary_rung` | **+0.2632** | **1.965** |
+| `second_rung` | **+0.4844** | **1.524** |
+
+**The measured 1.5 to 2.0 sits under the structural bound of 3, and the two
+agree.** `b1` is what the construction permits; `rho` is what the data actually
+delivers. The second never exceeded the first, which is the check that the bound
+binds rather than merely being available.
+
+Reported alongside, descriptive only, the within-group spread of the collapse
+ratio `rms_post / rms_pre`:
+
+| group | ratios | mean | sd |
+|---|---|---|---|
+| treated | 0.1017, 0.1096, 0.1770 | 0.1294 | 0.0414 |
+| control | 0.7118, 0.9992, 1.0499 | 0.9203 | 0.1823 |
+
+### 12.4 What this settled
+
+Substituting the measured `rho` back into the proposal's own formula gives
+roughly **73** effective units at `rho = 0.26` and roughly **41** at
+`rho = 0.48`. The existing cross-country panel carries **121** independent units
+at `h <= 5`. **The event design loses on N rather than winning on it**, so power
+is not available as a reason to reorder the queue.
+
+What the event design may still win on is identification, and that is a separate
+argument: the panel's treatment variable is endogenous, so its 121 units are
+dirty while the event design's 41 to 73 are clean. Many dirty against few clean
+is a trade, and it has to be argued on identification. This section does not
+argue it.
+
+### 12.5 Three limits on the correlation half, which do not touch the bound
+
+1. **One event cannot give a between-event variance.** What was measured is
+   within-event correlation. Treating it as a general `rho` for event designs is
+   an extrapolation.
+2. **The three control pairs share legs** (`informal-ccl` and `informal-mep`
+   share `informal`, and so on), so part of the correlation is mechanical. This
+   is not a defect of B5. It is a property of any square set built over one set
+   of positions, and it is the same reason `b1` bounds the count at all.
+3. **The bucket series is a proxy for the per-day squares**, which are not in the
+   JSON records. If the per-day series were available, `rho` would move.
+   **The `b1` bound would not**, because it is arithmetic on the graph.
+
+### 12.6 Reproduction
+
+Both inputs, `results/b5_parallel_trends.json` and `results/b5_squares.json`, are
+committed, so every number above can be recomputed from this repository with no
+retrieval. The script that produced them is retired under this repository's
+`.expired` convention rather than deleted, and the rule it fed now lives with the
+project's other pre-run gates, where it is applied to new designs instead of
+sitting beside one finished measurement.

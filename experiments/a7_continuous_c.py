@@ -490,7 +490,7 @@ def d_fixed(module, seeds: range, rounds: int, arm: str, points=None) -> dict:
 RESULTS = ROOT / "results"
 
 #: Floats are written through an explicit format rather than through `repr`,
-#: per `CLAUDE.md`'s generated-files rule 5: a difference in the last digit
+#: per the generated-files rule 5: a difference in the last digit
 #: between BLAS builds must not surface as a text diff. Ten significant figures
 #: is far more than any statement in `docs/a7_continuous_c.md` rests on.
 _FLOAT_FORMAT = ".10g"
@@ -510,20 +510,31 @@ def _clean(obj):
 
 
 def write_record(rows: list[dict], mode: str, args) -> Path:
-    """Write the run to `results/`, declared a diagnostic.
+    """Write the run to `results/`.
 
-    **`diagnostic_only` is true and that is a statement about the stage, not a
-    formality.** `docs/a7_continuous_c.md` section 4.2 registers `D_fixed`, the
-    population intersected across grid points, as the scored estimator, and this
-    file computes `D_reach`, which the same section registers as reported and
-    never scored. Until `D_fixed` exists, no criterion here has run on its
-    registered estimator, so this record must not become a heading in
-    `RESULTS.md`. `scripts/render_results.py` keys on this field, so declaring it
-    also keeps `tests/test_runner_covers_every_record.py`'s ratchet honest
-    without an exemption entry that would have to be pruned later.
+    **The registered record is no longer declared a diagnostic** (M-46,
+    2026-08-18): the stage's own readings belong in `RESULTS.md` and not only in
+    its verdict sheet. Off-parameter runs keep `diagnostic_only`; they are
+    skipped on filename as well, so there the flag is redundant rather than
+    load-bearing.
+
+    **The caveat the cleared flag used to carry does not go away and must travel
+    with any citation of this record.** `docs/a7_continuous_c.md` section 4.2
+    registers `D_fixed`, the population intersected across grid points, as the
+    scored estimator, and this file computes `D_reach`, which the same section
+    registers as reported and never scored. It is kept in the record as
+    `diagnostic_reason` and repeated in full in
+    `tests/test_runner_covers_every_record.py`, because
+    `scripts/render_results.py` ignores fields it does not know and would
+    otherwise drop it on the floor.
+
+    **The flag is cleared here in the writer and not only in the record on
+    disk.** A record-level edit is silently undone by the next run, and that is
+    not a hypothetical: it happened on 2026-08-18, hours after M-46, when
+    another session re-ran this file and the flag came back.
 
     Nothing wall-clock, machine-dependent or version-dependent goes in, per
-    `CLAUDE.md`'s generated-files rules 1 and 2.
+    the generated-files rules 1 and 2.
     """
     registered = (
         mode == "grid"
@@ -539,7 +550,10 @@ def write_record(rows: list[dict], mode: str, args) -> Path:
     )
     payload = {
         "stage": "A7-A continuous connectivity",
-        "diagnostic_only": True,
+        # M-46: the registered record is not a diagnostic. Off-parameter runs
+        # still are, though `.offparam` in the name already excludes them.
+        **({} if registered else {"diagnostic_only": True}),
+        # Kept on both, cleared flag or not. See this function's docstring.
         "diagnostic_reason": (
             "D_fixed, the estimator section 4.2 registers as scored, is not "
             "computed here. Every gap in this file is D_reach, which the same "
@@ -567,12 +581,15 @@ def write_verdicts() -> Path:
     """Assemble `results/a7_verdicts.json` from the records already on disk.
 
     **This exists because `RESULTS.md` is the ledger other lines of work read,
-    and a stage whose every record is `diagnostic_only` has no heading in it.**
-    A7 ran and has eleven verdicts; without this it reads as not run, which is
+    and a stage whose every record was `diagnostic_only` had no heading in it.**
+    A7 ran and has eleven verdicts; without this it read as not run, which is
     what the README said in two places until 2026-08-16.
 
-    The measurement records stay diagnostic and this one is not: they are
-    measurements, this is the verdict sheet. Every number below is read out of a
+    **That premise is now only half true**: M-46 cleared the flag on the
+    registered measurement record, so A7-A has its own heading as well. This
+    sheet stays, because the eleven verdicts are not derivable from any one
+    record and because retiring it would move the citation target of everything
+    that already points here. Every number below is read out of a
     record rather than typed, and a missing record raises rather than being
     skipped, so the sheet cannot claim a verdict it has no evidence for.
     """
@@ -630,7 +647,7 @@ def write_verdicts() -> Path:
          f"the registered shape is wrong. Not a gradient: a step at the first "
          f"grid point, both {gu[0.0]['gaps']['both']:+.4f} to "
          f"{gu[0.01]['gaps']['both']:+.4f}, then flat to s = 0.9. Recorded under "
-         f"CLAUDE.md rule 8 and not repaired; docs section 6.2"},
+         f"the project's engineering rule 8 and not repaired; docs section 6.2"},
         {"name": "A7-A-3", "passed": False, "void": True, "detail":
          f"void on the estimator it names. On D_fixed each arm's population is "
          f"intersected across its own grid, so the two are "

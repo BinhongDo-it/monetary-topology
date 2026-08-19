@@ -41,10 +41,77 @@ Recorded for stage A1, not yet used:
 | dataset | use | source |
 |---|---|---|
 | Fed Distributional Financial Accounts, quarterly wealth shares | proxy for the dormant claim pool | `federalreserve.gov/releases/z1/dataviz/dfa` |
-| NY Fed Household Debt and Credit, **split by product and by income quartile / credit score** | A1 calibration. The split is the point: the K-shape lives in the disaggregation, not the totals | `newyorkfed.org/microeconomics/hhdc` |
+| NY Fed Household Debt and Credit, quarterly underlying-data workbook | A1 calibration. **The split this row originally asked for does not exist in public form; corrected below** | `newyorkfed.org/microeconomics/hhdc` |
 | Fed Z.1 Financial Accounts, by sector | B2 graph; A3 sector accounts | `federalreserve.gov/releases/z1` |
 | BEA Input-Output Use Tables | B2 primary graph; empirical anchor for the A2 adjacency matrix | `bea.gov/industry/input-output-accounts-data` |
 | M2, NBER recession dates | timeline alignment | FRED |
+
+### NY Fed HHDC, corrected 2026-08-13
+
+The row above originally read:
+
+> NY Fed Household Debt and Credit, **split by product and by income quartile /
+> credit score** | A1 calibration. The split is the point: the K-shape lives in
+> the disaggregation, not the totals
+
+The first half of that is retrievable and the second half is not.
+[`../docs/a1_availability.md`](../docs/a1_availability.md) section 4 inventories
+the workbook: thirty-six data sheets, on which delinquency is crossed with
+**age** (four products, flow measure only, bands 18-29 through 70+), with
+**state**, and with nothing else. Credit score appears only at origination and is
+never crossed with delinquency. **Income quartile appears nowhere.** The
+Philadelphia Fed's Consumer Credit Explorer does cross delinquency with age,
+credit score and neighbourhood income on the same underlying panel, and states
+that vendor restrictions prevent it from supplying any series in spreadsheet
+form. The panel itself, the New York Fed Consumer Credit Panel, is limited by
+contract to Federal Reserve System researchers and their coauthors, so there is
+no second public route to the same disaggregation.
+
+What stands in for the missing split: the holdings side is already stratified and
+already recorded above (bottom 50% holding 51.8% of consumer credit against 2.5%
+of net worth), and the K-shape criterion is a contrast **across products**, which
+Page 12 supports with no stratification at all. One frozen reading by credit tier
+exists for the subprime rung and is recorded in the availability check.
+
+| vintage | what A1 scores against | value |
+|---|---|---|
+| 2026Q1, Page 12 | credit card, share of balance 90+ days late | 13.12% |
+| 2026Q1, Page 12 | auto, share of balance 90+ days late | 5.60% |
+
+**Both are stock figures, and the workbook also publishes a flow.** For the same
+quarter the flow table, Page 14, reads 7.10% and 2.97%. The pre-registration
+declares which quantity the model emits before either column is quoted; the
+factor between them is close to two.
+
+### Retrieval
+
+`data/fetch_hhdc.py` retrieves one vintage to
+`data/raw/hhd_c_report_<vintage>.xlsx`, validates it **before** it takes that
+name, and merges an entry into `data/raw/hhdc_manifest.json` without dropping any
+other vintage. `--check` classifies the cache and fetches nothing. A file that
+fails validation is renamed with an `.expired` suffix and kept.
+
+The vintage is pinned in `src/monetary_topology/hhdc.py`, because A1's targets
+were written against 2026Q1 and the 2026Q2 workbook was released 2026-08-11. The
+URL pattern resolves for past quarters, so a pinned vintage stays re-fetchable
+rather than merely archived.
+
+Three properties of this source cost a reader its correctness if ignored, and
+each has a case in `tests/test_hhdc.py`:
+
+- **Sheet names are page numbers in the PDF report and move between quarters.**
+  The sheet is located by a substring of its own title row.
+- **The contents page and the sheets disagree on titles.** The contents page
+  calls the flow table `Flow into Serious Delinquency (90+) by Loan Type`; that
+  sheet's own title row reads `New Seriously Delinquent* Balances by Loan Type`.
+- **The two tables do not share a column order.** Page 12 runs mortgage, HELOC,
+  auto, card, student, other, all; Page 14 runs auto, card, mortgage, HELOC,
+  student, other, all. Columns are keyed by header string, never by position.
+
+The reader also keeps a dated row whose cells are partly blank rather than
+dropping it: the flow table carries no student loan figure for its earliest
+quarters, and discarding those rows would shorten the series by coverage that is
+real.
 
 ## Not data, parameters
 

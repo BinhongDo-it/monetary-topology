@@ -12,8 +12,8 @@ and defines it on `a3c_load_bearing.py`'s divergence measure `D`, which needs
 `κ_pay` and `κ_gate`. Those are `AssetSpec.terms_spread` and
 `AssetSpec.gate_spread`. `A4Model` is a subclass of `Network` with no asset
 layer, so as things stand §10 is registered against a class that cannot compute
-it. Either A4 is reparented onto `A3Model` (甲) or §10 is set aside and A4 runs
-on §4's Gini ratio with §16.2's injection (丙).
+it. Either A4 is reparented onto `A3Model` (A) or §10 is set aside and A4 runs
+on §4's Gini ratio with §16.2's injection (C).
 
 Three claims decide it and each is checkable in a few minutes.
 
@@ -70,7 +70,7 @@ four times.
 A fourth claim, added after the ruling
 --------------------------------------
 
-The ruling went to 丙, which takes A4's stock from `PROJECT_PLAN` §16.2's
+The ruling went to C, which takes A4's stock from `PROJECT_PLAN` §16.2's
 injection instead of from A3's asset layer. §16.2 describes that as opening a
 switch that already exists. The same question therefore applies to it: what
 position is the switch in now, and does moving it reach anyone.

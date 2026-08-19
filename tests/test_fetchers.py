@@ -156,7 +156,7 @@ A1_FETCHERS = ("fetch_hhdc.py", "fetch_dfa.py", "fetch_scf.py", "fetch_cex.py")
 
 
 def test_every_a1_fetcher_retires_rather_than_removes() -> None:
-    """``CLAUDE.md`` item 5. A fetcher that unlinks is the one way to lose data
+    """The project's engineering rule 5. A fetcher that unlinks is the one way to lose data
     that cannot be re-derived."""
     for name in A1_FETCHERS:
         source = (DATA / name).read_text(encoding="utf-8")

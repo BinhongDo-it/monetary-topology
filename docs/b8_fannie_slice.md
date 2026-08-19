@@ -1,5 +1,14 @@
 # B8: the slice summand on a household carrier, from loan modification
 
+> **[2026-08-18] This file is B8's pre-registration and it is the authority for
+> the eight criteria published in `RESULTS.md`.** The instrument conclusions the
+> published criteria depend on are summarised in `b8_instrument_notes.md`; the
+> full inputs register and the per-station design and result files are maintained
+> outside this repository. **References to sections of those files are provenance;
+> nothing here depends on reading them.**
+
+
+
 **Status: pre-registration. No Fannie row has been read.** Registered 2026-08-16.
 
 Sibling of [`b3_cip_slice.md`](b3_cip_slice.md), whose estimator shape, zero
@@ -374,7 +383,7 @@ in `RESULTS.md` comes from this stage.
 # Corrections after the availability run, 2026-08-16
 
 **Sections 1 to 12 are unchanged. This section supersedes them where they
-conflict.** Source: `b8_inputs_availability.md`'s run record, on 170,013,011 rows
+conflict.** Source: the B8 inputs register's run record, on 170,013,011 rows
 and 2,942,295 loans across six acquisition quarters.
 
 ## 13.1 §2.1's `q` is right and §2's `modified` node needs restating
@@ -498,7 +507,7 @@ stated horizon rather than quietly defaulting to 17.
 
 **Corrected 2026-08-17, and the correction is one field wide.** Both terms above read
 `(63)` alone until C10-4 and C11 landed. Three changes, each with its source in
-`b8_inputs_availability.md`:
+the B8 inputs register:
 
 | what changed | why | source |
 |---|---|---|
@@ -556,7 +565,7 @@ passes every property proved on quiet months; **the month where they differ is t
 modification month, which is the only month leg 2 has.** Measured 2026-08-17 on a
 two point rate cut and a 120 month extension: `+1.670e-03` under the wrong reading
 against `-1.792e-01` under the right one, **two orders of magnitude and the sign
-flips** (`b8_inputs_availability.md` §6.6.23.1). The same applies to the payment:
+flips** (the B8 inputs register §6.6.23.1). The same applies to the payment:
 the counterfactual wants the **pre-event** payment, which lives in the previous
 contract period.
 
@@ -593,7 +602,7 @@ would land here. If `ω₃` is materially non-zero in the HAMP window and near z
 elsewhere, that is the trial period and it is reported as such.
 
 **The carrier for that test is nearly empty, measured 2026-08-17.** The loop census
-(§17.8's count, `b8_inputs_availability.md` §6.6.6) returns **38** loops across all
+(§17.8's count, the B8 inputs register §6.6.6) returns **38** loops across all
 six archives with more than one same-kind onset edge inside the window, which is the
 population a trial-period conversion has to live in. And `ω₃` is measurable at all on
 only **10,449** loops, because §17.3's `t_M == t_B` shape gives leg 3 zero length by
@@ -776,7 +785,7 @@ anchor passing means a column has the right shape, not that it is the right fiel
 ## 14.10 Order after this section
 
 1. **C8**, one script, six counts. Its output is appended to
-   `b8_inputs_availability.md`, not to a results file only.
+   the B8 inputs register, not to a results file only.
 2. `experiments/b8_omega.py`: `V`, `V̂`, `r(t)`, and nothing else. Unit-tested
    against a hand-computed amortisation schedule before it sees a real loan.
 3. **B8-0a(i)**, the gate. Then B8-0a(ii).
@@ -952,990 +961,1239 @@ one, B8-0a is not one, B8-1 is not one and B8-3 is not one.**
 
 ---
 
-# 16. B8-0a(i) 拆闸（2026-08-16）
+# 16. Splitting the B8-0a(i) gate (2026-08-16)
 
-**§1 到 §15 不变，本节在冲突处覆盖它们。** 陛下裁，全文与量化在
-`claude-docs/B8_0a闸容差裁定_v1.md`，实跑记录在 `b8_inputs_availability.md`
-§6.2.6 到 §6.2.8。**写于 `omega` 编码之前，B8-0a(i) 从未跑过。**
+**Sections 1 to 15 stand, and this section overrides them where they conflict.**
+Ruled by the author; the full text and the quantification are in the project's
+B8-0a tolerance ruling, and the run record is in the B8 inputs register
+sections 6.2.6 to 6.2.8. **Written before `omega` was coded. B8-0a(i) has never
+been run.**
 
-## 16.1 §14.5 的隐含假设，以及否掉它的数
+## 16.1 Section 14.5's implicit assumption, and the numbers that refute it
 
-§14.5 把 B8-0a(i) 定为「清洁自愈往返，只用合同三元组，**精确回零到浮点容差**」，
-理由是那个零是算术的：欠缴月份的正残差与复原月份的负残差相消。
+Section 14.5 defined B8-0a(i) as "a clean-cure out-and-back, using only the
+contractual triple, **returning to zero exactly within floating-point
+tolerance**", on the grounds that the zero is arithmetic: the positive residual
+of an underpaid month cancels the negative residual of the month that restores
+it.
 
-**相消要成立，得有一个 §14.5 没写出来的前提：余额路径精确回到计划表。**
-1.4 亿个安静履约月份上量出来的是：
+**For that cancellation to hold there is a premise section 14.5 never wrote
+down: the balance path returns exactly to the schedule.** Measured on 140
+million quiet performing months:
 
-- 约四分之一的安静履约月份**不落在计划表上**（C8-1c(b)）。
-- 其中约一半是**余额一个月纹丝不动**，六档合计占全部安静月份的 **4.881%**（C8-1e）。
-- 冻结之后 lag 1 补回只有 26%–28%，六个月内 52%–59%，**约四成永不恢复**（C8-1f）。
-- **一次未恢复的冻结对 `r` 的贡献等于欠缴一个月的 ω₁**（参照贷款上都是 1.336e-3）。
-- 带冻结的段落后计划表的 p10 是 −2.6% 到 −9.9%，**无冻结的段是 −0.0000**。
+- about a quarter of quiet performing months **do not lie on the schedule**
+  (C8-1c(b));
+- about half of those are **a balance that does not move for a month**, which is
+  **4.881 percent** of all quiet months across the six vintages (C8-1e);
+- after a freeze, lag-1 recovery is only 26 to 28 percent and within six months
+  52 to 59 percent, so **about four in ten never recover** (C8-1f);
+- **one unrecovered freeze contributes to `r` exactly what one underpaid month's
+  ω₁ contributes** (1.336e-3 on the reference loans in both cases);
+- for segments containing a freeze, the p10 of the post-schedule deviation is
+  −2.6 to −9.9 percent, while **for segments without one it is −0.0000**.
 
-## 16.2 拆法
+## 16.2 The split
 
-| id | 跑在什么上 | 判据 | 地位 |
+| id | runs on | criterion | standing |
 |---|---|---|---|
-| **B8-0a(i-a)** | 清洁自愈贷款中**每一个安静月份都落在其段众数簇内**的那些 | **精确回零到浮点容差** | **闸。** 不过则构造坏了，后面一律不能读 |
-| **B8-0a(i-b)** | **全部**清洁自愈环 | 环和分布，对着从未违约贷款在同长度窗口上的噪声底 | **读数，不是闸** |
+| **B8-0a(i-a)** | those clean-cure loans **every one of whose quiet months lies inside its segment's modal cluster** | **exact return to zero within floating-point tolerance** | **a gate.** If it fails the construction is broken and nothing after it may be read |
+| **B8-0a(i-b)** | **all** clean-cure loops | the distribution of loop sums, against the noise floor from never-delinquent loans over windows of the same length | **a reading, not a gate** |
 
-**§8 第一条证伪线改挂到 B8-0a(i-a)。** §14.5 的 B8-0a(ii)（带费用与资本化）不变，
-但按 §6.2.1 它已经收窄：字段 64 在六档上零笔为正，**减免那一项在本样本上恒为零**。
+**Section 8's first falsification line moves to B8-0a(i-a).** Section 14.5's
+B8-0a(ii) (with fees and capitalisation) is unchanged, but per section 6.2.1 it
+has already been narrowed: field 64 is positive on zero loans in all six
+vintages, so **the forgiveness term is identically zero on this sample**.
 
-## 16.3 (i-a) 的样本与两条必带的限定
+## 16.3 The (i-a) sample, and two qualifications that must travel with it
 
-**19,090 笔**，即清洁自愈形状 154,768 笔的 **12.35%**，
-逐档 138 / 238 / 256 / 2,652 / 7,862 / 7,944。
+**19,090 loans**, which is **12.35 percent** of the 154,768 with the clean-cure
+shape, at 138 / 238 / 256 / 2,652 / 7,862 / 7,944 by vintage.
 
-1. **样本严重偏向新档。** 2002Q1 只留 2.40%，2019Q1 留 19.94%。
-   **闸主要在 2017 与 2019 的 cohort 上被认证。**
-2. **该子样本按支付规则性选出**，而支付规则性与 §5 的类指标（信用分、DTI）合理相关，
-   **故它不是类分布上的随机样本，不得复用为任何 B8-4 形状读数的样本。**
+1. **The sample is heavily skewed toward recent vintages.** 2002Q1 retains only
+   2.40 percent and 2019Q1 retains 19.94 percent. **The gate is certified mainly
+   on the 2017 and 2019 cohorts.**
+2. **The subsample is selected on payment regularity**, and payment regularity is
+   plausibly correlated with section 5's class indicators (credit score, DTI),
+   **so it is not a random sample in class space and may not be reused for any
+   B8-4 shaped reading.**
 
-## 16.4 一条加进 §9 的结构性限制
+## 16.4 A structural limitation added to section 9
 
-> 一次落在环内且未恢复的余额冻结，往 `omega` 里注入的东西与一个真实欠缴月份
-> **不可区分且大小相同**，因为两者在 `V` 上是同一件事，唯一区别是字段 40 读 `00`。
-> **这给 B8-1 的噪声底定了一个不由样本量决定的下界，引用 B8-1 的地方必须带这一句。**
+> One balance freeze that falls inside a loop and never recovers injects into
+> `omega` something **indistinguishable from, and the same size as**, a real
+> underpaid month, because in `V` they are the same event and the only
+> difference is that field 40 reads `00`.
+> **This sets a lower bound on B8-1's noise floor that no sample size can lower,
+> and every citation of B8-1 must carry this sentence.**
 
-## 16.5 §14.10 的两处更正
+## 16.5 Two corrections to section 14.10
 
-**字段 44 不必进过滤器。** 早先登记的「quiet 过滤器漏查零余额码、结清月份在样本里」
-那条担心**已撤回**：字段 44 在六档、约四千万个安静月份上一个都没设（`b8_inputs_availability.md`
-§6.2.6.3）。
+**Field 44 does not need to be in the filter.** The earlier concern that "the
+quiet filter fails to check the zero-balance code, so payoff months are in the
+sample" **is withdrawn**: field 44 is not set on a single one of roughly forty
+million quiet months across the six vintages (B8 inputs register section
+6.2.6.3).
 
-> **【2026-08-16 二次更正】上面这条撤回本身是错的，见 §16.6。**
-> 字段 44 那半仍然对，但**终止由余额归零标记，不由零余额码标记**，
-> 而 quiet 过滤器当时确实漏查了余额归零。**过滤器已加 `upb[当前行] > 0`。**
+> **[second correction, 2026-08-16] That withdrawal was itself wrong, see section
+> 16.6.** The field 44 half still holds, **but a termination is marked by the
+> balance going to zero and not by the zero-balance code**, and the quiet filter
+> did fail to check for the balance going to zero. **The filter now carries
+> `upb[current row] > 0`.**
 
-**月供作为逐段 carry 的状态量**，这条已由 §6.2.5 定死，`V` 与 `V̂` 都用它。
+**The monthly payment is a state carried segment by segment**, fixed by section
+6.2.5, and both `V` and `V̂` use it.
 
-## 16.6 §16.5 那条撤回本身是错的，quiet 过滤器已加一条（2026-08-16）
+## 16.6 The withdrawal in section 16.5 was wrong, and the quiet filter has gained a condition (2026-08-16)
 
-§16.5 写「字段 44 不必进过滤器，结清月份在样本里那条担心已撤回」。
-**那条撤回是错的。字段 44 那半仍然对（它在约四千万个安静月份上确实一个都没设），
-但终止由余额归零标记，不由零余额码标记，而 quiet 过滤器当时确实漏查了余额归零。**
+Section 16.5 said "field 44 need not be in the filter, and the concern about
+payoff months in the sample is withdrawn". **That withdrawal was wrong. The
+field 44 half still holds (it really is unset on some forty million quiet
+months), but a termination is marked by the balance going to zero rather than by
+the zero-balance code, and the quiet filter did fail to check for that.**
 
-起因是量出了 Fannie 的一条报送惯例：**每一笔贷款的第一行 UPB 都是零**，
-六档 1.0000 一笔不漏，每笔平均 6.70 到 6.94 行，终止之后也不报
-（`b8_inputs_availability.md` §6.2.9）。于是「正 → 零」这一对能通过旧过滤器，
-`obs` 等于整个余额。
+The cause was a measured Fannie reporting convention: **the first row of every
+loan carries a zero UPB**, 1.0000 with no exceptions in all six vintages, at an
+average of 6.70 to 6.94 such rows per loan, and nothing is reported after
+termination (B8 inputs register section 6.2.9). So the pair "positive to zero"
+could pass the old filter, with `obs` equal to the entire balance.
 
-**更正**：`quiet_pairs` 现同时要求 `upb[当前行] > 0`。旧口径由
-`require_cur_positive=False` 保留可逐位复现，`selftest` 同时验两套并要求它们真的不同。
-全文与影响范围在 `b8_inputs_availability.md` §6.2.10 与
-`claude-docs/B8_0a闸结果与报送惯例_v1.md` §3。
+**The correction**: `quiet_pairs` now also requires `upb[current row] > 0`. The
+old definition is preserved and bit-reproducible via `require_cur_positive=False`,
+and `selftest` exercises both and requires them to differ. Full text and blast
+radius in B8 inputs register section 6.2.10 and the project's B8-0a gate ruling
+section 3.
 
-**【2026-08-16 同日更正】此处原写「污染落在高于众数那一侧」。实测推翻：
-这条更正在六档上删掉零个对**（`b8_inputs_availability.md` §6.2.10.2，
-`results/b8_quiet_delta.md`）。§6.2.6 那 8.8% 与中位数确实不受影响，
-**但理由是根本没有污染，不是污染在另一侧**。
+**[same-day correction, 2026-08-16] This passage originally said the
+contamination lay on the side above the mode. Measurement refutes it: this
+correction deletes zero pairs in all six vintages** (B8 inputs register section
+6.2.10.2, `results/b8_quiet_delta.md`). The 8.8 percent and the median in
+section 6.2.6 are indeed unaffected, **but the reason is that there was no
+contamination at all, not that it sat on the other side**.
 
-**这条更正因此是防呆不是修复。** 判据不变，变的是它在真机上不承重：
-结清那一行的**剩余法定期限是空的**（六档漏网 5 / 2 / 5 / 1 / 0 / 0），
-票面利率也空（各漏几百个），两条已经把结清对全挡在外面。
-**这把 §16.6 开头那条报送惯例推广了：终止行报一个余额零，然后把合同状态整体停报。**
+**The correction is therefore a guard and not a fix.** The criterion does not
+change; what changes is that it is inert on the real machine: on the termination
+row **the remaining legal term is empty** (5 / 2 / 5 / 1 / 0 / 0 leak through
+across the six) and the coupon rate is empty as well (a few hundred each), and
+those two already block every payoff pair. **This generalises the reporting
+convention at the top of this section: a termination row reports a zero balance
+and then stops reporting the contract state altogether.**
 
-## 16.7 B8-0a(i-a) 六档全过，但过它的是计数不是比值
+## 16.7 B8-0a(i-a) passes in all six vintages, and what passes it is the count and not the ratio
 
-**§10 第 3 步到此结清。** 六档 `over 1` 全零，合格率 0.5195 到 0.6597。
-表在 `b8_inputs_availability.md` §6.2.11.1，结果在 `results/b8_0a_gate.md`。
+**Step 3 of section 10 is closed here.** `over 1` is zero in all six vintages,
+with qualification rates of 0.5195 to 0.6597. The table is in B8 inputs register
+section 6.2.11.1 and the result in `results/b8_0a_gate.md`.
 
-**必须跟着判定一起写的一句**：`max ratio` 六档全部落在 0.399–0.400，
-那是结构性上限 `(1 + (1+i)^(k+1)) / ((2+i)(k+1) + (1+i)^(k+1))`，
-因为路径容差与符合度的界共用同一个 `1/B`。
-**符合度那一半在数学上被路径那一半蕴含，不携带独立信息；闸的全部判别力在合格计数上。**
+**A sentence that has to travel with the verdict**: `max ratio` lands between
+0.399 and 0.400 in all six vintages, which is the structural upper bound
+`(1 + (1+i)^(k+1)) / ((2+i)(k+1) + (1+i)^(k+1))`, because the path tolerance and
+the agreement bound share a single `1/B`.
+**The agreement half is mathematically implied by the path half and carries no
+independent information. All of the gate's discriminating power is in the
+qualifying count.**
 
-判别力是实的：月供估错 1% 会把终点移动 $30.55，对着 $0.0101 的容差，三千倍，
-合格计数会塌到接近零。
+That power is real: a 1 percent error in the monthly payment moves the endpoint
+by $30.55 against a tolerance of $0.0101, a factor of three thousand, and the
+qualifying count would collapse toward zero.
 
-**§16.3 那两条限定之外，凡引用 (i-a) 处再加这一条。**
+**Add this sentence wherever (i-a) is cited, on top of the two qualifications in
+section 16.3.**
 
-## 16.8 (i-b) 有数：环带着 172 到 2,343 倍于噪声底的残差
+## 16.8 (i-b) has a number: loops carry a residual 172 to 2,343 times the noise floor
 
-`b8_inputs_availability.md` §6.2.11.4。闭式已被减掉，剩下的是观测路径对理想路径的偏离，
-主要来自复原那一个月的费用、部分复原与托管。**§14.5 拆 0a 时说要保住的那个信号，
-现在有数了。**
+B8 inputs register section 6.2.11.4. The closed form has been subtracted, and
+what remains is the observed path's deviation from the ideal path, coming mainly
+from fees, partial restoration and escrow in the month of the cure. **The signal
+that section 14.5 said splitting 0a was meant to preserve now has a number.**
 
-## 16.9 §7 的过滤器：三条挣不回来，一条用行为代理
+## 16.9 Section 7's filters: three cannot be earned, one uses a behavioural proxy
 
-核心表没有产品类型列，而产品类型、单元数、留置权都不在 C0b 确认的锚点表里。
-**固息一条用行为挣回**：一笔贷款的利率只在修改月变动，它就是固息。
-浮动形状占比在 2006 与 2007 上峰值（2.46% / 3.34%），2012 之后是万分之一，
-**峰值精确落在 ARM 那一波，而臣妾没给它任何产品类型信息**。
-**这是代理，凡引用处标为代理。** 自住可筛（字段 30 已确认），单户与第一留置权不行。
-详见 `b8_inputs_availability.md` §6.2.12.2。
+The core table has no product type column, and product type, unit count and lien
+position are not in the C0b anchor table. **Fixed rate can be earned
+behaviourally**: if a loan's rate moves only in the month of a modification, it
+is fixed rate. The floating shape peaks in 2006 and 2007 (2.46 and 3.34 percent)
+and is one in ten thousand after 2012, **and the peak lands exactly on the ARM
+wave without the procedure being given any product type information**.
+**This is a proxy and is labelled as one wherever it is cited.**
+Owner-occupancy can be filtered (field 30 is confirmed); single-family and first
+lien cannot. See B8 inputs register section 6.2.12.2.
 
-## 16.10 §14.10 之后的顺序，按本轮结果重排
+## 16.10 The order after section 14.10, re-sequenced on this round's results
 
-**B8-0b 在国债 CMT 曲线之后，不在它之前。** 理由：`b8_omega.py` 的 P2 证明合同三元组上
-贴现曲线完全抵消，所以 B8-0a 不需要国债数据；但抵消的条件是 `V` 与 `V̂` 共用同一个
-`(i, n, d)`，而**修改当月利率变、期限也变**，`k(i, d, n)` 两侧不同，曲线进来
-（实测 `r` 在 CMT 0.5% 到 15% 上从 −0.000487 变到 −0.000494）。
-B8-0b 的 `N` 是修改三角上匹配贷款的环和离散度，**算它就得先给修改月定价**。
+**B8-0b comes after the Treasury CMT curve, not before it.** The reason: P2 in
+`b8_omega.py` proves that on the contractual triple the discount curve cancels
+completely, so B8-0a needs no Treasury data. But the cancellation requires `V`
+and `V̂` to share one `(i, n, d)`, and **in the month of a modification both the
+rate and the term change**, so `k(i, d, n)` differs between the two sides and
+the curve enters (measured: `r` moves from −0.000487 to −0.000494 as CMT goes
+from 0.5 to 15 percent). B8-0b's `N` is the dispersion of loop sums over matched
+loans on the modification triangle, **so computing it requires pricing the month
+of the modification first**.
 
-| 序 | 站 | 理由 |
+| order | station | reason |
 |---|---|---|
-| 1 | **C9**（每格观测数，`min_size = 20`） | 核心表上约二十秒。它决定逐类底要不要做、B8-4 在哪张网格上跑、要不要下载全年份 |
-| 2 | **CMT 曲线站** | B8-1 之后每一条的硬阻塞。**开工前两个构造选择必须先钉死**，见 §16.11 |
-| 3 | **B8-0b 池化底**，然后 B8-1 / B8-2 / B8-3 | §15.7 的头条只需要池化 `N` |
-| 4 | **逐类底与 B8-4a / B8-4b** | §15.4 才需要 `√Z(a)/√N(a)`，且按 §15.3 被 C9 闸住 |
+| 1 | **C9** (observations per cell, `min_size = 20`) | about twenty seconds on the core table. It decides whether a per-class floor is needed at all, which grid B8-4 runs on, and whether all vintages have to be downloaded |
+| 2 | **the CMT curve station** | a hard blocker for everything after B8-1. **Two construction choices have to be fixed before it starts**, see section 16.11 |
+| 3 | **B8-0b pooled floor**, then B8-1 / B8-2 / B8-3 | section 15.7's headline needs only the pooled `N` |
+| 4 | **the per-class floor and B8-4a / B8-4b** | only section 15.4 needs `√Z(a)/√N(a)`, and per section 15.3 it is gated by C9 |
 
-**逐类噪声底不是必须的，它是条件性的，条件是 C9。**
+**The per-class noise floor is not mandatory. It is conditional, and the
+condition is C9.**
 
-## 16.11 CMT 曲线站开工前必须钉死的两条（与 C8 同性质）
+## 16.11 Two things the CMT curve station has to fix before it starts (the same kind of thing as C8)
 
-**一、怎么插值到剩余期限**：线性于期限还是线性于对数期限。注册里只写了「插值」。
+**One, how to interpolate to the remaining term**: linear in tenor or linear in
+log tenor. The registration says only "interpolate".
 
-**二、期限超出最长可得档位时怎么办**，而这是一个有日期的真实缺口：
-**三十年期 CMT 在 2002-02 到 2006-02 之间不存在**（财政部停发三十年债），
-那正好是 2002Q1 那批贷款年轻、剩余期限接近 360 个月的窗口；
-二十年期在 1987 到 1993 之间也缺。**外推还是封顶，跑前写下来。**
+**Two, what to do when the term exceeds the longest available tenor**, and this
+is a real dated gap: **the thirty-year CMT does not exist between 2002-02 and
+2006-02** (Treasury suspended the thirty-year bond), which is exactly the window
+in which the 2002Q1 cohort is young and its remaining term is near 360 months;
+the twenty-year is also missing between 1987 and 1993. **Extrapolate or cap:
+write it down before the run.**
 
-## 16.12 C9 已跑：B8-4a 有五张网格，B8-4b 没有（2026-08-16）
+## 16.12 C9 has run: B8-4a has five grids and B8-4b has none (2026-08-16)
 
-§15.3 的闸有答案了。全文 `b8_inputs_availability.md` §6.4 与
-`claude-docs/B8_C9闸结果与分档来源_v1.md`，结果 `results/b8_c9_cells.md`。
+Section 15.3's gate has an answer. Full text in B8 inputs register section 6.4
+and the project's C9 ruling; result in `results/b8_c9_cells.md`.
 
-**B8-4a 可用的五张，全部挂在借款人身上**（地板 20，`(类 × §6 四窗口)`，六档合并）：
-`purpose` 826 / `fthb` 237 / `fico_llpa_coarse5` 74 / `dti_complement15` 49 /
-`fico_llpa9` 36。`ltv_llpa_coarse4`（82）与 `occupancy`（36）过地板但按 §2.4
-挂在房屋上，不是 B8-4 可用的网格。**两道闸独立，都要过。**
+**The five usable for B8-4a all hang on the borrower** (floor 20, on
+`(class × the four windows of section 6)`, six vintages pooled): `purpose` 826 /
+`fthb` 237 / `fico_llpa_coarse5` 74 / `dti_complement15` 49 / `fico_llpa9` 36.
+`ltv_llpa_coarse4` (82) and `occupancy` (36) clear the floor but hang on the
+dwelling per section 2.4 and are not usable grids for B8-4. **The two gates are
+independent and both have to be passed.**
 
-**必带的一句：过闸的里面舒服的都是粗的，细的都贴着地板。** `fthb` 两层、
-`purpose` 三层，粗到几乎不构成类指标；有分辨力的 `fico_llpa9` 九层只到 36。
-DTI 唯一过闸的是 `complement15`，而 §3.3 量出那张网格的秩是 0。
-**过 C9 只是说可以尝试读，不是说读出来可信。**
+**A sentence that must travel with it: among those that clear, the comfortable
+ones are the coarse ones and the fine ones sit on the floor.** `fthb` has two
+levels and `purpose` three, coarse enough to barely constitute a class
+indicator; the one with resolution, `fico_llpa9` at nine levels, reaches only
+36. The only DTI grid that clears is `complement15`, and section 3.3 measured
+that grid's rank as 0. **Clearing C9 says a reading may be attempted, not that
+the reading is credible.**
 
-**B8-4b 十一张全不过**，min 0 或 1，argmin 大半在 `2019Q1`：Flex 修改窗口是
-2017-2019，2019Q1 那批在窗口里最多一年账龄。**§15.6 的分支因此落地，
-第二域指向公司信用**，条件是 B8-3 过。**§15.3 明写这不是 B8 的失败。**
+**All eleven fail for B8-4b**, with a minimum of 0 or 1 and the argmin mostly at
+`2019Q1`: the Flex modification window is 2017 to 2019 and the 2019Q1 cohort has
+at most one year of age inside it. **Section 15.6's branch therefore lands and
+the second domain points to corporate credit**, conditional on B8-3 passing.
+**Section 15.3 states explicitly that this is not a failure of B8.**
 
-## 16.13 分档边界的来源，与一条随引用一起走的不对称
+## 16.13 Where the band edges come from, and an asymmetry that travels with every citation
 
-§5 只写「band」。**FICO 与 LTV 取发行人自己的定价划分**（Fannie LLPA Matrix
-Table 1，现行版生效 2026-01-28），与 §3.3 主 `q` 网格取「延滞状态字段自己的划分」同理。
-**DTI 没有发行人划分**：所有基于 DTI 的 LLPA 在 **2023-05-17 被移除**，
-所以 DTI 取监管的 HMDA 公布分档，即 §3.3 已量过的那张。
-**两者不是同一种来源，这条不对称随每一处 DTI 分档引用一起走。**
+Section 5 says only "band". **FICO and LTV take the issuer's own pricing
+partition** (the Fannie LLPA Matrix, Table 1, current version effective
+2026-01-28), on the same principle by which section 3.3's main `q` grid takes
+the delinquency status field's own partition. **DTI has no issuer partition**:
+every DTI-based LLPA was **removed on 2023-05-17**, so DTI takes the regulatory
+HMDA published bands, which is the grid section 3.3 already measured.
+**The two are not the same kind of source, and this asymmetry travels with every
+citation of a DTI band.**
 
-## 16.14 §3.3 的结论被一个纯计数独立重现
+## 16.14 Section 3.3's conclusion reproduced independently by a pure count
 
-`dti_complement15` 十五层过闸（49），`dti_coarse6` 六层不过（11），
-差别只在 complement 把 `>60` 并进「36-49 之外」而 coarse6 单独留着。
-**层更多的活，层更少的死。** §3.3 是在 B7 的秩统计量上量的，
-**这次是一个纯计数、在另一批数据上，给出同一条结构性结论。**
+`dti_complement15` clears at fifteen levels (49) and `dti_coarse6` fails at six
+(11), and the only difference is that complement folds `>60` into "outside
+36-49" while coarse6 leaves it standing. **More levels survive and fewer levels
+die.** Section 3.3 measured this on B7's rank statistic; **this time it is a pure
+count, on different data, giving the same structural conclusion.**
 
-## 16.15 三角已搬上核心表，逐窗口对上 C3/C4
+## 16.15 The triangles are on the core table and reconcile with C3/C4 window by window
 
-`experiments/b8_triangles.py`，五个窗口全部 +0，合计 51,286。
-**这一份是三角判据在核心表上的唯一拷贝**，C9 与其后任何按三角取样的站都从它取，
-不许再手写第二份。抄写风险两处（`cured_after_mod` 的递延臂、延滞编码的长度约定）
-都量出来了，后者六档全零。
+`experiments/b8_triangles.py`, all five windows at +0, totalling 51,286.
+**This is the only copy of the triangle criterion on the core table**, and C9 and
+every later station that samples on triangles draws from it; no second
+hand-written copy is permitted. Both transcription risks (the deferral leg of
+`cured_after_mod`, and the length convention of the delinquency encoding) were
+measured, and the latter is zero in all six vintages.
 
-## 16.16 曲线站已跑：两条构造规则实测不承重，但门后面的人估不出月供（2026-08-17）
+## 16.16 The curve station has run: both construction rules are measured to be inert, but the population behind the gate cannot yield a monthly payment (2026-08-17)
 
-§16.11 有答案了。全文 `b8_inputs_availability.md` §6.5 与
-`claude-docs/B8_曲线站与敏感度_v1.md`。
+Section 16.11 has an answer. Full text in B8 inputs register section 6.5 and the
+project's curve-station ruling.
 
-**一、30 Yr 的 47 个月缺口是曲线的性质。** Treasury 缺 2002-03 到 2006-01，FRED 不缺，
-而 **CMT 由发行人定义，发行人没发就是没有**，FRED 在那里的是别的东西。
-落在缺口里的修改 1,506 / 50,958，2.96%。
+**One, the 47-month gap in the 30-year is a property of the curve.** Treasury is
+missing 2002-03 to 2006-01 and FRED is not, and **CMT is defined by the issuer,
+so what the issuer did not sell does not exist**; what FRED has there is
+something else. Modifications falling in the gap are 1,506 of 50,958, or 2.96
+percent.
 
-**二、两条构造规则在可测总体上够不到读数。** 环和极差最大 4.974e-14，
-对 (i-b) 噪声底 6.5e-6 **低八个数量级**。P2 的抵消对每一个无递延余额的真实行都成立，
-最大极差 3.553e-15，判据是有来源的 `4·|log V|·eps`。
-**但仍须在跑前把两条规则写下来**，一个看不见的选择也要写下来，
-否则下一个人不知道它是被看过还是被漏了。
+**Two, on the measurable population both construction rules fall short of any
+reading.** The maximum spread in loop sums is 4.974e-14, **eight orders of
+magnitude below** the (i-b) noise floor of 6.5e-6. P2's cancellation holds on
+every real row with no deferred balance, with a maximum spread of 3.553e-15
+against a criterion with a source, `4·|log V|·eps`.
+**The two rules still had to be written down before the run**: an invisible
+choice has to be recorded too, or the next person cannot tell whether it was
+considered or overlooked.
 
-**三、`log V` 单腿的敏感度是错的对象。** 第一次量出 267 到 7,110 倍噪声底，
-而那个量在 `r` 里精确约掉，因为 `r_month` 两条腿共用 `(i, n, d)`。作废件留档。
+**Three, the single-leg sensitivity of `log V` was the wrong object.** The first
+measurement gave 267 to 7,110 times the noise floor, and that quantity cancels
+exactly inside `r`, because `r_month`'s two legs share `(i, n, d)`. The voided
+document is on file.
 
-## 16.17 新阻塞，排在曲线之前，且挡住 B8-3
+## 16.17 A new blocker, ahead of the curve, and it blocks B8-3
 
-**递延腿估不出合同月供。** `r` 只在月供已知处算，月供从安静月份估，
-`quiet_pairs(require_never_deferred=True)` 排掉递延过的贷款。
-六档共 **703,504 个递延行，月供已知的是 0**，这是构造上的必然不是数据缺失。
+**The deferral leg cannot yield a contractual monthly payment.** `r` is computed
+only where the payment is known, the payment is estimated from quiet months, and
+`quiet_pairs(require_never_deferred=True)` excludes ever-deferred loans. Across
+the six vintages there are **703,504 deferral rows and the payment is known on
+zero of them**, which is a consequence of the construction and not missing data.
 
-**§14.4 的 B8-3 主路径对是「修改」对「递延」，两侧各占一个**，
-所以 **B8-3 卡在这里，而它是 §5 里唯一不需要赢下节点同一性反驳的那条**。
+**Section 14.4's main B8-3 path pair is "modification" against "deferral", one
+on each side**, so **B8-3 is stuck here, and it is the one criterion in section 5
+that does not need to win the node-identity objection**.
 
-待验的路：递延不改月供，从递延前的安静月份估再 carry 过去。**那是推理，要量。**
+A route to test: a deferral does not change the payment, so estimate it from the
+quiet months before the deferral and carry it forward. **That is inference and it
+has to be measured.**
 
-## 16.18 修改三角的环窗口至今没有定义
+## 16.18 The loop window for the modification triangle has never been defined
 
-`find_clean_cures` 定的是无修改的清洁自愈。**修改三角的环窗口哪里都没定义过。**
-`b8_cmt_sensitivity2.py` 里用的「首个延滞行到修改后首个自愈行」是为了有个东西可以求和
-而临时定的，代码与结果件里都标死了**不得作为注册件引用**。
-**B8-1 之后每一条都要它，这是一条待注册项。**
+`find_clean_cures` defines the clean cure without a modification. **The loop
+window for the modification triangle has never been defined anywhere.** What
+`b8_cmt_sensitivity2.py` uses, "first delinquent row to the first cure after the
+modification", was defined ad hoc so that there would be something to sum over,
+and both the code and the result file state that it **may not be cited as a
+registration**.
+**Everything after B8-1 needs it. This is an item awaiting registration.**
 
 ---
 
-# 17. 环窗口的注册，与曲线的两条构造规则（2026-08-17）
+# 17. Registering the loop window, and the two curve construction rules (2026-08-17)
 
-**注册件。不读任何一行预测，不改任何已跑的数。** 结清 `OBJECTIONS.md` 的
-**O25**（环窗口未定义）与 **O21**（曲线两条规则未钉死）。
-全文另存 `claude-docs/B8_环窗口与曲线规则_预注册_v1.md`。
+**A registration. It reads no prediction and changes no number already run.** It
+closes **O25** (the loop window is undefined) and **O21** (the two curve rules
+are not fixed) in the project's objection cache, which is held outside this
+repository. The full text is also kept in the project's
+loop-window and curve-rule pre-registration, outside this repository.
 
-## 17.0 这一节接在哪里，以及它不是新造的
+## 17.0 Where this attaches, and why it is not newly invented
 
-**环窗口的概念层 §14.6 已经写过了**：「the duration of the closed loop, from the
-last current month before the episode to the first current month after it」。
-缺的是行级操作化，而**那个操作化已经存在一份**：`b8_0a_gate.find_clean_cures`
-的 `t0 / start / end`，它的 docstring 自己就引 §14.6，残差跑在 `t0+1 .. end` 上。
+**Section 14.6 already wrote the conceptual layer**: "the duration of the closed
+loop, from the last current month before the episode to the first current month
+after it". What was missing is the row-level operationalisation, **and one
+already exists**: `t0 / start / end` in `b8_0a_gate.find_clean_cures`, whose
+docstring cites section 14.6 and whose residual runs over `t0+1 .. end`.
 
-**所以本节不发明窗口，它把已有的那一份推广到修改与递延两条臂，并把推广时必须
-做的选择钉死。** `find_clean_cures` 是本节 `事件起始沿计数 == 0` 的特例。
+**So this section invents no window. It generalises the existing one to the
+modification and deferral legs and fixes the choices that generalising forces.**
+`find_clean_cures` is this section's special case of `event onset count == 0`.
 
-## 17.1 三个行下标与求和范围
+## 17.1 Three row indices and the range of the sum
 
 ```
-t_A   出发顶点，current
-t_M   修改（或递延）起始行
-t_B   归位顶点，修改之后的第一个 current
-ω(环) = Σ_{t = t_A+1}^{t_B} r(t)
+t_A   departure vertex, current
+t_M   the modification (or deferral) onset row
+t_B   return vertex, the first current after the modification
+ω(loop) = Σ_{t = t_A+1}^{t_B} r(t)
 ```
 
-`r(t)` 定义在相邻行对 `(t-1, t)` 上，所以求和从 `t_A+1` 起、到 `t_B` 止，
-含两端那两个行对。**出发顶点那一行本身不贡献残差**，它是 `V` 的锚。
-窗口长度 `t_B − t_A` 个月，正是 §14.6 的分母。
+`r(t)` is defined on the adjacent row pair `(t-1, t)`, so the sum runs from
+`t_A+1` to `t_B` inclusive, covering both end pairs. **The departure row itself
+contributes no residual**; it is the anchor for `V`. The window is `t_B − t_A`
+months long, which is section 14.6's denominator.
 
-## 17.2 起点靠修改反向锚定，且整个窗口内部一个 current 行都没有
+## 17.2 The start is anchored backwards from the modification, and there is no current row anywhere inside the window
 
-两条，缺一不可：
+Two conditions, both required:
 
-- **(a)** 从 `t_M` 往回走到最近的 `current` 行 `t_A`，要求 `(t_A, t_M)` 之间每一行
-  都不是 `current`；
-- **(b)** `t_B` 取 `t_M` 之后的第一个 `current` 行，于是 `(t_M, t_B)` 之间按定义
-  也没有 `current`。
+- **(a)** walk back from `t_M` to the nearest `current` row `t_A`, requiring that
+  no row in `(t_A, t_M)` is `current`;
+- **(b)** take `t_B` as the first `current` row after `t_M`, so by definition
+  there is no `current` in `(t_M, t_B)` either.
 
-**合起来：窗口内部 `(t_A, t_B)` 一个 `current` 行都没有。这一句是「它是一个环
-而不是两个」的全部内容，写成一句话而不是让读者自己从 (a)(b) 推。**
+**Together: there is no `current` row anywhere inside `(t_A, t_B)`. That
+sentence is the whole content of "this is one loop and not two", and it is
+written out rather than left for the reader to derive from (a) and (b).**
 
-这是与 `b8_cmt_sensitivity2.triangle_window` 的实质分歧，而且必须分歧。
-那一份取的是**贷款的首个**延滞行（`_first_pos_per_loan(is_del)`）。三条理由：
+This is a substantive disagreement with `b8_cmt_sensitivity2.triangle_window`,
+and it has to be one. That one takes **the loan's first** delinquent row
+(`_first_pos_per_loan(is_del)`). Three reasons:
 
-1. **中途经过 `current` 的走法不是一个环，是两个。** 并成一个求和，正好抹掉
-   B8-3 要的那个区分：§5 的候选路径对里明写着「自愈-再违约-再修改」对
-   「首次违约即修改」。
-2. **与 `find_clean_cures` 同形。** 清洁自愈按构造就是一段连续延滞。两个零标定
-   用同一种切法，B8-0a 才是 B8-1 的零标定而不是另一个对象。
-3. **临时窗口会把更早那次已自愈的发作吞进来**，而那一段正是 B8-0a 的样本。
-   吞进来等于把闸的样本混进读数。
+1. **A walk that passes through `current` is not one loop, it is two.** Summing
+   them as one erases exactly the distinction B8-3 needs: section 5's candidate
+   path pair names "cure, redefault, then modify" against "modify on the first
+   episode".
+2. **It matches `find_clean_cures`.** A clean cure is by construction one
+   continuous delinquency spell. Both zero calibrations have to cut the same way
+   for B8-0a to be B8-1's zero calibration rather than a different object.
+3. **The ad hoc window swallows an earlier episode that already cured**, and
+   that stretch is B8-0a's sample. Swallowing it mixes the gate's sample into
+   the reading.
 
-## 17.3 修改与自愈落在同一行：`t_M == t_B`，leg 3 是构造上的空
+## 17.3 Modification and cure on the same row: `t_M == t_B`, and leg 3 is empty by construction
 
-`b8_triangles.py` 的转写规矩写着「a row that turns the flag on and reads `00`
-counts as cured after modification, not before it」。**所以修改那一行可以同时
-读 `00`**，此时 `t_M == t_B`，`leg 3` 是空区间，环 `= leg 1 + leg 2`。
+The transcription rule in `b8_triangles.py` says "a row that turns the flag on
+and reads `00` counts as cured after modification, not before it". **So the
+modification row can read `00`**, in which case `t_M == t_B`, `leg 3` is an empty
+interval, and the loop is `leg 1 + leg 2`.
 
-**这类环要单独计数，不许混进 `ω₃` 的读数。** §14.3 写着 `ω₃ ≈ 0` 是
-「measured rather than assumed」，而在这类环上它是**构造上的恒等零**。
-两者混报，「`ω₃` 实测近零」这句话就会被一批本来就为零的环撑起来。
-**这是坑 23 的同一族：空集的和与量出来是零印得一模一样。**
+**Loops of this kind are counted separately and may not be mixed into any
+reading of `ω₃`.** Section 14.3 says `ω₃ ≈ 0` is "measured rather than assumed",
+while on these loops it is **identically zero by construction**. Reported
+together, the sentence "`ω₃` measures near zero" would be propped up by a batch
+of loops that were zero to begin with.
+**This is the same family as pit 23 in B8's pit ledger (kept outside this
+repository): the sum over an empty set prints exactly like a measured zero.**
 
-## 17.4 一个环里两类起始沿：那条边不在 §14.4 注册的图里
+## 17.4 Two onset kinds in one loop: that edge is not in the graph section 14.4 registered
 
-连续延滞段内**同时**出现修改起始沿与递延起始沿的环，走的是
-`deferred → modified`（或反向）这条边，而 **§14.4 注册的五条边里没有它**
-（`current→delinquent`、`delinquent→modified`、`modified→current`、
-`delinquent→deferred`、`deferred→current`）。
+A loop whose continuous delinquency spell contains **both** a modification onset
+and a deferral onset walks the edge `deferred → modified` (or its reverse), and
+**that edge is not among the five section 14.4 registers**
+(`current→delinquent`, `delinquent→modified`, `modified→current`,
+`delinquent→deferred`, `deferred→current`).
 
-**处置：单独识别、单独计数、从两条三角臂里都排除。** 它是一个更长的走法，
-属于 §17.5 的路径材料，不是 B8-1 的三角。
-臂的归属按段内第一个起始沿的类型命名，**仅用于给这类环起名，不用于把它塞回
-某一臂**。
+**Disposition: identify separately, count separately, exclude from both triangle
+legs.** It is a longer walk and belongs to section 17.5's path material, not to
+B8-1's triangles. The leg is named after the type of the first onset in the
+spell, **used only to give these loops a name and never to push them back into a
+leg**.
 
-## 17.5 路径累积 `Ω` 是另一个对象，两处引用都要写清是哪一个
+## 17.5 The path accumulation `Ω` is a different object, and both citations have to say which
 
-| 记号 | 是什么 |
+| notation | what it is |
 |---|---|
-| `ω(环)` | 一次闭合走法的残差和。**原子。B8-1 / B8-2 读它。** |
-| `Ω(路径)` | 到终点为止，该笔贷款走过的**所有**环的 `ω` 之和。**B8-3 读它。** |
+| `ω(loop)` | the residual sum of one closed walk. **The atom. B8-1 and B8-2 read it.** |
+| `Ω(path)` | the sum of `ω` over **all** loops the loan has walked up to the endpoint. **B8-3 reads it.** |
 
-「自愈-再违约-再修改」的 `Ω` 有两项（一个清洁自愈环加一个修改三角），
-「首次违约即修改」的 `Ω` 有一项。**B8-3 的原话是 accumulated `ω`，那是 `Ω`。**
-不分开命名，B8-3 会在实现时被写成单环比较，而单环比较测不到它要测的东西。
+"Cure, redefault, then modify" has two terms in its `Ω` (a clean-cure loop plus
+a modification triangle); "modify on the first episode" has one. **B8-3's own
+words are accumulated `ω`, and that is `Ω`.** Without separate names, B8-3 gets
+implemented as a single-loop comparison, and a single-loop comparison cannot
+measure what it is for.
 
-## 17.6 两个顶点的条件：两条承重，一条防呆
+## 17.6 The vertex conditions: two load-bearing, one a guard
 
-出发顶点 `t_A` 与归位顶点 `t_B` 同样三条：
+The departure vertex `t_A` and the return vertex `t_B` take the same three:
 
-| 条件 | 地位 | 来源 |
+| condition | standing | source |
 |---|---|---|
-| `delinq == 0` | 承重 | 顶点定义 |
-| `rem_legal` 非空 | **承重** | 坑 13 二次更正：终止行报一个余额零然后把合同状态整体停报，**挡住终止行的是这一条**（六档漏网 5/2/5/1/0/0） |
-| `upb > 0` | **防呆** | 同一条更正在六档上删掉零个对，地位是防呆不是修复，照 §16.6 的处置 |
+| `delinq == 0` | load-bearing | the vertex definition |
+| `rem_legal` non-empty | **load-bearing** | the second correction to pit 13: a termination row reports a zero balance and then stops reporting the contract state altogether, and **this is what blocks termination rows** (5/2/5/1/0/0 leak through across the six vintages) |
+| `upb > 0` | **a guard** | the same correction deletes zero pairs in all six vintages, so its standing is a guard and not a fix, per section 16.6 |
 
-**额外一条并入 `upb > 0`：出发顶点不得是贷款的首行**（坑 13，首行 UPB 恒零，
-六档 1.0000）。它被 `upb > 0` 蕴含，**但要单独印计数**，因为它是构造截断不是
-数据缺陷，两者的裁定不同。
+**One more folded into `upb > 0`: the departure vertex may not be the loan's
+first row** (pit 13; the first row's UPB is identically zero, 1.0000 in all six
+vintages). It is implied by `upb > 0`, **but its count is printed separately**,
+because it is a construction truncation rather than a data defect and the two
+are ruled on differently.
 
-**再加一条从 `find_clean_cures` 原样继承**：窗口内报送月份必须连续
-（`period` 逐月差恒为 1）。断月的窗口做不了逐月 carry，丢弃并计数。
+**And one inherited unchanged from `find_clean_cures`**: reported months inside
+the window must be contiguous (`period` differences identically 1). A window with
+a gap cannot be carried month by month; it is discarded and counted.
 
-## 17.7 不闭合的三种，分开数，不许合并成一个「掉样」
+## 17.7 Three ways a loop fails to close, counted separately, never merged into one "dropped" figure
 
-1. **档末仍在延滞** —— 右删失。
-2. **已终止且从未自愈** —— 真的没有环。
-3. **修改前没有连续延滞段** —— 不是三角（字段 42 在 `current` 上翻 `Y`）。
+1. **still delinquent at the end of the file** — right censoring.
+2. **terminated and never cured** — genuinely no loop.
+3. **no continuous delinquency spell before the modification** — not a triangle
+   (field 42 turns `Y` on a `current` row).
 
-三种的计数分开报。§7 的规矩：silence about a dropped record is how a sample
-becomes a selection。**第 1 类与第 2 类合并是最容易犯的那个**：一个是观测窗口
-的性质，一个是贷款的性质。
+The three counts are reported separately. Section 7's rule: silence about a
+dropped record is how a sample becomes a selection. **Merging 1 and 2 is the
+easiest mistake to make**: one is a property of the observation window and the
+other is a property of the loan.
 
-## 17.8 环内多次同类起始沿，归一个环，并单独印计数
+## 17.8 Several onsets of the same kind inside one loop: one loop, with a separate count
 
-`t_M` 取连续延滞段内的**第一个**起始沿。段内之后的同类起始沿仍在窗口内，
-落进环和。**归位之后的起始沿开新环。**
+`t_M` takes the **first** onset inside the continuous delinquency spell. Later
+onsets of the same kind within the spell remain inside the window and enter the
+loop sum. **An onset after the return opens a new loop.**
 
-**段内同类起始沿多于一个的环要单独印计数**：那是 HAMP 试用期转正的
-population，§14.3 已经写了它「measured rather than assumed」，这里给它一个
-可数的载体。（不同类的起始沿走 §17.4。）
+**Loops with more than one same-kind onset inside the spell are counted
+separately**: that is the population of HAMP trial periods converting, which
+section 14.3 already describes as "measured rather than assumed", and this gives
+it a countable carrier. (Onsets of different kinds go to section 17.4.)
 
-## 17.9 递延臂同一条窗口规则，起始列是开着的问题，本节不裁
+## 17.9 The deferral leg takes the same window rule; the onset column was an open question and this section does not rule on it
 
-递延三角 `current → delinquent → deferred → current` 同形，**窗口规则一字不改**。
+The deferral triangle `current → delinquent → deferred → current` has the same
+shape, **and the window rule is unchanged word for word**.
 
-**递延起始沿是字段 108。** 两列上升沿实测差 13 到 18 倍（2012Q1 是 267 对 4,882，
-2019Q1 是 1,124 对 14,777）。**本注册写一句：窗口规则与起始沿的列选择是两件事，
-换列不改窗口。**
+**The deferral onset is field 108.** The rising edges of the two columns differ
+by a factor of 13 to 18 in measurement (267 against 4,882 in 2012Q1; 1,124
+against 14,777 in 2019Q1). **This registration writes one sentence: the window
+rule and the choice of onset column are two different things, and changing the
+column does not change the window.**
 
-**原文把列的选择写成 O24 与 B10 §19.9 开着的问题，那句已删除。**
-问题在 2026-08-17 关了，而本节写的保证正是它关掉之后兑现的东西。
-C10-4 在两列的上升沿上同时读合同是否移动：字段 63 那一侧动利率 46.1%、动期限
-84.2%，字段 108 那一侧 `still = 0.9966`（利率与期限都不动）。**递延起始沿是字段
-108**，`b8_inputs_availability.md` §6.6.11 落的判乙，O27 已结为 D20。
+**The original text listed the column choice as an open question in O24 and B10
+section 19.9, and that sentence has been deleted.** The question closed on
+2026-08-17, and what this section guaranteed is what was then honoured. C10-4
+read, on both columns' rising edges, whether the contract moves: on the field 63
+side the rate moves 46.1 percent of the time and the term 84.2 percent, while on
+the field 108 side `still = 0.9966` (neither rate nor term moves). **The deferral
+onset is field 108**, which is verdict B in B8 inputs register section 6.6.11,
+and O27 closed as D20.
 
-**换列没有改动本节任何一个字**，这是本节当初写那句保证的全部意义：
-`b8_loops.py` 的 `DEFER_FIELD` 从 63 改到 108 之后，§17.1 到 §17.8 的窗口规则
-一行未动，重跑的窗口计数按新起始沿移动而窗口的定义没有移动。
-**一个写在裁定之前、在裁定之后被兑现的保证，比一个事后补的说明可信。**
+**Changing the column changed not one word of this section**, which is the whole
+point of writing that guarantee when it was written: after `DEFER_FIELD` in
+`b8_loops.py` moved from 63 to 108, sections 17.1 to 17.8 did not move a line,
+and the re-run window counts moved with the new onset while the definition of
+the window did not.
+**A guarantee written before a ruling and honoured after it is worth more than
+an explanation added afterwards.**
 
-## 17.10 可测性：整段月供已知，掉样按修改前后两侧分开印
+## 17.10 Measurability: the payment must be known across the window, with drops printed separately for each side of the modification
 
-`r(t)` 只在合同月供已知处算，**而要的是前一行的月供**（§14.2 的反事实是 `t−1`
-的合同往前推一个月）。修改臂的窗口按构造跨一个合同期边界，递延臂不跨。
-**所以环可测的条件是：窗口内每一个月的前一行都有已知月供。**
+`r(t)` is computed only where the contractual payment is known, **and what is
+needed is the previous row's payment** (section 14.2's counterfactual carries the
+`t−1` contract forward by one month). The modification leg's window crosses a
+contract-period boundary by construction; the deferral leg's does not.
+**So a loop is measurable when every month inside the window has a known payment
+on its previous row.**
 
-**掉样计数必须按修改前 / 修改后两侧分开印。**
+**The drop counts must be printed separately for the pre-modification and
+post-modification sides.**
 
-**2026-08-17 两处删除与更正。原文有两句已删：一句写 `contract_periods`
-「在修改起始沿与递延起始沿上都切」，一句写递延行月供已知 0（六档 703,504）。
-掉样按两侧分开印这条留着，挂在上面的理由整个换掉了。**
+**Two deletions and a correction, 2026-08-17. Two sentences have been removed:
+one saying `contract_periods` cuts at both the modification and the deferral
+onset, and one saying the payment is known on zero deferral rows (703,504 across
+the six vintages). The requirement to print drops per side survives, and the
+reason attached to it has been replaced entirely.**
 
-**一、切点。** `contract_periods` **不在字段 108 上切**，而且 §6.6.17.2 明裁
-不许切：C10-4 在字段 108 的上升沿读 `still = 0.9966`，利率与期限都不动，
-合同月供不可能变，切一刀只会把一个合同期劈成两段、每段的安静月更少、
-估计更差。**它切的是字段 63 的上升沿**，因为那一侧是再签约。
-**所以窗口跨不跨合同期边界，取决于这个环走的是哪条臂**，
-修改臂跨，递延臂不跨。原文那半句把两条臂说成同一形状。
+**One, the cut points.** `contract_periods` **does not cut at field 108**, and
+section 6.6.17.2 rules explicitly that it must not: C10-4 reads `still = 0.9966`
+at field 108's rising edge, neither rate nor term moves, the contractual payment
+cannot have changed, and cutting there would only split one contract period into
+two with fewer quiet months each and a worse estimate. **It cuts at field 63's
+rising edge**, because that side is a re-signing.
+**So whether the window crosses a contract-period boundary depends on which leg
+the loop walks**: the modification leg crosses, the deferral leg does not. The
+deleted half-sentence described both legs as one shape.
 
-**二、703,504 这个数不是递延行。** 它是**字段 63 的在行数**，也就是修改
-population 的行数，被当成递延行引了一路（O24 已按这个重写）。
-递延臂的实测在 §6.6.15：**全路径月供已知的占 92.86%**，不是 0。
+**Two, 703,504 is not a count of deferral rows.** It is **the on-row count of
+field 63**, that is, of the modification population, and it was cited as deferral
+rows throughout (O24 has been rewritten accordingly). The deferral leg's
+measurement is in section 6.6.15: **the payment is known across the whole path
+for 92.86 percent**, not zero.
 
-**所以「本站现在最大的阻塞」这个判断也不成立，而两侧分开印这条要求活下来。**
-它现在的理由不是「有一侧恒为零」，而是**两条臂的合同期结构本来就不一样**
-（见上一条），合并的掉样数把两种不同的可测性搅在一起。
-**一个理由被推翻的要求，如果本身还站得住，要重新给它一个理由，
-而不是靠原来那句话的惯性留着。**
+**So the judgement that this was the station's largest blocker does not stand
+either, while the requirement to print each side survives.** Its reason now is
+not that one side is identically zero but that **the two legs have different
+contract-period structure to begin with** (see above), and a merged drop count
+mixes two different kinds of measurability.
+**A requirement whose reason has been refuted, if it still stands on its own,
+has to be given a new reason rather than kept on the momentum of the old one.**
 
-## 17.11 腿的切分是记账，环和不依赖它，但要断言恒等式
+## 17.11 Splitting into legs is bookkeeping, the loop sum does not depend on it, but the identity is asserted
 
-§14.2 已定。切点：
+Fixed by section 14.2. The cut points:
 
 ```
 leg 1 = (t_A, t_M)      current → delinquent
-leg 2 = t_M 那一个月     delinquent → modified
+leg 2 = the single month t_M     delinquent → modified
 leg 3 = (t_M, t_B]      modified → current
 ```
 
-**三段之和恒等于环和，这是恒等式不是判据**，但要在代码里断言它。
-**`t_M == t_B` 时 leg 3 是空和，断言照样成立**，所以断言不能代替 §17.3 的计数。
+**The three parts sum identically to the loop sum, which is an identity and not
+a criterion**, but it is asserted in code.
+**When `t_M == t_B`, leg 3 is an empty sum and the assertion still holds**, so
+the assertion cannot substitute for the count in section 17.3.
 
-**2026-08-17 删除并更正：原文给的理由是「它能抓住窗口实现的错位」，那句已删，
-因为它不成立。要求本身留着。**
-四个量都从同一个前缀和数组来，三条腿望远镜式抵消，**`t_M` 取什么都成立**
-——错一行、错十行、甚至属于另一笔贷款都成立。**在前缀和实现下这条断言测的是
-浮点加法器，抓不住它被写下来要抓的那个错位。**
+**Deleted and corrected 2026-08-17: the original reason given was that it would
+catch a misalignment in the window implementation, and that sentence has been
+removed because it is false. The requirement itself stays.**
+All four quantities come from the same prefix-sum array, the three legs telescope,
+**and the identity holds for any `t_M`** — off by one row, off by ten, or even
+belonging to a different loan. **Under a prefix-sum implementation this assertion
+tests the floating-point adder and cannot catch the misalignment it was written
+to catch.**
 
-断言留着（它确实能抓住前缀和或范围助手本身写坏），
-**另加一条真的能干那件事的**：`b8_loop_omega.replay` 从窗口下标出发、
-逐月用 Python 重新求和，与向量化的答案比。自检里把 `t_M` 故意挪一行，
-**断言恒等式仍然成立而 `replay` 报不符**，那一条是对检查本身的检查。
+The assertion stays (it does catch a broken prefix sum or a broken range helper),
+**and one that actually does the job has been added**: `b8_loop_omega.replay`
+starts from the window indices and re-sums month by month in Python, comparing
+against the vectorised answer. The self-test deliberately moves `t_M` by one row
+and **asserts that the identity still holds while `replay` reports a mismatch**,
+which is a check on the check.
 
-**教训不在这一节，在方法层**：一条断言写下来的时候要问它在**将要采用的实现下**
-能不能失败，而不是在概念上能不能失败。详见 `b8_inputs_availability.md` §6.6.23.3。
+**The lesson is not in this section, it is at the method layer**: when an
+assertion is written down, ask whether it can fail **under the implementation
+that will actually be used**, not whether it can fail in principle. See B8 inputs
+register section 6.6.23.3.
 
-## 17.12 这条注册取代什么，欠谁一笔账
+## 17.12 What this registration supersedes, and what it owes
 
-`b8_cmt_sensitivity2.triangle_window` **作废为注册件**（它自己已标死不得引用）。
+`b8_cmt_sensitivity2.triangle_window` **is void as a registration** (it already
+states that it may not be cited).
 
-`results/b8_cmt_sensitivity2.md` §3 的环级数字是在那个临时窗口下出的。
-按 R01，改口径要双报：**下一次在注册窗口下重跑曲线敏感度，必须同时印两个窗口的
-环数与环和，且必须印 delta**（坑 18：一次没法跟旧口径做差的重跑不结清双报）。
+The loop-level numbers in `results/b8_cmt_sensitivity2.md` section 3 were
+produced under that ad hoc window. Under R01, changing a definition requires
+reporting both: **the next re-run of the curve sensitivity under the registered
+window must print the loop counts and loop sums under both windows, and must
+print the delta** (pit 18: a re-run that cannot be differenced against the old
+definition does not discharge the double report).
 
-临时窗口的环数留档：**6,272 / 13,134 / 17,061 / 2,954 / 5,411 / 4,647**。
+The ad hoc window's loop counts are on file:
+**6,272 / 13,134 / 17,061 / 2,954 / 5,411 / 4,647**.
 
-## 17.13 一条必须先说清的非冲突：C3/C4 数的是贷款，§17 数的是环
+## 17.13 A non-conflict that has to be stated first: C3/C4 count loans, section 17 counts loops
 
-`b8_triangles.py` 的 C3/C4 判据是**每笔贷款一次**
-（`if s.mod_period and s.seen_current and s.first_delinq and s.cured_after_mod`），
-六档合计 **51,286** 是**贷款数**。
+The C3/C4 criteria in `b8_triangles.py` fire **once per loan**
+(`if s.mod_period and s.seen_current and s.first_delinq and s.cured_after_mod`),
+and the six-vintage total of **51,286** is **a loan count**.
 
-**§17 的环是每次闭合走法一个，一笔贷款可以有多个。** 两个数不是同一个对象，
-而且方向不是单向的：
+**Section 17's loops are one per closed walk, and one loan can have several.**
+The two numbers are not the same object, and the direction is not one-way:
 
-- 一笔贷款可以贡献多个环 → 环数可以多于 51,286；
-- 一笔被 C3/C4 数进去的贷款可以贡献**零**个注册环（例如在 `current` 上翻 `Y`
-  再违约再自愈的走法，§17.7 第 3 类）。
+- one loan can contribute several loops, so the loop count can exceed 51,286;
+- a loan counted by C3/C4 can contribute **zero** registered loops (for example
+  the walk that turns `Y` on a `current` row, then redefaults and cures, which is
+  case 3 in section 17.7).
 
-**两个数的差必须量出来印，不许假设它小。** §16.15「三角判据唯一一份」那条纪律
-指的是三角的判据只写一份，**不是说环等于三角**。
+**The difference between the two numbers has to be measured and printed, and may
+not be assumed small.** Section 16.15's rule that there is only one copy of the
+triangle criterion means the criterion is written once. **It does not mean a loop
+is a triangle.**
 
 ---
 
-## 17.14 曲线，插值：线性于期限（`linear_in_tenor`）
+## 17.14 The curve, interpolation: linear in tenor (`linear_in_tenor`)
 
-**来源。** 财政部按固定档位公布 CMT，**档位之间没有发行人约定**，
-所以 §16.13 那条「取发行人自己的划分」在这里没有对象。
-落到次级规则：**取不引入自由参数的那一条**，即线性于期限。
+**Source.** Treasury publishes CMT at fixed tenors and **there is no issuer
+convention between tenors**, so section 16.13's rule of taking the issuer's own
+partition has no object here. That falls to the secondary rule: **take the one
+that introduces no free parameter**, which is linear in tenor.
 
-## 17.15 曲线，超出最长可得档位：封顶（`cap`）
+## 17.15 The curve, beyond the longest available tenor: cap (`cap`)
 
-**来源不是「保守」，是与已下的裁定一致。** §16.16 第一条裁的是
-**CMT 由发行人定义，发行人没发就是没有**，30 Yr 那 47 个月缺口据此判成曲线的
-性质而不是下载工件（两来源互校）。
+**The source is not conservatism, it is consistency with a ruling already made.**
+Section 16.16's first item ruled that **CMT is defined by the issuer, so what the
+issuer did not sell does not exist**, and on that basis the 47-month gap in the
+30-year was judged a property of the curve rather than a download artefact (two
+sources cross-checked).
 
-**外推等于给一个发行人不卖的期限造一个价，与那条裁定直接冲突。**
-同一条原则，两处结论必须一致，否则那条裁定就只是为了解释缺口临时找的说法。
+**Extrapolating amounts to inventing a price for a tenor the issuer refused to
+sell, which conflicts with that ruling directly.** One principle, and the two
+conclusions have to agree, or that ruling was only an ad hoc way to explain the
+gap.
 
-**后果，写明并随引用一起走：** 2002-03 到 2006-01 之间，剩余期限 360 个月的
-贷款读到的是当月最长可得档位（那段里是 20 Yr）。
-落在缺口里的修改 **1,506 / 50,958，2.96%**。
+**The consequence, stated and travelling with every citation:** between 2002-03
+and 2006-01, a loan with 360 months remaining reads the longest tenor available
+that month (20-year, in that stretch). Modifications falling in the gap are
+**1,506 of 50,958, or 2.96 percent**.
 
-## 17.16 这两条规则今天够不着任何一行，而这**不等于**「实测不承重」
+## 17.16 Today these two rules cannot reach a single row, and that is **not** the same as "measured not load-bearing"
 
-§16.16 写的「两条构造规则实测不承重」**偏松，本节把它改准**。逐条：
+Section 16.16's phrase "both construction rules are measured to be inert" **is
+too loose, and this section tightens it**. Item by item:
 
-1. **无递延余额的行上，六种构造的 `r` 逐位相同**（最大极差 3.553e-15，
-   判据 `4·|log V|·eps` = 1.243e-14）。**那是代数抵消，不是曲线鲁棒**：
-   `V = LP(bal, i, n)·A(d, n)`，`LP` 线性于余额，两腿共用 `(i, n, d)`，
-   年金因子整个约掉。
-2. **曲线唯一进得来的门是气球项** `nib·(1+d)^-bn`。
-3. **带气球的行里月供已知的是 0，带气球的环是 0**，六档全零。
-4. 所以 **4.974e-14 不是曲线规则的效应量，是抵消之后剩下的舍入**。
-   正确的写法是**今天够不着**，不是「不承重」。
-5. **什么时候会变**：O24 解开、递延臂进来之后，气球项才第一次有已知月供的行。
-   **那一天要重跑这张表。不许引今天的读数说它不承重。**
+1. **On rows with no deferred balance, `r` is bit-identical across all six
+   constructions** (maximum spread 3.553e-15, against a criterion of
+   `4·|log V|·eps` = 1.243e-14). **That is algebraic cancellation, not curve
+   robustness**: `V = LP(bal, i, n)·A(d, n)`, `LP` is linear in the balance, the
+   two legs share `(i, n, d)`, and the annuity factor cancels entirely.
+2. **The only door the curve can come through is the balloon term**
+   `nib·(1+d)^-bn`.
+3. **Among rows with a balloon, the payment is known on zero of them, and loops
+   with a balloon are zero** in all six vintages.
+4. So **4.974e-14 is not an effect size for the curve rules; it is the rounding
+   left after the cancellation.** The correct phrasing is **out of reach today**,
+   not "not load-bearing".
+5. **When this changes**: once O24 is resolved and the deferral leg enters, the
+   balloon term gets rows with a known payment for the first time.
+   **That day this table has to be re-run, and today's readings may not be cited
+   as showing the rules are not load-bearing.**
 
-**2026-08-17：那一天到了，这张表现在是欠的。** 触发条件是本节第 5 条自己写的，
-两半都已发生：O24 已按 §6.6.15 重写（那 703,504 是字段 63 的行数，递延臂的
-全路径月供覆盖率是 **92.86%**），载体也已由 C10-4 定到字段 108。
-**气球项第一次有已知月供的行，所以第 3 条的「带气球的环是 0」不再成立。**
+**2026-08-17: that day arrived and this table is now owed.** The trigger is item
+5's own condition and both halves have occurred: O24 has been rewritten per
+section 6.6.15 (the 703,504 is an on-row count of field 63, and the deferral
+leg's whole-path payment coverage is **92.86 percent**), and the carrier has been
+fixed to field 108 by C10-4.
+**The balloon term has rows with a known payment for the first time, so item 3's
+"loops with a balloon are zero" no longer holds.**
 
-**账记在这里：`b8_cmt_sensitivity` 的六种构造对比要在 `V` 改口径之后重跑**，
-而且要在**带气球且月供已知**的行上重读，那是第 2 条说的曲线唯一进得来的门。
-**在重跑之前，本节 1 到 4 条的读数只对无气球的行成立，不许引它们说曲线规则
-不承重。** 本节当初把「不承重」改成「今天够不着」，就是为了让这一天到来时
-有一笔可以还的账，而不是一个已经写死的结论。
+**The debt is recorded here: `b8_cmt_sensitivity`'s six-construction comparison
+has to be re-run after `V`'s definition changes**, and re-read on rows that
+**carry a balloon and have a known payment**, which is the only door item 2
+identifies.
+**Until it is re-run, items 1 to 4 hold only for rows without a balloon and may
+not be cited as showing the curve rules are not load-bearing.** Changing "not
+load-bearing" to "out of reach today" was done precisely so that when this day
+came there would be a debt to pay rather than a conclusion already written down.
 
-## 17.17 一条新登记的缺陷：空集印零，坑 23 在同一份文件里隔一节复发
+## 17.17 A newly registered defect: an empty set prints zero, and pit 23 recurs one section away in the same file
 
-`results/b8_cmt_sensitivity2.md` §2 已经把不可测的格子改成 `not measurable`，
-**而 §3 的「loops with a balloon / their p50 / their max」三列仍然印
-`0` 与 `0.000e+00`。** 空集上的中位数与「量出来是零」印得一模一样，
-正是坑 23 的原话。**同一轮、同一份文件、隔一节复发。**
-已加进 `HANDOFF_B8.md` 坑表第 26 条。
+`results/b8_cmt_sensitivity2.md` section 2 already prints `not measurable` for
+unmeasurable cells, **while section 3's three columns (loops with a balloon,
+their p50, their max) still print `0` and `0.000e+00`.** A median over an empty
+set prints exactly like a measured zero, which is pit 23 word for word.
+**Same round, same file, one section apart.** Added as entry 26 of B8's pit
+ledger.
 
-## 17.18 本节不裁什么
+## 17.18 What this section does not rule on
 
-| 项 | 为什么不在这里裁 |
+| item | why not here |
 |---|---|
-| **递延起始沿：已裁为字段 108** | C10-4 判乙，O27 结为 D20（2026-08-17）。**§17.9 保证的「换列不改窗口」已经兑现**，换列时本节一字未动 |
-| `MIN_QUIET_FOR_PAYMENT` 提不提高 | 覆盖分布已印，是另一件事 |
-| §7 的三个未施加过滤器（单户 / 一顺位 / 自住） | 与窗口无关，另记 |
-| O18 那 46.65% 未命名的少付月份 | 与窗口无关 |
-| 环和的符号预期 | §14.3 已写，是两项赛跑，事先定不下来 |
+| **the deferral onset: already ruled to be field 108** | C10-4 verdict B, O27 closed as D20 (2026-08-17). **Section 17.9's guarantee that changing the column does not change the window has been honoured**: not a word of this section moved when the column changed |
+| whether to raise `MIN_QUIET_FOR_PAYMENT` | the coverage distribution is printed; it is a separate matter |
+| section 7's three unapplied filters (single family, first lien, owner-occupied) | unrelated to the window, recorded elsewhere |
+| O18's 46.65 percent of unnamed underpaid months | unrelated to the window |
+| the expected sign of the loop sum | section 14.3 covers it; it is a race between two terms and cannot be fixed in advance |
 
 ---
 
-# 18. B8-0b 的预注册：`Z` 与 `N` 到底是什么
 
-**写于 2026-08-17，环和已经跑出来但一个数都没往这里引。**
-本节定义 B8-0b 的两个量、匹配格的构造、以及每一种结局对应的处置。
-**§8 管着它：跑完不许回头改。**
+# 18. Pre-registering B8-0b: what `Z` and `N` actually are
 
-## 18.1 `Z` 的形状是 B3 给的，照抄
+**Written 2026-08-17. The loop sums had run and not one number from them was
+cited here.** This section defines B8-0b's two quantities, the construction of
+the matching cells, and the disposition for each outcome.
+**Section 8 governs it: no changes after the run.**
 
-`b3_cip_slice.md` §3：
+## 18.1 `Z`'s shape comes from B3 and is copied
+
+`b3_cip_slice.md` section 3:
 
 ```
 Z(g) := (1 / k²) · Σ_{i,j ∈ g} ( x(i) − x(j) )²      =  2 · Var_i( x(i) )
 ```
 
-在 B8 上，`x(i)` 是**环 `i` 的环和 `ω`**，`g` 是被比较的那一组环。
-**两条路都算，必须机器精度一致**，这条 B3-1 的检查照抄：
-枚举有序对与方差，相对误差要在 `1e-12` 以下。
+On B8, `x(i)` is **loop `i`'s loop sum `ω`** and `g` is the group of loops being
+compared. **Both routes are computed and must agree to machine precision**, which
+is B3-1's check copied over: enumerate the ordered pairs and the variance, with a
+relative error below `1e-12`.
 
-**单位**：`ω` 是对数比，无量纲。`√Z` 与 `ω` 同单位，可以直接并排读。
+**Units**: `ω` is a log ratio and dimensionless. `√Z` has the same units as `ω`
+and can be read alongside it directly.
 
-## 18.2 `N` 有两个候选，注册文字在它们之间是含混的，**这里裁**
+## 18.2 `N` has two candidates and the registration text is ambiguous between them; **this rules**
 
-§4 写的是「loans matched on class and on the full realised path should carry
-the same loop sum. Their dispersion is `N`」。
-§14.5 写的是 B8-0a(ii) 是「the tightest zero calibration this stage has」。
-**这是两个不同的对象，而 B3 的 `N` 是后一种。**
+Section 4 says "loans matched on class and on the full realised path should carry
+the same loop sum. Their dispersion is `N`".
+Section 14.5 says B8-0a(ii) is "the tightest zero calibration this stage has".
+**These are two different objects, and B3's `N` is the second kind.**
 
-| 候选 | 构造 | 问题 |
+| candidate | construction | problem |
 |---|---|---|
-| **甲：匹配格内离散** | 按（类、实现路径）分格，格内 `2·Var(ω)` | **它不是测量噪声。** 同一条延滞路径上的两笔贷款，修改条款可以完全不同（一个降息一个展期），`ω` 因此不同，**而那个差是真实异质性不是噪声**。用它当底会把信号算进底里 |
-| **乙：零校准臂** | 清洁自愈的环和，**真值按构造为零** | 这是 B3 的 `N` 的形状（两种构造读同一个对象），也是 §14.5 已经点名的东西 |
+| **A: dispersion inside a matching cell** | cell on (class, realised path), then `2·Var(ω)` within the cell | **It is not measurement noise.** Two loans on the same delinquency path can be modified on completely different terms (one a rate cut, one a term extension), so their `ω` differs, **and that difference is real heterogeneity, not noise**. Using it as a floor puts signal into the floor |
+| **B: the zero-calibration arm** | the loop sums of clean cures, whose true value is zero by construction | this is the shape of B3's `N` (two constructions reading one object) and it is what section 14.5 already named |
 
-**裁定：`N` 取乙，匹配格内离散另立名字叫 `M`，两个都报。**
+**Ruling: `N` takes B, and the within-cell dispersion gets its own name `M`.
+Both are reported.**
 
-三条理由，按承重排序：
+Three reasons, in order of weight:
 
-1. **甲把信号算进底里。** `Z` 度量的正是「同样走一圈的两个人拿到的 `ω` 不同」。
-   甲的格内离散度量的是同一件事的一个子集。**用一个量的子集当它自己的底，
-   比值会被压向 1，而压多少取决于格切得多细** —— 那是一个可以被切法操纵的判据。
-2. **乙有真值。** 清洁自愈的合同**确实没有改变**，所以 `ω` 的真值是零，
-   剩下的全部是构造误差、报送噪声与冻结（§6.2.7 已量过冻结）。
-   **这是「真值为零的臂走同一套机器」，`MEASUREMENT.md` 第 7 条要的就是这个。**
-3. **`M` 仍然值得报，但它是别的东西**：它是「路径解释不了多少 `ω`」的读数，
-   是 B8-4 的前置，不是 B8-1 的底。**报，标清楚，不进比值。**
+1. **A puts signal into the floor.** What `Z` measures is precisely "two people
+   who walked the same circuit got different `ω`". A's within-cell dispersion
+   measures a subset of that same thing. **Using a subset of a quantity as its
+   own floor pushes the ratio toward 1, and how far depends on how finely the
+   cells are cut**, which makes it a criterion the cutting can manipulate.
+2. **B has a true value.** A clean cure's contract **really did not change**, so
+   the true `ω` is zero and everything remaining is construction error, reporting
+   noise and freezes (section 6.2.7 measured the freezes).
+   **This is "an arm whose true value is zero, run through the same machine",
+   which is what item 7 of `MEASUREMENT.md` asks for.**
+3. **`M` is still worth reporting, but it is a different thing**: it is the
+   reading "how little of `ω` the path explains", which is a prerequisite for
+   B8-4 and not B8-1's floor. **Report it, label it, keep it out of the ratio.**
 
-## 18.3 `N` 的具体口径，逐条
+## 18.3 `N`'s exact definition, item by item
 
 ```
-N := 2 · Var( ω(环) )   在清洁自愈环上
+N := 2 · Var( ω(loop) )   over clean-cure loops
 ```
 
-**清洁自愈环的定义直接用 `b8_0a_gate.find_clean_cures`**，不另写一份：
-延滞过、回到 current、**从不带字段 42 的 `Y`、从不带正的字段 63、
-从不带正的字段 108**（O28 之后的口径）。
+**The clean-cure loop is defined directly by `b8_0a_gate.find_clean_cures`**, with
+no second copy: has been delinquent, returned to current, **never carried a `Y`
+in field 42, never carried a positive field 63, never carried a positive field
+108** (the post-O28 definition).
 
-四条附加约束，都写在跑之前：
+Four further constraints, all written before the run:
 
-| # | 约束 | 为什么 |
+| # | constraint | why |
 |---|---|---|
-| N1 | 环和走**同一条代码路径**（`b8_omega.row_residuals` + `b8_loop_omega.loop_sums`），不许为清洁自愈另写求和 | B3 的 `z(i,i)=0` 那条：零校准必须过同一套机器，不许短路 |
-| N2 | 窗口用 §17 的窗口规则，`t_M` 取延滞段的第一个月 | 清洁自愈没有修改起始沿，所以 `t_M` 的定义要单独说：**取第一个延滞月**，腿的切分因此仍然成立而 leg 2 不再是「修改月」 |
-| N3 | 可测性条件与 §17.10 一字不改 | 底与信号必须画在同一个可测集上，否则比的是两个人群 |
-| N4 | **按档分别算，也报池化**。池化的那个是 B8-1 用的（§15.4） | §15.4 已定 |
+| N1 | loop sums go through **the same code path** (`b8_omega.row_residuals` plus `b8_loop_omega.loop_sums`), with no separate summation written for clean cures | B3's `z(i,i)=0` rule: a zero calibration has to run through the same machine and may not short-circuit it |
+| N2 | the window uses section 17's rule, with `t_M` taken as the first month of the delinquency spell | a clean cure has no modification onset, so `t_M` needs its own definition: **take the first delinquent month**, which keeps the leg split valid while leg 2 stops being "the modification month" |
+| N3 | the measurability condition is section 17.10's, word for word | the floor and the signal must be drawn on the same measurable set, or the comparison is between two populations |
+| N4 | **computed per vintage, and pooled as well**. The pooled one is what B8-1 uses (section 15.4) | fixed by section 15.4 |
 
-**N2 是本节唯一的新构造，它有一个已知的后果**：清洁自愈的 leg 2 不是再签约，
-所以三腿切分在这条臂上是记账中的记账。**`N` 只用环和，不用腿。**
+**N2 is this section's only new construction and it has a known consequence**: a
+clean cure's leg 2 is not a re-signing, so the three-leg split is bookkeeping
+within bookkeeping on this arm. **`N` uses only the loop sum, never the legs.**
 
-## 18.4 匹配格 `M`：怎么切，以及**不许**按什么切
+## 18.4 The matching cell `M`: how it is cut, and what it may **not** be cut on
 
 ```
-M := 2 · Var( ω )  在格内，然后按格大小加权平均
+M := 2 · Var( ω )  within a cell, then averaged weighted by cell size
 ```
 
-格的键，**三个，全部在 `ω` 的算术之外**：
+The cell keys, **three of them, all outside `ω`'s arithmetic**:
 
-| 键 | 取值 | 为什么它不循环 |
+| key | values | why it is not circular |
 |---|---|---|
-| 臂 | 修改 / 递延 | §14.4 的层，与 `ω` 的算术无关 |
-| 错过的月份数 | `t_M − t_A`，按 §3.3 的粗网格分档 | 是路径，不是合同 |
-| 归位耗时 | `t_B − t_M`，同样分档 | 是路径，不是合同 |
+| leg | modification / deferral | section 14.4's level, unrelated to `ω`'s arithmetic |
+| months missed | `t_M − t_A`, banded on section 3.3's coarse grid | a path, not a contract |
+| time to return | `t_B − t_M`, banded the same way | a path, not a contract |
 
-**明确不许进格键的：利率、期限、余额、月供、气球、类别索引里任何
-由合同派生的东西。** 理由一句话：**`ω` 是这些量的函数，
-按它们分格等于按因变量分格，格内方差会趋于零而比值会趋于无穷。**
-这是 C11 判据 B 那个循环的同一个形状（§6.6.16），**那一次是跑完才发现的。**
+**Explicitly barred from the cell keys: rate, term, balance, payment, balloon,
+and anything in the class index derived from the contract.** The reason in one
+sentence: **`ω` is a function of those quantities, so cutting cells on them is
+cutting on the dependent variable, and within-cell variance will tend to zero
+while the ratio tends to infinity.** This is the same shape as the circularity in
+C11's criterion B (section 6.6.16), **and that one was only discovered after the
+run.**
 
-`MIN_CELL` 用 §6.4 的 20，格小于它的合并进「其余」并印计数。
+`MIN_CELL` takes 20 from section 6.4, and cells smaller than that are merged into
+"other" with the count printed.
 
-## 18.5 结局到处置的全映射，**写在跑之前，而它可以改**
+## 18.5 The full map from outcome to disposition, **written before the run, and changeable**
 
-**2026-08-17 陛下裁定，本节的地位改了，§8 在这一点上一并改。**
-跑之前写下映射照写，**但它是「跑之前臣妾以为会怎样」的记录，不是承诺**。
-现实说话之后就改，改的时候记下改了什么、为什么、以及原来那条错在哪。
+**Ruled 2026-08-17: the standing of this section has changed, and section 8
+changes with it on this point.** The map is still written before the run,
+**but it is a record of what I expected beforehand, not a promise**. Once
+reality speaks it changes, and the change records what changed, why, and what
+the original got wrong.
 
-理由是陛下的：**不跑怎么知道映射什么。** 一个在信息最少的时刻定死、
-之后不许动的判据，是拿「一开始猜中」当正确性的标准，
-而科学积累从来不是那样发生的。**留下的价值不是它约束了什么，
-是它记录了预期与现实的差**，那个差本身是信息。
+The reasoning: **how would you know what to map before running it?** A criterion
+fixed at the moment of least information and then frozen makes "guessed right the
+first time" the standard of correctness, and that is not how scientific
+accumulation has ever worked. **What the record is worth is not that it
+constrained anything; it is that it records the gap between expectation and
+reality**, and that gap is itself information.
 
-**本节跑完之后立刻改了两处，见 §6.6.26。**
+**Two entries were changed immediately after this ran, see section 6.6.26.**
 
-| 结局 | 处置 |
+| outcome | disposition |
 |---|---|
-| `√Z/√N > 3`，两张 `q` 网格都过 | B8-1 的**必要条件**成立。**不等于 B8-1 成立**，B8-1 还要 §3.3 的两网格与 §6 的窗口 |
-| `√Z/√N` 在 1 与 3 之间 | **B8-1 判不成立并照登**。不许改底、不许改格、不许换统计量 |
-| `√Z/√N ≤ 1` | 信号在底以下。**整站的头条按 §15.7 已经移到 B8-3**，所以这不停站，但 B8-1 记为 fail |
-| `N` 的样本 `< MIN_CELL`（20） | **B8-0b 判不可测**，B8-1 不跑，理由印在结果件顶部 |
-| `N` 逐档差一个数量级以上 | 池化的底不可用，**只报逐档**，并把差异当成一条待解释的读数登记 |
-| `M < N` | **格内离散比零校准还小** → 格切得太细或格键漏进了合同量。**回头查格键，不是接受这个数** |
-| 枚举与 `2·Var` 不一致（相对误差 > 1e-12） | **闸。代码坏了，下面全部不可读**（B3-1 照抄） |
+| `√Z/√N > 3` on both `q` grids | B8-1's **necessary condition** holds. **It is not B8-1 holding**; B8-1 also needs section 3.3's two grids and section 6's windows |
+| `√Z/√N` between 1 and 3 | **B8-1 fails and is recorded as failing.** No changing the floor, the cells or the statistic |
+| `√Z/√N ≤ 1` | the signal is below the floor. **The stage's headline moved to B8-3 under section 15.7**, so this does not stop the stage, but B8-1 records a failure |
+| `N`'s sample is `< MIN_CELL` (20) | **B8-0b is unmeasurable**, B8-1 does not run, and the reason is printed at the top of the result file |
+| `N` differs by more than an order of magnitude between vintages | the pooled floor is unusable, **report per vintage only**, and register the difference as a reading that needs explaining |
+| `M < N` | **within-cell dispersion below the zero calibration** means the cells are cut too finely or a contract quantity has leaked into the keys. **Go back and check the keys rather than accepting the number** |
+| enumeration and `2·Var` disagree (relative error > 1e-12) | **a gate. The code is broken and nothing below is readable** (copied from B3-1) |
 
-## 18.6 本节不裁什么
+## 18.6 What this section does not rule on
 
-| 项 | 为什么 |
+| item | why |
 |---|---|
-| B8-1 本身 | 它要两张 `q` 网格，本节只给底 |
-| 逐类底 `√Z(a)/√N(a)` | §15.4 要的，且被 §15.3 的 C9 闸住，B8-4a 才用 |
-| `M` 的读数说明什么 | 它是 B8-4 的前置，不在这里解释 |
-| 递延臂要不要单独的底 | **要，N4 已写「按档分别算」，臂同理**，但两臂的底怎么合并是 B8-1 的事 |
+| B8-1 itself | it needs both `q` grids; this section supplies only the floor |
+| the per-class floor `√Z(a)/√N(a)` | section 15.4 needs it, it is gated by C9 in section 15.3, and only B8-4a uses it |
+| what `M`'s reading means | it is a prerequisite for B8-4 and is not interpreted here |
+| whether the deferral leg needs its own floor | **it does, and N4 already says "per vintage", which applies to legs equally**, but how the two legs' floors combine is B8-1's business |
 
 
-## 18.7 实测之后：判据从 `√Z/√N` 换成 MAD 比值（2026-08-17）
+## 18.7 After the measurement: the criterion moves from `√Z/√N` to a MAD ratio (2026-08-17)
 
-**§18.1 定的 `Z = 2·Var` 是照抄 B3 的，而 B3 的 `x` 是有界的基点量级偏离。
-`ω` 在清洁自愈臂上从中位 8.9e-6 到最大 4.1e-1，跨五个数量级。那个形状搬不过来。**
+**Section 18.1's `Z = 2·Var` was copied from B3, and B3's `x` is a bounded
+basis-point deviation. On the clean-cure arm `ω` runs from a median of 8.9e-6 to
+a maximum of 4.1e-1, five orders of magnitude. That shape does not carry over.**
 
-读数在 `b8_inputs_availability.md` §6.6.26.5：底臂的 `2·Var` 从 n=100 的
-5.3e-09 单调爬到全样本的 1.5e-05，**2,900 倍，最后一步还在爬**，
-p10–p90 倍差长到 293x；同一条臂的 MAD 从 n=100 起就平到三位有效数字。
-**信号臂两个都收敛。**
+The readings are in B8 inputs register section 6.6.26.5: the floor arm's `2·Var`
+climbs monotonically from 5.3e-09 at n=100 to 1.5e-05 on the full sample,
+**a factor of 2,900, still climbing at the last step**, with the p10 to p90 spread
+stretching to 293x, while the MAD on the same arm is flat to three significant
+figures from n=100 onward. **The signal arm converges on both.**
 
-**改：**
-
-```
-判据 = MAD(信号臂 ω) / MAD(清洁自愈臂 ω)
-```
-
-两边同一个估计量，这正是 B3 那个形状真正要求的；唯一的改动是尺度估计量。
-`√Z/√N` 与余额匹配版按 R01 并排留着，**收敛表就是那份双报的理由**。
-
-**门槛不在这里定。** §5 的 `> 3` 是给 `√Z/√N` 写的，MAD 比值是另一个量，
-它的门槛要么单独立、要么这条预测降级为「报数不设门槛」。
-**2019Q1 实测 6,501 / 50,680 / 4,931，任何合理门槛都不接近边界**，
-所以这一条不急，登记为开着的。
-
-**保留意见**：Theorem 3 是方差分解，MAD 不是那条定理里的量。
-但一个不收敛的方差也检验不了方差分解。**`Z` 本身估得很好且收敛，
-不收敛的只有底**，所以能说的是「信号的中心在底的中心之上五万倍」，
-**不能说的是「方差分解成立」**。
-
-
-## 18.8 §14.5 那句「must return zero」是错的，P4 一直在断言正确的那句
-
-§14.5 写 B8-0a(i)「the clean-cure round trip ... **Must return zero to
-floating-point tolerance**」。**`b8_omega.py` 的 P4 同时证明并断言它不为零**，
-读 −9.04e-06 / −5.45e-05 / −1.93e-04（k = 1 / 3 / 6），
-并且 P4 的注释原话就是「**The clean-cure round trip does NOT return zero, and
-this is a property of the construction**」。
-
-两句话在同一份仓库里并存了很久，**而找底的时候读到的是 §14.5 那句**，
-于是一个确定量被当成了噪声。实测（`b8_inputs_availability.md` §6.6.27）：
-`corr(ω, closed)` 五档 `+1.0000`、一档 `+0.9993`，中位绝对值对到四位有效数字。
-
-**更正：**
+**The change:**
 
 ```
-B8-0a(i)：清洁自愈的往返和返回 `loop_residual_ideal(B0, i, P, k)`，
-          误差在字段 12 的分位取整以内（半分钱 / 余额 ≈ 3.0e-8）。
-          闸的判据是这个误差，不是环和本身。
-B8-0b：   `N = MAD(ω − closed)`，量出来 2.68e-08 到 5.22e-08。
+criterion = MAD(ω on the signal arm) / MAD(ω on the clean-cure arm)
 ```
 
-**B8-0a(i-a) 的既有读数不受影响**：它比的本来就是 `stream` 对 `closed`，
-量的一直是这个误差（`ratio_max = 0.400`）。**错的只有 §14.5 的散文。**
+The same estimator on both sides, which is what B3's shape actually requires; the
+only change is the scale estimator. `√Z/√N` and the balance-matched variant are
+kept alongside under R01, **and the convergence table is the reason for that
+double report**.
 
-**保留**：修改臂也带一个同类的确定性离散分量而它**没有闭式解**。
-若与清洁自愈臂同量级（1e-5），占信号（1.4e-1）的万分之一，可忽略；
-**这是推断不是测量**，登记为开着的。
+**The threshold is not set here.** Section 5's `> 3` was written for `√Z/√N`, and
+a MAD ratio is a different quantity, so its threshold either gets set separately
+or this prediction is demoted to "report the number without a threshold".
+**The measured 6,501 / 50,680 / 4,931 in 2019Q1 are nowhere near any plausible
+boundary**, so it is not urgent and is registered as open.
+
+**A reservation**: Theorem 3 is a variance decomposition and MAD is not a quantity
+in that theorem. But a variance that does not converge cannot test a variance
+decomposition either. **`Z` itself is well estimated and converges, and only the
+floor fails to**, so what can be said is "the signal's centre is fifty thousand
+times the floor's centre" and **what cannot be said is "the variance
+decomposition holds"**.
+
+
+## 18.8 Section 14.5's "must return zero" is wrong, and P4 has been asserting the right sentence all along
+
+Section 14.5 says B8-0a(i) is "the clean-cure round trip ... **Must return zero
+to floating-point tolerance**". **P4 in `b8_omega.py` simultaneously proves and
+asserts that it does not return zero**, reading −9.04e-06 / −5.45e-05 /
+−1.93e-04 at k = 1 / 3 / 6, and P4's own comment says "**The clean-cure round
+trip does NOT return zero, and this is a property of the construction**".
+
+The two sentences coexisted in one repository for a long time, **and the one read
+while looking for a floor was section 14.5's**, so a deterministic quantity was
+taken for noise. Measured (B8 inputs register section 6.6.27): `corr(ω, closed)`
+is `+1.0000` in five vintages and `+0.9993` in one, with median absolute values
+agreeing to four significant figures.
+
+**The correction:**
+
+```
+B8-0a(i): the clean-cure round trip returns `loop_residual_ideal(B0, i, P, k)`,
+          within the quantile rounding of field 12 (half a cent over the balance,
+          about 3.0e-8). The gate's criterion is that error, not the loop sum.
+B8-0b:    `N = MAD(ω − closed)`, measured at 2.68e-08 to 5.22e-08.
+```
+
+**B8-0a(i-a)'s existing readings are unaffected**: it was always comparing
+`stream` against `closed` and has always measured this error
+(`ratio_max = 0.400`). **Only section 14.5's prose was wrong.**
+
+**A reservation**: the modification arm carries a deterministic discretisation
+component of the same kind and it **has no closed form**. If it is the same order
+as the clean-cure arm (1e-5) it is one ten-thousandth of the signal (1.4e-1) and
+negligible; **that is inference and not measurement**, and it is registered as
+open.
 
 ---
 
-# 19. B8-3 的读法：制度对比，跑之前写下来的预期
+# 19. How to read B8-3: an institutional contrast, with the expectation written before the run
 
-**写于 2026-08-17，`ω` 与底都已在盘上，B8-3 一个数都没读。**
-按 §18.5 已改的地位：**这是「跑之前臣妾以为会怎样」的记录，不是承诺**，
-现实说话之后就改，改的时候记下改了什么、原来错在哪。
+**Written 2026-08-17. `ω` and the floor were both on disk and B8-3 had read no
+number.** Under the standing changed in section 18.5: **this is a record of what
+I expected beforehand, not a promise**, to be changed once reality speaks, with
+the change recording what was wrong.
 
-## 19.1 B8-3 要的是什么，以及它**不**要什么
+## 19.1 What B8-3 asks for, and what it does **not**
 
-§5：**两条可实现的路径到同一终态，携带不同的累积 `ω`。**
-§15.7：这是 Corollary-1 形状的**存在性主张**，由一条边上的一个不等式决定。
+Section 5: **two realisable paths to the same end state carry different
+accumulated `ω`.**
+Section 15.7: this is an **existence claim** of the Corollary-1 shape, settled by
+one inequality on one edge.
 
-**所以 B8-3 不需要赢因果识别。** 它不主张「服务商选了哪条路导致了 `ω` 的差」，
-它主张「到达同一个 `current` 的两条已实现路径，累积 `ω` 不同」。
-**这是关于状态空间的陈述，不是关于选择的陈述。**
+**So B8-3 does not have to win causal identification.** It does not claim that
+the servicer's choice of path caused the difference in `ω`; it claims that two
+already-realised paths arriving at the same `current` carry different accumulated
+`ω`. **That is a statement about the state space, not about choice.**
 
-**但组分差异仍然要报**，因为读者一定会问，而且不报就等于假装它不存在。
-所以本节分两层：**存在性**（B8-3 本身）与**分层后的差**（更强，但不是 B8-3 的门槛）。
+**Compositional differences still have to be reported**, because a reader will
+ask and not reporting is pretending it does not exist. So this section has two
+layers: **existence** (B8-3 itself) and **the difference after stratification**
+(stronger, but not B8-3's bar).
 
-## 19.2 路径对
+## 19.2 The path pairs
 
-**主对**（§14.4 已定）：
-
-```
-delinquent → modified → current      对      delinquent → deferred → current
-```
-
-两条都在 §17 的窗口下有环和，六档合计修改臂 49,649、递延臂 35,659。
-
-**次对**（§5 注册，本节不跑，登记）：一次 90 天延滞对两次 30 天延滞；
-先自愈再违约再修改对第一次延滞就修改。**它们是时序对比，
-而 §14.4 已经说明时序对比会被「两个终点的欠款史不同」挡住。**
-
-## 19.3 统计量：中位数差，以底为单位
-
-`ω` 在两条臂上都是重尾（§6.6.26 量过），**所以不用均值也不用方差**。
+**The main pair** (fixed by section 14.4):
 
 ```
-Δ    := median(ω | 修改臂) − median(ω | 递延臂)
-Δ/底 := Δ / MAD(ω − closed)          底在 §6.6.27，约 3e-08
+delinquent → modified → current      against      delinquent → deferred → current
 ```
 
-**离散度用 MAD**，与 B8-0b 同一个估计量，理由同 §18.7。
+Both have loop sums under section 17's window, with six-vintage totals of 49,649
+on the modification leg and 35,659 on the deferral leg.
 
-## 19.4 分层：用什么切，以及**不许**用什么切
+**The secondary pair** (registered in section 5, not run here, recorded): one
+90-day delinquency against two 30-day delinquencies; cure-then-redefault-then-
+modify against modify-on-first-delinquency. **They are temporal contrasts, and
+section 14.4 has already explained that a temporal contrast runs into the two
+endpoints having different arrears histories.**
 
-| 键 | 为什么它可以进 |
+## 19.3 The statistic: a median difference, in units of the floor
+
+`ω` is heavy-tailed on both legs (measured in section 6.6.26), **so neither the
+mean nor the variance is used**.
+
+```
+Δ       := median(ω | modification leg) − median(ω | deferral leg)
+Δ/floor := Δ / MAD(ω − closed)          the floor is in section 6.6.27, about 3e-08
+```
+
+**Dispersion uses MAD**, the same estimator as B8-0b, for the reason in section
+18.7.
+
+## 19.4 Stratification: what may be cut on, and what may **not**
+
+| key | why it may enter |
 |---|---|
-| §6 的事件窗口 | 日历，与路径和合同都无关 |
-| 错过的月份数 `t_M − t_A` | 路径 |
-| 归位耗时 `t_B − t_M` | 路径 |
+| section 6's event windows | calendar, unrelated to path or contract |
+| months missed `t_M − t_A` | a path |
+| time to return `t_B − t_M` | a path |
 
-**不许进的：利率、期限、月供、气球、余额。** 前四个是 `ω` 的自变量。
-**余额单独说一句**：`ω` 对 `(余额, 气球)` 是零次齐次的（`V` 线性于两者，
-而 `ω` 是对数比），**所以按余额分层不会机械地驱动结果**；
-不进是因为它是合同量而本节的分层只用路径与日历，**这是一条比必要更严的线**，
-理由是 §6.6.16 那次循环是跑完才发现的。
+**Barred: rate, term, payment, balloon, balance.** The first four are `ω`'s
+arguments.
+**The balance deserves its own sentence**: `ω` is homogeneous of degree zero in
+`(balance, balloon)` (`V` is linear in both and `ω` is a log ratio), **so
+stratifying on the balance would not mechanically drive the result**; it is
+barred because it is a contract quantity while this section's stratification uses
+only path and calendar. **That is a stricter line than necessary**, and the
+reason is that the circularity in section 6.6.16 was only found after the run.
 
-`MIN_CELL = 20`，小格合并进「其余」并印计数。
+`MIN_CELL = 20`, with small cells merged into "other" and the count printed.
 
-## 19.5 读法：三样一起看
+## 19.5 The reading: three things looked at together
 
-1. **存在性**：`Δ` 与 `Δ/底`，池化与逐档。
-2. **分层后的差**：格内 `Δ`，按格大小加权；**以及符号一致性**——
-   多少个格的 `Δ` 同号。**这一条是关键**：若差来自组分，符号会在格间翻；
-   若来自路径，符号会稳。
-3. **格内置换零假设**：在格内打乱臂标签，重算加权 `Δ`，做 999 次，
-   报观测值在零分布中的位置。**打乱在格内做**，所以它检验的是
-   「给定路径与窗口，臂标签还携带信息吗」。
+1. **Existence**: `Δ` and `Δ/floor`, pooled and per vintage.
+2. **The difference after stratification**: within-cell `Δ`, weighted by cell
+   size, **and sign consistency**, meaning how many cells' `Δ` share a sign.
+   **This is the key one**: if the difference comes from composition the sign
+   flips between cells, and if it comes from the path the sign holds.
+3. **A within-cell permutation null**: shuffle the leg labels inside each cell,
+   recompute the weighted `Δ`, 999 times, and report where the observed value
+   falls in the null distribution. **The shuffle is done within cells**, so what
+   it tests is whether the leg label still carries information given the path and
+   the window.
 
-## 19.6 已经知道会咬人的两件，写在前面
+## 19.6 Two things already known to bite, written up front
 
-**一、递延几乎全在 COVID 窗口。** 六档 32,533 个递延三角里 31,057 在 COVID
-（§14.4 已更正，1,476 在窗口外）。**所以跨窗口的分层里，
-COVID 之外的递延格多半过不了 `MIN_CELL`。** 那不是失败，是可数的事实，
-**要印格数与掉样，不许把「窗口不可比」写成「没有差」**。O30 记着这件事。
+**One, deferrals are almost entirely inside the COVID window.** Of 32,533
+deferral triangles across the six vintages, 31,057 are in COVID (corrected in
+section 14.4; 1,476 are outside it). **So in a cross-window stratification, most
+non-COVID deferral cells will fail `MIN_CELL`.** That is not a failure, it is a
+countable fact, **and the cell counts and drops have to be printed rather than
+"the windows are not comparable" being written up as "there is no
+difference"**. O30 records this.
 
-**二、两条臂的可测率不同**（§6.6.25：修改臂 0.7286–0.9068，
-递延臂 0.8386–0.9853）。**可测性本身与臂相关**，
-所以本节要印两条臂各自的可测率，**并且承认分层不能修掉这一条**：
-不可测的环没有 `ω`，它们不在任何格里。
+**Two, the two legs have different measurability rates** (section 6.6.25:
+modification leg 0.7286 to 0.9068, deferral leg 0.8386 to 0.9853).
+**Measurability is itself correlated with the leg**, so this section prints each
+leg's rate **and concedes that stratification cannot fix it**: an unmeasurable
+loop has no `ω` and is in no cell at all.
 
-## 19.7 结局到处置：**跑之前的预期，可改**
+## 19.7 Outcome to disposition: **the expectation before the run, changeable**
 
-| 结局 | 当下的处置 |
+| outcome | disposition as it stands |
 |---|---|
-| `Δ/底` 远大于 1 且符号在格间一致 | **B8-3 的存在性成立**，且分层没有推翻它 |
-| `Δ/底` 远大于 1 而符号在格间翻 | **存在性仍成立**（它不需要赢组分），但要明写「差与路径的关联不稳」 |
-| `Δ` 在底的量级 | B8-3 判不成立并照登 |
-| 置换零假设里观测值不极端 | **格内臂标签不携带信息**。存在性不受影响，第 2 层的读数作废 |
-| COVID 之外的格全部不过 `MIN_CELL` | **照实印**：主对只在 COVID 上分层可读，其余窗口只有池化 |
+| `Δ/floor` far above 1 with consistent signs across cells | **B8-3's existence claim holds** and stratification has not overturned it |
+| `Δ/floor` far above 1 with signs flipping across cells | **existence still holds** (it does not need to win composition), but it must be stated that the association between the difference and the path is unstable |
+| `Δ` at the order of the floor | B8-3 fails and is recorded as failing |
+| the observed value is not extreme in the permutation null | **the leg label carries no information within cells.** Existence is unaffected and layer 2's reading is void |
+| every non-COVID cell fails `MIN_CELL` | **print it as it is**: the main pair is only readable stratified on COVID, and the other windows have pooled figures only |
 
-## 19.8 本节不裁什么
+## 19.8 What this section does not rule on
 
-| 项 | 为什么 |
+| item | why |
 |---|---|
-| B8-1 与 B8-2 | 各自的判据不同，另跑 |
-| 次对（时序对比） | 已登记未跑 |
-| 因果 | **B8-3 不主张因果**，§19.1 |
-| 两条臂可测率不同要不要修 | 不能修，只能报，§19.6 |
+| B8-1 and B8-2 | different criteria, run separately |
+| the secondary pair (temporal contrasts) | registered and not run |
+| causation | **B8-3 makes no causal claim**, section 19.1 |
+| whether the legs' differing measurability should be fixed | it cannot be fixed, only reported, section 19.6 |
 
 ---
 
-# 20. B8-2 的读法：修改臂 × 五窗 × 期限分层
 
-**写于 2026-08-17，B8-3 已过，B8-2 一个数都没读。**
-按 §18.5 的地位：**跑之前的预期记录，可改。**
+# 20. How to read B8-2: the modification leg, five windows, stratified on term
 
-## 20.1 只跑修改臂，理由是结构不是选择
+**Written 2026-08-17. B8-3 had passed and B8-2 had read no number.**
+Standing per section 18.5: **a record of the expectation before the run,
+changeable.**
 
-B8-3 的 §5 量出递延臂在 pre-crisis / HAMP / Flex 的**每一个期限档上都是 0**
-（§6.6.30.1）。支付递延这个项目 COVID 之前不存在，
-**所以两臂对比的跨窗版本不存在，而且补多少收购季度都变不出来。**
+## 20.1 Only the modification leg runs, and the reason is structural rather than a choice
 
-**B8-2 因此只在修改臂上跑，而这不是退让**：§5 与 §6 的原文是
-「the sign of the per-period loop sum is stable across the four windows」，
-**它本来就是一条臂上的陈述**。
+B8-3's section 5 measured the deferral leg at **zero in every term band** in
+pre-crisis, HAMP and Flex (section 6.6.30.1). Payment deferral as a programme did
+not exist before COVID, **so the cross-window version of a two-leg contrast does
+not exist, and no number of additional acquisition quarters can produce one.**
 
-## 20.2 两张 `q` 网格在这里给出同一批环，说明而不是假装通过
+**B8-2 therefore runs on the modification leg only, and this is not a
+concession**: sections 5 and 6 say "the sign of the per-period loop sum is stable
+across the four windows", **which was always a statement about one leg**.
 
-§3.3 的主网格把延滞切成 `30 / 60 / 90+`，副网格只留 `delinquent`。
-**§17 的窗口只区分 `current` 与非 `current`**（`t_A` 是最后一个 current，
-`t_B` 是第一个回到 current 的），**所以两张网格给出逐个相同的环。**
+## 20.2 The two `q` grids give the same loops here, and that is explained rather than passed off as a pass
 
-**B8-6 因此在 B8-2 上是自动满足的，而这是构造的性质不是通过的检验。**
-写在这里，免得结果件把它印成一次通过。
+Section 3.3's main grid cuts delinquency into `30 / 60 / 90+` and the secondary
+grid keeps only `delinquent`.
+**Section 17's window distinguishes only `current` from not-`current`** (`t_A` is
+the last current and `t_B` the first return to current), **so the two grids give
+loop-for-loop identical sets.**
 
-## 20.3 分层：`t_A` 的剩余期限，而它是主轴
+**B8-6 is therefore automatically satisfied on B8-2, and that is a property of
+the construction and not a test that was passed.** Written here so the result
+file does not print it as a pass.
 
-实测（§6.6.30.2）：同一个窗口内，最短期限档对最长档的中位 `ω`
-差 25 倍（HAMP）、7.4 倍（COVID）。**期限的变异比窗口之间的还大。**
+## 20.3 Stratification: the remaining term at `t_A`, and it is the main axis
 
-在 `t_A` 量，事件之前，前处理协变量。**绝不在 `t_M` 或 `t_B` 量。**
-期限而不是账龄，因为**进 `ω` 的是期限**。
+Measured (section 6.6.30.2): within one window, the shortest term band and the
+longest differ in median `ω` by a factor of 25 (HAMP) and 7.4 (COVID).
+**The variation from term is larger than the variation between windows.**
 
-**一格可读的条件：`n >= MIN_CELL` 且贡献的 cohort 多于一个。**
-后半条是承重的：单 cohort 的格里窗口与账龄完全共线。
+Measured at `t_A`, before the event, a pre-treatment covariate. **Never at `t_M`
+or `t_B`.** Term rather than age, because **what enters `ω` is the term**.
 
-## 20.4 判据与它的空洞风险，一起写
+**A cell is readable when `n >= MIN_CELL` and more than one cohort contributes.**
+The second half is load-bearing: inside a single-cohort cell, window and age are
+perfectly collinear.
 
-§6 的判别式（`b1_setup.md` §7）：**结构性楔子在每个窗口同号；
-一次性重定价只在一个窗口出现。**
+## 20.4 The criterion and its vacuity risk, written together
 
-```
-B8-2 过 ⟺ 每一个可读的（窗口 × 期限档）格，
-          per-period 环和的中位数同号，且自助置信区间不跨零
-```
-
-**而这条判据有一个空洞风险，必须一起报**：§14.3 说 leg 1 按构造为正
-（错过的月份让义务变重），所以「环和恒正」也可能只是
-**「leg 1 在所有地方都压过 leg 2」**，那是一句关于服务商怎么定价改约的事实，
-**不是一个结构性楔子**。
-
-**处置：逐格并印 leg 1 与 leg 2 的中位数。** §14.2 说腿的切分是记账、
-不承重——**那是对结论说的；用来诊断判据本身空不空，正是它该干的事。**
-若 leg 2 的中位数在所有格上都比 leg 1 小一个数量级以上，
-**那这条判据测的是算术不是楔子，要照此写。**
-
-## 20.4a leg 2 的符号来自哪里（跑完之后加的，§8 已裁映射可改）
-
-**§14.3 预期 leg 2 为负，实测 29 个可读格全为正。**
-在把它读成「改约让义务变重」之前，必须先把**构造带来的那一块**分出去。
-`t_M` 上，`V = B·k(i, d, n) + Z·q`，`k = LP(1, i, n)·A(d, n)`，于是
+Section 6's discriminant (`b1_setup.md` section 7): **a structural wedge carries
+the same sign in every window, while a one-off repricing appears in one window
+only.**
 
 ```
-r(t_M) = log(B_now / B_hat)   资本化的欠款
-       + log(k_now / k_hat)   重定价
-       + 余项                 气球；字段 64 在这六档恒为零
+B8-2 passes ⟺ in every readable (window × term band) cell,
+              the median per-period loop sum has the same sign
+              and the bootstrap interval does not cross zero
 ```
 
-**这是恒等式，不是近似。** `d = i` 时 `k` 恰为一、重定价项恰为零；
-`d < i` 时 `k > 1` **且随 `n` 上升**，所以延长期限会**机械地**抬高 `V`。
-本样本大部分时间国债收益率远低于票面利率，**这条通道是开着的，必须量而不是假设它小**。
+**And this criterion has a vacuity risk that has to be reported with it**:
+section 14.3 says leg 1 is positive by construction (missed months make the
+obligation heavier), so "the loop sum is always positive" could equally be
+**"leg 1 dominates leg 2 everywhere"**, which is a fact about how servicers price
+modifications and **not a structural wedge**.
 
-重定价再按「一次只动一个合同项」拆：
+**Disposition: print the medians of leg 1 and leg 2 side by side, cell by cell.**
+Section 14.2 says the leg split is bookkeeping and not load-bearing, **and that
+was said about conclusions; using it to diagnose whether the criterion itself is
+vacuous is exactly what it is for.**
+If leg 2's median is more than an order of magnitude below leg 1's in every cell,
+**then this criterion is measuring arithmetic rather than a wedge, and it has to
+be written up that way.**
+
+## 20.4a Where leg 2's sign comes from (added after the run; section 8 has already ruled the map changeable)
+
+**Section 14.3 expected leg 2 to be negative, and all 29 readable cells measured
+positive.** Before reading that as "the modification made the obligation
+heavier", **the part contributed by the construction has to be separated out**.
+At `t_M`, `V = B·k(i, d, n)` with `k = LP(1, i, n)·A(d, n)`, so
+
+```
+r(t_M) = log(B_now / B_hat)   capitalised arrears
+       + log(k_now / k_hat)   repricing
+       + a remainder          the balloon; field 64 is identically zero in these six vintages
+```
+
+**This is an identity, not an approximation.** When `d = i`, `k` is exactly one
+and the repricing term is exactly zero; when `d < i`, `k > 1` **and rises with
+`n`**, so extending the term **mechanically** raises `V`. Over most of this
+sample Treasury yields sit far below coupon rates, **so this channel is open and
+has to be measured rather than assumed small**.
+
+The repricing term is then split one contract item at a time:
 
 ```
 rate  = log k(i_now,  d, n_hat) - log k(i_prev, d, n_hat)
 term  = log k(i_prev, d, n_now) - log k(i_prev, d, n_hat)
-cross = 重定价 - rate - term          交互项，照印，不摊
+cross = repricing - rate - term       the interaction, printed, never apportioned
 ```
 
-**结局到处置**：
+**Outcome to disposition**:
 
-| 结局 | 处置 |
+| outcome | disposition |
 |---|---|
-| `term` 扛住 `repricing`，`repricing` 扛住 leg 2 | leg 2 为正是构造在低于票面的利率上贴一条被拉长的流，**不是改约让家户更糟**。B8-2 的符号仍然成立，但**这一句必须跟着每一处引用走** |
-| `balance` 扛住 leg 2 | leg 2 是资本化的欠款，§14.3 只是猜错了哪一项占优。**§14.3 那句预期作废并删掉** |
-| 两者都不占优，或逐格换手 | 不认领任何一种读法，照印分解表 |
+| `term` carries `repricing` and `repricing` carries leg 2 | leg 2 being positive is the construction discounting a lengthened stream at a rate below the coupon, **not the modification making the household worse off**. B8-2's sign still holds, but **this sentence has to travel with every citation** |
+| `balance` carries leg 2 | leg 2 is capitalised arrears, and section 14.3 merely guessed the wrong dominant term. **That expectation in section 14.3 is void and is deleted** |
+| neither dominates, or they trade places cell by cell | claim neither reading and print the decomposition table |
 
-**这一节不裁**：期限效应是机械的还是组分的（§6.6.30.2 已裁，这套数据分不开）。
+**This section does not rule on** whether the term effect is mechanical or
+compositional (section 6.6.30.2 already ruled that this data cannot separate
+them).
 
-## 20.5 置信：自助，不是置换
+## 20.5 Confidence: bootstrap, not permutation
 
-窗口是日历，打乱它不构成任何有意义的零假设。**用自助**：
-格内有放回重抽 999 次，报中位数的 5–95 百分位。
-**符号「立住」的意思是那个区间不跨零。**
+A window is a calendar and shuffling it constitutes no meaningful null.
+**Use the bootstrap**: resample within the cell with replacement 999 times and
+report the 5th to 95th percentile of the median.
+**"The sign holds" means that interval does not cross zero.**
 
-## 20.6 结局到处置：跑之前的预期，可改
+## 20.6 Outcome to disposition: the expectation before the run, changeable
 
-| 结局 | 当下的处置 |
+| outcome | disposition as it stands |
 |---|---|
-| 所有可读格同号且区间不跨零 | **B8-2 成立**，且是配平期限之后的版本 |
-| 同号但某些格的区间跨零 | 成立，但要印哪些格不立住，**不许把它们算进「一致」** |
-| 某个窗口整窗反号 | **B8-2 判不成立并照登**，并按 §6 的判别式读成「一次性重定价」 |
-| leg 2 的中位数处处比 leg 1 小一个数量级以上 | **判据是空的**。B8-2 记为「测到的是 leg 1 的算术」，不记为通过 |
-| 可读格少于两个窗口 | 跨窗比较不存在，照实印 |
+| every readable cell same sign with intervals clear of zero | **B8-2 holds**, in the version that balances term |
+| same sign but some cells' intervals cross zero | it holds, but print which cells do not stand up, **and they may not be counted as "consistent"** |
+| a whole window reverses sign | **B8-2 fails and is recorded as failing**, read under section 6's discriminant as a one-off repricing |
+| leg 2's median is more than an order of magnitude below leg 1's everywhere | **the criterion is vacuous.** B8-2 is recorded as "what was measured is leg 1's arithmetic", not as a pass |
+| fewer than two windows are readable | there is no cross-window comparison; print it as it is |
 
-## 20.7 本节不裁什么
+## 20.7 What this section does not rule on
 
-| 项 | 为什么 |
+| item | why |
 |---|---|
-| 期限效应是机械的还是组分的 | §6.6.30.2 已写：这套数据分不开，不认领 |
-| B8-1 | 判据不同，另跑 |
-| 递延臂的跨窗 | **不存在**，§20.1 |
-| 补下载 | §6.6.30.1 已裁：不补 |
+| whether the term effect is mechanical or compositional | section 6.6.30.2: this data cannot separate them, so no claim |
+| B8-1 | a different criterion, run separately |
+| the deferral leg across windows | **it does not exist**, section 20.1 |
+| downloading more vintages | ruled in section 6.6.30.1: no |
 
 ---
 
-# §21 B8-1 的读图（2026-08-17 写，跑之前）
+# 21. How to read B8-1 (written 2026-08-17, before the run)
 
-载体 `experiments/b8_1_signal.py`，结果件 `results/b8_1_signal.md`。
+Carrier `experiments/b8_1_signal.py`, result file `results/b8_1_signal.md`.
 
-## 21.1 §5 注册的那句话，在 B8-0b 之后剩下什么
+## 21.1 What section 5's registered sentence leaves after B8-0b
 
-§5 注册的是 `√Z/√N > 3`，两张 `q` 网格。这句话之后被两件事动过。
+Section 5 registered `√Z/√N > 3` on both `q` grids. Two things have since moved
+it.
 
-**一、估计量换了**（§18.7）。底臂的 `2·Var` 从 n=100 到全样本爬 2,900 倍且
-最后一步还在爬，两边改用 MAD。**`> 3` 是给标准差之比写的，换了尺度估计量
-它不能靠声明转移过来。**
+**One, the estimator changed** (section 18.7). The floor arm's `2·Var` climbs by
+a factor of 2,900 from n=100 to the full sample and is still climbing at the last
+step, so both sides moved to MAD. **The `> 3` was written for a ratio of standard
+deviations, and changing the scale estimator does not let it carry over by
+declaration.**
 
-**二、也是要紧的那件：底根本不是噪声。** `corr(ω, closed)` 五档 `+1.0000`，
-清洁自愈的环和**就是** `loop_residual_ideal`，一个四标量的确定函数。
-减掉它剩 2.68e-08 到 5.22e-08，也就是半分钱除以余额中位数，
-**是字段 12 的分位取整**。
+**Two, and this is the important one: the floor is not noise at all.**
+`corr(ω, closed)` is `+1.0000` in five vintages, and a clean cure's loop sum
+**is** `loop_residual_ideal`, a deterministic function of four scalars.
+Subtracting it leaves 2.68e-08 to 5.22e-08, which is half a cent over the median
+balance: **the quantile rounding of field 12**.
 
-## 21.2 门槛：裁定
+## 21.2 The threshold: the ruling
 
-`N` 是仪器分辨率，不是抽样噪声。「超出噪声三个 sigma」在没有抽样分布的地方
-不是一个成立的问句。所以：
+`N` is instrument resolution, not sampling noise. "Three sigma above the noise"
+is not a well-formed question where there is no sampling distribution. So:
 
 ```
-操作线 = 1.0        可读性，不是显著性
+operating line = 1.0        readability, not significance
 ```
 
-**低于 1，环和落在字段 12 的一个量化步长以内，读不出来。高于 1，读得出来。**
-§5 的 `3` 按 R01 并排印，标为**继承来的、不是操作数**。
+**Below 1, the loop sum falls inside one quantisation step of field 12 and cannot
+be read. Above 1, it can.** Section 5's `3` is printed alongside under R01,
+labelled **inherited and not operative**.
 
-**这条不值得单独跑一轮去定。** 2019Q1 实测 6,501 / 50,680 / 4,931，
-`>1`、`>3`、`>10`、`>100` 给出同一个结论。**门槛不是 B8-1 的阻塞点，
-把它当阻塞点是把形式当内容。**
+**This is not worth a round of running to settle.** The measured 6,501 / 50,680 /
+4,931 in 2019Q1 give the same conclusion at `>1`, `>3`, `>10` and `>100`.
+**The threshold is not B8-1's blocker, and treating it as one is mistaking form
+for content.**
 
-## 21.3 真正开着的那件：信号里有多少是构造
+## 21.3 The genuinely open item: how much of the signal is construction
 
-底既然是确定性的构造残差，**修改臂带着同一个残差**，而一个离散之比不认识
-这件事。O32 把它记为推断：同量级，故占万分之一，故可忽略。**那是推断不是测量。**
+Since the floor is a deterministic construction residual, **the modification arm
+carries the same residual**, and a ratio of dispersions cannot see that. O32
+records it as inference: same order, therefore one ten-thousandth, therefore
+negligible. **That is inference and not measurement.**
 
-它可以被精确测量，在合同还没动的那一段上。**`t_M` 之前没有任何东西知道
-改约要来**，所以修改臂的 leg 1 与清洁自愈环去掉自愈月之后是同一个对象，
-闭式相同：
+It can be measured exactly, over the stretch where the contract has not yet
+moved. **Nothing before `t_M` knows a modification is coming**, so the
+modification arm's leg 1 and a clean-cure loop with its cure month removed are
+the same object, with the same closed form:
 
 ```
 l1_closed = n1 · ( log B_A − log( B_A·(1 + i/1200) − P ) )
 ```
 
-这条已对着 `loop_residual_ideal` 本身钉过（`k` 个平坦拖欠月加一个自愈月，
-减掉前者必须恰好剩后者，四组数验过），并在夹具上实测 leg 1 与它逐笔相等。
+This has already been pinned against `loop_residual_ideal` itself (`k` flat
+delinquent months plus one cure month, and subtracting the former must leave
+exactly the latter, verified on four sets of numbers), and measured on a fixture
+where leg 1 equals it loan by loan.
 
-## 21.4 结局到处置（跑之前定，可改）
+## 21.4 Outcome to disposition (fixed before the run, changeable)
 
-| 结局 | 处置 |
+| outcome | disposition |
 |---|---|
-| leg 1 逐笔等于闭式，且去掉它之后比值仍远高于 1 | **B8-1 的必要条件成立，且成立的部分正是合同真动了的那一段。** 这是最强的读法 |
-| leg 1 逐笔等于闭式，但去掉它之后比值塌到 1 附近 | **B8-1 之前测的是构造。** 判不成立并照登，头条按 §15.7 留在 B8-3 |
-| leg 1 与闭式不等 | 平坦拖欠假设在真档上不成立（费用、托管、部分还款）。**先解释这个，再谈比值**，登记为待解释读数 |
-| 净比值逐档差一个数量级以上 | 池化不可用，只报逐档 |
+| leg 1 equals the closed form loan by loan, and the ratio stays far above 1 after removing it | **B8-1's necessary condition holds, and the part that holds is exactly the stretch where the contract really moved.** This is the strongest reading |
+| leg 1 equals the closed form, but the ratio collapses toward 1 after removing it | **what B8-1 was measuring was the construction.** It fails and is recorded as failing, and the headline stays with B8-3 per section 15.7 |
+| leg 1 does not equal the closed form | the flat-delinquency assumption does not hold on the real vintages (fees, escrow, partial payments). **Explain that before discussing the ratio**, and register it as a reading awaiting explanation |
+| the net ratio differs by more than an order of magnitude between vintages | pooling is unusable, report per vintage only |
 
-**必要条件成立不等于 B8-1 成立。** B8-1 还要 §3.3 的两张网格（§20.2 已按构造
-settled）和 §6 的窗口（那是 B8-2，另有结果件）。
+**The necessary condition holding is not B8-1 holding.** B8-1 also needs section
+3.3's two grids (settled by construction in section 20.2) and section 6's windows
+(that is B8-2, with its own result file).
 
-## 21.5 本节不裁什么
+## 21.5 What this section does not rule on
 
-| 项 | 为什么 |
+| item | why |
 |---|---|
-| leg 2 / leg 3 里有没有同类的确定性成分 | **没有闭式**，合同在里面动了。本节只减掉有闭式的那部分 |
-| 逐类底 | §15.4 要、§15.3 的 C9 闸着，B8-4 才用 |
-| 递延臂的门槛 | §5 的 B8-1 点名修改三角。递延臂并排印，不进判据 |
-| Theorem 3 的方差分解 | MAD 不是那条定理里的量，§18.7 的保留意见照旧 |
+| whether legs 2 and 3 contain a deterministic component of the same kind | **there is no closed form**; the contract moves inside them. This section subtracts only the part that has one |
+| the per-class floor | section 15.4 needs it, C9 in section 15.3 gates it, and only B8-4 uses it |
+| a threshold for the deferral leg | section 5's B8-1 names the modification triangle. The deferral leg is printed alongside and does not enter the criterion |
+| Theorem 3's variance decomposition | MAD is not a quantity in that theorem; section 18.7's reservation stands |
 
-## 21.6 实测：leg 1 与闭式差的是一个**月数**，不是一个比例（2026-08-17）
+## 21.6 Measured: leg 1 differs from the closed form by **a number of months**, not by a proportion (2026-08-17)
 
-§21.4 第三行触发。逐笔相等的只有 0.4% 到 12%，`closed/leg1` 中位 1.2289 到 1.5668。
-`eff = n1·leg1/closed` 那一列把三种诊断分开了：
+Row three of section 21.4 fired. Only 0.4 to 12 percent are equal loan by loan,
+and the median `closed/leg1` runs 1.2289 to 1.5668. The column
+`eff = n1·leg1/closed` separates the three diagnoses:
 
-| 档 | 中位 `n1` | 中位 `eff` | `n1 − eff` | `eff/n1` |
+| vintage | median `n1` | median `eff` | `n1 − eff` | `eff/n1` |
 |---|---|---|---|---|
 | 2002Q1 | 11 | 6.196 | **4.80** | 0.563 |
 | 2006Q1 | 12 | 7.025 | **4.97** | 0.585 |
@@ -1944,95 +2202,125 @@ settled）和 §6 的窗口（那是 B8-2，另有结果件）。
 | 2017Q1 | 14 | 9.005 | **4.99** | 0.643 |
 | 2019Q1 | 16 | 12.017 | **3.98** | 0.751 |
 
-**差是一个近似常数的整数月数（五档 ≈5，一档 ≈4），不是一个比例。**
-`n1` 从 11 走到 16 而差不动，`eff/n1` 从 0.55 走到 0.75。
-**拖欠期内余额平滑漂移会给出比例，给不出偏移量**，所以那条排除。
+**The difference is an approximately constant integer number of months (about 5
+in five vintages and about 4 in one), not a proportion.** `n1` goes from 11 to 16
+while the difference does not move, and `eff/n1` goes from 0.55 to 0.75.
+**A smooth balance drift during delinquency would give a proportion, not an
+offset**, so that explanation is excluded.
 
-诊断因此是：**leg 1 窗口里有大约五个月不像「错过的月份」**，
-它们贡献接近零而不是 `per_month`。最自然的候选是**那些月份有还款落地**：
-一笔长期落后一期的贷款按字段 40 一直不是 `current`，但它每月照付，
-余额沿计划摊销，于是 `r(t) ≈ 0`。§17 的窗口按 `current` 定义，
-**不按「有没有付款」定义**，两者不是一回事。
+The diagnosis is therefore: **about five months inside each leg 1 window do not
+behave like missed months**, contributing near zero instead of `per_month`. The
+most natural candidate is **that payments land in those months**: a loan that is
+chronically one period behind never reads `current` in field 40 while paying
+every month, so the balance amortises on schedule and `r(t) ≈ 0`. Section 17's
+window is defined by `current`, **not by whether a payment arrived**, and the two
+are not the same thing.
 
-**这不危及 B8-1。** 减掉的闭式比实测 leg 1 大 1.2 到 1.6 倍，
-也就是减掉的比构造残差本身还多，而净比值只动了 −11.5% 到 +2.2%。
-**一个比目标大五成的减法都没能撼动它，构造残差就不可能在扛这个结果。**
+**This does not endanger B8-1.** The closed form being subtracted is 1.2 to 1.6
+times the measured leg 1, so more is being removed than the construction residual
+itself, and the net ratio moves only by −11.5 to +2.2 percent.
+**A subtraction fifty percent larger than its target failed to move it, so the
+construction residual cannot be carrying this result.**
 
-**也不危及 B8-2。** §20.4 的空洞判据是 `|leg2|/|leg1|`，leg 1 若被低估，
-真实比值只会更偏向「不空洞」，方向对 B8-2 有利。
+**Nor does it endanger B8-2.** Section 20.4's vacuity criterion is
+`|leg2|/|leg1|`, and if leg 1 is understated the true ratio only moves further
+from vacuous, which is the favourable direction for B8-2.
 
-**登记为待解释读数，判别式已经写好，一条即可结清**：在每个 leg 1 窗口内数
-`B(t) ≈ B(t−1)`（平坦，无还款）与 `B(t) ≈ f(B(t−1))`（照计划还款）各多少个月，
-**若平坦月数等于 `eff`，这一条结清。** `pay_row` 与 `quiet_pairs` 都已在流水线里，
-不需要新的取数。**本轮不跑**，因为它不改任何已登记的判决。
+**Registered as a reading awaiting explanation, with the discriminant already
+written and one run enough to close it**: inside each leg 1 window, count the
+months with `B(t) ≈ B(t−1)` (flat, no payment) and with `B(t) ≈ f(B(t−1))` (paid
+on schedule). **If the flat count equals `eff`, this closes.** Both `pay_row` and
+`quiet_pairs` are already in the pipeline and no new retrieval is needed. **Not
+run this round**, because it changes no registered verdict.
 
 ---
 
-# §22 B8-5 的读图（2026-08-17 写，跑之前）
 
-载体（待写）`experiments/b8_5_hole.py`，结果件 `results/b8_5_hole.md`。
-**B8-5 不用 `ω`、不用曲线、不用底。** 它是一个计数，对象是可达性，
-`b1_setup.md` 的 `H⁰`/`H¹`，不是 curl。
+# 22. How to read B8-5 (written 2026-08-17, before the run)
 
-## 22.1 先说这套数据能给什么，不能给什么
+Carrier (to be written) `experiments/b8_5_hole.py`, result file
+`results/b8_5_hole.md`.
+**B8-5 uses no `ω`, no curve and no floor.** It is a count, and its object is
+reachability, `b1_setup.md`'s `H⁰` and `H¹`, not curl.
 
-§5 写的是「`delinquent → modified` **从不存在**的借款人比例按类不同」。
-**「比例」与「不存在」不是同一个对象。** 一个改约率 5% 的类，那条边是存在的，
-只是稀有。数据能给的是率，`H⁰`/`H¹` 要的是边的存在性。
+## 22.1 First, what this data can and cannot give
 
-**所以 B8-5 在本站的诚实标签是「准入门槛按类不同」**，
-`H⁰`/`H¹` 的读法需要一条本站不作的额外论证。§15.6 的分支表已经这么写了
-（「读法收缩为准入门槛而非路径依赖」），这里把它前置到判据本身。
+Section 5 says "the share of borrowers for whom `delinquent → modified`
+**never exists**, differing by class".
+**"A share" and "never exists" are not the same object.** In a class with a 5
+percent modification rate the edge exists and is merely rare. What the data gives
+is a rate; what `H⁰` and `H¹` need is the existence of an edge.
 
-**并且它是关联，不是因果**，与 B8-4 同列（§9）：改约是内生的。
-**类范围的底部被构造截断**（GSE 合规贷款不含次贷、大额、FHA、VA），
-截断方向偏向零假设，**离散更难找到而不是更容易**，这一句随每一处引用走。
+**So B8-5's honest label at this station is "an admission threshold that differs
+by class"**, and the `H⁰`/`H¹` reading needs an additional argument this station
+does not make. Section 15.6's branch table already says this ("the reading
+contracts to an admission threshold rather than path dependence"), and this moves
+it forward into the criterion itself.
 
-## 22.2 分母：谁算进了池子
+**And it is association, not causation**, alongside B8-4 (section 9):
+modification is endogenous.
+**The bottom of the class range is truncated by construction** (GSE-conforming
+loans exclude subprime, jumbo, FHA and VA), and the truncation runs toward the
+null, so **dispersion is harder to find and not easier**. That sentence travels
+with every citation.
 
-进池条件是**曾经拖欠**，按字段 40。**两张 `q` 网格在这里给出两个不同的池子**，
-不像 B8-2 那样塌成同一批（§20.2），**所以 B8-6 在 B8-5 上是一次真的检验**：
+## 22.2 The denominator: who enters the pool
 
-| 网格 | 进池 |
+Entry requires having been delinquent, by field 40. **The two `q` grids give two
+different pools here** rather than collapsing to one as in B8-2 (section 20.2),
+**so B8-6 is a real test on B8-5**:
+
+| grid | entry |
 |---|---|
-| 粗（`current` / 非 `current`） | 字段 40 ≥ 1，曾经落后一期 |
-| 细（延滞状态字段自己的划分，§3.3 主网格） | 按该网格的档，逐档分别进池 |
+| coarse (`current` / not `current`) | field 40 ≥ 1, ever a period behind |
+| fine (the delinquency field's own partition, section 3.3's main grid) | by band, each band entering separately |
 
-**两张都跑，都印。** 若两张给出相反的类序，B8-6 在 B8-5 上判不成立并照登。
+**Both run and both are printed.** If they give opposite class orderings, B8-6
+fails on B8-5 and is recorded as failing.
 
-## 22.3 分子与竞争性退出：不许把「没改约」当一件事
+## 22.3 The numerator, and competing exits: "not modified" is not one thing
 
-**分子是改约**：字段 42 或字段 63，与 §17 修改臂的起始同口径。
-**递延（字段 108）按 C10-4 是另一个节点，单独计，不并入。**
+**The numerator is a modification**: field 42 or field 63, on the same definition
+as section 17's modification onset.
+**A deferral (field 108) is a different node per C10-4, counted separately and
+never merged in.**
 
-「从未改约」把完全不同的结局混成一句话，所以**逐个出口分列印**，
-终止原因取字段 44，终止本身按 §16.6 取余额归零：
+"Never modified" merges completely different outcomes into one sentence, so
+**each exit is printed as its own column**, with the termination reason from
+field 44 and termination itself taken as the balance going to zero per section
+16.6:
 
 ```
-改约 | 递延 | 自愈且未再拖欠 | 还清 | 清算（法拍/短售/契约代偿） | 观测截止时仍未了结
+modified | deferred | cured and never delinquent again | paid off | liquidated (foreclosure, short sale, deed in lieu) | still unresolved at the end of observation
 ```
 
-**法拍不是洞，是另一个终点。** 一个借款人走到清算，说明他离开了拖欠节点，
-只是走的不是改约那条边。**把它算进「洞」会把两件相反的事读成同一件。**
+**A foreclosure is not a hole, it is a different endpoint.** A borrower reaching
+liquidation has left the delinquent node; he simply left by an edge other than
+modification. **Counting it as a hole reads two opposite things as one.**
 
-## 22.4 删失：这是唯一能凭空造出结果的东西
+## 22.4 Censoring: this is the only thing that can manufacture a result
 
-**最后一个月才拖欠的贷款，没有时间被改约。** 若某个类的拖欠集中在档期末尾，
-它会看起来有洞，而实际上只是没有随访期。**这是本节唯一能制造假结论的机制。**
+**A loan that first goes delinquent in the last month has had no time to be
+modified.** If a class's delinquencies cluster at the end of the file, it will
+appear to have a hole when it merely has no follow-up. **This is the only
+mechanism in this section that can produce a false conclusion.**
 
-处置：**不定一个随访窗口，而是把比例印成随访期 `H` 的函数**，
-`H ∈ {6, 12, 18, 24, 36}` 个月，进池要求「拖欠起始之后至少还有 `H` 个月观测」，
-被排除的笔数逐格印。
+Disposition: **do not fix a follow-up window; print the share as a function of
+the follow-up period `H`**, with `H ∈ {6, 12, 18, 24, 36}` months, entry
+requiring at least `H` further months of observation after the delinquency onset,
+and the excluded counts printed cell by cell.
 
-**判据挂在类序上，不挂在水平上**：类序在 `H` 上不稳，结论就是删失而不是洞，
-按此照登。**一个只在某一个 `H` 上成立的差异不算数。**
+**The criterion hangs on the class ordering and not on the level**: if the
+ordering is unstable in `H`, the conclusion is censoring rather than a hole and
+is recorded as such. **A difference that holds at only one `H` does not count.**
 
-## 22.4a 判据改了一处：稳定性看两端，不看整个序（2026-08-17，跑完之后）
+## 22.4a One change to the criterion: stability is judged at the two ends, not over the whole ordering (2026-08-17, after the run)
 
-§22.4 写的是「类序在 `H` 上稳定」，实现成**整个序在五个 `H` 上完全一致**。
-**那是错的测试，第一次真跑就暴露了。**
+Section 22.4 said "the class ordering is stable in `H`", and it was implemented as
+**the entire ordering being identical across all five values of `H`**.
+**That is the wrong test, and the first real run exposed it.**
 
-| 层数 | 稳定 / 总数 | 占比 | 该层数下的全排列数 |
+| levels | stable / total | share | permutations at that level count |
 |---|---|---|---|
 | 2 | 78 / 152 | 51.3% | 2 |
 | 3 | 29 / 119 | 24.4% | 6 |
@@ -2040,242 +2328,303 @@ settled）和 §6 的窗口（那是 B8-2，另有结果件）。
 | 9 | 0 / 80 | **0%** | 362,880 |
 | 15 | 0 / 53 | **0%** | 1.31e12 |
 
-**通过率随层数单调塌到零，七层以上 155 个格一个不过。**
-两条机制同向推：`k` 层有 `k!` 种排法而要五次读数落到同一种，这是组合的；
-层越多每层越薄、率越噪，这是统计的。**两条都不是删失，
-而 §22.4 是为了抓删失才写的。**
+**The pass rate collapses monotonically to zero with level count, and above seven
+levels not one of 155 cells passes.** Two mechanisms push the same way: `k`
+levels have `k!` orderings and five readings must land on the same one, which is
+combinatorial; and more levels means thinner levels and noisier rates, which is
+statistical. **Neither is censoring, and section 22.4 was written to catch
+censoring.**
 
-**改成**：`range` 是 `max − min`，所以真正要稳的是**取到最高率的那一层
-和取到最低率的那一层在每个 `H` 上都是同一层**。
-序的中段换手一位，报出去的数一位都不动，旧判据却把它记为不稳。
-两端都要看：底端换手就是「哪一类准入最低」换了人，那是主张的一半。
+**Changed to**: `range` is `max − min`, so what actually has to be stable is
+**that the level taking the highest rate and the level taking the lowest are the
+same levels at every `H`**. A single swap in the middle of the ordering moves not
+one digit of the reported number, while the old criterion recorded it as
+unstable. Both ends matter: a swap at the bottom means "which class has the
+lowest admission" changed hands, and that is half the claim.
 
-**旧读数（整序一致）按 R01 并排留着**，它是已经印出去的数。
-**并且逐格印进入比较的最小层观测数**，让读者自己看得见统计那条机制，
-不必信这条裁定。
+**The old readings (whole-ordering identity) are kept alongside under R01**,
+since they are numbers already published.
+**And the minimum level observation count entering each comparison is printed
+cell by cell**, so a reader can see the statistical mechanism directly rather
+than take this ruling on trust.
 
-**原来那句错在哪，写清楚**：它把「判据难度随层数上升」当成了「数据不稳」。
-一个随分层粗细改变通过率的判据，测的是分层粗细。
+**What the original sentence got wrong, stated plainly**: it mistook "the
+criterion gets harder with more levels" for "the data is unstable". A criterion
+whose pass rate moves with the coarseness of the stratification is measuring the
+coarseness.
 
-## 22.5 分类网格、窗口与地板
+## 22.5 Class grids, windows and the floor
 
-网格取 C9 已经过闸且按 §2.4 挂在借款人身上的那五张：
-`purpose` / `fthb` / `fico_llpa_coarse5` / `dti_complement15` / `fico_llpa9`。
-**C9 在这里不是约束的那道闸**：它数的是三角完成贷款的每格观测数，
-而 B8-5 的池子是全部拖欠贷款，大得多。**另立地板 `MIN_CELL = 20`，按分母算。**
+The grids are the five that clear C9 and hang on the borrower per section 2.4:
+`purpose` / `fthb` / `fico_llpa_coarse5` / `dti_complement15` / `fico_llpa9`.
+**C9 is not the binding gate here**: it counts observations per cell among loans
+that completed a triangle, while B8-5's pool is all delinquent loans and is far
+larger. **A separate floor `MIN_CELL = 20` applies, computed on the
+denominator.**
 
-**逐窗口读，不池化。** §6 的五个窗口是完全不同的改约制度，
-HAMP 与 Flex 与 COVID 混在一起读没有意义。
+**Read per window, never pooled.** Section 6's five windows are entirely
+different modification regimes, and reading HAMP, Flex and COVID together is
+meaningless.
 
-## 22.6 「按类不同」怎么算数
+## 22.6 What "differs by class" counts as
 
-统计量是格内（窗口 × 网格）各类改约率的**极差**。
-零假设用**类标签的格内置换**（B8-3 已用同一形状）：
-类是贴在贷款上的标签，打乱它是一个有意义的零假设，
-而打乱窗口不是（那是日历）。999 次，报 `p`。
+The statistic is the **range** of modification rates across classes within a cell
+(window × grid).
+The null is **a within-cell permutation of the class labels** (B8-3 already uses
+the same shape): a class is a label attached to a loan and shuffling it is a
+meaningful null, whereas shuffling the window is not (that is a calendar). 999
+draws, report `p`.
 
-## 22.7 结局到处置（跑之前定，可改）
+## 22.7 Outcome to disposition (fixed before the run, changeable)
 
-| 结局 | 处置 |
+| outcome | disposition |
 |---|---|
-| 类序在全部 `H` 上稳定，置换 `p < 0.05`，两张 `q` 网格一致 | **B8-5 成立**，标签是「准入门槛按类不同」，不是「边不存在」 |
-| 类序稳定但只有一张 `q` 网格显著 | **网格依赖，照登**，B8-6 在 B8-5 上判不成立 |
-| 类序随 `H` 翻转 | **是删失不是洞**，B8-5 判不成立并照登，理由印在结果件顶部 |
-| 极差显著但清算率的类序与改约率的类序相同 | **两条边一起动**，读成「结局分布按类不同」而非「改约这条边被挡住」，这是更弱的主张 |
-| 某网格的格达不到地板 | 该网格不跑，印出来，不降地板 |
+| the ordering is stable across all `H`, permutation `p < 0.05`, and both `q` grids agree | **B8-5 holds**, labelled "an admission threshold that differs by class" and not "the edge does not exist" |
+| the ordering is stable but only one `q` grid is significant | **grid dependence, recorded as such**, and B8-6 fails on B8-5 |
+| the ordering reverses with `H` | **censoring, not a hole.** B8-5 fails and is recorded as failing, with the reason printed at the top of the result file |
+| the range is significant but the class ordering of liquidation rates matches that of modification rates | **two edges move together**, read as "the outcome distribution differs by class" rather than "the modification edge is blocked", which is a weaker claim |
+| a grid's cells do not reach the floor | that grid does not run, it is printed, and the floor is not lowered |
 
-## 22.8 本节不裁什么
+## 22.8 What this section does not rule on
 
-| 项 | 为什么 |
+| item | why |
 |---|---|
-| `H⁰`/`H¹` 的正式读法 | 要「边不存在」，数据给的是率。§22.1 |
-| 因果 | 改约内生，本条与 B8-4 同为关联（§9） |
-| 服务商为什么这么做 | 本站没有服务商侧的任何变量 |
-| B8-4 | 它要逐类底，另跑 |
+| the formal `H⁰`/`H¹` reading | it needs "the edge does not exist" and the data gives a rate. Section 22.1 |
+| causation | modification is endogenous; like B8-4 this is association (section 9) |
+| why servicers behave this way | this station has no servicer-side variable at all |
+| B8-4 | it needs the per-class floor and runs separately |
 
-## 22.9 实测结果（2026-08-17）
+## 22.9 Measured results (2026-08-17)
 
-554 个格，**端点稳定 132，其中 `p < 0.05` 的 20 个**。旧口径（整序一致）115 和 10，
-并排留着。**判决按 §22.7 是「逐格读，不许池化」。**
+554 cells, **132 endpoint-stable, of which 20 have `p < 0.05`**. Under the old
+definition (whole-ordering identity) the figures are 115 and 10, kept alongside.
+**The verdict, per section 22.7, is "read cell by cell, never pooled".**
 
-### 扛住的是 FICO，方向是一边倒的
+### What carries it is FICO, and the direction is one-sided
 
-二十个显著格里，**FICO 两张网格占 12 个，方向 12/12 一致**：
+Of the twenty significant cells, **the two FICO grids hold 12, and the direction
+is consistent 12 out of 12**:
 
-| | 在准入序底部 | 在顶部 |
+| | at the bottom of the admission ordering | at the top |
 |---|---|---|
-| 计数 | `>=760` 9、`760-779` 2、`>=780` 1 | `<=639` 11、`640-679` 1 |
+| count | `>=760` 9, `760-779` 2, `>=780` 1 | `<=639` 11, `640-679` 1 |
 
-**分数越低，条件于已经拖欠，被改约的比例越高。** 跨六档、三个窗口
-（前危机 / HAMP / COVID）、五个进池档位、两张 FICO 网格，一个反例都没有。
-格内极差从 0.35 到 32 个百分点。
+**The lower the score, conditional on already being delinquent, the higher the
+share modified.** Across six vintages, three windows (pre-crisis, HAMP, COVID),
+five entry bands and two FICO grids, there is not one counterexample. The
+within-cell range runs from 0.35 to 32 percentage points.
 
-**【2026-08-17 审查后的更正，这一句必须跟着「12/12」走】**
-上面那十二个格里，**只有四个坐在 §3.3 注册的进池档位（`d>=1/2/3`）上**，
-其余八个坐在 `d>=4` 与 `d>=6`，而那两级是把 §3.3 合并的 `90+` 桶劈开得来的，
-**不是注册网格**（§22.2 的说明已改）。四个注册格是
-2002Q1 的 `d>=1/2/3` 与 2012Q1 的 `d>=3`，方向仍然 4/4 一致
-（底部全是 `>=760`），**但它们只落在两个世代上，且 2002Q1 那三个是嵌套档位、
-不独立**。所以在注册网格上，这条方向靠的是**两个世代**，不是十二个格。
-**引用时报四格两世代，不报十二格。** 额外档位的读数并排留着，标为额外。
+**[Correction after review, 2026-08-17; this sentence must travel with the
+"12/12"]** Of those twelve cells, **only four sit on the entry bands section 3.3
+registers (`d>=1/2/3`)**; the other eight sit on `d>=4` and `d>=6`, which are
+obtained by splitting section 3.3's merged `90+` bucket and **are not the
+registered grid** (section 22.2's description has been corrected). The four
+registered cells are 2002Q1's `d>=1/2/3` and 2012Q1's `d>=3`, still consistent 4
+out of 4 (with `>=760` at the bottom every time), **but they fall on only two
+vintages, and 2002Q1's three are nested bands and therefore not independent**. So
+on the registered grid this direction rests on **two vintages**, not twelve cells.
+**Cite four cells on two vintages, not twelve cells.** The readings on the extra
+bands are kept alongside and labelled as extra.
 
-**必须跟着这个数走的一句**：这是**条件于已经拖欠**的比例，而进入拖欠这件事
-本身按类不同。高分借款人拖欠之后更可能自己爬出来（自愈在所有格里都占六到九成），
-低分借款人拖欠之后更需要改约。**所以这条测到的是方向，不是机制**，
-§9 已经把 B8-5 标成关联，这里只是把关联的具体形状写出来。
-**不许把它读成「系统偏袒弱者」，也不许读成反面。**
+**A sentence that must travel with this number**: it is a share **conditional on
+already being delinquent**, and entering delinquency at all differs by class.
+High-score borrowers who go delinquent are more likely to climb out on their own
+(self-cure is 60 to 90 percent in every cell) and low-score borrowers who go
+delinquent are more likely to need a modification. **So what this measures is a
+direction and not a mechanism**; section 9 already labels B8-5 as association,
+and this only writes out the association's shape.
+**It may not be read as "the system favours the weak", nor as its opposite.**
 
-### `purpose` 六个格全在 HAMP，方向也一致
+### `purpose`'s six cells are all in HAMP, and the direction is consistent too
 
-代码 `P` 在底、代码 `C` 在顶，2006Q1 与 2007Q1 两批危机世代，极差 1.6 到 8.3 个百分点。
-**这两个代码分别是什么，只有版式文件的依据，按 C0b 不算识别**，
-与 `b8_c9_cells` 对 `purpose` 的 `U` 同样处理：印代码，不认领含义。
+Code `P` at the bottom and code `C` at the top, on the 2006Q1 and 2007Q1 crisis
+vintages, with ranges of 1.6 to 8.3 percentage points.
+**What those two codes are has only a layout document behind it, which does not
+count as identification under C0b**, and they are handled like `purpose`'s `U` in
+`b8_c9_cells`: print the code, claim no meaning.
 
-### 剩下两个是噪声量级
+### The remaining two are at noise scale
 
-`fthb` 一个格，极差 0.2 到 2.4 个百分点；`dti_complement15` 一个格，最小层 29 笔。
-**统计上看得见，实质上什么都不是**，引用时必须带极差。
+One `fthb` cell with a range of 0.2 to 2.4 percentage points, and one
+`dti_complement15` cell whose smallest level has 29 loans.
+**Visible statistically and nothing substantively**, and the range has to be
+quoted with them.
 
-### 一条 R01
+### One R01
 
-换成闭式零假设之后显著格从 21 掉到 20。掉出去的是 2019Q1 `fthb` COVID，
-原来 `p = 0.046`。**两个零假设都是 4000 抽的蒙特卡洛，一个 `p ≈ 0.05` 的格
-在重估之下换边，正是 `p ≈ 0.05` 的含义。** 两次读数都留着。
+Switching to the closed-form null took the significant cells from 21 to 20. What
+dropped out was 2019Q1 `fthb` in COVID, previously at `p = 0.046`. **Both nulls
+are 4,000-draw Monte Carlo, and a cell at `p ≈ 0.05` changing sides under
+re-estimation is what `p ≈ 0.05` means.** Both readings are kept.
 
-### 这一节没有变成 §5 的那句话
+### This section did not become section 5's sentence
 
-§5 问的是「那条边**从不存在**」。测到的是率，而且率最低的那一类是
-**高分借款人**，那不是任何人会预注册的洞。**按 §22.1，标签是准入门槛按类不同，
-不是 `H⁰`/`H¹`。** §15.6 的分支表读这一条时按「准入门槛」那一支走。
+Section 5 asks whether the edge **never exists**. What was measured is a rate,
+and the class with the lowest rate is **high-score borrowers**, which is not a
+hole anyone would have pre-registered. **Per section 22.1 the label is an
+admission threshold that differs by class, not `H⁰`/`H¹`.** Section 15.6's branch
+table reads this entry down the "admission threshold" branch.
 
 ---
 
-# §23 B8-4a 的读图（2026-08-17 写，跑之前）
 
-载体（待写）`experiments/b8_4_class.py`，结果件 `results/b8_4_class.md`。
-**B8-4b 已由 §16.12 的 C9 裁为不跑**（十一张网格 min 0 或 1），
-§15.6 的第二域指向公司信用，§15.3 明写那不是 B8 的失败。**不许重开。**
+# 23. How to read B8-4a (written 2026-08-17, before the run)
 
-## 23.1 被测的是什么，以及 N2 已经写死的上限
+Carrier (to be written) `experiments/b8_4_class.py`, result file
+`results/b8_4_class.md`.
+**B8-4b has already been ruled not to run by C9 in section 16.12** (all eleven
+grids have a minimum of 0 or 1), section 15.6's second domain points to corporate
+credit, and section 15.3 states that this is not a failure of B8. **It may not be
+reopened.**
 
-§15.5 的表：**按逐类环和中位数排出来的类序，跨 §6 的窗口是否稳定。**
-统计量是各窗口对之间 Spearman 相关的均值，零假设是**窗口内**打乱类标签。
+## 23.1 What is being measured, and the ceiling N2 has already fixed
 
-**N2，写在预测里而不是事后发现**：本条**不能**主张某一个特定的类带有
-可与该类自身抽样噪声区分开的特异变差。能主张的只有
-**类指标承载了跨窗口复现的共享结构**。
+Section 15.5's entry: **whether the class ordering by per-class median loop sum
+is stable across section 6's windows.** The statistic is the mean Spearman
+correlation between window pairs, and the null shuffles class labels **within a
+window**.
 
-**关联，不是因果**（§9），改约是内生的。**类范围底部被构造截断**
-（GSE 合规不含次贷、大额、FHA、VA），截断偏向零假设，**离散更难找到**。
-这一句随每一处引用走。
+**N2, written into the prediction rather than discovered afterwards**: this
+criterion **cannot** claim that any particular class carries idiosyncratic
+variation distinguishable from that class's own sampling noise. All it can claim
+is that **the class indicator carries structure that reproduces across windows**.
 
-## 23.2 取数：环缓存，加 B8-1 之后重新认识的底
+**Association, not causation** (section 9); modification is endogenous.
+**The bottom of the class range is truncated by construction** (GSE-conforming
+excludes subprime, jumbo, FHA and VA), and the truncation runs toward the null,
+so **dispersion is harder to find**. That sentence travels with every citation.
 
-环和从 `b8_cache` 取，**不再从核心表重建**。分类标签从 `b8_c9_cells.build_grids`
-取，是 `n_loans` 量级，没有整表扫描可付。
+## 23.2 Retrieval: the loop cache, plus the floor as it is understood after B8-1
 
-**逐类底按 §15.4 是必须的**，一个池化的 `N` 会让薄的类看起来离散，
-那正是 B7 死掉的原因。但底的口径在 B8-0b 与 B8-1 之后变了两次，
-这里一次写清：
+Loop sums come from `b8_cache` and **are not rebuilt from the core table**. Class
+labels come from `b8_c9_cells.build_grids`, which is at the `n_loans` scale, so
+there is no full-table scan to pay for.
+
+**A per-class floor is required by section 15.4**: a pooled `N` would make thin
+classes look dispersed, which is exactly what killed B7. But the floor's
+definition changed twice after B8-0b and B8-1, so it is written out once here:
 
 ```
-N(a) = MAD( ω − closed )   在类 a 的清洁自愈臂上
+N(a) = MAD( ω − closed )   on the clean-cure arm of class a
 ```
 
-**两处更正都必须带上**：一、估计量是 MAD 不是 `2·Var`（§18.7，底臂的方差不收敛）；
-二、`closed` 要减掉，因为清洁自愈的环和**就是** `loop_residual_ideal`，
-是确定函数不是噪声（§21.1），减掉之后剩的是字段 12 的分位取整。
+**Both corrections have to travel with it**: first, the estimator is MAD and not
+`2·Var` (section 18.7; the floor arm's variance does not converge); second,
+`closed` has to be subtracted, because a clean cure's loop sum **is**
+`loop_residual_ideal`, a deterministic function and not noise (section 21.1), and
+what remains after subtracting it is the quantile rounding of field 12.
 
-**底在这里是闸，不是判据**：某一类的中位数落在它自己的底以内，
-那一类**不进类序**，并印出来。判据是序的稳定性。
+**Here the floor is a gate and not the criterion**: if a class's median falls
+inside its own floor, that class **does not enter the ordering** and is printed.
+The criterion is the stability of the ordering.
 
-## 23.3 统计量，与坑 47 的直接后果
+## 23.3 The statistic, and the direct consequence of pit 47
 
-**坑 47 说：一个判据的通过率随分层粗细变化，那它测的是分层粗细。**
-Spearman 正好有这个毛病，而且更硬：
+**Pit 47 says: if a criterion's pass rate moves with the coarseness of the
+stratification, what it measures is the coarseness.** Spearman has exactly this
+problem, and harder:
 
-| 网格 | 层数 | Spearman 在这个层数上是什么 |
+| grid | levels | what Spearman is at that level count |
 |---|---|---|
-| `fthb` | 2 | **只能取 ±1**。两个东西没有序 |
-| `purpose` | 3 | 六个可能值 |
-| `fico_llpa_coarse5` | 5 | 够 |
-| `fico_llpa9` | 9 | 够 |
-| `dti_complement15` | 15 | 够 |
+| `fthb` | 2 | **can only take ±1**. Two things have no ordering |
+| `purpose` | 3 | six possible values |
+| `fico_llpa_coarse5` | 5 | enough |
+| `fico_llpa9` | 9 | enough |
+| `dti_complement15` | 15 | enough |
 
-**裁定：`k >= 3` 才跑，`fthb` 因此不进 B8-4a，理由印在结果件顶部。**
-零假设是同 `k` 下的置换，所以标度问题由零假设吸收；
-**取不到三个值的统计量不是靠零假设能救回来的**。
+**Ruling: run only at `k >= 3`, so `fthb` does not enter B8-4a, with the reason
+printed at the top of the result file.** The null permutes at the same `k`, so
+the scale problem is absorbed by the null; **a statistic that cannot take three
+values is not something a null can rescue.**
 
-**窗口对里两边都要有的类才进这一对**，只在一边出现的类逐对剔除并计数：
-在变动的集合上排序不是排序（§22.4 同一条）。
-§5 原文写「四个窗口」，§6 现在是五个，**跑所有能过地板的窗口，逐格印进了几个**。
+**Only classes present on both sides of a window pair enter that pair**, with
+classes appearing on only one side removed pair by pair and counted: ordering on
+a set that changes is not an ordering (the same rule as section 22.4).
+Section 5's text says "four windows" and section 6 now has five, so **run every
+window that clears the floor and print how many entered, cell by cell**.
 
-## 23.4 §13.4 的世代条件，不是可选的
+## 23.4 Section 13.4's vintage condition is not optional
 
-§13.4 已裁：2002-2007 世代原始利率六到七个百分点，降息是杠杆；
-2012-2019 世代三到四点五，只剩延期。**改约的价值变化按世代分解不同，
-所以类离散必须在世代的利率环境之内估计，否则世代效应会以类效应的面目出现。**
+Section 13.4 already ruled: the 2002-2007 vintages have original rates of six to
+seven percent and a rate cut is the lever; the 2012-2019 vintages have three to
+four and a half and only an extension is left. **The value of a modification
+decomposes differently by vintage, so class dispersion has to be estimated inside
+a vintage's rate environment, or the vintage effect will appear wearing the class
+effect's clothes.**
 
-落地：**逐档（=世代）各自算类序与相关，然后并排印**，
-池化的数另印一行并标成池化。**世代之间的差本身是读数**，不是要被抹掉的东西。
+In practice: **compute the ordering and the correlation per vintage and print
+them side by side**, with the pooled figure on its own row and labelled as
+pooled. **The difference between vintages is itself a reading** and not something
+to be averaged away.
 
-## 23.5 等 `n` 与载荷，两条都不是可选的（§15.5 原文）
+## 23.5 Equal `n` and loadings, neither optional (section 15.5's own text)
 
-- **等 `n`**：把每一类下采样到该格最稀疏那一类的 `n`，重算，两个数都印。
-  **效应只在不等 `n` 下出现，那就是薄度伪影，照此登记。**
-- **印载荷**：哪几类扛着这个序，跟量级并排。
-  `b7_interaction_rank.md` 曾经读了一天半的秩才有人把特征向量印出来。
+- **Equal `n`**: down-sample every class to the `n` of the sparsest class in that
+  cell, recompute, print both numbers.
+  **An effect that appears only at unequal `n` is a thinness artefact and is
+  registered as one.**
+- **Print the loadings**: which classes carry the ordering, alongside the
+  magnitude. `b7_interaction_rank.md` spent a day and a half reading a rank
+  before anyone printed the eigenvectors.
 
-## 23.6 零假设
+## 23.6 The null
 
-**窗口内打乱类标签，在同一个设计上抽**（§15.5 原文）。
-B8-5 学到的两条一并适用：一、零假设必须跑在观测统计量所用的同一批贷款上，
-低于地板或被排除的层里的贷款不许被洗进存活的层；
-二、能用闭式就别模拟，但**闭式必须对着慢路径验过**才许用。
+**Shuffle class labels within a window, drawing on the same design** (section
+15.5's own text). Both lessons from B8-5 apply: first, the null has to run on the
+same set of loans as the observed statistic, and loans in levels below the floor
+or otherwise excluded may not be washed into the surviving levels; second, use a
+closed form rather than simulation where one exists, **but the closed form has to
+be verified against the slow path** before it may be used.
 
-## 23.7 结局到处置（跑之前定，可改）
+## 23.7 Outcome to disposition (fixed before the run, changeable)
 
-| 结局 | 处置 |
+| outcome | disposition |
 |---|---|
-| 平均 Spearman 显著为正，等 `n` 之后仍在，且多数世代同向 | **B8-4a 成立**：类指标承载跨窗口复现的结构。**仍是关联**（§9），且 N2 的上限照旧 |
-| 显著为正，但等 `n` 之后消失 | **薄度伪影，判不成立并照登**。这正是 §15.5 写这条要求的原因 |
-| 显著为正，但只有一个世代扛着 | **世代效应穿了类效应的衣服**（§13.4）。判不成立，印是哪个世代 |
-| 平均 Spearman 不显著 | B8-4a 判不成立并照登。**头条按 §15.7 在 B8-3，本站不因此停** |
-| 某网格过不了 `k >= 3` 或过不了地板 | 该网格不跑，印出来，**不降地板也不降 `k`** |
+| mean Spearman significantly positive, still present at equal `n`, and most vintages in the same direction | **B8-4a holds**: the class indicator carries structure that reproduces across windows. **Still association** (section 9), and N2's ceiling stands |
+| significantly positive, but it disappears at equal `n` | **a thinness artefact; it fails and is recorded as failing.** This is precisely why section 15.5 imposed that requirement |
+| significantly positive, but carried by one vintage alone | **a vintage effect wearing the class effect's clothes** (section 13.4). It fails, and which vintage is printed |
+| mean Spearman not significant | B8-4a fails and is recorded as failing. **The headline is with B8-3 per section 15.7 and the stage does not stop over this** |
+| a grid fails `k >= 3` or fails the floor | that grid does not run and is printed; **neither the floor nor `k` is lowered** |
 
-## 23.8 本节不裁什么
+## 23.8 What this section does not rule on
 
-| 项 | 为什么 |
+| item | why |
 |---|---|
-| 某个特定类有没有自己的特异变差 | **N2，本设计上不可分**，已写进预测 |
-| B8-4b | §16.12 的 C9 已裁不跑 |
-| 因果 | 改约内生，§9 |
-| 服务商为什么这么排 | 本站没有服务商侧变量 |
-| 分档边界该不该是这些 | §16.13 已裁：FICO/LTV 取发行人定价划分，DTI 取 HMDA，那条不对称随引用走 |
+| whether a particular class has its own idiosyncratic variation | **N2: not separable on this design**, and it is written into the prediction |
+| B8-4b | C9 in section 16.12 already ruled it does not run |
+| causation | modification is endogenous, section 9 |
+| why servicers order things this way | this station has no servicer-side variable |
+| whether these band edges are the right ones | ruled in section 16.13: FICO and LTV take the issuer's pricing partition, DTI takes HMDA, and that asymmetry travels with every citation |
 
-## 23.9 实测结果（2026-08-17）
+## 23.9 Measured results (2026-08-17)
 
-22 个可读格，5 个显著为正，其中 **4 个挺过等 `n`**，分布在三个世代。
-但判决按 §23.7 挂在**跨世代符号一致**上，而那一栏只有一张网格过：
+22 readable cells, 5 significantly positive, of which **4 survive equal `n`**,
+spread over three vintages. But the verdict per section 23.7 hangs on **sign
+consistency across vintages**, and only one grid clears that column:
 
-| 网格 | 世代 | 正 | 负 | 零 | 符号检验 `p` |
+| grid | vintages | positive | negative | zero | sign test `p` |
 |---|---|---|---|---|---|
 | `fico_llpa9` | 6 | **6** | 0 | 0 | **0.0312** |
 | `fico_llpa_coarse5` | 6 | 4 | 1 | 1 | 0.3750 |
 | `purpose` | 6 | 4 | 1 | 1 | 0.3750 |
 | `dti_complement15` | 4 | 3 | 1 | 0 | 0.6250 |
 
-**B8-4a 在 `fico_llpa9` 上成立**：rho 逐世代 +0.05 / +0.09 / +0.76 / +0.37 / +0.84 / +0.50，
-六个世代同向，2007Q1、2012Q1、2017Q1 三个单独达到 `p < 0.05` 且都挺过等 `n`。
-**N2 的上限照旧**：主张是类指标承载跨窗口复现的共享结构，
-**从来不是某一个特定的类有自己的变差**。关联，不是因果；类范围底部截断偏向零假设。
+**B8-4a holds on `fico_llpa9`**: rho by vintage is +0.05 / +0.09 / +0.76 / +0.37
+/ +0.84 / +0.50, six vintages in the same direction, with 2007Q1, 2012Q1 and
+2017Q1 each reaching `p < 0.05` on their own and all three surviving equal `n`.
+**N2's ceiling stands**: the claim is that the class indicator carries structure
+reproducing across windows, **never that any particular class has variation of
+its own**. Association, not causation, and the truncated bottom of the class
+range runs toward the null.
 
-### 载荷：序在 FICO 上是单调的（**事后读数，照此标注**）
+### Loadings: the ordering is monotone in FICO (**a post-hoc reading, labelled as one**)
 
-§23 的图问的是「序跨窗口是否复现」，**没有问序是否随分数单调**。
-下面这条是序确立之后从载荷表上读出来的，**是事后的，登记为事后的**：
+Section 23's design asks whether the ordering reproduces across windows. **It does
+not ask whether the ordering is monotone in the score.** What follows was read off
+the loading table after the ordering was established, **and is post-hoc and
+registered as post-hoc**:
 
-| 世代 | Spearman（FICO 档序 vs 平均秩） |
+| vintage | Spearman (FICO band order vs mean rank) |
 |---|---|
 | 2002Q1 | −0.6833 |
 | 2006Q1 | −0.7667 |
@@ -2284,21 +2633,29 @@ B8-5 学到的两条一并适用：一、零假设必须跑在观测统计量所
 | 2017Q1 | −0.9456 |
 | 2019Q1 | −0.8787 |
 
-**六个世代全为负，中位 −0.82，符号检验 `p` = 0.0312。
-分数越低，环和越大。** 2017Q1 那一档在九个档上完全单调，一次换位都没有。
+**All six vintages negative, median −0.82, sign test `p` = 0.0312.
+The lower the score, the larger the loop sum.** In 2017Q1 the ordering is
+perfectly monotone across all nine bands with no transposition at all.
 
-### 与 B8-5 合起来看
+### Read together with B8-5
 
-B8-5 量到：**分数越低，条件于已拖欠，被改约的比例越高**（12/12 同向）。
-B8-4a 量到：**分数越低，改约带来的环和越大**（6/6 同向）。
-**同一个类指标，同一个方向，两个不同的对象**，一个是可达性一个是环和。
-**两条都是关联**，两条都受同一个进池选择的影响（拖欠人群的组成按类不同），
-**所以合起来读也仍然是关联**，不许因为两条对上了就升级成机制。
+B8-5 measured: **the lower the score, conditional on already being delinquent,
+the higher the share modified** (12 of 12 in the same direction).
+B8-4a measured: **the lower the score, the larger the loop sum the modification
+carries** (6 of 6 in the same direction).
+**The same class indicator, the same direction, and two different objects**, one
+reachability and one a loop sum.
+**Both are association**, both are subject to the same entry selection (the
+composition of the delinquent population differs by class), **so read together
+they remain association**, and agreeing with one another does not promote them to
+a mechanism.
 
-### 一条结构性事实的第三次出现
+### The third appearance of one structural fact
 
-`fico_llpa9`（九层）扛住判决而 `fico_llpa_coarse5`（五层，同一个变量）没扛住。
-§16.14 已经记过一次同型的事：`dti_complement15`（十五层）过 C9 而
-`dti_coarse6`（六层）不过，「**层更多的活，层更少的死**」。
-§3.3 在 B7 的秩统计量上是第一次，C9 的纯计数是第二次，**这是第三次，
-在第三种统计量上**。粗化不是保守，是把结构一起磨掉。
+`fico_llpa9` (nine levels) carries the verdict and `fico_llpa_coarse5` (five
+levels, the same variable) does not. Section 16.14 already recorded one of the
+same shape: `dti_complement15` (fifteen levels) clears C9 while `dti_coarse6`
+(six levels) does not, **more levels survive and fewer levels die**.
+Section 3.3 was the first, on B7's rank statistic; C9's pure count was the
+second; **this is the third, on a third kind of statistic**. Coarsening is not
+conservative. It grinds the structure away along with everything else.

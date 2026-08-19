@@ -101,6 +101,9 @@
     }
   },
   "d_rho_c": 0.06913158574454714,
+  "d_rho_c_in_se": 0.6934226187796421,
+  "d_rho_c_over_own_se": false,
+  "d_rho_c_se_note": "se of the difference, sqrt(se_calm^2 + se_stress^2), because the two regimes partition the pairs. Dividing by one end's se understates the spread by about sqrt(2).",
   "days": 404,
   "diagnostic_only": false,
   "funds": {
@@ -930,6 +933,107 @@
       "w": 0.7090487928296306
     }
   },
+  "lambda_drops": {
+    "XLB": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLC": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLE": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLF": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLI": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLK": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLP": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLRE": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLU": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLV": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    },
+    "XLY": {
+      "band": 0,
+      "candidates": 404,
+      "kept": 404,
+      "no_f1": 0,
+      "no_premium_or_nav": 0,
+      "no_vol": 0,
+      "recon_absent": 0
+    }
+  },
   "loo_cells_under_tolerance": 6,
   "loo_largest_same_sign_run": 6,
   "loo_median_abs_cross_share": 0.02318344741682846,
@@ -938,6 +1042,8 @@
   "market_stress_days": 194,
   "market_stress_majority": 6,
   "median_abs_cross_share": 0.023455709856520287,
+  "pairs_for_2se_note": "8 / d^2, a function of the point estimate of the difference. It inherits that estimate's error and diverges as the difference goes to zero, so it is only readable when d_rho_c_over_own_se is true, and then only as an order of magnitude.",
+  "pairs_per_regime_for_2se": 1673.9286757805794,
   "per_fund_rho_c_rises": [
     "XLB",
     "XLC",
@@ -956,6 +1062,7 @@
     "XLY"
   ],
   "rule": "§31.5's four cells, by sign, registered before the run.",
+  "se_d_rho_c": 0.09969617931732912,
   "shift_cells": 22,
   "shift_cells_above_p95": [],
   "shift_median_null_median": 0.03335065992033869,
@@ -963,6 +1070,10 @@
   "shift_verdict": "not_distinguishable",
   "shift_verdict_note": "§33.4 row 1. The cross term is not distinguishable from zero. §31.1's premise stands, §31.6(1)'s tolerance was below the noise floor, and §32.2 and §32.4 are both withdrawn.",
   "stage": "B9 §31 variance decomposition",
+  "trading_days_for_2se": 3347.857351561159,
+  "unreachable_rows": [
+    "§32.5 `artefact_confirmed` needs 17/22 cells under 0.01 while the measured floor is 0.0933; only 6 are"
+  ],
   "v_c_ratio": 2.517834164703575,
   "v_e_ratio": 2.1299856396939867,
   "verdict": "both",

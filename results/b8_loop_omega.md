@@ -108,7 +108,7 @@ Per §14.6 the per-period statistic divides by the **loop's** duration, not the 
 | 2019Q1 | mod | 3,869 | -1.4414e-01 | +1.2814e-01 | +2.4942e-01 | 1.5414e-01 | +7.8444e-03 | 17 |
 | 2019Q1 | defer | 13,949 | +5.9769e-03 | +1.6241e-02 | +4.5834e-02 | 1.6249e-02 | +2.3201e-03 | 7 |
 
-**The legs.** §14.2: the split is bookkeeping and no claim rests on it. Leg 3 is printed twice, because §17.3's `t_M == t_B` shape gives it **no months at all** on much of the sample, and a median over an empty leg is not a measurement of zero (坑 23).
+**The legs.** §14.2: the split is bookkeeping and no claim rests on it. Leg 3 is printed twice, because §17.3's `t_M == t_B` shape gives it **no months at all** on much of the sample, and a median over an empty leg is not a measurement of zero (pit 23).
 
 | archive | arm | leg1 p50 | leg2 p50 | leg3 p50 | leg3 empty | **leg3 where it exists** | its median abs |
 |---|---|---|---|---|---|---|---|

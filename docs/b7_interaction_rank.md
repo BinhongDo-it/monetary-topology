@@ -1939,10 +1939,10 @@ dressed as a measurement. §12.2 was then added **to save the within share from
 that withdrawal**: Theorem 3's quantity contains no 2-cells, so the within share
 is a function of `(Gamma's 1-skeleton, omega)` alone and is invariant under every
 choice of `C2`. **The invariance argument exists to show the within share is
-untouched.** `claude/根本性问题审查_v1.md` read it as showing the within share
-**is** an identity, which is the sign reversed; that document cites it as "B2
-§12.2" while `b2_measurement.md` ends at §11; and that document's own §七 states
-that its §二·4 is a second-hand reconstruction with the originals unread. **This
+untouched.** A review kept outside this repository read it as showing the within share
+**is** an identity, which is the sign reversed; that review cites it as "B2
+§12.2" while `b2_measurement.md` ends at §11; and that review's own section 7 states
+that its section 2.4 is a second-hand reconstruction with the originals unread. **This
 stage picked up the reconstruction, dropped the caveat it carried, and built a
 stronger claim on top of it.** Three steps, each stronger than the last.
 
@@ -1982,7 +1982,7 @@ not carried into another looks like.
 Theorem 3's number carries no increment over an ANOVA, so it should not be cited
 as one. And B2's product gap and B3's slice holonomy are real measurements whose
 problem is **load-bearing**, not identity: whether a competing model predicts the
-same ordering. That is what `根本性问题审查_v1.md` §一 actually establishes, and it
+same ordering. That is what the fundamental review (outside this repository) section 1 actually establishes, and it
 is a serious problem. **Substituting "it is an identity" for "it is not
 load-bearing" makes an unproven conclusion look proven**, and it does so in the
 direction of the speaker's own argument.
@@ -2348,7 +2348,7 @@ labelled class index accounts for, and the number of distinct DTI levels present
 in the median cell.
 
 **This one is not optional and it is why the stage could be uninformative even if
-B7-4 returns a clean number.** `A3-8_作用域诊断_v1.md` §5 is the rule: a treatment
+B7-4 returns a clean number.** the A3-8 scope diagnostic (outside this repository) §5 is the rule: a treatment
 that barely varies on the measured population reads as zero, and the zero carries
 no information about the mechanism. Here the mirror case is live. If DTI levels
 account for a sliver of the within-cell dispersion, then the rank of that sliver
@@ -2954,7 +2954,15 @@ store.
 
 ## 11. B7-16: the cross-fold second moment, run after the stage closed
 
-Pre-registered in the Claude Project as `B7-16_交叉折二阶矩_预注册_v1.md`, **before
+> **Read §11.13 first if you are here for a number.** A code review on 2026-08-16
+> found four defects in `b7_crossfold.py`, one of which made a sentence in §11.5's
+> printout false rather than merely imprecise. **Every figure in §11.5 through
+> §11.12 is from the run before that review.** The corrected figures are in
+> §11.13, the verdict did not move, and the original text is left standing so the
+> two runs can be compared.
+
+
+Pre-registered in the project's document set as B7's design file, section 2, **before
 `experiments/b7_crossfold.py` was written**. Zero downloads: the same 16,035,398
 loans §10 ran on.
 
@@ -3132,7 +3140,7 @@ kept and printed beside the corrected one as `class_slope_by_index_superseded`.
 
 - **`lambda_2` against the null.** One loop. This run drew `lambda_1` only.
 - **The cross-cell autocorrelation arm**, registered in the Project's
-  `B7_收口后的跨臂影响_v1.md` §4 and still unrun. §11.6's ordered residual with no
+  B7's results file, section 3.4, and still unrun. §11.6's ordered residual with no
   candidate explanation is what it is for.
 - **B7-16's construction in B8.** B8-4's "√Z disperses across agent classes" has
   the shape that killed B7-4, and B8's observations per entry are loan-months
@@ -3296,3 +3304,122 @@ was never measured; **not** that the magnitude is large, since all of this is 1.
 of the naive `lambda_1` of 1.4674 and **the withdrawal stands**; and **not** that
 any of it is visible in the nineteen-class design, where all four statistics read
 zero because `>60%`'s diagonal consumes the eigenvector on its own.
+
+### 11.13 Code review, 2026-08-16: four defects, corrected figures, verdict unmoved
+
+Four, ranked by whether they made a document say something false.
+
+**1. "Same data, two estimators" was false.** §11.5's printout and this stage's
+commit message set the naive `lambda_1 = 1.4674` against the cross-fold `0.4207`
+and called it one sample under two estimators. **It is not.** The naive spectrum
+runs on all `4,485,519` entries and `Stilde` on the `2,969,372` holding two or
+more loans, **and the entries left out are exactly the noisiest ones**. The
+per-class ratios, quoted as running from 3.71 to 281, were reading a domain change
+and an estimator change at once.
+
+The run now computes the naive second moment **on the cross-fold's own mask** and
+prints three rows, so the two changes separate:
+
+| | `lambda_1` | `lambda_2` |
+|---|---|---|
+| naive, all 4,485,519 entries | 1.4674 | 0.7544 |
+| naive, the 2,969,372 usable entries | **0.9074** | 0.3662 |
+| cross-fold, the same entries | **0.4055** | 0.0666 |
+
+**Per class the domain factor is nearly constant and the estimator factor is not**,
+which is what makes the second column readable where the old single ratio was not:
+
+| class | naive all | naive same | cross-fold | domain x | **estimator x** |
+|---|---|---|---|---|---|
+| `>60%` | 1.44711 | 0.88111 | 0.39275 | 1.64 | **2.24** |
+| `50%-60%` | 0.74769 | 0.36525 | 0.06444 | 2.05 | 5.67 |
+| `<20%` | 0.26141 | 0.14046 | 0.01710 | 1.86 | 8.21 |
+| `40` | 0.20133 | 0.11806 | 0.00124 | 1.71 | **95.52** |
+| `30%-<36%` | 0.06043 | 0.05260 | 0.00102 | 1.15 | 51.39 |
+
+The domain costs a factor of **1.15 to 2.05**, mostly near 1.7, across all
+nineteen. **Holding it fixed, `>60%`'s diagonal falls by 2.24 while the middle
+classes fall by twenty to ninety-five.** The middle classes' naive diagonal is
+almost all noise and `>60%`'s is almost all signal, and the old form of the
+comparison could not say that.
+
+**2. The balanced arm centred one margin and not the other.**
+`restrict_and_recentre` subtracted class means on the restricted rows and left the
+row means alone. The original centring zeroes the **count-weighted** row mean over
+all nineteen classes; the restricted block asks for the **unweighted** one over
+seventeen, and the difference enters `Stilde` as an all-ones component, **the same
+shape of contamination the function was written to guard against on the other
+margin**. The block is complete by construction, so one pass of each centring is
+exact and no iteration is needed. Measured before and after:
+
+| arm | `1'S1/k` | `v1`'s projection on all-ones |
+|---|---|---|
+| 17-class balanced, before | not printed | **-0.0996** |
+| 17-class balanced, after | **-0.00000** | **-0.0000** |
+| 17-class unbalanced (never had the defect) | +0.00192 | +0.2207 |
+
+**The arm without the defect carries more of the all-ones direction than the arm
+with it**, which is how it was established that the omission had not been inflating
+the reading. It is fixed regardless.
+
+**3. The fold split was systematically unbalanced.** Alternating from a fixed
+start hands every odd entry's extra loan to fold 0 and puts every `n = 1` entry
+entirely in fold 0: `9,355,723` against `6,679,675`. **No bias**, since both folds
+estimate the same additive fit, but fold 1's centring ran on 29% less data, which
+raises `Var(Stilde)` while leaving its mean alone. A per-entry parity offset gives
+`8,017,758` against `8,017,640`.
+
+**4. Two unreachable boundaries** guarded: `draws = 1` divided by zero computing
+the sd's relative error, and a one-class arm would have indexed `vals[1]`.
+
+#### The corrected figures
+
+| | before review | **after** |
+|---|---|---|
+| `lambda_1` | 0.02246 | **0.02293** |
+| off-diagonal share | 35.7% | **36.4%** |
+| `z(lambda_1)` | +10.33 | **+13.32** |
+| `lambda_2` / 2nd-largest diagonal | 0.01649 / 0.00434 | **0.01481 / 0.00358** |
+| `z(lambda_2)` | +18.41 | **+16.04** |
+| `\|tau\|` observed / null | 0.783 / 0.122 ± 0.128 | **0.700 / 0.157 ± 0.077** |
+| **`z(\|tau\|)`** | +5.16 | **+7.06** |
+| `z(corr(v1, m))` / `z(corr(v1, m'))` | +7.15 / +1.94 | **+5.09 / +2.32** |
+| separability `\|corr(m, m')\|` | 0.150 | 0.150 |
+| joint `R^2` | 0.634 | **0.720** |
+| residual tau along DTI | -0.317 | **-0.117** |
+| 19-class control, `z(\|tau\|)` | -0.88 | **-1.17** |
+| 19-class control, `z(lambda_2)` | -5.77 | **+0.98** |
+
+`v1` on the 17-class balanced arm, by the class scale:
+
+    <20% +0.873 | 20-30% +0.128  30-36% +0.047  36 +0.151  37 -0.002  38 +0.033
+                | 39 -0.030  40 -0.007  41 -0.134  42 -0.079  43 -0.087  44 -0.178
+                | 45 -0.213  46 -0.029  47 -0.153  48 -0.092  49 -0.229
+
+**Nothing flipped.** Rank two, a tilt and a bend, monotone in DTI, the profile
+ahead of its slope, the 19-class arm null on every statistic. **The ordering got
+stronger** (`z` +5.16 to +7.06) and **the leftover got smaller**: the joint fit now
+reaches `R^2 = 0.720` and its residual's tau falls from -0.317 to -0.117, so
+§11.11's point that an ordered residual is what a smooth family predicts is
+confirmed in the direction it predicted. **Negative eigenvalues rise from 4 to 8 of
+17**, which is expected: double-centring the block projects out two more
+directions.
+
+**§11.12's magnitude table barely moves.** `m`'s span is unchanged at 0.1807 and
+`<20%`'s local dispersion is still **75%** of it; the next three are 33%, 33% and
+31% rather than 36%, 34% and 18%.
+
+#### The rule this cost, and it is cheaper than the review
+
+Defect 1 is the only one worth a review, and **a reproducer could not have found
+it**: re-running gives the same numbers and leaves the false sentence in place.
+This file's own record agrees. `MEASUREMENT.md` notes that eleven of its instances
+were caught by internal inspection and that failure mode 9 was the one that needed
+a re-run to surface: **twelve to one against reproduction.**
+
+Defects 2, 3 and 4 are the other kind. The answer was right, the code was not
+pretty, and anyone reading it sees them.
+
+> **Before committing a document, find every sentence in it that compares two
+> numbers, and check for each that the two numbers were computed on the same
+> thing. That is minutes, it needs no review, and it is where defect 1 lived.**
