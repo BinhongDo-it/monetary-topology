@@ -1,4 +1,14 @@
-"""B5-14: parallel trends, asked of the control pairs that exist.
+"""B5-14: whether a pre-existing trend can be read off this pre-window at all.
+
+**B5-14 is VOID and there is no band on it. Rewritten 2026-08-21.** What it was
+on 2026-08-11, and why both halves of that were wrong, is in
+``withdrawn_2026_08_21`` in the record and in ``PRE_TREND_SHARE`` below. The
+short form: the threshold had no provenance, so under `D5` the failure it
+produced could never have supported a negative finding; and the shape was
+forbidden by discipline 11, because a criterion may not draw a line across an
+estimator. What replaces both is the object itself, printed, with the one
+property that governs whether anything derived from it may be read.
+
 
 Registered in ``docs/b5_orphan_prereg.md`` §6A, **after retrieval and after B5-8
 ran**. That timing is disclosed at the head of §6A and in §11's changelog, along
@@ -55,12 +65,29 @@ RAW = ROOT / "data" / "raw"
 RESULTS = ROOT / "results" / "b5_parallel_trends.json"
 SQUARES = ROOT / "results" / "b5_squares.json"
 
-#: ``b5_orphan_prereg.md`` §6A.4. A linear trend already present before the
-#: intervention may account for at most a quarter of the change the intervention
-#: is credited with. The ``1/4`` is the factor of four B5-3, B5-6 and B3-3
-#: already use; its value carries no independent meaning, and what it carries is
-#: that one discipline applies wherever a magnitude has to clear something.
-PRE_TREND_SHARE = 0.25
+#: **Withdrawn 2026-08-21. There is no band on this arm and there must not be
+#: one.** It was ``0.25``, justified as "the factor of four B5-3 and B5-6 already
+#: use". Borrowing a numeral is not a provenance: that four is a detection ratio
+#: of a measured magnitude against a measured noise floor, and this one was a
+#: share of an effect a trend may explain. Two different quantities in two
+#: different roles.
+#:
+#: `D5` decides what such a number is worth: every number in a criterion needs a
+#: theoretical source, and one without it is an arbitrary calibration value that
+#: **may not serve as grounds for a negative finding**. The arm's FAIL therefore
+#: never supported the reading that was attached to it.
+#:
+#: The shape was wrong as well as the number. Discipline 11: a criterion is
+#: either structural, about the code, or **a printed number with a reading
+#: declared in advance and no line drawn on it**. The three shares this arm
+#: produced are 0.775, 0.844 and 0.898, so the verdict was a step function of
+#: where the band sat inside a span of 0.12, and outside that span it was
+#: unanimous either way. The band carried the verdict; the data contributed three
+#: numbers that agree with each other.
+#:
+#: The name is kept, unbound, so that a search for it lands here rather than on
+#: nothing.
+PRE_TREND_SHARE = None
 
 #: ``b5_orphan_prereg.md`` §6A.3. Equal-width buckets spanning the rung's window,
 #: **not calendar months**. A 365-day window holds twelve calendar months of
@@ -202,37 +229,72 @@ def collapse_from_b5_8() -> tuple[float, dict]:
     }
 
 
+def has_interior_extremum(values: list[float]) -> dict:
+    """Whether the series turns around inside the window.
+
+    **This is the whole of what decides B5-14, and it contains no constant.**
+    A slope fitted to a sequence summarises it only if the sequence goes one
+    way. Where the maximum or the minimum sits strictly inside the window, the
+    fitted slope is set by where the turn happened rather than by where the
+    series ended, and extrapolating it past the window's edge is not a statement
+    about the series. Reading that off ``argmax`` and ``argmin`` is a fact about
+    the sequence: nothing is chosen, and no threshold can be moved.
+
+    Discipline 11's other half is why it is shaped this way. The arm's job is to
+    put an object in front of the reader; the object is the bucket series, and
+    this function reports the one property of it that governs whether the number
+    underneath may be read at all.
+    """
+    n = len(values)
+    if n < 3:
+        return {"decidable": False, "why": "fewer than three buckets"}
+    hi, lo = max(range(n), key=values.__getitem__), min(
+        range(n), key=values.__getitem__
+    )
+    interior = [
+        ("maximum", hi + 1) for _ in (0,) if 0 < hi < n - 1
+    ] + [("minimum", lo + 1) for _ in (0,) if 0 < lo < n - 1]
+    return {
+        "decidable": not interior,
+        "argmax_bucket": hi + 1,
+        "argmin_bucket": lo + 1,
+        "interior_turns": [f"{what} at bucket {where}" for what, where in interior],
+        "why": (
+            "the series runs one way across the window, so its slope summarises "
+            "it and may be extrapolated"
+            if not interior
+            else "the series turns inside the window, so the fitted slope is set "
+            "by where it turned and not by where it ended; extrapolating it is "
+            "not a statement about the series"
+        ),
+    }
+
+
 def compare(treated: dict, control: dict, control_pair: tuple[str, str],
             collapse: float) -> dict:
-    """One treated-against-control slope difference, with its direction.
+    """One treated-against-control slope difference, printed, not judged.
 
-    §6A.5 fixes both directions in advance. A treated pair already falling
-    **faster** than its control is the damaging case and the band applies to it.
-    A treated pair already diverging cannot manufacture the collapse, only make
-    it harder to produce, so it is reported with magnitude and sign and carries
-    no band.
+    **No band, and no pass or fail.** §6A.5's two directions are still declared
+    in advance and still reported, because the sign is a real property: a treated
+    pair already diverging cannot manufacture the collapse, only make it harder
+    to produce. What is gone is the line that used to be drawn across the share.
     """
     if treated["slope"] is None or control["slope"] is None:
         return {
             "control_pair": pair_key(control_pair),
             "vacuous": True,
             "why": "a rung did not keep enough buckets to fit a slope",
-            "passed": False,
         }
     delta = treated["slope"] - control["slope"]
-    damaging = delta < 0.0
-    share = abs(delta) * HORIZON_BUCKETS / collapse
     return {
         "control_pair": pair_key(control_pair),
         "shares_a_leg_with_treated": shares_a_leg(TREATED_PAIR, control_pair),
         "slope_treated": treated["slope"],
         "slope_control": control["slope"],
         "delta_slope": round(delta, 12),
-        "direction": "damaging" if damaging else "conservative",
-        "share_of_collapse": round(share, 9),
-        "band": PRE_TREND_SHARE,
+        "direction": "damaging" if delta < 0.0 else "conservative",
+        "share_of_collapse": round(abs(delta) * HORIZON_BUCKETS / collapse, 9),
         "vacuous": False,
-        "passed": bool((not damaging) or share <= PRE_TREND_SHARE),
     }
 
 
@@ -251,6 +313,7 @@ def run_rung(classes: dict, dates: list[str], window: tuple[date, date],
     usable = treated["usable"] and all(
         b["usable"] for b in controls.values()
     )
+    shape = has_interior_extremum(treated["rms_per_bucket"])
     return {
         "window": [window[0].isoformat(), window[1].isoformat()],
         "encloses_december_2023_devaluation": bool(
@@ -261,8 +324,9 @@ def run_rung(classes: dict, dates: list[str], window: tuple[date, date],
         "treated": treated,
         "controls": controls,
         "comparisons": comparisons,
+        "linear_reading_available": bool(usable and shape["decidable"]),
+        "shape": shape,
         "vacuous": not usable,
-        "passed": bool(usable and all(c["passed"] for c in comparisons)),
     }
 
 
@@ -299,7 +363,7 @@ def edge_block(classes: dict, dates: list[str], pair: tuple[str, str]) -> dict:
 def b5_15_edge_of_window(classes: dict, dates: list[str]) -> dict:
     """**B5-15.** The edge of the window, with no threshold in either leg.
 
-    Registered in §6B **after B5-14 failed**, and §6B.3 discloses that the
+    Registered in §6B **after B5-14 came back void**, and §6B.3 discloses that the
     quantities below had already been seen when the criterion was written. What
     that disclosure can and cannot excuse is stated there; what is stated here is
     the mechanical half: **neither leg contains a band, a fraction or a cutoff**,
@@ -391,13 +455,46 @@ def main() -> int:
         "intervention": INTERVENTION.isoformat(),
         "post_window": [POST_WINDOW[0].isoformat(), POST_WINDOW[1].isoformat()],
         "horizon_buckets": HORIZON_BUCKETS,
-        "band": PRE_TREND_SHARE,
         "collapse_under_test": round(collapse, 12),
         "collapse_detail": collapse_detail,
         "primary_rung": primary,
         "second_rung": second,
-        "verdict_decided_on": "primary rung; the second is reported alongside",
-        "second_rung_agrees": bool(primary["passed"] == second["passed"]),
+        "read_on": "primary rung; the second is reported alongside",
+        "withdrawn_2026_08_21": {
+            "what": (
+                "the 0.25 band on the share of the collapse, and the FAIL it "
+                "produced. Both rungs and all three comparisons were recorded "
+                "as failing on 2026-08-11: shares 0.775, 0.844, 0.898 on the "
+                "primary rung and 1.561, 1.589, 1.630 on the second."
+            ),
+            "why_the_number_goes": (
+                "D5. Every number in a criterion needs a theoretical source, "
+                "and one without it is an arbitrary calibration value that may "
+                "not serve as grounds for a negative finding. 0.25 was borrowed "
+                "from B5-3's and B5-6's detection ratio of a measured magnitude "
+                "against a measured noise floor, which is a different quantity "
+                "in a different role."
+            ),
+            "why_the_shape_goes": (
+                "Discipline 11. A criterion is either structural or a printed "
+                "number with a reading declared in advance, with no line drawn "
+                "on it. The three shares sit inside a span of 0.12, so the "
+                "verdict was a step function of where the band was placed and "
+                "unanimous on either side of that span."
+            ),
+            "why_it_is_not_a_FAIL": (
+                "Discipline 23, third test: undecidable and decided-against are "
+                "different states and the middle one has to exist. The linear "
+                "slope does not describe a series that turns inside the window, "
+                "so the arm returned no verdict about the world. It was recorded "
+                "as a failure because the design had only two states."
+            ),
+            "original_reading_now_void": (
+                "prereg 6A.6 and 8 said a failure here puts B5-8's collapse in "
+                "the headline as confounded with a pre-existing trend. That "
+                "consequence is withdrawn: under D5 it was never available."
+            ),
+        },
         "does_not_repair_b5_12": (
             "B5-12 is unevaluated for two reasons that live in the post-window "
             "and in retrieval: MEP's and CCL's second treatment in September "
@@ -407,25 +504,41 @@ def main() -> int:
         ),
         "B5-15": edge,
         "why_b5_15_exists": (
-            "B5-14 failed, and its own registered output shows why: the "
-            "pre-window bucket series is not trend-stationary, so a linear "
+            "B5-14 returned no reading, and its own output shows why: the "
+            "pre-window bucket series turns inside the window, so a linear "
             "extrapolation does not describe it. B5-15 asks the surviving "
             "question at the edge of the window instead, where no extrapolation "
-            "is needed. Written after that failure and after its quantities were "
-            "seen; prereg 6B.3 is the disclosure, and neither of its legs "
-            "contains a threshold that could have been moved."
+            "is needed. Written after that and after its quantities were seen; "
+            "prereg 6B.3 is the disclosure, and neither of its legs contains a "
+            "threshold that could have been moved."
         ),
-        "b5_14_verdict_not_revised": (
-            "B5-15 does not convert B5-14 from failed to passed and does not "
-            "remove prereg 8's consequence for B5-8 (prereg 6B.3)."
+        "b5_15_does_not_stand_in_for_b5_14": (
+            "B5-15 is a statement about the edge of the window. It does not "
+            "supply the pre-trend reading B5-14 could not produce, and it does "
+            "not reach B5-12 (prereg 6A.7, 6B.3)."
         ),
         "criteria": [
             {
                 "name": (
-                    "B5-14 no pre-existing trend explains B5-8's collapse"
+                    "B5-14 whether a pre-existing trend can be read off this "
+                    "pre-window at all"
                 ),
                 "detail": _detail(primary, collapse),
-                "passed": primary["passed"],
+                # `void` is this repository's third state and `run_all.py`
+                # already honours it: a criterion the run could not evaluate is
+                # not a criterion the run failed, so it leaves both the numerator
+                # and the denominator. `passed` stays a bool so the field keeps
+                # one type (discipline 22); `void` is what carries the meaning.
+                "void": True,
+                "passed": False,
+                "why_void": (
+                    "the treated series turns inside the window, at bucket "
+                    f"{primary['shape'].get('argmax_bucket')} and bucket "
+                    f"{primary['shape'].get('argmin_bucket')} of "
+                    f"{primary['treated']['nominal_buckets']}, so the fitted "
+                    "slope is set by where it turned rather than by where it "
+                    "ended and cannot be extrapolated past the edge"
+                ),
             },
             {
                 "name": (
@@ -436,7 +549,13 @@ def main() -> int:
                 "passed": edge["passed"],
             },
         ],
-        "verdicts": {"B5-14": primary["passed"], "B5-15": edge["passed"]},
+        "verdicts": {"B5-15": edge["passed"]},
+        "undecided": {
+            "B5-14": (
+                "no reading available on this pre-window; see criteria[0]"
+                ".why_void and withdrawn_2026_08_21"
+            )
+        },
     }
 
     RESULTS.parent.mkdir(parents=True, exist_ok=True)
@@ -451,16 +570,17 @@ def main() -> int:
 def _detail(rung: dict, collapse: float) -> str:
     if rung["vacuous"]:
         return "vacuous: a rung did not keep enough buckets to fit a slope"
-    parts = []
-    for c in rung["comparisons"]:
-        parts.append(
-            f"{c['control_pair']} {c['direction'][:4]} "
-            f"{c['share_of_collapse']:.3f}"
-        )
+    series = ", ".join(f"{v:.3f}" for v in rung["treated"]["rms_per_bucket"])
+    parts = "; ".join(
+        f"{c['control_pair']} {c['direction'][:4]} {c['share_of_collapse']:.3f}"
+        for c in rung["comparisons"]
+    )
+    turns = " and ".join(rung["shape"]["interior_turns"]) or "none"
     return (
-        f"collapse under test {collapse:.4f}; "
-        + "; ".join(parts)
-        + f"; band {PRE_TREND_SHARE}"
+        f"VOID, no linear reading: treated series turns inside the window "
+        f"({turns}). Series {series}. Slope {rung['treated']['slope']:+.6f} "
+        f"per bucket, shares of a {collapse:.4f} collapse {parts}. "
+        f"No band on this arm (D5, discipline 11)."
     )
 
 
@@ -479,13 +599,13 @@ def _edge_detail(edge: dict) -> str:
 
 
 def report(record: dict) -> None:
-    print("B5-14: parallel trends, on the control pairs that exist\n")
+    print("B5-14: can a pre-existing trend be read off this pre-window at all\n")
     print(f"  collapse under test  {record['collapse_under_test']:.6f}"
           f"  ({record['collapse_detail']['rms_pre']:.4f} pre"
           f" -> {record['collapse_detail']['rms_post']:.4f} post,"
           f" read from B5-8)")
-    print(f"  band                 {record['band']}"
-          f"   over {record['horizon_buckets']} buckets\n")
+    print(f"  no band on this arm     withdrawn 2026-08-21 (D5, "
+          f"discipline 11); horizon {record['horizon_buckets']} buckets\n")
 
     for label, key in (("PRIMARY", "primary_rung"), ("SECOND ", "second_rung")):
         rung = record[key]
@@ -495,6 +615,25 @@ def report(record: dict) -> None:
               f", {rung['treated']['nominal_buckets']} buckets{flag}")
         if rung["vacuous"]:
             print("      VACUOUS: not enough buckets survived the date filter")
+
+        # Discipline 11 and 13's step 2: put the object in front of the reader
+        # before anything derived from it. The series is what showed the turn;
+        # the slope underneath it is what could not survive the turn.
+        print("      treated series, rms per bucket:")
+        values = rung["treated"]["rms_per_bucket"]
+        for start in range(0, len(values), 12):
+            row = values[start:start + 12]
+            print("        " + " ".join(f"{v:6.3f}" for v in row))
+        shape = rung["shape"]
+        if shape["decidable"]:
+            print("      shape: runs one way across the window, "
+                  "so the slope summarises it")
+        else:
+            print("      shape: " + ", ".join(shape["interior_turns"])
+                  + f"  of {rung['treated']['nominal_buckets']}")
+            print("             the fitted slope is set by where it turned, "
+                  "not by where it ended")
+
         slope = rung["treated"]["slope"]
         if slope is not None:
             print(f"      treated {rung['treated_pair']}: "
@@ -504,22 +643,23 @@ def report(record: dict) -> None:
             if c.get("vacuous"):
                 print(f"      {c['control_pair']:16s}  VACUOUS")
                 continue
-            mark = "ok " if c["passed"] else "NO "
             leg = " (shares a leg)" if c["shares_a_leg_with_treated"] else ""
-            print(f"      {mark}{c['control_pair']:16s} "
+            print(f"      {c['control_pair']:16s} "
                   f"slope {c['slope_control']:+.6f}, "
                   f"delta {c['delta_slope']:+.6f}, "
                   f"{c['direction']}, share {c['share_of_collapse']:.4f}{leg}")
-        print(f"      rung verdict: {'PASS' if rung['passed'] else 'FAIL'}\n")
+        verdict = ("a linear reading is available"
+                   if rung["linear_reading_available"]
+                   else "NO LINEAR READING")
+        print(f"      rung: {verdict}\n")
 
-    print(f"  B5-14 verdict (decided on the primary rung): "
-          f"{'PASS' if record['verdicts']['B5-14'] else 'FAIL'}")
-    if not record["second_rung_agrees"]:
-        print("  NOTE: the second rung disagrees with the primary; both are "
-              "reported, and neither was chosen after the fact")
+    print("  B5-14: VOID. The arm returns no verdict about the world, which is")
+    print("         a different state from deciding against B5-8. The shares")
+    print("         above are printed because they are what the arm produced,")
+    print("         and they are not compared to anything (D5, discipline 11).")
 
     edge = record["B5-15"]
-    print("\n  B5-15: the edge of the window, written AFTER B5-14 failed")
+    print("\n  B5-15: the edge of the window, written AFTER B5-14 came back void")
     print("         and after its quantities were seen (prereg 6B.3).")
     print("         Neither leg contains a threshold.\n")
     if edge["vacuous"]:
@@ -542,8 +682,8 @@ def report(record: dict) -> None:
     print(f"\n      B5-15 verdict: "
           f"{'PASS' if record['verdicts']['B5-15'] else 'FAIL'}")
 
-    print("\n  B5-14's verdict is not revised by B5-15, and neither reaches "
-          "B5-12.")
+    print("\n  B5-15 does not supply the reading B5-14 could not produce, and "
+          "neither reaches B5-12.")
     print(f"  wrote {RESULTS.relative_to(ROOT)}")
 
 

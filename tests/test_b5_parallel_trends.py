@@ -18,6 +18,7 @@ copy in `b5_squares.py` is now an alias, and this test says so out loud.
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 from datetime import date
 from pathlib import Path
@@ -85,9 +86,27 @@ def test_the_two_windows_are_the_same_length_so_the_horizon_is_twelve_buckets(pt
     assert pt.N_BUCKETS_LONG == 24
 
 
-def test_the_band_is_the_factor_this_stage_already_uses(pt):
-    """§6A.4. One discipline wherever a magnitude has to clear something."""
-    assert pt.PRE_TREND_SHARE == 0.25
+def test_there_is_no_band_on_this_arm(pt):
+    """**The test that replaced the one pinning `0.25`.** Prereg §6A 作废栏.
+
+    The band was withdrawn on 2026-08-21 for two independent reasons. `D5`: it
+    had no theoretical source, being the factor of four B5-3 and B5-6 use for a
+    detection ratio, which is a different quantity in a different role, and an
+    arbitrary calibration value may not ground a negative finding. Discipline
+    11: a criterion may not draw a line across an estimator, and with the three
+    shares inside a span of 0.12 the verdict was a step function of where the
+    line sat.
+
+    **Restoring a number here is how the defect comes back**, so the name is
+    kept unbound and this test refuses to let it be bound again.
+    """
+    assert pt.PRE_TREND_SHARE is None
+    source = (ROOT / "experiments" / "b5_parallel_trends.py").read_text(
+        encoding="utf-8"
+    )
+    body = source.split("def compare(")[1].split("\ndef ")[0]
+    assert "PRE_TREND_SHARE" not in body
+    assert "passed" not in body
 
 
 # ---------------------------------------------------------------------- the slope
@@ -197,34 +216,76 @@ def test_a_treated_pair_already_falling_faster_is_the_damaging_direction(pt):
     assert out["delta_slope"] < 0.0
 
 
-def test_a_treated_pair_diverging_carries_no_band_and_passes(pt):
-    """§6A.5. A trend running away from the result cannot manufacture it.
+def test_a_treated_pair_diverging_is_the_conservative_direction(pt):
+    """§6A.5. The sign survives the band's withdrawal because it is a property.
 
-    The share is still reported, and it is large here on purpose: a conservative
-    direction passes **whatever its magnitude**, and that is registered rather
-    than discovered.
+    A trend running away from the result cannot manufacture the result, only
+    make it harder to produce. That is still worth reporting, and it is still
+    reported, with no verdict attached to it.
     """
     treated, control = _rung(+0.90, -0.01)
     out = pt.compare(treated, control, ("mep", "ccl"), collapse=1.0)
     assert out["direction"] == "conservative"
-    assert out["share_of_collapse"] > pt.PRE_TREND_SHARE
-    assert out["passed"] is True
+    assert out["share_of_collapse"] > 0.0
+    assert "passed" not in out
 
 
-def test_the_damaging_band_is_applied_to_the_share_not_to_the_slope(pt):
-    """The quantity tested is the share of the collapse, over the horizon."""
-    collapse = 1.0
-    inside = 0.9 * pt.PRE_TREND_SHARE * collapse / pt.HORIZON_BUCKETS
-    outside = 1.1 * pt.PRE_TREND_SHARE * collapse / pt.HORIZON_BUCKETS
-    assert pt.compare(*_rung(-inside, 0.0), ("mep", "ccl"), collapse)["passed"]
-    assert not pt.compare(*_rung(-outside, 0.0), ("mep", "ccl"), collapse)["passed"]
+def test_the_share_is_printed_and_compared_to_nothing(pt):
+    """Discipline 11: a printed number with a reading, and no line across it.
+
+    A share ten times any plausible band and one a hundredth of it come back the
+    same shape, because neither is being judged. If a `passed` key ever reappears
+    here, a line has been drawn again.
+    """
+    for slope in (-1e-4, -10.0):
+        out = pt.compare(*_rung(slope, 0.0), ("mep", "ccl"), collapse=1.0)
+        assert "passed" not in out
+        assert set(out) >= {"delta_slope", "direction", "share_of_collapse"}
 
 
-def test_a_comparison_without_a_slope_is_vacuous_and_fails(pt):
-    """Not a pass by default, and not a zero."""
+def test_a_comparison_without_a_slope_is_vacuous(pt):
+    """Not a pass by default, not a fail by default, and not a zero."""
     out = pt.compare({"slope": None}, {"slope": 0.0}, ("mep", "ccl"), 1.0)
     assert out["vacuous"] is True
-    assert out["passed"] is False
+    assert "passed" not in out
+
+
+# --------------------------------------------- what actually decides B5-14 now
+
+
+def test_an_interior_turn_is_what_voids_the_arm_and_it_has_no_constant(pt):
+    """The shape test, and the reason it is shaped this way.
+
+    A slope summarises a sequence only if the sequence goes one way. Where the
+    maximum or minimum sits strictly inside the window, the slope is set by
+    where the turn happened rather than by where the series ended. Read off
+    ``argmax`` and ``argmin``, so **nothing is chosen and no threshold can be
+    moved**, which is the whole point after §6A 作废栏.
+    """
+    rising = pt.has_interior_extremum([0.1, 0.2, 0.3, 0.4])
+    assert rising["decidable"] is True
+    assert rising["interior_turns"] == []
+
+    falling = pt.has_interior_extremum([0.4, 0.3, 0.2, 0.1])
+    assert falling["decidable"] is True
+
+    hump = pt.has_interior_extremum([0.3, 0.8, 0.2, 0.4])
+    assert hump["decidable"] is False
+    assert hump["interior_turns"] == ["maximum at bucket 2", "minimum at bucket 3"]
+
+
+def test_the_real_pre_window_is_void_and_the_record_says_so(pt):
+    """The registered run. B5-14 is void, and it is not in the pass count."""
+    record = json.loads(
+        (ROOT / "results" / "b5_parallel_trends.json").read_text(encoding="utf-8")
+    )
+    assert record["primary_rung"]["linear_reading_available"] is False
+    assert record["second_rung"]["linear_reading_available"] is False
+    assert "B5-14" not in record["verdicts"]
+    assert "B5-14" in record["undecided"]
+    b5_14 = next(c for c in record["criteria"] if c["name"].startswith("B5-14"))
+    assert b5_14["void"] is True
+    assert "band" not in record
 
 
 # ------------------------------------------------------------------ B5-15, §6B
@@ -246,7 +307,8 @@ def _edge(last_pre, post, ratio=None):
 def test_b5_15_is_a_strict_comparison_with_no_threshold(pt):
     """**The test that carries §6B.3's disclosure.**
 
-    B5-15 was written after B5-14 failed and after its quantities had been seen.
+    B5-15 was written after B5-14 came back void and after its quantities had
+    been seen.
     The whole defence is that neither leg contains a band, a fraction or a
     cutoff, so no parameter existed that could have been slid to turn a failure
     into a pass. A tie must therefore fail: a strict ``>`` has no room in it,

@@ -824,6 +824,44 @@ here with the rest.
 
 ## 6A. B5-14, registered after retrieval, and what was known when it was written
 
+> ## 作废栏 / VOID, 2026-08-21
+>
+> **What is withdrawn**: §6A.4's band of `1/4`, the FAIL it produced on
+> 2026-08-11, and §6A.6's consequence that a failure here puts B5-8's collapse
+> into the headline as confounded with a pre-existing trend. §8's row for B5-14
+> carries the same mark.
+>
+> **What withdrew it**: `D5`, and discipline 11. Every number in a criterion
+> needs a theoretical source; one without it is an arbitrary calibration value
+> and **may not serve as grounds for a negative finding**. The `1/4` was borrowed
+> from B5-3's and B5-6's detection ratio, which is a measured magnitude against a
+> measured noise floor, a different quantity in a different role. Borrowing a
+> numeral is not a provenance, so the consequence in §6A.6 was never available.
+>
+> **And the shape was wrong independently of the number.** Discipline 11: a
+> criterion is either structural or a printed number with a reading declared in
+> advance, **with no line drawn on it**. The three shares are `0.775`, `0.844`,
+> `0.898`, so the verdict was a step function of where the band sat inside a span
+> of `0.12`, unanimous on either side of it. The band carried the verdict.
+>
+> **The verdict is now VOID, not FAIL.** Discipline 23's third test: undecidable
+> and decided-against are different states and the middle one has to exist. The
+> treated series turns inside the window, at bucket 3 and bucket 8 of 12, so the
+> fitted slope is set by where it turned rather than by where it ended. An
+> estimator that does not describe the object returns no verdict about the
+> object. It was recorded as a failure because the design had only two states.
+>
+> **What the arm is now**: the bucket series printed, with the one property that
+> decides whether anything derived from it may be read, namely whether the series
+> runs one way across the window. That test contains no constant. The slopes and
+> the shares are still printed, and they are compared to nothing.
+>
+> **The text below is left as it was written.** `D17`'s second half: rules are
+> edited in place, but conclusions, readings and run records are archived with a
+> pointer, because they are evidence and evidence has to be reconstructable.
+> §6B is unaffected except that "after B5-14 failed" now reads "after B5-14 came
+> back void"; B5-15 never had a threshold and is untouched.
+
 **This section is separated from §6 because its timing is different and a reader
 must be able to see that at a glance.** Everything in §6 was fixed before any
 Argentine series was on disk. B5-14 was written after retrieval, after the P2P
@@ -895,7 +933,13 @@ other**, which makes this criterion **easier** to pass. That is the direction
 unfavourable to the claim. `mep–ccl` shares no leg with the treated pair and is
 the cleanest of the three; it is also the flattest in B5-8, at `0.999`.
 
-### 6A.4 The band
+### 6A.4 The band　**（VOID 2026-08-21, see §6A's 作废栏. Text kept as written.）**
+
+**This section no longer describes the arm.** The paragraph beginning "The `1/4`
+is the factor of four this stage already uses" is the exact move `D5` forbids:
+it offers a numeral's history in another role in place of a source for this one.
+It is left standing because it is the record of what was registered, and because
+the argument it makes is worth being able to recognise again.
 
 ```
         | slope_treated − slope_control | × H
@@ -940,10 +984,21 @@ reads the calibration arm rather than recomputing it.
 **If B5-14 fails**, B5-8's collapse ratio is reported as **confounded with a
 pre-existing trend**, in the headline and not in a footnote. It is not repaired.
 
+> **VOID 2026-08-21.** The paragraph directly above is withdrawn and nothing
+> replaces it. Under `D5` a criterion resting on an arbitrary calibration value
+> may not ground a negative finding, so this consequence was not available even
+> on the day it was written, and B5-8's headline never carried it. **The gate in
+> the paragraph above the void, that the arm refuses to start without B5-8, is
+> unaffected and still runs.** What the arm now returns when it cannot read the
+> window is `void`, which the runner already excludes from both the numerator and
+> the denominator of a stage's criteria count: a criterion the run could not
+> evaluate is not a criterion the run failed.
+
 ### 6A.7 What B5-14 does and does not settle
 
 It bears on **B5-8**: it removes, or fails to remove, one named alternative
-reading of B5-8's collapse.
+reading of B5-8's collapse. **On this pre-window it does neither**, and the
+reason is in §6A's 作废栏.
 
 **It does not by itself repair B5-12.** B5-12 is unevaluated for two reasons that
 live in the post-window and in retrieval: MEP's and CCL's second treatment in
@@ -955,12 +1010,19 @@ result would then be one of its inputs rather than a substitute for it.
 
 ---
 
-## 6B. B5-15, written after B5-14 failed, and the disclosure that goes with it
+## 6B. B5-15, written after B5-14 came back void, and the disclosure that goes with it
 
-**B5-14 failed.** On the primary rung all three comparisons are in the damaging
-direction and the linear pre-trend, extrapolated across the post-window, accounts
-for 0.77 to 0.90 of the collapse against a band of 0.25. The second rung fails
-harder. `results/b5_parallel_trends.json` carries the numbers.
+**B5-14 returns no reading.** On the primary rung the linear pre-trend
+extrapolated across the post-window would account for 0.77 to 0.90 of the
+collapse, and on 2026-08-11 that was compared to a band of 0.25 and recorded as a
+failure. **Both the band and the failure were withdrawn on 2026-08-21**; §6A's
+作废栏 gives the two reasons, `D5` and discipline 11.
+`results/b5_parallel_trends.json` carries the numbers and the withdrawal.
+
+**Nothing in §6B depends on which of those two it was.** B5-15 exists because
+B5-14 produced no usable reading of the pre-window, and that is true under either
+description. The paragraphs below were written when the word for it was "failed";
+the substance is unchanged.
 
 **And the registered output says why.** §6A.3 required the bucket series to be
 written into the record, and it is not trend-stationary:
@@ -978,8 +1040,11 @@ extrapolating that line is not a description of anything. So B5-14 conflated two
 questions, *were the pairs already converging* and *does a linear trend describe
 this pre-window*, and what it detected is the second.
 
-**B5-14's verdict stands and is not revised.** Reading which of the two failed is
-reading the output; it is not a repair, and §8's row for B5-14 is unchanged.
+**Reading which of the two it detected is reading the output, not repairing it.**
+That much was right on 2026-08-11. What was wrong was calling the outcome a
+failure: an estimator that does not describe the object returns no verdict about
+the object, and discipline 23 requires the middle state to exist. §8's row for
+B5-14 now carries the same VOID mark.
 
 ### 6B.1 What B5-15 asks, and why it needs no threshold
 
@@ -1085,7 +1150,7 @@ Nothing in this table may be changed after retrieval. Changes are recorded in
 | **DiD control pair** | `P2P` against `blue` | B5-12. A class pair, not another country; see B5-12 for why the outcome is undefined abroad |
 | **robustness ladder** | `±365` primary, `±180`, `±90`, all three reported | B5-12, fixed before any estimate exists |
 | **parallel-trends band** | slope difference indistinguishable from zero over the eight pre-quarters | B5-13; failing it makes B5-12 uninterpretable |
-| **pre-trend share** | `|Δslope| · H / (rms_pre − rms_post)_treated ≤ 1/4`, damaging direction only | B5-14, §6A.4. Registered after retrieval, before any slope was computed |
+| ~~**pre-trend share** `|Δslope| · H / (rms_pre − rms_post)_treated ≤ 1/4`~~ | **WITHDRAWN 2026-08-21**: no theoretical source, so `D5` bars it from grounding a negative finding, and discipline 11 bars the shape. **There is no band on B5-14.** The slopes and shares are printed and compared to nothing | B5-14, §6A 作废栏 |
 | **pre-trend buckets** | calendar month; primary rung `PRE_WINDOW` (12 buckets), second rung the eight pre-quarters (24 buckets), **both reported** | B5-14, §6A.3. The eight-quarter rung encloses the December 2023 devaluation and is the second rung for that reason |
 | **pre-trend comparisons** | `oficial–informal` against each of `informal–mep`, `informal–ccl`, `mep–ccl`; no group mean | B5-14, §6A.3 |
 | **edge-of-window legs** | **no threshold in either leg.** (a) `last_pre(treated) > max(post buckets, treated)`; (b) `ratio(treated) > ratio(c)` for all three controls | B5-15, §6B.1. Written after B5-14 failed and after I had seen the quantities; §6B.3 is the disclosure |
@@ -1123,7 +1188,7 @@ date set it was computed on.**
 | **B5-9 fails**: the control class collapses too | something moved every rate at once. B5-8's arithmetic may still pass, but its causal reading does not, and the causal reading is the point |
 | **B5-11 fails** | B5-8 is uninterpretable on this carrier, whatever it returns |
 | **B5-13 fails**: the two pairs were already diverging before the intervention | B5-12 is not identified and is reported as uninterpretable. The stage falls back to B5-8 and B5-9 as separate before-after statements and says so in the headline |
-| **B5-14 fails**: the treated pair was already converging faster than a control before the intervention | B5-8's collapse ratio is reported as **confounded with a pre-existing trend**, in the headline and not in a footnote, and it is not repaired. §6A.6. **This is what happened**; §6B opens with the numbers |
+| ~~**B5-14 fails**: the treated pair was already converging faster than a control~~ | **ROW WITHDRAWN 2026-08-21**, §6A 作废栏. The consequence rested on a band with no theoretical source, which `D5` bars from grounding a negative finding. **B5-14 came back VOID**: the treated series turns inside the window, so the fitted slope describes nothing that can be extrapolated, and the arm returns no verdict about the world. B5-8's headline does not carry a pre-trend caveat from this arm |
 | **B5-15 leg (a) fails**: the premium was already inside its post-intervention range before the intervention | B5-8's collapse is a window artefact. The strongest single result against this stage, reported as such. §6B.4 |
 | **B5-15 leg (b) fails** while leg (a) holds | the treated pair's edge behaviour is not distinguishable from a control's; B5-15 passes neither leg's claim and the split is stated. §6B.4 |
 | **the P2P leg is never retrieved** | **B5-12 does not run**, and MEP and CCL may not stand in for it. See §8.1 for why they may serve B5-8 and not B5-12, which is a distinction this document had to make after B5-8 was rewritten |
@@ -1410,6 +1475,60 @@ both directions and both window rungs are fixed in §6A before the run.
 misreading most available to a later reader: B5-14 bears on B5-8 and **does not
 by itself repair B5-12**, whose two obstacles both live in the post-window and in
 retrieval.
+
+### 2026-08-21. B5-14's band is withdrawn and its verdict becomes VOID
+
+**A registered threshold is removed after the fact, which is the entry that
+deserves the most suspicion in this document, so here is the whole of it.**
+
+**What was registered**: §6A.4's band, `share ≤ 1/4`, damaging direction only.
+**What it produced on 2026-08-11**: three shares of `0.775`, `0.844`, `0.898` on
+the primary rung and `1.561`, `1.589`, `1.630` on the second, recorded as a FAIL
+with the consequence in §6A.6 that B5-8's collapse enters the headline as
+confounded with a pre-existing trend.
+
+**Two independent reasons, either of which is sufficient.**
+
+`D5`: every number in a criterion needs a theoretical source, and one without it
+is an arbitrary calibration value that **may not serve as grounds for a negative
+finding**. The `1/4` was justified in §6A.4 as the factor of four B5-3 and B5-6
+already use. That four is a detection ratio, a measured magnitude against a
+measured noise floor; this one was a share of an effect a trend may explain. The
+same numeral in a different role is not a source. **So the consequence in §6A.6
+was unavailable on the day it was written**, and the honest statement is that
+B5-8's headline never carried it rather than that it carried it and was later
+relieved of it.
+
+Discipline 11: a criterion is either structural or a printed number with a
+reading declared in advance and **no line drawn on it**. The three shares sit
+inside a span of `0.12`, so the verdict was a step function of where the band was
+placed and unanimous on either side of that span. **The band carried the verdict
+and the data contributed three numbers that agree with each other.** A
+sensitivity sweep over the band was considered and not run: discipline 13's
+fourth step says to enumerate an arm's possible outputs before paying for them,
+and the enumeration here is four cases with the steps at the three observed
+shares. Nothing in it is not already implied.
+
+**The verdict is VOID, not FAIL.** Discipline 23's third test: undecidable and
+decided-against are different states and the middle one must exist. The treated
+series turns inside the window, at bucket 3 and bucket 8 of 12, so the fitted
+slope is set by where it turned rather than by where it ended. An estimator that
+does not describe the object returns no verdict about the object. It was recorded
+as a failure because the design admitted only two states, which is the defect
+underneath both of the others.
+
+**What the arm is now**: the bucket series printed, plus the single property that
+decides whether anything derived from it may be read, namely whether the series
+runs one way across the window, read off `argmax` and `argmin`. That test
+contains no constant and nothing in it can be moved. The slopes and shares are
+still printed and are compared to nothing.
+
+**What is not changed**: the gate on B5-8 still runs; the two window rungs, the
+bucket construction, the three comparisons and the direction split are all as
+registered; **B5-15 is untouched**, having never had a threshold. The withdrawn
+text is left standing in §6A.4, §6A.6, §7 and §8 with VOID marks rather than
+edited away, per `D17`'s second half: rules are edited in place, conclusions and
+run records are archived with a pointer.
 
 ### 2026-08-11, after B5-14 failed. One addition: B5-15
 

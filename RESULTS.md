@@ -1548,14 +1548,28 @@ The verdict is in the heading, which is where it belongs: this is a source audit
 The verdict is in the heading, which is where it belongs: this is a source audit and not a set of pre-registered criteria, so there is no table under it and there never was one.
 
 
-## B5 pre-window guards — B5-14 failed, and B5-15 was written after it
+## B5 pre-window guards — B5-14 is void, and B5-15 was written after it came back void
 
-**1/2 live criteria passed**
+**1/1 live criteria passed.** B5-14 is void and therefore in neither the
+numerator nor the denominator: a criterion the run could not evaluate is not a
+criterion the run failed.
 
 | | criterion | detail |
 |---|---|---|
-| **FAIL** | B5-14 no pre-existing trend explains B5-8's collapse | collapse under test 0.4488; informal-mep dama 0.898; informal-ccl dama 0.775; mep-ccl dama 0.844; band 0.25 |
+| **VOID** | B5-14 whether a pre-existing trend can be read off this pre-window at all | Treated series turns inside the window: maximum at bucket 3, minimum at bucket 8 of 12. Series 0.314, 0.609, 0.814, 0.803, 0.630, 0.446, 0.373, 0.168, 0.280, 0.291, 0.274, 0.387. The fitted slope, −0.034792 per bucket, is set by where the series turned rather than by where it ended, so it cannot be extrapolated past the edge and the arm returns no verdict about the world. Slope differences against the three controls imply shares 0.898, 0.775, 0.844 of a 0.4488 collapse; **these are printed and compared to nothing.** Second rung, 24 buckets, turns likewise at 7 and 20 |
 | PASS | B5-15 the premium at the window's edge, no threshold in either leg | (a) last pre bucket 0.3866 against post max 0.0801, 4.83x; (b) treated ratio 8.21 against the closest control informal-mep at 0.84, 9.80x; no threshold in either leg |
+
+**Recorded 2026-08-11 as FAIL against a band of 0.25, withdrawn 2026-08-21.**
+Two reasons, either sufficient. `D5`: the band had no theoretical source, being
+the factor of four B5-3 and B5-6 use for a detection ratio, which is a different
+quantity in a different role, and an arbitrary calibration value may not ground a
+negative finding. Discipline 11: a criterion may not draw a line across an
+estimator, and with the three shares inside a span of 0.12 the verdict was a step
+function of where the band sat. The registered consequence, that B5-8's collapse
+enters the headline as confounded with a pre-existing trend, **is withdrawn and
+nothing replaces it**; it was not available on the day it was written.
+`docs/b5_orphan_prereg.md` §6A 作废栏 and §11 carry the full entry. **B5-15 is
+untouched: it never had a threshold.**
 
 ## B5 — the agent index on one conversion, and what the April 2025 intervention did to it
 
