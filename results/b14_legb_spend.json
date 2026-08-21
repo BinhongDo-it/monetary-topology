@@ -1,0 +1,161 @@
+{
+  "batches": [
+    {
+      "at": "2026-08-19T20:34:54",
+      "csv_bytes": 922015045,
+      "gz_bytes": 128164284,
+      "month": "2018-05",
+      "usd": 2.247245907784,
+      "venue": "XNYS.PILLAR"
+    },
+    {
+      "at": "2026-08-19T20:36:08",
+      "csv_bytes": 605054406,
+      "gz_bytes": 86260086,
+      "month": "2018-05",
+      "usd": 1.47659778595,
+      "venue": "XNAS.ITCH"
+    },
+    {
+      "at": "2026-08-19T20:43:54",
+      "csv_bytes": 825289236,
+      "gz_bytes": 122968936,
+      "month": "2018-06",
+      "seconds": 95.4,
+      "usd": 2.011741399765,
+      "venue": "XNYS.PILLAR",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T20:44:36",
+      "csv_bytes": 578768121,
+      "gz_bytes": 88235068,
+      "month": "2018-06",
+      "seconds": 41.8,
+      "usd": 1.412108242512,
+      "venue": "XNAS.ITCH",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T20:45:39",
+      "csv_bytes": 731354079,
+      "gz_bytes": 108926649,
+      "month": "2018-07",
+      "seconds": 61.9,
+      "usd": 1.78482323885,
+      "venue": "XNYS.PILLAR",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T20:49:38",
+      "csv_bytes": 523121186,
+      "gz_bytes": 79632562,
+      "month": "2018-07",
+      "seconds": 238.4,
+      "usd": 1.277814805508,
+      "venue": "XNAS.ITCH",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T20:54:10",
+      "csv_bytes": 791061517,
+      "gz_bytes": 117114687,
+      "month": "2018-08",
+      "seconds": 271.5,
+      "usd": 1.929109692574,
+      "venue": "XNYS.PILLAR",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T20:55:59",
+      "csv_bytes": 555251778,
+      "gz_bytes": 85103581,
+      "month": "2018-08",
+      "seconds": 107.9,
+      "usd": 1.356483101845,
+      "venue": "XNAS.ITCH",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T20:56:45",
+      "csv_bytes": 681212137,
+      "gz_bytes": 101062032,
+      "month": "2018-09",
+      "seconds": 44.2,
+      "usd": 1.662520468235,
+      "venue": "XNYS.PILLAR",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T20:57:30",
+      "csv_bytes": 457802978,
+      "gz_bytes": 70204910,
+      "month": "2018-09",
+      "seconds": 43.9,
+      "usd": 1.118208765984,
+      "venue": "XNAS.ITCH",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T21:02:05",
+      "csv_bytes": 1625371608,
+      "gz_bytes": 239544857,
+      "month": "2018-10",
+      "seconds": 274.0,
+      "usd": 3.981987535954,
+      "venue": "XNYS.PILLAR",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T21:06:40",
+      "csv_bytes": 1020933435,
+      "gz_bytes": 156035281,
+      "month": "2018-10",
+      "seconds": 273.4,
+      "usd": 2.499305903912,
+      "venue": "XNAS.ITCH",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T21:11:07",
+      "csv_bytes": 1393389053,
+      "gz_bytes": 206871941,
+      "month": "2018-11",
+      "seconds": 267.1,
+      "usd": 3.415387272835,
+      "venue": "XNYS.PILLAR",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T21:11:53",
+      "csv_bytes": 839326922,
+      "gz_bytes": 130731937,
+      "month": "2018-11",
+      "seconds": 45.6,
+      "usd": 2.056820988655,
+      "venue": "XNAS.ITCH",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T21:17:10",
+      "csv_bytes": 1686412521,
+      "gz_bytes": 246474959,
+      "month": "2018-12",
+      "seconds": 315.8,
+      "usd": 4.138760566711,
+      "venue": "XNYS.PILLAR",
+      "wire_zstd": true
+    },
+    {
+      "at": "2026-08-19T21:37:23",
+      "csv_bytes": 946084434,
+      "gz_bytes": 145904565,
+      "month": "2018-12",
+      "seconds": 1210.2,
+      "usd": 2.320662736893,
+      "venue": "XNAS.ITCH",
+      "wire_zstd": true
+    }
+  ],
+  "usd_total": 34.689578
+}

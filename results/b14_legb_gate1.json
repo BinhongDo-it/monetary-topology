@@ -1,0 +1,311 @@
+{
+  "arm": "control",
+  "null": "Binomial(days, 0.5) on the count of days leaning positive",
+  "per_symbol": {
+    "AAN": {
+      "days": 169,
+      "days_positive": 76,
+      "mean_lean": -0.019362,
+      "z": -1.31
+    },
+    "AEL": {
+      "days": 169,
+      "days_positive": 75,
+      "mean_lean": -0.01225,
+      "z": -1.46
+    },
+    "AGRO": {
+      "days": 169,
+      "days_positive": 63,
+      "mean_lean": -0.066472,
+      "z": -3.31
+    },
+    "ARC": {
+      "days": 169,
+      "days_positive": 33,
+      "mean_lean": -0.202715,
+      "z": -7.92
+    },
+    "ATEN": {
+      "days": 169,
+      "days_positive": 71,
+      "mean_lean": -0.029171,
+      "z": -2.08
+    },
+    "AVX": {
+      "days": 169,
+      "days_positive": 75,
+      "mean_lean": -0.0346,
+      "z": -1.46
+    },
+    "BGG": {
+      "days": 169,
+      "days_positive": 72,
+      "mean_lean": -0.035643,
+      "z": -1.92
+    },
+    "BOX": {
+      "days": 169,
+      "days_positive": 71,
+      "mean_lean": -0.021502,
+      "z": -2.08
+    },
+    "BZH": {
+      "days": 169,
+      "days_positive": 52,
+      "mean_lean": -0.078877,
+      "z": -5.0
+    },
+    "CHGG": {
+      "days": 169,
+      "days_positive": 98,
+      "mean_lean": 0.022369,
+      "z": 2.08
+    },
+    "CLS": {
+      "days": 169,
+      "days_positive": 79,
+      "mean_lean": -0.000568,
+      "z": -0.85
+    },
+    "COT": {
+      "days": 169,
+      "days_positive": 106,
+      "mean_lean": 0.084279,
+      "z": 3.31
+    },
+    "DSX": {
+      "days": 169,
+      "days_positive": 67,
+      "mean_lean": -0.045917,
+      "z": -2.69
+    },
+    "ELY": {
+      "days": 169,
+      "days_positive": 77,
+      "mean_lean": -0.013682,
+      "z": -1.15
+    },
+    "ENZ": {
+      "days": 169,
+      "days_positive": 71,
+      "mean_lean": -0.082113,
+      "z": -2.08
+    },
+    "FBP": {
+      "days": 169,
+      "days_positive": 110,
+      "mean_lean": 0.074874,
+      "z": 3.92
+    },
+    "FCF": {
+      "days": 169,
+      "days_positive": 61,
+      "mean_lean": -0.054678,
+      "z": -3.62
+    },
+    "FI": {
+      "days": 169,
+      "days_positive": 94,
+      "mean_lean": 0.033939,
+      "z": 1.46
+    },
+    "FOE": {
+      "days": 169,
+      "days_positive": 85,
+      "mean_lean": 0.003749,
+      "z": 0.08
+    },
+    "FSS": {
+      "days": 169,
+      "days_positive": 85,
+      "mean_lean": -0.006347,
+      "z": 0.08
+    },
+    "FTK": {
+      "days": 169,
+      "days_positive": 71,
+      "mean_lean": -0.047628,
+      "z": -2.08
+    },
+    "GDOT": {
+      "days": 169,
+      "days_positive": 74,
+      "mean_lean": -0.03859,
+      "z": -1.62
+    },
+    "GWB": {
+      "days": 169,
+      "days_positive": 82,
+      "mean_lean": -0.004722,
+      "z": -0.38
+    },
+    "HTGC": {
+      "days": 169,
+      "days_positive": 75,
+      "mean_lean": -0.028389,
+      "z": -1.46
+    },
+    "I": {
+      "days": 169,
+      "days_positive": 96,
+      "mean_lean": 0.022938,
+      "z": 1.77
+    },
+    "JE": {
+      "days": 169,
+      "days_positive": 68,
+      "mean_lean": -0.082063,
+      "z": -2.54
+    },
+    "KN": {
+      "days": 169,
+      "days_positive": 103,
+      "mean_lean": 0.025559,
+      "z": 2.85
+    },
+    "KRO": {
+      "days": 169,
+      "days_positive": 79,
+      "mean_lean": -0.017881,
+      "z": -0.85
+    },
+    "LPG": {
+      "days": 169,
+      "days_positive": 78,
+      "mean_lean": -0.023055,
+      "z": -1.0
+    },
+    "LXU": {
+      "days": 169,
+      "days_positive": 55,
+      "mean_lean": -0.091531,
+      "z": -4.54
+    },
+    "MDC": {
+      "days": 169,
+      "days_positive": 79,
+      "mean_lean": -0.015139,
+      "z": -0.85
+    },
+    "MFCB": {
+      "days": 169,
+      "days_positive": 86,
+      "mean_lean": 0.02355,
+      "z": 0.23
+    },
+    "NPTN": {
+      "days": 169,
+      "days_positive": 75,
+      "mean_lean": -0.02678,
+      "z": -1.46
+    },
+    "OMI": {
+      "days": 169,
+      "days_positive": 71,
+      "mean_lean": -0.035498,
+      "z": -2.08
+    },
+    "OZM": {
+      "days": 169,
+      "days_positive": 88,
+      "mean_lean": -0.012491,
+      "z": 0.54
+    },
+    "SJI": {
+      "days": 169,
+      "days_positive": 76,
+      "mean_lean": -0.015312,
+      "z": -1.31
+    },
+    "SPXC": {
+      "days": 169,
+      "days_positive": 74,
+      "mean_lean": -0.028559,
+      "z": -1.62
+    },
+    "SSI": {
+      "days": 169,
+      "days_positive": 62,
+      "mean_lean": -0.09002,
+      "z": -3.46
+    },
+    "SXC": {
+      "days": 169,
+      "days_positive": 69,
+      "mean_lean": -0.048076,
+      "z": -2.38
+    },
+    "TCS": {
+      "days": 169,
+      "days_positive": 69,
+      "mean_lean": -0.052254,
+      "z": -2.38
+    },
+    "TNET": {
+      "days": 169,
+      "days_positive": 67,
+      "mean_lean": -0.048714,
+      "z": -2.69
+    },
+    "TNP": {
+      "days": 169,
+      "days_positive": 70,
+      "mean_lean": -0.048563,
+      "z": -2.23
+    },
+    "TOO": {
+      "days": 169,
+      "days_positive": 92,
+      "mean_lean": 0.042313,
+      "z": 1.15
+    },
+    "TVPT": {
+      "days": 169,
+      "days_positive": 67,
+      "mean_lean": -0.062,
+      "z": -2.69
+    },
+    "TWI": {
+      "days": 169,
+      "days_positive": 52,
+      "mean_lean": -0.067351,
+      "z": -5.0
+    },
+    "UNT": {
+      "days": 169,
+      "days_positive": 79,
+      "mean_lean": -0.000402,
+      "z": -0.85
+    },
+    "VGR": {
+      "days": 169,
+      "days_positive": 98,
+      "mean_lean": 0.039133,
+      "z": 2.08
+    }
+  },
+  "unit": "symbol-day",
+  "zero_share": {
+    "C": {
+      "2018-05": 0.500551574297478,
+      "2018-06": 0.5067625780260755,
+      "2018-07": 0.4862699756663299,
+      "2018-08": 0.5050074982114836,
+      "2018-09": 0.513112676844202,
+      "2018-10": 0.45937863831574377,
+      "2018-11": 0.49311331725749386,
+      "2018-12": 0.4765492715838229
+    },
+    "G": {
+      "2018-05": 0.8335099695352923,
+      "2018-06": 0.8459333256743075,
+      "2018-07": 0.834131283938842,
+      "2018-08": 0.8545546876166863,
+      "2018-09": 0.8562521183678791,
+      "2018-10": 0.49450536926973987,
+      "2018-11": 0.540447282541901,
+      "2018-12": 0.5293477881027103
+    }
+  }
+}

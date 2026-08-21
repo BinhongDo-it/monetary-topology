@@ -151,7 +151,7 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
         "per MEASUREMENT.md 11c. Needs the fetched HMDA sample. Same decision"
     ),
     # --- B9, all sixteen, added 2026-08-18 ---------------------------------
-    # **the author ruled: B9 is a historical stage and is not maintained.** The stage
+    # **Ruled 2026-08-18: B9 is a historical stage and is not maintained.** The stage
     # closed on 2026-08-17 and its two authority documents are
     # B9's design and result files (outside this repository) (D19, eleven
     # files merged). No runner path was built and none will be: the retrieval
@@ -165,8 +165,7 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
     # that the stage is closed and its readings were re-verified against these
     # files on 2026-08-18, every one of them, digit for digit.
     "b9_floor_measurement.json": (
-        "SS24, **flipped out of diagnostic_only on 2026-08-18 by the author's "
-        "ruling**. It carries the two readings this stage is hardest on: "
+        "SS24, **flipped out of diagnostic_only by a ruling on 2026-08-18**. It carries the two readings this stage is hardest on: "
         "`off-grid = 0.000` across sixteen funds and 6,464 reconstructed "
         "closes, which is what identifies the disclosed price as the closing "
         "NBBO midpoint, and the tick comparison, `15.83x` against `1.42x`, "
@@ -314,6 +313,41 @@ OUTSIDE_THE_RUNNER: dict[str, str] = {
         "carries its own reproduction check (the six registered margins are "
         "recomputed and compared on every run)"
     ),
+    "b14_gate0.authoritative.json": (
+        "B14-0 re-run against the published group list rather than the "
+        "Test_Group field. Same cost as b14_gate0.json above: the ten "
+        "Appendix B.I monthly files are hand-downloaded and not in the "
+        "repository. It carries the same six-margin reproduction check, "
+        "which is what limits the damage of nothing regenerating it"
+    ),
+    "b14_gate0.sens_FULL.json": (
+        "B14-0's order-type sensitivity arm, the unrestricted variant. Same "
+        "download as b14_gate0.json. The four sens_* records are one sweep "
+        "and share a reason: each re-runs the gate with a set of order types "
+        "dropped, so they cost the same 1.07 GB and nothing else"
+    ),
+    "b14_gate0.sens_X16.json": (
+        "B14-0's order-type sensitivity arm, type 16 dropped. See "
+        "b14_gate0.sens_FULL.json for the shared reason"
+    ),
+    "b14_gate0.sens_X22.json": (
+        "B14-0's order-type sensitivity arm, type 22 dropped. See "
+        "b14_gate0.sens_FULL.json for the shared reason. This is the arm the "
+        "caveat hangs on: T6's six of six depends on type 22 entirely"
+    ),
+    "b14_gate0.sens_X2216.json": (
+        "B14-0's order-type sensitivity arm, types 22 and 16 dropped "
+        "together. See b14_gate0.sens_FULL.json for the shared reason"
+    ),
+    "b14_stage_two.json": (
+        "B14's verdict sheet, the same shape as b8_verdicts.json above. It is "
+        "assembled by experiments/b14_verdicts.py from records that must "
+        "already be on disk and it re-measures nothing, so a runner job would "
+        "run a transcription rather than a stage. It carries a check of its "
+        "own instead: every number in a criterion must appear in one of that "
+        "criterion's own sources, and a number that is not a reading has to "
+        "be listed as exempt with a reason"
+    ),
 }
 
 #: `render_results.py`'s own filename filter, kept in step by importing it below
@@ -428,12 +462,25 @@ def test_the_exposure_is_counted() -> None:
     identifiable**, because the edit was still uncommitted when the check ran, so
     for once the honest reading of this line is not merely "something changed".
 
-    `36` is the count after B9's went in on 2026-08-18 (the author ruled the stage
+    `36` is the count after B9's went in on 2026-08-18 (ruled 2026-08-18, the stage
     historical and unmaintained), which is the largest single addition this
     list has taken. Sixteen arrived with that ruling and a seventeenth,
     `b9_floor_measurement.json`, arrived an hour later when its
     `diagnostic_only` was flipped, which is the shape this list is for: the
     exposure grew because a record stopped being a diagnostic, not because
     anybody wrote new code.
+
+    **`41` was on disk against an assertion of `40` on 2026-08-21**, before
+    anything in this round was added. Which entry drifted is not recoverable
+    from the file, which is the fourth time that sentence has had to be written
+    here. It is recorded rather than absorbed, because 40 moving to 47 in one
+    edit would otherwise read as six additions when it is seven.
+
+    **`47`, 2026-08-21.** B14's close-out: `b14_gate0.authoritative.json`, the
+    four `b14_gate0.sens_*.json` arms, and `b14_stage_two.json`. The five gate
+    records share `b14_gate0.json`'s reason, a hand-downloaded 1.07 GB that is
+    not in the repository. The verdict sheet is here for the other reason on
+    this list, the one `b8_verdicts.json` gives: it transcribes rather than
+    measures, so a runner job would regenerate nothing.
     """
-    assert len(OUTSIDE_THE_RUNNER) == 40
+    assert len(OUTSIDE_THE_RUNNER) == 47

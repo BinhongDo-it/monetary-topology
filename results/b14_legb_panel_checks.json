@@ -1,0 +1,333 @@
+{
+  "2018-05": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 4880211,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 8404,
+      "off_cent_by_symbol": {
+        "JONE": 35947,
+        "PKD": 29965,
+        "VNCE": 113
+      },
+      "off_cent_grid_dropped": 66025,
+      "rows": 4954640,
+      "stub_quotes_kept": 509
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 56814,
+      "kept": 7409524,
+      "locked_dropped": 6607,
+      "max_ask_cents": 50001,
+      "null_or_onesided": 4096,
+      "off_cent_by_symbol": {
+        "JONE": 34969,
+        "KRO": 4,
+        "PKD": 28492
+      },
+      "off_cent_grid_dropped": 63465,
+      "rows": 7540506,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 2690599,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 18577346,
+    "month": "2018-05",
+    "seconds": 26.7,
+    "share_of_smaller": 0.551328,
+    "unique_keys_a": 7409524,
+    "unique_keys_b": 4880211
+  },
+  "2018-06": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 4661708,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 8326,
+      "off_cent_by_symbol": {
+        "JONE": 31450,
+        "PKD": 36765
+      },
+      "off_cent_grid_dropped": 68215,
+      "rows": 4738249,
+      "stub_quotes_kept": 636
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 36127,
+      "kept": 6641985,
+      "locked_dropped": 3116,
+      "max_ask_cents": 9000,
+      "null_or_onesided": 3674,
+      "off_cent_by_symbol": {
+        "JONE": 29528,
+        "PKD": 35854
+      },
+      "off_cent_grid_dropped": 65382,
+      "rows": 6750284,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 2509806,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 17382920,
+    "month": "2018-06",
+    "seconds": 24.1,
+    "share_of_smaller": 0.538388,
+    "unique_keys_a": 6641985,
+    "unique_keys_b": 4661708
+  },
+  "2018-07": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 4243434,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 8892,
+      "off_cent_by_symbol": {
+        "JONE": 17668,
+        "PKD": 17641
+      },
+      "off_cent_grid_dropped": 35309,
+      "rows": 4287635,
+      "stub_quotes_kept": 565
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 21172,
+      "kept": 5913055,
+      "locked_dropped": 2439,
+      "max_ask_cents": 999995,
+      "null_or_onesided": 3599,
+      "off_cent_by_symbol": {
+        "JONE": 20484,
+        "PKD": 28124
+      },
+      "off_cent_grid_dropped": 48608,
+      "rows": 5988873,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 2215822,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 15697805,
+    "month": "2018-07",
+    "seconds": 21.5,
+    "share_of_smaller": 0.522177,
+    "unique_keys_a": 5913055,
+    "unique_keys_b": 4243434
+  },
+  "2018-08": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 4528703,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 9513,
+      "off_cent_by_symbol": {
+        "JONE": 13383,
+        "OZM": 3
+      },
+      "off_cent_grid_dropped": 13386,
+      "rows": 4551602,
+      "stub_quotes_kept": 677
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 17654,
+      "kept": 6430001,
+      "locked_dropped": 1756,
+      "max_ask_cents": 999995,
+      "null_or_onesided": 4057,
+      "off_cent_by_symbol": {
+        "JONE": 19550
+      },
+      "off_cent_grid_dropped": 19550,
+      "rows": 6473018,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 2384725,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 16897254,
+    "month": "2018-08",
+    "seconds": 23.1,
+    "share_of_smaller": 0.52658,
+    "unique_keys_a": 6430001,
+    "unique_keys_b": 4528703
+  },
+  "2018-09": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 3743203,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 7732,
+      "off_cent_by_symbol": {
+        "JONE": 1148,
+        "NPTN": 3
+      },
+      "off_cent_grid_dropped": 1151,
+      "rows": 3752086,
+      "stub_quotes_kept": 470
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 15256,
+      "kept": 5557223,
+      "locked_dropped": 1150,
+      "max_ask_cents": 999995,
+      "null_or_onesided": 3407,
+      "off_cent_by_symbol": {
+        "JONE": 1457
+      },
+      "off_cent_grid_dropped": 1457,
+      "rows": 5578493,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 2016903,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 14241839,
+    "month": "2018-09",
+    "seconds": 22.2,
+    "share_of_smaller": 0.538817,
+    "unique_keys_a": 5557223,
+    "unique_keys_b": 3743203
+  },
+  "2018-10": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 8379193,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 7044,
+      "off_cent_by_symbol": {
+        "DHX": 4,
+        "OZM": 27,
+        "SSI": 11
+      },
+      "off_cent_grid_dropped": 42,
+      "rows": 8386279,
+      "stub_quotes_kept": 1124
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 185926,
+      "kept": 13151127,
+      "locked_dropped": 20241,
+      "max_ask_cents": 9990,
+      "null_or_onesided": 4030,
+      "off_cent_by_symbol": {
+        "MFCB": 3,
+        "OZM": 6
+      },
+      "off_cent_grid_dropped": 9,
+      "rows": 13361333,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 5697376,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 36734824,
+    "month": "2018-10",
+    "seconds": 59.2,
+    "share_of_smaller": 0.679943,
+    "unique_keys_a": 13151127,
+    "unique_keys_b": 8379193
+  },
+  "2018-11": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 6894777,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 6627,
+      "off_cent_by_symbol": {
+        "BZH": 11,
+        "DHX": 5,
+        "FTK": 9,
+        "JONE": 3,
+        "OZM": 38,
+        "PKD": 34,
+        "SSI": 42
+      },
+      "off_cent_grid_dropped": 142,
+      "rows": 6901546,
+      "stub_quotes_kept": 988
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 124030,
+      "kept": 11318835,
+      "locked_dropped": 13636,
+      "max_ask_cents": 9735,
+      "null_or_onesided": 3572,
+      "off_cent_by_symbol": {
+        "MFCB": 21,
+        "OZM": 44
+      },
+      "off_cent_grid_dropped": 65,
+      "rows": 11460138,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 4663121,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 30593088,
+    "month": "2018-11",
+    "seconds": 57.5,
+    "share_of_smaller": 0.676327,
+    "unique_keys_a": 11318835,
+    "unique_keys_b": 6894777
+  },
+  "2018-12": {
+    "XNAS.ITCH": {
+      "crossed_dropped": 0,
+      "kept": 7773640,
+      "locked_dropped": 0,
+      "max_ask_cents": 19999999,
+      "null_or_onesided": 6228,
+      "off_cent_by_symbol": {
+        "BZH": 15,
+        "DHX": 5,
+        "FTK": 486,
+        "NCS": 5,
+        "OZM": 4304,
+        "PES": 26,
+        "PKD": 302,
+        "SSI": 1823,
+        "SXC": 5,
+        "TOO": 12
+      },
+      "off_cent_grid_dropped": 6984,
+      "rows": 7786852,
+      "stub_quotes_kept": 1036
+    },
+    "XNYS.PILLAR": {
+      "crossed_dropped": 368278,
+      "kept": 13465209,
+      "locked_dropped": 40260,
+      "max_ask_cents": 999995,
+      "null_or_onesided": 3255,
+      "off_cent_by_symbol": {
+        "CLS": 1,
+        "FTK": 617,
+        "MFCB": 4,
+        "OZM": 5141,
+        "PKD": 1155,
+        "SSI": 3452,
+        "TOO": 4
+      },
+      "off_cent_grid_dropped": 10374,
+      "rows": 13887376,
+      "stub_quotes_kept": 0
+    },
+    "aligned_cells": 5494698,
+    "dup_key_a": 0,
+    "dup_key_b": 0,
+    "gz_bytes": 33956796,
+    "month": "2018-12",
+    "seconds": 52.0,
+    "share_of_smaller": 0.706837,
+    "unique_keys_a": 13465209,
+    "unique_keys_b": 7773640
+  }
+}

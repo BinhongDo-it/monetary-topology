@@ -1,0 +1,8 @@
+{
+  "effective_n": 106,
+  "excluded": {
+    "SSP": "XNYS coverage begins 2018-09-24, five sessions before the event",
+    "TA": "XNYS coverage begins 2018-09-24, five sessions before the event"
+  },
+  "note": "the cache keeps all symbols; the exclusion is applied by the analysis layer so the ruling stays reversible"
+}

@@ -1,0 +1,18 @@
+{
+  "venues": {
+    "XNAS.ITCH": {
+      "not_found": [],
+      "partial": []
+    },
+    "XNYS.PILLAR": {
+      "not_found": [],
+      "partial": [
+        "TA"
+      ]
+    }
+  },
+  "window": [
+    "2018-05-01",
+    "2019-01-01"
+  ]
+}

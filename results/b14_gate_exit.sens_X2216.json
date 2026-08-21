@@ -1,0 +1,1331 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "B14 stage two remains locked (design file section 7); this out-of-sample leg is registered in section 7 supplement 2 clause A and its reading is fixed in supplement 2 A1 clause 5, so the record is evidence and not a licensed reading until the station closes",
+  "grp_from": "pre",
+  "min_days": 10,
+  "post": [
+    "20181101",
+    "20181231"
+  ],
+  "pre": [
+    "20180801",
+    "20180928"
+  ],
+  "replay_stats": {
+    "after replay": 2360,
+    "baseline": 2395,
+    "exited": 63,
+    "group differs from baseline": 37,
+    "mentioned in history": 497,
+    "valid at as-of": 434
+  },
+  "reproduction_check": {
+    "checked": 6,
+    "diffs": [],
+    "identical": true
+  },
+  "round": "2018",
+  "sign": -1,
+  "sources": {
+    "D3-9\" primary, pre-window inference": {
+      "measures": {
+        "bbo_cnt": {
+          "all_hold": false,
+          "desc": "weighting-convention check: WA_BBO_Spd, order-count weighted",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.1063326327308649,
+              "raw_gap": -0.1063326327308649
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.0443294039309694,
+              "raw_gap": 0.0443294039309694
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.022332661308490653,
+              "raw_gap": 0.022332661308490653
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.061757865144154184,
+              "raw_gap": 0.061757865144154184
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.0837764362677356,
+              "raw_gap": 0.0837764362677356
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.07876788139187901,
+              "raw_gap": 0.07876788139187901
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.3097615636744149,
+              "n": 754
+            },
+            "N/G1": {
+              "delta": 0.20342893094354997,
+              "n": 245
+            },
+            "N/G2": {
+              "delta": 0.3540909676053843,
+              "n": 236
+            },
+            "N/G3": {
+              "delta": 0.33209422498290553,
+              "n": 238
+            },
+            "P/C": {
+              "delta": -0.01549403403975641,
+              "n": 1024
+            },
+            "P/G1": {
+              "delta": 0.04626383110439777,
+              "n": 328
+            },
+            "P/G2": {
+              "delta": 0.06828240222797918,
+              "n": 307
+            },
+            "P/G3": {
+              "delta": 0.0632738473521226,
+              "n": 310
+            }
+          }
+        },
+        "bbo_shr": {
+          "all_hold": false,
+          "desc": "primary: WA_BBO_Spd, share weighted",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.13187893786001123,
+              "raw_gap": -0.13187893786001123
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.022465916456792412,
+              "raw_gap": 0.022465916456792412
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.01787719738751714,
+              "raw_gap": 0.01787719738751714
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.03872112482143084,
+              "raw_gap": 0.03872112482143084
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.05235589034721222,
+              "raw_gap": 0.05235589034721222
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.049553498890201164,
+              "raw_gap": 0.049553498890201164
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.34529717782281777,
+              "n": 754
+            },
+            "N/G1": {
+              "delta": 0.21341823996280654,
+              "n": 245
+            },
+            "N/G2": {
+              "delta": 0.3677630942796102,
+              "n": 236
+            },
+            "N/G3": {
+              "delta": 0.3631743752103349,
+              "n": 238
+            },
+            "P/C": {
+              "delta": -0.00800907920158056,
+              "n": 1024
+            },
+            "P/G1": {
+              "delta": 0.030712045619850283,
+              "n": 328
+            },
+            "P/G2": {
+              "delta": 0.04434681114563166,
+              "n": 307
+            },
+            "P/G3": {
+              "delta": 0.041544419688620604,
+              "n": 310
+            }
+          }
+        },
+        "bbo_shr_adv": {
+          "all_hold": false,
+          "desc": "T5 adverse convention: zero-spread rows admitted at their true share weight\n      (design file section 4 supplement 1)",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.1310865852858107,
+              "raw_gap": -0.1310865852858107
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.05004356230052193,
+              "raw_gap": 0.05004356230052193
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.02421113756268195,
+              "raw_gap": 0.02421113756268195
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.041875177095111266,
+              "raw_gap": 0.041875177095111266
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.06574075002614577,
+              "raw_gap": 0.06574075002614577
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.07883909253257014,
+              "raw_gap": 0.07883909253257014
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.34661607059362737,
+              "n": 754
+            },
+            "N/G1": {
+              "delta": 0.21552948530781668,
+              "n": 245
+            },
+            "N/G2": {
+              "delta": 0.3966596328941493,
+              "n": 236
+            },
+            "N/G3": {
+              "delta": 0.3708272081563093,
+              "n": 238
+            },
+            "P/C": {
+              "delta": -0.007608224448356848,
+              "n": 1024
+            },
+            "P/G1": {
+              "delta": 0.03426695264675442,
+              "n": 328
+            },
+            "P/G2": {
+              "delta": 0.05813252557778892,
+              "n": 307
+            },
+            "P/G3": {
+              "delta": 0.07123086808421329,
+              "n": 310
+            }
+          }
+        },
+        "bbo_shr_adv2": {
+          "all_hold": false,
+          "desc": "T6 arithmetic sensitivity: blanks and zeros both admitted at their true share\n      weight (design file section 4 supplement 2)",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.131176149894215,
+              "raw_gap": -0.131176149894215
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.05330430670621611,
+              "raw_gap": 0.05330430670621611
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.03225242361762726,
+              "raw_gap": 0.03225242361762726
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.07587344390306291,
+              "raw_gap": 0.07587344390306291
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.09588995334355799,
+              "raw_gap": 0.09588995334355799
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.11940791640796852,
+              "raw_gap": 0.11940791640796852
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.34887676419785163,
+              "n": 754
+            },
+            "N/G1": {
+              "delta": 0.21770061430363663,
+              "n": 245
+            },
+            "N/G2": {
+              "delta": 0.40218107090406774,
+              "n": 236
+            },
+            "N/G3": {
+              "delta": 0.3811291878154789,
+              "n": 238
+            },
+            "P/C": {
+              "delta": -0.0012365984723952048,
+              "n": 1024
+            },
+            "P/G1": {
+              "delta": 0.0746368454306677,
+              "n": 328
+            },
+            "P/G2": {
+              "delta": 0.09465335487116278,
+              "n": 307
+            },
+            "P/G3": {
+              "delta": 0.11817131793557331,
+              "n": 310
+            }
+          }
+        },
+        "nbbo_shr": {
+          "all_hold": true,
+          "desc": "cross-check: WA_NBBO_Spd share weighted, excluded from the verdict",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.14007530876370833,
+              "raw_gap": -0.14007530876370833
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": true,
+              "margin": 0.0792852491428433,
+              "raw_gap": -0.0792852491428433
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.058996706842281865,
+              "raw_gap": -0.058996706842281865
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.16651192283733485,
+              "raw_gap": -0.16651192283733485
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": true,
+              "margin": 0.06211696372536757,
+              "raw_gap": -0.06211696372536757
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.22848303826089644,
+              "raw_gap": -0.22848303826089644
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.1348761920548467,
+              "n": 1048
+            },
+            "N/G1": {
+              "delta": -0.00519911670886164,
+              "n": 334
+            },
+            "N/G2": {
+              "delta": 0.055590942912003394,
+              "n": 316
+            },
+            "N/G3": {
+              "delta": 0.07587948521256482,
+              "n": 317
+            },
+            "P/C": {
+              "delta": 0.08291237739585755,
+              "n": 1050
+            },
+            "P/G1": {
+              "delta": -0.0835995454414773,
+              "n": 335
+            },
+            "P/G2": {
+              "delta": 0.02079541367048998,
+              "n": 317
+            },
+            "P/G3": {
+              "delta": -0.1455706608650389,
+              "n": 319
+            }
+          }
+        }
+      },
+      "skipped": {
+        "group not unique": 10,
+        "no pre-window label": 23,
+        "too few days": 721
+      }
+    },
+    "check 1, FINRA authoritative list": {
+      "measures": {
+        "bbo_cnt": {
+          "all_hold": false,
+          "desc": "weighting-convention check: WA_BBO_Spd, order-count weighted",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.15108412971422422,
+              "raw_gap": -0.15108412971422422
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.016522799408734246,
+              "raw_gap": 0.016522799408734246
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.04835885837323195,
+              "raw_gap": -0.04835885837323195
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.05716840297035197,
+              "raw_gap": 0.05716840297035197
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.08193128167306162,
+              "raw_gap": 0.08193128167306162
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.0797499047813261,
+              "raw_gap": 0.0797499047813261
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.33756816819665003,
+              "n": 706
+            },
+            "N/G1": {
+              "delta": 0.1864840384824258,
+              "n": 248
+            },
+            "N/G2": {
+              "delta": 0.3540909676053843,
+              "n": 238
+            },
+            "N/G3": {
+              "delta": 0.2892093098234181,
+              "n": 241
+            },
+            "P/C": {
+              "delta": -0.012979815848570608,
+              "n": 962
+            },
+            "P/G1": {
+              "delta": 0.044188587121781364,
+              "n": 329
+            },
+            "P/G2": {
+              "delta": 0.068951465824491,
+              "n": 308
+            },
+            "P/G3": {
+              "delta": 0.06677008893275549,
+              "n": 314
+            }
+          }
+        },
+        "bbo_shr": {
+          "all_hold": false,
+          "desc": "primary: WA_BBO_Spd, share weighted",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.17866595370093896,
+              "raw_gap": -0.17866595370093896
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -7.013932804400547e-05,
+              "raw_gap": 7.013932804400547e-05
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.03764580018499064,
+              "raw_gap": -0.03764580018499064
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.032141033486007886,
+              "raw_gap": 0.032141033486007886
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.045691774965587795,
+              "raw_gap": 0.045691774965587795
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.04545496965270962,
+              "raw_gap": 0.04545496965270962
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.3676929549515662,
+              "n": 706
+            },
+            "N/G1": {
+              "delta": 0.1890270012506272,
+              "n": 248
+            },
+            "N/G2": {
+              "delta": 0.3677630942796102,
+              "n": 238
+            },
+            "N/G3": {
+              "delta": 0.33004715476657553,
+              "n": 241
+            },
+            "P/C": {
+              "delta": -0.006248863502133328,
+              "n": 962
+            },
+            "P/G1": {
+              "delta": 0.025892169983874558,
+              "n": 329
+            },
+            "P/G2": {
+              "delta": 0.039442911463454466,
+              "n": 308
+            },
+            "P/G3": {
+              "delta": 0.03920610615057629,
+              "n": 314
+            }
+          }
+        },
+        "bbo_shr_adv": {
+          "all_hold": false,
+          "desc": "T5 adverse convention: zero-spread rows admitted at their true share weight\n      (design file section 4 supplement 1)",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.16477551384470868,
+              "raw_gap": -0.16477551384470868
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.022768400052497584,
+              "raw_gap": 0.022768400052497584
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.00969285443735557,
+              "raw_gap": -0.00969285443735557
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.03625414746747818,
+              "raw_gap": 0.03625414746747818
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.04917048731508589,
+              "raw_gap": 0.04917048731508589
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.07539333705852173,
+              "raw_gap": 0.07539333705852173
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.37242849021735425,
+              "n": 706
+            },
+            "N/G1": {
+              "delta": 0.20765297637264557,
+              "n": 248
+            },
+            "N/G2": {
+              "delta": 0.39519689026985183,
+              "n": 238
+            },
+            "N/G3": {
+              "delta": 0.3627356357799987,
+              "n": 241
+            },
+            "P/C": {
+              "delta": -0.004162468974308442,
+              "n": 962
+            },
+            "P/G1": {
+              "delta": 0.03209167849316974,
+              "n": 329
+            },
+            "P/G2": {
+              "delta": 0.045008018340777445,
+              "n": 308
+            },
+            "P/G3": {
+              "delta": 0.07123086808421329,
+              "n": 314
+            }
+          }
+        },
+        "bbo_shr_adv2": {
+          "all_hold": false,
+          "desc": "T6 arithmetic sensitivity: blanks and zeros both admitted at their true share\n      weight (design file section 4 supplement 2)",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.15813914126029144,
+              "raw_gap": -0.15813914126029144
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.024340084174728605,
+              "raw_gap": 0.024340084174728605
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.008672221616806641,
+              "raw_gap": -0.008672221616806641
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.06974992322614149,
+              "raw_gap": 0.06974992322614149
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.09204439976294004,
+              "raw_gap": 0.09204439976294004
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.11749488592974319,
+              "raw_gap": 0.11749488592974319
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.37554115691376316,
+              "n": 706
+            },
+            "N/G1": {
+              "delta": 0.21740201565347173,
+              "n": 248
+            },
+            "N/G2": {
+              "delta": 0.39988124108849177,
+              "n": 238
+            },
+            "N/G3": {
+              "delta": 0.3668689352969565,
+              "n": 241
+            },
+            "P/C": {
+              "delta": 0.0006764320058301188,
+              "n": 962
+            },
+            "P/G1": {
+              "delta": 0.0704263552319716,
+              "n": 329
+            },
+            "P/G2": {
+              "delta": 0.09272083176877016,
+              "n": 308
+            },
+            "P/G3": {
+              "delta": 0.11817131793557331,
+              "n": 314
+            }
+          }
+        },
+        "nbbo_shr": {
+          "all_hold": true,
+          "desc": "cross-check: WA_NBBO_Spd share weighted, excluded from the verdict",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.14925326976229902,
+              "raw_gap": -0.14925326976229902
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": true,
+              "margin": 0.08769598969092063,
+              "raw_gap": -0.08769598969092063
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.04920993783369365,
+              "raw_gap": -0.04920993783369365
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.16384877226638705,
+              "raw_gap": -0.16384877226638705
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": true,
+              "margin": 0.0684592278765146,
+              "raw_gap": -0.0684592278765146
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.215309905179895,
+              "raw_gap": -0.215309905179895
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.1401076828094383,
+              "n": 983
+            },
+            "N/G1": {
+              "delta": -0.009145586952860718,
+              "n": 335
+            },
+            "N/G2": {
+              "delta": 0.05241169311851768,
+              "n": 317
+            },
+            "N/G3": {
+              "delta": 0.09089774497574465,
+              "n": 321
+            },
+            "P/C": {
+              "delta": 0.08422209196244879,
+              "n": 985
+            },
+            "P/G1": {
+              "delta": -0.07962668030393827,
+              "n": 336
+            },
+            "P/G2": {
+              "delta": 0.015762864085934192,
+              "n": 318
+            },
+            "P/G3": {
+              "delta": -0.13108781321744623,
+              "n": 323
+            }
+          }
+        }
+      },
+      "skipped": {
+        "not on the external list": 152,
+        "too few days": 698
+      }
+    },
+    "check 2, change-history replay": {
+      "measures": {
+        "bbo_cnt": {
+          "all_hold": false,
+          "desc": "weighting-convention check: WA_BBO_Spd, order-count weighted",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.1282824388841287,
+              "raw_gap": -0.1282824388841287
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.01861419786747842,
+              "raw_gap": 0.01861419786747842
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.046111583408963375,
+              "raw_gap": -0.046111583408963375
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.05857678109259398,
+              "raw_gap": 0.05857678109259398
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.08059535221617539,
+              "raw_gap": 0.08059535221617539
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.0759798552251687,
+              "raw_gap": 0.0759798552251687
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.3285805900231772,
+              "n": 714
+            },
+            "N/G1": {
+              "delta": 0.20029815113904847,
+              "n": 249
+            },
+            "N/G2": {
+              "delta": 0.3471947878906556,
+              "n": 240
+            },
+            "N/G3": {
+              "delta": 0.2824690066142138,
+              "n": 244
+            },
+            "P/C": {
+              "delta": -0.012312949988196209,
+              "n": 973
+            },
+            "P/G1": {
+              "delta": 0.04626383110439777,
+              "n": 330
+            },
+            "P/G2": {
+              "delta": 0.06828240222797918,
+              "n": 309
+            },
+            "P/G3": {
+              "delta": 0.06366690523697249,
+              "n": 317
+            }
+          }
+        },
+        "bbo_shr": {
+          "all_hold": false,
+          "desc": "primary: WA_BBO_Spd, share weighted",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.1666118818270348,
+              "raw_gap": -0.1666118818270348
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.00538182241473828,
+              "raw_gap": 0.00538182241473828
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.04494410103228297,
+              "raw_gap": -0.04494410103228297
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.03416399260434209,
+              "raw_gap": 0.03416399260434209
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.04646287803560989,
+              "raw_gap": 0.04646287803560989
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.04329254964172391,
+              "raw_gap": 0.04329254964172391
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.35815874493191,
+              "n": 714
+            },
+            "N/G1": {
+              "delta": 0.19154686310487523,
+              "n": 249
+            },
+            "N/G2": {
+              "delta": 0.3635405673466483,
+              "n": 240
+            },
+            "N/G3": {
+              "delta": 0.31321464389962705,
+              "n": 244
+            },
+            "P/C": {
+              "delta": -0.006211452222678715,
+              "n": 973
+            },
+            "P/G1": {
+              "delta": 0.027952540381663372,
+              "n": 330
+            },
+            "P/G2": {
+              "delta": 0.040251425812931174,
+              "n": 309
+            },
+            "P/G3": {
+              "delta": 0.037081097419045195,
+              "n": 317
+            }
+          }
+        },
+        "bbo_shr_adv": {
+          "all_hold": false,
+          "desc": "T5 adverse convention: zero-spread rows admitted at their true share weight\n      (design file section 4 supplement 1)",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.15075566401125762,
+              "raw_gap": -0.15075566401125762
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.02014918471585525,
+              "raw_gap": 0.02014918471585525
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.012098701289537495,
+              "raw_gap": -0.012098701289537495
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.037687748682208144,
+              "raw_gap": 0.037687748682208144
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.05745077960336864,
+              "raw_gap": 0.05745077960336864
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.07441897205786205,
+              "raw_gap": 0.07441897205786205
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.361103741590279,
+              "n": 714
+            },
+            "N/G1": {
+              "delta": 0.2103480775790214,
+              "n": 249
+            },
+            "N/G2": {
+              "delta": 0.3812529263061343,
+              "n": 240
+            },
+            "N/G3": {
+              "delta": 0.34900504030074153,
+              "n": 244
+            },
+            "P/C": {
+              "delta": -0.004833272588847026,
+              "n": 973
+            },
+            "P/G1": {
+              "delta": 0.03285447609336112,
+              "n": 330
+            },
+            "P/G2": {
+              "delta": 0.052617507014521614,
+              "n": 309
+            },
+            "P/G3": {
+              "delta": 0.06958569946901502,
+              "n": 317
+            }
+          }
+        },
+        "bbo_shr_adv2": {
+          "all_hold": false,
+          "desc": "T6 arithmetic sensitivity: blanks and zeros both admitted at their true share\n      weight (design file section 4 supplement 2)",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.147875776255602,
+              "raw_gap": -0.147875776255602
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.031175954812230122,
+              "raw_gap": 0.031175954812230122
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.011217504797300548,
+              "raw_gap": -0.011217504797300548
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": false,
+              "margin": -0.07380309484484834,
+              "raw_gap": 0.07380309484484834
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": false,
+              "margin": -0.09381960428534342,
+              "raw_gap": 0.09381960428534342
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": false,
+              "margin": -0.11427876500057116,
+              "raw_gap": 0.11427876500057116
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.36548578673212173,
+              "n": 714
+            },
+            "N/G1": {
+              "delta": 0.21761001047651973,
+              "n": 249
+            },
+            "N/G2": {
+              "delta": 0.39666174154435185,
+              "n": 240
+            },
+            "N/G3": {
+              "delta": 0.3542682819348212,
+              "n": 244
+            },
+            "P/C": {
+              "delta": 0.0008337505858193595,
+              "n": 973
+            },
+            "P/G1": {
+              "delta": 0.0746368454306677,
+              "n": 330
+            },
+            "P/G2": {
+              "delta": 0.09465335487116278,
+              "n": 309
+            },
+            "P/G3": {
+              "delta": 0.11511251558639052,
+              "n": 317
+            }
+          }
+        },
+        "nbbo_shr": {
+          "all_hold": true,
+          "desc": "cross-check: WA_NBBO_Spd share weighted, excluded from the verdict",
+          "inequalities": [
+            {
+              "ctr": "N",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.13857287184923717,
+              "raw_gap": -0.13857287184923717
+            },
+            {
+              "ctr": "N",
+              "grp": "G2",
+              "holds": true,
+              "margin": 0.08611568618742671,
+              "raw_gap": -0.08611568618742671
+            },
+            {
+              "ctr": "N",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.05544125285509027,
+              "raw_gap": -0.05544125285509027
+            },
+            {
+              "ctr": "P",
+              "grp": "G1",
+              "holds": true,
+              "margin": 0.15987590712884803,
+              "raw_gap": -0.15987590712884803
+            },
+            {
+              "ctr": "P",
+              "grp": "G2",
+              "holds": true,
+              "margin": 0.07652665771593536,
+              "raw_gap": -0.07652665771593536
+            },
+            {
+              "ctr": "P",
+              "grp": "G3",
+              "holds": true,
+              "margin": 0.22255132900369134,
+              "raw_gap": -0.22255132900369134
+            }
+          ],
+          "table": {
+            "N/C": {
+              "delta": 0.1396193896361546,
+              "n": 995
+            },
+            "N/G1": {
+              "delta": 0.0010465177869174447,
+              "n": 336
+            },
+            "N/G2": {
+              "delta": 0.0535037034487279,
+              "n": 318
+            },
+            "N/G3": {
+              "delta": 0.08417813678106434,
+              "n": 324
+            },
+            "P/C": {
+              "delta": 0.08422209196244879,
+              "n": 997
+            },
+            "P/G1": {
+              "delta": -0.07565381516639924,
+              "n": 337
+            },
+            "P/G2": {
+              "delta": 0.007695434246513422,
+              "n": 319
+            },
+            "P/G3": {
+              "delta": -0.13832923704124256,
+              "n": 326
+            }
+          }
+        }
+      },
+      "skipped": {
+        "not on the external list": 112,
+        "too few days": 708
+      }
+    }
+  },
+  "stage": "B14",
+  "verdict": {
+    "failing": [
+      "N/G2",
+      "N/G3",
+      "P/G1",
+      "P/G2",
+      "P/G3"
+    ],
+    "gate": "leg A",
+    "per_measure": {
+      "bbo_cnt": false,
+      "bbo_shr": false,
+      "bbo_shr_adv": false,
+      "bbo_shr_adv2": false,
+      "nbbo_shr": true
+    },
+    "per_source": {
+      "D3-9\" primary, pre-window inference": {
+        "bbo_cnt": false,
+        "bbo_shr": false,
+        "bbo_shr_adv": false,
+        "bbo_shr_adv2": false,
+        "nbbo_shr": true
+      },
+      "check 1, FINRA authoritative list": {
+        "bbo_cnt": false,
+        "bbo_shr": false,
+        "bbo_shr_adv": false,
+        "bbo_shr_adv2": false,
+        "nbbo_shr": true
+      },
+      "check 2, change-history replay": {
+        "bbo_cnt": false,
+        "bbo_shr": false,
+        "bbo_shr_adv": false,
+        "bbo_shr_adv2": false,
+        "nbbo_shr": true
+      }
+    },
+    "primary": "bbo_shr",
+    "result": "FAIL",
+    "sources_agree": true
+  },
+  "weekend_probe_rows": 0
+}

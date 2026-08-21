@@ -1,32 +1,32 @@
 {
   "criteria": [
     {
-      "detail": "G1 +0.515392 over 115 symbols, C +0.120200 over 338, margin +0.395193",
+      "detail": "G1 +0.494685 over 115 symbols, C +0.102310 over 338, margin +0.392375",
       "name": "B14-0  G1 on venue N: median delta exceeds control",
       "passed": true
     },
     {
-      "detail": "G2 +0.399441 over 112 symbols, C +0.120200 over 338, margin +0.279242",
+      "detail": "G2 +0.329537 over 112 symbols, C +0.102310 over 338, margin +0.227227",
       "name": "B14-0  G2 on venue N: median delta exceeds control",
       "passed": true
     },
     {
-      "detail": "G3 +0.454552 over 114 symbols, C +0.120200 over 338, margin +0.334352",
+      "detail": "G3 +0.424969 over 114 symbols, C +0.102310 over 338, margin +0.322659",
       "name": "B14-0  G3 on venue N: median delta exceeds control",
       "passed": true
     },
     {
-      "detail": "G1 +0.158091 over 379 symbols, C +0.072771 over 1136, margin +0.085320",
+      "detail": "G1 +0.235741 over 379 symbols, C +0.159808 over 1136, margin +0.075933",
       "name": "B14-0  G1 on venue P: median delta exceeds control",
       "passed": true
     },
     {
-      "detail": "G2 +0.174556 over 374 symbols, C +0.072771 over 1136, margin +0.101785",
+      "detail": "G2 +0.213012 over 374 symbols, C +0.159808 over 1136, margin +0.053205",
       "name": "B14-0  G2 on venue P: median delta exceeds control",
       "passed": true
     },
     {
-      "detail": "G3 +0.178572 over 375 symbols, C +0.072771 over 1136, margin +0.105801",
+      "detail": "G3 +0.195884 over 375 symbols, C +0.159808 over 1136, margin +0.036076",
       "name": "B14-0  G3 on venue P: median delta exceeds control",
       "passed": true
     },
@@ -36,106 +36,106 @@
       "passed": true
     },
     {
-      "detail": "margin +0.411207; design file section 4 excludes this from the verdict",
+      "detail": "margin +0.453265; design file section 4 excludes this from the verdict",
       "diagnostic": true,
       "name": "B14-0  cross-check on the consolidated spread: G1 on N",
       "passed": true
     },
     {
-      "detail": "margin +0.307160; design file section 4 excludes this from the verdict",
+      "detail": "margin +0.292965; design file section 4 excludes this from the verdict",
       "diagnostic": true,
       "name": "B14-0  cross-check on the consolidated spread: G2 on N",
       "passed": true
     },
     {
-      "detail": "margin +0.389522; design file section 4 excludes this from the verdict",
+      "detail": "margin +0.421564; design file section 4 excludes this from the verdict",
       "diagnostic": true,
       "name": "B14-0  cross-check on the consolidated spread: G3 on N",
       "passed": true
     },
     {
-      "detail": "margin +0.191953; design file section 4 excludes this from the verdict",
+      "detail": "margin +0.173276; design file section 4 excludes this from the verdict",
       "diagnostic": true,
       "name": "B14-0  cross-check on the consolidated spread: G1 on P",
       "passed": true
     },
     {
-      "detail": "margin +0.174736; design file section 4 excludes this from the verdict",
+      "detail": "margin +0.143390; design file section 4 excludes this from the verdict",
       "diagnostic": true,
       "name": "B14-0  cross-check on the consolidated spread: G2 on P",
       "passed": true
     },
     {
-      "detail": "margin +0.192207; design file section 4 excludes this from the verdict",
+      "detail": "margin +0.172871; design file section 4 excludes this from the verdict",
       "diagnostic": true,
       "name": "B14-0  cross-check on the consolidated spread: G3 on P",
       "passed": true
     },
     {
-      "detail": "margin +0.398135 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "detail": "margin +0.391521 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
       "name": "B14-0/T5  adverse convention, G1 on venue N",
       "passed": true
     },
     {
-      "detail": "margin +0.282184 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "detail": "margin +0.222612 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
       "name": "B14-0/T5  adverse convention, G2 on venue N",
       "passed": true
     },
     {
-      "detail": "margin +0.337295 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "detail": "margin +0.321812 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
       "name": "B14-0/T5  adverse convention, G3 on venue N",
       "passed": true
     },
     {
-      "detail": "margin +0.061611 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "detail": "margin +0.040015 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
       "name": "B14-0/T5  adverse convention, G1 on venue P",
       "passed": true
     },
     {
-      "detail": "margin +0.087728 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "detail": "margin +0.045753 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
       "name": "B14-0/T5  adverse convention, G2 on venue P",
       "passed": true
     },
     {
-      "detail": "margin +0.076866 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
+      "detail": "margin +0.000594 with zero-spread rows admitted at their true share weight; design file section 4 supplement 1",
       "name": "B14-0/T5  adverse convention, G3 on venue P",
       "passed": true
     },
     {
-      "detail": "margin +0.390106; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "detail": "margin +0.367357; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
       "diagnostic": true,
       "name": "B14-0/T6  blanks and zeros both forced to zero, G1 on venue N",
       "passed": true
     },
     {
-      "detail": "margin +0.281569; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "detail": "margin +0.213019; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
       "diagnostic": true,
       "name": "B14-0/T6  blanks and zeros both forced to zero, G2 on venue N",
       "passed": true
     },
     {
-      "detail": "margin +0.321898; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "detail": "margin +0.305434; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
       "diagnostic": true,
       "name": "B14-0/T6  blanks and zeros both forced to zero, G3 on venue N",
       "passed": true
     },
     {
-      "detail": "margin +0.026542; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "detail": "margin -0.034562; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
       "diagnostic": true,
       "name": "B14-0/T6  blanks and zeros both forced to zero, G1 on venue P",
-      "passed": true
+      "passed": false
     },
     {
-      "detail": "margin +0.026354; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "detail": "margin -0.043898; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
       "diagnostic": true,
       "name": "B14-0/T6  blanks and zeros both forced to zero, G2 on venue P",
-      "passed": true
+      "passed": false
     },
     {
-      "detail": "margin +0.021057; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
+      "detail": "margin -0.051181; a blank is a no-quote state, so this convention is a bound on the arithmetic and not on the world (design file section 4 supplement 2)",
       "diagnostic": true,
       "name": "B14-0/T6  blanks and zeros both forced to zero, G3 on venue P",
-      "passed": true
+      "passed": false
     },
     {
       "detail": "6 margins compared, 0 differ",
@@ -144,14 +144,14 @@
     }
   ],
   "derived": {
-    "median_delta_N_C": 0.12019951093554693,
-    "median_delta_N_G1": 0.5153920161901762,
-    "median_delta_N_G2": 0.399441321906432,
-    "median_delta_N_G3": 0.45455177273372627,
-    "median_delta_P_C": 0.07277087023856921,
-    "median_delta_P_G1": 0.15809110841366647,
-    "median_delta_P_G2": 0.17455601488581363,
-    "median_delta_P_G3": 0.1785715292149499
+    "median_delta_N_C": 0.10230992716374088,
+    "median_delta_N_G1": 0.4946854030549841,
+    "median_delta_N_G2": 0.32953717897423707,
+    "median_delta_N_G3": 0.42496918086475743,
+    "median_delta_P_C": 0.15980773438934676,
+    "median_delta_P_G1": 0.23574119633830104,
+    "median_delta_P_G2": 0.21301244024066368,
+    "median_delta_P_G3": 0.19588419343935842
   },
   "measures": {
     "bbo_cnt": {
@@ -161,70 +161,70 @@
           "ctr": "N",
           "grp": "G1",
           "holds": true,
-          "margin": 0.4393659706654549
+          "margin": 0.4181895883721021
         },
         {
           "ctr": "N",
           "grp": "G2",
           "holds": true,
-          "margin": 0.2955393100200914
+          "margin": 0.27487814428474255
         },
         {
           "ctr": "N",
           "grp": "G3",
           "holds": true,
-          "margin": 0.3844630776101391
+          "margin": 0.3548021354497801
         },
         {
           "ctr": "P",
           "grp": "G1",
           "holds": true,
-          "margin": 0.09218582393998431
+          "margin": 0.06619076153006737
         },
         {
           "ctr": "P",
           "grp": "G2",
           "holds": true,
-          "margin": 0.09850934967924768
+          "margin": 0.061287815395462464
         },
         {
           "ctr": "P",
           "grp": "G3",
           "holds": true,
-          "margin": 0.07433634737810435
+          "margin": 0.035670789229270805
         }
       ],
       "table": {
         "N/C": {
-          "delta": 0.08890828113121052,
+          "delta": 0.08532996804473258,
           "n": 338
         },
         "N/G1": {
-          "delta": 0.5282742517966654,
+          "delta": 0.5035195564168347,
           "n": 115
         },
         "N/G2": {
-          "delta": 0.3844475911513019,
+          "delta": 0.36020811232947514,
           "n": 112
         },
         "N/G3": {
-          "delta": 0.4733713587413496,
+          "delta": 0.4401321034945127,
           "n": 114
         },
         "P/C": {
-          "delta": 0.09726251190265411,
+          "delta": 0.16504008480624976,
           "n": 1136
         },
         "P/G1": {
-          "delta": 0.18944833584263843,
+          "delta": 0.23123084633631713,
           "n": 379
         },
         "P/G2": {
-          "delta": 0.1957718615819018,
+          "delta": 0.22632790020171223,
           "n": 374
         },
         "P/G3": {
-          "delta": 0.17159885928075846,
+          "delta": 0.20071087403552057,
           "n": 375
         }
       }
@@ -236,70 +236,70 @@
           "ctr": "N",
           "grp": "G1",
           "holds": true,
-          "margin": 0.39519250525462923
+          "margin": 0.3923754758912432
         },
         {
           "ctr": "N",
           "grp": "G2",
           "holds": true,
-          "margin": 0.2792418109708851
+          "margin": 0.2272272518104962
         },
         {
           "ctr": "N",
           "grp": "G3",
           "holds": true,
-          "margin": 0.33435226179817934
+          "margin": 0.32265925370101656
         },
         {
           "ctr": "P",
           "grp": "G1",
           "holds": true,
-          "margin": 0.08532023817509726
+          "margin": 0.07593346194895428
         },
         {
           "ctr": "P",
           "grp": "G2",
           "holds": true,
-          "margin": 0.10178514464724442
+          "margin": 0.053204705851316925
         },
         {
           "ctr": "P",
           "grp": "G3",
           "holds": true,
-          "margin": 0.10580065897638069
+          "margin": 0.03607645905001167
         }
       ],
       "table": {
         "N/C": {
-          "delta": 0.12019951093554693,
+          "delta": 0.10230992716374088,
           "n": 338
         },
         "N/G1": {
-          "delta": 0.5153920161901762,
+          "delta": 0.4946854030549841,
           "n": 115
         },
         "N/G2": {
-          "delta": 0.399441321906432,
+          "delta": 0.32953717897423707,
           "n": 112
         },
         "N/G3": {
-          "delta": 0.45455177273372627,
+          "delta": 0.42496918086475743,
           "n": 114
         },
         "P/C": {
-          "delta": 0.07277087023856921,
+          "delta": 0.15980773438934676,
           "n": 1136
         },
         "P/G1": {
-          "delta": 0.15809110841366647,
+          "delta": 0.23574119633830104,
           "n": 379
         },
         "P/G2": {
-          "delta": 0.17455601488581363,
+          "delta": 0.21301244024066368,
           "n": 374
         },
         "P/G3": {
-          "delta": 0.1785715292149499,
+          "delta": 0.19588419343935842,
           "n": 375
         }
       }
@@ -311,70 +311,70 @@
           "ctr": "N",
           "grp": "G1",
           "holds": true,
-          "margin": 0.39813492986684085
+          "margin": 0.39152052588146224
         },
         {
           "ctr": "N",
           "grp": "G2",
           "holds": true,
-          "margin": 0.2821842355830967
+          "margin": 0.222611881506789
         },
         {
           "ctr": "N",
           "grp": "G3",
           "holds": true,
-          "margin": 0.33729468641039095
+          "margin": 0.32181229821019397
         },
         {
           "ctr": "P",
           "grp": "G1",
           "holds": true,
-          "margin": 0.06161144418709208
+          "margin": 0.040014923717191175
         },
         {
           "ctr": "P",
           "grp": "G2",
           "holds": true,
-          "margin": 0.08772760092091425
+          "margin": 0.045752759008395594
         },
         {
           "ctr": "P",
           "grp": "G3",
           "holds": true,
-          "margin": 0.0768664146393152
+          "margin": 0.0005944426536621528
         }
       ],
       "table": {
         "N/C": {
-          "delta": 0.11725708632333531,
+          "delta": 0.10316487717352185,
           "n": 338
         },
         "N/G1": {
-          "delta": 0.5153920161901762,
+          "delta": 0.4946854030549841,
           "n": 115
         },
         "N/G2": {
-          "delta": 0.399441321906432,
+          "delta": 0.32577675868031086,
           "n": 112
         },
         "N/G3": {
-          "delta": 0.45455177273372627,
+          "delta": 0.4249771753837158,
           "n": 114
         },
         "P/C": {
-          "delta": 0.08489369635697974,
+          "delta": 0.16448683117371554,
           "n": 1136
         },
         "P/G1": {
-          "delta": 0.14650514054407182,
+          "delta": 0.20450175489090672,
           "n": 379
         },
         "P/G2": {
-          "delta": 0.172621297277894,
+          "delta": 0.21023959018211114,
           "n": 374
         },
         "P/G3": {
-          "delta": 0.16176011099629495,
+          "delta": 0.1650812738273777,
           "n": 375
         }
       }
@@ -386,70 +386,70 @@
           "ctr": "N",
           "grp": "G1",
           "holds": true,
-          "margin": 0.3901057515372681
+          "margin": 0.367356518934697
         },
         {
           "ctr": "N",
           "grp": "G2",
           "holds": true,
-          "margin": 0.281568980830885
+          "margin": 0.21301938742400472
         },
         {
           "ctr": "N",
           "grp": "G3",
           "holds": true,
-          "margin": 0.3218980247201423
+          "margin": 0.30543353946944096
         },
         {
           "ctr": "P",
           "grp": "G1",
-          "holds": true,
-          "margin": 0.026542222621337097
+          "holds": false,
+          "margin": -0.034562046482417674
         },
         {
           "ctr": "P",
           "grp": "G2",
-          "holds": true,
-          "margin": 0.02635444130089115
+          "holds": false,
+          "margin": -0.043897665119584706
         },
         {
           "ctr": "P",
           "grp": "G3",
-          "holds": true,
-          "margin": 0.02105738319884387
+          "holds": false,
+          "margin": -0.05118106746463358
         }
       ],
       "table": {
         "N/C": {
-          "delta": 0.12434949832576159,
+          "delta": 0.12834902005011584,
           "n": 338
         },
         "N/G1": {
-          "delta": 0.5144552498630297,
+          "delta": 0.49570553898481284,
           "n": 115
         },
         "N/G2": {
-          "delta": 0.4059184791566466,
+          "delta": 0.34136840747412056,
           "n": 112
         },
         "N/G3": {
-          "delta": 0.44624752304590387,
+          "delta": 0.4337825595195568,
           "n": 114
         },
         "P/C": {
-          "delta": 0.09483504239003737,
+          "delta": 0.18136184796665056,
           "n": 1136
         },
         "P/G1": {
-          "delta": 0.12137726501137447,
+          "delta": 0.14679980148423288,
           "n": 379
         },
         "P/G2": {
-          "delta": 0.12118948369092852,
+          "delta": 0.13746418284706585,
           "n": 374
         },
         "P/G3": {
-          "delta": 0.11589242558888124,
+          "delta": 0.13018078050201698,
           "n": 375
         }
       }
@@ -461,70 +461,70 @@
           "ctr": "N",
           "grp": "G1",
           "holds": true,
-          "margin": 0.4112069743154283
+          "margin": 0.45326510175607887
         },
         {
           "ctr": "N",
           "grp": "G2",
           "holds": true,
-          "margin": 0.3071598917732261
+          "margin": 0.29296472587930783
         },
         {
           "ctr": "N",
           "grp": "G3",
           "holds": true,
-          "margin": 0.38952219492797435
+          "margin": 0.42156371741307036
         },
         {
           "ctr": "P",
           "grp": "G1",
           "holds": true,
-          "margin": 0.19195277421351498
+          "margin": 0.1732760063648029
         },
         {
           "ctr": "P",
           "grp": "G2",
           "holds": true,
-          "margin": 0.17473581917183956
+          "margin": 0.14339006260727505
         },
         {
           "ctr": "P",
           "grp": "G3",
           "holds": true,
-          "margin": 0.19220664435945212
+          "margin": 0.17287141649378346
         }
       ],
       "table": {
         "N/C": {
-          "delta": 0.2110911711718937,
+          "delta": 0.1989867519174145,
           "n": 338
         },
         "N/G1": {
-          "delta": 0.622298145487322,
+          "delta": 0.6522518536734934,
           "n": 115
         },
         "N/G2": {
-          "delta": 0.5182510629451198,
+          "delta": 0.4919514777967223,
           "n": 112
         },
         "N/G3": {
-          "delta": 0.600613366099868,
+          "delta": 0.6205504693304849,
           "n": 114
         },
         "P/C": {
-          "delta": 0.055576386133805,
+          "delta": 0.13372345716516598,
           "n": 1184
         },
         "P/G1": {
-          "delta": 0.24752916034731998,
+          "delta": 0.3069994635299689,
           "n": 393
         },
         "P/G2": {
-          "delta": 0.23031220530564456,
+          "delta": 0.27711351977244103,
           "n": 389
         },
         "P/G3": {
-          "delta": 0.24778303049325712,
+          "delta": 0.30659487365894944,
           "n": 388
         }
       }
@@ -555,8 +555,12 @@
     "settled": true
   },
   "t6": {
-    "all_hold": true,
-    "failing": [],
+    "all_hold": false,
+    "failing": [
+      "P/G1",
+      "P/G2",
+      "P/G3"
+    ],
     "measure": "bbo_shr_adv2",
     "note": "blanks are states with no quote, i.e. the widest kind; imputing them at zero is a bound on the arithmetic and not on the world, so a failure here is not a threat to B14-0 (design file section 4 supplement 2)"
   },
@@ -566,7 +570,7 @@
       "bbo_cnt": true,
       "bbo_shr": true,
       "bbo_shr_adv": true,
-      "bbo_shr_adv2": true,
+      "bbo_shr_adv2": false,
       "nbbo_shr": true
     },
     "primary": "bbo_shr",

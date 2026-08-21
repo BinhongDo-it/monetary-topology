@@ -1,0 +1,102 @@
+{
+  "C": {
+    "2018-09": {
+      "actual": {
+        "mean_rho": 0.14672029701013517,
+        "median_interior": 0.3331861825294348,
+        "n": 1233423,
+        "share_rho0": 0.5131451253949375,
+        "share_rho1": 0.0009461474287409915,
+        "share_t2_dominates_nonzero": 0.05490442932366136,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.05117045638827511
+      },
+      "rounded": {
+        "mean_rho": 0.06963470121513228,
+        "median_interior": 0.33289080621246875,
+        "n": 1233419,
+        "share_rho0": 0.768193938961537,
+        "share_rho1": 0.0002643059657748097,
+        "share_t2_dominates_nonzero": 0.05064459942500192,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.023989453925148133
+      }
+    },
+    "2018-10": {
+      "actual": {
+        "mean_rho": 0.15341449774581087,
+        "median_interior": 0.33260987392492036,
+        "n": 2414315,
+        "share_rho0": 0.4593961434195621,
+        "share_rho1": 0.0011701041496242205,
+        "share_t2_dominates_nonzero": 0.056927431144019096,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.013794715455242312
+      },
+      "rounded": {
+        "mean_rho": 0.07600225946313903,
+        "median_interior": 0.3328094297699784,
+        "n": 2414315,
+        "share_rho0": 0.7391347028039009,
+        "share_rho1": 0.0002853811536605621,
+        "share_t2_dominates_nonzero": 0.056000927262305676,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.015185389147052752
+      }
+    },
+    "gap_share_rho0": {
+      "closed_fraction": 5.2045368880195415,
+      "inside": 0.5131451253949375,
+      "outside": 0.4593961434195621,
+      "outside_rounded": 0.7391347028039009,
+      "raw_gap": -0.05374898197537542,
+      "residual_gap": 0.22598957740896342
+    }
+  },
+  "G": {
+    "2018-09": {
+      "actual": {
+        "mean_rho": 0.045199017781339994,
+        "median_interior": 0.33304885846704557,
+        "n": 767100,
+        "share_rho0": 0.8562521183678791,
+        "share_rho1": 0.00024898970147308044,
+        "share_t2_dominates_nonzero": 0.03370847654372489,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.019812010290744902
+      },
+      "rounded": {
+        "mean_rho": 0.045199017781339994,
+        "median_interior": 0.33304885846704557,
+        "n": 767100,
+        "share_rho0": 0.8562521183678791,
+        "share_rho1": 0.00024898970147308044,
+        "share_t2_dominates_nonzero": 0.03370847654372489,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.019812010290744902
+      }
+    },
+    "2018-10": {
+      "actual": {
+        "mean_rho": 0.13604601624941343,
+        "median_interior": 0.333007095552051,
+        "n": 3246520,
+        "share_rho0": 0.4945212104037554,
+        "share_rho1": 0.001139373852617572,
+        "share_t2_dominates_nonzero": 0.07934142044682449,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.04181612743676859
+      },
+      "rounded": {
+        "mean_rho": 0.05606646171569382,
+        "median_interior": 0.33289080621246875,
+        "n": 3246509,
+        "share_rho0": 0.8155085970807412,
+        "share_rho1": 0.000281225156006036,
+        "share_t2_dominates_nonzero": 0.04453103999813007,
+        "sum_abs_t2_over_sum_abs_t1_plus_t2": 0.008362856161712479
+      }
+    },
+    "gap_share_rho0": {
+      "closed_fraction": 0.8873651092840018,
+      "inside": 0.8562521183678791,
+      "outside": 0.4945212104037554,
+      "outside_rounded": 0.8155085970807412,
+      "raw_gap": -0.36173090796412366,
+      "residual_gap": -0.040743521287137874
+    }
+  }
+}

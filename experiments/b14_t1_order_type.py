@@ -1,15 +1,18 @@
-"""B14 的 T1：把「构成漂移」这条威胁做掉。
+"""B14 T1: dispose of the composition-drift threat.
 
-威胁（`B14_设计_v1.md` §6 T1）：`WA_BBO_Spd` 在**订单到达时刻**采样，
-所以订单类型的构成一变，即便报价过程不变，加总量也会动。
+The threat (design file section 6, T1): WA_BBO_Spd is sampled at the moment an
+order arrives, so a change in the mix of order types moves the aggregate even if
+the quoting process itself does not move at all.
 
-两条读数，口径其余部分与 §3、§4 逐字相同：
+Two readings; every other convention is word for word the same as sections 3
+and 4:
 
-  T1-a  固定构成：把每个标的的权重锁在**它自己前窗的订单类型份额**上，
-        逐日只让价差变、不让权重变。构成漂移在这一列里被关掉了。
-  T1-b  逐订单类型各跑一遍闸，看六条不等式在哪些类型上成立。
+  T1-a  fixed composition: lock each symbol's weights to its own pre-window
+        order-type shares, so day to day only the spread moves and the weights
+        do not. Composition drift is switched off in this column.
+  T1-b  run the gate once per order type and see where the six inequalities hold.
 
-用法
+Usage
     python experiments/b14_t1_order_type.py --selftest
     python experiments/b14_t1_order_type.py --build --only NYSE_MKTQUALITYSTATS_201612.gzip
     python experiments/b14_t1_order_type.py --run
@@ -98,7 +101,7 @@ def is_done(path):
 def build_one(fname):
     dst = out_path(fname)
     if dst is None or is_done(dst):
-        print("  跳过:", fname)
+        print("  skipped:", fname)
         return
     os.makedirs(CACHE, exist_ok=True)
     acc = accumulate(stream(os.path.join(RAW, fname)))
@@ -110,7 +113,7 @@ def build_one(fname):
             fh.write("%s,%s,%s,%s,%s,%.6f,%.0f\n" % (k + (a[0], a[1])))
         fh.write("#DONE keys=%d src=%s\n" % (len(acc), fname))
     os.replace(tmp, dst)
-    print("  %-40s 格 %8d" % (fname, len(acc)))
+    print("  %-40s cells %8d" % (fname, len(acc)))
 
 
 def load():
@@ -118,7 +121,7 @@ def load():
     rec = {}
     files = sorted(f for f in os.listdir(CACHE)
                    if f.startswith("panel_ot_") and f.endswith(".csv"))
-    assert files, "没有 panel_ot 缓存，先 --build"
+    assert files, "no panel_ot cache; run --build first"
     for fn in files:
         with open(os.path.join(CACHE, fn)) as fh:
             assert fh.readline().startswith("date,ctr,symbol"), fn
@@ -140,7 +143,9 @@ def load():
 
 
 def series(cell, fixed=None):
-    """逐日一个数。fixed 给定则用固定权重，否则用当日自己的权重（= 主口径）。"""
+    """One number per day. With fixed weights when given, otherwise that day's own
+    weights, which is the primary convention.
+    """
     byday = collections.defaultdict(dict)
     for (d, ot), (num, den) in cell.items():
         byday[d][ot] = (num, den)
@@ -181,13 +186,14 @@ def gate(deltas, label):
                              "holds": bool(m is not None and base is not None and m > base),
                              "margin": None if (m is None or base is None) else m - base})
     print("== %s ==" % label)
-    print("  %-4s %-4s %6s %10s %12s" % ("场所", "组", "标的数", "Δ中位数", "相对C"))
+    print("  %-6s %-4s %8s %11s %12s"
+          % ("venue", "grp", "symbols", "med Delta", "vs C"))
     for c, g, n, m, rel in rows:
         print("  %-4s %-4s %6d %10s %12s"
               % (c, g, n, "None" if m is None else "%+.6f" % m,
                  "" if rel is None else "%+.6f" % rel))
     ok = all(x["holds"] for x in ineq) and len(ineq) == 6
-    print("  六条：%d/%d 成立  ->  %s\n"
+    print("  six: %d/%d hold  ->  %s\n"
           % (sum(1 for x in ineq if x["holds"]), len(ineq), "PASS" if ok else "FAIL"))
     return ok, ineq
 
@@ -195,7 +201,8 @@ def gate(deltas, label):
 def run():
     import json
     rec, files = load()
-    print("读入 %d 件 panel_ot 缓存，%d 个 (场所, 标的)\n" % (len(files), len(rec)))
+    print("read %d panel_ot cache files, %d (venue, symbol) pairs\n"
+          % (len(files), len(rec)))
 
     d_var, d_fix = {}, {}
     per_ot = collections.defaultdict(dict)
@@ -220,8 +227,10 @@ def run():
                 per_ot[ot].setdefault((c, g), []).append(median(b) - median(a))
 
     res = {"stage": "B14", "window": [PRE[0], POST[1]], "criteria": []}
-    ok_v, iv = gate(d_var, "对照：当日自己的权重（应复现已登记的主口径）")
-    ok_f, ifx = gate(d_fix, "T1-a　固定构成：权重锁在该标的自己前窗的订单类型份额上")
+    ok_v, iv = gate(d_var, "control: that day's own weights "
+                    "(must reproduce the registered primary convention)")
+    ok_f, ifx = gate(d_fix, "T1-a fixed composition: weights locked to the "
+                    "symbol's own pre-window order-type shares")
     res["criteria"].append({
         "name": "B14-0/T1a  the gate survives holding the order-type mix fixed",
         "passed": bool(ok_f),
@@ -229,13 +238,14 @@ def run():
                             for x in ifx),
     })
 
-    print("T1-b　逐订单类型（按前窗股数份额从大到小）\n")
+    print("T1-b, one run per order type, by descending pre-window share\n")
     tot = sum(ots.values()) or 1
     for ot, mass in sorted(ots.items(), key=lambda kv: -kv[1]):
         share = mass / tot
         if share < 0.01:
             continue
-        ok, ii = gate(per_ot[ot], "Order_Type %s（前窗股数份额 %.4f）" % (ot, share))
+        ok, ii = gate(per_ot[ot],
+                      "Order_Type %s (pre-window share weight %.4f)" % (ot, share))
         res["criteria"].append({
             "name": "B14-0/T1b  order type %s alone, share %.4f" % (ot, share),
             "passed": bool(ok),
@@ -249,7 +259,7 @@ def run():
     with open(OUT, "w") as fh:
         json.dump(res, fh, indent=2, ensure_ascii=False, sort_keys=True)
         fh.write("\n")
-    print("写出 %s" % os.path.relpath(OUT, ROOT))
+    print("wrote %s" % os.path.relpath(OUT, ROOT))
     return 0
 
 
@@ -263,20 +273,22 @@ def selftest():
 
     cell = {("20160801", "10"): (0.05 * 100, 100.0),
             ("20160801", "11"): (0.01 * 300, 300.0)}
-    chk("当日权重复现主口径的 0.02",
+    chk("that day's own weights reproduce the primary convention 0.02",
         abs(math.exp(series(cell)[0]) - 0.02) < 1e-12)
-    chk("固定权重给 50/50 时是 0.03",
+    chk("fixed 50/50 weights give 0.03",
         abs(math.exp(series(cell, {"10": 1.0, "11": 1.0})[0]) - 0.03) < 1e-12)
-    chk("前窗份额就是当日权重时，固定与不固定一致",
+    chk("when the pre-window share equals the day's own weight, fixed and free "
+        "agree",
         abs(series(cell, pre_mix(cell))[0] - series(cell)[0]) < 1e-12)
-    chk("固定权重里没有的类型被丢掉",
+    chk("an order type absent from the fixed weights is dropped",
         abs(math.exp(series(cell, {"10": 1.0})[0]) - 0.05) < 1e-12)
-    chk("pre_mix 按股数累加", pre_mix(cell) == {"10": 100.0, "11": 300.0})
-    chk("窗口与 B14 设计件 §3 D3-6 一致",
+    chk("pre_mix accumulates by shares",
+        pre_mix(cell) == {"10": 100.0, "11": 300.0})
+    chk("the windows match design file section 3, D3-6",
         PRE == ("20160801", "20160930") and POST == ("20161101", "20161231"))
-    chk("列号指向 WA_BBO_Spd 与 Order_Shares_Ct",
+    chk("the column numbers point at WA_BBO_Spd and Order_Shares_Ct",
         C_BBO == 43 and C_SHARES == 16 and C_OT == 5)
-    print("\n  " + ("全部通过" if ok else "有失败"))
+    print("\n  " + ("all passed" if ok else "some failed"))
     return 0 if ok else 1
 
 

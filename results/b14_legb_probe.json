@@ -1,0 +1,39 @@
+{
+  "check1_price_columns": true,
+  "check2_aligned_seconds": 25241,
+  "check3": {
+    "odd_parity": 8120,
+    "on_nickel": 5887,
+    "on_penny": 25241,
+    "total": 25241
+  },
+  "check4_complete_cells": 25241,
+  "check4_per_symbol": {
+    "AAN": 9561,
+    "ACCO": 3571,
+    "ARC": 1291,
+    "AROC": 5431,
+    "BKS": 5387
+  },
+  "days": [
+    "2018-09-26",
+    "2018-09-27",
+    "2018-10-01",
+    "2018-10-02"
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "leg B depth gate registered in design file section 7 supplement 2 A14; the station is not closed and no bulk data has been bought",
+  "schema": "bbo-1s",
+  "stage": "B14",
+  "symbols": [
+    "AAN",
+    "ARC",
+    "BKS",
+    "AROC",
+    "ACCO"
+  ],
+  "venues": [
+    "XNYS.PILLAR",
+    "XNAS.ITCH"
+  ]
+}

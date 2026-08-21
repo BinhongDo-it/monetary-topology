@@ -1,15 +1,18 @@
-"""B14-0 闸零：处理组的摩擦半有没有相对对照组变宽。
+"""B14-0, the gate: does the friction half widen on treated relative to control.
 
-判据由 claude/B14_设计_v1.md §4 钉死：
+Criteria fixed before the run in the design file, section 4:
 
-    Δ(sym, ctr) = log( 后窗逐日 spd 的中位数 / 前窗逐日 spd 的中位数 )
-    组统计量    = 组内对标的取 Δ 的中位数
-    PASS        = G1>C 且 G2>C 且 G3>C，在 N 与 P 两个场所上都成立（六条）
+    Delta(sym, ctr) = log( median daily spd in the post window
+                           / median daily spd in the pre window )
+    group statistic = median of Delta over symbols within the group
+    PASS            = G1>C and G2>C and G3>C, on both venue N and venue P (six)
 
-主口径 = WA_BBO_Spd 按 Order_Shares_Ct 加权。
-并列跑：同量按 Order_Count 加权（权重口径核，D3-3），WA_NBBO_Spd 按股数加权（旁证，不裁定）。
+Primary convention = WA_BBO_Spd weighted by Order_Shares_Ct.
+Run alongside: the same quantity weighted by Order_Count (the weighting-convention
+check, D3-3), and WA_NBBO_Spd share weighted (a cross-check, excluded from the
+verdict).
 
-用法
+Usage
     python experiments/b14_gate0.py --selftest
     python experiments/b14_gate0.py --run
 """
@@ -26,22 +29,44 @@ OUT = os.path.join(ROOT, "results", "b14_gate0.json")
 PRE = ("20160801", "20160930")
 POST = ("20161101", "20161231")
 MIN_DAYS = 10
-GRP_FROM = "post"   # D3-9'，设计件 §3·补1：分组归属只从后窗读
-#: T8（设计件 §3·补2）：FINRA 发布的权威分组名单。给了它就用它，不用后窗推。
+GRP_FROM = "post"   # D3-9', design file section 3 supplement 1: read the group
+                    # assignment from the post window only
+#: T8 (design file section 3 supplement 2): the authoritative group list published
+#: by FINRA. When supplied it replaces the post-window inference.
 AUTH = os.path.join(ROOT, "data", "raw", "Tick_Pilot_Test_Group_Assignments.txt")
 GROUPS = ["C", "G1", "G2", "G3"]
-# (名字, 分子列, 分母列的集合, 说明)。v2 列号见 b14_tickpilot_panel.py 的 HEAD。
+# (name, numerator column, set of denominator columns, description).
+# The v2 column numbers are the HEAD line of b14_tickpilot_panel.py.
 MEASURES = [
-    ("bbo_shr", 4, (5,), "主口径：WA_BBO_Spd 按股数加权"),
-    ("bbo_cnt", 6, (7,), "权重口径核：WA_BBO_Spd 按笔数加权"),
+    ("bbo_shr", 4, (5,), "primary: WA_BBO_Spd, share weighted"),
+    ("bbo_cnt", 6, (7,), "weighting-convention check: WA_BBO_Spd, order-count weighted"),
     ("bbo_shr_adv", 4, (5, 14),
-     "T5 对抗口径：零价差行按真实股数权重当作价差为零收进来（设计件 §4·补1）"),
+     "T5 adverse convention: zero-spread rows admitted at their true share weight\n      (design file section 4 supplement 1)"),
     ("bbo_shr_adv2", 4, (5, 14, 16),
-     "T6 算术敏感度：零与空都按真实股数权重当作价差为零收进来（设计件 §4·补2）"),
-    ("nbbo_shr", 8, (9,), "旁证：WA_NBBO_Spd 按股数加权，不参与裁定"),
+     "T6 arithmetic sensitivity: blanks and zeros both admitted at their true share\n      weight (design file section 4 supplement 2)"),
+    ("nbbo_shr", 8, (9,), "cross-check: WA_NBBO_Spd share weighted, excluded from the verdict"),
 ]
 T5_MEASURE = "bbo_shr_adv"
 T6_MEASURE = "bbo_shr_adv2"
+
+
+def canon(sym):
+    """The ticker as a key.
+
+    The venues do not spell class shares the same way, and do not spell them the
+    same way over time. Arca writes "AMSW A" through 2018-11 and "AMSWA" from
+    2018-12; NYSE writes "AMSWA" throughout; the FINRA list writes "AMSWA".
+    Keying on the raw string therefore splits one security into two records whose
+    windows do not overlap, and the ten-day rule then drops both.
+
+    Measured 2026-08-19: 27 Arca symbols change spelling inside the 2018 round and
+    0 inside 2016, so this repairs the leg A round and leaves B14-0 untouched,
+    which the reproduction check is there to confirm rather than assume. A further
+    25 symbols could not be matched against the authoritative list for the same
+    reason. Despacing merges no two distinct tickers: checked over every spelling
+    in every cached panel, 0 collisions.
+    """
+    return sym.replace(" ", "")
 
 
 def median(xs):
@@ -53,7 +78,7 @@ def median(xs):
 
 
 def load_authoritative():
-    """FINRA 的 Tick_Pilot_Test_Group_Assignments.txt -> {ticker: group}。"""
+    """FINRA Tick_Pilot_Test_Group_Assignments.txt -> {ticker: group}."""
     out = {}
     with open(AUTH, encoding="latin-1") as fh:
         head = fh.readline().rstrip("\n").split("|")
@@ -65,7 +90,7 @@ def load_authoritative():
                 continue
             g = f[i_grp].strip()
             if g in GROUPS:
-                out[f[i_sym].strip()] = g
+                out[canon(f[i_sym].strip())] = g
     return out
 
 
@@ -75,7 +100,7 @@ def load():
     rec = {}
     files = sorted(f for f in os.listdir(CACHE)
                    if f.startswith("panel_v2_") and f.endswith(".csv"))
-    assert files, "没有 v2 缓存，先跑 b14_tickpilot_panel.py --build"
+    assert files, "no v2 cache; run b14_tickpilot_panel.py --build first"
     for fn in files:
         with open(os.path.join(CACHE, fn)) as fh:
             head = fh.readline()
@@ -84,7 +109,7 @@ def load():
                 if line.startswith("#"):
                     continue
                 p = line.rstrip("\n").split(",")
-                date, ctr, sym, grp = p[0], p[1], p[2], p[3]
+                date, ctr, sym, grp = p[0], p[1], canon(p[2]), p[3]
                 if PRE[0] <= date <= PRE[1]:
                     win = "pre"
                 elif POST[0] <= date <= POST[1]:
@@ -98,8 +123,10 @@ def load():
                         "pre": {m[0]: [] for m in MEASURES},
                         "post": {m[0]: [] for m in MEASURES},
                     }
-                # D3-9'（设计件 §3·补1）：分组归属只从后窗读。
-                # 该字段记的是「该证券在该日处于什么状态」，前窗里受处理的证券也全标 C。
+                # D3-9' (design file section 3 supplement 1): read the group
+                # assignment from the post window only. The field records the
+                # state a security was in on that day, so in the pre window every
+                # treated security is also labelled C.
                 if win == GRP_FROM:
                     r["grp"].add(grp)
                 for name, inum, idens, _ in MEASURES:
@@ -112,21 +139,25 @@ def load():
 
 
 def deltas(rec, auth=None):
-    """每个 (ctr, sym) 一个 Δ，按 measure 分开。中位数取在 log 上，所以 Δ 是两个中位数之差。"""
+    """One Delta per (ctr, sym), separately per measure.
+
+    Medians are taken on the log, so Delta is a difference of two medians.
+    """
     out = {m[0]: {} for m in MEASURES}
-    skipped = {"组不唯一": 0, "天数不够": 0, "后窗无标签": 0}
+    skipped = {"group not unique": 0, "too few days": 0, "no post-window label": 0}
     for (ctr, sym), r in rec.items():
         if auth is not None:
             grp = auth.get(sym)
             if grp is None:
-                skipped["权威名单查无此标的"] = skipped.get("权威名单查无此标的", 0) + 1
+                skipped["not on the authoritative list"] = skipped.get(
+                    "not on the authoritative list", 0) + 1
                 continue
         else:
             if not r["grp"]:
-                skipped["后窗无标签"] += 1
+                skipped["no post-window label"] += 1
                 continue
             if len(r["grp"]) != 1:
-                skipped["组不唯一"] += 1
+                skipped["group not unique"] += 1
                 continue
             grp = next(iter(r["grp"]))
         if grp not in GROUPS:
@@ -135,7 +166,7 @@ def deltas(rec, auth=None):
             a, b = r["pre"][name], r["post"][name]
             if len(a) < MIN_DAYS or len(b) < MIN_DAYS:
                 if name == MEASURES[0][0]:
-                    skipped["天数不够"] += 1
+                    skipped["too few days"] += 1
                 continue
             out[name].setdefault((ctr, grp), []).append(median(b) - median(a))
     return out, skipped
@@ -146,12 +177,13 @@ args_authoritative = [False]
 
 def run():
     rec, files = load()
-    print("读入 %d 件缓存，%d 个 (场所, 标的)" % (len(files), len(rec)))
+    print("read %d cache files, %d (venue, symbol) pairs" % (len(files), len(rec)))
     auth = load_authoritative() if args_authoritative[0] else None
     if auth is not None:
-        print("T8：用 FINRA 权威分组名单，%d 只（设计件 §3·补2）" % len(auth))
+        print("T8: groups from the FINRA authoritative list, %d symbols "
+              "(design file section 3 supplement 2)" % len(auth))
     d, skipped = deltas(rec, auth)
-    print("剔除：" + "，".join("%s %d" % (k, v) for k, v in skipped.items()
+    print("dropped: " + ", ".join("%s %d" % (k, v) for k, v in skipped.items()
                               if v) + "\n")
 
     ctrs = sorted({c for name in d for (c, g) in d[name]})
@@ -167,7 +199,8 @@ def run():
 
     for name, _, _, desc in MEASURES:
         print("== %s (%s) ==" % (name, desc))
-        print("  %-4s %-4s %6s %10s %12s" % ("场所", "组", "标的数", "Δ中位数", "相对C"))
+        print("  %-6s %-4s %8s %11s %12s"
+              % ("venue", "grp", "symbols", "med Delta", "vs C"))
         tab = {}
         for ctr in ctrs:
             base = median(d[name].get((ctr, "C"), []))
@@ -176,7 +209,7 @@ def run():
                 m = median(xs)
                 tab[ctr + "/" + grp] = {"n": len(xs), "delta": m}
                 rel = "" if (m is None or base is None) else "%+.6f" % (m - base)
-                print("  %-4s %-4s %6d %10s %12s"
+                print("  %-6s %-4s %8d %11s %12s"
                       % (ctr, grp, len(xs),
                          "None" if m is None else "%+.6f" % m, rel))
         res["measures"][name] = {"desc": desc, "table": tab}
@@ -191,7 +224,7 @@ def run():
         res["measures"][name]["inequalities"] = ineq
         v = all(x["holds"] for x in ineq) and len(ineq) == 6
         verdict[name] = v
-        print("  六条不等式：%d/%d 成立  ->  %s\n"
+        print("  six inequalities: %d/%d hold  ->  %s\n"
               % (sum(1 for x in ineq if x["holds"]), len(ineq), "PASS" if v else "FAIL"))
 
     primary = MEASURES[0][0]
@@ -223,8 +256,11 @@ def run():
         "failing": [x["ctr"] + "/" + x["grp"] for x in t5 if not x["holds"]],
     }
 
-    # 设计件 §4·补1 要求的复现核：加列不改原有列，v2 上重跑主口径必须逐位复现
-    # 已登记的六个边距。不复现即为代码错，本次一切读数作废。
+    # The reproduction check required by design file section 4 supplement 1:
+    # adding columns must not move existing ones, so re-running the primary
+    # convention on the v2 cache has to reproduce the six registered margins
+    # digit for digit. Failure to reproduce is a code error and voids every
+    # reading of this run.
     repro = None
     if prev and "measures" in prev and primary in prev["measures"]:
         old = {(x["ctr"], x["grp"]): x["margin"]
@@ -240,8 +276,10 @@ def run():
                            for k, a, b in diffs]}
     res["reproduction_check"] = repro
 
-    # scripts/render_results.py 的记录形状：stage + criteria[{name, passed, detail}]。
-    # 六条不等式各自一条，权重口径核一条，旁证 NBBO 记为 diagnostic 不参与计数。
+    # The record shape scripts/render_results.py expects: stage plus
+    # criteria[{name, passed, detail}]. One entry per inequality, one for the
+    # weighting-convention check, and the NBBO cross-check marked diagnostic so
+    # it does not count.
     crit = []
     for x in res["measures"][primary]["inequalities"]:
         c, g = x["ctr"], x["grp"]
@@ -308,27 +346,36 @@ def run():
         for c in ctrs for g in GROUPS
         if res["measures"][primary]["table"][c + "/" + g]["delta"] is not None
     }
-    print("裁定（依设计件 §4）")
-    print("  B14-0 = %s（主口径 %s）" % (res["verdict"]["B14-0"], primary))
-    print("  权重口径同号：%s" % ("是" if res["verdict"]["weight_agrees"] else "否 -> 闸零不可裁"))
-    print("  旁证 NBBO：%s（不参与裁定）" % ("PASS" if verdict["nbbo_shr"] else "FAIL"))
-    print("\nT5（依设计件 §4·补1）")
-    print("  对抗口径六条：%d/6 成立  ->  T5 %s"
+    print("verdict (design file section 4)")
+    print("  B14-0 = %s (primary convention %s)"
+          % (res["verdict"]["B14-0"], primary))
+    print("  weighting conventions agree: %s"
+          % ("yes" if res["verdict"]["weight_agrees"]
+             else "no -> the gate is unadjudicable"))
+    print("  NBBO cross-check: %s (excluded from the verdict)"
+          % ("PASS" if verdict["nbbo_shr"] else "FAIL"))
+    print("\nT5 (design file section 4 supplement 1)")
+    print("  adverse convention: %d/6 hold  ->  T5 %s"
           % (sum(1 for x in t5 if x["holds"]),
-             "结清，判死" if t5_all else "未结：" + ", ".join(res["t5"]["failing"])))
-    print("\nT6（依设计件 §4·补2，算术敏感度，不参与裁定）")
-    print("  零与空都按真实权重当作零：%d/6 成立%s"
+             "settled, killed" if t5_all else
+             "open: " + ", ".join(res["t5"]["failing"])))
+    print("\nT6 (design file section 4 supplement 2; arithmetic sensitivity, "
+          "excluded from the verdict)")
+    print("  blanks and zeros both forced to zero: %d/6 hold%s"
           % (sum(1 for x in t6 if x["holds"]),
-             "" if t6_all else "  翻掉的是 " + ", ".join(res["t6"]["failing"])))
-    print("  空的含义是该场所当时没有报价，是最宽的一类状态；把它算成零"
-          "在方向上与其含义相反，故此处的翻掉不构成对 B14-0 的威胁。")
+             "" if t6_all else "  failing: " + ", ".join(res["t6"]["failing"])))
+    print("  A blank means the venue had no quote at that moment, which is the\n"
+          "  widest kind of state, so imputing zero runs against its meaning.\n"
+          "  A failure here is therefore not a threat to B14-0.")
 
     if repro is None:
-        print("  复现核：没有可比的前一份记录，跳过")
+        print("  reproduction check: no prior record to compare, skipped")
     elif repro["identical"]:
-        print("  复现核：主口径 %d 个边距与已登记记录逐位相同" % repro["checked"])
+        print("  reproduction check: %d primary margins identical digit for digit"
+              % repro["checked"])
     else:
-        print("  复现核：**不相同**，%d 个边距变了 -> 依设计件 §4·补1，本次一切读数作废"
+        print("  reproduction check: **DIFFERS**, %d margins moved -> by design\n"
+              "  file section 4 supplement 1 every reading of this run is void"
               % len(repro["diffs"]))
         for d in repro["diffs"]:
             print("    %s  %r -> %r" % (d["cell"], d["was"], d["now"]))
@@ -337,7 +384,7 @@ def run():
     with open(OUT, "w") as fh:
         json.dump(res, fh, indent=2, ensure_ascii=False, sort_keys=True)
         fh.write("\n")
-    print("\n写出 %s" % os.path.relpath(OUT, ROOT))
+    print("\nwrote %s" % os.path.relpath(OUT, ROOT))
     return 0
 
 
@@ -349,30 +396,38 @@ def selftest():
         print(("  PASS  " if c else "  FAIL  ") + n)
         ok = ok and c
 
-    chk("中位数，奇数个", median([3, 1, 2]) == 2)
-    chk("中位数，偶数个取中间两个的平均", median([1, 2, 3, 4]) == 2.5)
-    chk("空表返回 None", median([]) is None)
-    chk("分组归属只从后窗读（§3·补1 D3-9'）", GRP_FROM == "post")
-    chk("权威名单文件在盘", os.path.exists(AUTH))
+    chk("canon strips the space that splits a class share into two records",
+        canon("AMSW A") == "AMSWA" == canon("AMSWA"))
+    chk("canon keeps two genuinely different class shares apart",
+        canon("BELF A") != canon("BELF B"))
+    chk("canon is idempotent", canon(canon("CRD A")) == canon("CRD A"))
+    chk("the authoritative list is keyed through canon",
+        all(" " not in k for k in load_authoritative()))
+    chk("median, odd count", median([3, 1, 2]) == 2)
+    chk("median, even count averages the middle two", median([1, 2, 3, 4]) == 2.5)
+    chk("empty list returns None", median([]) is None)
+    chk("group assignment read from the post window only (D3-9')",
+        GRP_FROM == "post")
+    chk("the authoritative list is on disk", os.path.exists(AUTH))
     _a = load_authoritative()
-    chk("权威名单读得出四个组且只有四个组",
+    chk("the authoritative list yields four groups and only four",
         set(_a.values()) == {"C", "G1", "G2", "G3"} and len(_a) > 2000)
-    chk("前窗后窗不重叠且都不含 2016-10",
+    chk("the two windows do not overlap and neither contains 2016-10",
         PRE[1] < "20161001" and POST[0] > "20161031")
-    chk("窗口与设计件 §3 D3-6 一致",
+    chk("the windows match design file section 3, D3-6",
         PRE == ("20160801", "20160930") and POST == ("20161101", "20161231"))
-    chk("主口径列号指向 bbo/股数",
+    chk("the primary column numbers point at bbo over shares",
         MEASURES[0][0] == "bbo_shr" and MEASURES[0][1] == 4
         and MEASURES[0][2] == (5,))
-    chk("旁证不参与裁定：MEASURES 里它排在最后",
+    chk("the cross-check is excluded: it sorts last in MEASURES",
         MEASURES[-1][0] == "nbbo_shr")
-    chk("T5 对抗口径的分母是 den + zero_shr",
+    chk("the T5 denominator is den + zero_shr",
         dict((m[0], m[2]) for m in MEASURES)[T5_MEASURE] == (5, 14))
-    chk("T5 对抗口径与主口径共用同一个分子",
+    chk("T5 shares the numerator with the primary convention",
         dict((m[0], m[1]) for m in MEASURES)[T5_MEASURE] == MEASURES[0][1])
-    chk("T6 口径的分母是 den + zero_shr + blank_shr",
+    chk("the T6 denominator is den + zero_shr + blank_shr",
         dict((m[0], m[2]) for m in MEASURES)[T6_MEASURE] == (5, 14, 16))
-    chk("T6 的分母包含 T5 的分母，故 T6 只会更严",
+    chk("the T6 denominator contains the T5 one, so T6 can only be stricter",
         set(dict((m[0], m[2]) for m in MEASURES)[T5_MEASURE])
         < set(dict((m[0], m[2]) for m in MEASURES)[T6_MEASURE]))
 
@@ -383,25 +438,29 @@ def selftest():
         for w in ("pre", "post"):
             r[k][w] = {m[0]: [0.0] * 20 for m in MEASURES}
     d, sk = deltas(r)
-    chk("后窗标签不唯一的标的被剔除并计数", sk["组不唯一"] == 1)
-    chk("后窗完全没有标签的标的被剔除并计数", sk["后窗无标签"] == 1)
-    chk("剩下的标的进了 (N, G1)", list(d["bbo_shr"]) == [("N", "G1")])
+    chk("a symbol with a non-unique post-window label is dropped and counted",
+        sk["group not unique"] == 1)
+    chk("a symbol with no post-window label at all is dropped and counted",
+        sk["no post-window label"] == 1)
+    chk("the surviving symbol lands in (N, G1)",
+        list(d["bbo_shr"]) == [("N", "G1")])
 
     r2 = {("N", "AAA"): {"grp": {"G1"},
                          "pre": {m[0]: [0.0] * 9 for m in MEASURES},
                          "post": {m[0]: [0.0] * 20 for m in MEASURES}}}
     d2, sk2 = deltas(r2)
-    chk("前窗只有 9 天的标的被剔除", sk2["天数不够"] == 1 and not d2["bbo_shr"])
+    chk("a symbol with only 9 pre-window days is dropped",
+        sk2["too few days"] == 1 and not d2["bbo_shr"])
 
     import math
     r3 = {("N", "AAA"): {"grp": {"G1"},
                          "pre": {m[0]: [math.log(0.01)] * 12 for m in MEASURES},
                          "post": {m[0]: [math.log(0.05)] * 12 for m in MEASURES}}}
     d3, _ = deltas(r3)
-    chk("1 分变 5 分给出 log5 的 Δ",
+    chk("a penny grid becoming a nickel grid gives a Delta of log 5",
         abs(d3["bbo_shr"][("N", "G1")][0] - math.log(5)) < 1e-12)
 
-    print("\n  " + ("全部通过" if ok else "有失败"))
+    print("\n  " + ("all passed" if ok else "some failed"))
     return 0 if ok else 1
 
 
@@ -410,7 +469,8 @@ def main():
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--run", action="store_true")
     ap.add_argument("--authoritative", action="store_true",
-                    help="T8：分组用 FINRA 权威名单，不用后窗推（设计件 §3·补2）")
+                    help="T8: groups from the FINRA authoritative list instead of the "
+                         "post-window inference (design file section 3 supplement 2)")
     a = ap.parse_args()
     args_authoritative[0] = a.authoritative
     if a.authoritative:
