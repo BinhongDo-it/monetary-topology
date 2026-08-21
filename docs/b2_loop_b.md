@@ -43,7 +43,7 @@ project exists to avoid.**
 
 ## 2. What was known before this was written
 
-Recorded because the honest version of a pre-registration says what the author
+Recorded because the honest version of a pre-registration says what I
 already had in hand.
 
 - `b2_measurement.md` already cites FHFA's figures for the share of outstanding

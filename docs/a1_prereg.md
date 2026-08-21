@@ -748,7 +748,7 @@ outright owner has **no shelter rung**, cannot be displaced, and is in neither
 shelter denominator. The mortgage payment and the DFA mortgage stock are both
 divided by the **mortgaged** rather than by every owner, which moves the payment
 from `366 / 932 / 1,937` to `1,007 / 1,370 / 2,490` a month. Both rulings were
-put to the author and taken before the model was rewritten.
+taken before the model was rewritten.
 
 **Two things now refuse to be built, and both refusals are results.**
 

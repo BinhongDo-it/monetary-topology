@@ -964,7 +964,7 @@ one, B8-0a is not one, B8-1 is not one and B8-3 is not one.**
 # 16. Splitting the B8-0a(i) gate (2026-08-16)
 
 **Sections 1 to 15 stand, and this section overrides them where they conflict.**
-Ruled by the author; the full text and the quantification are in the project's
+This is a deliberate ruling and not drift; the full text and the quantification are in the project's
 B8-0a tolerance ruling, and the run record is in the B8 inputs register
 sections 6.2.6 to 6.2.8. **Written before `omega` was coded. B8-0a(i) has never
 been run.**

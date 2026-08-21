@@ -822,7 +822,7 @@ what `λ` turned out to be doing instead.
 
 | criterion | verdict | reading |
 |---|---|---|
-| **A6-7** reduction guard | **pass** | 160 model pairs compared bit for bit, 0 mismatches, on the author's machine and on a Linux sandbox alike. The guard is a same-process comparison, so this was expected, and it means `A6Model` is still exactly the object §9.2 came from |
+| **A6-7** reduction guard | **pass** | 160 model pairs compared bit for bit, 0 mismatches, on a Windows build and on a Linux sandbox alike. The guard is a same-process comparison, so this was expected, and it means `A6Model` is still exactly the object §9.2 came from |
 | **A6-8** fixed point | **pass** | `K − B` settles on `I/λ`, worst relative error `5.04e-11` against `1e-9` |
 | **A6-9** the `λ` band | **pass on the letter** | band is `λ ∈ [0, 0.01]`, six of eight grid points, contiguous, under both smooth shapes. **Its predicted shape failed.** §14.4 |
 | **A6-10** `R*` off the grid floor | **fail** | holds at `λ = 0.01` (`R* = 0.010`), fails at `λ = 0.001` (`R*` pinned at `0.005`). §13.7 registered that both must hold and that a split is reported as a failure with the split named. §14.5 |

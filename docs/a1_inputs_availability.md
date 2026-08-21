@@ -173,7 +173,7 @@ This was checked rather than assumed:
 **How large is the mismatch.** The only rank correlation this check could verify
 is Kennickell (1999) on the 1995 SCF: Spearman correlation between income and net
 worth **0.76**, Pearson rank correlations 0.71 to 0.85 depending on the income
-measure, with the author's own conclusion that "the relationship is not strong".
+measure, with Kennickell's own conclusion that "the relationship is not strong".
 That is a thirty-year-old vintage and is cited as such.
 
 A current and sharper reading comes from the SCF 2022 Bulletin Table 2, net worth

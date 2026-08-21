@@ -61,7 +61,7 @@ is to be typed as `H⁰` rather than inferred from a gap in a file.
 
 ### 3.1 The Banco Central de Cuba publishes the agent index itself
 
-Verified 2026-08-12, both routes, from the author's machine (the sandbox cannot
+Verified 2026-08-12, both routes, from a Windows build (the sandbox cannot
 reach `*.bc.gob.cu`; this is an environment limit and not a property of the
 source).
 

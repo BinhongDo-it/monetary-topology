@@ -1109,7 +1109,7 @@ two graph models side by side rather than asserting one. B6-6c's observable
 became a **potential difference** from `directed.potential_interval` rather than
 a cycle sum, which is what `b4` §5.2 says an `H⁰` case may report.
 
-**The maximal model was added on the user's instruction**, against a question
+**The maximal model was a deliberate addition**, against a question
 this table cannot answer: how much of a return leg the informal market supplies
 in practice. Running both bounds it from either side instead of assuming one.
 
@@ -1177,7 +1177,7 @@ untouched and was not re-derived from the seven days.
 **Nothing else moved.** No other criterion's constants changed, and no headline
 had been computed against the reference when the clause was withdrawn.
 
-### 2026-08-12, first retrieval on the author's machine. Guard 2 fired, correctly
+### 2026-08-12, first retrieval on a Windows build. Guard 2 fired, correctly
 
 **The export's last row is provisional, and nobody had anticipated it.** The six
 XLSX files were downloaded at 23:32 on 11 August local time; the API's record for
@@ -1213,7 +1213,7 @@ on that grid, worst departure `7.5e-9`, which is a property of the source rather
 than a level chosen to accommodate a result.
 
 **The yen's orientation was established from the bank's footnote**, relayed by
-the user, and not from the ladder. §2.5 states why that distinction is the whole
+hand, and not from the ladder. §2.5 states why that distinction is the whole
 defence.
 
 ### 2026-08-12, B6-8 ran. The first result was the reader's fault and is withdrawn

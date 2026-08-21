@@ -37,14 +37,25 @@ predicted direction by 130 times the scale of a gap known to be zero.
 
 **One line per station is not enough and this file will not try.** The full
 account — what each station asked, what it answered, and what it retracted, in
-four fields per station — is in [`speedrun/`](speedrun/):
+four fields per station — is in [`speedrun/`](speedrun/).
+
+**[`speedrun/README.md`](speedrun/README.md) is the way in**, and it does two
+things the volumes cannot. It states **what the programme claims and why that is
+one claim** rather than a pile of stations. Then it indexes the whole thing **by
+economics subfield**: which stations are in your field, what they found in your
+field's own vocabulary, what the nearest existing practice is, and how this
+differs from it. **Read one section of that, then go to the stations it names.**
+
+The volumes are numbered after the manuscript they implement, and within them
+stations run in build order, which is why nobody should start there.
 
 | | |
 |---|---|
-| [Volume II, B0–B6](speedrun/volume-ii-part-1.md) | the B track's first six stations |
-| [Volume II, B7–B11](speedrun/volume-ii-part-2.md) | where the carriers are |
-| [Volume II, B12–B14](speedrun/volume-ii-part-3.md) | the zero domain, and the first carrier built to be able to fail |
+| [**Overview and index by field**](speedrun/README.md) | **start here** |
 | [Volume I, the A track](speedrun/volume-i.md) | the mechanism models |
+| [Volume II, B0–B6](speedrun/volume-ii-part-1.md) | the B track's first six stations, including the two theory results |
+| [Volume II, B7–B11](speedrun/volume-ii-part-2.md) | where the carriers are, and the strongest single reading |
+| [Volume II, B12–B14](speedrun/volume-ii-part-3.md) | the zero domain, and the first carrier built to be able to fail |
 
 **The retraction attached to each station is part of the entry, not a footnote.**
 Roughly half of what this programme produced is a failure, and the speedrun
@@ -316,7 +327,9 @@ tests/           naming follows the stage, so `test_a4_*.py` are
                  A4's guards and each asserts one claim its docstring states
 figures/         committed; they are the artefact
 results/         committed; machine-readable run records
-speedrun/        station by station, what each asked, answered and retracted
+speedrun/        README.md is the overview and the index by field; the
+                 volumes are station by station, what each asked, answered
+                 and retracted
 data/            not committed. SOURCES.md records provenance
 ```
 

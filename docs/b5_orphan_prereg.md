@@ -1019,7 +1019,7 @@ as corroboration and the claim rests on leg (a).
 
 ### 6B.3 The disclosure. What was known, and what could not have been tuned
 
-**This section was written after B5-14 failed, and the author had already seen the
+**This section was written after B5-14 failed, and I had already seen the
 quantities it tests.** The final pre-window bucket, `0.387`; the treated pair's
 post-window maximum, `0.080`; and all four ratios, `8.21` for the treated pair
 against `0.84`, `0.52` and `0.22` for the controls. **That B5-15 passes was known
@@ -1088,7 +1088,7 @@ Nothing in this table may be changed after retrieval. Changes are recorded in
 | **pre-trend share** | `|Δslope| · H / (rms_pre − rms_post)_treated ≤ 1/4`, damaging direction only | B5-14, §6A.4. Registered after retrieval, before any slope was computed |
 | **pre-trend buckets** | calendar month; primary rung `PRE_WINDOW` (12 buckets), second rung the eight pre-quarters (24 buckets), **both reported** | B5-14, §6A.3. The eight-quarter rung encloses the December 2023 devaluation and is the second rung for that reason |
 | **pre-trend comparisons** | `oficial–informal` against each of `informal–mep`, `informal–ccl`, `mep–ccl`; no group mean | B5-14, §6A.3 |
-| **edge-of-window legs** | **no threshold in either leg.** (a) `last_pre(treated) > max(post buckets, treated)`; (b) `ratio(treated) > ratio(c)` for all three controls | B5-15, §6B.1. Written after B5-14 failed and after the author had seen the quantities; §6B.3 is the disclosure |
+| **edge-of-window legs** | **no threshold in either leg.** (a) `last_pre(treated) > max(post buckets, treated)`; (b) `ratio(treated) > ratio(c)` for all three controls | B5-15, §6B.1. Written after B5-14 failed and after I had seen the quantities; §6B.3 is the disclosure |
 | **post buckets** | twelve equal-width buckets of `POST_WINDOW`, the primary rung's width | B5-15, §6B.1 |
 | **quoted increment** | `0.01` ARS for two-decimal series, `1` ARS for whole-peso series, converted to logs at the prevailing level | the tolerance for B5-3 and B5-5 |
 | ~~**known-answer constant** `1.30` throughout~~ | **withdrawn**, see §5 | the window opens 2019-09-01 and spans three plateaux; the multiplier is **reported per day and its step dates read off the data**, not asserted |

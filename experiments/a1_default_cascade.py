@@ -122,7 +122,7 @@ REGISTERED_DISPERSION = 0.25
 
 #: ``docs/a1_inputs_availability.md`` §4 route (A). Kennickell (1999) on the
 #: 1995 SCF: Spearman correlation between income and net worth of 0.76, with
-#: the author's own conclusion that "the relationship is not strong". A
+#: Kennickell's own conclusion that "the relationship is not strong". A
 #: thirty-year-old vintage, cited as such, and the only rank correlation the
 #: inputs check could verify. It is the parameter of the permutation arm and
 #: not of the main one.

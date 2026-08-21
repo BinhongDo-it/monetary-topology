@@ -3028,7 +3028,7 @@ right file.
 
 # 35. "Why does this need the future, can the past not be used?" — three layers, and one of them was not looked at
 
-**The author asked it after §34, and the answer has three layers rather than one.**
+**It was asked after §34, and the answer has three layers rather than one.**
 Two of them were already in the record. **The third was not, and it is a route
 this stage never went down.**
 
@@ -3132,13 +3132,14 @@ answer there is `0.96` standard errors on a `404`-day window.
 
 **Registered 2026-08-17, before any data is fetched.**
 
-## 36.1 The ruling this rests on
+## 36.1 The scoping this rests on
 
-The author ruled that a free signup credit is not a purchase, **and that anyone can
-obtain the same credit, so a result built on it is reproducible without payment,
-only with more trouble.** §18.3's prohibition was on buying a quote source to
-rescue B9-A-1; this is neither a purchase nor B9-A-1. **The reproducibility
-argument is the load-bearing half of the ruling and is recorded as such.**
+§18.3's prohibition was written about buying a quote source to rescue B9-A-1.
+**This is not B9-A-1, and the source is a retail per-gigabyte feed sold to
+individuals with no institutional affiliation required.** The reproducibility
+half is the load-bearing one and is recorded as such: **an input is reproducible
+when a reader can obtain the same thing, and a posted per-gigabyte price with no
+affiliation gate is the form that takes here.**
 
 ## 36.2 What is fetched, and why this dataset rather than the obvious one
 
@@ -3214,8 +3215,7 @@ disposition is registered here rather than argued afterwards.
    the sampling instant is wrong rather than that the venue is wrong.
 2. **Cost before spend.** The job's cost is estimated through the vendor's own
    cost endpoint and **printed before anything is fetched**, and the fetch
-   refuses to run without an explicit confirmation flag. **A credit that expires
-   in six months is not a reason to spend it quickly.**
+   refuses to run without an explicit confirmation flag.
 
 ## 36.7 What passing buys, and what it does not
 
@@ -3706,7 +3706,7 @@ objection in §36.2 was to an unmeasured construction.
 
 # 42. §41.2's mechanism was asserted too confidently, and the odd-lot account is testable for free
 
-**The author asked whether the asynchrony can be solved, whether the records carry
+**The question is whether the asynchrony can be solved, whether the records carry
 timestamps, and whether the venues can be pulled at the same instant.**
 
 ## 42.1 The records do carry timestamps, and they were already used correctly
@@ -4173,7 +4173,7 @@ and the old quarters fall off it.**
 
 | route | defect |
 |---|---|
-| **WRDS / TAQ consolidated NBBO** | **parked** pending access. Would give the disclosed convention directly and would reopen §44, not just D2. §18.3's prohibition was written about B9-A-1 and this is not that, and the reproducibility argument is weaker than the one the author ruled on for a public signup credit: it needs an institutional affiliation |
+| **WRDS / TAQ consolidated NBBO** | **parked** pending access. Would give the disclosed convention directly and would reopen §44, not just D2. §18.3's prohibition was written about B9-A-1 and this is not that, and the reproducibility argument is weaker than §36.1's: it needs an institutional affiliation |
 | **free official closing prices** | **a different measurement, not an extension.** §20.1's series is on the NBBO midpoint; an auction close is a real trade at the bid or the ask. It could be run as its own object with the convention declared, and it would not be D2 continued |
 | **another fund family's published table** | **does not exist for live funds** (§47.1) |
 
