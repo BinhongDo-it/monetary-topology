@@ -1,0 +1,86 @@
+{
+  "arms": {
+    "all_19_balanced": {
+      "all_ones_component_recorded": -5.6606766058190546e-18,
+      "comparator_eigenvalues_top4": [
+        0.42197340306197983,
+        0.03368913049347571,
+        0.029315870032368876,
+        0.008527136579103693
+      ],
+      "comparator_lambda2": 0.03368913049347571,
+      "comparator_reproduces_recorded_second_largest_diag_to": 0.028640607323544162,
+      "comparator_shares_top4": [
+        0.7780622377917025,
+        0.0621182284731825,
+        0.05405452399293836,
+        0.015722893719247986
+      ],
+      "lambda1_share_reproduced_by_largest_single_class": 0.9169075987626052,
+      "largest_diagonal": 0.4450100416172475,
+      "largest_diagonal_class": ">60%",
+      "n_classes": 19,
+      "negative_diagonal_entries_clipped": 2,
+      "observed_eigenvalues_top4": [
+        0.4853379361429681,
+        0.06757998127547578,
+        0.036559972401668715,
+        0.02239045996801732
+      ],
+      "observed_shares_top4": [
+        0.7237382884209539,
+        0.10077559641953325,
+        0.05451840847426902,
+        0.03338876268975029
+      ],
+      "permutation_null_lambda2_mean_recorded": 0.05126385114224198,
+      "permutation_null_lambda2_z_recorded": 3.1932333532629937,
+      "ratio_lambda1_observed_over_comparator": 1.1501623861153194,
+      "ratio_lambda2_observed_over_comparator": 2.0059876964934853,
+      "second_largest_diag_recorded": 0.03468245712912668
+    },
+    "drop_thinnest_2_balanced": {
+      "all_ones_component_recorded": -1.1734894102196049e-18,
+      "comparator_eigenvalues_top4": [
+        0.017470069026199856,
+        0.0035364639866825444,
+        0.003340861797069586,
+        0.0029752939219747365
+      ],
+      "comparator_lambda2": 0.0035364639866825444,
+      "comparator_reproduces_recorded_second_largest_diag_to": 0.012610627174486176,
+      "comparator_shares_top4": [
+        0.4100186520362923,
+        0.08300002676691663,
+        0.07840928668454056,
+        0.06982948959562393
+      ],
+      "lambda1_share_reproduced_by_largest_single_class": 0.8047569933316798,
+      "largest_diagonal": 0.01845291716014438,
+      "largest_diagonal_class": "<20%",
+      "n_classes": 17,
+      "negative_diagonal_entries_clipped": 0,
+      "observed_eigenvalues_top4": [
+        0.022929800316179454,
+        0.014807158096124411,
+        0.007708429184001255,
+        0.005323758228374895
+      ],
+      "observed_shares_top4": [
+        0.36951643649903426,
+        0.2386190991160525,
+        0.12422224545354868,
+        0.08579299174896954
+      ],
+      "permutation_null_lambda2_mean_recorded": 0.00686231093868959,
+      "permutation_null_lambda2_z_recorded": 16.038040145241528,
+      "ratio_lambda1_observed_over_comparator": 1.3125191595861265,
+      "ratio_lambda2_observed_over_comparator": 4.18699530148887,
+      "second_largest_diag_recorded": 0.0035816305947901765
+    }
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Cross-arm comparator computed from a committed record. It withdraws nothing, revises no coefficient, and no criterion in either stage rests on it.",
+  "source_record": "b7_crossfold.json",
+  "stage": "B17xB7"
+}

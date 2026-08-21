@@ -1939,4 +1939,181 @@ Records with no criteria block and no sample metadata, kept as evidence and list
 
 Records with no criteria block and no sample metadata, kept as evidence and listed so they are findable: `results/b9_nbbo_overlap.json`, `results/b9_nbbo_overlap_ARCX_PILLAR.json`, `results/b9_nbbo_overlap_ARCX_PILLAR_sz100.json`.
 
+## B17 — how many independent directions the parallel-rate deviations occupy
 
+**Carrier: Argentina's simultaneously quoted legal conversion tracks, daily, from
+files already on disk. Nothing was bought for this stage.**
+
+**Two carriers were rejected before this one and both cost paper only.** The
+first was a GSE monthly mortgage panel: `b1` ran from 1275 down to 1 as the state
+definition changed and no cut had a source, and the closing leg of the rulebook
+triangle carried 121 transitions in one vintage and 1 in the other. The second
+was competing unsponsored depositary receipt programs on one issuer. That design
+assumed the competing programs are separately priced, and they are not:
+Citibank's termination notice names CUSIP `150042109` for CECONOMY AG with
+Citibank as depositary, and DTC notice 12945-20 lists the same CUSIP under Bank
+of New York Mellon as depositary. `C` depositaries share one ticker, one CUSIP
+and one ratio, and terminate jointly. The `2 <= r <= C` branch was therefore
+unreachable by market structure rather than by thin data, so the stage never
+opened on it. Iliev, Miller and Roth (JAR 2014) report the same thing directly,
+along with the population: 1,194 unsponsored facilities on 748 firms, 186 firms
+with two depositaries and 104 with three or more.
+
+**A fourth specification for rank carriers was bought by that second rejection**,
+alongside the three the first one bought: **the positions must be separately
+priced in the market.** The test is whether each of the `C` positions has its own
+quote symbol and settlement identifier. `C` positions sharing one identifier are
+one position. Free, and answerable before anything is bought.
+
+**What is measured.** Positions are ARS and USD. Each legal conversion track is
+one parallel edge between them, so `b1 = E - V + 1 = C - 1`. The object is the
+covariance of `dlog e * P`, where `P = I - 11'/C` projects the all-ones direction
+out of track space, taken on daily changes with gaps longer than 7 days dropped.
+Two class sets are run and both are reported: `C = 4` (`oficial`, `mep`, `ccl`,
+`informal`) and `C = 5` (adding `mayorista`). The P2P track is excluded: its
+liveness check reads a longest frozen run of 47 days against a threshold of 21.
+
+**A structural check written into the pre-registration failed, and the
+pre-registration is what was wrong.** It asked that both the rank and every
+eigenvalue be unchanged when the reference track is swapped. The rank half is
+right. The eigenvalue half is not: `Cov(R_ref) = M_ref' Sigma M_ref` is a
+congruence, and a different basis of the same subspace has different eigenvalues.
+Measured gaps across two references were `2.406e-04`, `1.932e-04`, `3.836e-04`
+and `4.367e-05` against a tolerance of `1e-12`, so it fails by construction. It
+was replaced by the zero-sum projection above together with three checks that are
+invariant, and this happened before any eigenvalue was read.
+
+| criterion | C4 full | C4 pre | C5 full | C5 pre |
+|---|---|---|---|---|
+| a. the `C-1` relatives rebuild every pairwise difference, tol `1e-12` | PASS `0.000e+00` | PASS `0.000e+00` | PASS `0.000e+00` | PASS `0.000e+00` |
+| b1. all-ones direction carries no variance, and its eigenvector is `1/sqrt(C)` | PASS `3.51e-16`, align `1.000000000000` | PASS `5.76e-17` | PASS `2.56e-16` | PASS `1.03e-16` |
+| b2. permuting the track order leaves every eigenvalue alone, tol `1e-12` | PASS `2.168e-19` | PASS `6.776e-20` | PASS `1.626e-19` | PASS `4.066e-20` |
+| b3. every one-reference construction spans the same subspace | PASS `[3,3,3,3]` | PASS | PASS `[4,4,4,4,4]` | PASS |
+| c. numerical rank of all pairwise differences equals `b1` | PASS `3` | PASS `3` | PASS `4` | PASS `4` |
+| superseded: eigenvalues equal across two references | **FAIL by construction** `2.406e-04` | **FAIL** `1.932e-04` | **FAIL** `3.836e-04` | **FAIL** `4.367e-05` |
+
+**The panel.** Four tracks are jointly quoted on 1,457 days from 2020-03-20 to
+2026-06-29, giving 1,456 daily changes with zero gaps dropped; five tracks give
+1,456 and 1,455. The registered pre-window gives 234 joint days and 233 changes.
+Independently of the loader written for this stage, the carrier's own square
+record reports `dates_checked = 1457`, the same integer. Per-track day counts
+differ from that record by 4 to 5 days out of about 1,600, because this loader
+does not apply the carrier's registered filter constants; the joint intersection
+is unaffected. Every numeric token in the 105 source files has one shape,
+`NNN,NN`, and no row was unreadable.
+
+**The reading, four tracks, full window, `T = 1456`, all adjacent eigenvalue gaps
+separated at 90 percent:**
+
+| k | eigenvalue | share | loadings |
+|---:|---:|---:|---|
+| 1 | `3.2136e-04` | 0.4884 | ccl +0.6184, informal -0.3902, mep +0.3545, oficial -0.5828 |
+| 2 | `2.5658e-04` | 0.3900 | ccl -0.1089, informal +0.7630, mep -0.0172, oficial -0.6369 |
+| 3 | `8.0028e-05` | 0.1216 | ccl -0.5964, informal -0.1248, mep +0.7900, oficial -0.0688 |
+| 4 | `-1.13e-19` | 0 | the all-ones direction |
+
+Five tracks, full window, `T = 1455`, all gaps separated: shares 0.5762, 0.2850,
+0.0794, 0.0594, with the fourth direction loading `oficial +0.7885` against
+`mayorista -0.5867`.
+
+**Verdict: `2 <= r <= b1`. The single-factor reading of the rate zoo is
+rejected.** A single common gap factor requires the first eigenvalue to take
+nearly all the variance. Measured `lambda2 / lambda1` is `0.798` on four tracks
+and `0.495` on five, and the first gap exceeds its joint 90 percent resolution by
+`1.84` and `5.54` times. The reading does not flip between `C = 4` and `C = 5`.
+
+**One cell is undecidable rather than failed.** On four tracks in the pre-window,
+`T = 233`, the first two eigenvalues are `1.2537e-04` and `1.0781e-04` and their
+gap `1.757e-05` is smaller than their joint resolution `3.554e-05`, so the
+loadings of that pair are not identified. The third eigenvalue in the same window
+is separated and carries 5.8 percent. The registered three-way split has this
+middle state in it; it is not a FAIL and it does not raise.
+
+**A generous independent-noise null is also rejected, and it corrected the way
+the loadings are read.** Taking each track's whole daily-change variance as its
+own noise variance and projecting gives an almost flat spectrum: shares 0.3790,
+0.3307, 0.2903 on four tracks against the observed 0.4884, 0.3900, 0.1216, so the
+observed concentration ratio is `4.02` against the null's `1.31`, and `9.70`
+against `1.68` on five tracks. **The same null showed that collinearity with a
+single-track contrast cannot carry this reading on its own**: the null's own
+eigenvectors reach `|cos|` of `0.9357` to `0.9984` with a single-track contrast,
+while the observed second direction reaches `0.8810` to `0.9625`, and the two
+ranges overlap. The spectrum is what separates the three stories; the cosines
+say which regulatory boundary each direction sits on, and no verdict rests on
+them.
+
+**Where the directions sit.** On four tracks the second direction is `informal`
+against `oficial`, the third is `mep` against `ccl`, and the first is the pair
+`(ccl, mep)` against the pair `(informal, oficial)`. Adding `mayorista` adds a
+fourth, `oficial` against `mayorista`. Read as boundaries: securities channel
+against cash channel, parallel against official, onshore against offshore
+securities dollar, and retail counter against wholesale.
+
+**Levels are reported as a diagnostic and behave as the pre-registration said
+they would.** On four tracks over the full window the level eigenvalues are
+`4.949e-02`, `1.472e-03`, `3.300e-04`, the first taking 96.5 percent. That is one
+non-stationary regime factor, which is why the criterion is on daily changes: on
+levels only one outcome branch is reachable and it restates a result the carrier
+already reported.
+
+**Limits.** All five tracks come from one reporter, and a common reporting error
+would push the rank toward one, which is the direction the opponent needs, so
+this limit does not threaten the verdict. One country. Records:
+`results/b17_rank.json` (structural half), `results/b17_rank_read.json` (the
+reading), `results/b17_rank_null.json` (the null diagnostic); all three carry
+`diagnostic_only` until the stage is closed.
+
+**The same estimand was measured earlier on a different carrier, and the same
+comparator was run against that carrier's committed record.** B7 measured the
+rank of the non-integrable part of a price field on a US mortgage panel and
+reported two dimensions, a tilt along DTI and a curvature of the ends against
+the middle. Its two balanced arms are already the same construction used here:
+their recorded all-ones components are `-1.17e-18` and `-5.66e-18`. Running the
+independent-deviation comparator `P diag(d) P` on `results/b7_crossfold.json`,
+with `d` the recorded cross-fold diagonal and two negative entries clipped to
+zero, gives this, and nothing in B7 was re-run:
+
+| arm | observed `l1` | comparator | ratio | observed `l2` | comparator | ratio |
+|---|---:|---:|---:|---:|---:|---:|
+| `drop_thinnest_2_balanced`, 17 classes | 0.022930 | 0.017470 | 1.31 | 0.014807 | 0.003536 | **4.19** |
+| `all_19_balanced`, 19 classes | 0.485338 | 0.421973 | 1.15 | 0.067580 | 0.033689 | 2.01 |
+
+**The comparator reproduces the number that stage already used.** B7 judged its
+second eigenvalue against the second largest diagonal entry, `0.003582`; this
+comparator's second eigenvalue is `0.003536`, a relative difference of `1.26`
+percent, and `2.86` percent on the nineteen-class arm. Two constructions built
+for different carriers meet on the same number.
+
+**One quantity that stage did not report as a ratio**: the largest single
+diagonal entry divided by the first eigenvalue is `0.8048` on the licensed arm
+and `0.9169` on the nineteen-class arm, the latter being the `>60%` class. So the
+first eigenvalue is largely one class's own variance, and the second is not,
+which is the same fact as that stage's recorded `off_diag_part_of_lambda1` of
+`36.43` percent, stated as a ratio.
+
+**Two unrelated carriers reject the same two rival readings, and by opposite
+routes.** Against a single common factor: on the mortgage panel the second
+eigenvalue stands at `z = +16.04` against a permutation null, and here
+`lambda2 / lambda1` is `0.798` with a separated gap. Against pure per-unit
+independent deviation: on the mortgage panel the second eigenvalue is `4.19`
+times its comparator, and here the spectrum is `4.02` times as concentrated as
+its comparator against `1.31`. The mortgage panel is flatter than its comparator
+and this carrier is steeper than its own, because their comparators differ in
+shape: one class's diagonal dominates there (`0.0185` against a second largest
+of `0.0036`), while the tracks here carry variances of one magnitude (`2.58e-04`
+to `4.88e-04`). In both, the dimension is far below the number of observable
+levels: nineteen DTI classes read two, six pairwise squares read three.
+
+**What this carrier adds to that one is labels rather than numbers.** The
+mortgage panel can say the non-integrable part is two dimensional and that the
+two directions are a tilt and a curvature, but the market side of it is 11,264
+anonymous cells and nothing external names what separates them. Here every
+direction sits on a boundary with a name, an admission rule and a published
+quote. Carried limits on the mortgage side are unchanged: rank two does not mean
+standard econometrics cannot reach it, since interactive fixed effects is exactly
+a two-way interaction of r factors; no causal reading; the measurement
+explanation is not excluded there; cross-year stability was never measured; and
+the magnitudes are 1.5 percent of what the naive estimator read. Code
+`experiments/b17_b7_crossarm.py`, record `results/b17_b7_crossarm.json`, marked
+`diagnostic_only`: it withdraws nothing and no criterion in either stage rests on
+it.

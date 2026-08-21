@@ -1,0 +1,169 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "Structural half only. No eigenvalue or loading is reported here, so this record carries no reading of the stage's question.",
+  "per_track": {
+    "ccl": {
+      "dates_in_window": 1976,
+      "files": 20,
+      "multi_row_dates": 0,
+      "odd_examples": [],
+      "odd_tokens": 0
+    },
+    "informal": {
+      "dates_in_window": 1617,
+      "files": 22,
+      "multi_row_dates": 83,
+      "odd_examples": [],
+      "odd_tokens": 0
+    },
+    "mayorista": {
+      "dates_in_window": 1651,
+      "files": 14,
+      "multi_row_dates": 104,
+      "odd_examples": [],
+      "odd_tokens": 0
+    },
+    "mep": {
+      "dates_in_window": 1844,
+      "files": 26,
+      "multi_row_dates": 0,
+      "odd_examples": [],
+      "odd_tokens": 0
+    },
+    "oficial": {
+      "dates_in_window": 1656,
+      "files": 22,
+      "multi_row_dates": 79,
+      "odd_examples": [],
+      "odd_tokens": 0
+    }
+  },
+  "sets": {
+    "C4": {
+      "changes_full": 1456,
+      "changes_pre": 233,
+      "classes": [
+        "ccl",
+        "informal",
+        "mep",
+        "oficial"
+      ],
+      "first_date": "2020-03-20",
+      "gaps_dropped_full": 0,
+      "joint_dates_full": 1457,
+      "joint_dates_pre": 234,
+      "last_date": "2026-06-29",
+      "structural_full": {
+        "a_passed": true,
+        "a_rebuild_max_abs_error": 0.0,
+        "b1": 3,
+        "b1_ones_alignment": 0.9999999999999997,
+        "b1_passed": true,
+        "b1_zero_eigenvalue_ratio": 3.5065487204538557e-16,
+        "b2_passed": true,
+        "b2_permutation_eigenvalue_max_abs_diff": 2.168404344971009e-19,
+        "b3_passed": true,
+        "b3_span_rank_per_reference": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "c_numerical_rank_of_all_pairs": 3,
+        "c_passed": true,
+        "n_pairs_written": 6,
+        "superseded_note": "This was the stage's first structural check b and it fails by construction, not by defect. Its number is kept so the correction can be traced.",
+        "superseded_two_reference_eigenvalue_gap": 0.00024056485434723702,
+        "tolerance": 1e-12
+      },
+      "structural_pre": {
+        "a_passed": true,
+        "a_rebuild_max_abs_error": 0.0,
+        "b1": 3,
+        "b1_ones_alignment": 1.0000000000000002,
+        "b1_passed": true,
+        "b1_zero_eigenvalue_ratio": 5.756398779542396e-17,
+        "b2_passed": true,
+        "b2_permutation_eigenvalue_max_abs_diff": 6.776263578034403e-20,
+        "b3_passed": true,
+        "b3_span_rank_per_reference": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "c_numerical_rank_of_all_pairs": 3,
+        "c_passed": true,
+        "n_pairs_written": 6,
+        "superseded_note": "This was the stage's first structural check b and it fails by construction, not by defect. Its number is kept so the correction can be traced.",
+        "superseded_two_reference_eigenvalue_gap": 0.00019319234062553772,
+        "tolerance": 1e-12
+      }
+    },
+    "C5": {
+      "changes_full": 1455,
+      "changes_pre": 232,
+      "classes": [
+        "ccl",
+        "informal",
+        "mayorista",
+        "mep",
+        "oficial"
+      ],
+      "first_date": "2020-03-20",
+      "gaps_dropped_full": 0,
+      "joint_dates_full": 1456,
+      "joint_dates_pre": 233,
+      "last_date": "2026-06-29",
+      "structural_full": {
+        "a_passed": true,
+        "a_rebuild_max_abs_error": 0.0,
+        "b1": 4,
+        "b1_ones_alignment": 1.0000000000000002,
+        "b1_passed": true,
+        "b1_zero_eigenvalue_ratio": 2.563936765572454e-16,
+        "b2_passed": true,
+        "b2_permutation_eigenvalue_max_abs_diff": 1.6263032587282567e-19,
+        "b3_passed": true,
+        "b3_span_rank_per_reference": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "c_numerical_rank_of_all_pairs": 4,
+        "c_passed": true,
+        "n_pairs_written": 10,
+        "superseded_note": "This was the stage's first structural check b and it fails by construction, not by defect. Its number is kept so the correction can be traced.",
+        "superseded_two_reference_eigenvalue_gap": 0.00038358670899713964,
+        "tolerance": 1e-12
+      },
+      "structural_pre": {
+        "a_passed": true,
+        "a_rebuild_max_abs_error": 0.0,
+        "b1": 4,
+        "b1_ones_alignment": 1.0,
+        "b1_passed": true,
+        "b1_zero_eigenvalue_ratio": 1.0255676698788466e-16,
+        "b2_passed": true,
+        "b2_permutation_eigenvalue_max_abs_diff": 4.06558947848499e-20,
+        "b3_passed": true,
+        "b3_span_rank_per_reference": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "c_numerical_rank_of_all_pairs": 4,
+        "c_passed": true,
+        "n_pairs_written": 10,
+        "superseded_note": "This was the stage's first structural check b and it fails by construction, not by defect. Its number is kept so the correction can be traced.",
+        "superseded_two_reference_eigenvalue_gap": 4.367009478620958e-05,
+        "tolerance": 1e-12
+      }
+    }
+  },
+  "stage": "B17-struct"
+}
