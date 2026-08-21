@@ -1,0 +1,60 @@
+{
+  "arm": 5,
+  "at": "2026-08-21T02:29:03",
+  "batches": [
+    {
+      "bytes": 433969200,
+      "month": "2023-01",
+      "usd": 1.616661250591,
+      "venue": "XNAS.ITCH"
+    },
+    {
+      "bytes": 602912720,
+      "month": "2023-02",
+      "usd": 2.246024906635,
+      "venue": "XNAS.ITCH"
+    },
+    {
+      "bytes": 741257360,
+      "month": "2023-03",
+      "usd": 2.761398851871,
+      "venue": "XNAS.ITCH"
+    },
+    {
+      "bytes": 57104800,
+      "month": "2023-04",
+      "usd": 0.212731957436,
+      "venue": "XNAS.ITCH"
+    },
+    {
+      "bytes": 279210080,
+      "month": "2023-01",
+      "usd": 1.040138602257,
+      "venue": "ARCX.PILLAR"
+    },
+    {
+      "bytes": 396806720,
+      "month": "2023-02",
+      "usd": 1.47822022438,
+      "venue": "ARCX.PILLAR"
+    },
+    {
+      "bytes": 528275120,
+      "month": "2023-03",
+      "usd": 1.967978179455,
+      "venue": "ARCX.PILLAR"
+    },
+    {
+      "bytes": 37831520,
+      "month": "2023-04",
+      "usd": 0.140933394432,
+      "venue": "ARCX.PILLAR"
+    }
+  ],
+  "billable_bytes": 3077367520,
+  "deviation": 0.638944,
+  "extrap_usd": 6.9948,
+  "n_batches": 8,
+  "quoted_usd": 11.464087,
+  "refused": 0
+}
