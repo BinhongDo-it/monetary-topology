@@ -1,0 +1,150 @@
+{
+  "alignment_sensitivity": {
+    "by_reading": {
+      "published is the TCO": {
+        "-1": {
+          "days": 51,
+          "median": -0.0008406894147934274,
+          "share_positive": 0.49019607843137253
+        },
+        "-2": {
+          "days": 50,
+          "median": 0.008534902449837567,
+          "share_positive": 0.56
+        },
+        "0": {
+          "days": 52,
+          "median": -0.002618945189627464,
+          "share_positive": 0.40384615384615385
+        },
+        "1": {
+          "days": 51,
+          "median": -0.007755316767478426,
+          "share_positive": 0.35294117647058826
+        },
+        "2": {
+          "days": 50,
+          "median": -0.01485635494951465,
+          "share_positive": 0.26
+        }
+      },
+      "published is the venta": {
+        "-1": {
+          "days": 51,
+          "median": 0.007598179231071089,
+          "share_positive": 0.6274509803921569
+        },
+        "-2": {
+          "days": 50,
+          "median": 0.018104353465988154,
+          "share_positive": 0.66
+        },
+        "0": {
+          "days": 52,
+          "median": 0.006137678189207296,
+          "share_positive": 0.5384615384615384
+        },
+        "1": {
+          "days": 51,
+          "median": 0.0008406894147934274,
+          "share_positive": 0.5098039215686274
+        },
+        "2": {
+          "days": 50,
+          "median": -0.0055970295367178124,
+          "share_positive": 0.4
+        }
+      }
+    },
+    "envelope": {
+      "cells": 10,
+      "max": 0.66,
+      "min": 0.26,
+      "most_favourable": {
+        "days": 50,
+        "hits": 33,
+        "p_if_true_share_were_the_threshold": 1.5288530622956988e-10,
+        "share_positive": 0.66,
+        "threshold": 0.95
+      }
+    }
+  },
+  "authority": "docs/b15_bolivia_prereg.md \u00a75",
+  "break_disclosure": "guard_break_disclosure: this window does not straddle 2026-06-29, it begins there.",
+  "criteria": [
+    {
+      "criterion": "B15-7",
+      "days": 52,
+      "detail": "on the post-event segment the informal ask sits above Art. 6's ceiling on 21 of 52 days, 40.38%, median `a(t)` = -0.0048, against a registered 95%. **Cuba's B6-15 reads 207 of 207.** Swept across five alignments of the date column and both readings of which published number is the ceiling, the share runs 26.00% to 66.00% over 10 cells and no cell reaches, so the reading does not rest on either",
+      "name": "B15-7 the posted return leg",
+      "passed": false,
+      "readings": {
+        "published is the TCO": {
+          "critical_spread": -0.06833613544137629,
+          "max": 0.04495138786226649,
+          "median": -0.004773278752657539,
+          "min": -0.07372214487094686,
+          "passed": false,
+          "share_positive": 0.40384615384615385
+        },
+        "published is the venta": {
+          "critical_spread": -0.05993978048847026,
+          "max": 0.053832440906226964,
+          "median": 0.004796172263493048,
+          "min": -0.06532578991804083,
+          "passed": false,
+          "share_positive": 0.5384615384615384
+        }
+      },
+      "readings_agree": true,
+      "segment": "post-event",
+      "settled_by": "B15-6, results/b15_zero.json: 35/35 days, 484/484 bank-days",
+      "settled_reading": "published is the TCO",
+      "void": false
+    },
+    {
+      "criterion": "B15-8",
+      "detail": "the cycle weight is determined on 100% of the segment's days under both readings of the ceiling; a weight of exactly zero is certified non-positive, which is a determination and not a gap",
+      "name": "B15-8 friction, and the cycle B6-B could not certify",
+      "passed": true,
+      "readings": {
+        "published is the TCO": {
+          "determined_share": 1.0,
+          "direction_counts": {
+            "official -> parallel": 25,
+            "parallel -> official": 27
+          },
+          "max_weight": 0.06532578991804083,
+          "median_weight": 0.008329525252829928,
+          "min_weight": -0.006137678189207296,
+          "passed": true,
+          "positive_days": 42
+        },
+        "published is the venta": {
+          "determined_share": 1.0,
+          "direction_counts": {
+            "official -> parallel": 27,
+            "parallel -> official": 25
+          },
+          "max_weight": 0.06532578991804083,
+          "median_weight": 0.01576142126407154,
+          "min_weight": -0.0028804628653538167,
+          "passed": true,
+          "positive_days": 50
+        }
+      },
+      "segment": "post-event",
+      "settled_by": "B15-6, results/b15_zero.json: 35/35 days, 484/484 bank-days",
+      "settled_reading": "published is the TCO",
+      "void": false
+    }
+  ],
+  "diagnostic_only": false,
+  "segment": [
+    "2026-06-29",
+    "2026-08-19"
+  ],
+  "stage": "B15",
+  "step": "structure_post_event",
+  "typing_source": "B15-3 post-event segment, results/b15_typing.json"
+}

@@ -503,6 +503,74 @@ other 35% do something else, and it is not noise: errors cluster, and at the
 longest window the observed rate of the ideal pattern is **2.33 times** what
 independent per-month errors would give.
 
+### The register, and where each map landed
+
+**This stage's criteria are not pass-or-fail rows.** Each one is an outcome map:
+one variable, three or four exhaustive branches named before the run, and the
+verdict is which branch the reading lands in. That form is what engineering
+discipline 11 asks for, a printed object with a reading declared in advance and
+no line drawn on an estimator, and it is why none of this stage's sixty records
+carries a `criteria` block: a branch label out of an exhaustive set is not a
+boolean, and there was nowhere in that shape to put one. The maps are here
+instead.
+
+**First, the carrier: what each field is, established by behaviour and not by
+reading a layout document.** Nothing downstream is possible until these land.
+
+| map | the variable | landed | reading |
+|---|---|---|---|
+| §2·5 | is this sample fixed-rate by behaviour | **1 of 3** | it is; the 544 exceptions touch 0.04% of 1,362,500 loans and cannot move the verdict |
+| §5·4 | how a loan with no balance ever reported behaves | **3 of 3 empty** | the branch "never reported a balance at all" has no members |
+| §5·5 | the phase of the thousand-dollar grid | **arms split, so branch 1 is refused** | two spikes; `499 + 500` together are **4.73%**, a 47-fold excess of half-thousand borrowers |
+| §8·12 | does the state cut decide the reading | **1 of 3** | `E(g0m) − E(g2)` positive in all twelve cells: the cut decides it |
+| §8·14 | how many columns behave like a zero-interest balance | **4 of 4** | thirteen do, and the registered handling for that branch could not be executed |
+| §8·14·5 | the same question with the disjunction removed | **1 of 4** | exactly one column, signature two |
+| §8·14·6 | the balloon horizon | **3 of 4** | more than one column holds it down, and the pre-run prediction that picked one was wrong |
+| §8·14·6·5 | stratified by the data's own term values | **2 of 4** | no column is identical across strata |
+| §8·14·6·6 | which of two loadings is larger, column by column | **1 of 4** | exactly one column has A > B: `orig col 4` is the maturity date |
+| §8·14·6·7 | does term rewriting explain the 32.90% that disagree | **1 of 3** | it does, by a factor of **23** |
+| §8·14·6·8 | which column `bn` takes | **1 of 3** | by a factor of **3,207** |
+| §8·15 | what `delinq == 99` is | **2 of 3** | it is not a count of missed months. Three rows step `00 → 99` in one month, which no counter can do |
+| §8·16 | no-modification round trips wholly inside age ≥ 8 | **1 of 3** | the construction's prediction is delivered |
+| §8·17 | does the discount curve reach the horizons the round trips need | **1 of 3** | full coverage |
+| §8·18 | which column is the interest-bearing balance | **1 of 3** | `col 3`, and it contains the deferred balance |
+
+**Then the machine.** Section numbers are not consecutive here: registration
+order and landing order are different, and this table is in the order things
+ran. It is the entry point to this family.
+
+| map | the question | landed | reading |
+|---|---|---|---|
+| §8·19 | does the residual's driver match the first carrier's | **1** | eight cross-checks pass; `603,609 − 123,792 − 53 − 13 = 479,751` |
+| §8·20 | the clean-cure loop sum against the closed form | **1** | `ratio_max` 0.4004 against the first carrier's 0.400, **same fourth digit on all six vintages** |
+| §8·21 | is there a rounding noise floor | **none of them** | the grid anchor reads 0.609 half-steps, which is the grid; the cent anchor reads **578 times** cent rounding, which is payment error. This carrier publishes no contract payment |
+| §8·22 | does the triangle's loop window hold up | **1** | `rho(vintage, deferral share) = +0.8254`, **and the trend is a composition effect**: 2020–2021 are 51.2% of it |
+| §8·23 | the three legs of `omega` | **1 and 1** | 20,846 of 20,850 measurable; **leg 2 carries 98.71% of `\|omega\|`** |
+| §8·24 | `omega` against the floor | **1 and 1** | modification arm ratio 6,388,937, inside the first carrier's 2.4M–6.8M band |
+| §8·25 | §8·12 re-asked on this carrier | **1** | `E(g0m) − E(g2)` = **+0.3048 / +0.2126**, both arms up, same direction as the first carrier |
+| §8·26·1 | are those two 0.108 rates the same loans | **3** | lift **3.68**, each only 40% inside the other. Two rates near each other is a coincidence of magnitude |
+| §8·26·2 | whose tail is `P_sub`'s | **3** | **35.97% out of bounds**, worst 1,338-fold. The grid explains at most 64% |
+| §8·27 | is that 36% term or balance | **3, six rescued** | `h = age + rem − term ≡ 0` on 99.993%. Term is not the cause; `rem` is a derived field |
+| §8·28 | are the out-of-bounds loans the same as the unnamed ones | **3** | lift **1.02**, 36.7% against 32.7%. Two independent populations |
+| §8·29 | why the ratio rises with window length | **1** | coherence does not rise. **And that branch's pre-written explanation was refuted by the same run**: it predicted 2.57×, the measurement is 20.86× |
+| §8·30 | where in the distribution that 20.86× lives | **1, peak in the middle** | by quantile 10.30 / **20.86** / 6.08 / 3.22. The denominator is small, the numerator is not large |
+| §8·31 | are the two modes two kinds of loan | **2, and it is a theorem** | the sign alphabet: `+-` **64.66%**, `++` 17.18%, `--` 12.50%, `-+` 5.66% |
+| §8·32 | are wrong-sign and out-of-bounds the same batch | **3** | lift within 0.956–0.986 of 1 at all four window lengths. Independent |
+| §8·33 | why the ideal pattern's share collapses | **1** | observed over independent 1.02 → 1.26 → **2.33**. Errors cluster |
+| §8·34 | who those 13,923 `++` loans are | **1** | monthly hazard **0.025197 against 0.014053, a factor of 1.79**; median FICO band 5 against 3 |
+| §8·35 | is `++` a crisis-period thing | **1, and the reading is void** | two windows point opposite ways. **The by-year table shows a 2019 regime break**, 2018 against 2020 differing **12.6-fold**, and the calm window straddles it |
+| §8·36 | is that break a reporting convention | **2** | frozen share **0.5452 → 0.9867**, the break inside the single month 2019-07. Of 306 unfrozen loops after 2020, **zero** have `r1 < 0` where the old regime implies about 180. The convention changed, and it does not explain all of it |
+| §8·37 | conditional on frozen, did `r2` move too | **1** | `++ \| frozen` **0.2397 → 0.0245**, a factor of 9.78, both sides collapsing, **and this break is at 2019-05, two months before the freezing one**. Cut by origination vintage, ten thick vintages step in the same month while ranging from one to ten years of seasoning: **both breaks are calendar events** |
+| §8·38 | is `++` the forbearance family | **2, and the pooled reading is a composition effect** | pooled `++` 0.0057 against `+-` 0.0321. **But the assistance column is blank for the first fifteen years**, and 42.7% of `+-` loops cure after 2020 against 4.1% of `++`. **Over 2014–2019 the direction reverses: `++` is 2.29 times higher** |
+
+**Three of these are worth reading as a set.** §8·35's branch was registered
+correctly and the reading is still void, because what broke was whether the
+branches could be read pooled at all; what caught it was a registration clause
+demanding every year be printed with none filtered. §8·38 is the same failure a
+second time. **§8·37 is the opposite case**: a stronger per-class check caught
+what a weaker pooled check could not, and both were registered, so one run
+settled it.
+
 ### The finding that does not depend on this framework at all
 
 **In GSE reporting, a cure is a status-field event.** The issuers' own
@@ -1118,58 +1186,65 @@ line for line.
 ## B15 — Bolivia, run as the control carrier for B6's Cuban reading
 
 **The register was sealed before a single Bolivian number had been downloaded**,
-and four of its thresholds are B6's own values, so the two carriers would have
-been judged by one ruler. **The comparison was not made.** B15-4 is void and
-`guard_typing_first` suspends arm III with it, so the four criteria that would
-have answered B6's question are readings and not verdicts.
+and four of its thresholds are B6's own values, so the two carriers are judged
+by one ruler.
 
-**B15-4 is void on the register's own third branch**, which is the branch for a
-column that steps at neither admitted hour. S3's `datetime` column carries no
-offset and the clock it is on was being set by a two-hour test fed from another
-run's manifest; measured against the publisher's own page and against a second
-publisher's offset-carrying stamps, the column is `America/La_Paz`. On that
-clock the official leg steps at 04:00 to 05:00 on 31 of its 36 steps, at
-neither Art. 5.III's 20:00 publication hour nor its midnight vigencia flip, so
-the two admitted bands together cover 13.89 per cent. `docs/b15_bolivia_results.md`
-section 9 is the account, and the sections it voids carry dated pointers to it.
+**B6 found an edge the law grants, that is posted, and that nobody walks, on
+207 of 207 Cuban publication days. Bolivia reads 21 of 52**, against B6's own
+95% carried over unchanged. **So the framework does not say of any controlled
+economy what it said of Cuba**, and B6's finding is specific to its carrier
+rather than something the framework confers.
 
-**Twelve criteria, and the four in the suspended arm are listed with the rest.**
-A criterion whose arm is suspended still has a state and it belongs in this
-table; what it does not have is standing as a finding.
+**The reading is robust to everything the stage left open.** Swept across five
+alignments of the date column and both readings of which published number is
+the ceiling, the share runs 26.00% to 66.00% over ten cells; taking the helpful
+end of both axes at once still gives 66.00%, which has probability `1.5e-10` if
+the true share were the threshold.
+
+**B15-4 was decided twice and both verdicts are on the record.** The registered
+instrument reads the date convention off the local hour the official series
+steps, and 31 of 36 steps land at 04:00 to 05:00, at neither the 20:00
+publication hour nor the midnight flip: it was measuring the aggregator's
+refresh rather than the statute's clock, and it returned VOID. **The live
+verdict comes from the publisher's own two columns** — the BCB prints
+`Fecha de corte` and `Vigencia` on every row of its series, and the official
+column keys on `Vigencia` on 39 of 39 against 1 of 35 — which involves no
+clock, no aggregator and no third party. `docs/b15_bolivia_results.md` sections
+9 and 13 carry both.
 
 74,623 observations at 15-minute resolution over 760 days, 2024-07-21 to
 2026-08-19, one venue's Binance P2P book against the BCB's own official series
-and its per-transaction microdata.
+and its per-transaction microdata; the euro leg over 39 days against the ECB's
+daily reference rate.
 
 | | criterion | detail |
 |---|---|---|
-| PASS | B15-1 retrieval integrity | 760 of 760 days served, 74,623 observations, 0 absent, 0 fills |
+| PASS | B15-1 retrieval integrity | 760 of 760 days served, 74,623 observations, 0 absent, 0 fills, manifest present |
 | PASS | B15-2 the known-answer arm | S3's prefix digest reproduces on the records before the event, and S1's external anchor, the customs comunicado's 6,96 Bs/USD for 26/06/2026, reproduces from the annual grid |
-| VOID | B15-3 the side convention | neither orientation clears 99% over the registered window: as published 15.0543% uncrossed, swapped 85.1681%. **The window straddles the break**, and the two figures are one orientation read on each side of it rather than one orientation failing |
-| VOID | B15-4 the date column | steps at 04:00 to 05:00 local on 31 of 36 steps, so the 20:00 publication band and the 00:00 vigencia band together cover 13.89%. The customs comunicado does reproduce, every row the column dates to 26/06 reading 6.96, but the register asks for the step hour as well. **This void suspends arm III** |
-| PASS | B15-5 the statutory spread | the statutory 0.10 holds on 100.000% of non-degenerate official rows, on both sides of the reform; the 5,156 rows whose two sides are equal leave the denominator as fills rather than counting as spread zero |
-| _susp._ | B15-6 the published TCO is the statute's weighted average | recomputed and matched on 35 of 35 days and 484 of 484 bank-days, worst absolute gap 0.0049, at the two decimals Anexo II section 4 fixes. **Arm III suspended by B15-4** |
-| _susp._ | B15-7 the posted return leg | on the post-event segment, the informal ask sits above Art. 6's ceiling on 21 of 52 days, 40.38%, median `a(t)` = -0.0048. Cuba's B6-15 reads 207 of 207. **Arm III suspended by B15-4**, so this is not the stage's answer to that comparison |
-| _susp._ | B15-8 friction, and the cycle B6-B could never certify | the cycle weight is determined on 52 of 52 days under both readings of which published number the ceiling is, 25 days official to parallel and 27 the other way. **Arm III suspended by B15-4** |
-| _susp._ | B15-9 the customs edge | 8 of 8 weeks resolve from S1's annual grid, and the superseded comunicado's 6.96 for 2026-06-26 reproduces. **Arm III suspended by B15-4** |
-| **FAIL** | B15-10 the event | no single dated break at the reform: 999 draws, seed 0, break date 2026-06-29, orientation-invariant. The banks' weighted purchase rate had already walked most of the way before the instruments were signed, so there is no step for a break test to find, and **that is the reading rather than a defect** |
-| **FAIL** | B15-11 zero calibration across publishers | two publishers scraping the same book agree on 18.26% of the 745 days compared, against a registered 50%; the noise floor is 0.1650 Bs at the median and 1.9550 at its worst |
-| VOID | B15-12 the euro leg | not run: the BCB's Bs/Euro series is not served at the endpoint the register named, and no substitute was adopted. Arm IV, gates nothing |
+| VOID | B15-3 the side convention | **VOID over the registered window, which straddles the break in §3.5**: as published 15.0543% uncrossed, swapped 85.1681%, and neither clears 99%. The two figures are one orientation read on each side of the break rather than one orientation failing. **On the post-event segment, the only segment arm III runs on, it resolves**: orientation A is uncrossed on 99.960% of 4,966 rows |
+| PASS | B15-4 the date column | **the column carries the date the rate governs**, from the publisher's own two columns: the BCB prints `Fecha de corte` and `Vigencia` on every row of its series, and keyed on `Vigencia` the official column matches on 39 of 39, keyed on `Fecha de corte` on 1 of 35. The customs comunicado agrees, every row dated 26/06 reading 6.96. **The registered instrument returned VOID and that verdict is kept**: it reads the convention off the local hour the series steps, and 31 of 36 steps land at 04:00 to 05:00, at neither hour Art. 5.III makes available, so it was measuring the aggregator's refresh rather than the statute's clock |
+| PASS | B15-5 the statutory spread | the statutory 0.10 holds on 100.000% of non-degenerate official rows; the 5,156 rows whose two sides are equal leave the denominator as fills rather than counting as spread zero |
+| PASS | B15-6 the published TCO is the statute's weighted average | recomputed from the per-bank microdata by Anexo II's formula and matched on 35 of 35 days and 484 of 484 bank-days, at the two decimals Anexo II section 4 fixes. Worst absolute gap 0.0049 Bs. **This settles which published number Art. 6's ceiling is measured against**, which arm III would otherwise have had to carry as two readings |
+| **FAIL** | B15-7 the posted return leg | on the post-event segment the informal ask sits above Art. 6's ceiling on 21 of 52 days, 40.38%, median `a(t)` = -0.0048, against a registered 95%. **Cuba's B6-15 reads 207 of 207.** Swept across five alignments of the date column and both readings of which published number is the ceiling, the share runs 26.00% to 66.00% over 10 cells and no cell reaches, so the reading does not rest on either |
+| PASS | B15-8 friction, and the cycle B6-B could not certify | the cycle weight is determined on 100% of the segment's days under both readings of the ceiling; a weight of exactly zero is certified non-positive, which is a determination and not a gap |
+| PASS | B15-9 the customs edge | 8 of 8 weeks resolve from S1's annual grid under Art. 20 of `D.S. 25870`, which holds the week's rate at the previous week's last business day, and the Aduana comunicado's 6.96 for 2026-06-26 reproduces. **One published number, one agent class, one week at a time**: the edge is granted to Operadores de Comercio Exterior alone and to nobody else at that rate |
+| **FAIL** | B15-10 the event | no single dated break at the reform: null draws 999, seed 0, break date 2026-06-29, and the reading does not depend on which orientation is taken (True). The banks' rate had already walked most of the way before the instruments were signed, so there is no step for a break test to find |
+| **FAIL** | B15-11 zero calibration across publishers | publishers agree on 18.26% of the 745 days compared; the noise floor is 0.1650 Bs at the median and 1.9550 at its worst |
+| **FAIL** | B15-12 the referee | the published Bs/EUR against the ECB reference rate times the published TCO, over 39 days. **The registered expectation is not met.** The register wrote that if Bolivia's euro were Cuba's, a mechanical restatement of its dollar times a world cross, this criterion would measure the pass-through. The nearest alignment is lag 0 and its mean deviation is still 15 times the referee's own last digit, so the euro leg tracks the cross without restating it and carries information the dollar leg does not. The registered band of one tick of the euro series sits below the floor the referee's four decimals put under any reconstruction (61 ticks), so that band cannot be met on any alignment |
 
-**What the stage does establish**, none of it from the suspended arm: the
-administered spread is Art. 6's 0.10 exactly on every non-degenerate official
-row on both sides of the reform, which makes it a Theorem 6 statement with a
-different shape from Cuba's `K_VENTA = 1.020` (fixed as a level against fixed as
-a ratio, so the two behave differently under a devaluation); the reform has no
-single dated break to find; and two publishers of the same book disagree far
-enough that a cross-publisher zero calibration fails.
+**Nine passes and voids against three failures, and none of the three is an
+instrument breaking**: the reform ratified a rate the banks had already reached,
+two publishers of one book disagree by more than a cross-publisher calibration
+allows, and the euro leg is not derived from the dollar leg. **Each is a fact
+about the carrier.**
 
-**The four suspended readings are on disk with their numbers.**
-`results/b15_structure.json`, `results/b15_zero.json` and
-`results/b15_customs.json` each carry `diagnostic_only` and a
-`diagnostic_reason` naming the criterion that suspended them. The gate is read
-out of `results/b15_typing.json` rather than restated in each script, so if
-B15-4 ever resolves those records flip without anyone editing them.
+**The official surface here has two legs that are not tied to each other**,
+where Cuba's euro was its dollar restated and any cycle through it was zero by
+construction. The wedge between the BCB's own published cross and the world's
+is small, a median of two and a half times the rounding the two published
+precisions allow, and **it is not inside the BCB's own table**: `1/ME` equals
+`EUR/TCO` on all 39 days, so a cycle drawn through the published pair alone
+still closes at zero. Using it means drawing the outside leg in explicitly.
 
 ## L2 — what is left of the tick-size move after the arithmetic is taken out, and it has the wrong sign to be arithmetic
 
@@ -1442,6 +1517,8 @@ Derived quantities:
 
 ## B3
 
+Record with no criteria block, kept as evidence and named here so it is findable: `results/b3_cip_slice.json`. This stage registers outcome maps rather than pass-or-fail rows: the verdict is which branch a reading landed in, and a branch label out of an exhaustive set is not a shape a criteria table can hold.
+
 
 ## B4 — the directed theorem
 
@@ -1463,8 +1540,12 @@ Derived quantities:
 
 ## B5 source audit — the friction column has no source (REJECT)
 
+The verdict is in the heading, which is where it belongs: this is a source audit and not a set of pre-registered criteria, so there is no table under it and there never was one.
+
 
 ## B5 source audit — the P2P control class has no usable source (REJECT)
+
+The verdict is in the heading, which is where it belongs: this is a source audit and not a set of pre-registered criteria, so there is no table under it and there never was one.
 
 
 ## B5 pre-window guards — B5-14 failed, and B5-15 was written after it
@@ -1679,10 +1760,115 @@ Derived quantities:
 | PASS | B8-5 | read per cell and not pooled. 554 cells, 132 endpoint-stable, 20 with p < 0.05. Twelve of the twenty are on the two FICO grids and all twelve point the same way: conditional on already being delinquent, the lower the score the higher the share modified, with no counterexample across six vintages, three windows, five entry tiers and two grids. The label is an admission threshold that differs by class, not a hole: section 5 asks whether an edge never exists, and what was measured is a rate |
 | PASS | B8-6 | satisfied by construction on B8-2 and a real test on B8-5, per sections 20.2 and 22.2 |
 
+## B9 — the ETF creation triangle: eleven registered predictions, and the two that were designed so they could lose
+
+**This stage's records carry no criteria block, and the reason is the same one
+B10's section gives.** Its registrations are outcome maps: `§9·1` has four cells
+(a zero / a resolvable non-zero / uninformative / fee-undetermined), `§10·1` has
+four (pinned / composition / both / inconsistent-with-D1), `§11` has three, `§12`
+has three, `§14·5` has five. The verdict is which cell a reading lands in, and a
+cell label out of an exhaustive set is not a boolean. Exactly one record was ever
+written in criteria shape, and it is the one rendered under `## B9-A §24` below.
+
+**The carrier was chosen for being clean, and that is also its ceiling.** All
+three positions are institutional objects rather than cuts of a continuum, so
+"the reading is an artefact of how the states were cut" cannot apply here: there
+is no grid to choose. **The immunity and the barrenness are the same fact**, and
+the stage says so before any of the readings: with no grid to vary, it can supply
+no cross-grid calibration either.
+
+### The eleven registered predictions
+
+| id | the bet | role | where it landed |
+|---|---|---|---|
+| **B9-0** | the degenerate loop returns exactly zero | gate | **re-labelled from test to construction check.** The reverse edge is implemented as the negation of the forward one, same state dict, same call, so `z = −x + x` **cannot fail**. 200,000 draws, zero non-zeros, because zero was the only reachable answer |
+| **B9-A-1** | a measured zero: the reading is below its floor | load-bearing | **a resolvable non-zero.** The indicator part runs 1.050 to 5.083 times the measurement floor, **11 of 11 above 1**. This carrier has no zero, and the reason is measured rather than argued |
+| **B9-A-2** | the ratio rises with stress | substantive | **9 of 11 rise**, median ratio 1.211, range 0.881 to 1.365 |
+| **B9-A-3** | the closing leg is open only to authorised participants | reported, not estimated | institutional fact from the fund's own filings: the unit is **50,000 shares and indivisible**, and the wedge is 1.2 to 1.7 bp. **No price makes this edge appear**, so it is a hole and not a cost, and the two are never added |
+| **B9-A-4** | `pi` is non-zero under stress and indistinguishable from zero when calm | calibration | **not constructible**, and that is a property of the carrier's topology rather than of the data. `pi` here is exactly `(V + d²)/(2V + d²)`, a monotone reparameterisation of mean premium over its own dispersion, matched to **8.09e-05**. It carries nothing about the size of the reading |
+| **B9-A-5** | a free historical premium/discount table covering 2020 and 2022 exists | gate | **fails, and the reason is structural**: the disclosure rule covers the most recent calendar year plus the quarters after it, **and it replaced the older rule rather than adding to it. Nobody was ever required to retain that history** |
+| **B9-A-6** | one venue's closing midpoint can stand in for the consolidated one | gate | **fails.** Listing venue 0.8975, four venues combined 0.5564, neither at the registered 0.90. **It is not rounded up**: 0.8975 is about fifteen fund-days short |
+| **B9-A-7** | the reconstructed price survives the readings, not just the prices | direct criterion | **not usable.** `Δρ_c` goes **+0.06942 → +0.00010** and the four-cell verdict changes cell |
+| **B9-A-9** | the redemption-side fee equals the creation-side fee | registered | **not run.** One day's work. Registered here so that "every registered prediction has a written disposition" is true again |
+| **B9-B-1** | tick data with volume exists and has no size-dependent disclosure cap | gate | **passes.** Nothing has to be bought |
+| **B9-B-2** | `pi` rises with order size over ADV | size channel | **route closed by derivation** |
+
+**`B9-A-8` does not exist.** The numbering jumps from A-7 to A-9. That is a gap
+in the register and not a lost prediction, written here so nobody looks for it.
+
+### The outcome maps, and the cells they landed in
+
+| map | the variable | landed | reading |
+|---|---|---|---|
+| §9·1 | the reading against the measurement floor | **resolvable non-zero, 4 cells** | 1.050 to 5.083, all eleven above 1. On the standard-deviation floor the same eleven run 3.64 to 17.61: **both columns are reported and the headline keeps the conservative one**, because a choice that changes no verdict should not be dressed up as a finding |
+| §9·5 D1 | first-order autocorrelation of the signed reading | **rises, 10 of 11** | calm **+0.0762**, stress **+0.1211**. The noise null predicts a point, zero, **and calm was already positive before any stress comparison was made** |
+| §9·5 D1b | the same after removing the daily cross-fund mean | **falls, 3 of 11** | calm **+0.0882**, stress **−0.0094**. So the per-fund loop persists on its own when calm, **and the amplification under stress is market-level rather than per-fund** |
+| §9·5 D2 | share of days at a discount | **moves, 10 of 11** | 0.4532 → 0.5075. **A symmetric disturbance cannot move a share**, which is why this one is read on level and never on count |
+| §10·1 | the variance decomposition | **both, 4 cells** | `V_c` ×2.518 and `V_e` ×2.130 with the mix barely moving, and `Δρ_c` = **+0.069132** |
+| §11 | the cross term against a circular-shift null | **inside the body, 3 rows** | **0 of 22** cells at or above their own 95th percentile against a chance expectation of 1.1. The null's own floor is **0.09332**, which is **9.3 times** the tolerance that had been registered to be compared against |
+| §12 | does the reconstruction survive the readings | **not usable, 3 rows** | the error is a fixed half-tick while the signal doubles under stress, **so a fixed error does most of its damage where the signal is smallest, which is the calm regime, which is the axis every reading here lives on** |
+| §12·1 | the same question for the discount-share statistic | **the exception, and the asymmetry was predicted backwards** | 76% of the move survives and the direction holds. The registered row named the wrong side of the split; **the split is real and its handling still applies** |
+| §14·5 | the gate-speed test mapped onto primary-market activity | **fund-flow, 5 cells** | the share of zero-change days **falls in 10 of 11**, and the intensive margin **rises in 8 of 11**. Under stress the primary market is both more frequent and larger. **The mapping onto this carrier is refused** |
+
+### The two numbers that carry the most, and the one that carries the least
+
+**Quantisation is refuted, and one fund is enough.** Across twelve US equity
+funds the tick spans **15.83 times** while the median reading spans **1.42
+times**. Quantisation noise must scale with the quantum and here it does not.
+**And the comparison arm was excluded from this test before anything ran**: put
+the stale-NAV funds back in and the same arithmetic reads "tick spans 26.0, the
+reading spans 33.0", which is quantisation confirmed. The exclusion was
+registered on the stale-NAV ground, not chosen afterwards.
+
+**The threshold was earned by behaviour, and it was free.** The primary-market
+unit is the gcd of non-zero share changes: **exactly 50,000, with 100% of changes
+a multiple of it** on all eleven main-arm funds. Swept over eight candidate
+values, **the cleared counts at 0 and at 50,000 are identical fund by fund**, and
+nothing moves until the threshold passes 500,000. **A parameter that could have
+been tuned until a zero appeared is shown to be untunable.**
+
+**The weakest number is named rather than buried.** `Δρ_c` is **0.693 of its own
+standard error**, using the standard error of a difference between two disjoint
+partitions of the same window and not one end's. Reaching two standard errors
+needs about **3,348 trading days** against the 404 in hand, roughly 11.7 years at
+one per day. **Nothing is concluded from it.** And the extrapolation that
+produces that day count diverges: on the reconstruction arm the same formula
+returns 1.7 billion trading days, because its divisor is near zero there. The
+record carries a flag saying whether the point estimate exceeds its own standard
+error, and a note saying the day count is readable only when that flag is true
+and only as an order of magnitude.
+
+### What this stage established, and what it could not
+
+**Three of the four links hold. The fourth has no route, and both registered
+routes were closed by derivation rather than by a negative measurement.** The
+size gradient closed because the shock narrative and the framework **predict the
+same curve**; the only shape that separates them is a jump at the 50,000 unit,
+and that is visible only to participants whose trades the stage records as
+unobserved. The collateral gate closed because **the servicing rule book fixes
+the answer before the first loan is read**.
+
+**One test in this stage was built so that it could lose, and it lost.** The
+gate-speed test predicted the share of zero-change days would rise under stress;
+it fell in ten of eleven. That is not a failure to report quietly. **It is the
+only reading here that a competing account would have got wrong**, and what it
+shows is that this carrier's hole is a contractual membership rather than a
+collateral threshold: **a breathing hole moves with prices and a contract does
+not**, and the test was aimed at the one that does not move.
+
+**The general lesson the stage states about itself**: a shape is cheap. A
+prediction has discriminating power because a competing account gets it wrong,
+not because a competing account also gets it right. **A rate is a shape; a sign
+is not.**
+
 ## B9-A-1
+
+Record with no criteria block, kept as evidence and named here so it is findable: `results/b9_a1.json`. This stage registers outcome maps rather than pass-or-fail rows: the verdict is which branch a reading landed in, and a branch label out of an exhaustive set is not a shape a criteria table can hold.
 
 
 ## B9-A-2
+
+Record with no criteria block, kept as evidence and named here so it is findable: `results/b9_a2.json`. This stage registers outcome maps rather than pass-or-fail rows: the verdict is which branch a reading landed in, and a branch label out of an exhaustive set is not a shape a criteria table can hold.
 
 
 ## B9 §31 variance decomposition
@@ -1705,6 +1891,8 @@ Records with no criteria block and no sample metadata, kept as evidence and list
 
 ## B9-0
 
+Record with no criteria block, kept as evidence and named here so it is findable: `results/b9_gate.json`. This stage registers outcome maps rather than pass-or-fail rows: the verdict is which branch a reading landed in, and a branch label out of an exhaustive set is not a shape a criteria table can hold.
+
 
 ## B9 §26 gate speed
 
@@ -1725,6 +1913,8 @@ the window costs a re-run; the same question asked of the catalogue first costs
 one call.
 
 ## B9-A-1 and A-2 against the measurement floor (§24)
+
+Record with no criteria block, kept as evidence and named here so it is findable: `results/b9_measured.json`. This stage registers outcome maps rather than pass-or-fail rows: the verdict is which branch a reading landed in, and a branch label out of an exhaustive set is not a shape a criteria table can hold.
 
 
 ## B9-A-6 four-venue (§39.3)

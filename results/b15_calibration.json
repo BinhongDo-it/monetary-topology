@@ -1,0 +1,252 @@
+{
+  "authority": "docs/b15_bolivia_prereg.md \u00a75",
+  "criteria": [
+    {
+      "break_date": "2026-06-29",
+      "criterion": "B15-10",
+      "detail": "no single dated break at the reform: null draws 999, seed 0, break date 2026-06-29, and the reading does not depend on which orientation is taken (True). The banks' rate had already walked most of the way before the instruments were signed, so there is no step for a break test to find",
+      "name": "B15-10 the event",
+      "null_draws": 999,
+      "null_seed": 0,
+      "orientation_invariant": true,
+      "passed": false,
+      "variants": {
+        "A: blue_buy is the bid; ask = official_buy + 0.1": {
+          "beaters": {
+            "dates": [
+              "2026-06-27",
+              "2026-06-28",
+              "2026-06-29",
+              "2026-07-25",
+              "2026-07-26",
+              "2026-07-27",
+              "2026-07-30",
+              "2026-08-02",
+              "2026-08-04",
+              "2026-08-05"
+            ],
+            "draws_within_7_days": 17,
+            "exceeds_far_p99": false,
+            "far_ge_observed": 11,
+            "far_p99": 0.5030325255448524,
+            "max_days_from_event": 37,
+            "min_days_from_event": 0
+          },
+          "exceeds_p99": false,
+          "null_distinct": 551,
+          "null_ge_observed": 14,
+          "null_p99": 0.5030325255448524,
+          "observed": 0.5022891582846453
+        },
+        "A: blue_buy is the bid; ask = official_sell as served": {
+          "beaters": {
+            "dates": [
+              "2026-06-27",
+              "2026-06-28",
+              "2026-06-29",
+              "2026-07-25",
+              "2026-07-26",
+              "2026-07-27",
+              "2026-07-30",
+              "2026-08-02",
+              "2026-08-04",
+              "2026-08-05",
+              "2026-08-06"
+            ],
+            "draws_within_7_days": 17,
+            "exceeds_far_p99": false,
+            "far_ge_observed": 13,
+            "far_p99": 0.494933062571254,
+            "max_days_from_event": 38,
+            "min_days_from_event": 0
+          },
+          "exceeds_p99": false,
+          "null_distinct": 551,
+          "null_ge_observed": 16,
+          "null_p99": 0.494933062571254,
+          "observed": 0.4932671705116929
+        },
+        "B: blue_sell is the bid; ask = official_buy + 0.1": {
+          "beaters": {
+            "dates": [
+              "2026-06-27",
+              "2026-06-28",
+              "2026-06-29",
+              "2026-07-25",
+              "2026-07-26",
+              "2026-07-27",
+              "2026-07-30",
+              "2026-08-02",
+              "2026-08-04",
+              "2026-08-05",
+              "2026-08-06"
+            ],
+            "draws_within_7_days": 17,
+            "exceeds_far_p99": false,
+            "far_ge_observed": 13,
+            "far_p99": 0.49416630705694947,
+            "max_days_from_event": 38,
+            "min_days_from_event": 0
+          },
+          "exceeds_p99": false,
+          "null_distinct": 551,
+          "null_ge_observed": 16,
+          "null_p99": 0.49416630705694947,
+          "observed": 0.49312588996865137
+        },
+        "B: blue_sell is the bid; ask = official_sell as served": {
+          "beaters": {
+            "dates": [
+              "2026-06-27",
+              "2026-06-28",
+              "2026-06-29",
+              "2026-07-25",
+              "2026-07-26",
+              "2026-07-27",
+              "2026-07-30",
+              "2026-08-02",
+              "2026-08-04",
+              "2026-08-05",
+              "2026-08-06"
+            ],
+            "draws_within_7_days": 17,
+            "exceeds_far_p99": false,
+            "far_ge_observed": 13,
+            "far_p99": 0.48606684408335116,
+            "max_days_from_event": 38,
+            "min_days_from_event": 0
+          },
+          "exceeds_p99": false,
+          "null_distinct": 551,
+          "null_ge_observed": 16,
+          "null_p99": 0.48606684408335116,
+          "observed": 0.484103902195699
+        }
+      },
+      "void": false
+    },
+    {
+      "agreement_share": 0.1825503355704698,
+      "criterion": "B15-11",
+      "days_compared": 745,
+      "detail": "publishers agree on 18.26% of the 745 days compared; the noise floor is 0.1650 Bs at the median and 1.9550 at its worst",
+      "name": "B15-11 zero calibration across publishers",
+      "noise_floor_max": 1.9549999999999983,
+      "noise_floor_median": 0.16500000000000092,
+      "pair_counts": {
+        "S3=S4": 70,
+        "S3=S5": 20,
+        "S4=S5": 56
+      },
+      "passed": false,
+      "s5_orientation": {
+        "available": true,
+        "post-event": {
+          "buy_above_sell": 52,
+          "days": 52,
+          "share": 1.0
+        },
+        "pre-event": {
+          "buy_above_sell": 693,
+          "days": 693,
+          "share": 1.0
+        }
+      },
+      "void": false
+    },
+    {
+      "band_bs": 1e-05,
+      "criterion": "B15-12",
+      "detail": "the published Bs/EUR against the ECB reference rate times the published TCO, over 39 days. **The registered expectation is not met.** The register wrote that if Bolivia's euro were Cuba's, a mechanical restatement of its dollar times a world cross, this criterion would measure the pass-through. The nearest alignment is lag 0 and its mean deviation is still 15 times the referee's own last digit, so the euro leg tracks the cross without restating it and carries information the dollar leg does not. The registered band of one tick of the euro series sits below the floor the referee's four decimals put under any reconstruction (61 ticks), so that band cannot be met on any alignment",
+      "euro_decimals": 5,
+      "lag0_nearer_than_lag1_days": 26,
+      "name": "B15-12 the referee",
+      "nearest_deviation_in_referee_ticks": 15.129457054774932,
+      "nearest_lag_by_mean_deviation": 0,
+      "nearest_lag_day_counts": {
+        "0": 21,
+        "1": 11,
+        "2": 6,
+        "3": 1
+      },
+      "passed": false,
+      "referee_floor_in_ticks": 60.75,
+      "referee_tick": 0.0001,
+      "registered_lag": 1,
+      "scan": {
+        "0": {
+          "cross_deviation_max": 0.004503292181069929,
+          "cross_deviation_mean": 0.0015129457054774932,
+          "cross_deviation_mean_in_referee_ticks": 15.129457054774932,
+          "cross_deviation_median": 0.0013998317914212244,
+          "days_compared": 39,
+          "deviation_over_envelope_max": 8.586090021998347,
+          "deviation_over_envelope_median": 2.518482568955827,
+          "max_gap_bs": 0.05471499999999985,
+          "max_gap_ticks": 5471.4999999999845,
+          "median_gap_bs": 0.015568000000000026,
+          "outside_rounding_envelope": 30,
+          "outside_rounding_envelope_share": 0.7692307692307693,
+          "within_band": 1,
+          "within_band_share": 0.02564102564102564
+        },
+        "1": {
+          "cross_deviation_max": 0.008200168208578829,
+          "cross_deviation_mean": 0.0020768217298023006,
+          "cross_deviation_mean_in_referee_ticks": 20.768217298023004,
+          "cross_deviation_median": 0.001698661909009802,
+          "days_compared": 39,
+          "deviation_over_envelope_max": 15.41379923110204,
+          "deviation_over_envelope_median": 2.8385097031453084,
+          "max_gap_bs": 0.09750000000000014,
+          "max_gap_ticks": 9750.000000000013,
+          "median_gap_bs": 0.01806999999999981,
+          "outside_rounding_envelope": 32,
+          "outside_rounding_envelope_share": 0.8205128205128205,
+          "within_band": 1,
+          "within_band_share": 0.02564102564102564
+        },
+        "2": {
+          "cross_deviation_max": 0.015003292181070105,
+          "cross_deviation_mean": 0.003030575797952597,
+          "cross_deviation_mean_in_referee_ticks": 30.305757979525968,
+          "cross_deviation_median": 0.002200000000000202,
+          "days_compared": 39,
+          "deviation_over_envelope_max": 28.60565384465145,
+          "deviation_over_envelope_median": 3.6216111077419115,
+          "max_gap_bs": 0.18229000000000184,
+          "max_gap_ticks": 18229.000000000182,
+          "median_gap_bs": 0.02245400000000153,
+          "outside_rounding_envelope": 35,
+          "outside_rounding_envelope_share": 0.8974358974358975,
+          "within_band": 0,
+          "within_band_share": 0.0
+        },
+        "3": {
+          "cross_deviation_max": 0.01630329218106996,
+          "cross_deviation_mean": 0.0039481506603394004,
+          "cross_deviation_mean_in_referee_ticks": 39.481506603394,
+          "cross_deviation_median": 0.003293310463121868,
+          "days_compared": 39,
+          "deviation_over_envelope_max": 31.084266508408188,
+          "deviation_over_envelope_median": 5.454254638515856,
+          "max_gap_bs": 0.19808499999999896,
+          "max_gap_ticks": 19808.499999999894,
+          "median_gap_bs": 0.03410000000000046,
+          "outside_rounding_envelope": 35,
+          "outside_rounding_envelope_share": 0.8974358974358975,
+          "within_band": 0,
+          "within_band_share": 0.0
+        }
+      },
+      "void": false
+    }
+  ],
+  "diagnostic_only": false,
+  "stage": "B15",
+  "step": "calibration",
+  "window": [
+    "2024-07-21",
+    "2026-08-19"
+  ]
+}

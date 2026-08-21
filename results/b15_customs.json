@@ -1,0 +1,444 @@
+{
+  "authority": "docs/b15_bolivia_prereg.md \u00a75 B15-9",
+  "criteria": [
+    {
+      "comunicado_anchor_day": "2026-06-26",
+      "comunicado_anchor_rate": 6.96,
+      "comunicado_reproduced": true,
+      "criterion": "B15-9",
+      "detail": "8 of 8 weeks resolve from S1's annual grid under Art. 20 of `D.S. 25870`, which holds the week's rate at the previous week's last business day, and the Aduana comunicado's 6.96 for 2026-06-26 reproduces. **One published number, one agent class, one week at a time**: the edge is granted to Operadores de Comercio Exterior alone and to nobody else at that rate",
+      "name": "B15-9 the customs edge",
+      "passed": true,
+      "void": false,
+      "weeks": 8,
+      "weeks_resolved": 8
+    }
+  ],
+  "diagnostic_only": false,
+  "holonomy": [
+    {
+      "date": "2026-06-29",
+      "holonomy_vs_market": -0.35538100371075276,
+      "holonomy_vs_official_venta": -0.34525945981274675,
+      "parallel_ask": 9.93,
+      "tc_aduana": 6.96
+    },
+    {
+      "date": "2026-06-30",
+      "holonomy_vs_market": -0.35940110962741856,
+      "holonomy_vs_official_venta": -0.3483066942682156,
+      "parallel_ask": 9.97,
+      "tc_aduana": 6.96
+    },
+    {
+      "date": "2026-07-01",
+      "holonomy_vs_market": -0.3644036213103903,
+      "holonomy_vs_official_venta": -0.3483066942682156,
+      "parallel_ask": 10.02,
+      "tc_aduana": 6.96
+    },
+    {
+      "date": "2026-07-02",
+      "holonomy_vs_market": -0.3604036159770445,
+      "holonomy_vs_official_venta": -0.3503330374134481,
+      "parallel_ask": 9.98,
+      "tc_aduana": 6.96
+    },
+    {
+      "date": "2026-07-03",
+      "holonomy_vs_market": -0.3624056186477176,
+      "holonomy_vs_official_venta": -0.352355282794216,
+      "parallel_ask": 10.0,
+      "tc_aduana": 6.96
+    },
+    {
+      "date": "2026-07-04",
+      "holonomy_vs_market": -0.3644036213103903,
+      "holonomy_vs_official_venta": -0.35538100371075276,
+      "parallel_ask": 10.02,
+      "tc_aduana": 6.96
+    },
+    {
+      "date": "2026-07-05",
+      "holonomy_vs_market": -0.3624056186477176,
+      "holonomy_vs_official_venta": -0.35538100371075276,
+      "parallel_ask": 10.0,
+      "tc_aduana": 6.96
+    },
+    {
+      "date": "2026-07-06",
+      "holonomy_vs_market": -0.013045844833299736,
+      "holonomy_vs_official_venta": -0.003025720916536745,
+      "parallel_ask": 10.03,
+      "tc_aduana": 9.9
+    },
+    {
+      "date": "2026-07-07",
+      "holonomy_vs_market": -0.02296656112004758,
+      "holonomy_vs_official_venta": -0.009049835519917782,
+      "parallel_ask": 10.13,
+      "tc_aduana": 9.9
+    },
+    {
+      "date": "2026-07-08",
+      "holonomy_vs_market": -0.041549002912872446,
+      "holonomy_vs_official_venta": -0.016032407531048953,
+      "parallel_ask": 10.32,
+      "tc_aduana": 9.9
+    },
+    {
+      "date": "2026-07-09",
+      "holonomy_vs_market": -0.058840500022933284,
+      "holonomy_vs_official_venta": -0.02985296314968089,
+      "parallel_ask": 10.5,
+      "tc_aduana": 9.9
+    },
+    {
+      "date": "2026-07-10",
+      "holonomy_vs_market": -0.06831924397747713,
+      "holonomy_vs_official_venta": -0.04348511193973881,
+      "parallel_ask": 10.6,
+      "tc_aduana": 9.9
+    },
+    {
+      "date": "2026-07-11",
+      "holonomy_vs_market": -0.05215151187213651,
+      "holonomy_vs_official_venta": -0.058840500022933284,
+      "parallel_ask": 10.43,
+      "tc_aduana": 9.9
+    },
+    {
+      "date": "2026-07-12",
+      "holonomy_vs_market": -0.054067221270275745,
+      "holonomy_vs_official_venta": -0.058840500022933284,
+      "parallel_ask": 10.45,
+      "tc_aduana": 9.9
+    },
+    {
+      "date": "2026-07-13",
+      "holonomy_vs_market": -0.01725833822928058,
+      "holonomy_vs_official_venta": -0.015355388083194477,
+      "parallel_ask": 10.52,
+      "tc_aduana": 10.34
+    },
+    {
+      "date": "2026-07-14",
+      "holonomy_vs_market": -0.023890290533032044,
+      "holonomy_vs_official_venta": -0.02483413203773832,
+      "parallel_ask": 10.59,
+      "tc_aduana": 10.34
+    },
+    {
+      "date": "2026-07-15",
+      "holonomy_vs_market": -0.03328885595667064,
+      "holonomy_vs_official_venta": -0.04352626504989088,
+      "parallel_ask": 10.69,
+      "tc_aduana": 10.34
+    },
+    {
+      "date": "2026-07-16",
+      "holonomy_vs_market": -0.037955220000435386,
+      "holonomy_vs_official_venta": -0.04814521090618529,
+      "parallel_ask": 10.74,
+      "tc_aduana": 10.34
+    },
+    {
+      "date": "2026-07-17",
+      "holonomy_vs_market": -0.036091286562372815,
+      "holonomy_vs_official_venta": -0.04814521090618529,
+      "parallel_ask": 10.72,
+      "tc_aduana": 10.34
+    },
+    {
+      "date": "2026-07-18",
+      "holonomy_vs_market": -0.03981568565335536,
+      "holonomy_vs_official_venta": -0.05731958718222652,
+      "parallel_ask": 10.76,
+      "tc_aduana": 10.34
+    },
+    {
+      "date": "2026-07-19",
+      "holonomy_vs_market": -0.04352626504989088,
+      "holonomy_vs_official_venta": -0.05731958718222652,
+      "parallel_ask": 10.8,
+      "tc_aduana": 10.34
+    },
+    {
+      "date": "2026-07-20",
+      "holonomy_vs_market": -0.011910356094916086,
+      "holonomy_vs_official_venta": -0.00917437627604123,
+      "parallel_ask": 10.98,
+      "tc_aduana": 10.85
+    },
+    {
+      "date": "2026-07-21",
+      "holonomy_vs_market": -0.04417121831313775,
+      "holonomy_vs_official_venta": -0.013730192811902242,
+      "parallel_ask": 11.34,
+      "tc_aduana": 10.85
+    },
+    {
+      "date": "2026-07-22",
+      "holonomy_vs_market": -0.0642504612191166,
+      "holonomy_vs_official_venta": -0.022780028331820024,
+      "parallel_ask": 11.57,
+      "tc_aduana": 10.85
+    },
+    {
+      "date": "2026-07-23",
+      "holonomy_vs_market": -0.07798458267891561,
+      "holonomy_vs_official_venta": -0.034423688763883575,
+      "parallel_ask": 11.73,
+      "tc_aduana": 10.85
+    },
+    {
+      "date": "2026-07-24",
+      "holonomy_vs_market": -0.08647359800382715,
+      "holonomy_vs_official_venta": -0.041522210141560656,
+      "parallel_ask": 11.83,
+      "tc_aduana": 10.85
+    },
+    {
+      "date": "2026-07-25",
+      "holonomy_vs_market": -0.05295090596518337,
+      "holonomy_vs_official_venta": -0.055569851154810834,
+      "parallel_ask": 11.44,
+      "tc_aduana": 10.85
+    },
+    {
+      "date": "2026-07-26",
+      "holonomy_vs_market": -0.07713170416239823,
+      "holonomy_vs_official_venta": -0.055569851154810834,
+      "parallel_ask": 11.72,
+      "tc_aduana": 10.85
+    },
+    {
+      "date": "2026-07-27",
+      "holonomy_vs_market": -0.024455367223631175,
+      "holonomy_vs_official_venta": -0.014047641013250178,
+      "parallel_ask": 11.59,
+      "tc_aduana": 11.31
+    },
+    {
+      "date": "2026-07-28",
+      "holonomy_vs_market": -0.038165950462139,
+      "holonomy_vs_official_venta": -0.028760152175262732,
+      "parallel_ask": 11.75,
+      "tc_aduana": 11.31
+    },
+    {
+      "date": "2026-07-29",
+      "holonomy_vs_market": -0.050851109989454635,
+      "holonomy_vs_official_venta": -0.050851109989454635,
+      "parallel_ask": 11.9,
+      "tc_aduana": 11.31
+    },
+    {
+      "date": "2026-07-30",
+      "holonomy_vs_market": -0.05001042057466121,
+      "holonomy_vs_official_venta": -0.05838567891139368,
+      "parallel_ask": 11.89,
+      "tc_aduana": 11.31
+    },
+    {
+      "date": "2026-07-31",
+      "holonomy_vs_market": -0.05588045839445677,
+      "holonomy_vs_official_venta": -0.07983864686270703,
+      "parallel_ask": 11.96,
+      "tc_aduana": 11.31
+    },
+    {
+      "date": "2026-08-01",
+      "holonomy_vs_market": -0.03646237253735496,
+      "holonomy_vs_official_venta": -0.07820465957105194,
+      "parallel_ask": 11.73,
+      "tc_aduana": 11.31
+    },
+    {
+      "date": "2026-08-02",
+      "holonomy_vs_market": -0.04071588809541149,
+      "holonomy_vs_official_venta": -0.07820465957105194,
+      "parallel_ask": 11.78,
+      "tc_aduana": 11.31
+    },
+    {
+      "date": "2026-08-03",
+      "holonomy_vs_market": 0.03151172836915972,
+      "holonomy_vs_official_venta": 0.0016339872916550924,
+      "parallel_ask": 11.87,
+      "tc_aduana": 12.25
+    },
+    {
+      "date": "2026-08-04",
+      "holonomy_vs_market": 0.04764795959065493,
+      "holonomy_vs_official_venta": 0.005730674708985362,
+      "parallel_ask": 11.68,
+      "tc_aduana": 12.25
+    },
+    {
+      "date": "2026-08-05",
+      "holonomy_vs_market": 0.06928445918401671,
+      "holonomy_vs_official_venta": 0.010668956349567882,
+      "parallel_ask": 11.43,
+      "tc_aduana": 12.25
+    },
+    {
+      "date": "2026-08-06",
+      "holonomy_vs_market": 0.09768033333919757,
+      "holonomy_vs_official_venta": 0.023958188468250707,
+      "parallel_ask": 11.11,
+      "tc_aduana": 12.25
+    },
+    {
+      "date": "2026-08-07",
+      "holonomy_vs_market": 0.09498370249159827,
+      "holonomy_vs_official_venta": 0.023958188468250707,
+      "parallel_ask": 11.14,
+      "tc_aduana": 12.25
+    },
+    {
+      "date": "2026-08-08",
+      "holonomy_vs_market": 0.092294323909627,
+      "holonomy_vs_official_venta": 0.023958188468250707,
+      "parallel_ask": 11.17,
+      "tc_aduana": 12.25
+    },
+    {
+      "date": "2026-08-09",
+      "holonomy_vs_market": 0.0887196999066675,
+      "holonomy_vs_official_venta": 0.023958188468250707,
+      "parallel_ask": 11.21,
+      "tc_aduana": 12.25
+    },
+    {
+      "date": "2026-08-10",
+      "holonomy_vs_market": 0.05512204949988897,
+      "holonomy_vs_official_venta": 0.013289232118682826,
+      "parallel_ask": 11.47,
+      "tc_aduana": 12.12
+    },
+    {
+      "date": "2026-08-11",
+      "holonomy_vs_market": 0.053379888780503926,
+      "holonomy_vs_official_venta": 0.020842772019591838,
+      "parallel_ask": 11.49,
+      "tc_aduana": 12.12
+    },
+    {
+      "date": "2026-08-12",
+      "holonomy_vs_market": 0.049904646360200644,
+      "holonomy_vs_official_venta": 0.025910350431897378,
+      "parallel_ask": 11.53,
+      "tc_aduana": 12.12
+    },
+    {
+      "date": "2026-08-13",
+      "holonomy_vs_market": 0.04730611739693691,
+      "holonomy_vs_official_venta": 0.030153038170687374,
+      "parallel_ask": 11.56,
+      "tc_aduana": 12.12
+    },
+    {
+      "date": "2026-08-14",
+      "holonomy_vs_market": 0.054250589749747835,
+      "holonomy_vs_official_venta": 0.033560196492301575,
+      "parallel_ask": 11.48,
+      "tc_aduana": 12.12
+    },
+    {
+      "date": "2026-08-15",
+      "holonomy_vs_market": 0.056867250640919575,
+      "holonomy_vs_official_venta": 0.03697900324108705,
+      "parallel_ask": 11.45,
+      "tc_aduana": 12.12
+    },
+    {
+      "date": "2026-08-16",
+      "holonomy_vs_market": 0.05077232537342313,
+      "holonomy_vs_official_venta": 0.03697900324108705,
+      "parallel_ask": 11.52,
+      "tc_aduana": 12.12
+    },
+    {
+      "date": "2026-08-17",
+      "holonomy_vs_market": 0.013745920904635334,
+      "holonomy_vs_official_venta": 0.0034188067487854745,
+      "parallel_ask": 11.56,
+      "tc_aduana": 11.719999999999999
+    },
+    {
+      "date": "2026-08-18",
+      "holonomy_vs_market": 0.006849341845574841,
+      "holonomy_vs_official_venta": 0.005990604137156907,
+      "parallel_ask": 11.64,
+      "tc_aduana": 11.719999999999999
+    },
+    {
+      "date": "2026-08-19",
+      "holonomy_vs_market": 0.01029168603654762,
+      "holonomy_vs_official_venta": 0.008569032725101344,
+      "parallel_ask": 11.6,
+      "tc_aduana": 11.719999999999999
+    }
+  ],
+  "stage": "B15",
+  "step": "customs_edge",
+  "weekly_edge": [
+    {
+      "post_switch": false,
+      "source": "Aduana comunicado, the frozen peg",
+      "tc_aduana": 6.96,
+      "week_end": "2026-07-05",
+      "week_start": "2026-06-29"
+    },
+    {
+      "post_switch": true,
+      "source": "S1 venta vigente 2026-07-03",
+      "tc_aduana": 9.9,
+      "week_end": "2026-07-12",
+      "week_start": "2026-07-06"
+    },
+    {
+      "post_switch": true,
+      "source": "S1 venta vigente 2026-07-10",
+      "tc_aduana": 10.34,
+      "week_end": "2026-07-19",
+      "week_start": "2026-07-13"
+    },
+    {
+      "post_switch": true,
+      "source": "S1 venta vigente 2026-07-17",
+      "tc_aduana": 10.85,
+      "week_end": "2026-07-26",
+      "week_start": "2026-07-20"
+    },
+    {
+      "post_switch": true,
+      "source": "S1 venta vigente 2026-07-24",
+      "tc_aduana": 11.31,
+      "week_end": "2026-08-02",
+      "week_start": "2026-07-27"
+    },
+    {
+      "post_switch": true,
+      "source": "S1 venta vigente 2026-07-31",
+      "tc_aduana": 12.25,
+      "week_end": "2026-08-09",
+      "week_start": "2026-08-03"
+    },
+    {
+      "post_switch": true,
+      "source": "S1 venta vigente 2026-08-05",
+      "tc_aduana": 12.12,
+      "week_end": "2026-08-16",
+      "week_start": "2026-08-10"
+    },
+    {
+      "post_switch": true,
+      "source": "S1 venta vigente 2026-08-14",
+      "tc_aduana": 11.719999999999999,
+      "week_end": "2026-08-23",
+      "week_start": "2026-08-17"
+    }
+  ]
+}

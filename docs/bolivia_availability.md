@@ -2,7 +2,7 @@
 
 **Written 2026-08-19, first pass. Second pass the same day: the regulation was
 opened, the parallel-history question was settled, and §4 below was wrong. Third
-pass the same day, on the Aduana Nacional comunicado supplied by hand: `RM 245` is confirmed
+pass the same day, on an Aduana Nacional comunicado supplied by hand: `RM 245` is confirmed
 from an official document, and it brought a fourth priced edge with it (§4.6).**
 
 **This carrier was assigned the number `B15` on 2026-08-19**, and the
@@ -483,15 +483,15 @@ number from the BCB annual table is recorded in this document.
 | `tco_reporte_detalle_historico.php` CSV | the microdata behind Art. 5.I, and the thing that makes §4.4 checkable |
 
 **One item in this document is in the other class, and it is the only one.**
-`data/raw/bolivia/aduana_comunicado_2026-06_RM245.pdf` was supplied by hand and
-read from disk, text layer and page image both. Every quotation in §4.1 and §4.6
+`data/raw/bolivia/aduana_comunicado_2026-06_RM245.pdf` was supplied by hand
+and read from disk, text layer and page image both. Every quotation in §4.1 and §4.6
 is from that file. **It settled the identity of `RM 245` on the first reading and
 produced a rule nobody had gone looking for**, which is the argument for the
 pattern rather than a coincidence of it.
 
 **The pattern is the one B6 settled into and it works: the assistant finds the
-source and states what it should contain, it is downloaded by hand, and the file is
-read from disk.** The Gaceta went that way on 2026-08-19 and immediately falsified a
+source and states what it should contain, the file is downloaded by hand, and it
+is read from disk.** The Gaceta went that way on 2026-08-19 and immediately falsified a
 claim that had stood for two months. The Aduana comunicado went that way the same
 day and added a priced edge to the design.
 

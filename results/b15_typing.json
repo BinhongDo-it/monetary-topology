@@ -1,0 +1,163 @@
+{
+  "arm_iii_runs": true,
+  "authority": "docs/b15_bolivia_prereg.md \u00a75",
+  "criteria": [
+    {
+      "criterion": "B15-1",
+      "dates_absent": [],
+      "dates_outside_window": [],
+      "dates_served": 760,
+      "detail": "760 of 760 days served, 74,623 observations, 0 absent, 0 fills, manifest present",
+      "fills": [],
+      "manifest_present": true,
+      "name": "B15-1 retrieval integrity",
+      "observations": 74623,
+      "passed": true,
+      "verdict": "PASS",
+      "void": false,
+      "window_days": 760
+    },
+    {
+      "criterion": "B15-2",
+      "detail": "S3's prefix digest reproduces on the records before the event, and S1's external anchor, the customs comunicado's 6,96 Bs/USD for 26/06/2026, reproduces from the annual grid",
+      "name": "B15-2 the known-answer arm",
+      "passed": true,
+      "s1_anchor": "reproduced",
+      "s1_anchor_reproduces": true,
+      "s3_prefix_digest": "39dd158ef40bb8ed2626a2d9a625301eb8f97f641d8f4e921906b643ce0ecdb1",
+      "s3_prefix_reproduces": true,
+      "void": false
+    },
+    {
+      "blue_equal_rows": 166,
+      "criterion": "B15-3",
+      "detail": "**VOID over the registered window, which straddles the break in \u00a73.5**: as published 15.0543% uncrossed, swapped 85.1681%, and neither clears 99%. The two figures are one orientation read on each side of the break rather than one orientation failing. **On the post-event segment, the only segment arm III runs on, it resolves**: orientation A is uncrossed on 99.960% of 4,966 rows",
+      "name": "B15-3 the side convention",
+      "official_check_passes": true,
+      "official_degenerate_rows": 5156,
+      "official_spread_statutory_share": 1.0,
+      "orientation_A_uncrossed": 0.15054339814802406,
+      "orientation_B_uncrossed": 0.8516811170818649,
+      "passed": false,
+      "segment_orientation": "A",
+      "segments": {
+        "post-event": {
+          "A_uncrossed": 0.999597261377366,
+          "B_uncrossed": 0.0006041079339508659,
+          "orientation": "A",
+          "rows": 4966
+        },
+        "pre-event": {
+          "A_uncrossed": 0.09001248977130798,
+          "B_uncrossed": 0.9123562599595159,
+          "orientation": null,
+          "rows": 69657
+        }
+      },
+      "verdict": "VOID",
+      "void": true
+    },
+    {
+      "anchor_confirmed": true,
+      "anchor_selects": "vigencia date",
+      "band_shares": {
+        "00:00-02:59, vigencia": 0.1388888888888889,
+        "20:00-23:59, publication": 0.0
+      },
+      "bands_cover": 0.1388888888888889,
+      "clock_scan": {
+        "against": "mauforonda_buy.csv",
+        "peak_r": 0.4250297713765941,
+        "peak_shift_hours": 0,
+        "profile": {
+          "-1": -0.0101,
+          "-2": -0.0053,
+          "-3": 0.0403,
+          "-4": 0.0213,
+          "-5": -0.0224,
+          "-6": 0.0541,
+          "0": 0.425,
+          "1": 0.0334,
+          "2": -0.0848,
+          "3": -0.0549,
+          "4": 0.0339,
+          "5": -0.0111,
+          "6": 0.0471
+        },
+        "ran": true
+      },
+      "column_clock": "America/La_Paz local, measured not assumed",
+      "criterion": "B15-4",
+      "detail": "**the column carries the date the rate governs**, from the publisher's own two columns: the BCB prints `Fecha de corte` and `Vigencia` on every row of its series, and keyed on `Vigencia` the official column matches on 39 of 39, keyed on `Fecha de corte` on 1 of 35. The customs comunicado agrees, every row dated 26/06 reading 6.96. **The registered instrument returned VOID and that verdict is kept**: it reads the convention off the local hour the series steps, and 31 of 36 steps land at 04:00 to 05:00, at neither hour Art. 5.III makes available, so it was measuring the aggregator's refresh rather than the statute's clock",
+      "hour_histogram_local": {
+        "0": 4,
+        "2": 1,
+        "4": 15,
+        "5": 16
+      },
+      "modal_local_hour": 5,
+      "modal_share": 0.4444444444444444,
+      "name": "B15-4 the date column",
+      "passed": true,
+      "publisher_columns": {
+        "rows": 35,
+        "tally": {
+          "corte": {
+            "compared": 35,
+            "hits": 1,
+            "share": 0.02857142857142857
+          },
+          "vigencia": {
+            "compared": 39,
+            "hits": 39,
+            "share": 1.0
+          }
+        },
+        "unparsed_vigencia": 0
+      },
+      "registered_instrument": "step hour of the official series, \u00a73.4",
+      "registered_verdict": "VOID",
+      "reinstrumented": "the registered instrument reads the convention off the local time of day the official series steps, and 31 of 36 steps land at 04:00 to 05:00 local, at neither hour Art. 5.III makes available. It was measuring the aggregator's refresh. The BCB prints Fecha de corte and Vigencia on every row of its own series; keyed on Vigencia the official column matches on 39 of 39, keyed on Fecha de corte on 1 of 35. D3 third category: the original VOID is kept in registered_verdict.",
+      "steps": 36,
+      "verdict": "vigencia date",
+      "void": false
+    },
+    {
+      "criterion": "B15-5",
+      "degenerate_rows": 5156,
+      "detail": "the statutory 0.10 holds on 100.000% of non-degenerate official rows; the 5,156 rows whose two sides are equal leave the denominator as fills rather than counting as spread zero",
+      "name": "B15-5 the statutory spread",
+      "passed": true,
+      "share_of_non_degenerate": 1.0,
+      "source": "computed in b15_3 over the same pass on the official pair",
+      "statutory_spread": 0.1,
+      "void": false
+    }
+  ],
+  "diagnostic_only": false,
+  "s1_alignment": {
+    "available": true,
+    "month_label_columns": {
+      "ABRIL": 7,
+      "AGOSTO": 15,
+      "DICIEMBRE": 23,
+      "ENERO": 1,
+      "FEBRERO": 3,
+      "JULIO": 13,
+      "JUNIO": 11,
+      "MARZO": 5,
+      "MAYO": 9,
+      "NOVIEMBRE": 21,
+      "OCTUBRE": 19,
+      "SEPTIEMBRE": 17
+    },
+    "resolved": false,
+    "width": 25
+  },
+  "stage": "B15",
+  "step": "typing",
+  "window": [
+    "2024-07-21",
+    "2026-08-19"
+  ]
+}

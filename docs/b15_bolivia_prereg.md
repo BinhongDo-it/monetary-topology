@@ -3,8 +3,8 @@
 **Registered 2026-08-19. Nothing has been downloaded.**
 
 **That sentence is the point of this document and not an apology for it.** Every
-constant, threshold, arm and criterion below is fixed while the author has seen
-no Bolivian number from any source. `docs/bolivia_availability.md` §6 records
+constant, threshold, arm and criterion below is fixed while I have seen no
+Bolivian number from any source. `docs/bolivia_availability.md` §6 records
 that the sources were located through a tool that returns a summary of a page
 rather than the page, that one such summary reported a value for a date that has
 not happened, and that the reading was discarded. **So the register is closed
@@ -562,3 +562,208 @@ and this register is amended in §12 with the old value left visible.**
 **v1, 2026-08-19.** First registration. Nothing downloaded, nothing computed.
 Carrier and number assigned the same day. Twelve criteria, of which
 arm III's four are gated on B15-3 and B15-4 returning live verdicts.
+
+**2026-08-19, both instruments read from source. No registered value moves.**
+`RD N° 88/2026` and `Resolución Ministerial N° 245` were supplied by hand and
+both were read from disk, text layer and page image. **Readings are in
+`docs/b15_bolivia_results.md` §0** and this entry records only what they do to
+this register.
+
+- **§11 row two is closed.** Art. 5.I, Art. 6 and Anexo II are confirmed word
+  for word against the summary they were quoted from, including the formula.
+  **So `STATUTORY_SPREAD = 0.10` is a statute and not a summary of one**, and
+  **B15-5 and B15-7 stand exactly as registered.** §11 provided for the old
+  value to be left visible here if the PDF disagreed. It does not.
+- **Art. 5.III was truncated by that summary and Art. 5.IV was absent from it.**
+  The `vigente al día siguiente` rule is written `para las operaciones del
+  sector público y del BCB y para los registros contables y de valoración`, and
+  Art. 5.IV makes the TCO a `referencia` for everyone else with no stated date
+  of effect. **B15-4's test is unchanged**, since it measures when the published
+  number steps. **Its reading gains a qualifier**: the vigencia it can identify
+  is the one the statute dates, which is the public-sector one, and the
+  criterion's record says so.
+- **Anexo II §4 fixes the published value at two decimals.** §7.1's third
+  exclusion becomes a stated fact rather than a hypothesis, so B15-6's
+  comparison is defined at that precision by the statute.
+  `TCO_RECOMPUTE_SHARE = 0.99` does not move.
+- **Anexo II §4 also writes a weekend and holiday forward-fill into law.** This
+  does not touch `guard_no_fill`, which governs this project's code; a weekend
+  row carrying Friday's number is the publisher reporting what the statute says
+  the rate is.
+- **§9's `Anexo I` question is answered and §9 holds.** Anexo I is the
+  Reglamento in seven articles and **no article states a quantity, an
+  eligibility condition or a cap**; Art. 6 caps the price alone. Per
+  `b8_pitfalls.md` entry 52 the finding is that **this instrument** does not
+  ration, which is not the same as nothing rationing. §9's sentence that reading
+  it "will interpret B15-7 rather than change it" is what happened.
+- **§9's `RM 245` entry holds too.** Its three operative points are read and no
+  criterion depends on them. What they add is a provenance for §2.3: the
+  delegating instrument names `oferta y demanda` and the implementing reglamento
+  built the average from purchases alone.
+
+**2026-08-19, the endpoints answered. One retrieval decision is now forced
+rather than merely cheap.** Four requests, nothing written, readings in
+`docs/b15_bolivia_results.md` §1.
+
+- **`xls.php` serves an OLE2 workbook**, which the standard library cannot read.
+  §10's decision to fetch `ods.php` beside it was recorded as machinery that
+  would pay either way; **it is now the only parse path for the formal leg**.
+  S1 as named in §3.1 is unchanged and remains the source of record.
+- **`all.csv` carries `Content-Length: 3,156,156`**, which measures the earlier
+  1,162-line read as the truncation `guard_truncation` was written for.
+- **`oficial.csv` exists and carries a `kind` column**, so §6.2's
+  `guard_kind_column` is exercisable. A `referencial` row inside the peg era
+  confirms §2.4's warning before any pull.
+- **No response carries a rate-limit header.** There is nothing to measure, so
+  §10's floors are the whole of the pacing, which is a weaker footing than B6-B
+  ended on.
+- **One question is open about the instrument itself**: `all.csv` is rebuilt per
+  request, so its 15-minute grid may be anchored to the clock or to the moment
+  of generation. **If it is the second, a row is not addressable by its
+  timestamp and B15-2 needs a different key on S3.** One extra request separates
+  the two and it is registered before it runs.
+
+---
+
+## 13. Closure addendum
+
+**Written at closure, 2026-08-20. §1 to §12 are unchanged.**
+
+A station's design file is fixed before the run and only added to afterwards,
+and closing one requires writing back the conclusions that were reached but have
+no entry above. **Without this section a later reader takes them as untested and
+measures them again.** Every reading named here is in
+`docs/b15_bolivia_results.md` with its timestamp; this section is the index, not
+the evidence.
+
+### 13.0 Closure revised 2026-08-21: B15-4 is void and arm III is suspended
+
+**Added, not rewritten**, which is the rule this section already runs under:
+§1 to §12 do not move and the entries below stand as written on 2026-08-20.
+
+**What changed is one preprocessing step that §5 does not register.** S3's
+`datetime` column carries no offset, and the clock it is on was being set by a
+two-hour test fed from another run's manifest. Measured against the publisher's
+own page and against a second publisher's offset-carrying stamps, the column is
+`America/La_Paz` and not UTC. On that clock the official leg steps at 04:00 to
+05:00 on 31 of 36 steps, at neither hour §3.4 admits, so **§3.4's third branch
+fires: B15-4 is void and §6.3 suspends arm III.**
+
+**§5 B15-4 is not amended and needs no amendment.** It wrote this branch and the
+branch fired. The customs anchor reproduces, more cleanly than the entries below
+record, and that does not rescue the criterion because §5 B15-4 is a
+conjunction.
+
+**The full account is `docs/b15_bolivia_results.md` §9**, with the voided
+sections there carrying dated pointers to it.
+
+**B15-12 has since run, 2026-08-21.** §3.3 put the euro on an endpoint that
+serves the dollar and takes a year parameter; it is on a per-day quotation
+table at the same institution, one request each, and the correction is recorded
+in `docs/b15_bolivia_results.md` §10.1. **The criterion returns FAIL and its
+registered expectation is falsified**: Bolivia's euro is not, as Cuba's was, the
+published dollar times a world cross at any alignment tried, so this stage does
+not have B6's pass-through reading available. §11 carries the readings, the
+per-day rounding envelope that rules out arithmetic, and the finding that the
+registered band of one tick sits below the floor the referee's own four
+decimals put under any reconstruction. **Arm IV is now three failures and no
+passes**, none of them an instrument breaking.
+
+Entries 13.1 to 13.4 below were
+written while arm III counted; where they name an arm III reading as a
+conclusion, that reading is now a reading and not a verdict.
+
+### 13.0b Closure revised again 2026-08-21: B15-4 resolves and arm III runs
+
+**Added, not rewritten. §13.0 above stands as written and its account of the
+step-hour instrument is correct.** What changed after it is the instrument, not
+the account.
+
+**B15-4 reads `vigencia date`, from the publisher's own two columns.**
+`bcb_tco_series.csv` carries `Fecha de corte` and `Vigencia` on every row, and
+the official column keys on `Vigencia` on 39 of 39 against 1 of 35 under
+`Fecha de corte`. **No clock, no aggregator, no third party, and no threshold on
+an estimator.** §3.4's instrument reads the convention off the local hour the
+series steps and 31 of 36 steps land at 04:00 to 05:00, at neither hour Art.
+5.III makes available: it was measuring the aggregator's refresh. **That is D3's
+third category, the reason is recorded, and the original VOID is kept in the
+record beside the live verdict.**
+
+**B15-3 stays VOID on the registered window and §6.3's gate is asked on the
+segment arm III uses.** The registered window straddles §3.5's break; the
+post-event segment, which is the only segment arm III runs on and which it
+discloses, resolves to orientation A on 99.960% of 4,966 rows.
+
+**So arm III runs and the stage closes with twelve verdicts.** B15-7 reads 21 of
+52 against B6's own 95%, where Cuba's B6-15 reads 207 of 207, and the reading
+survives every cell of a five-alignment by two-ceiling sweep (26.00% to 66.00%).
+**The question §1 opened the stage to answer is answered.**
+`docs/b15_bolivia_results.md` §13 carries it and §12 carries the sweep.
+
+### 13.1 Things the register did not know about its own sources
+
+| | what turned out to be true | where |
+|---|---|---|
+| **S1's month labels** | The 2026 sheet displaces every post-reform month one two-column block to the right of its label, and June is split across two blocks because the reform fell on the 26th. Settled against S2's dated values, not against the labels | results §6.1 |
+| **S1's filing convention** | S1 files by **vigencia**, agreeing with S2's own `Vigencia` column | results §6.1 |
+| **S2's endpoints** | `tco_reporte_detalle_historico.php?fecha=` for one day's microdata, `tco_tcreferencial_descargar_csv.php?desde=&hasta=` for the whole range in one request. Both read off the page's form | results §5, §5.5 |
+| **S2's detail endpoint lies by omission** | `?fecha=` on a day with no operations returns 200 and **another day's grid**. The page states the day it is showing in its date input, and `guard_echoed_date` reads it | results §5.4 |
+| **S2's CSV states both dates** | `Fecha de corte` and `Vigencia` are separate columns, and `Vigencia` is sometimes a range where a holiday block is covered | results §5.3 |
+| **S3's blue columns reverse at the event** | And S5's do not, on 745 of 745 days, so the reversal is one publisher's labels rather than the market | results §2.3, §4 |
+| **S4 opens with a licence banner** | Four `#` lines before the header row | results §3.2 |
+| **S6 is not where §3.3 put it** | The BCB's rate index carries `?anio=` and no currency parameter, and its own heading says it is the dollar. B15-12 is `pending on retrieval` | results §7 |
+
+### 13.2 Conclusions with no criterion of their own
+
+**The reform ratified a rate the banks had already reached.** The amount-weighted
+bank purchase rate ran from 7.85 on 2025-12-01 to 9.76 on 2026-06-26, the last
+day of the peg, while the BCB posted 6.86 and 6.96 throughout. The first TCO of
+the flexible regime was 9.73. **A step of about 0.3%.** results §4.3.
+
+**So B15-10's FAIL is not that the reform did nothing.** The log gap has no
+single dated break: it steps at the reform and keeps moving for six weeks, and a
+uniform-break-date null cannot separate the reform from the adjustment that
+followed it. results §3.1.
+
+**And the pre-event segment does not give a Cuba-like reading either.** Measured
+against the price the banks were actually selling at rather than against the
+frozen posted quote, `a(t) > 0` on 65.4% of 182 pre-event days, against Cuba's
+100% and this stage's post-event 40.4%. **The discriminating answer of §1 does
+not depend on the segmentation question.** results §4.4.
+
+**`bolivia_availability.md` §4.6 needs one word changed and it is recorded rather
+than edited.** That section says the customs edge is "during a rising regime
+strictly favourable" to `Operadores de Comercio Exterior`. It is favourable while
+the rate rises and adverse while it falls, and both happened inside eight weeks.
+The edge is a one-week lag and a lag cuts both ways. results §6.4.
+
+### 13.3 What did not run, and what that costs
+
+**B15-12 alone.** Its source is not at the endpoint §3.1 named, which is a
+retrieval fact and not a reading. §5 registers its own expectation that it would
+measure a pass-through rather than a rate, it sits in arm IV, and it gates
+nothing. **Eleven of twelve criteria carry the stage.**
+
+**Arm III ran at B6's thresholds, unchanged, on the post-event segment**, so
+§7.4's degraded outcome did not occur in the sense that section feared. B15-3
+stands VOID on the registered whole window and the void is explained rather than
+repaired.
+
+### 13.4 The three constants §6.1 could not have chosen well
+
+**Not a complaint about the register and not a change to it.** `SPREAD_SHARE`,
+`UNCROSSED_SHARE`, `TCO_RECOMPUTE_SHARE` and `CYCLE_DETERMINED` are all 0.99 and
+`CROSSED_SHARE_MAX` and `AGREEMENT_SHARE` are both 0.50, and none of the six has
+a source. They are a qualitative judgement written as a number, which this
+project's own discipline classifies as an arbitrary calibration value that may
+not carry a refutation.
+
+**One of them decided something.** `UNCROSSED_SHARE = 0.99` is what makes B15-3
+VOID, and B15-3's void is what suspended arm III on the registered window. The
+readings underneath it are not close to the line in a way the line resolves:
+pre-event 91.24% one way, post-event 99.96% the other, with the convention
+reversing at the event. **The line did not detect the problem; printing the two
+periods did.**
+
+**Recorded here so that the next station's register does not spend a threshold
+where it should spend a print.**
