@@ -286,13 +286,24 @@ appear, and does it collapse when the government deletes the eligibility rule th
 **0.712**, **1.050**, **0.999**, against a registered band of ≥ 2/3. The differential prediction
 was registered before retrieval: the index part collapses, the friction part does not.
 
-**Retracted / failed.** **B5-14, the pre-trend check, failed, and this is the station's headline.**
-The linear pre-trend extrapolated across the post-window accounts for **0.77 to 0.90** of the
-collapse against a registered band of 0.25, and the second rung fails harder. The consequence is
-carried in the headline and not in a footnote: B5-8's collapse ratio is confounded with a
-pre-existing trend and is not repaired.
+**Retracted / void.** **B5-14, the pre-trend check, returns no reading, and it is not a failure.**
+The pre-window bucket series turns inside the window, at bucket 3 and bucket 8 of 12, so the fitted
+slope is set by where the series turned rather than by where it ended and cannot be extrapolated
+past the edge. An estimator that does not describe the object returns no verdict about the object.
+The arm prints the series, the slope, and the shares of the collapse those slopes imply, **0.77 to
+0.90**, and compares them to nothing.
 
-Three further failures. **B5-5** was retracted whole: Ámbito's `dolar/tarjeta` turns out to be
+**Recorded as a failure on 2026-08-11 against a band of 0.25, withdrawn 2026-08-21**, together with
+the consequence it carried, that B5-8's collapse is confounded with a pre-existing trend and enters
+the headline. Two independent reasons. The band had no theoretical source: it was the factor of four
+another arm uses for a detection ratio of a measured magnitude against a measured noise floor, a
+different quantity in a different role, and an arbitrary calibration value may not ground a negative
+finding, so that consequence was unavailable on the day it was written. And a criterion may not draw
+a line across an estimator: the three shares sit inside a span of 0.12, so the verdict was a step
+function of where the band was placed and unanimous on either side of it. **B5-8's headline carries
+no pre-trend caveat from this arm.**
+
+Three further failures, and these are failures. **B5-5** was retracted whole: Ámbito's `dolar/tarjeta` turns out to be
 byte-aliased to `dolar/oficial`, reading a ratio of **1.0000** in a month when the true regulated
 multiplier was about 1.6. **B5-9, B5-12 and B5-13** never ran: the only free daily P2P history has a
 longest frozen run of **47 days** against a threshold of **21 registered before the candidate was
@@ -303,7 +314,8 @@ run.
 **Caveat.** B5-15, the edge-of-window check, passes on strict comparisons (the final pre-window
 bucket **0.387** stands **4.8 times** above the treated pair's entire post-window maximum of 0.080),
 and the record refuses to let it repair anything: **that B5-15 passes was known before B5-15 was
-written.** It does not convert B5-14 to passed. Separately, the control group is contaminated: the
+written.** It does not supply the pre-window reading B5-14 could not produce. Separately, the
+control group is contaminated: the
 MEP and CCL cross-restriction was removed on the intervention date and reimposed in September 2025,
 inside the post-window, so the controls were treated twice.
 
@@ -355,8 +367,8 @@ retrieval code rather than the collection. The record's own summary of how it le
 Six stations **in Part 1** (the carrier count above is four and spans both parts; **B8 is in Part 2**).
 Two are pure theory and one of them (B4) proves a result that **weakens** the
 framework's own falsifiable claim in the directed setting. Two produced measured non-zero cycle
-sums (B2 loop A, B3). One (B5) produced a clean-looking result and then failed its own pre-trend
-check and reported the failure in the headline. One (B6) validated its instrument, retracted its
+sums (B2 loop A, B3). One (B5) produced a clean-looking result, could not read its own pre-window,
+and withdrew the band it had first used to call that a failure. One (B6) validated its instrument, retracted its
 first instrument failure as an artefact, and has not yet run the arm it exists for.
 
 The largest number in Part 1 is B2 loop B's `2.52`, and the record's instruction is not to quote it

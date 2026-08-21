@@ -13,14 +13,15 @@ than a dozen parameters, and reports a criterion that can fail. The point is not
 to build a simulator large enough to reproduce an economy. It is to make a
 handful of structural claims checkable by someone who did not write them.
 
-**Status, 2026-08-18.** Both tracks have run. **Four carriers have produced
+**Status, 2026-08-21.** Both tracks have run. **Four carriers have produced
 measured non-zero cycle sums on real transaction data**: mortgage origination
 terms, **mortgage modification (the strongest of the four)**, cross-currency
-funding, and the ETF creation triangle. **One station's headline was withdrawn on its own constructed
-counterexample, one failed its own pre-trend check and says so in its headline,
-and one answers the sharpest objection in the programme with "this ruler cannot
-measure it."** See [RESULTS.md](RESULTS.md) for the full record and the speedrun
-below for what each station asked, answered and retracted.
+funding, and the ETF creation triangle. **One station's headline was withdrawn on
+its own constructed counterexample, one could not read its own pre-window and
+withdrew the threshold it had first used to call that a failure, and one answers
+the sharpest objection in the programme with "this ruler cannot measure it."**
+See [RESULTS.md](RESULTS.md) for the full record and the speedrun below for what
+each station asked, answered and retracted.
 
 The headline empirical number: hold census tract, year, lien position, loan
 purpose, occupancy and dwelling type fixed, and **78 percent of the variance in
@@ -504,7 +505,7 @@ simulating instances.
 | B2 placebo validation | is the VA pool actually wide? | **6/9**, the premise survives, [`docs/b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
 | B3 | CIP deviations: the other summand of the cycle space | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md) |
 | B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
-| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, parallel trends **1/2**; two source audits returned REJECT, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) |
+| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void, not failed**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band that first made this a failure was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A |
 | B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md) |
 | B7 | matrix rank of the cell-by-class interaction on 16m loans | **the rank-2 headline is withdrawn** — withdrawn, not qualified. The cross-fold estimator then returns a **numerically non-zero** rank on the corrected diagonal at a small fraction of the withdrawn magnitude. **What the rank is, is not currently known, so no number is quoted here,** [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
 | B8 | the slice summand on a household carrier, from loan modification | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the four carriers. B8-4b does not run for want of C9 and section 15.3 registers that as not a failure of the stage, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md) |

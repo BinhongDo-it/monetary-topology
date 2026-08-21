@@ -223,8 +223,11 @@ law who may use which, the agent index is not a latent variable.
 **B5, Argentina.** Three series, 5,248 rows, and a dated intervention: on
 14 April 2025 the cepo was removed and the USD 200 monthly cap deleted. The
 treated pair collapses when the government deletes the eligibility rule that
-generates it. **The station then failed its own pre-trend check and reported the
-failure in its headline** rather than in a footnote.
+generates it. **The station's pre-trend check then returned no reading, and the
+band that had first made that a failure was withdrawn** for having no
+theoretical source. What the arm prints is the pre-window series, which turns
+inside the window and so admits no slope that can be extrapolated across the
+edge.
 
 **B6, Cuba.** The central bank prices `CUP ↔ USD` three ways on the same day: a
 frozen enterprise rate, a frozen retail rate, and a managed float opened
@@ -422,7 +425,9 @@ field that is integrable.
 - **B4 weakens the framework** in the directed setting, and is listed in the
   econometrics section rather than omitted.
 - **B7's first estimator was withdrawn**, and the withdrawal is in the text.
-- **B5 failed its own pre-trend check** and reported it in the headline.
+- **B5's pre-trend check is void and the threshold behind it was withdrawn**, in
+  the text and not in a footnote: an arbitrary calibration value may not ground a
+  negative finding, and undecidable is not the same state as decided-against.
 - **Every failed criterion is in [RESULTS.md](../RESULTS.md)** with its reading, on
   the same terms as the passing ones. A failed criterion is citable.
 
