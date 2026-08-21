@@ -36,6 +36,23 @@ character-for-character identical.
 """
 
 STAGE_TITLES = {
+    # B12 answers a caveat every holonomy reading in this repository has
+    # carried since the first one was written, and the answer splits in two, so
+    # the title has to carry both halves or a reader takes the wrong one.
+    "B12": (
+        "B12 — whether a holonomy reading is an artefact of how the states "
+        "were cut. Enumerated whole over every three-bin threshold cut of the "
+        "delinquency ladder, so nothing is ranked and no null is needed. The "
+        "between-class spread of median |omega| moves by 4 to 17 times across "
+        "cuts: on the modification arm that exceeds the registered line on all "
+        "six vintages, on the deferral arm on three of six with the other "
+        "three within 12 per cent of it. **Per-loop `omega` is untouched, and "
+        "that half is structural rather than measured**: coarsening changes "
+        "which loops are the same loop and not what any one of them sums to. "
+        "So what this binds is every quantity aggregated over cycle classes, "
+        "and the 30/60-day convention is not neutral: it sits at opposite ends "
+        "of the range on the two arms"
+    ),
     # B8 writes markdown, so none of its thirty-one products reaches this
     # file through the glob below and the stage was absent from RESULTS.md
     # entirely while the roadmap still called it pre-registered. The sheet
@@ -56,16 +73,26 @@ STAGE_TITLES = {
         "cent of states. **Why those six and not all nine is not established**: "
         "the explanation the station first gave is withdrawn in B13-2"
     ),
-    # B14 is a gate and not the stage's own question, and the title has to say
-    # so: the invariance claim it was opened for lives on the index half, which
-    # Appendix B.I does not carry. A reader scanning "fourteen of fourteen"
-    # would otherwise take the stage as having tested that claim.
+    # B14's title carried, until 2026-08-20, the sentence "this stage does not
+    # test it", because the index half needed prices Appendix B.I does not have.
+    # The prices were bought, the index half was tested, and the answer is that
+    # the carrier cannot answer. A reader scanning "six of eight" must not take
+    # the two failures as ordinary: one is a registered FAIL kept on the record,
+    # and the other is a closure with a reason that generalises off this carrier.
     "B14": (
         "B14 — a dated, exogenous, symmetric friction change (the SEC tick "
-        "size pilot). B14-0 only: the friction half moves, on both venues and "
-        "under every weighting convention tried. The invariance claim in "
-        "`docs/b4_directed_edges.md` section 5.1 is about the index half, "
-        "which Appendix B.I does not carry, so this stage does not test it"
+        "size pilot), both halves. The friction half moves, on both venues, "
+        "under every weighting convention tried, and after dropping the order "
+        "types that carry most of the share weight without participating in "
+        "the spread. **The index half was bought and cannot be adjudicated on "
+        "this carrier, and the reason is structural**: `S - S'` is a difference "
+        "of price levels and a tick-size change works by moving those levels "
+        "onto a lattice, so projecting the post-release quotes back onto the "
+        "nickel grid reproduces 88.7 per cent of the whole move and the "
+        "residual sits inside a placebo band. Closed rather than paused. What "
+        "the stage produced instead is a carrier specification: "
+        "`docs/b4_directed_edges.md` section 9 now carries three conditions "
+        "where it carried one, and Theorem 6(5) is new"
     ),
     "A0": "A0 — retention and allocation",
     "A0b": "A0b — derived demand on the downward edge",
@@ -292,8 +319,41 @@ def subtitle(record: dict) -> str:
             f"of {record['capture_day']}, from the vendor's free public sample"
         )
 
+    # B12 has neither a round count nor a loan count. What identifies it is
+    # how many cuts were enumerated, and the count differs per vintage because
+    # the ladder is as long as the delinquency codes that vintage reached.
+    if record.get("stage") == "B12":
+        lo, hi = record.get("cuts_min"), record.get("cuts_max")
+        span = f"{lo:,}" if lo == hi else f"{lo:,} to {hi:,}"
+        n = record.get("n_vintages", 0)
+        return (
+            f"{n} vintage{'' if n == 1 else 's'}, {span} enumerated "
+            f"{record.get('bins')}-bin cuts of the delinquency ladder, "
+            f"`min_cycles={record.get('min_cycles')}` "
+            f"`line={record.get('signal_over_noise')}`"
+        )
+
     if record.get("stage") == "B14":
-        start, end = record["window"]
+        # Third death in this branch from the same cause. The comment below already
+        # records the second one, for `symbols_by_venue`, and the repair it got was
+        # `.get`. `window` did not get the same repair and killed the renderer when
+        # the stage's third record, the stage-two verdict sheet, arrived without it.
+        # Every field this branch reads is now optional, which is what "keying on
+        # the stage" costs when the stage has more than one shape of record.
+        win = record.get("window")
+        if not win:
+            cells = record.get("aligned_cells")
+            usd = record.get("usd_spent")
+            venues = record.get("venues") or []
+            bits = []
+            if venues:
+                bits.append(" and ".join(venues))
+            if cells:
+                bits.append(f"{cells:,} cross-venue aligned quote-seconds")
+            if usd:
+                bits.append(f"${usd:,.4f} of purchased data")
+            return ", ".join(bits) if bits else "no sample metadata recorded"
+        start, end = win
         tail = f"{start} to {end}, October 2016 dropped as the pilot's phase-in month"
         # B14 has more than one record and they do not all carry the venue
         # counts. The gate does; the order-type robustness record does not, and

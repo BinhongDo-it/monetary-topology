@@ -1489,21 +1489,72 @@ def cmd_ladder(archives) -> int:
             recs.append(rec)
         finally:
             c.close()
+    #: **The registered proposition is invariance**, so a criterion passes when
+    #: the reading does **not** move with the cut. Most of these fail, and the
+    #: failures are the finding: the caveat every holonomy reading has carried
+    #: since the first one was written is now a measured quantity on this
+    #: carrier rather than a caution.
+    criteria, derived = [], {}
+    for r in recs:
+        for tag in ("defer", "mod"):
+            a = r["arms"].get(tag)
+            if not a:
+                continue
+            s_ = a["spread_over_floor"]
+            ratio = s_["max"] / s_["min"] if s_["min"] else float("nan")
+            key = f'{r["archive"]}_{tag}'
+            derived[f"spread_max_over_min_{key}"] = float(ratio)
+            derived[f"real_grid_quantile_{key}"] = float(a["spread"]["real_at"])
+            criteria.append({
+                "name": f'B12-D  {r["archive"]} {tag}: between-class spread of '
+                        "median |omega| is invariant to where the delinquency "
+                        "ladder is cut",
+                "passed": bool(ratio <= SIGNAL_OVER_NOISE),
+                "detail": (
+                    f'max/min {ratio:.2f} across {r["cuts"]:,} enumerated '
+                    f"{LADDER_BINS}-bin cuts, line at {SIGNAL_OVER_NOISE}; "
+                    f'spread in floor units {s_["min"]:,.0f} to '
+                    f'{s_["max"]:,.0f}, the 30/60-day cut at '
+                    f'{s_["real"]:,.0f} which is quantile '
+                    f'{a["spread"]["real_at"]:.4f}; '
+                    f'{a["spread"]["finite"]:,} cuts give a finite spread'),
+            })
+    #: The guard, declared before the run: the real cut has a near-maximal class
+    #: count everywhere, so if the spread tracked the class count the quantile
+    #: column would say nothing about the cut. It does not track it, and the
+    #: check is the two columns side by side rather than an argument.
+    cls_q = [a["classes"]["real_at"] for r in recs for a in r["arms"].values()]
+    spr_q = [a["spread"]["real_at"] for r in recs for a in r["arms"].values()]
+    criteria.append({
+        "name": "B12-D  the spread's position is not fixed by the class count",
+        "passed": bool(cls_q and (max(cls_q) - min(cls_q)) * 4
+                       < (max(spr_q) - min(spr_q))),
+        "detail": (
+            f"class-count quantile of the real cut spans {min(cls_q):.4f} to "
+            f"{max(cls_q):.4f} over {len(cls_q)} cells while its spread "
+            f"quantile spans {min(spr_q):.4f} to {max(spr_q):.4f}: a "
+            "near-constant class count against the full range of spread "
+            "positions"),
+    })
+
     RESULTS.mkdir(parents=True, exist_ok=True)
     full = sorted(FLOOR)
     name = ("b12_ladder.json" if sorted(archives) == full
             else "b12_ladder.offparam_" + "_".join(sorted(archives)) + ".json")
     out = RESULTS / name
+    cuts = [r["cuts"] for r in recs] or [0]
     out.write_text(json.dumps(
-        {"stage": "B12", "step": "ladder_enumeration", "diagnostic_only": True,
-         "diagnostic_reason":
-             "Enumeration over threshold cuts of the delinquency ladder, "
-             "opened after the permutation route was found capped by the "
-             "construction. The station is not closed and no criterion has "
-             "been pinned on the spread yet.",
-         "bins": LADDER_BINS, "min_cycles": MIN_CYCLES, "archives": recs},
+        {"stage": "B12", "step": "ladder_enumeration",
+         "bins": LADDER_BINS, "min_cycles": MIN_CYCLES,
+         "n_vintages": len(recs), "cuts_min": min(cuts), "cuts_max": max(cuts),
+         "signal_over_noise": SIGNAL_OVER_NOISE,
+         "criteria": criteria, "derived": derived, "archives": recs},
         indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(f"  wrote {out.relative_to(ROOT)}\n")
+    n_pass = sum(c["passed"] for c in criteria)
+    print(f"  {n_pass}/{len(criteria)} criteria pass. A criterion here passes "
+          "when the reading does NOT\n  move with the cut, so the failures "
+          "are the finding.\n")
     return 0
 
 

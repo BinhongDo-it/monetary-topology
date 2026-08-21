@@ -78,9 +78,34 @@
     }
   ],
   "bins": 3,
-  "diagnostic_only": true,
-  "diagnostic_reason": "Enumeration over threshold cuts of the delinquency ladder, opened after the permutation route was found capped by the construction. The station is not closed and no criterion has been pinned on the spread yet.",
+  "criteria": [
+    {
+      "detail": "max/min 13.45 across 1,891 enumerated 3-bin cuts, line at 4.0; spread in floor units 84,825 to 1,140,772, the 30/60-day cut at 310,157 which is quantile 0.1550; 1,026 cuts give a finite spread",
+      "name": "B12-D  2019Q1 defer: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 11.96 across 1,891 enumerated 3-bin cuts, line at 4.0; spread in floor units 173,137 to 2,071,535, the 30/60-day cut at 2,071,535 which is quantile 1.0000; 1,505 cuts give a finite spread",
+      "name": "B12-D  2019Q1 mod: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "class-count quantile of the real cut spans 0.9942 to 0.9995 over 2 cells while its spread quantile spans 0.1550 to 1.0000: a near-constant class count against the full range of spread positions",
+      "name": "B12-D  the spread's position is not fixed by the class count",
+      "passed": true
+    }
+  ],
+  "cuts_max": 1891,
+  "cuts_min": 1891,
+  "derived": {
+    "real_grid_quantile_2019Q1_defer": 0.15497076023391812,
+    "real_grid_quantile_2019Q1_mod": 1.0,
+    "spread_max_over_min_2019Q1_defer": 13.4484864179003,
+    "spread_max_over_min_2019Q1_mod": 11.96468565758351
+  },
   "min_cycles": 20,
+  "n_vintages": 1,
+  "signal_over_noise": 4.0,
   "stage": "B12",
   "step": "ladder_enumeration"
 }

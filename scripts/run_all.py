@@ -172,6 +172,45 @@ DATA_STAGES = [
         "experiments/b6b_informal.py",
         "b6b_informal.json",
     ),
+    # B15 is B6's control carrier and sits next to it for that reason. Its five
+    # jobs need the retrieved BCB and dolarbluebolivia archives, so they belong
+    # here rather than with the synthetic stages.
+    #
+    # **No job reads another's record**, so the order below is for reading and
+    # not for correctness. It is the order the arms were registered in: typing
+    # first because B15-3 and B15-4 gate arm III, then the zero calibration that
+    # settles which published number the ceiling is measured against, then arm
+    # III itself, then the customs edge, then arm IV.
+    #
+    # **B15-3 is VOID on the registered whole window and live after the break**,
+    # so the structure job runs on the post-event segment and says so in its own
+    # record. That is a reported degradation rather than a rerun on a segment
+    # picked to make a criterion pass.
+    (
+        "B15  typing and the known-answer arm",
+        "experiments/b15_typing.py",
+        "b15_typing.json",
+    ),
+    (
+        "B15  zero calibration: the published TCO against the statute",
+        "experiments/b15_zero.py",
+        "b15_zero.json",
+    ),
+    (
+        "B15  posted return leg and friction, post-event segment",
+        "experiments/b15_structure.py",
+        "b15_structure.json",
+    ),
+    (
+        "B15  the customs edge",
+        "experiments/b15_customs.py",
+        "b15_customs.json",
+    ),
+    (
+        "B15  the event and cross-publisher zero calibration",
+        "experiments/b15_calibration.py",
+        "b15_calibration.json",
+    ),
     # A1 and A1b need retrieved files, so they belong here rather than with the
     # synthetic stages: A1 reads the HHDC workbook, the DFA archive, the Z.1
     # series, the SCF extract and the CEX table; A1b reads the SCF extract and
@@ -214,6 +253,16 @@ DATA_STAGES = [
         "A1d  the cascade on a measured cushion",
         "experiments/a1d_measured_cushion.py",
         "a1d_measured_cushion.json",
+    ),
+    # Needs the processed loan-performance core, which is built locally and is
+    # not in the repository, so it sits here with the other stages whose input
+    # has to be on the machine already. It is not slow: the expensive step is
+    # one pass of row residuals per vintage and the enumeration itself runs on
+    # 934 distinct reduced words rather than on the loans.
+    (
+        "B12  grid invariance: every cut of the delinquency ladder",
+        "experiments/b12_pullback.py --ladder",
+        "b12_ladder.json",
     ),
 ]
 
