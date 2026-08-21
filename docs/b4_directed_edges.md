@@ -73,9 +73,10 @@ the official rate's spread survived audit (`results/b5_friction.json`), which is
 natively, so on CME calendar spreads the implied book supplies one pair and the
 directly quoted book the other. **Over 49,116 states the friction half is never
 positive**, which is Theorem 6(1) and, through Theorem 4, the statement that
-`P(ω)` is non-empty at every one of them. Readings and their limits:
-`claude/B13_结果_v1.md` §13. **§5.1's invariance claim is still unmeasured** and
-needs a dated friction change common to both classes; see §9.
+`P(ω)` is non-empty at every one of them.
+**§5.1's invariance claim is still unmeasured** and
+needs a dated friction change meeting the three conditions of §9, one of which
+is that it must not work by coarsening the price grid; see §9.
 
 ---
 
@@ -296,8 +297,7 @@ are non-negative. Equality holds iff `S S' = 0`. ∎
   predicts `rho` stays put.
 
 Checked in code as B4-9 and measured on B13's carrier: 49,116 states, zero
-violations, `rho` median `0.2000`, and no state at `rho = 1`
-(`claude/B13_结果_v1.md` section 14).
+violations, `rho` median `0.2000`, and no state at `rho = 1`.
 
 **This is the reduction check the repository demands**: a generalisation that
 does not reproduce the special case is not a generalisation. Setting `ω̄ ≡ 0`
@@ -351,6 +351,57 @@ S + S'  =  log(bid_a/ask_a)  +  log(bid_b/ask_b)
 
 The headline needs only the two mid quotes; the spread cancels out of it by
 construction. The friction column is what needs two-sided quotes.
+
+**Theorem 6(5): "common" means equal RELATIVE spread, and the shortfall leaks
+into the index part.** Added 2026-08-20, found while running B14's leg B.
+
+Write `M = (bid + ask)/2` and `s = ask - bid`, so `mid = sqrt(bid*ask)` satisfies
+the identity `mid = M * sqrt(1 - (s/2M)^2)`. Substituting into the row above,
+
+```
+S - S'  =  2 log(M_b / M_a)                                    the midpoint part
+         + log(1 - (s_b/2M_b)^2) - log(1 - (s_a/2M_a)^2)        the spread part
+```
+
+The second term depends on the two spreads alone and **vanishes exactly when
+`s_a/M_a = s_b/M_b`**, that is, when the two classes' RELATIVE spreads are equal.
+
+**Proof.** The identity is `bid*ask = M^2 - (s/2)^2`. The decomposition is the
+logarithm of a product. The second term is zero iff `(s_a/2M_a)^2 =
+(s_b/2M_b)^2`, and both quantities are non-negative. QED
+
+**Read it.** Section 5.1 above says `S - S'` is invariant to adding any friction
+**common to both classes**. Theorem 6(5) says what "common" has to mean for that
+to be true. It is not "the same rule was imposed on both classes", and it is not
+"the same number of cents". It is equal spread as a fraction of the level. A rule
+that binds both classes but that each realises at a different relative spread
+moves `S - S'` with no change in either class's antisymmetric term.
+
+**The leak is bounded a priori.** With `M_a = M_b = M` and `s << M`,
+
+```
+S - S'   ~  (s_a^2 - s_b^2) / (4 M^2)
+-(S + S') ~  (s_a + s_b) / M
+rho      ~  |s_b - s_a| / (4 M)
+```
+
+so spread asymmetry alone can lift `rho` off zero, by an amount **first order in
+the spread DIFFERENCE and first order in `1/M`**. This is the floor `rho` is held
+at by asymmetry, and it is computable before any data is seen. At `M = $20` with
+spreads of one and three cents it is `2.5e-4`; at `M = $2` with spreads of five
+and twenty cents it is `1.9e-2`. Small, and bounded, but not zero, and it grows
+as the level falls.
+
+**Consequence for any stage that tests the section 5.1 invariance claim.** The
+two terms must be reported separately. A stage that reports only `rho` cannot
+distinguish "the two classes disagree about the price" from "the two classes
+carry different relative spreads". B14's leg B registers this as its gate two
+part b and measured, on 27.6M cross-venue cells, that the spread term exceeds
+the midpoint term on about 3% of cells.
+
+**This does not weaken Theorem 6(4).** The bound `|S - S'| <= -(S + S')` holds
+whatever the spreads are; Theorem 6(5) only says which part of the numerator is
+carrying the information.
 
 ### 5.2 One-way edges make the split unavailable, and that is the criterion
 
@@ -500,8 +551,7 @@ the world.** `experiments/b4_split_probe.py` computes §5.1's two halves on B13'
 carrier and finds the friction half non-positive in **49,116 of 49,116** states,
 with the split available in `98.1%` of events. B4-5 and B4-7 are the synthetic
 versions of that; this is the same statement with the numbers coming from CME
-rather than from a draw. **It is not a stage and it is not registered here**;
-`claude/B13_结果_v1.md` §13 carries it, including the two things it does not buy.
+rather than from a draw. **It is not a stage and it is not registered here.**
 
 ---
 
@@ -512,8 +562,7 @@ stage is opened by it and no number *in it* comes from the world.
 
 **Amended 2026-08-19.** What is no longer true is the wider reading, that the
 split defined here had no measurement anywhere. It has one:
-`experiments/b4_split_probe.py` on B13's carrier, reported in
-`claude/B13_结果_v1.md` §13. **The document still measures nothing. What the
+`experiments/b4_split_probe.py` on B13's carrier. **The document still measures nothing. What the
 repository no longer does is carry §5.1's split as an unmeasured construction:
 its friction half now has 49,116 readings from a live venue, and its sign
 constraint has been checked against them.** Two limits travel with that
@@ -525,9 +574,35 @@ measurement and are restated here so this section is not read as more than it is
   friction change that hits both classes equally**, and no carrier has been
   audited for one. Naturally occurring co-movement of the two spreads will not
   serve: it is driven by the same information that moves the index.
+
+  **Amended 2026-08-20, after B14 leg B tried it and failed.** A carrier has now
+  been audited: the Tick Size Pilot's termination on 2018-09-28, on 27.6M
+  cross-venue quote-seconds bought for the purpose. It does not serve, and the
+  reason is structural rather than bad luck, so the requirement is restated as
+  **three** conditions rather than one:
+
+  1. dated, and common to both classes (as above);
+  2. **common in the Theorem 6(5) sense: the two classes' RELATIVE spreads must
+     change equally.** A rule imposed identically on both classes but realised at
+     different relative spreads moves `S - S'` through the geometric mid, with no
+     change in either class's antisymmetric term;
+  3. **the friction change must not quantise the price grid.** `S - S'` is a
+     difference of price levels. A friction change that works BY coarsening the
+     grid moves those levels onto a lattice, and the lattice does the moving.
+     Measured on the pilot: projecting the post-release quotes back onto the
+     nickel grid reproduces **88.7%** of the pre/post move in the primary
+     statistic, and the treatment-specific residual, +0.0117, sits inside a
+     placebo range of -0.0123 to +0.0209 built from six month pairs with no grid
+     change. Not adjudicable, and no quantity of additional data changes the
+     88.7%.
+
+  **So a tick-size change is the wrong instrument for this claim, on any carrier.**
+  A qualifying friction change leaves the grid alone, applies to every class
+  equally in relative terms, and has a date: a fee or transaction-tax schedule
+  change is the shape to look for.
 - **Whether an implied book and a directly quoted book are two agent classes in
   the sense of §5.1 has been adjudicated, per position edge, on 2026-08-19**
-  (`claude/B13_结果_v1.md` §14). §5.1 hands over its own operational criterion:
+  §5.1 hands over its own operational criterion:
   `S − S'` is zero exactly when the two classes face the same antisymmetric
   terms. Applied under a parity control (index and friction always share parity,
   so a zero index is not available on 54.4% of states and a non-zero index there
