@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Is B13's "the two-leg path is the only path" a property of the listing?
 
-**Why this exists.** `claude/B13_结果_v1.md` section 12.2 item 2 reports exact
+**Why this exists.** B13's own reading reports exact
 equality between the exchange's published implied price and the two-leg
 derivation, `18,800 / 18,800`, and attributes it to those products being ones
 where the two-leg path is the only derivation path. Its own caveat says the

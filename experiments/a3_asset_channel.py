@@ -371,9 +371,9 @@ def a3_3(models: list[A3Model]) -> Criterion:
     # The project's engineering rule 6, and this is one of eleven instances of it swept on
     # 2026-08-13. The value is a residual against an identity, so it sits at
     # machine epsilon and its last digits are a property of the BLAS build.
-    # Written into the record it made `RESULTS.md` differ between machines on
-    # content that asserts the same thing, and `git diff --exit-code` is what
-    # CI checks that file with. What the line states is that the residual is at
+    # Written into the record it makes the record differ between machines on
+    # content that asserts the same thing, and a spurious diff buries a real
+    # one. What the line states is that the residual is at
     # machine precision; that statement is the same everywhere. The number goes
     # to the job log, which is where a per-machine value belongs.
     print(
@@ -1178,9 +1178,10 @@ def summarise_profile(rows: list[dict]) -> dict:
                  "of": len(per)}
             )
     return {
-        "diagnostic_only": (
-            "registers nothing and feeds no criterion; PROJECT_PLAN 16.1 "
-            "step one"
+        "diagnostic_only": True,
+        "diagnostic_reason": (
+            "registers nothing and feeds no criterion; it is step one of A3 "
+            "§16.1's retention profile"
         ),
         "shock_round": int(rows[0].get("shock_round", A3_6_SHOCK_ROUND)),
         "horizon": A3_6_HORIZON,

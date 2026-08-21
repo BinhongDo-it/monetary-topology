@@ -46,8 +46,7 @@ Usage::
     python experiments/b7_calib_check.py --grid coarse
 
 Writes ``results/b7_calib_check_<grid>.json`` with ``diagnostic_only`` set, so
-`render_results.py` skips it and the runner ratchet needs no entry while B7 is
-open.
+it reads as what it is and the runner ratchet needs no entry while B7 is open.
 """
 
 from __future__ import annotations

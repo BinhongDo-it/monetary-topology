@@ -244,10 +244,9 @@ def synthetic_criteria(seed: int = 0) -> tuple[list[Criterion], dict]:
     # Both residuals below are a few units in the last place of a value of
     # order one, so they are the floating-point library's rounding rather than
     # a measurement, and their exact size is a property of the machine.
-    # Printing them into the record made `RESULTS.md` read `8.88e-16` on one
-    # build and `6.66e-16` on another, and `git diff --exit-code RESULTS.md`
-    # went red on that line alone, on content identical in everything it
-    # asserts. What each criterion states is that the residual is below `TOL`,
+    # Printing them into the record made it read `8.88e-16` on one build and
+    # `6.66e-16` on another, so the two disagreed on that line alone, on
+    # content identical in everything it asserts. What each criterion states is that the residual is below `TOL`,
     # and that statement is the same on both machines. The values go to the job
     # log, where a machine-dependent number belongs.
     #
@@ -500,7 +499,7 @@ def main() -> int:
 
     # A ``--no-data`` run is missing B1-6 and the whole real-data block, so it
     # must not be able to displace a full one. It goes to ``results/subset/``,
-    # which ``render_results.py`` does not reach because its glob is not
+    # which nothing that globs ``results/*.json`` reaches, the glob not being
     # recursive. Written after a --no-data run overwrote the full record once.
     directory = RESULTS / "subset" if args.no_data else RESULTS
     directory.mkdir(parents=True, exist_ok=True)

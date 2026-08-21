@@ -811,9 +811,9 @@ def main() -> int:
                 "share_h1": reading["share_h1"],
                 "share_h0": reading["share_h0"],
                 "notes": reading["notes"],
-                # A3-8 in the shape `render_results.py` reads, so that the one
-                # criterion carrying A3's new content appears in `RESULTS.md`
-                # rather than being a heading with nothing under it. Its three
+                # A3-8 in this repository's criterion shape, so that the one
+                # criterion carrying A3's new content is on the record rather
+                # than only in the console output. Its three
                 # states do not fit a boolean, so `void` carries the two that
                 # are not a verdict: `void` means the harness cannot be read and
                 # `unstable` means a channel's sign moves across seeds, and

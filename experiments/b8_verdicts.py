@@ -1,10 +1,9 @@
 """B8 verdict sheet: assemble ``results/b8_verdicts.json`` from the products on disk.
 
-**Why this file exists.** ``RESULTS.md`` is a pure function of ``results/*.json``,
-and B8 writes markdown. Every one of its thirty-one products is a ``.md``, so the
-renderer's glob has never seen the stage at all: a reader of ``RESULTS.md`` goes
-A0 to B9 and B8 is simply absent, while the roadmap still calls it
-pre-registered. B8 is the strongest carrier in the programme, with eight
+**Why this file exists.** B8 writes markdown. Every one of its thirty-one
+products is a ``.md``, so the stage lands no JSON record at all: a reader of
+``RESULTS.md`` goes A0 to B9 and B8 is simply absent, while the roadmap still
+calls it pre-registered. B8 is the strongest carrier in the programme, with eight
 criteria landed and the residual sum computed on 49,649 modification loops and
 35,659 deferral loops, and it was invisible in the file other work reads.
 

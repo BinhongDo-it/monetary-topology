@@ -7456,6 +7456,12 @@ def cmd_windows(only, rescan: bool) -> int:
             cache.write_text(json.dumps(
                 {"stage": "B10", "step": "all_triangles",
                  "diagnostic_only": True,
+                 "diagnostic_reason": (
+                     "Registered before the code. The triangle enumeration itself, "
+                     "cached for the steps that read it: counts and the loan rows behind "
+                     "them. No omega and no B8 prediction. Population is §30.4's "
+                     "not_required/digits/first_any."
+                 ),
                  "population": "not_required/digits/first_any (§30.4)",
                  "orig_exclusions": dict(drops),
                  "columns": ["vintage", "mod_year", "loan_seq", "fico", "dti",
@@ -7586,6 +7592,12 @@ def cmd_run(only, rescan: bool) -> int:
             cache.write_text(json.dumps(
                 {"stage": "B10", "step": "flex_triangles",
                  "diagnostic_only": True,
+                 "diagnostic_reason": (
+                     "Registered before the code. The same enumeration restricted to "
+                     "FLEX_YEARS, cached for the steps that read it: counts and the loan "
+                     "rows behind them. No omega and no B8 prediction. §4 publishes "
+                     "1,903 and the difference is §30.2's."
+                 ),
                  "population": "not_required/digits/first_any (§30.4)",
                  "flex_years": list(FLEX_YEARS),
                  "triangles_all_windows": tri_total,

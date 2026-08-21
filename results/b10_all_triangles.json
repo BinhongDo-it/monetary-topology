@@ -2,6 +2,7 @@
   "stage": "B10",
   "step": "all_triangles",
   "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. The triangle enumeration itself, cached for the steps that read it: counts and the loan rows behind them. No omega and no B8 prediction. Population is §30.4's not_required/digits/first_any.",
   "population": "not_required/digits/first_any (\u00a730.4)",
   "orig_exclusions": {
     "dti": 95502,

@@ -139,8 +139,8 @@ def criterion(name: str, passed: bool, detail: str, *,
     """One criterion's cell, with the void flag the renderer reads.
 
     **A criterion the run could not evaluate is not a criterion the run
-    failed**, and `render_results.mark_of` draws that distinction where
-    `run_all.criteria_from` counts it. The flag is carried on every criterion
+    failed**, and `run_all.criteria_from` is where that distinction is
+    counted. The flag is carried on every criterion
     rather than only on the voided one, so a reader can tell "this stage does
     not use voids" from "this criterion is not voided".
     """

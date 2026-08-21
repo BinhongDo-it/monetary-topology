@@ -3,8 +3,8 @@
 
 Usage::
 
-    python scripts/run_all.py              # lint, tests, every experiment
-    python scripts/run_all.py --quick      # lint and tests only
+    python scripts/run_all.py              # tests, then every experiment
+    python scripts/run_all.py --quick      # tests only
     python scripts/run_all.py --b2         # include B2, which needs fetched data
     python scripts/run_all.py --skip-done  # read the records already on disk
     python scripts/run_all.py --only A4 B1 # these stages only
@@ -225,7 +225,7 @@ DATA_STAGES = [
     # series, the SCF extract and the CEX table; A1b reads the SCF extract and
     # the CEX basket. Both are added the moment they first wrote a record,
     # rather than after somebody noticed, which is what
-    # `tests/test_runner_covers_every_record.py` exists to force.
+    # a record and the code that wrote it can disagree without anything saying so.
     #
     # **Neither is a complete stage yet.** Both records carry `complete: false`
     # and name the criteria not yet written. They are in the runner anyway,
@@ -407,8 +407,13 @@ def run(cmd: list[str]) -> tuple[int, str]:
     meant to be pasted whole, and ``announce`` above already establishes stderr
     as the channel for anything that must not disturb it, so redirecting stdout
     still gives exactly what it gave before, to the byte. Before this, a failing
-    lint printed ``FAILED`` and the name of no rule, so the next step was always
-    to run the same command again by hand.
+    child printed ``FAILED`` and nothing else, so the next step was always to run
+    the same command again by hand.
+
+    **The encoding note above outlived the step that found it.** The lint step is
+    gone, and every child this still launches prints section signs and CJK, so
+    the trap is not historical: it is one ``encoding="utf-8"`` away on any day
+    somebody writes a new caller.
     """
     started = time.time()
     proc = subprocess.run(
@@ -437,11 +442,10 @@ def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
     and one demoted to a diagnostic decides nothing by construction. Counting
     them here reported every void as an unexpected failure and put it in the
     denominator, so a stage with four live passes and two voids printed as
-    ``4/6`` with two ``FAILED:`` lines under it. `render_results.py`'s
-    ``mark_of`` and ``render_block`` already draw exactly this distinction and
-    say so in their own docstrings; this file was the half that had not been
-    brought over, so the digest and `RESULTS.md` disagreed about the same
-    record. A3 and A6 both move as a result, in the direction of reporting
+    ``4/6`` with two ``FAILED:`` lines under it. The distinction was already
+    drawn where the criteria are written; this file was the half that had not
+    been brought over, so the digest and the record disagreed about the same
+    stage. A3 and A6 both move as a result, in the direction of reporting
     fewer failures than before, and no verdict changes.
     """
     if not path.exists():
@@ -470,7 +474,7 @@ def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--quick", action="store_true", help="lint and tests only")
+    ap.add_argument("--quick", action="store_true", help="tests only")
     ap.add_argument("--b2", action="store_true", help="include B2, needs fetched data")
     ap.add_argument(
         "--slow", action="store_true", help="include A6r, about fifteen minutes"
@@ -489,11 +493,9 @@ def main() -> int:
     lines: list[str] = []
     ok = True
 
-    announce("lint")
-    code, secs = run([sys.executable, "-m", "ruff", "check", "."])
-    lines.append(f"  lint     {'clean' if code == 0 else 'FAILED'}   {secs}")
-    ok &= code == 0
-
+    # No lint step. Engineering rule 10, ruled 2026-08-17: ruff is not run, not
+    # guessed at, and no code is changed for it. A step that runs it on every
+    # invocation is that rule being broken by the file that reports on the run.
     announce("tests")
     code, secs = run([sys.executable, "-m", "pytest", "-q"])
     lines.append(f"  tests    {'pass' if code == 0 else 'FAILED'}    {secs}")

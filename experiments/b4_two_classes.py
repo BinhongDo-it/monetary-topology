@@ -2,7 +2,8 @@
 """Are the implied book and the directly quoted book two agent classes in the
 sense of `docs/b4_directed_edges.md` section 5.1?
 
-Pre-registered in `claude/B13_设计_v1.md` section 14. Section 5.1 hands over an
+Pre-registered, criteria fixed before the code and none rewritten after. B13
+section 5.1 hands over an
 operational criterion for its own question:
 
     S - S'  is zero exactly when the two classes face the same antisymmetric

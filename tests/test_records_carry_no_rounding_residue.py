@@ -1,6 +1,6 @@
 """A regenerated record must not print a reduction's rounding residue.
 
-The project's engineering rule 5 for files under `git diff --exit-code` says to fix the
+The project's engineering rule 5 for generated files says to fix the
 float formatting so that a difference in the last digit between BLAS builds
 does not surface as a text diff. This file is that rule as a guard for the one
 class it keeps being violated by: **a quantity the theory says is exactly zero,
@@ -49,7 +49,7 @@ Ratchet, not a clean sheet
 Six records are outside today and `KNOWN_RESIDUES` names each with the JSON keys
 the residue sits under, because a count nobody can see is not an exposure
 anybody will fix. Checked in both directions, the same discipline
-`test_runner_covers_every_record.py` applies: an entry that has been cleaned
+the retired runner ratchet applied: an entry that has been cleaned
 fails as loudly as a new offender, so the list cannot outlive its reasons.
 """
 

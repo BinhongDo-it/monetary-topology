@@ -1447,7 +1447,7 @@ likewise. Two records moved and neither is A7's: `a6_siphon_cost.json` gained a
 machine-precision floats replaced by a bounded phrase and gained a
 `from_an_earlier_run` field. Both are records older than the writers that produce
 them, dated 08-12 and 08-13, and both are `MEASUREMENT.md` failure mode 9 in the
-half `test_runner_covers_every_record.py` does not cover: that guard asks whether
+half a job-existence guard does not cover: such a guard asks whether
 a job could regenerate a record, not whether the committed record equals what the
 job now produces.
 

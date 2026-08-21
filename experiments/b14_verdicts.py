@@ -1,8 +1,8 @@
 """B14 verdict sheet: assemble results/b14_stage_two.json from the station's products.
 
-Why this file exists. RESULTS.md is a pure function of results/*.json, B14 wrote
-none, and the station is now closed with eight verdicts on the board. It was
-absent from the file everyone else reads. This is the same repair
+Why this file exists. B14 wrote no JSON record, and the station is now closed
+with eight verdicts on the board. It was absent from the file everyone else
+reads. This is the same repair
 b8_verdicts.py and b13_verdicts.py are, and it carries the same number check
 from the start.
 

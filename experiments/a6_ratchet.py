@@ -1713,9 +1713,9 @@ def main() -> int:
         # The project's engineering rule 6. The relative error is a residual against a closed
         # form, so it sits at machine precision and its digits come from the
         # BLAS build; `a6_ratchet.py` line 1499 already prints it to the job
-        # log, which is where a per-machine value belongs. Written here it made
-        # `RESULTS.md` differ between machines on content that asserts the same
-        # thing, and CI checks that file with `git diff --exit-code`.
+        # log, which is where a per-machine value belongs. Written here it
+        # makes the record differ between machines on content that asserts the
+        # same thing, and a spurious diff buries a real one.
         "A6-8": (
             f"K-B settles on I/lambda on a bench with no economy in it; "
             f"the worst relative error is at machine precision, below "

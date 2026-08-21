@@ -2,6 +2,7 @@
  "absent": 25,
  "dataset": "ARCX.PILLAR",
  "diagnostic_only": true,
+ "diagnostic_reason": "§40.3 step 0. Fund-day premium reconciled at one fixed offset, with the days it cannot fill marked absent rather than filled. The premium table and its counts only; no verdict.",
  "min_size": 0,
  "n_fund_days": 6176,
  "offset_s": 0,

@@ -481,6 +481,20 @@ restatement produced the instance above. It is in exactly the position A5 was in
 with their reasons, the list is checked in both directions so it cannot outlive
 them, and a ninth cannot be added silently. **Naming them does not fix them.**
 
+**2026-08-21, the selection above moved, then the guard went with it.**
+`RESULTS.md` is now kept by hand and there is no renderer. The ratchet was first
+re-grounded on its own copy of the three filters, verified to return the same 76
+records as before, and then retired the same day. **Two counts settled it.**
+The allowlist held **51 of those 76 records, 67.1 per cent**: an exception list
+carrying two thirds of its population is not an exception list. And
+`a5_reachability.json` **has a runner job**, so the guard would not have fired on
+the incident above, which is its own founding case: A5's record was carried
+forward without being re-run, and this guard asks whether a job exists, never
+whether the record matches the code that wrote it. Its own history records the
+count assertion drifting four times, 8 to 16 to 18 to 19 to 40 to 47, each drift
+found by someone happening to run it. **The exposure this section counts is
+real and is now uncovered; nothing here claims otherwise.**
+
 （**这个敞口是数出来的，不是估的（2026-08-15）。** `render_results.py` 扫
 `results/*.json`，按文件名去掉离参与冒烟跑、按字段去掉写入者自己声明的诊断，剩下的每一份
 都变成 `RESULTS.md` 里的一节。剩下的是**二十四份，其中八份在 `run_all.py` 里没有任何

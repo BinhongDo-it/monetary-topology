@@ -315,8 +315,8 @@ def main() -> int:
                 # The project's engineering rule 6. The discrepancy between the walked square
                 # and the closed form is a residual against an identity, so it
                 # sits at machine epsilon and its digits vary by build; written
-                # into `RESULTS.md` it makes CI's `git diff --exit-code` fail
-                # between machines on content that asserts the same thing. The
+                # into the record it makes the record differ between
+                # machines on content that asserts the same thing. The
                 # value is already printed to the job log by `main`, so nothing
                 # is lost by keeping it out of here.
                 "detail": (

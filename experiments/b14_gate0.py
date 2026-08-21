@@ -276,7 +276,7 @@ def run():
                            for k, a, b in diffs]}
     res["reproduction_check"] = repro
 
-    # The record shape scripts/render_results.py expects: stage plus
+    # This repository's record shape: stage plus
     # criteria[{name, passed, detail}]. One entry per inequality, one for the
     # weighting-convention check, and the NBBO cross-check marked diagnostic so
     # it does not count.

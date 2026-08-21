@@ -97,7 +97,7 @@ REC_FRAC, REC_FLOOR = 0.10, 1.00
 #: re-run") can be answered without editing this line. A run at any other value
 #: lands beside the registered record and not over it: `write` renames its
 #: output `b8_c8_1f_freeze_recovery.offparam_lag<N>.md`, which is the filename
-#: marker `scripts/render_results.py` already keys on for "not a claim".
+#: marker this repository already uses for "not a claim".
 #:
 #: **What a larger value can and cannot do.** `lag_hist` gains bins, and
 #: `lag_none_room` and `lag_censored` re-partition, because the boundary

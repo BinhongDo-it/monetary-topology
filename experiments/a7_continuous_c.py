@@ -524,9 +524,8 @@ def write_record(rows: list[dict], mode: str, args) -> Path:
     scored estimator, and this file computes `D_reach`, which the same section
     registers as reported and never scored. It is kept in the record as
     `diagnostic_reason` and repeated in full in
-    `tests/test_runner_covers_every_record.py`, because
-    `scripts/render_results.py` ignores fields it does not know and would
-    otherwise drop it on the floor.
+    the record itself, because a reason that lives in one place only is a
+    reason one rename removes.
 
     **The flag is cleared here in the writer and not only in the record on
     disk.** A record-level edit is silently undone by the next run, and that is

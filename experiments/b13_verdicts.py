@@ -1,8 +1,8 @@
 """B13 verdict sheet: assemble ``results/b13_zero_domain.json`` from the products.
 
-**Why this file exists.** ``RESULTS.md`` is a pure function of ``results/*.json``
-and B13 wrote none, so the stage that produced this programme's first zero domain
-was absent from the file everyone else reads. This is the same repair
+**Why this file exists.** B13 wrote no JSON record, so the stage that produced
+this programme's first zero domain was absent from the file everyone else
+reads. This is the same repair
 ``b8_verdicts.py`` is, and it carries the same number check from the start rather
 than acquiring it two days later.
 

@@ -896,7 +896,7 @@ def midpoint_grid_check(tickers: list[str]) -> dict:
     print("       **The comparison arm is not a test of this**: its λ is "
           "dominated by stale NAV, which §6.1 registered as a confound.")
     # --- the record, and why it is not a diagnostic ------------------------
-    # **Flipped 2026-08-18, the author ruled.** This record carried
+    # **Flipped 2026-08-18.** This record carried
     # `diagnostic_only: True` with the reason "reads no prediction", which is
     # true and is **not this field's test**. the project's engineering rule 8 fixes the field
     # as "the numbers in this record are not this stage's licensed readings",
@@ -964,7 +964,7 @@ def midpoint_grid_check(tickers: list[str]) -> dict:
     print(f"wrote {FM_OUT.relative_to(ROOT)}")
     print(f"§24     criteria: {sum(1 for c in criteria if not c.get('diagnostic') and c['passed'])}"
           f"/{sum(1 for c in criteria if not c.get('diagnostic'))} live passed, "
-          f"1 diagnostic. **This record is no longer diagnostic_only** (the author "
+          f"1 diagnostic. **This record is no longer diagnostic_only** (ruled "
           f"2026-08-18): it carries the grid identification and the "
           f"quantisation rejection, and both are licensed readings.")
     return out
@@ -3232,6 +3232,12 @@ def dump_days(tickers: list[str]) -> dict:
              for t, s in series.items()}
     rec = {"stage": "B9 §36 step 0, the day list and its ground truth",
            "diagnostic_only": True,
+           "diagnostic_reason": (
+               "§36 step 0. The day list and its ground truth, exported through "
+               "lambda_series rather than rebuilt, so the sample §36 compares on "
+               "is the sample §25 and §31 measured on, filter for filter. No "
+               "omega, no lambda, and no prediction is read here."
+           ),
            "rule": "§24.1: the disclosed price is NAV x (1 + premium) and lands "
                    "on the half-cent grid, so it is known to the digit.",
            "days": days, "n_days": len(days),

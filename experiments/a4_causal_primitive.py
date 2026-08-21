@@ -643,7 +643,7 @@ READABLE_SD = 1.0
 @dataclass
 class Criterion:
     """One registered prediction. Same four states the rest of the repository
-    uses, and the same field names, so `render_results.py` needs no case."""
+    uses, and the same field names, so nothing downstream needs a case."""
 
     name: str
     passed: bool

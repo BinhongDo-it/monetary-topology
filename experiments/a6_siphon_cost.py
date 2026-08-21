@@ -373,11 +373,11 @@ def main() -> int:
     }
     live = [v for v in verdicts.values() if v is not None]
 
-    # The same verdicts in the shape ``scripts/render_results.py`` reads, so
-    # that A6's two failures appear in RESULTS.md beside everything else. Every
-    # number here goes through an explicit format spec: the file is regenerated
-    # in CI and diffed byte for byte, so a value printed through ``repr`` would
-    # turn the check red on a last-digit difference between BLAS builds.
+    # The same verdicts in this repository's criterion shape, so that A6's two
+    # failures are on the record beside everything else. Every number here goes
+    # through an explicit format spec: a value printed through ``repr`` would
+    # make the record differ between BLAS builds on its last digit, and a
+    # spurious diff buries a real one.
     # A6-6 is absent on purpose, being reported and not judged.
     details = {
         "A6-1": (

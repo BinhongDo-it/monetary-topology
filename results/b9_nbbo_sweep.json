@@ -60,6 +60,7 @@
   },
   "dataset": "XNAS.ITCH",
   "diagnostic_only": true,
+  "diagnostic_reason": "§38.4(a). A sweep of the sampling instant: the rate at each offset and where the peak is. That is the input to whether §38.1's venue verdict has to be re-run at the peak, and not a reading of its own.",
   "flat": true,
   "rate_at_zero": 0.5255746196179993,
   "stage": "B9 §38.4(a) sampling-instant sweep"

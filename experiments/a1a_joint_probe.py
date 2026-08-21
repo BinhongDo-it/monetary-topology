@@ -175,7 +175,8 @@ def main() -> int:
         json.dumps(
             {
                 "stage": "A1a",
-                "diagnostic_only": (
+                "diagnostic_only": True,
+                "diagnostic_reason": (
                     "registers nothing and feeds no criterion; it measures "
                     "what the marginal-crossing construction assumed"
                 ),

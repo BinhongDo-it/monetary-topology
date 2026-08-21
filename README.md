@@ -52,8 +52,8 @@ reports failures at the same resolution as passes because that is where most of
 the information turned out to be.
 
 For the machine-readable record, one entry per criterion with the number beside
-it, see [RESULTS.md](RESULTS.md), which is generated from `results/*.json` and
-is not written by hand.
+it, see [RESULTS.md](RESULTS.md). The run records it draws on are in
+`results/*.json`.
 
 ---
 
@@ -132,7 +132,7 @@ time one moved, and the ones that moved most are the ones worth reading in full.
 
 **What the three places are for.** `docs/` holds the pre-registration, the
 amendment trail and the reading, including the readings that were withdrawn and
-why. `RESULTS.md` is generated from the JSON records and lists failed criteria
+why. `RESULTS.md` is the ledger over those JSON records and lists failed criteria
 beside passing ones. This README is an entry point and is the least current of
 the three by construction.
 
@@ -267,7 +267,8 @@ python scripts/run_all.py            # lint, tests, every stage, one digest
 python scripts/run_all.py --quick    # lint and tests only
 python scripts/run_all.py --slow     # adds A6's ratchet, about twenty-five minutes
 python scripts/run_all.py --b2       # adds the stages needing fetched data
-python scripts/render_results.py     # regenerates RESULTS.md from results/*.json
+python scripts/run_all.py --skip-done   # read a stage's existing record instead of re-running it
+python scripts/run_all.py --only B10 B14   # restrict to the named stages
 ```
 
 `run_all.py` is the entry point. It prints a dozen pasteable lines: one per
@@ -311,7 +312,6 @@ experiments/     one script per stage or diagnostic. A stage script
                  says so in its first line
 scripts/
   run_all.py           lints, tests, runs every stage, prints one digest
-  render_results.py    regenerates RESULTS.md from results/*.json
 tests/           naming follows the stage, so `test_a4_*.py` are
                  A4's guards and each asserts one claim its docstring states
 figures/         committed; they are the artefact

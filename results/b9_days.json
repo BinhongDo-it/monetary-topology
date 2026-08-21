@@ -406,6 +406,7 @@
   "2026-08-13"
  ],
  "diagnostic_only": true,
+ "diagnostic_reason": "§36 step 0. The day list and its ground truth, exported through lambda_series rather than rebuilt, so the sample §36 compares on is the sample §25 and §31 measured on, filter for filter. No omega, no lambda, and no prediction is read here.",
  "first": "2025-01-02",
  "fund_day_counts": {
   "JNK": 404,

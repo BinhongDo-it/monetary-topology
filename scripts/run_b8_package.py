@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run the whole B8 backlog in one pass, so it is one round and not eleven.
 
-`claude/全项目总账_v1.md` seven.2.2 carries B8's leftovers and says, at the
+The programme ledger's section seven.2.2 carries B8's leftovers and says, at the
 bottom of the same table, **package them into one round rather than opening a
 round per item**. This is that package. It is a runner, not a station: it
 decides nothing, it invents no parameter, and every number it produces comes
@@ -154,16 +154,15 @@ STEPS: list[tuple[str, list[str], str]] = [
     ("verdicts", ["experiments/b8_verdicts.py"],
      "results/b8_verdicts.json. **Refuses to write** if a number in a verdict "
      "is printed by none of that verdict's own products"),
-    ("render", ["scripts/render_results.py"], "RESULTS.md"),
 ]
 
 #: What the 2026-08-19 edits actually make necessary. Everything outside this
 #: list would be re-run to correct a header line, which is not worth an archive
 #: scan; see the note at the top of this file.
-MINIMAL = ("c8_1e", "c8_1f", "cmt_sensitivity2", "verdicts", "render")
+MINIMAL = ("c8_1e", "c8_1f", "cmt_sensitivity2", "verdicts")
 
 #: Runs at a parameter other than the registered one. They write `.offparam_`
-#: files, which `render_results.py` keeps out of `RESULTS.md` by filename. Off
+#: files, and that prefix is the convention for "not a registered reading". Off
 #: by default because an off-parameter run is not a claim.
 OFFPARAM: list[tuple[str, list[str], str]] = [
     ("c8_1f_lag12", ["experiments/b8_c8_1f_freeze_recovery.py", "--max-lag", "12"],

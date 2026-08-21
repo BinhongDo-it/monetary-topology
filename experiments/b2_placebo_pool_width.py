@@ -659,10 +659,10 @@ def main() -> int:
     n_pass = sum(c.passed for c in criteria)
     print(f"\n  {n_pass}/{len(criteria)} criteria passed")
 
-    # A subset run goes to ``results/subset/``, which ``render_results.py`` does
-    # not reach because its glob is not recursive. A state subset is a smoke test
-    # and letting one render into RESULTS.md beside the national figure would put
-    # two numbers with the same stage name in front of a reader.
+    # A subset run goes to ``results/subset/``, which nothing globbing
+    # ``results/*.json`` reaches, the glob not being recursive. A state subset
+    # is a smoke test, and one sitting beside the national figure would put two
+    # numbers with the same stage name in front of a reader.
     directory = RESULTS / "subset" if states else RESULTS
     directory.mkdir(parents=True, exist_ok=True)
     out = directory / "b2_placebo_pool_width.json"

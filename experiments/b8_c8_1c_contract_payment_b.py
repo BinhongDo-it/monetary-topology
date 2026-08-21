@@ -56,7 +56,7 @@ Usage::
     python experiments/b8_c8_1c_contract_payment_b.py --only 2002Q1 --only 2019Q1
 
 Writes ``results/b8_c8_1c_contract_payment_b.md``. Deterministic; progress to
-stderr only. Markdown and not JSON, so ``render_results.py`` does not glob it.
+stderr only. Markdown and not JSON, so a glob over ``results/*.json`` misses it.
 """
 
 from __future__ import annotations

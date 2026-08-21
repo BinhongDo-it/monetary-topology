@@ -1516,7 +1516,7 @@ def nbbo_cost() -> dict:
     total = per_day * len(days)
     print(f"§36.6  per day ${per_day:.6f} x {len(days)} days = **${total:.2f}**")
     print(f"§36.6  this is an extrapolation from one day, stated as such. "
-          f"The credit is $125 and expires six months after signup.")
+          f"Nothing is fetched without --confirm.")
     return {"per_day": per_day, "days": len(days), "estimate_usd": total}
 
 
@@ -1562,7 +1562,7 @@ def nbbo_fetch(confirm: bool, limit: int = 0, workers: int = 4,
         return {}
     if not confirm:
         print("**Refused.** Run --nbbo-cost first, then pass --confirm. "
-              "§36.6: a credit that expires is not a reason to spend it fast.")
+              "§36.6: cost is printed before anything is fetched.")
         return {}
     rec = load_days()
     if not rec:
@@ -1930,6 +1930,11 @@ def nbbo_export(dataset: str = DB_DATASET, offset_s: int = 0,
         n_t = len(rec["funds"].get(t, {}))
         print(f"  {t:6s} {len(out[t]):4d}/{n_t:4d}")
     payload = {"stage": "B9 §40.3 step 0", "diagnostic_only": True,
+               "diagnostic_reason": (
+                   "§40.3 step 0. Fund-day premium reconciled at one fixed offset, "
+                   "with the days it cannot fill marked absent rather than filled. The "
+                   "premium table and its counts only; no verdict."
+               ),
                "dataset": dataset, "offset_s": offset_s, "min_size": min_size,
                "n_fund_days": have, "absent": missing, "premium": out}
     RECON_OUT.write_text(json.dumps(payload, sort_keys=True,
@@ -1996,6 +2001,12 @@ def nbbo_sweep(dataset: str = DB_DATASET) -> dict:
              f"**the instant is wrong by {best[1]:+d}s**; §38.1's venue verdict "
              f"is void until it is re-run at the peak"))
     res = {"stage": "B9 §38.4(a) sampling-instant sweep", "diagnostic_only": True,
+           "diagnostic_reason": (
+               "§38.4(a). A sweep of the sampling instant: the rate at each offset "
+               "and where the peak is. That is the input to whether §38.1's venue "
+               "verdict has to be re-run at the peak, and not a reading of its "
+               "own."
+           ),
            "dataset": dataset, "by_offset": {str(k): v for k, v in out.items()},
            "best_offset": best[1], "best_rate": best[0], "rate_at_zero": at0,
            "zero_is_best": zero_is_best, "neighbour_best": nb,
@@ -2680,7 +2691,7 @@ def main() -> int:
                     help="§36.4/§36.5: exact-match rate against the disclosed "
                          "price, with the stress-clustering sub-test")
     ap.add_argument("--confirm", action="store_true",
-                    help="required by --nbbo-fetch, which spends credit")
+                    help="required by --nbbo-fetch, which spends money")
     ap.add_argument("--limit", type=int, default=0, metavar="N",
                     help="fetch only the first N days, for a trial")
     ap.add_argument("--workers", type=int, default=4, metavar="N",

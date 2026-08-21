@@ -458,9 +458,104 @@
     }
   ],
   "bins": 3,
-  "diagnostic_only": true,
-  "diagnostic_reason": "Enumeration over threshold cuts of the delinquency ladder, opened after the permutation route was found capped by the construction. The station is not closed and no criterion has been pinned on the spread yet.",
+  "criteria": [
+    {
+      "detail": "max/min 3.58 across 4,753 enumerated 3-bin cuts, line at 4.0; spread in floor units 301,562 to 1,079,408, the 30/60-day cut at 301,562 which is quantile 0.0007; 1,350 cuts give a finite spread",
+      "name": "B12-D  2002Q1 defer: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": true
+    },
+    {
+      "detail": "max/min 8.85 across 4,753 enumerated 3-bin cuts, line at 4.0; spread in floor units 774,017 to 6,849,833, the 30/60-day cut at 1,504,290 which is quantile 0.0300; 3,839 cuts give a finite spread",
+      "name": "B12-D  2002Q1 mod: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 3.73 across 4,753 enumerated 3-bin cuts, line at 4.0; spread in floor units 352,134 to 1,311,909, the 30/60-day cut at 414,154 which is quantile 0.1614; 1,512 cuts give a finite spread",
+      "name": "B12-D  2006Q1 defer: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": true
+    },
+    {
+      "detail": "max/min 5.99 across 4,753 enumerated 3-bin cuts, line at 4.0; spread in floor units 675,856 to 4,046,634, the 30/60-day cut at 2,510,057 which is quantile 0.5787; 4,213 cuts give a finite spread",
+      "name": "B12-D  2006Q1 mod: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 3.75 across 4,753 enumerated 3-bin cuts, line at 4.0; spread in floor units 283,561 to 1,064,286, the 30/60-day cut at 347,031 which is quantile 0.2174; 1,513 cuts give a finite spread",
+      "name": "B12-D  2007Q1 defer: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": true
+    },
+    {
+      "detail": "max/min 17.29 across 4,753 enumerated 3-bin cuts, line at 4.0; spread in floor units 249,359 to 4,311,206, the 30/60-day cut at 1,700,517 which is quantile 0.3364; 4,257 cuts give a finite spread",
+      "name": "B12-D  2007Q1 mod: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 7.92 across 3,741 enumerated 3-bin cuts, line at 4.0; spread in floor units 124,206 to 983,162, the 30/60-day cut at 541,173 which is quantile 0.2086; 1,395 cuts give a finite spread",
+      "name": "B12-D  2012Q1 defer: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 14.21 across 3,741 enumerated 3-bin cuts, line at 4.0; spread in floor units 278,332 to 3,956,047, the 30/60-day cut at 1,482,163 which is quantile 0.3321; 2,108 cuts give a finite spread",
+      "name": "B12-D  2012Q1 mod: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 7.68 across 2,145 enumerated 3-bin cuts, line at 4.0; spread in floor units 144,368 to 1,109,199, the 30/60-day cut at 185,447 which is quantile 0.0018; 1,107 cuts give a finite spread",
+      "name": "B12-D  2017Q1 defer: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 14.74 across 2,145 enumerated 3-bin cuts, line at 4.0; spread in floor units 197,148 to 2,905,242, the 30/60-day cut at 737,949 which is quantile 0.1213; 1,674 cuts give a finite spread",
+      "name": "B12-D  2017Q1 mod: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 13.45 across 1,891 enumerated 3-bin cuts, line at 4.0; spread in floor units 84,825 to 1,140,772, the 30/60-day cut at 310,157 which is quantile 0.1550; 1,026 cuts give a finite spread",
+      "name": "B12-D  2019Q1 defer: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "max/min 11.96 across 1,891 enumerated 3-bin cuts, line at 4.0; spread in floor units 173,137 to 2,071,535, the 30/60-day cut at 2,071,535 which is quantile 1.0000; 1,505 cuts give a finite spread",
+      "name": "B12-D  2019Q1 mod: between-class spread of median |omega| is invariant to where the delinquency ladder is cut",
+      "passed": false
+    },
+    {
+      "detail": "class-count quantile of the real cut spans 0.9942 to 1.0000 over 12 cells while its spread quantile spans 0.0007 to 1.0000: a near-constant class count against the full range of spread positions",
+      "name": "B12-D  the spread's position is not fixed by the class count",
+      "passed": true
+    }
+  ],
+  "cuts_max": 4753,
+  "cuts_min": 1891,
+  "derived": {
+    "real_grid_quantile_2002Q1_defer": 0.0007407407407407407,
+    "real_grid_quantile_2002Q1_mod": 0.02995571763480073,
+    "real_grid_quantile_2006Q1_defer": 0.16137566137566137,
+    "real_grid_quantile_2006Q1_mod": 0.5786850225492524,
+    "real_grid_quantile_2007Q1_defer": 0.21744877726371448,
+    "real_grid_quantile_2007Q1_mod": 0.3363871270848015,
+    "real_grid_quantile_2012Q1_defer": 0.2086021505376344,
+    "real_grid_quantile_2012Q1_mod": 0.33206831119544594,
+    "real_grid_quantile_2017Q1_defer": 0.0018066847335140017,
+    "real_grid_quantile_2017Q1_mod": 0.12126642771804062,
+    "real_grid_quantile_2019Q1_defer": 0.15497076023391812,
+    "real_grid_quantile_2019Q1_mod": 1.0,
+    "spread_max_over_min_2002Q1_defer": 3.5793871238910246,
+    "spread_max_over_min_2002Q1_mod": 8.849722660803007,
+    "spread_max_over_min_2006Q1_defer": 3.7255941976086175,
+    "spread_max_over_min_2006Q1_mod": 5.987423001046986,
+    "spread_max_over_min_2007Q1_defer": 3.7532840373130374,
+    "spread_max_over_min_2007Q1_mod": 17.289171486335633,
+    "spread_max_over_min_2012Q1_defer": 7.915558019336266,
+    "spread_max_over_min_2012Q1_mod": 14.21338932334276,
+    "spread_max_over_min_2017Q1_defer": 7.683116696952492,
+    "spread_max_over_min_2017Q1_mod": 14.736386258697111,
+    "spread_max_over_min_2019Q1_defer": 13.4484864179003,
+    "spread_max_over_min_2019Q1_mod": 11.96468565758351
+  },
   "min_cycles": 20,
+  "n_vintages": 6,
+  "signal_over_noise": 4.0,
   "stage": "B12",
   "step": "ladder_enumeration"
 }

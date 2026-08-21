@@ -59,8 +59,8 @@ Usage::
     python experiments/b8_c8_1c_contract_payment.py
 
 Writes ``results/b8_c8_1c_contract_payment.md``. Deterministic; progress to
-stderr only. Output is markdown and not JSON, so ``render_results.py`` does not
-glob it and ``RESULTS.md`` is untouched.
+stderr only. Output is markdown and not JSON, so nothing globbing
+``results/*.json`` picks it up.
 """
 
 from __future__ import annotations

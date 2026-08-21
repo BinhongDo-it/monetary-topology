@@ -267,9 +267,9 @@ def evaluate(base, sweeps: dict[str, list[float]]) -> list[Criterion]:
     # The residual is two to eight units in the last place of a value near 12.7,
     # so it is rounding and not a measurement, and its exact size is a property
     # of the machine's floating-point library. Printing it into the record made
-    # RESULTS.md read 1.776e-15 on the author's Windows build and 4.441e-16 on
-    # the Linux runner, and `git diff --exit-code RESULTS.md` had been red on
-    # that one line ever since. What the criterion asserts is that the deviation
+    # the record read 1.776e-15 on a Windows build and 4.441e-16 on a Linux
+    # one, so the two disagreed on that line for as long as it was printed.
+    # A spurious diff buries a real one. What the criterion asserts is that the deviation
     # is below the tolerance, and that statement is the same on both machines.
     # The value itself goes to the job log, where a varying number belongs.
     print(f"  A0b-5 residual {resid:.3e} against tolerance {tol:.3e} "
@@ -338,7 +338,7 @@ def main() -> int:
             # rounded. `np.polyfit` returns a value whose last bit depends on
             # the BLAS build: the committed record read `12.706923916393878` on
             # one machine and `12.70692391639388` on another, and
-            # `git diff --exit-code RESULTS.md` went red on that line alone.
+            # so the two disagreed on that line alone.
             # Nine places is six orders of margin over where the two differ and
             # nothing reads this number past the second.
             #

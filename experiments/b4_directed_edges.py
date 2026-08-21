@@ -479,9 +479,8 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
 
     # The project's engineering rule 6. The three residuals below are deviations from an
     # identity and sit at machine epsilon, so their last digits are a property
-    # of the BLAS build and writing them into `RESULTS.md`, which CI checks
-    # with `git diff --exit-code`, makes that check fail between machines on
-    # content that asserts the same thing. `worst_friction_move` is **not** one
+    # of the BLAS build, so writing them into the record makes it differ
+    # between machines on content that asserts the same thing. `worst_friction_move` is **not** one
     # of them: it is the magnitude the criterion needs to be large, so it stays
     # in the record.
     for label, value in (
@@ -557,8 +556,8 @@ def main() -> int:
     print("  pure theory; no data is read and no parameter is calibrated\n")
 
     crits: list[Criterion] = []
-    # ``shapes_drawn`` rather than ``shapes``: render_results.subtitle() reads a
-    # key named ``shapes`` as B1's list of graph shapes and calls len() on it.
+    # ``shapes_drawn`` rather than ``shapes``: a key named ``shapes`` is B1's
+    # list of graph shapes, and a reader of both would take one for the other.
     record: dict = {"stage": "B4", "seed": args.seed, "shapes_drawn": args.shapes}
 
     for name, fn in (
@@ -578,7 +577,7 @@ def main() -> int:
         print(c.line())
     print()
 
-    # The list-of-records shape is what scripts/render_results.py consumes. A
+    # The list-of-records shape is this repository's criterion shape. A
     # name->bool mapping loses the detail string, which is the part that says
     # what the criterion actually measured.
     record["criteria"] = [

@@ -1,7 +1,8 @@
 {
   "stage": "A3 \u00a716.1 step one",
   "seeds": 5,
-  "diagnostic_only": "registers nothing and feeds no criterion; PROJECT_PLAN 16.1 step one",
+  "diagnostic_only": true,
+  "diagnostic_reason": "registers nothing and feeds no criterion; it is step one of A3 §16.1's retention profile",
   "shock_round": 20,
   "horizon": 40,
   "n_rows": 1000,
