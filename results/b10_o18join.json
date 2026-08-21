@@ -1,0 +1,46 @@
+{
+  "a": 34596,
+  "caveats": [
+    "months and loans are different units and this file reports loans (\u00a78\u00b728\u00b75 item 2)",
+    "A is `at least one`; the three-way split is beside it",
+    "this station does not choose between prepayment and bookkeeping (\u00a78\u00b728\u00b74)"
+  ],
+  "cell": {
+    "AB": 34596,
+    "Ab": 6797,
+    "aB": 59693,
+    "ab": 13995
+  },
+  "contained_direction": null,
+  "denominator": "loans carrying at least one scored loop (\u00a78\u00b728\u00b72)",
+  "lift": 1.0200972628083804,
+  "lift_if_contained": 1.220513527558888,
+  "lift_if_independent": 1.0,
+  "lift_nearer": "independent",
+  "loans": 1362490,
+  "loans_with_B_no_loop": 453019,
+  "loans_with_loop": 115081,
+  "loops": 115081,
+  "loops_over": 41393,
+  "loops_scored": 115081,
+  "months_frozen": 8863587,
+  "months_le0": 2823423,
+  "months_pairs": 72568434,
+  "n_A": 41393,
+  "n_B": 94289,
+  "n_joined": 115081,
+  "overlap_verdict": "mixed",
+  "p_x": 0.35968578653296374,
+  "p_y": 0.8193272564541497,
+  "predicate_A": "at least one loop with |dP|/P > 500/u0 (\u00a78\u00b726\u00b72, the same pgrid_file call)",
+  "predicate_B": "at least one O18 residue month with the delinquency counter not rising and the balance frozen (b10_o18_null.py's conditions, its constants imported)",
+  "registered": "before the code",
+  "split": {
+    "all_over": 41393,
+    "no_loop": 1247409,
+    "none_over": 73688,
+    "some_over": 0
+  },
+  "stage": "B10",
+  "step": "o18join"
+}

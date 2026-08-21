@@ -1,0 +1,4006 @@
+{
+  "archives": [
+    {
+      "archive": "2002Q1",
+      "common_strata": {
+        "defer": {
+          "L": [
+            4
+          ],
+          "g0m": 0.7768430183156745,
+          "g1": 0.7816163315894602,
+          "loops_g0m": 36,
+          "loops_g1": 37,
+          "n_strata": 1
+        },
+        "mod": {
+          "L": [
+            4,
+            5,
+            6,
+            7,
+            9,
+            11,
+            13
+          ],
+          "g0m": 0.3044961027519908,
+          "g1": 0.15495862303822025,
+          "loops_g0m": 1590,
+          "loops_g1": 1698,
+          "n_strata": 7
+        }
+      },
+      "g1_defer_top_share": 0.8156028368794326,
+      "g1_mod_top_share": 0.8504090377873004,
+      "grids": {
+        "g0m": {
+          "defer": {
+            "coverage": 0.25295508274231676,
+            "dropped_L_range": [
+              2,
+              59
+            ],
+            "dropped_strata": [
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 35
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 32
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 0,
+                "n": 26
+              },
+              {
+                "L": 8,
+                "classes_ge_min": 1,
+                "n": 21
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 0,
+                "n": 20
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 0,
+                "n": 19
+              },
+              {
+                "L": 3,
+                "classes_ge_min": 1,
+                "n": 17
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 0,
+                "n": 17
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 0,
+                "n": 14
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 0,
+                "n": 13
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 0,
+                "n": 12
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 0,
+                "n": 8
+              }
+            ],
+            "loops_dropped": 287,
+            "loops_kept": 107,
+            "loops_small_class_in_kept_strata": 29,
+            "loops_total": 423,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 36,
+                "ratio": 0.7768430183156745
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 31,
+                "ratio": 0.013429372954668591
+              },
+              {
+                "L": 7,
+                "classes": 2,
+                "n": 22,
+                "ratio": 0.013137058932164908
+              },
+              {
+                "L": 5,
+                "classes": 2,
+                "n": 18,
+                "ratio": 0.20785841495361085
+              }
+            ],
+            "strata_dropped": 34,
+            "strata_kept": 4,
+            "stratified_ratio_weighted_median": 0.20785841495361085,
+            "unstratified_ratio": 1.348336946781122
+          },
+          "mod": {
+            "coverage": 0.6047507788161994,
+            "dropped_L_range": [
+              2,
+              147
+            ],
+            "dropped_strata": [
+              {
+                "L": 22,
+                "classes_ge_min": 0,
+                "n": 106
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 0,
+                "n": 87
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 0,
+                "n": 73
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 0,
+                "n": 71
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 0,
+                "n": 63
+              },
+              {
+                "L": 25,
+                "classes_ge_min": 0,
+                "n": 62
+              },
+              {
+                "L": 28,
+                "classes_ge_min": 0,
+                "n": 48
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 44
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 43
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 43
+              },
+              {
+                "L": 33,
+                "classes_ge_min": 0,
+                "n": 35
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 0,
+                "n": 33
+              }
+            ],
+            "loops_dropped": 1190,
+            "loops_kept": 3106,
+            "loops_small_class_in_kept_strata": 840,
+            "loops_total": 5136,
+            "per_stratum": [
+              {
+                "L": 9,
+                "classes": 6,
+                "n": 321,
+                "ratio": 0.3044961027519908
+              },
+              {
+                "L": 10,
+                "classes": 7,
+                "n": 286,
+                "ratio": 0.16426540669127726
+              },
+              {
+                "L": 8,
+                "classes": 5,
+                "n": 278,
+                "ratio": 0.0996905390788604
+              },
+              {
+                "L": 7,
+                "classes": 5,
+                "n": 269,
+                "ratio": 0.2874798488582315
+              },
+              {
+                "L": 11,
+                "classes": 8,
+                "n": 266,
+                "ratio": 0.3046007239243868
+              },
+              {
+                "L": 6,
+                "classes": 4,
+                "n": 245,
+                "ratio": 0.43623697426262636
+              },
+              {
+                "L": 12,
+                "classes": 9,
+                "n": 243,
+                "ratio": 0.22890486810630264
+              },
+              {
+                "L": 13,
+                "classes": 9,
+                "n": 201,
+                "ratio": 0.6433320327015954
+              },
+              {
+                "L": 5,
+                "classes": 4,
+                "n": 196,
+                "ratio": 0.279671426747971
+              },
+              {
+                "L": 14,
+                "classes": 11,
+                "n": 170,
+                "ratio": 0.6774266336758411
+              },
+              {
+                "L": 15,
+                "classes": 11,
+                "n": 153,
+                "ratio": 0.5129664425935335
+              },
+              {
+                "L": 16,
+                "classes": 11,
+                "n": 122,
+                "ratio": 0.6626595686162656
+              },
+              {
+                "L": 17,
+                "classes": 9,
+                "n": 101,
+                "ratio": 0.49744796824733895
+              },
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 92,
+                "ratio": 0.010842939431378118
+              },
+              {
+                "L": 18,
+                "classes": 7,
+                "n": 75,
+                "ratio": 0.4940518845412603
+              },
+              {
+                "L": 19,
+                "classes": 5,
+                "n": 46,
+                "ratio": 0.36550454313731157
+              },
+              {
+                "L": 20,
+                "classes": 3,
+                "n": 26,
+                "ratio": 0.47833789826899464
+              },
+              {
+                "L": 21,
+                "classes": 2,
+                "n": 16,
+                "ratio": 0.039621978457067386
+              }
+            ],
+            "strata_dropped": 79,
+            "strata_kept": 18,
+            "stratified_ratio_weighted_median": 0.3044961027519908,
+            "unstratified_ratio": 0.9569830715024797
+          }
+        },
+        "g1": {
+          "defer": {
+            "coverage": 0.08747044917257683,
+            "dropped_L_range": [
+              2,
+              59
+            ],
+            "dropped_strata": [
+              {
+                "L": 6,
+                "classes_ge_min": 1,
+                "n": 36
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 35
+              },
+              {
+                "L": 7,
+                "classes_ge_min": 1,
+                "n": 34
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 32
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 1,
+                "n": 26
+              },
+              {
+                "L": 5,
+                "classes_ge_min": 1,
+                "n": 22
+              },
+              {
+                "L": 8,
+                "classes_ge_min": 1,
+                "n": 21
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 20
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 1,
+                "n": 19
+              },
+              {
+                "L": 3,
+                "classes_ge_min": 1,
+                "n": 17
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 17
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 14
+              }
+            ],
+            "loops_dropped": 379,
+            "loops_kept": 37,
+            "loops_small_class_in_kept_strata": 7,
+            "loops_total": 423,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 37,
+                "ratio": 0.7816163315894602
+              }
+            ],
+            "strata_dropped": 37,
+            "strata_kept": 1,
+            "stratified_ratio_weighted_median": 0.7816163315894602,
+            "unstratified_ratio": 0.6612445089694774
+          },
+          "mod": {
+            "coverage": 0.34865601869887025,
+            "dropped_L_range": [
+              2,
+              147
+            ],
+            "dropped_strata": [
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 322
+              },
+              {
+                "L": 8,
+                "classes_ge_min": 1,
+                "n": 303
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 280
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 213
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 196
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 172
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 169
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 164
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 114
+              },
+              {
+                "L": 22,
+                "classes_ge_min": 1,
+                "n": 106
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 1,
+                "n": 100
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 96
+              }
+            ],
+            "loops_dropped": 3217,
+            "loops_kept": 1790,
+            "loops_small_class_in_kept_strata": 127,
+            "loops_total": 5134,
+            "per_stratum": [
+              {
+                "L": 9,
+                "classes": 2,
+                "n": 338,
+                "ratio": 0.12739370421888835
+              },
+              {
+                "L": 11,
+                "classes": 2,
+                "n": 286,
+                "ratio": 0.09079784980150257
+              },
+              {
+                "L": 7,
+                "classes": 3,
+                "n": 283,
+                "ratio": 0.15495862303822025
+              },
+              {
+                "L": 6,
+                "classes": 3,
+                "n": 255,
+                "ratio": 0.6664867625934532
+              },
+              {
+                "L": 13,
+                "classes": 3,
+                "n": 238,
+                "ratio": 0.24986195873559272
+              },
+              {
+                "L": 5,
+                "classes": 4,
+                "n": 206,
+                "ratio": 0.39289271385994795
+              },
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 92,
+                "ratio": 0.010842939431378118
+              },
+              {
+                "L": 24,
+                "classes": 2,
+                "n": 69,
+                "ratio": 0.15487133612691298
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 23,
+                "ratio": 0.5638752633221803
+              }
+            ],
+            "strata_dropped": 88,
+            "strata_kept": 9,
+            "stratified_ratio_weighted_median": 0.15495862303822025,
+            "unstratified_ratio": 0.2600319614788165
+          }
+        }
+      },
+      "min_for_iqr": 8
+    },
+    {
+      "archive": "2006Q1",
+      "common_strata": {
+        "defer": {
+          "L": [
+            3,
+            4
+          ],
+          "g0m": 0.21365103641243752,
+          "g1": 0.2116958645534599,
+          "loops_g0m": 104,
+          "loops_g1": 105,
+          "n_strata": 2
+        },
+        "mod": {
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            15,
+            21,
+            22,
+            24,
+            25
+          ],
+          "g0m": 0.09717237206397886,
+          "g1": 0.06348918388863183,
+          "loops_g0m": 4456,
+          "loops_g1": 5110,
+          "n_strata": 14
+        }
+      },
+      "g1_defer_top_share": 0.7917771883289124,
+      "g1_mod_top_share": 0.8740850642927794,
+      "grids": {
+        "g0m": {
+          "defer": {
+            "coverage": 0.3726790450928382,
+            "dropped_L_range": [
+              2,
+              114
+            ],
+            "dropped_strata": [
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 56
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 41
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 37
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 29
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 28
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 25
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 24
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 0,
+                "n": 22
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 22
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 0,
+                "n": 15
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 0,
+                "n": 14
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 12
+              }
+            ],
+            "loops_dropped": 390,
+            "loops_kept": 281,
+            "loops_small_class_in_kept_strata": 83,
+            "loops_total": 754,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 60,
+                "ratio": 0.21365103641243752
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 48,
+                "ratio": 0.14238016933060663
+              },
+              {
+                "L": 7,
+                "classes": 3,
+                "n": 48,
+                "ratio": 0.41932700758454444
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 44,
+                "ratio": 0.4692738250765473
+              },
+              {
+                "L": 5,
+                "classes": 2,
+                "n": 31,
+                "ratio": 0.18800321721136345
+              },
+              {
+                "L": 8,
+                "classes": 2,
+                "n": 27,
+                "ratio": 0.36616990454400505
+              },
+              {
+                "L": 9,
+                "classes": 2,
+                "n": 23,
+                "ratio": 0.19467656100420447
+              }
+            ],
+            "strata_dropped": 35,
+            "strata_kept": 7,
+            "stratified_ratio_weighted_median": 0.21365103641243752,
+            "unstratified_ratio": 1.9068333287968102
+          },
+          "mod": {
+            "coverage": 0.6997329640985066,
+            "dropped_L_range": [
+              2,
+              118
+            ],
+            "dropped_strata": [
+              {
+                "L": 26,
+                "classes_ge_min": 1,
+                "n": 123
+              },
+              {
+                "L": 28,
+                "classes_ge_min": 0,
+                "n": 116
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 1,
+                "n": 107
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 98
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 0,
+                "n": 83
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 80
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 76
+              },
+              {
+                "L": 35,
+                "classes_ge_min": 0,
+                "n": 54
+              },
+              {
+                "L": 34,
+                "classes_ge_min": 0,
+                "n": 52
+              },
+              {
+                "L": 36,
+                "classes_ge_min": 0,
+                "n": 52
+              },
+              {
+                "L": 37,
+                "classes_ge_min": 0,
+                "n": 51
+              },
+              {
+                "L": 33,
+                "classes_ge_min": 0,
+                "n": 50
+              }
+            ],
+            "loops_dropped": 1497,
+            "loops_kept": 7075,
+            "loops_small_class_in_kept_strata": 1539,
+            "loops_total": 10111,
+            "per_stratum": [
+              {
+                "L": 8,
+                "classes": 6,
+                "n": 660,
+                "ratio": 0.05155831954822989
+              },
+              {
+                "L": 9,
+                "classes": 7,
+                "n": 632,
+                "ratio": 0.09717237206397886
+              },
+              {
+                "L": 10,
+                "classes": 8,
+                "n": 611,
+                "ratio": 0.1103698999113371
+              },
+              {
+                "L": 11,
+                "classes": 9,
+                "n": 574,
+                "ratio": 0.09682273135597848
+              },
+              {
+                "L": 7,
+                "classes": 5,
+                "n": 519,
+                "ratio": 0.0819506638116026
+              },
+              {
+                "L": 12,
+                "classes": 9,
+                "n": 480,
+                "ratio": 0.09428473812358812
+              },
+              {
+                "L": 13,
+                "classes": 10,
+                "n": 456,
+                "ratio": 0.18378727367734923
+              },
+              {
+                "L": 6,
+                "classes": 6,
+                "n": 433,
+                "ratio": 0.23154268628934452
+              },
+              {
+                "L": 14,
+                "classes": 11,
+                "n": 401,
+                "ratio": 0.11252365255944277
+              },
+              {
+                "L": 15,
+                "classes": 12,
+                "n": 351,
+                "ratio": 0.1659627552486776
+              },
+              {
+                "L": 16,
+                "classes": 13,
+                "n": 335,
+                "ratio": 0.09645311965826502
+              },
+              {
+                "L": 5,
+                "classes": 4,
+                "n": 286,
+                "ratio": 0.27304382287122125
+              },
+              {
+                "L": 17,
+                "classes": 13,
+                "n": 262,
+                "ratio": 0.3163032531497162
+              },
+              {
+                "L": 18,
+                "classes": 14,
+                "n": 241,
+                "ratio": 0.5043388281247756
+              },
+              {
+                "L": 19,
+                "classes": 14,
+                "n": 194,
+                "ratio": 0.30000950109035124
+              },
+              {
+                "L": 20,
+                "classes": 14,
+                "n": 162,
+                "ratio": 0.5451326960585943
+              },
+              {
+                "L": 21,
+                "classes": 13,
+                "n": 148,
+                "ratio": 0.17343815767772094
+              },
+              {
+                "L": 4,
+                "classes": 3,
+                "n": 90,
+                "ratio": 0.02790844719907227
+              },
+              {
+                "L": 23,
+                "classes": 8,
+                "n": 88,
+                "ratio": 0.610237360812938
+              },
+              {
+                "L": 22,
+                "classes": 6,
+                "n": 58,
+                "ratio": 0.7518071730649223
+              },
+              {
+                "L": 24,
+                "classes": 4,
+                "n": 38,
+                "ratio": 0.2688364146266313
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 28,
+                "ratio": 0.22155572657669478
+              },
+              {
+                "L": 25,
+                "classes": 3,
+                "n": 28,
+                "ratio": 0.1609173353982458
+              }
+            ],
+            "strata_dropped": 76,
+            "strata_kept": 23,
+            "stratified_ratio_weighted_median": 0.1103698999113371,
+            "unstratified_ratio": 0.33394122900538786
+          }
+        },
+        "g1": {
+          "defer": {
+            "coverage": 0.13925729442970822,
+            "dropped_L_range": [
+              2,
+              114
+            ],
+            "dropped_strata": [
+              {
+                "L": 6,
+                "classes_ge_min": 1,
+                "n": 64
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 56
+              },
+              {
+                "L": 7,
+                "classes_ge_min": 1,
+                "n": 54
+              },
+              {
+                "L": 8,
+                "classes_ge_min": 1,
+                "n": 50
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 1,
+                "n": 43
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 41
+              },
+              {
+                "L": 5,
+                "classes_ge_min": 1,
+                "n": 38
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 37
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 29
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 28
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 25
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 24
+              }
+            ],
+            "loops_dropped": 639,
+            "loops_kept": 105,
+            "loops_small_class_in_kept_strata": 10,
+            "loops_total": 754,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 61,
+                "ratio": 0.2116958645534599
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 44,
+                "ratio": 0.4692738250765473
+              }
+            ],
+            "strata_dropped": 40,
+            "strata_kept": 2,
+            "stratified_ratio_weighted_median": 0.2116958645534599,
+            "unstratified_ratio": 0.6864596619990951
+          },
+          "mod": {
+            "coverage": 0.540652818991098,
+            "dropped_L_range": [
+              12,
+              118
+            ],
+            "dropped_strata": [
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 548
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 517
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 475
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 402
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 345
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 315
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 269
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 1,
+                "n": 226
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 189
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 1,
+                "n": 123
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 1,
+                "n": 83
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 1,
+                "n": 80
+              }
+            ],
+            "loops_dropped": 4392,
+            "loops_kept": 5466,
+            "loops_small_class_in_kept_strata": 252,
+            "loops_total": 10110,
+            "per_stratum": [
+              {
+                "L": 8,
+                "classes": 2,
+                "n": 686,
+                "ratio": 0.06348918388863183
+              },
+              {
+                "L": 9,
+                "classes": 2,
+                "n": 657,
+                "ratio": 0.06476659427479364
+              },
+              {
+                "L": 10,
+                "classes": 2,
+                "n": 655,
+                "ratio": 0.04441116241643162
+              },
+              {
+                "L": 11,
+                "classes": 2,
+                "n": 610,
+                "ratio": 0.03346833207733559
+              },
+              {
+                "L": 7,
+                "classes": 3,
+                "n": 540,
+                "ratio": 0.15353682392722873
+              },
+              {
+                "L": 6,
+                "classes": 5,
+                "n": 458,
+                "ratio": 0.4431562874870528
+              },
+              {
+                "L": 15,
+                "classes": 2,
+                "n": 394,
+                "ratio": 0.05608528941057784
+              },
+              {
+                "L": 5,
+                "classes": 3,
+                "n": 289,
+                "ratio": 0.14602210898646956
+              },
+              {
+                "L": 21,
+                "classes": 2,
+                "n": 222,
+                "ratio": 0.04621796190713878
+              },
+              {
+                "L": 22,
+                "classes": 2,
+                "n": 176,
+                "ratio": 0.08811213228315981
+              },
+              {
+                "L": 24,
+                "classes": 2,
+                "n": 154,
+                "ratio": 0.04494783171001573
+              },
+              {
+                "L": 25,
+                "classes": 2,
+                "n": 143,
+                "ratio": 0.07270457238170179
+              },
+              {
+                "L": 28,
+                "classes": 2,
+                "n": 109,
+                "ratio": 0.049568203633623666
+              },
+              {
+                "L": 4,
+                "classes": 4,
+                "n": 98,
+                "ratio": 0.05834890513113877
+              },
+              {
+                "L": 27,
+                "classes": 2,
+                "n": 95,
+                "ratio": 0.012036757596721204
+              },
+              {
+                "L": 30,
+                "classes": 2,
+                "n": 87,
+                "ratio": 0.015197836736089517
+              },
+              {
+                "L": 37,
+                "classes": 2,
+                "n": 48,
+                "ratio": 0.08324511191454305
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 28,
+                "ratio": 0.22155572657669478
+              },
+              {
+                "L": 2,
+                "classes": 2,
+                "n": 17,
+                "ratio": 1.241865772935961
+              }
+            ],
+            "strata_dropped": 80,
+            "strata_kept": 19,
+            "stratified_ratio_weighted_median": 0.06348918388863183,
+            "unstratified_ratio": 0.22023502136496936
+          }
+        }
+      },
+      "min_for_iqr": 8
+    },
+    {
+      "archive": "2007Q1",
+      "common_strata": {
+        "defer": {
+          "L": [
+            4,
+            6,
+            7
+          ],
+          "g0m": 0.9685497624436743,
+          "g1": 0.6052822973436572,
+          "loops_g0m": 210,
+          "loops_g1": 218,
+          "n_strata": 3
+        },
+        "mod": {
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            20,
+            22,
+            24,
+            25
+          ],
+          "g0m": 0.11824524023999657,
+          "g1": 0.11457800108533481,
+          "loops_g0m": 8559,
+          "loops_g1": 9654,
+          "n_strata": 20
+        }
+      },
+      "g1_defer_top_share": 0.8190899001109878,
+      "g1_mod_top_share": 0.88191969588976,
+      "grids": {
+        "g0m": {
+          "defer": {
+            "coverage": 0.3751387347391787,
+            "dropped_L_range": [
+              2,
+              83
+            ],
+            "dropped_strata": [
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 53
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 1,
+                "n": 49
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 44
+              },
+              {
+                "L": 3,
+                "classes_ge_min": 1,
+                "n": 42
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 39
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 35
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 33
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 32
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 1,
+                "n": 27
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 27
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 21
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 0,
+                "n": 14
+              }
+            ],
+            "loops_dropped": 494,
+            "loops_kept": 338,
+            "loops_small_class_in_kept_strata": 69,
+            "loops_total": 901,
+            "per_stratum": [
+              {
+                "L": 6,
+                "classes": 4,
+                "n": 71,
+                "ratio": 0.9685497624436743
+              },
+              {
+                "L": 7,
+                "classes": 4,
+                "n": 70,
+                "ratio": 1.8961879046279828
+              },
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 69,
+                "ratio": 0.33227965021408656
+              },
+              {
+                "L": 5,
+                "classes": 2,
+                "n": 63,
+                "ratio": 0.317538764550188
+              },
+              {
+                "L": 8,
+                "classes": 2,
+                "n": 37,
+                "ratio": 0.413314469243394
+              },
+              {
+                "L": 19,
+                "classes": 2,
+                "n": 28,
+                "ratio": 0.3551902947335294
+              }
+            ],
+            "strata_dropped": 36,
+            "strata_kept": 6,
+            "stratified_ratio_weighted_median": 0.413314469243394,
+            "unstratified_ratio": 0.9578862904563867
+          },
+          "mod": {
+            "coverage": 0.7291947105867448,
+            "dropped_L_range": [
+              2,
+              127
+            ],
+            "dropped_strata": [
+              {
+                "L": 27,
+                "classes_ge_min": 1,
+                "n": 144
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 129
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 118
+              },
+              {
+                "L": 28,
+                "classes_ge_min": 1,
+                "n": 116
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 0,
+                "n": 94
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 89
+              },
+              {
+                "L": 33,
+                "classes_ge_min": 0,
+                "n": 76
+              },
+              {
+                "L": 34,
+                "classes_ge_min": 0,
+                "n": 62
+              },
+              {
+                "L": 36,
+                "classes_ge_min": 0,
+                "n": 60
+              },
+              {
+                "L": 35,
+                "classes_ge_min": 0,
+                "n": 56
+              },
+              {
+                "L": 37,
+                "classes_ge_min": 0,
+                "n": 49
+              },
+              {
+                "L": 38,
+                "classes_ge_min": 0,
+                "n": 49
+              }
+            ],
+            "loops_dropped": 1572,
+            "loops_kept": 9209,
+            "loops_small_class_in_kept_strata": 1848,
+            "loops_total": 12629,
+            "per_stratum": [
+              {
+                "L": 10,
+                "classes": 8,
+                "n": 809,
+                "ratio": 0.0795391238296466
+              },
+              {
+                "L": 8,
+                "classes": 7,
+                "n": 783,
+                "ratio": 0.16674448983179532
+              },
+              {
+                "L": 9,
+                "classes": 7,
+                "n": 776,
+                "ratio": 0.02906468642750478
+              },
+              {
+                "L": 11,
+                "classes": 9,
+                "n": 713,
+                "ratio": 0.11824524023999657
+              },
+              {
+                "L": 12,
+                "classes": 9,
+                "n": 694,
+                "ratio": 0.0977474309234344
+              },
+              {
+                "L": 7,
+                "classes": 5,
+                "n": 626,
+                "ratio": 0.02488951495667949
+              },
+              {
+                "L": 13,
+                "classes": 11,
+                "n": 594,
+                "ratio": 0.1824584235969009
+              },
+              {
+                "L": 14,
+                "classes": 12,
+                "n": 517,
+                "ratio": 0.046558130319167286
+              },
+              {
+                "L": 6,
+                "classes": 5,
+                "n": 506,
+                "ratio": 0.39057335641266844
+              },
+              {
+                "L": 15,
+                "classes": 12,
+                "n": 479,
+                "ratio": 0.07989244902875334
+              },
+              {
+                "L": 16,
+                "classes": 12,
+                "n": 395,
+                "ratio": 0.19038205376801992
+              },
+              {
+                "L": 5,
+                "classes": 4,
+                "n": 370,
+                "ratio": 0.1600931542043484
+              },
+              {
+                "L": 17,
+                "classes": 14,
+                "n": 366,
+                "ratio": 0.27438599188591717
+              },
+              {
+                "L": 18,
+                "classes": 14,
+                "n": 284,
+                "ratio": 0.11791471166406277
+              },
+              {
+                "L": 19,
+                "classes": 14,
+                "n": 276,
+                "ratio": 0.3375456027864143
+              },
+              {
+                "L": 20,
+                "classes": 16,
+                "n": 237,
+                "ratio": 0.4087732446397487
+              },
+              {
+                "L": 21,
+                "classes": 15,
+                "n": 217,
+                "ratio": 0.5073192151019005
+              },
+              {
+                "L": 22,
+                "classes": 12,
+                "n": 147,
+                "ratio": 0.39026022899507856
+              },
+              {
+                "L": 23,
+                "classes": 10,
+                "n": 111,
+                "ratio": 0.32572904730397295
+              },
+              {
+                "L": 4,
+                "classes": 3,
+                "n": 98,
+                "ratio": 0.1631516469267292
+              },
+              {
+                "L": 24,
+                "classes": 9,
+                "n": 84,
+                "ratio": 0.2877542206250951
+              },
+              {
+                "L": 25,
+                "classes": 6,
+                "n": 60,
+                "ratio": 0.25999762073777016
+              },
+              {
+                "L": 26,
+                "classes": 4,
+                "n": 38,
+                "ratio": 0.5229410766445086
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 29,
+                "ratio": 0.5170269839240268
+              }
+            ],
+            "strata_dropped": 79,
+            "strata_kept": 24,
+            "stratified_ratio_weighted_median": 0.11824524023999657,
+            "unstratified_ratio": 0.31892141475672814
+          }
+        },
+        "g1": {
+          "defer": {
+            "coverage": 0.24195338512763595,
+            "dropped_L_range": [
+              2,
+              83
+            ],
+            "dropped_strata": [
+              {
+                "L": 5,
+                "classes_ge_min": 1,
+                "n": 73
+              },
+              {
+                "L": 8,
+                "classes_ge_min": 1,
+                "n": 56
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 53
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 1,
+                "n": 49
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 44
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 44
+              },
+              {
+                "L": 3,
+                "classes_ge_min": 1,
+                "n": 42
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 39
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 35
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 33
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 32
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 1,
+                "n": 27
+              }
+            ],
+            "loops_dropped": 667,
+            "loops_kept": 218,
+            "loops_small_class_in_kept_strata": 16,
+            "loops_total": 901,
+            "per_stratum": [
+              {
+                "L": 7,
+                "classes": 2,
+                "n": 78,
+                "ratio": 0.6052822973436572
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 71,
+                "ratio": 0.9107014429800158
+              },
+              {
+                "L": 4,
+                "classes": 2,
+                "n": 69,
+                "ratio": 0.33227965021408656
+              }
+            ],
+            "strata_dropped": 39,
+            "strata_kept": 3,
+            "stratified_ratio_weighted_median": 0.6052822973436572,
+            "unstratified_ratio": 0.7310100445953825
+          },
+          "mod": {
+            "coverage": 0.7814999604023125,
+            "dropped_L_range": [
+              18,
+              127
+            ],
+            "dropped_strata": [
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 362
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 295
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 225
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 1,
+                "n": 165
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 1,
+                "n": 144
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 1,
+                "n": 129
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 1,
+                "n": 118
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 1,
+                "n": 89
+              },
+              {
+                "L": 33,
+                "classes_ge_min": 1,
+                "n": 76
+              },
+              {
+                "L": 34,
+                "classes_ge_min": 1,
+                "n": 62
+              },
+              {
+                "L": 36,
+                "classes_ge_min": 1,
+                "n": 60
+              },
+              {
+                "L": 35,
+                "classes_ge_min": 1,
+                "n": 56
+              }
+            ],
+            "loops_dropped": 2379,
+            "loops_kept": 9868,
+            "loops_small_class_in_kept_strata": 380,
+            "loops_total": 12627,
+            "per_stratum": [
+              {
+                "L": 10,
+                "classes": 3,
+                "n": 863,
+                "ratio": 0.21656948818851723
+              },
+              {
+                "L": 8,
+                "classes": 4,
+                "n": 836,
+                "ratio": 0.4607267064487238
+              },
+              {
+                "L": 9,
+                "classes": 3,
+                "n": 828,
+                "ratio": 0.04691541296014376
+              },
+              {
+                "L": 11,
+                "classes": 3,
+                "n": 771,
+                "ratio": 0.11457800108533481
+              },
+              {
+                "L": 12,
+                "classes": 3,
+                "n": 763,
+                "ratio": 0.24334340869869672
+              },
+              {
+                "L": 7,
+                "classes": 3,
+                "n": 667,
+                "ratio": 0.04373116379403359
+              },
+              {
+                "L": 13,
+                "classes": 3,
+                "n": 666,
+                "ratio": 0.31699883569153237
+              },
+              {
+                "L": 14,
+                "classes": 2,
+                "n": 581,
+                "ratio": 0.030022440753685598
+              },
+              {
+                "L": 15,
+                "classes": 3,
+                "n": 540,
+                "ratio": 0.03546515659256463
+              },
+              {
+                "L": 6,
+                "classes": 4,
+                "n": 525,
+                "ratio": 0.2990120429984565
+              },
+              {
+                "L": 16,
+                "classes": 3,
+                "n": 478,
+                "ratio": 0.18788756453403946
+              },
+              {
+                "L": 17,
+                "classes": 2,
+                "n": 420,
+                "ratio": 0.00196041226854371
+              },
+              {
+                "L": 5,
+                "classes": 3,
+                "n": 371,
+                "ratio": 0.04494815975491762
+              },
+              {
+                "L": 19,
+                "classes": 2,
+                "n": 337,
+                "ratio": 0.1791299127506571
+              },
+              {
+                "L": 20,
+                "classes": 2,
+                "n": 292,
+                "ratio": 0.06389527348322528
+              },
+              {
+                "L": 22,
+                "classes": 2,
+                "n": 232,
+                "ratio": 0.09711441704101723
+              },
+              {
+                "L": 25,
+                "classes": 2,
+                "n": 187,
+                "ratio": 0.17656880058769361
+              },
+              {
+                "L": 24,
+                "classes": 2,
+                "n": 160,
+                "ratio": 0.05258622191073012
+              },
+              {
+                "L": 28,
+                "classes": 2,
+                "n": 104,
+                "ratio": 0.3226074132729168
+              },
+              {
+                "L": 4,
+                "classes": 3,
+                "n": 100,
+                "ratio": 0.14911514216241714
+              },
+              {
+                "L": 31,
+                "classes": 2,
+                "n": 82,
+                "ratio": 0.19193937863846175
+              },
+              {
+                "L": 3,
+                "classes": 3,
+                "n": 37,
+                "ratio": 0.5588157645691166
+              },
+              {
+                "L": 2,
+                "classes": 2,
+                "n": 28,
+                "ratio": 0.4294983890960301
+              }
+            ],
+            "strata_dropped": 80,
+            "strata_kept": 23,
+            "stratified_ratio_weighted_median": 0.14911514216241714,
+            "unstratified_ratio": 0.3572166782512133
+          }
+        }
+      },
+      "min_for_iqr": 8
+    },
+    {
+      "archive": "2012Q1",
+      "common_strata": {
+        "defer": {
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            12
+          ],
+          "g0m": 0.4755150086919541,
+          "g1": 0.4755150086919541,
+          "loops_g0m": 2753,
+          "loops_g1": 2792,
+          "n_strata": 7
+        },
+        "mod": {
+          "L": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            18
+          ],
+          "g0m": 0.5045119627991942,
+          "g1": 0.39871909795472615,
+          "loops_g0m": 646,
+          "loops_g1": 730,
+          "n_strata": 6
+        }
+      },
+      "g1_defer_top_share": 0.8108677337826453,
+      "g1_mod_top_share": 0.8671407185628742,
+      "grids": {
+        "g0m": {
+          "defer": {
+            "coverage": 0.8449873631002527,
+            "dropped_L_range": [
+              2,
+              87
+            ],
+            "dropped_strata": [
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 75
+              },
+              {
+                "L": 2,
+                "classes_ge_min": 1,
+                "n": 42
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 42
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 0,
+                "n": 20
+              },
+              {
+                "L": 22,
+                "classes_ge_min": 0,
+                "n": 19
+              },
+              {
+                "L": 25,
+                "classes_ge_min": 0,
+                "n": 11
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 0,
+                "n": 10
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 8
+              },
+              {
+                "L": 28,
+                "classes_ge_min": 0,
+                "n": 7
+              },
+              {
+                "L": 34,
+                "classes_ge_min": 0,
+                "n": 4
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 0,
+                "n": 3
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 0,
+                "n": 3
+              }
+            ],
+            "loops_dropped": 265,
+            "loops_kept": 4012,
+            "loops_small_class_in_kept_strata": 471,
+            "loops_total": 4748,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 3,
+                "n": 753,
+                "ratio": 0.4755150086919541
+              },
+              {
+                "L": 6,
+                "classes": 5,
+                "n": 488,
+                "ratio": 0.5258544154840035
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 411,
+                "ratio": 0.45109983503230905
+              },
+              {
+                "L": 7,
+                "classes": 5,
+                "n": 388,
+                "ratio": 0.7811367720743683
+              },
+              {
+                "L": 5,
+                "classes": 3,
+                "n": 293,
+                "ratio": 0.29106871206811485
+              },
+              {
+                "L": 18,
+                "classes": 3,
+                "n": 252,
+                "ratio": 1.059028668229703
+              },
+              {
+                "L": 12,
+                "classes": 6,
+                "n": 238,
+                "ratio": 0.4682415736868446
+              },
+              {
+                "L": 13,
+                "classes": 5,
+                "n": 186,
+                "ratio": 0.5520424660488393
+              },
+              {
+                "L": 8,
+                "classes": 6,
+                "n": 182,
+                "ratio": 0.7658477789249561
+              },
+              {
+                "L": 9,
+                "classes": 5,
+                "n": 161,
+                "ratio": 0.6802191460015345
+              },
+              {
+                "L": 10,
+                "classes": 5,
+                "n": 137,
+                "ratio": 0.8561160988146965
+              },
+              {
+                "L": 19,
+                "classes": 2,
+                "n": 120,
+                "ratio": 0.09427886205083465
+              },
+              {
+                "L": 15,
+                "classes": 3,
+                "n": 112,
+                "ratio": 0.1255075111632132
+              },
+              {
+                "L": 11,
+                "classes": 4,
+                "n": 104,
+                "ratio": 0.34646195915533373
+              },
+              {
+                "L": 16,
+                "classes": 3,
+                "n": 77,
+                "ratio": 0.3484901078872224
+              },
+              {
+                "L": 14,
+                "classes": 2,
+                "n": 60,
+                "ratio": 0.09660336957006443
+              },
+              {
+                "L": 20,
+                "classes": 3,
+                "n": 50,
+                "ratio": 0.4885248641565938
+              }
+            ],
+            "strata_dropped": 26,
+            "strata_kept": 17,
+            "stratified_ratio_weighted_median": 0.4755150086919541,
+            "unstratified_ratio": 1.672972288533235
+          },
+          "mod": {
+            "coverage": 0.5948372615039281,
+            "dropped_L_range": [
+              2,
+              106
+            ],
+            "dropped_strata": [
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 66
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 64
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 59
+              },
+              {
+                "L": 22,
+                "classes_ge_min": 1,
+                "n": 57
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 0,
+                "n": 54
+              },
+              {
+                "L": 25,
+                "classes_ge_min": 1,
+                "n": 47
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 0,
+                "n": 44
+              },
+              {
+                "L": 28,
+                "classes_ge_min": 0,
+                "n": 26
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 23
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 0,
+                "n": 19
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 16
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 15
+              }
+            ],
+            "loops_dropped": 596,
+            "loops_kept": 1590,
+            "loops_small_class_in_kept_strata": 487,
+            "loops_total": 2673,
+            "per_stratum": [
+              {
+                "L": 9,
+                "classes": 6,
+                "n": 228,
+                "ratio": 0.29931067644288234
+              },
+              {
+                "L": 8,
+                "classes": 5,
+                "n": 225,
+                "ratio": 0.5045119627991942
+              },
+              {
+                "L": 10,
+                "classes": 5,
+                "n": 192,
+                "ratio": 0.2680229056053193
+              },
+              {
+                "L": 11,
+                "classes": 6,
+                "n": 171,
+                "ratio": 0.22454388634582653
+              },
+              {
+                "L": 12,
+                "classes": 6,
+                "n": 144,
+                "ratio": 0.40447223655624676
+              },
+              {
+                "L": 13,
+                "classes": 8,
+                "n": 136,
+                "ratio": 0.4061716971965216
+              },
+              {
+                "L": 7,
+                "classes": 4,
+                "n": 106,
+                "ratio": 0.7528096438078532
+              },
+              {
+                "L": 14,
+                "classes": 8,
+                "n": 88,
+                "ratio": 0.59258631815138
+              },
+              {
+                "L": 15,
+                "classes": 8,
+                "n": 84,
+                "ratio": 0.6684881872641064
+              },
+              {
+                "L": 16,
+                "classes": 5,
+                "n": 51,
+                "ratio": 0.1310490901906409
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 50,
+                "ratio": 0.08430835960969058
+              },
+              {
+                "L": 17,
+                "classes": 3,
+                "n": 32,
+                "ratio": 0.759729405329287
+              },
+              {
+                "L": 24,
+                "classes": 2,
+                "n": 28,
+                "ratio": 0.13933711515076444
+              },
+              {
+                "L": 18,
+                "classes": 2,
+                "n": 19,
+                "ratio": 0.24762171815988915
+              },
+              {
+                "L": 5,
+                "classes": 2,
+                "n": 18,
+                "ratio": 0.1791880129309031
+              },
+              {
+                "L": 26,
+                "classes": 2,
+                "n": 18,
+                "ratio": 0.14414308813822255
+              }
+            ],
+            "strata_dropped": 46,
+            "strata_kept": 16,
+            "stratified_ratio_weighted_median": 0.40447223655624676,
+            "unstratified_ratio": 0.6779125480366622
+          }
+        },
+        "g1": {
+          "defer": {
+            "coverage": 0.5964616680707666,
+            "dropped_L_range": [
+              9,
+              87
+            ],
+            "dropped_strata": [
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 297
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 230
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 1,
+                "n": 188
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 174
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 163
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 1,
+                "n": 143
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 143
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 110
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 107
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 75
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 1,
+                "n": 68
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 42
+              }
+            ],
+            "loops_dropped": 1846,
+            "loops_kept": 2832,
+            "loops_small_class_in_kept_strata": 70,
+            "loops_total": 4748,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 3,
+                "n": 753,
+                "ratio": 0.4755150086919541
+              },
+              {
+                "L": 6,
+                "classes": 3,
+                "n": 490,
+                "ratio": 0.5071934681700094
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 411,
+                "ratio": 0.45109983503230905
+              },
+              {
+                "L": 7,
+                "classes": 2,
+                "n": 391,
+                "ratio": 0.8663397833330787
+              },
+              {
+                "L": 5,
+                "classes": 2,
+                "n": 295,
+                "ratio": 0.2507159152395145
+              },
+              {
+                "L": 12,
+                "classes": 2,
+                "n": 262,
+                "ratio": 0.7107527346553223
+              },
+              {
+                "L": 8,
+                "classes": 2,
+                "n": 190,
+                "ratio": 0.6595135397744114
+              },
+              {
+                "L": 2,
+                "classes": 2,
+                "n": 40,
+                "ratio": 0.03471838124513152
+              }
+            ],
+            "strata_dropped": 35,
+            "strata_kept": 8,
+            "stratified_ratio_weighted_median": 0.4755150086919541,
+            "unstratified_ratio": 0.17522743345627562
+          },
+          "mod": {
+            "coverage": 0.27320359281437123,
+            "dropped_L_range": [
+              2,
+              106
+            ],
+            "dropped_strata": [
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 217
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 1,
+                "n": 203
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 175
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 170
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 119
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 119
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 97
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 83
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 66
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 64
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 59
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 1,
+                "n": 59
+              }
+            ],
+            "loops_dropped": 1877,
+            "loops_kept": 730,
+            "loops_small_class_in_kept_strata": 65,
+            "loops_total": 2672,
+            "per_stratum": [
+              {
+                "L": 8,
+                "classes": 2,
+                "n": 232,
+                "ratio": 0.39871909795472615
+              },
+              {
+                "L": 9,
+                "classes": 2,
+                "n": 232,
+                "ratio": 0.70996788758601
+              },
+              {
+                "L": 7,
+                "classes": 2,
+                "n": 112,
+                "ratio": 0.22967938589773856
+              },
+              {
+                "L": 18,
+                "classes": 2,
+                "n": 80,
+                "ratio": 0.012608159207073411
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 56,
+                "ratio": 0.09200236089262082
+              },
+              {
+                "L": 5,
+                "classes": 2,
+                "n": 18,
+                "ratio": 0.1791880129309031
+              }
+            ],
+            "strata_dropped": 56,
+            "strata_kept": 6,
+            "stratified_ratio_weighted_median": 0.39871909795472615,
+            "unstratified_ratio": 0.39968203052741985
+          }
+        }
+      },
+      "min_for_iqr": 8
+    },
+    {
+      "archive": "2017Q1",
+      "common_strata": {
+        "defer": {
+          "L": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            17
+          ],
+          "g0m": 1.0182587063597408,
+          "g1": 1.0522091889542748,
+          "loops_g0m": 10264,
+          "loops_g1": 10582,
+          "n_strata": 14
+        },
+        "mod": {
+          "L": [
+            6,
+            7,
+            8
+          ],
+          "g0m": 0.6469624314855094,
+          "g1": 0.6020638103304168,
+          "loops_g0m": 436,
+          "loops_g1": 451,
+          "n_strata": 3
+        }
+      },
+      "g1_defer_top_share": 0.8322378249178368,
+      "g1_mod_top_share": 0.9019230769230769,
+      "grids": {
+        "g0m": {
+          "defer": {
+            "coverage": 0.9023297491039427,
+            "dropped_L_range": [
+              22,
+              58
+            ],
+            "dropped_strata": [
+              {
+                "L": 22,
+                "classes_ge_min": 0,
+                "n": 64
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 0,
+                "n": 50
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 0,
+                "n": 32
+              },
+              {
+                "L": 25,
+                "classes_ge_min": 0,
+                "n": 30
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 0,
+                "n": 24
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 0,
+                "n": 16
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 12
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 9
+              },
+              {
+                "L": 35,
+                "classes_ge_min": 0,
+                "n": 9
+              },
+              {
+                "L": 28,
+                "classes_ge_min": 0,
+                "n": 8
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 8
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 0,
+                "n": 6
+              }
+            ],
+            "loops_dropped": 299,
+            "loops_kept": 12084,
+            "loops_small_class_in_kept_strata": 1009,
+            "loops_total": 13392,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 3,
+                "n": 1758,
+                "ratio": 0.6491463592523936
+              },
+              {
+                "L": 6,
+                "classes": 5,
+                "n": 1311,
+                "ratio": 1.0356334953972508
+              },
+              {
+                "L": 7,
+                "classes": 6,
+                "n": 1283,
+                "ratio": 1.0182587063597408
+              },
+              {
+                "L": 3,
+                "classes": 2,
+                "n": 913,
+                "ratio": 0.4467360375970458
+              },
+              {
+                "L": 5,
+                "classes": 4,
+                "n": 899,
+                "ratio": 0.9084036005907039
+              },
+              {
+                "L": 12,
+                "classes": 10,
+                "n": 755,
+                "ratio": 1.630378638685123
+              },
+              {
+                "L": 18,
+                "classes": 5,
+                "n": 649,
+                "ratio": 0.3789933153994221
+              },
+              {
+                "L": 13,
+                "classes": 11,
+                "n": 639,
+                "ratio": 1.713193652777342
+              },
+              {
+                "L": 8,
+                "classes": 6,
+                "n": 607,
+                "ratio": 1.2816627241522391
+              },
+              {
+                "L": 9,
+                "classes": 7,
+                "n": 580,
+                "ratio": 1.8165375298446687
+              },
+              {
+                "L": 10,
+                "classes": 8,
+                "n": 483,
+                "ratio": 1.4800819947545327
+              },
+              {
+                "L": 15,
+                "classes": 6,
+                "n": 365,
+                "ratio": 0.6434675189126893
+              },
+              {
+                "L": 11,
+                "classes": 8,
+                "n": 363,
+                "ratio": 0.7012122139267237
+              },
+              {
+                "L": 14,
+                "classes": 8,
+                "n": 361,
+                "ratio": 1.2398205651857521
+              },
+              {
+                "L": 19,
+                "classes": 7,
+                "n": 300,
+                "ratio": 0.611701642365125
+              },
+              {
+                "L": 16,
+                "classes": 5,
+                "n": 295,
+                "ratio": 0.8195948307450369
+              },
+              {
+                "L": 17,
+                "classes": 5,
+                "n": 206,
+                "ratio": 0.41684481995791167
+              },
+              {
+                "L": 20,
+                "classes": 4,
+                "n": 126,
+                "ratio": 0.19987243907443125
+              },
+              {
+                "L": 2,
+                "classes": 2,
+                "n": 106,
+                "ratio": 0.5265659504377441
+              },
+              {
+                "L": 21,
+                "classes": 3,
+                "n": 85,
+                "ratio": 0.19281474814349825
+              }
+            ],
+            "strata_dropped": 28,
+            "strata_kept": 20,
+            "stratified_ratio_weighted_median": 0.9084036005907039,
+            "unstratified_ratio": 2.7101986403857596
+          },
+          "mod": {
+            "coverage": 0.6688280499519692,
+            "dropped_L_range": [
+              2,
+              73
+            ],
+            "dropped_strata": [
+              {
+                "L": 28,
+                "classes_ge_min": 1,
+                "n": 61
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 59
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 51
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 36
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 0,
+                "n": 32
+              },
+              {
+                "L": 33,
+                "classes_ge_min": 0,
+                "n": 29
+              },
+              {
+                "L": 34,
+                "classes_ge_min": 0,
+                "n": 22
+              },
+              {
+                "L": 36,
+                "classes_ge_min": 0,
+                "n": 21
+              },
+              {
+                "L": 35,
+                "classes_ge_min": 0,
+                "n": 19
+              },
+              {
+                "L": 38,
+                "classes_ge_min": 0,
+                "n": 19
+              },
+              {
+                "L": 39,
+                "classes_ge_min": 0,
+                "n": 18
+              },
+              {
+                "L": 5,
+                "classes_ge_min": 0,
+                "n": 15
+              }
+            ],
+            "loops_dropped": 485,
+            "loops_kept": 2785,
+            "loops_small_class_in_kept_strata": 894,
+            "loops_total": 4164,
+            "per_stratum": [
+              {
+                "L": 10,
+                "classes": 6,
+                "n": 293,
+                "ratio": 0.233342679273381
+              },
+              {
+                "L": 9,
+                "classes": 5,
+                "n": 288,
+                "ratio": 0.4759718284847256
+              },
+              {
+                "L": 8,
+                "classes": 5,
+                "n": 251,
+                "ratio": 0.6469624314855094
+              },
+              {
+                "L": 12,
+                "classes": 6,
+                "n": 217,
+                "ratio": 0.07035215433846835
+              },
+              {
+                "L": 11,
+                "classes": 7,
+                "n": 211,
+                "ratio": 0.22826920467073478
+              },
+              {
+                "L": 24,
+                "classes": 4,
+                "n": 152,
+                "ratio": 0.24898695666296608
+              },
+              {
+                "L": 7,
+                "classes": 4,
+                "n": 151,
+                "ratio": 0.3935585336265925
+              },
+              {
+                "L": 13,
+                "classes": 8,
+                "n": 142,
+                "ratio": 0.20822277878636125
+              },
+              {
+                "L": 23,
+                "classes": 3,
+                "n": 124,
+                "ratio": 0.47694209893929734
+              },
+              {
+                "L": 14,
+                "classes": 6,
+                "n": 123,
+                "ratio": 0.735249486194917
+              },
+              {
+                "L": 15,
+                "classes": 7,
+                "n": 110,
+                "ratio": 0.6696573253782517
+              },
+              {
+                "L": 18,
+                "classes": 6,
+                "n": 94,
+                "ratio": 0.5203677652366493
+              },
+              {
+                "L": 25,
+                "classes": 5,
+                "n": 92,
+                "ratio": 0.2650669561837054
+              },
+              {
+                "L": 17,
+                "classes": 5,
+                "n": 91,
+                "ratio": 0.36011352054398854
+              },
+              {
+                "L": 16,
+                "classes": 5,
+                "n": 85,
+                "ratio": 0.11507667335031282
+              },
+              {
+                "L": 22,
+                "classes": 4,
+                "n": 82,
+                "ratio": 0.47758050330659796
+              },
+              {
+                "L": 26,
+                "classes": 3,
+                "n": 71,
+                "ratio": 0.024072323407521707
+              },
+              {
+                "L": 21,
+                "classes": 4,
+                "n": 68,
+                "ratio": 0.605900564234807
+              },
+              {
+                "L": 20,
+                "classes": 3,
+                "n": 44,
+                "ratio": 0.2119822039058199
+              },
+              {
+                "L": 19,
+                "classes": 2,
+                "n": 36,
+                "ratio": 0.057323882710807364
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 34,
+                "ratio": 0.11697875413896384
+              },
+              {
+                "L": 27,
+                "classes": 2,
+                "n": 26,
+                "ratio": 0.3203401156885127
+              }
+            ],
+            "strata_dropped": 41,
+            "strata_kept": 22,
+            "stratified_ratio_weighted_median": 0.3203401156885127,
+            "unstratified_ratio": 0.8611562513092252
+          }
+        },
+        "g1": {
+          "defer": {
+            "coverage": 0.7904093217806991,
+            "dropped_L_range": [
+              15,
+              58
+            ],
+            "dropped_strata": [
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 735
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 446
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 367
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 367
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 1,
+                "n": 201
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 145
+              },
+              {
+                "L": 22,
+                "classes_ge_min": 1,
+                "n": 64
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 49
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 1,
+                "n": 32
+              },
+              {
+                "L": 25,
+                "classes_ge_min": 1,
+                "n": 30
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 1,
+                "n": 24
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 1,
+                "n": 16
+              }
+            ],
+            "loops_dropped": 2559,
+            "loops_kept": 10582,
+            "loops_small_class_in_kept_strata": 247,
+            "loops_total": 13388,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 4,
+                "n": 1769,
+                "ratio": 1.0522091889542748
+              },
+              {
+                "L": 6,
+                "classes": 3,
+                "n": 1313,
+                "ratio": 1.8114514307054528
+              },
+              {
+                "L": 7,
+                "classes": 3,
+                "n": 1294,
+                "ratio": 1.4475749527404889
+              },
+              {
+                "L": 3,
+                "classes": 3,
+                "n": 931,
+                "ratio": 0.38070653224821255
+              },
+              {
+                "L": 5,
+                "classes": 3,
+                "n": 899,
+                "ratio": 0.8228797672158006
+              },
+              {
+                "L": 12,
+                "classes": 2,
+                "n": 779,
+                "ratio": 1.7133971891586441
+              },
+              {
+                "L": 13,
+                "classes": 3,
+                "n": 675,
+                "ratio": 1.048522492118143
+              },
+              {
+                "L": 8,
+                "classes": 2,
+                "n": 621,
+                "ratio": 0.8717733194902564
+              },
+              {
+                "L": 9,
+                "classes": 2,
+                "n": 601,
+                "ratio": 0.9065233511827833
+              },
+              {
+                "L": 10,
+                "classes": 2,
+                "n": 512,
+                "ratio": 0.7252739319485106
+              },
+              {
+                "L": 14,
+                "classes": 2,
+                "n": 396,
+                "ratio": 1.117889545103203
+              },
+              {
+                "L": 11,
+                "classes": 2,
+                "n": 393,
+                "ratio": 0.246384440439591
+              },
+              {
+                "L": 17,
+                "classes": 2,
+                "n": 265,
+                "ratio": 2.0162395619739404
+              },
+              {
+                "L": 2,
+                "classes": 2,
+                "n": 134,
+                "ratio": 0.3284108692486596
+              }
+            ],
+            "strata_dropped": 34,
+            "strata_kept": 14,
+            "stratified_ratio_weighted_median": 1.0522091889542748,
+            "unstratified_ratio": 0.44159468784347145
+          },
+          "mod": {
+            "coverage": 0.10841346153846154,
+            "dropped_L_range": [
+              2,
+              73
+            ],
+            "dropped_strata": [
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 316
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 1,
+                "n": 312
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 251
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 1,
+                "n": 243
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 1,
+                "n": 211
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 180
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 172
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 171
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 157
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 148
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 147
+              },
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 141
+              }
+            ],
+            "loops_dropped": 3669,
+            "loops_kept": 451,
+            "loops_small_class_in_kept_strata": 40,
+            "loops_total": 4160,
+            "per_stratum": [
+              {
+                "L": 8,
+                "classes": 2,
+                "n": 255,
+                "ratio": 0.6020638103304168
+              },
+              {
+                "L": 7,
+                "classes": 2,
+                "n": 152,
+                "ratio": 0.14591793527962704
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 44,
+                "ratio": 0.13030011613036774
+              }
+            ],
+            "strata_dropped": 60,
+            "strata_kept": 3,
+            "stratified_ratio_weighted_median": 0.6020638103304168,
+            "unstratified_ratio": 0.40959909620645935
+          }
+        }
+      },
+      "min_for_iqr": 8
+    },
+    {
+      "archive": "2019Q1",
+      "common_strata": {
+        "defer": {
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "g0m": 1.5513299061498784,
+          "g1": 1.7157309136483927,
+          "loops_g0m": 10332,
+          "loops_g1": 10526,
+          "n_strata": 11
+        },
+        "mod": {
+          "L": [
+            6
+          ],
+          "g0m": 0.07929061839092647,
+          "g1": 0.04006256160484456,
+          "loops_g0m": 21,
+          "loops_g1": 27,
+          "n_strata": 1
+        }
+      },
+      "g1_defer_top_share": 0.8263533482303755,
+      "g1_mod_top_share": 0.9405223687613137,
+      "grids": {
+        "g0m": {
+          "defer": {
+            "coverage": 0.9082000288225969,
+            "dropped_L_range": [
+              2,
+              57
+            ],
+            "dropped_strata": [
+              {
+                "L": 2,
+                "classes_ge_min": 1,
+                "n": 164
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 0,
+                "n": 44
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 0,
+                "n": 29
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 0,
+                "n": 15
+              },
+              {
+                "L": 25,
+                "classes_ge_min": 0,
+                "n": 12
+              },
+              {
+                "L": 28,
+                "classes_ge_min": 0,
+                "n": 12
+              },
+              {
+                "L": 27,
+                "classes_ge_min": 0,
+                "n": 9
+              },
+              {
+                "L": 29,
+                "classes_ge_min": 0,
+                "n": 7
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 5
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 5
+              },
+              {
+                "L": 33,
+                "classes_ge_min": 0,
+                "n": 4
+              },
+              {
+                "L": 34,
+                "classes_ge_min": 0,
+                "n": 4
+              }
+            ],
+            "loops_dropped": 329,
+            "loops_kept": 12604,
+            "loops_small_class_in_kept_strata": 945,
+            "loops_total": 13878,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 3,
+                "n": 1846,
+                "ratio": 1.1888753147305073
+              },
+              {
+                "L": 6,
+                "classes": 5,
+                "n": 1419,
+                "ratio": 1.908074015546431
+              },
+              {
+                "L": 7,
+                "classes": 6,
+                "n": 1369,
+                "ratio": 1.9928132053805216
+              },
+              {
+                "L": 5,
+                "classes": 4,
+                "n": 1091,
+                "ratio": 1.5349980091906186
+              },
+              {
+                "L": 3,
+                "classes": 3,
+                "n": 941,
+                "ratio": 0.9075106057861254
+              },
+              {
+                "L": 8,
+                "classes": 7,
+                "n": 717,
+                "ratio": 1.5126452220623423
+              },
+              {
+                "L": 12,
+                "classes": 10,
+                "n": 701,
+                "ratio": 2.383840504376314
+              },
+              {
+                "L": 13,
+                "classes": 11,
+                "n": 640,
+                "ratio": 3.12485406048117
+              },
+              {
+                "L": 9,
+                "classes": 7,
+                "n": 636,
+                "ratio": 1.5513299061498784
+              },
+              {
+                "L": 18,
+                "classes": 6,
+                "n": 598,
+                "ratio": 0.8053920070148721
+              },
+              {
+                "L": 10,
+                "classes": 8,
+                "n": 541,
+                "ratio": 1.5131975667824744
+              },
+              {
+                "L": 11,
+                "classes": 9,
+                "n": 431,
+                "ratio": 2.447627105431135
+              },
+              {
+                "L": 15,
+                "classes": 9,
+                "n": 367,
+                "ratio": 2.749897488554743
+              },
+              {
+                "L": 14,
+                "classes": 10,
+                "n": 322,
+                "ratio": 2.680237348715567
+              },
+              {
+                "L": 16,
+                "classes": 5,
+                "n": 292,
+                "ratio": 0.727283235172253
+              },
+              {
+                "L": 19,
+                "classes": 7,
+                "n": 291,
+                "ratio": 0.6671969509791355
+              },
+              {
+                "L": 17,
+                "classes": 3,
+                "n": 176,
+                "ratio": 0.4575751527808031
+              },
+              {
+                "L": 20,
+                "classes": 4,
+                "n": 110,
+                "ratio": 0.1746676683053851
+              },
+              {
+                "L": 21,
+                "classes": 5,
+                "n": 87,
+                "ratio": 0.13036738574195658
+              },
+              {
+                "L": 22,
+                "classes": 3,
+                "n": 29,
+                "ratio": 0.04026547764485496
+              }
+            ],
+            "strata_dropped": 24,
+            "strata_kept": 20,
+            "stratified_ratio_weighted_median": 1.5349980091906186,
+            "unstratified_ratio": 4.2599015837581975
+          },
+          "mod": {
+            "coverage": 0.7177565262341691,
+            "dropped_L_range": [
+              3,
+              68
+            ],
+            "dropped_strata": [
+              {
+                "L": 29,
+                "classes_ge_min": 1,
+                "n": 52
+              },
+              {
+                "L": 30,
+                "classes_ge_min": 0,
+                "n": 45
+              },
+              {
+                "L": 31,
+                "classes_ge_min": 0,
+                "n": 33
+              },
+              {
+                "L": 32,
+                "classes_ge_min": 0,
+                "n": 30
+              },
+              {
+                "L": 33,
+                "classes_ge_min": 0,
+                "n": 16
+              },
+              {
+                "L": 36,
+                "classes_ge_min": 0,
+                "n": 16
+              },
+              {
+                "L": 34,
+                "classes_ge_min": 0,
+                "n": 15
+              },
+              {
+                "L": 35,
+                "classes_ge_min": 0,
+                "n": 14
+              },
+              {
+                "L": 5,
+                "classes_ge_min": 0,
+                "n": 10
+              },
+              {
+                "L": 37,
+                "classes_ge_min": 0,
+                "n": 8
+              },
+              {
+                "L": 38,
+                "classes_ge_min": 0,
+                "n": 8
+              },
+              {
+                "L": 40,
+                "classes_ge_min": 0,
+                "n": 6
+              }
+            ],
+            "loops_dropped": 298,
+            "loops_kept": 2777,
+            "loops_small_class_in_kept_strata": 794,
+            "loops_total": 3869,
+            "per_stratum": [
+              {
+                "L": 24,
+                "classes": 5,
+                "n": 206,
+                "ratio": 0.5270790610624316
+              },
+              {
+                "L": 23,
+                "classes": 6,
+                "n": 200,
+                "ratio": 0.0714257210321196
+              },
+              {
+                "L": 9,
+                "classes": 5,
+                "n": 189,
+                "ratio": 0.30456784494710715
+              },
+              {
+                "L": 10,
+                "classes": 5,
+                "n": 166,
+                "ratio": 0.4921178347892133
+              },
+              {
+                "L": 13,
+                "classes": 7,
+                "n": 163,
+                "ratio": 0.22297113082856274
+              },
+              {
+                "L": 12,
+                "classes": 6,
+                "n": 159,
+                "ratio": 0.4738346734313795
+              },
+              {
+                "L": 11,
+                "classes": 5,
+                "n": 158,
+                "ratio": 0.14458489200186853
+              },
+              {
+                "L": 16,
+                "classes": 7,
+                "n": 158,
+                "ratio": 0.2798280015705812
+              },
+              {
+                "L": 14,
+                "classes": 7,
+                "n": 154,
+                "ratio": 0.1731570237431368
+              },
+              {
+                "L": 8,
+                "classes": 4,
+                "n": 153,
+                "ratio": 0.1291414799528901
+              },
+              {
+                "L": 25,
+                "classes": 5,
+                "n": 147,
+                "ratio": 0.4955269969849692
+              },
+              {
+                "L": 22,
+                "classes": 4,
+                "n": 129,
+                "ratio": 0.19815805696809402
+              },
+              {
+                "L": 15,
+                "classes": 7,
+                "n": 126,
+                "ratio": 0.8894471233424476
+              },
+              {
+                "L": 17,
+                "classes": 5,
+                "n": 126,
+                "ratio": 0.123925439524094
+              },
+              {
+                "L": 18,
+                "classes": 4,
+                "n": 96,
+                "ratio": 0.15205707411615235
+              },
+              {
+                "L": 21,
+                "classes": 5,
+                "n": 88,
+                "ratio": 0.049306197370296845
+              },
+              {
+                "L": 19,
+                "classes": 3,
+                "n": 86,
+                "ratio": 0.0428133517454896
+              },
+              {
+                "L": 26,
+                "classes": 3,
+                "n": 76,
+                "ratio": 0.0625442455433251
+              },
+              {
+                "L": 7,
+                "classes": 3,
+                "n": 55,
+                "ratio": 0.2988856508670992
+              },
+              {
+                "L": 27,
+                "classes": 3,
+                "n": 54,
+                "ratio": 0.021342402226808162
+              },
+              {
+                "L": 20,
+                "classes": 2,
+                "n": 42,
+                "ratio": 0.0457156855487037
+              },
+              {
+                "L": 28,
+                "classes": 2,
+                "n": 25,
+                "ratio": 0.2335548625184536
+              },
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 21,
+                "ratio": 0.07929061839092647
+              }
+            ],
+            "strata_dropped": 34,
+            "strata_kept": 23,
+            "stratified_ratio_weighted_median": 0.22297113082856274,
+            "unstratified_ratio": 0.558113621490858
+          }
+        },
+        "g1": {
+          "defer": {
+            "coverage": 0.7702731925322569,
+            "dropped_L_range": [
+              14,
+              57
+            ],
+            "dropped_strata": [
+              {
+                "L": 18,
+                "classes_ge_min": 1,
+                "n": 668
+              },
+              {
+                "L": 15,
+                "classes_ge_min": 1,
+                "n": 425
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 377
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 364
+              },
+              {
+                "L": 19,
+                "classes_ge_min": 1,
+                "n": 352
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 244
+              },
+              {
+                "L": 20,
+                "classes_ge_min": 1,
+                "n": 167
+              },
+              {
+                "L": 21,
+                "classes_ge_min": 1,
+                "n": 130
+              },
+              {
+                "L": 22,
+                "classes_ge_min": 1,
+                "n": 81
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 44
+              },
+              {
+                "L": 24,
+                "classes_ge_min": 1,
+                "n": 29
+              },
+              {
+                "L": 26,
+                "classes_ge_min": 1,
+                "n": 14
+              }
+            ],
+            "loops_dropped": 2971,
+            "loops_kept": 10686,
+            "loops_small_class_in_kept_strata": 216,
+            "loops_total": 13873,
+            "per_stratum": [
+              {
+                "L": 4,
+                "classes": 4,
+                "n": 1860,
+                "ratio": 1.7157309136483927
+              },
+              {
+                "L": 6,
+                "classes": 3,
+                "n": 1426,
+                "ratio": 2.195259304001951
+              },
+              {
+                "L": 7,
+                "classes": 3,
+                "n": 1374,
+                "ratio": 1.9253118876219202
+              },
+              {
+                "L": 5,
+                "classes": 3,
+                "n": 1094,
+                "ratio": 1.43477006398298
+              },
+              {
+                "L": 3,
+                "classes": 4,
+                "n": 964,
+                "ratio": 0.8677746572100149
+              },
+              {
+                "L": 8,
+                "classes": 3,
+                "n": 734,
+                "ratio": 1.674224021041337
+              },
+              {
+                "L": 12,
+                "classes": 2,
+                "n": 726,
+                "ratio": 2.1446605517552295
+              },
+              {
+                "L": 9,
+                "classes": 3,
+                "n": 670,
+                "ratio": 0.8081820288482484
+              },
+              {
+                "L": 13,
+                "classes": 3,
+                "n": 668,
+                "ratio": 2.975845610319403
+              },
+              {
+                "L": 10,
+                "classes": 2,
+                "n": 562,
+                "ratio": 1.2499077964025467
+              },
+              {
+                "L": 11,
+                "classes": 2,
+                "n": 448,
+                "ratio": 1.520019634533533
+              },
+              {
+                "L": 2,
+                "classes": 2,
+                "n": 160,
+                "ratio": 0.08164406459059781
+              }
+            ],
+            "strata_dropped": 32,
+            "strata_kept": 12,
+            "stratified_ratio_weighted_median": 1.7157309136483927,
+            "unstratified_ratio": 0.7264201654610207
+          },
+          "mod": {
+            "coverage": 0.0069821567106283944,
+            "dropped_L_range": [
+              3,
+              68
+            ],
+            "dropped_strata": [
+              {
+                "L": 24,
+                "classes_ge_min": 1,
+                "n": 256
+              },
+              {
+                "L": 23,
+                "classes_ge_min": 1,
+                "n": 242
+              },
+              {
+                "L": 9,
+                "classes_ge_min": 1,
+                "n": 197
+              },
+              {
+                "L": 16,
+                "classes_ge_min": 1,
+                "n": 197
+              },
+              {
+                "L": 25,
+                "classes_ge_min": 1,
+                "n": 190
+              },
+              {
+                "L": 11,
+                "classes_ge_min": 1,
+                "n": 188
+              },
+              {
+                "L": 13,
+                "classes_ge_min": 1,
+                "n": 187
+              },
+              {
+                "L": 12,
+                "classes_ge_min": 1,
+                "n": 186
+              },
+              {
+                "L": 10,
+                "classes_ge_min": 1,
+                "n": 185
+              },
+              {
+                "L": 14,
+                "classes_ge_min": 1,
+                "n": 180
+              },
+              {
+                "L": 17,
+                "classes_ge_min": 1,
+                "n": 172
+              },
+              {
+                "L": 22,
+                "classes_ge_min": 1,
+                "n": 172
+              }
+            ],
+            "loops_dropped": 3831,
+            "loops_kept": 27,
+            "loops_small_class_in_kept_strata": 9,
+            "loops_total": 3867,
+            "per_stratum": [
+              {
+                "L": 6,
+                "classes": 2,
+                "n": 27,
+                "ratio": 0.04006256160484456
+              }
+            ],
+            "strata_dropped": 56,
+            "strata_kept": 1,
+            "stratified_ratio_weighted_median": 0.04006256160484456,
+            "unstratified_ratio": 0.10794496128098133
+          }
+        }
+      },
+      "min_for_iqr": 8
+    }
+  ],
+  "carrier": "fannie_only_see_section_21_3",
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in the B10 availability register \u00a722.4.1 and \u00a722.6. It reads no B8 prediction and computes no floor (\u00a721.6 rule 1).",
+  "sign_reading": {
+    "all_negative": "\u00a721.5 row 2 (between-class spread grows as the grid refines) fails on every archive. \u00a722.4.4 replicates.",
+    "all_positive": "The finer grid does explain more, on every archive. \u00a721.5 row 2 holds and 2019Q1 is the exception to investigate.",
+    "mixed": "The sign flips across archives, so the gap is noise. \u00a722.4.4's 1.551-against-1.716 must NOT be quoted as a reading.",
+    "no_referent": "Fewer than two archives had a usable paired figure. No sign to read."
+  },
+  "sign_verdict": {
+    "defer": "mixed",
+    "defer_n_signed": 3,
+    "defer_n_tied": 1,
+    "mod": "all_positive",
+    "mod_n_signed": 5,
+    "mod_n_tied": 0
+  },
+  "stage": "B10",
+  "step": "holonomy_strata"
+}

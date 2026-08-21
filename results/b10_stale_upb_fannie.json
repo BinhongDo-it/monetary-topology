@@ -1,0 +1,82 @@
+{
+  "archives": [
+    {
+      "archive": "2002Q1",
+      "cross_tab": {
+        "moved_above": 5698596,
+        "moved_at": 23801695,
+        "moved_below": 1124714,
+        "unchanged_above": 9373,
+        "unchanged_at": 18090,
+        "unchanged_below": 1738827
+      },
+      "limit_rows": 0,
+      "loans": 968761,
+      "quiet_months": 32391295,
+      "ratio_to_mode_moved_p10_p50_p90": [
+        1.0,
+        1.0,
+        1.12
+      ],
+      "ratio_to_mode_unchanged_p10_p50_p90": [
+        0.3,
+        0.66,
+        0.86
+      ],
+      "segments": 881715,
+      "shares_b8_published": {
+        "above": 0.1762,
+        "at": 0.7354,
+        "below": 0.0884
+      },
+      "shares_this_run": {
+        "above": 0.1762192280364215,
+        "at": 0.7353761249743179,
+        "below": 0.08840464698926054
+      },
+      "stale_share_of_below": 0.6072296502826395,
+      "stale_share_of_quiet": 0.0545297741260422
+    },
+    {
+      "archive": "2019Q1",
+      "cross_tab": {
+        "moved_above": 1321720,
+        "moved_at": 6368480,
+        "moved_below": 377895,
+        "unchanged_above": 2172,
+        "unchanged_at": 4435,
+        "unchanged_below": 377130
+      },
+      "limit_rows": 0,
+      "loans": 341865,
+      "quiet_months": 8451832,
+      "ratio_to_mode_moved_p10_p50_p90": [
+        1.0,
+        1.0,
+        1.09
+      ],
+      "ratio_to_mode_unchanged_p10_p50_p90": [
+        0.4,
+        0.73,
+        0.79
+      ],
+      "segments": 297152,
+      "shares_b8_published": {
+        "above": 0.1566,
+        "at": 0.754,
+        "below": 0.0893
+      },
+      "shares_this_run": {
+        "above": 0.15663964925000876,
+        "at": 0.754027647497016,
+        "below": 0.08933270325297521
+      },
+      "stale_share_of_below": 0.4994933942584683,
+      "stale_share_of_quiet": 0.045402819175771596
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in docs/b8_inputs_availability.md \u00a76.2.5.4 as a candidate component of B8's open third mechanism. It changes no B8 criterion and carries no omega claim.",
+  "stage": "B10",
+  "step": "stale_upb_fannie"
+}

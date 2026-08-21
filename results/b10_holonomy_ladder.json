@@ -1,0 +1,4037 @@
+{
+  "archives": [
+    {
+      "archive": "2002Q1",
+      "cycles_monotone_violations": [],
+      "g2_shape_vs_path": {
+        "n_after": 6,
+        "n_after_measurable": 5,
+        "n_cancels": 414,
+        "off_diagonal": 1,
+        "table": {
+          "after -> reversed": 6,
+          "before -> expected": 6036,
+          "before -> reversed": 1,
+          "cancels -> no_cycle": 414
+        }
+      },
+      "g2_unexpected_loops": 6,
+      "g2_unexpected_paths": [
+        {
+          "n": 4,
+          "path": "current -> modified -> delinquent -> current"
+        },
+        {
+          "n": 1,
+          "path": "current -> delinquent -> D99 -> modified -> current"
+        },
+        {
+          "n": 1,
+          "path": "current -> deferred -> delinquent -> current"
+        }
+      ],
+      "grids": {
+        "g0m": {
+          "defer": {
+            "between_iqr_of_medians": 0.04751882643518002,
+            "between_over_within": 1.348336946781122,
+            "classes": 69,
+            "classes_ge_min": 14,
+            "loops_in_those": 342,
+            "loops_selected": 425,
+            "loops_with_a_cycle": 423,
+            "top": [
+              {
+                "n": 57,
+                "omega_p10_p50_p90": [
+                  0.008310406143573345,
+                  0.027295793076064,
+                  0.05313164478648103
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> deferred -> 00"
+              },
+              {
+                "n": 37,
+                "omega_p10_p50_p90": [
+                  0.01333252074473421,
+                  0.04006894077974721,
+                  0.07319671216137066
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> deferred -> 00"
+              },
+              {
+                "n": 36,
+                "omega_p10_p50_p90": [
+                  0.006186467695442843,
+                  0.01669643111517871,
+                  0.03975860921673302
+                ],
+                "path": "00 -> 01 -> 02 -> deferred -> 00"
+              },
+              {
+                "n": 34,
+                "omega_p10_p50_p90": [
+                  0.005440157929251654,
+                  0.029063536795547407,
+                  0.06998613654141081
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> deferred -> 00"
+              },
+              {
+                "n": 30,
+                "omega_p10_p50_p90": [
+                  0.042398161588516815,
+                  0.129404230396176,
+                  0.17749001932606917
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> deferred -> 00"
+              },
+              {
+                "n": 26,
+                "omega_p10_p50_p90": [
+                  0.016125799731526058,
+                  0.05633698112433194,
+                  0.07863206998081296
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> deferred -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "deferred",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.03524254567719254
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.21941074546566597,
+            "between_over_within": 0.9569830715024797,
+            "classes": 727,
+            "classes_ge_min": 41,
+            "loops_in_those": 4181,
+            "loops_selected": 5139,
+            "loops_with_a_cycle": 5136,
+            "top": [
+              {
+                "n": 626,
+                "omega_p10_p50_p90": [
+                  -0.05287300685085938,
+                  0.07601231495027605,
+                  0.3485149221874053
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> modified -> 00"
+              },
+              {
+                "n": 609,
+                "omega_p10_p50_p90": [
+                  0.027827158750733366,
+                  0.06298344033530157,
+                  0.29025786615620747
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> modified -> 00"
+              },
+              {
+                "n": 461,
+                "omega_p10_p50_p90": [
+                  0.01408785597232054,
+                  0.0480000152165303,
+                  0.2421572467283113
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> modified -> 00"
+              },
+              {
+                "n": 460,
+                "omega_p10_p50_p90": [
+                  -0.09051584663029641,
+                  0.0910573012538407,
+                  0.4113072867050505
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> modified -> 00"
+              },
+              {
+                "n": 349,
+                "omega_p10_p50_p90": [
+                  -0.20607312145948511,
+                  0.11594581227836898,
+                  0.3863681953238391
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> modified -> 00"
+              },
+              {
+                "n": 248,
+                "omega_p10_p50_p90": [
+                  -0.23183363901216578,
+                  0.15129191775486106,
+                  0.46692399936036966
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> modified -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "modified",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.22927338215208692
+          }
+        },
+        "g1": {
+          "defer": {
+            "between_iqr_of_medians": 0.013309665489828149,
+            "between_over_within": 0.6612445089694774,
+            "classes": 15,
+            "classes_ge_min": 4,
+            "loops_in_those": 402,
+            "loops_selected": 425,
+            "loops_with_a_cycle": 423,
+            "top": [
+              {
+                "n": 345,
+                "omega_p10_p50_p90": [
+                  0.013084093197539915,
+                  0.04853168839326827,
+                  0.14782161641051064
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 36,
+                "omega_p10_p50_p90": [
+                  0.006186467695442843,
+                  0.01669643111517871,
+                  0.03975860921673302
+                ],
+                "path": "current -> 30 -> 60 -> deferred -> current"
+              },
+              {
+                "n": 11,
+                "omega_p10_p50_p90": [
+                  0.003175270640895178,
+                  0.011327762578730471,
+                  0.021178928414883558
+                ],
+                "path": "current -> 30 -> deferred -> current"
+              },
+              {
+                "n": 10,
+                "omega_p10_p50_p90": [
+                  0.014501999435742619,
+                  0.022041343163436977,
+                  0.06447299486590054
+                ],
+                "path": "current -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 6,
+                "omega_p10_p50_p90": [
+                  0.004528756644504028,
+                  0.03280319282316668,
+                  0.14096655252433266
+                ],
+                "path": "current -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 3,
+                "omega_p10_p50_p90": [
+                  0.08269815325329546,
+                  0.09315707792848116,
+                  0.10539923331671161
+                ],
+                "path": "current -> 30 -> 90+ -> deferred -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "90+",
+                "deferred",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.02012820569288465
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.05798850587569859,
+            "between_over_within": 0.2600319614788165,
+            "classes": 61,
+            "classes_ge_min": 14,
+            "loops_in_those": 5051,
+            "loops_selected": 5139,
+            "loops_with_a_cycle": 5134,
+            "top": [
+              {
+                "n": 4366,
+                "omega_p10_p50_p90": [
+                  -0.11295758470805595,
+                  0.10451427987027273,
+                  0.4956706350076274
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 141,
+                "omega_p10_p50_p90": [
+                  -0.12278904045524541,
+                  0.14762590385180374,
+                  0.48813278391753556
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 132,
+                "omega_p10_p50_p90": [
+                  -0.2514908369118529,
+                  0.04795359179047409,
+                  0.2979718085565765
+                ],
+                "path": "current -> 30 -> 60 -> modified -> current"
+              },
+              {
+                "n": 92,
+                "omega_p10_p50_p90": [
+                  0.033061873310361985,
+                  0.11318938155181968,
+                  0.40783804721290845
+                ],
+                "path": "current -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 74,
+                "omega_p10_p50_p90": [
+                  -0.07904911991681722,
+                  0.08089259035705254,
+                  0.39781863812240775
+                ],
+                "path": "current -> 30 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 48,
+                "omega_p10_p50_p90": [
+                  -0.014668196244383556,
+                  0.1321351739863985,
+                  0.5631091615050537
+                ],
+                "path": "current -> 90+ -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "modified",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.223005301140347
+          }
+        },
+        "g2": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 416,
+            "loops_selected": 425,
+            "loops_with_a_cycle": 417,
+            "top": [
+              {
+                "n": 416,
+                "omega_p10_p50_p90": [
+                  0.01056627997513715,
+                  0.041106200688318495,
+                  0.14169140686226456
+                ],
+                "path": "current -> delinquent -> deferred -> current"
+              },
+              {
+                "n": 1,
+                "omega_p10_p50_p90": [
+                  0.1619295089507773,
+                  0.1619295089507773,
+                  0.1619295089507773
+                ],
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "deferred",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 1,
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.058121764499446726
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 3,
+            "classes_ge_min": 1,
+            "loops_in_those": 4937,
+            "loops_selected": 5139,
+            "loops_with_a_cycle": 4942,
+            "top": [
+              {
+                "n": 4937,
+                "omega_p10_p50_p90": [
+                  -0.11277268785343039,
+                  0.103724446023989,
+                  0.48766199309147895
+                ],
+                "path": "current -> delinquent -> modified -> current"
+              },
+              {
+                "n": 4,
+                "omega_p10_p50_p90": [
+                  0.02943556558311684,
+                  0.06277808526465378,
+                  0.4294380093615474
+                ],
+                "path": "current -> modified -> delinquent -> current"
+              },
+              {
+                "n": 1,
+                "omega_p10_p50_p90": [
+                  1.560389345362637,
+                  1.560389345362637,
+                  1.560389345362637
+                ],
+                "path": "current -> delinquent -> D99 -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "modified",
+                "delinquent",
+                "current"
+              ],
+              [
+                "current",
+                "delinquent",
+                "D99",
+                "modified",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 4,
+                "path": "current -> modified -> delinquent -> current"
+              },
+              {
+                "n": 1,
+                "path": "current -> delinquent -> D99 -> modified -> current"
+              }
+            ],
+            "within_iqr_median": 0.24550371581790387
+          }
+        },
+        "g3": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 425,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 5139,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          }
+        }
+      },
+      "n_loops": 6457,
+      "n_measurable": 5564,
+      "t_A_precedence_disagrees_per_grid_pass": {
+        "t_A_precedence_disagrees": 868,
+        "t_M_row_reads_current": 21008
+      }
+    },
+    {
+      "archive": "2006Q1",
+      "cycles_monotone_violations": [],
+      "g2_shape_vs_path": {
+        "n_after": 6,
+        "n_after_measurable": 4,
+        "n_cancels": 1229,
+        "off_diagonal": 4,
+        "table": {
+          "after -> reversed": 6,
+          "before -> expected": 12956,
+          "before -> reversed": 3,
+          "cancels -> no_cycle": 1228,
+          "cancels -> reversed": 1
+        }
+      },
+      "g2_unexpected_loops": 6,
+      "g2_unexpected_paths": [
+        {
+          "n": 3,
+          "path": "current -> modified -> delinquent -> current"
+        },
+        {
+          "n": 2,
+          "path": "current -> delinquent -> D99 -> modified -> current"
+        },
+        {
+          "n": 1,
+          "path": "current -> deferred -> delinquent -> current"
+        }
+      ],
+      "grids": {
+        "g0m": {
+          "defer": {
+            "between_iqr_of_medians": 0.04947675809076202,
+            "between_over_within": 1.9068333287968102,
+            "classes": 82,
+            "classes_ge_min": 18,
+            "loops_in_those": 680,
+            "loops_selected": 758,
+            "loops_with_a_cycle": 754,
+            "top": [
+              {
+                "n": 87,
+                "omega_p10_p50_p90": [
+                  0.0056728330815531075,
+                  0.016404966708591928,
+                  0.04068156643957083
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> deferred -> 00"
+              },
+              {
+                "n": 81,
+                "omega_p10_p50_p90": [
+                  0.003743223381206917,
+                  0.012653139374378952,
+                  0.04141965943381365
+                ],
+                "path": "00 -> 01 -> 02 -> deferred -> 00"
+              },
+              {
+                "n": 60,
+                "omega_p10_p50_p90": [
+                  0.009260669908962882,
+                  0.024210041087599166,
+                  0.05018740424739008
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> deferred -> 00"
+              },
+              {
+                "n": 57,
+                "omega_p10_p50_p90": [
+                  0.009361949840240413,
+                  0.020619678105504136,
+                  0.06567967049463731
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> deferred -> 00"
+              },
+              {
+                "n": 50,
+                "omega_p10_p50_p90": [
+                  0.04107223871542374,
+                  0.09731031533920032,
+                  0.13285914438574764
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> deferred -> 00"
+              },
+              {
+                "n": 47,
+                "omega_p10_p50_p90": [
+                  0.012270564097650549,
+                  0.032927195053161995,
+                  0.06359115617742644
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> deferred -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "deferred",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.025947080609284967
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.10771472625181389,
+            "between_over_within": 0.33394122900538786,
+            "classes": 1167,
+            "classes_ge_min": 67,
+            "loops_in_those": 8547,
+            "loops_selected": 10117,
+            "loops_with_a_cycle": 10111,
+            "top": [
+              {
+                "n": 1094,
+                "omega_p10_p50_p90": [
+                  -0.4028176512766549,
+                  0.04595485361460305,
+                  0.2497538710753361
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> modified -> 00"
+              },
+              {
+                "n": 1076,
+                "omega_p10_p50_p90": [
+                  -0.41932421882802373,
+                  0.03968896515755205,
+                  0.22302858221519273
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> modified -> 00"
+              },
+              {
+                "n": 905,
+                "omega_p10_p50_p90": [
+                  -0.4240784869851268,
+                  0.052262561654060846,
+                  0.24639462017476038
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> modified -> 00"
+              },
+              {
+                "n": 684,
+                "omega_p10_p50_p90": [
+                  -0.41994194054823314,
+                  0.029244945227219432,
+                  0.2037826493561625
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> modified -> 00"
+              },
+              {
+                "n": 679,
+                "omega_p10_p50_p90": [
+                  -0.43161244354269,
+                  0.06376752241885697,
+                  0.2706975252269331
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> modified -> 00"
+              },
+              {
+                "n": 575,
+                "omega_p10_p50_p90": [
+                  -0.4118097250580831,
+                  0.05803906130699943,
+                  0.2395720938766317
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> modified -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "modified",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.3225559376799083
+          }
+        },
+        "g1": {
+          "defer": {
+            "between_iqr_of_medians": 0.02201797721085086,
+            "between_over_within": 0.6864596619990951,
+            "classes": 20,
+            "classes_ge_min": 4,
+            "loops_in_those": 719,
+            "loops_selected": 758,
+            "loops_with_a_cycle": 754,
+            "top": [
+              {
+                "n": 597,
+                "omega_p10_p50_p90": [
+                  0.010981363958126166,
+                  0.035697001162589004,
+                  0.11009737418116856
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 82,
+                "omega_p10_p50_p90": [
+                  0.00375023919996238,
+                  0.01228038935278164,
+                  0.041248287448615896
+                ],
+                "path": "current -> 30 -> 60 -> deferred -> current"
+              },
+              {
+                "n": 32,
+                "omega_p10_p50_p90": [
+                  0.0032877308570732565,
+                  0.006345102541899905,
+                  0.018419485702543186
+                ],
+                "path": "current -> 30 -> deferred -> current"
+              },
+              {
+                "n": 8,
+                "omega_p10_p50_p90": [
+                  0.006777234215755357,
+                  0.03185372609368642,
+                  0.20388267636776616
+                ],
+                "path": "current -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 7,
+                "omega_p10_p50_p90": [
+                  0.008456480424410984,
+                  0.029086601741255436,
+                  0.04251683563979896
+                ],
+                "path": "current -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 6,
+                "omega_p10_p50_p90": [
+                  -0.003637648057519982,
+                  0.03233138320956641,
+                  0.31989269649271534
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> deferred -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.03207468468974639
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.0708459361376299,
+            "between_over_within": 0.22023502136496936,
+            "classes": 45,
+            "classes_ge_min": 16,
+            "loops_in_those": 10053,
+            "loops_selected": 10117,
+            "loops_with_a_cycle": 10110,
+            "top": [
+              {
+                "n": 8837,
+                "omega_p10_p50_p90": [
+                  -0.41073713823279834,
+                  0.04854172674367874,
+                  0.27770981341921014
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 437,
+                "omega_p10_p50_p90": [
+                  -0.4233034389824752,
+                  0.01956126251752721,
+                  0.16922901247962732
+                ],
+                "path": "current -> 30 -> 60 -> modified -> current"
+              },
+              {
+                "n": 232,
+                "omega_p10_p50_p90": [
+                  -0.35642624472443457,
+                  0.08547546608133416,
+                  0.3730942911639886
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 129,
+                "omega_p10_p50_p90": [
+                  -0.25908556985077663,
+                  0.013714966980842291,
+                  0.1206263287015645
+                ],
+                "path": "current -> 30 -> modified -> current"
+              },
+              {
+                "n": 94,
+                "omega_p10_p50_p90": [
+                  -0.43766433739673405,
+                  0.05889231828157904,
+                  0.3090455048795775
+                ],
+                "path": "current -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 91,
+                "omega_p10_p50_p90": [
+                  -0.4292552290171443,
+                  -0.016479277434200412,
+                  0.23825991958074155
+                ],
+                "path": "current -> 30 -> 90+ -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "90+",
+                "modified",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.32168333491441103
+          }
+        },
+        "g2": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 743,
+            "loops_selected": 758,
+            "loops_with_a_cycle": 744,
+            "top": [
+              {
+                "n": 743,
+                "omega_p10_p50_p90": [
+                  0.007651384388009319,
+                  0.029959411833260674,
+                  0.1066502574778497
+                ],
+                "path": "current -> delinquent -> deferred -> current"
+              },
+              {
+                "n": 1,
+                "omega_p10_p50_p90": [
+                  0.05853592927996942,
+                  0.05853592927996942,
+                  0.05853592927996942
+                ],
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "deferred",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 1,
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.04799429302158842
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 3,
+            "classes_ge_min": 1,
+            "loops_in_those": 9922,
+            "loops_selected": 10117,
+            "loops_with_a_cycle": 9927,
+            "top": [
+              {
+                "n": 9922,
+                "omega_p10_p50_p90": [
+                  -0.40994094263792247,
+                  0.04505407279566498,
+                  0.27643792127691996
+                ],
+                "path": "current -> delinquent -> modified -> current"
+              },
+              {
+                "n": 3,
+                "omega_p10_p50_p90": [
+                  0.013719244351341331,
+                  0.06103421077477833,
+                  0.18623627542347096
+                ],
+                "path": "current -> modified -> delinquent -> current"
+              },
+              {
+                "n": 2,
+                "omega_p10_p50_p90": [
+                  0.5933634002036342,
+                  0.6711082545944009,
+                  0.7488531089851677
+                ],
+                "path": "current -> delinquent -> D99 -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "modified",
+                "delinquent",
+                "current"
+              ],
+              [
+                "current",
+                "delinquent",
+                "D99",
+                "modified",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 3,
+                "path": "current -> modified -> delinquent -> current"
+              },
+              {
+                "n": 2,
+                "path": "current -> delinquent -> D99 -> modified -> current"
+              }
+            ],
+            "within_iqr_median": 0.3241544063994297
+          }
+        },
+        "g3": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 758,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 10117,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          }
+        }
+      },
+      "n_loops": 14194,
+      "n_measurable": 10875,
+      "t_A_precedence_disagrees_per_grid_pass": {
+        "t_A_precedence_disagrees": 2028,
+        "t_M_row_reads_current": 41884
+      }
+    },
+    {
+      "archive": "2007Q1",
+      "cycles_monotone_violations": [],
+      "g2_shape_vs_path": {
+        "n_after": 4,
+        "n_after_measurable": 1,
+        "n_cancels": 1697,
+        "off_diagonal": 5,
+        "table": {
+          "after -> reversed": 4,
+          "before -> expected": 16709,
+          "before -> reversed": 4,
+          "cancels -> no_cycle": 1696,
+          "cancels -> reversed": 1
+        }
+      },
+      "g2_unexpected_loops": 4,
+      "g2_unexpected_paths": [
+        {
+          "n": 3,
+          "path": "current -> delinquent -> D99 -> modified -> current"
+        },
+        {
+          "n": 1,
+          "path": "current -> deferred -> delinquent -> current"
+        }
+      ],
+      "grids": {
+        "g0m": {
+          "defer": {
+            "between_iqr_of_medians": 0.031594421359869784,
+            "between_over_within": 0.9578862904563867,
+            "classes": 98,
+            "classes_ge_min": 18,
+            "loops_in_those": 811,
+            "loops_selected": 904,
+            "loops_with_a_cycle": 901,
+            "top": [
+              {
+                "n": 119,
+                "omega_p10_p50_p90": [
+                  0.005445448113914608,
+                  0.014394558785170375,
+                  0.02401914953043161
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> deferred -> 00"
+              },
+              {
+                "n": 87,
+                "omega_p10_p50_p90": [
+                  0.001474005126237898,
+                  0.009382332122186199,
+                  0.01713717667244056
+                ],
+                "path": "00 -> 01 -> 02 -> deferred -> 00"
+              },
+              {
+                "n": 82,
+                "omega_p10_p50_p90": [
+                  0.011612292358313426,
+                  0.02565199332730117,
+                  0.041490902972509534
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> deferred -> 00"
+              },
+              {
+                "n": 79,
+                "omega_p10_p50_p90": [
+                  0.007318675659371366,
+                  0.01929228188964771,
+                  0.03872970447519038
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> deferred -> 00"
+              },
+              {
+                "n": 66,
+                "omega_p10_p50_p90": [
+                  0.012225515875229576,
+                  0.02811408871423282,
+                  0.06906460023822092
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> deferred -> 00"
+              },
+              {
+                "n": 48,
+                "omega_p10_p50_p90": [
+                  0.019248716994388813,
+                  0.05113166441560679,
+                  0.10117685648750697
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> deferred -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "deferred",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.03298347797087331
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.11054043998888519,
+            "between_over_within": 0.31892141475672814,
+            "classes": 1310,
+            "classes_ge_min": 80,
+            "loops_in_those": 10894,
+            "loops_selected": 12631,
+            "loops_with_a_cycle": 12629,
+            "top": [
+              {
+                "n": 1346,
+                "omega_p10_p50_p90": [
+                  -0.43327459737975005,
+                  0.03221659862492743,
+                  0.2034580807060138
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> modified -> 00"
+              },
+              {
+                "n": 1302,
+                "omega_p10_p50_p90": [
+                  -0.44977518266882727,
+                  0.03974128801610277,
+                  0.22989147960556694
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> modified -> 00"
+              },
+              {
+                "n": 1033,
+                "omega_p10_p50_p90": [
+                  -0.4438205022310285,
+                  0.04210324386576758,
+                  0.2013645950924911
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> modified -> 00"
+              },
+              {
+                "n": 909,
+                "omega_p10_p50_p90": [
+                  -0.4811505240166298,
+                  0.022108182060947,
+                  0.1819076479861906
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> modified -> 00"
+              },
+              {
+                "n": 858,
+                "omega_p10_p50_p90": [
+                  -0.45688493219854537,
+                  0.051698902171665395,
+                  0.21826096041910453
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> modified -> 00"
+              },
+              {
+                "n": 693,
+                "omega_p10_p50_p90": [
+                  -0.4413789197661572,
+                  0.04338887936674496,
+                  0.20455448607699514
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> modified -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "modified",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.3466071416784757
+          }
+        },
+        "g1": {
+          "defer": {
+            "between_iqr_of_medians": 0.011310821826526762,
+            "between_over_within": 0.7310100445953825,
+            "classes": 19,
+            "classes_ge_min": 4,
+            "loops_in_those": 860,
+            "loops_selected": 904,
+            "loops_with_a_cycle": 901,
+            "top": [
+              {
+                "n": 738,
+                "omega_p10_p50_p90": [
+                  0.010240594898414201,
+                  0.02853214404467508,
+                  0.09043784289028739
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 88,
+                "omega_p10_p50_p90": [
+                  0.0008568469412011839,
+                  0.009338199526837343,
+                  0.016942407857368374
+                ],
+                "path": "current -> 30 -> 60 -> deferred -> current"
+              },
+              {
+                "n": 26,
+                "omega_p10_p50_p90": [
+                  0.0018998785844814847,
+                  0.005167933306324812,
+                  0.015311086008296115
+                ],
+                "path": "current -> 30 -> deferred -> current"
+              },
+              {
+                "n": 8,
+                "omega_p10_p50_p90": [
+                  -0.015401021626280454,
+                  0.016631225049422937,
+                  0.043208657318518806
+                ],
+                "path": "current -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 7,
+                "omega_p10_p50_p90": [
+                  0.00946843037158942,
+                  0.022866431102556817,
+                  0.08029667122009417
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> deferred -> 30 -> current"
+              },
+              {
+                "n": 6,
+                "omega_p10_p50_p90": [
+                  0.01767671455127129,
+                  0.039271709527611165,
+                  0.07720389908740799
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> deferred -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "30",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.015472867862968087
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.11809732620415048,
+            "between_over_within": 0.3572166782512133,
+            "classes": 46,
+            "classes_ge_min": 17,
+            "loops_in_those": 12573,
+            "loops_selected": 12631,
+            "loops_with_a_cycle": 12627,
+            "top": [
+              {
+                "n": 11136,
+                "omega_p10_p50_p90": [
+                  -0.44798423036536406,
+                  0.030276177307314356,
+                  0.23689484123156035
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 541,
+                "omega_p10_p50_p90": [
+                  -0.43820312224943336,
+                  0.01887071518922312,
+                  0.11365292685877648
+                ],
+                "path": "current -> 30 -> 60 -> modified -> current"
+              },
+              {
+                "n": 226,
+                "omega_p10_p50_p90": [
+                  -0.37187613618522164,
+                  0.06319392936413237,
+                  0.2685026104500139
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 147,
+                "omega_p10_p50_p90": [
+                  -0.37315850379836774,
+                  0.01059284131952154,
+                  0.058508069539766464
+                ],
+                "path": "current -> 30 -> modified -> current"
+              },
+              {
+                "n": 125,
+                "omega_p10_p50_p90": [
+                  -0.4270004109365345,
+                  0.024961088050531544,
+                  0.27502893817281815
+                ],
+                "path": "current -> 30 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 116,
+                "omega_p10_p50_p90": [
+                  -0.40642862609513486,
+                  0.05932045017269161,
+                  0.2834525344802614
+                ],
+                "path": "current -> 60 -> 90+ -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.3306041777844939
+          }
+        },
+        "g2": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 879,
+            "loops_selected": 904,
+            "loops_with_a_cycle": 880,
+            "top": [
+              {
+                "n": 879,
+                "omega_p10_p50_p90": [
+                  0.006769277987223177,
+                  0.02502068224021059,
+                  0.08543208754922493
+                ],
+                "path": "current -> delinquent -> deferred -> current"
+              },
+              {
+                "n": 1,
+                "omega_p10_p50_p90": [
+                  0.03207052057587134,
+                  0.03207052057587134,
+                  0.03207052057587134
+                ],
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "deferred",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 1,
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.03250985317606592
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 12407,
+            "loops_selected": 12631,
+            "loops_with_a_cycle": 12410,
+            "top": [
+              {
+                "n": 12407,
+                "omega_p10_p50_p90": [
+                  -0.4459813913847029,
+                  0.02830809197803319,
+                  0.2347932930240404
+                ],
+                "path": "current -> delinquent -> modified -> current"
+              },
+              {
+                "n": 3,
+                "omega_p10_p50_p90": [
+                  0.24896979279274092,
+                  0.5868801080569028,
+                  0.5964333013571377
+                ],
+                "path": "current -> delinquent -> D99 -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "delinquent",
+                "D99",
+                "modified",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 3,
+                "path": "current -> delinquent -> D99 -> modified -> current"
+              }
+            ],
+            "within_iqr_median": 0.3584252711134468
+          }
+        },
+        "g3": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 904,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 12631,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          }
+        }
+      },
+      "n_loops": 18414,
+      "n_measurable": 13535,
+      "t_A_precedence_disagrees_per_grid_pass": {
+        "t_A_precedence_disagrees": 2712,
+        "t_M_row_reads_current": 53332
+      }
+    },
+    {
+      "archive": "2012Q1",
+      "cycles_monotone_violations": [],
+      "g2_shape_vs_path": {
+        "n_after": 3,
+        "n_after_measurable": 3,
+        "n_cancels": 252,
+        "off_diagonal": 0,
+        "table": {
+          "after -> reversed": 3,
+          "before -> expected": 7539,
+          "cancels -> no_cycle": 252
+        }
+      },
+      "g2_unexpected_loops": 3,
+      "g2_unexpected_paths": [
+        {
+          "n": 3,
+          "path": "current -> deferred -> delinquent -> current"
+        }
+      ],
+      "grids": {
+        "g0m": {
+          "defer": {
+            "between_iqr_of_medians": 0.04014579454860723,
+            "between_over_within": 1.672972288533235,
+            "classes": 248,
+            "classes_ge_min": 19,
+            "loops_in_those": 4459,
+            "loops_selected": 4773,
+            "loops_with_a_cycle": 4748,
+            "top": [
+              {
+                "n": 842,
+                "omega_p10_p50_p90": [
+                  0.009993241592019331,
+                  0.01344677786983084,
+                  0.046222805987417806
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> deferred -> 00"
+              },
+              {
+                "n": 598,
+                "omega_p10_p50_p90": [
+                  0.0066194911463298926,
+                  0.010100798128405586,
+                  0.03737245446154704
+                ],
+                "path": "00 -> 01 -> 02 -> deferred -> 00"
+              },
+              {
+                "n": 455,
+                "omega_p10_p50_p90": [
+                  0.01662185574277828,
+                  0.022113298036856577,
+                  0.075587233810802
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> deferred -> 00"
+              },
+              {
+                "n": 362,
+                "omega_p10_p50_p90": [
+                  0.01865378623479046,
+                  0.024768323303760553,
+                  0.08342631702143993
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> deferred -> 00"
+              },
+              {
+                "n": 336,
+                "omega_p10_p50_p90": [
+                  0.012705684719549026,
+                  0.0181364845338976,
+                  0.06317840287374565
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> deferred -> 00"
+              },
+              {
+                "n": 285,
+                "omega_p10_p50_p90": [
+                  0.05575657740992028,
+                  0.07841494532476645,
+                  0.21850548469228667
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> deferred -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "deferred",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.023996688303668634
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.08150893281981553,
+            "between_over_within": 0.6779125480366622,
+            "classes": 339,
+            "classes_ge_min": 26,
+            "loops_in_those": 2233,
+            "loops_selected": 2675,
+            "loops_with_a_cycle": 2673,
+            "top": [
+              {
+                "n": 373,
+                "omega_p10_p50_p90": [
+                  0.014222103314386917,
+                  0.09903661352291238,
+                  0.2034972056353581
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> modified -> 00"
+              },
+              {
+                "n": 339,
+                "omega_p10_p50_p90": [
+                  0.0115195660648169,
+                  0.08883300577872433,
+                  0.15646387666020017
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> modified -> 00"
+              },
+              {
+                "n": 245,
+                "omega_p10_p50_p90": [
+                  0.02808600502321497,
+                  0.1091691554611316,
+                  0.22517690734239296
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> modified -> 00"
+              },
+              {
+                "n": 202,
+                "omega_p10_p50_p90": [
+                  0.00695376974035753,
+                  0.0765294051161618,
+                  0.151979682619276
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> modified -> 00"
+              },
+              {
+                "n": 165,
+                "omega_p10_p50_p90": [
+                  0.05064342716868851,
+                  0.13173962222936098,
+                  0.2555976863024625
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> modified -> 00"
+              },
+              {
+                "n": 120,
+                "omega_p10_p50_p90": [
+                  0.023450022065298982,
+                  0.1278380165422277,
+                  0.23862209721264666
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> modified -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "modified",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.12023517348347923
+          }
+        },
+        "g1": {
+          "defer": {
+            "between_iqr_of_medians": 0.006283342947426718,
+            "between_over_within": 0.17522743345627562,
+            "classes": 27,
+            "classes_ge_min": 9,
+            "loops_in_those": 4712,
+            "loops_selected": 4773,
+            "loops_with_a_cycle": 4748,
+            "top": [
+              {
+                "n": 3850,
+                "omega_p10_p50_p90": [
+                  0.011346216959645971,
+                  0.03549268222377577,
+                  0.10820125180907776
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 604,
+                "omega_p10_p50_p90": [
+                  0.006611454985568343,
+                  0.010100798128405586,
+                  0.03749199786670944
+                ],
+                "path": "current -> 30 -> 60 -> deferred -> current"
+              },
+              {
+                "n": 147,
+                "omega_p10_p50_p90": [
+                  0.002664775470566383,
+                  0.006633744233113248,
+                  0.02256429942572142
+                ],
+                "path": "current -> 30 -> deferred -> current"
+              },
+              {
+                "n": 31,
+                "omega_p10_p50_p90": [
+                  -0.0016968845229712315,
+                  0.023946965018694755,
+                  0.11530082488752669
+                ],
+                "path": "current -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 21,
+                "omega_p10_p50_p90": [
+                  0.010518106716062903,
+                  0.02786456301691942,
+                  0.057265229770564474
+                ],
+                "path": "current -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 17,
+                "omega_p10_p50_p90": [
+                  0.012900598276246455,
+                  0.027157146396348253,
+                  0.167044756791438
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> deferred -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.03585821479828155
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.03502873967102005,
+            "between_over_within": 0.39968203052741985,
+            "classes": 32,
+            "classes_ge_min": 12,
+            "loops_in_those": 2632,
+            "loops_selected": 2675,
+            "loops_with_a_cycle": 2672,
+            "top": [
+              {
+                "n": 2317,
+                "omega_p10_p50_p90": [
+                  0.021794054165911802,
+                  0.12056646193377674,
+                  0.2764696788115544
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 99,
+                "omega_p10_p50_p90": [
+                  0.004373360514364322,
+                  0.0652193841551707,
+                  0.12130873579262698
+                ],
+                "path": "current -> 30 -> 60 -> modified -> current"
+              },
+              {
+                "n": 47,
+                "omega_p10_p50_p90": [
+                  0.07715334197200718,
+                  0.1291775833524298,
+                  0.25543148835131424
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 35,
+                "omega_p10_p50_p90": [
+                  0.009196271592736593,
+                  0.09643531177425757,
+                  0.2510323976835935
+                ],
+                "path": "current -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 27,
+                "omega_p10_p50_p90": [
+                  0.019222452328540383,
+                  0.08493262067736396,
+                  0.1720386961984332
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> 30 -> current"
+              },
+              {
+                "n": 27,
+                "omega_p10_p50_p90": [
+                  0.050899313697300386,
+                  0.12692095743841492,
+                  0.2566015276257531
+                ],
+                "path": "current -> 30 -> 90+ -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "30",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "90+",
+                "modified",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.08764151749528537
+          }
+        },
+        "g2": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 4700,
+            "loops_selected": 4773,
+            "loops_with_a_cycle": 4703,
+            "top": [
+              {
+                "n": 4700,
+                "omega_p10_p50_p90": [
+                  0.00887469735571358,
+                  0.028054593782144366,
+                  0.09800196449250509
+                ],
+                "path": "current -> delinquent -> deferred -> current"
+              },
+              {
+                "n": 3,
+                "omega_p10_p50_p90": [
+                  0.01258760562250245,
+                  0.03600212100263889,
+                  0.08035079797464277
+                ],
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "deferred",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 3,
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.042990023409402056
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 1,
+            "classes_ge_min": 1,
+            "loops_in_those": 2566,
+            "loops_selected": 2675,
+            "loops_with_a_cycle": 2566,
+            "top": [
+              {
+                "n": 2566,
+                "omega_p10_p50_p90": [
+                  0.018025105169726885,
+                  0.11703262117589475,
+                  0.2718766108464479
+                ],
+                "path": "current -> delinquent -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "modified",
+                "current"
+              ]
+            ],
+            "unexpected": [],
+            "within_iqr_median": 0.11429521958416444
+          }
+        },
+        "g3": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 4773,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 2675,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          }
+        }
+      },
+      "n_loops": 7794,
+      "n_measurable": 7448,
+      "t_A_precedence_disagrees_per_grid_pass": {
+        "t_A_precedence_disagrees": 1428,
+        "t_M_row_reads_current": 27576
+      }
+    },
+    {
+      "archive": "2017Q1",
+      "cycles_monotone_violations": [],
+      "g2_shape_vs_path": {
+        "n_after": 13,
+        "n_after_measurable": 8,
+        "n_cancels": 548,
+        "off_diagonal": 0,
+        "table": {
+          "after -> reversed": 13,
+          "before -> expected": 18701,
+          "cancels -> no_cycle": 548
+        }
+      },
+      "g2_unexpected_loops": 8,
+      "g2_unexpected_paths": [
+        {
+          "n": 7,
+          "path": "current -> deferred -> delinquent -> current"
+        },
+        {
+          "n": 1,
+          "path": "current -> modified -> delinquent -> current"
+        }
+      ],
+      "grids": {
+        "g0m": {
+          "defer": {
+            "between_iqr_of_medians": 0.03175928597568145,
+            "between_over_within": 2.7101986403857596,
+            "classes": 576,
+            "classes_ge_min": 26,
+            "loops_in_those": 12624,
+            "loops_selected": 13466,
+            "loops_with_a_cycle": 13392,
+            "top": [
+              {
+                "n": 2136,
+                "omega_p10_p50_p90": [
+                  0.007088757241035637,
+                  0.010046311896985571,
+                  0.020992073124944
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> deferred -> 00"
+              },
+              {
+                "n": 1457,
+                "omega_p10_p50_p90": [
+                  0.005090663889131974,
+                  0.007809647548128851,
+                  0.017222232889344023
+                ],
+                "path": "00 -> 01 -> 02 -> deferred -> 00"
+              },
+              {
+                "n": 1211,
+                "omega_p10_p50_p90": [
+                  0.01215669040720968,
+                  0.0162209799818811,
+                  0.03974565025418997
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> deferred -> 00"
+              },
+              {
+                "n": 1114,
+                "omega_p10_p50_p90": [
+                  0.015042661932056944,
+                  0.019478139043712872,
+                  0.045259530789417135
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> deferred -> 00"
+              },
+              {
+                "n": 1096,
+                "omega_p10_p50_p90": [
+                  0.007777700719998393,
+                  0.013021744099660282,
+                  0.03238141412884943
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> deferred -> 00"
+              },
+              {
+                "n": 723,
+                "omega_p10_p50_p90": [
+                  0.04334670169482706,
+                  0.05624802795864525,
+                  0.11786342622617675
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> deferred -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "deferred",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.011718434767999497
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.09060768214681048,
+            "between_over_within": 0.8611562513092252,
+            "classes": 496,
+            "classes_ge_min": 31,
+            "loops_in_those": 3563,
+            "loops_selected": 4173,
+            "loops_with_a_cycle": 4164,
+            "top": [
+              {
+                "n": 431,
+                "omega_p10_p50_p90": [
+                  0.008421535178058548,
+                  0.09394865639478667,
+                  0.17913130461602123
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> modified -> 00"
+              },
+              {
+                "n": 357,
+                "omega_p10_p50_p90": [
+                  0.004478826167178346,
+                  0.09640622733422788,
+                  0.1892244797018066
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> modified -> 00"
+              },
+              {
+                "n": 319,
+                "omega_p10_p50_p90": [
+                  0.0021413887312519363,
+                  0.08548542016433203,
+                  0.17276779685075777
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> modified -> 00"
+              },
+              {
+                "n": 251,
+                "omega_p10_p50_p90": [
+                  0.010011308106186334,
+                  0.10540933073571068,
+                  0.2023910894513392
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> modified -> 00"
+              },
+              {
+                "n": 182,
+                "omega_p10_p50_p90": [
+                  -0.003928913141726297,
+                  0.03669387400896085,
+                  0.16498422618351472
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> modified -> 00"
+              },
+              {
+                "n": 172,
+                "omega_p10_p50_p90": [
+                  -0.006670066480728563,
+                  0.18431771779069095,
+                  0.26965610464576456
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> modified -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "modified",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.10521630889755329
+          }
+        },
+        "g1": {
+          "defer": {
+            "between_iqr_of_medians": 0.010110214830092445,
+            "between_over_within": 0.44159468784347145,
+            "classes": 46,
+            "classes_ge_min": 11,
+            "loops_in_those": 13316,
+            "loops_selected": 13466,
+            "loops_with_a_cycle": 13388,
+            "top": [
+              {
+                "n": 11142,
+                "omega_p10_p50_p90": [
+                  0.008791217558609787,
+                  0.024959920036053518,
+                  0.06031477795968384
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 1478,
+                "omega_p10_p50_p90": [
+                  0.005083327745887801,
+                  0.007803028813214041,
+                  0.017365289105509874
+                ],
+                "path": "current -> 30 -> 60 -> deferred -> current"
+              },
+              {
+                "n": 329,
+                "omega_p10_p50_p90": [
+                  0.0023755095485540785,
+                  0.00521436467897729,
+                  0.01220296463361592
+                ],
+                "path": "current -> 30 -> deferred -> current"
+              },
+              {
+                "n": 89,
+                "omega_p10_p50_p90": [
+                  -0.0045400192670058456,
+                  0.014346446412673686,
+                  0.05288520604372025
+                ],
+                "path": "current -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 61,
+                "omega_p10_p50_p90": [
+                  0.007613008519911091,
+                  0.025476809692918323,
+                  0.045532953226938844
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> current"
+              },
+              {
+                "n": 58,
+                "omega_p10_p50_p90": [
+                  0.007414578126918059,
+                  0.019906843261196627,
+                  0.046683523020874425
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> deferred -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.02289478362945374
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.04598890807346834,
+            "between_over_within": 0.40959909620645935,
+            "classes": 33,
+            "classes_ge_min": 13,
+            "loops_in_those": 4125,
+            "loops_selected": 4173,
+            "loops_with_a_cycle": 4160,
+            "top": [
+              {
+                "n": 3752,
+                "omega_p10_p50_p90": [
+                  -0.0005735012458899258,
+                  0.12271642582982167,
+                  0.24089739373848718
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 76,
+                "omega_p10_p50_p90": [
+                  -0.016542754930924275,
+                  0.021023437526309863,
+                  0.12765881371751675
+                ],
+                "path": "current -> 30 -> 60 -> modified -> current"
+              },
+              {
+                "n": 53,
+                "omega_p10_p50_p90": [
+                  0.009512126222034567,
+                  0.11552584106084396,
+                  0.21531945932147215
+                ],
+                "path": "current -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 50,
+                "omega_p10_p50_p90": [
+                  0.011700993488739188,
+                  0.10520907677255309,
+                  0.24278738422162863
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 33,
+                "omega_p10_p50_p90": [
+                  0.007435902324687049,
+                  0.12916605862665165,
+                  0.19517296688081842
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> 30 -> current"
+              },
+              {
+                "n": 32,
+                "omega_p10_p50_p90": [
+                  -0.028456620066572215,
+                  0.1208988980479262,
+                  0.2517157235279228
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "30",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.1122778553453827
+          }
+        },
+        "g2": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 13205,
+            "loops_selected": 13466,
+            "loops_with_a_cycle": 13212,
+            "top": [
+              {
+                "n": 13205,
+                "omega_p10_p50_p90": [
+                  0.007175578174064868,
+                  0.020387966425914783,
+                  0.057182089827256276
+                ],
+                "path": "current -> delinquent -> deferred -> current"
+              },
+              {
+                "n": 7,
+                "omega_p10_p50_p90": [
+                  0.016282780337496663,
+                  0.02674870886039571,
+                  0.04144273246647572
+                ],
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "deferred",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 7,
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.028663855446211528
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 4018,
+            "loops_selected": 4173,
+            "loops_with_a_cycle": 4019,
+            "top": [
+              {
+                "n": 4018,
+                "omega_p10_p50_p90": [
+                  -0.0027302571668769765,
+                  0.11927811619921158,
+                  0.23896103953211426
+                ],
+                "path": "current -> delinquent -> modified -> current"
+              },
+              {
+                "n": 1,
+                "omega_p10_p50_p90": [
+                  0.11016596690569713,
+                  0.11016596690569713,
+                  0.11016596690569713
+                ],
+                "path": "current -> modified -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "modified",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 1,
+                "path": "current -> modified -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.1415026505796959
+          }
+        },
+        "g3": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 13466,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 4173,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          }
+        }
+      },
+      "n_loops": 19262,
+      "n_measurable": 17639,
+      "t_A_precedence_disagrees_per_grid_pass": {
+        "t_A_precedence_disagrees": 3988,
+        "t_M_row_reads_current": 70204
+      }
+    },
+    {
+      "archive": "2019Q1",
+      "cycles_monotone_violations": [],
+      "g2_shape_vs_path": {
+        "n_after": 12,
+        "n_after_measurable": 9,
+        "n_cancels": 420,
+        "off_diagonal": 0,
+        "table": {
+          "after -> reversed": 12,
+          "before -> expected": 18755,
+          "cancels -> no_cycle": 420
+        }
+      },
+      "g2_unexpected_loops": 9,
+      "g2_unexpected_paths": [
+        {
+          "n": 8,
+          "path": "current -> deferred -> delinquent -> current"
+        },
+        {
+          "n": 1,
+          "path": "current -> modified -> delinquent -> current"
+        }
+      ],
+      "grids": {
+        "g0m": {
+          "defer": {
+            "between_iqr_of_medians": 0.03011831085882477,
+            "between_over_within": 4.2599015837581975,
+            "classes": 503,
+            "classes_ge_min": 27,
+            "loops_in_those": 13172,
+            "loops_selected": 13949,
+            "loops_with_a_cycle": 13878,
+            "top": [
+              {
+                "n": 2222,
+                "omega_p10_p50_p90": [
+                  0.006515531266813924,
+                  0.009040240827062007,
+                  0.013700288531981642
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> deferred -> 00"
+              },
+              {
+                "n": 1575,
+                "omega_p10_p50_p90": [
+                  0.004174332124193825,
+                  0.006951173669222044,
+                  0.011155159245777214
+                ],
+                "path": "00 -> 01 -> 02 -> deferred -> 00"
+              },
+              {
+                "n": 1367,
+                "omega_p10_p50_p90": [
+                  0.010939593137663906,
+                  0.01429579283194471,
+                  0.023605723462969772
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> deferred -> 00"
+              },
+              {
+                "n": 1228,
+                "omega_p10_p50_p90": [
+                  0.013483778762110887,
+                  0.01684408538289972,
+                  0.02483429535036521
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> deferred -> 00"
+              },
+              {
+                "n": 1177,
+                "omega_p10_p50_p90": [
+                  0.007812218416347605,
+                  0.011840280172691564,
+                  0.01856864458313795
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> deferred -> 00"
+              },
+              {
+                "n": 645,
+                "omega_p10_p50_p90": [
+                  0.024837158347327203,
+                  0.030910050007150858,
+                  0.04117810999014183
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> deferred -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "deferred",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "deferred",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.007070189361570556
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.11305314839101044,
+            "between_over_within": 0.558113621490858,
+            "classes": 431,
+            "classes_ge_min": 28,
+            "loops_in_those": 3378,
+            "loops_selected": 3869,
+            "loops_with_a_cycle": 3869,
+            "top": [
+              {
+                "n": 273,
+                "omega_p10_p50_p90": [
+                  0.007009152492946672,
+                  0.1013760219393589,
+                  0.17520197305593685
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> modified -> 00"
+              },
+              {
+                "n": 238,
+                "omega_p10_p50_p90": [
+                  -0.14391128250817925,
+                  0.11029882020966397,
+                  0.18389222952164347
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> modified -> 00"
+              },
+              {
+                "n": 222,
+                "omega_p10_p50_p90": [
+                  -0.11616215259234082,
+                  0.2066380596018007,
+                  0.29023416208691516
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> modified -> 00"
+              },
+              {
+                "n": 202,
+                "omega_p10_p50_p90": [
+                  -0.1489416405926022,
+                  0.13554410091637692,
+                  0.20290899888841524
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> modified -> 00"
+              },
+              {
+                "n": 190,
+                "omega_p10_p50_p90": [
+                  -0.14066012245907586,
+                  -0.018573559738342738,
+                  0.27932634635199066
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> 21 -> modified -> 00"
+              },
+              {
+                "n": 185,
+                "omega_p10_p50_p90": [
+                  -0.14099129859823734,
+                  0.1462618098967141,
+                  0.19895307488550315
+                ],
+                "path": "00 -> 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> modified -> 00"
+              }
+            ],
+            "top_keys": [
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "modified",
+                "00"
+              ],
+              [
+                "00",
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "modified",
+                "00"
+              ]
+            ],
+            "within_iqr_median": 0.20256296215995917
+          }
+        },
+        "g1": {
+          "defer": {
+            "between_iqr_of_medians": 0.012343242626911888,
+            "between_over_within": 0.7264201654610207,
+            "classes": 41,
+            "classes_ge_min": 13,
+            "loops_in_those": 13804,
+            "loops_selected": 13949,
+            "loops_with_a_cycle": 13873,
+            "top": [
+              {
+                "n": 11464,
+                "omega_p10_p50_p90": [
+                  0.008131560542733497,
+                  0.019287249621584124,
+                  0.04782634157572831
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 1589,
+                "omega_p10_p50_p90": [
+                  0.004171673950804688,
+                  0.006944006994672236,
+                  0.011150164214518555
+                ],
+                "path": "current -> 30 -> 60 -> deferred -> current"
+              },
+              {
+                "n": 390,
+                "omega_p10_p50_p90": [
+                  0.0021171659729589012,
+                  0.00455975110116924,
+                  0.007151195313235804
+                ],
+                "path": "current -> 30 -> deferred -> current"
+              },
+              {
+                "n": 94,
+                "omega_p10_p50_p90": [
+                  -0.0016450990503926732,
+                  0.010565156540906173,
+                  0.03938481703380603
+                ],
+                "path": "current -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 61,
+                "omega_p10_p50_p90": [
+                  0.007615304418322921,
+                  0.022170213280332973,
+                  0.04591991082816094
+                ],
+                "path": "current -> 60 -> 90+ -> deferred -> current"
+              },
+              {
+                "n": 54,
+                "omega_p10_p50_p90": [
+                  0.0069688542231233445,
+                  0.017128326076999656,
+                  0.040415464299690035
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.016991877722830395
+          },
+          "mod": {
+            "between_iqr_of_medians": 0.019859969986782744,
+            "between_over_within": 0.10794496128098133,
+            "classes": 25,
+            "classes_ge_min": 10,
+            "loops_in_those": 3843,
+            "loops_selected": 3869,
+            "loops_with_a_cycle": 3867,
+            "top": [
+              {
+                "n": 3637,
+                "omega_p10_p50_p90": [
+                  -0.1411578725979325,
+                  0.13335543167158903,
+                  0.2508365381725525
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 31,
+                "omega_p10_p50_p90": [
+                  -0.14124112674102207,
+                  0.011597329602409445,
+                  0.16796380923187826
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> modified -> 30 -> current"
+              },
+              {
+                "n": 28,
+                "omega_p10_p50_p90": [
+                  -0.16036921244267432,
+                  0.0847086469561873,
+                  0.17635417572701045
+                ],
+                "path": "current -> 30 -> 60 -> 90+ -> 30 -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 27,
+                "omega_p10_p50_p90": [
+                  -0.13779211863073898,
+                  0.14810459050931968,
+                  0.34738046203237904
+                ],
+                "path": "current -> 60 -> 90+ -> modified -> current"
+              },
+              {
+                "n": 25,
+                "omega_p10_p50_p90": [
+                  -0.24138777379614565,
+                  0.07223059300849854,
+                  0.21925573807020557
+                ],
+                "path": "current -> 90+ -> modified -> current"
+              },
+              {
+                "n": 22,
+                "omega_p10_p50_p90": [
+                  -0.07222697671750211,
+                  0.07279159717427319,
+                  0.16167401471448103
+                ],
+                "path": "current -> 30 -> 60 -> modified -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "30",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "90+",
+                "30",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "60",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "90+",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "30",
+                "60",
+                "modified",
+                "current"
+              ]
+            ],
+            "within_iqr_median": 0.1839823716744604
+          }
+        },
+        "g2": {
+          "defer": {
+            "between_iqr_of_medians": 0.0019045271453705936,
+            "between_over_within": 0.1160902167325468,
+            "classes": 2,
+            "classes_ge_min": 2,
+            "loops_in_those": 13710,
+            "loops_selected": 13949,
+            "loops_with_a_cycle": 13710,
+            "top": [
+              {
+                "n": 13702,
+                "omega_p10_p50_p90": [
+                  0.0059799297386121004,
+                  0.016241048441770545,
+                  0.04583209610718768
+                ],
+                "path": "current -> delinquent -> deferred -> current"
+              },
+              {
+                "n": 8,
+                "omega_p10_p50_p90": [
+                  0.005921622373080027,
+                  0.012431994151029357,
+                  0.022322170290919985
+                ],
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "deferred",
+                "current"
+              ],
+              [
+                "current",
+                "deferred",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 8,
+                "path": "current -> deferred -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.016405578342215676
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 2,
+            "classes_ge_min": 1,
+            "loops_in_those": 3766,
+            "loops_selected": 3869,
+            "loops_with_a_cycle": 3767,
+            "top": [
+              {
+                "n": 3766,
+                "omega_p10_p50_p90": [
+                  -0.1426449643822707,
+                  0.13123880700049995,
+                  0.2503155199192406
+                ],
+                "path": "current -> delinquent -> modified -> current"
+              },
+              {
+                "n": 1,
+                "omega_p10_p50_p90": [
+                  0.036128136973275105,
+                  0.036128136973275105,
+                  0.036128136973275105
+                ],
+                "path": "current -> modified -> delinquent -> current"
+              }
+            ],
+            "top_keys": [
+              [
+                "current",
+                "delinquent",
+                "modified",
+                "current"
+              ],
+              [
+                "current",
+                "modified",
+                "delinquent",
+                "current"
+              ]
+            ],
+            "unexpected": [
+              {
+                "n": 1,
+                "path": "current -> modified -> delinquent -> current"
+              }
+            ],
+            "within_iqr_median": 0.23469630786337348
+          }
+        },
+        "g3": {
+          "defer": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 13949,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          },
+          "mod": {
+            "between_iqr_of_medians": NaN,
+            "between_over_within": NaN,
+            "classes": 0,
+            "classes_ge_min": 0,
+            "loops_in_those": 0,
+            "loops_selected": 3869,
+            "loops_with_a_cycle": 0,
+            "top": [],
+            "top_keys": [],
+            "within_iqr_median": NaN
+          }
+        }
+      },
+      "n_loops": 19187,
+      "n_measurable": 17818,
+      "t_A_precedence_disagrees_per_grid_pass": {
+        "t_A_precedence_disagrees": 2720,
+        "t_M_row_reads_current": 71260
+      }
+    }
+  ],
+  "carrier": "fannie_only_see_section_21_3",
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in the B10 availability register \u00a721. It reads no B8 prediction: B8-1/2/3 judge against B8-0b's floor and no floor is computed here (\u00a721.6 rule 1).",
+  "ladder": [
+    "g0m",
+    "g1",
+    "g2",
+    "g3"
+  ],
+  "min_for_iqr": 8,
+  "stage": "B10",
+  "step": "holonomy_ladder"
+}

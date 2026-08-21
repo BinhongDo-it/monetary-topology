@@ -1,0 +1,277 @@
+{
+  "bands": [
+    [
+      7,
+      12
+    ],
+    [
+      13,
+      24
+    ],
+    [
+      25,
+      60
+    ],
+    [
+      61,
+      120
+    ],
+    [
+      121,
+      1000000000
+    ]
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a736. Counts only; no omega, no B8 prediction. One-sided on the calendar (\u00a736.1).",
+  "edge": 3,
+  "loans": 1353651,
+  "min_age": 0,
+  "min_pairs": 7,
+  "pairs": 72568434,
+  "per_window": {
+    "covid|term": {
+      "end": 0.08491,
+      "middle": 0.09004,
+      "start": 0.49152
+    },
+    "flex|term": {
+      "end": 0.08532,
+      "middle": 0.07271,
+      "start": 0.57696
+    },
+    "hamp|term": {
+      "end": 0.10055,
+      "middle": 0.09589,
+      "start": 0.57531
+    },
+    "post2023|open": {
+      "end": 0.05589,
+      "middle": 0.0704,
+      "start": 0.64763
+    },
+    "post2023|term": {
+      "end": 0.09239,
+      "middle": 0.09652,
+      "start": 0.62608
+    },
+    "pre_crisis|term": {
+      "end": 0.09343,
+      "middle": 0.12163,
+      "start": 0.73735
+    }
+  },
+  "short": {
+    "by_n": {
+      "0": [
+        0,
+        0
+      ],
+      "1": [
+        6513,
+        10608
+      ],
+      "2": [
+        12942,
+        21206
+      ],
+      "3": [
+        23005,
+        39099
+      ],
+      "4": [
+        35034,
+        60656
+      ],
+      "5": [
+        48713,
+        84480
+      ],
+      "6": [
+        58674,
+        100986
+      ]
+    },
+    "frozen": 184881,
+    "loans": 86425,
+    "pairs": 317035
+  },
+  "sign_tables": {
+    "still_reporting": {
+      "end_vs_middle": "all_negative",
+      "rows": [
+        {
+          "band": "7-12",
+          "end_minus_middle": -0.30983,
+          "n": {
+            "end": 67218,
+            "middle": 78018,
+            "start": 67218
+          },
+          "rates": {
+            "end": 0.1255,
+            "middle": 0.43534,
+            "start": 0.62349
+          },
+          "readable": true,
+          "start_minus_middle": 0.18816
+        },
+        {
+          "band": "13-24",
+          "end_minus_middle": -0.13159,
+          "n": {
+            "end": 123672,
+            "middle": 514633,
+            "start": 123672
+          },
+          "rates": {
+            "end": 0.04816,
+            "middle": 0.17975,
+            "start": 0.64125
+          },
+          "readable": true,
+          "start_minus_middle": 0.46151
+        },
+        {
+          "band": "25-60",
+          "end_minus_middle": -0.03622,
+          "n": {
+            "end": 349911,
+            "middle": 4326764,
+            "start": 349911
+          },
+          "rates": {
+            "end": 0.05004,
+            "middle": 0.08626,
+            "start": 0.56075
+          },
+          "readable": true,
+          "start_minus_middle": 0.4745
+        },
+        {
+          "band": "61-120",
+          "end_minus_middle": -0.02218,
+          "n": {
+            "end": 251775,
+            "middle": 6597387,
+            "start": 251775
+          },
+          "rates": {
+            "end": 0.05033,
+            "middle": 0.07251,
+            "start": 0.53834
+          },
+          "readable": true,
+          "start_minus_middle": 0.46583
+        },
+        {
+          "band": "121+",
+          "end_minus_middle": -0.01268,
+          "n": {
+            "end": 172668,
+            "middle": 9057341,
+            "start": 172668
+          },
+          "rates": {
+            "end": 0.05431,
+            "middle": 0.06698,
+            "start": 0.65106
+          },
+          "readable": true,
+          "start_minus_middle": 0.58408
+        }
+      ],
+      "start_vs_middle": "all_positive",
+      "terminated": false
+    },
+    "terminated": {
+      "end_vs_middle": "mixed",
+      "rows": [
+        {
+          "band": "7-12",
+          "end_minus_middle": -0.28772,
+          "n": {
+            "end": 283203,
+            "middle": 341212,
+            "start": 283203
+          },
+          "rates": {
+            "end": 0.12566,
+            "middle": 0.41339,
+            "start": 0.62301
+          },
+          "readable": true,
+          "start_minus_middle": 0.20962
+        },
+        {
+          "band": "13-24",
+          "end_minus_middle": -0.11646,
+          "n": {
+            "end": 585162,
+            "middle": 2412443,
+            "start": 585162
+          },
+          "rates": {
+            "end": 0.06735,
+            "middle": 0.18381,
+            "start": 0.6524
+          },
+          "readable": true,
+          "start_minus_middle": 0.4686
+        },
+        {
+          "band": "25-60",
+          "end_minus_middle": -0.02044,
+          "n": {
+            "end": 1049568,
+            "middle": 11924195,
+            "start": 1049568
+          },
+          "rates": {
+            "end": 0.08571,
+            "middle": 0.10615,
+            "start": 0.65268
+          },
+          "readable": true,
+          "start_minus_middle": 0.54653
+        },
+        {
+          "band": "61-120",
+          "end_minus_middle": 0.02101,
+          "n": {
+            "end": 695031,
+            "middle": 18284660,
+            "start": 695031
+          },
+          "rates": {
+            "end": 0.10376,
+            "middle": 0.08274,
+            "start": 0.64614
+          },
+          "readable": true,
+          "start_minus_middle": 0.5634
+        },
+        {
+          "band": "121+",
+          "end_minus_middle": 0.03317,
+          "n": {
+            "end": 223470,
+            "middle": 11111390,
+            "start": 223470
+          },
+          "rates": {
+            "end": 0.12334,
+            "middle": 0.09017,
+            "start": 0.68332
+          },
+          "readable": true,
+          "start_minus_middle": 0.59315
+        }
+      ],
+      "start_vs_middle": "all_positive",
+      "terminated": true
+    }
+  },
+  "stage": "B10",
+  "step": "o18_position",
+  "terminated_loans": 1006190
+}

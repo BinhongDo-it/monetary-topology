@@ -1,0 +1,4269 @@
+{
+  "cols": {
+    "1": {
+      "col_1indexed": 2,
+      "distinct_top_offsets": 234,
+      "invariant": false,
+      "n_strata": 264,
+      "strata": {
+        "102": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -101,
+          "top_share": 1.0
+        },
+        "103": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -156,
+          "top_share": 1.0
+        },
+        "104": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -155,
+          "top_share": 1.0
+        },
+        "107": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -109,
+          "top_share": 0.3333333333333333
+        },
+        "108": {
+          "distinct_offsets": 5,
+          "loans": 35,
+          "top_n": 29,
+          "top_offset": -107,
+          "top_share": 0.8285714285714286
+        },
+        "110": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -109,
+          "top_share": 1.0
+        },
+        "111": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -147,
+          "top_share": 0.3333333333333333
+        },
+        "114": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -113,
+          "top_share": 1.0
+        },
+        "116": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -118,
+          "top_share": 1.0
+        },
+        "119": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -130,
+          "top_share": 0.3333333333333333
+        },
+        "120": {
+          "distinct_offsets": 75,
+          "loans": 18783,
+          "top_n": 14299,
+          "top_offset": -119,
+          "top_share": 0.7612734919874354
+        },
+        "121": {
+          "distinct_offsets": 5,
+          "loans": 84,
+          "top_n": 73,
+          "top_offset": -120,
+          "top_share": 0.8690476190476191
+        },
+        "122": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -123,
+          "top_share": 0.3333333333333333
+        },
+        "123": {
+          "distinct_offsets": 2,
+          "loans": 13,
+          "top_n": 12,
+          "top_offset": -122,
+          "top_share": 0.9230769230769231
+        },
+        "124": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -147,
+          "top_share": 0.5
+        },
+        "125": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -124,
+          "top_share": 1.0
+        },
+        "126": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -125,
+          "top_share": 1.0
+        },
+        "127": {
+          "distinct_offsets": 3,
+          "loans": 6,
+          "top_n": 4,
+          "top_offset": -126,
+          "top_share": 0.6666666666666666
+        },
+        "128": {
+          "distinct_offsets": 3,
+          "loans": 9,
+          "top_n": 7,
+          "top_offset": -127,
+          "top_share": 0.7777777777777778
+        },
+        "129": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": -128,
+          "top_share": 0.5
+        },
+        "130": {
+          "distinct_offsets": 5,
+          "loans": 7,
+          "top_n": 2,
+          "top_offset": -131,
+          "top_share": 0.2857142857142857
+        },
+        "131": {
+          "distinct_offsets": 1,
+          "loans": 7,
+          "top_n": 7,
+          "top_offset": -130,
+          "top_share": 1.0
+        },
+        "132": {
+          "distinct_offsets": 9,
+          "loans": 279,
+          "top_n": 231,
+          "top_offset": -131,
+          "top_share": 0.8279569892473119
+        },
+        "133": {
+          "distinct_offsets": 4,
+          "loans": 6,
+          "top_n": 2,
+          "top_offset": -138,
+          "top_share": 0.3333333333333333
+        },
+        "134": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 4,
+          "top_offset": -133,
+          "top_share": 0.4444444444444444
+        },
+        "135": {
+          "distinct_offsets": 2,
+          "loans": 10,
+          "top_n": 9,
+          "top_offset": -134,
+          "top_share": 0.9
+        },
+        "136": {
+          "distinct_offsets": 2,
+          "loans": 3,
+          "top_n": 2,
+          "top_offset": -135,
+          "top_share": 0.6666666666666666
+        },
+        "137": {
+          "distinct_offsets": 4,
+          "loans": 8,
+          "top_n": 5,
+          "top_offset": -136,
+          "top_share": 0.625
+        },
+        "138": {
+          "distinct_offsets": 8,
+          "loans": 21,
+          "top_n": 12,
+          "top_offset": -137,
+          "top_share": 0.5714285714285714
+        },
+        "139": {
+          "distinct_offsets": 4,
+          "loans": 15,
+          "top_n": 11,
+          "top_offset": -138,
+          "top_share": 0.7333333333333333
+        },
+        "140": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 8,
+          "top_offset": -139,
+          "top_share": 0.6153846153846154
+        },
+        "141": {
+          "distinct_offsets": 9,
+          "loans": 19,
+          "top_n": 10,
+          "top_offset": -140,
+          "top_share": 0.5263157894736842
+        },
+        "142": {
+          "distinct_offsets": 10,
+          "loans": 19,
+          "top_n": 9,
+          "top_offset": -141,
+          "top_share": 0.47368421052631576
+        },
+        "143": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 5,
+          "top_offset": -142,
+          "top_share": 0.5555555555555556
+        },
+        "144": {
+          "distinct_offsets": 23,
+          "loans": 820,
+          "top_n": 713,
+          "top_offset": -143,
+          "top_share": 0.8695121951219512
+        },
+        "145": {
+          "distinct_offsets": 8,
+          "loans": 19,
+          "top_n": 7,
+          "top_offset": -144,
+          "top_share": 0.3684210526315789
+        },
+        "146": {
+          "distinct_offsets": 9,
+          "loans": 19,
+          "top_n": 9,
+          "top_offset": -145,
+          "top_share": 0.47368421052631576
+        },
+        "147": {
+          "distinct_offsets": 6,
+          "loans": 19,
+          "top_n": 13,
+          "top_offset": -146,
+          "top_share": 0.6842105263157895
+        },
+        "148": {
+          "distinct_offsets": 5,
+          "loans": 19,
+          "top_n": 15,
+          "top_offset": -147,
+          "top_share": 0.7894736842105263
+        },
+        "149": {
+          "distinct_offsets": 8,
+          "loans": 14,
+          "top_n": 6,
+          "top_offset": -148,
+          "top_share": 0.42857142857142855
+        },
+        "150": {
+          "distinct_offsets": 6,
+          "loans": 39,
+          "top_n": 33,
+          "top_offset": -149,
+          "top_share": 0.8461538461538461
+        },
+        "151": {
+          "distinct_offsets": 5,
+          "loans": 15,
+          "top_n": 11,
+          "top_offset": -150,
+          "top_share": 0.7333333333333333
+        },
+        "152": {
+          "distinct_offsets": 5,
+          "loans": 15,
+          "top_n": 10,
+          "top_offset": -151,
+          "top_share": 0.6666666666666666
+        },
+        "153": {
+          "distinct_offsets": 4,
+          "loans": 17,
+          "top_n": 14,
+          "top_offset": -152,
+          "top_share": 0.8235294117647058
+        },
+        "154": {
+          "distinct_offsets": 6,
+          "loans": 17,
+          "top_n": 12,
+          "top_offset": -153,
+          "top_share": 0.7058823529411765
+        },
+        "155": {
+          "distinct_offsets": 10,
+          "loans": 35,
+          "top_n": 16,
+          "top_offset": -154,
+          "top_share": 0.45714285714285713
+        },
+        "156": {
+          "distinct_offsets": 14,
+          "loans": 552,
+          "top_n": 471,
+          "top_offset": -155,
+          "top_share": 0.8532608695652174
+        },
+        "157": {
+          "distinct_offsets": 10,
+          "loans": 38,
+          "top_n": 17,
+          "top_offset": -156,
+          "top_share": 0.4473684210526316
+        },
+        "158": {
+          "distinct_offsets": 13,
+          "loans": 50,
+          "top_n": 28,
+          "top_offset": -157,
+          "top_share": 0.56
+        },
+        "159": {
+          "distinct_offsets": 10,
+          "loans": 52,
+          "top_n": 31,
+          "top_offset": -158,
+          "top_share": 0.5961538461538461
+        },
+        "160": {
+          "distinct_offsets": 12,
+          "loans": 64,
+          "top_n": 42,
+          "top_offset": -159,
+          "top_share": 0.65625
+        },
+        "161": {
+          "distinct_offsets": 5,
+          "loans": 30,
+          "top_n": 24,
+          "top_offset": -160,
+          "top_share": 0.8
+        },
+        "162": {
+          "distinct_offsets": 4,
+          "loans": 54,
+          "top_n": 45,
+          "top_offset": -161,
+          "top_share": 0.8333333333333334
+        },
+        "163": {
+          "distinct_offsets": 5,
+          "loans": 25,
+          "top_n": 20,
+          "top_offset": -162,
+          "top_share": 0.8
+        },
+        "164": {
+          "distinct_offsets": 3,
+          "loans": 21,
+          "top_n": 16,
+          "top_offset": -163,
+          "top_share": 0.7619047619047619
+        },
+        "165": {
+          "distinct_offsets": 5,
+          "loans": 25,
+          "top_n": 20,
+          "top_offset": -164,
+          "top_share": 0.8
+        },
+        "166": {
+          "distinct_offsets": 3,
+          "loans": 26,
+          "top_n": 22,
+          "top_offset": -165,
+          "top_share": 0.8461538461538461
+        },
+        "167": {
+          "distinct_offsets": 4,
+          "loans": 18,
+          "top_n": 15,
+          "top_offset": -166,
+          "top_share": 0.8333333333333334
+        },
+        "168": {
+          "distinct_offsets": 12,
+          "loans": 472,
+          "top_n": 405,
+          "top_offset": -167,
+          "top_share": 0.8580508474576272
+        },
+        "169": {
+          "distinct_offsets": 4,
+          "loans": 26,
+          "top_n": 20,
+          "top_offset": -168,
+          "top_share": 0.7692307692307693
+        },
+        "170": {
+          "distinct_offsets": 9,
+          "loans": 31,
+          "top_n": 19,
+          "top_offset": -169,
+          "top_share": 0.6129032258064516
+        },
+        "171": {
+          "distinct_offsets": 4,
+          "loans": 20,
+          "top_n": 16,
+          "top_offset": -170,
+          "top_share": 0.8
+        },
+        "172": {
+          "distinct_offsets": 3,
+          "loans": 20,
+          "top_n": 18,
+          "top_offset": -171,
+          "top_share": 0.9
+        },
+        "173": {
+          "distinct_offsets": 5,
+          "loans": 19,
+          "top_n": 14,
+          "top_offset": -172,
+          "top_share": 0.7368421052631579
+        },
+        "174": {
+          "distinct_offsets": 16,
+          "loans": 61,
+          "top_n": 30,
+          "top_offset": -173,
+          "top_share": 0.4918032786885246
+        },
+        "175": {
+          "distinct_offsets": 12,
+          "loans": 38,
+          "top_n": 23,
+          "top_offset": -174,
+          "top_share": 0.6052631578947368
+        },
+        "176": {
+          "distinct_offsets": 6,
+          "loans": 11,
+          "top_n": 4,
+          "top_offset": -175,
+          "top_share": 0.36363636363636365
+        },
+        "177": {
+          "distinct_offsets": 9,
+          "loans": 22,
+          "top_n": 12,
+          "top_offset": -176,
+          "top_share": 0.5454545454545454
+        },
+        "178": {
+          "distinct_offsets": 3,
+          "loans": 11,
+          "top_n": 8,
+          "top_offset": -177,
+          "top_share": 0.7272727272727273
+        },
+        "179": {
+          "distinct_offsets": 6,
+          "loans": 25,
+          "top_n": 14,
+          "top_offset": -178,
+          "top_share": 0.56
+        },
+        "180": {
+          "distinct_offsets": 114,
+          "loans": 246033,
+          "top_n": 193053,
+          "top_offset": -179,
+          "top_share": 0.7846630330077673
+        },
+        "181": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": -180,
+          "top_share": 0.8333333333333334
+        },
+        "186": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -186,
+          "top_share": 0.5
+        },
+        "187": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -187,
+          "top_share": 1.0
+        },
+        "191": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -190,
+          "top_share": 1.0
+        },
+        "192": {
+          "distinct_offsets": 6,
+          "loans": 72,
+          "top_n": 67,
+          "top_offset": -191,
+          "top_share": 0.9305555555555556
+        },
+        "194": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -213,
+          "top_share": 0.5
+        },
+        "197": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -236,
+          "top_share": 1.0
+        },
+        "198": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -205,
+          "top_share": 0.5
+        },
+        "199": {
+          "distinct_offsets": 6,
+          "loans": 7,
+          "top_n": 2,
+          "top_offset": -203,
+          "top_share": 0.2857142857142857
+        },
+        "200": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -212,
+          "top_share": 0.5
+        },
+        "201": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -200,
+          "top_share": 1.0
+        },
+        "202": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -153,
+          "top_share": 0.5
+        },
+        "203": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -252,
+          "top_share": 0.3333333333333333
+        },
+        "204": {
+          "distinct_offsets": 5,
+          "loans": 91,
+          "top_n": 85,
+          "top_offset": -203,
+          "top_share": 0.9340659340659341
+        },
+        "205": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -208,
+          "top_share": 0.5
+        },
+        "206": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -205,
+          "top_share": 1.0
+        },
+        "207": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": -208,
+          "top_share": 0.5
+        },
+        "209": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -208,
+          "top_share": 0.5
+        },
+        "210": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": -209,
+          "top_share": 0.75
+        },
+        "211": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -210,
+          "top_share": 1.0
+        },
+        "213": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": -212,
+          "top_share": 0.8333333333333334
+        },
+        "214": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -215,
+          "top_share": 0.3333333333333333
+        },
+        "215": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -237,
+          "top_share": 1.0
+        },
+        "216": {
+          "distinct_offsets": 4,
+          "loans": 201,
+          "top_n": 189,
+          "top_offset": -215,
+          "top_share": 0.9402985074626866
+        },
+        "217": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": -216,
+          "top_share": 0.75
+        },
+        "218": {
+          "distinct_offsets": 1,
+          "loans": 3,
+          "top_n": 3,
+          "top_offset": -217,
+          "top_share": 1.0
+        },
+        "220": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": -219,
+          "top_share": 0.8
+        },
+        "221": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": -220,
+          "top_share": 0.5
+        },
+        "222": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": -221,
+          "top_share": 0.8
+        },
+        "224": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": -223,
+          "top_share": 0.8
+        },
+        "225": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -225,
+          "top_share": 0.5
+        },
+        "226": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -225,
+          "top_share": 1.0
+        },
+        "227": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": -226,
+          "top_share": 0.75
+        },
+        "228": {
+          "distinct_offsets": 6,
+          "loans": 215,
+          "top_n": 206,
+          "top_offset": -227,
+          "top_share": 0.958139534883721
+        },
+        "229": {
+          "distinct_offsets": 3,
+          "loans": 6,
+          "top_n": 3,
+          "top_offset": -228,
+          "top_share": 0.5
+        },
+        "230": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": -229,
+          "top_share": 1.0
+        },
+        "231": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": -230,
+          "top_share": 0.8333333333333334
+        },
+        "232": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": -231,
+          "top_share": 0.8333333333333334
+        },
+        "233": {
+          "distinct_offsets": 1,
+          "loans": 7,
+          "top_n": 7,
+          "top_offset": -232,
+          "top_share": 1.0
+        },
+        "234": {
+          "distinct_offsets": 5,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": -233,
+          "top_share": 0.6923076923076923
+        },
+        "235": {
+          "distinct_offsets": 3,
+          "loans": 8,
+          "top_n": 5,
+          "top_offset": -234,
+          "top_share": 0.625
+        },
+        "236": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": -235,
+          "top_share": 0.75
+        },
+        "237": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": -236,
+          "top_share": 0.5
+        },
+        "238": {
+          "distinct_offsets": 4,
+          "loans": 5,
+          "top_n": 2,
+          "top_offset": -237,
+          "top_share": 0.4
+        },
+        "239": {
+          "distinct_offsets": 3,
+          "loans": 11,
+          "top_n": 8,
+          "top_offset": -238,
+          "top_share": 0.7272727272727273
+        },
+        "240": {
+          "distinct_offsets": 89,
+          "loans": 65679,
+          "top_n": 59467,
+          "top_offset": -239,
+          "top_share": 0.9054187792140562
+        },
+        "241": {
+          "distinct_offsets": 3,
+          "loans": 32,
+          "top_n": 29,
+          "top_offset": -240,
+          "top_share": 0.90625
+        },
+        "242": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": -241,
+          "top_share": 0.5
+        },
+        "244": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -280,
+          "top_share": 1.0
+        },
+        "245": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": -244,
+          "top_share": 1.0
+        },
+        "246": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": -245,
+          "top_share": 1.0
+        },
+        "247": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -246,
+          "top_share": 1.0
+        },
+        "248": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -247,
+          "top_share": 1.0
+        },
+        "249": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -285,
+          "top_share": 1.0
+        },
+        "250": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": -249,
+          "top_share": 1.0
+        },
+        "251": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -251,
+          "top_share": 0.5
+        },
+        "252": {
+          "distinct_offsets": 6,
+          "loans": 227,
+          "top_n": 211,
+          "top_offset": -251,
+          "top_share": 0.9295154185022027
+        },
+        "253": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -252,
+          "top_share": 1.0
+        },
+        "254": {
+          "distinct_offsets": 1,
+          "loans": 3,
+          "top_n": 3,
+          "top_offset": -253,
+          "top_share": 1.0
+        },
+        "255": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -254,
+          "top_share": 1.0
+        },
+        "256": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": -255,
+          "top_share": 1.0
+        },
+        "257": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -256,
+          "top_share": 1.0
+        },
+        "258": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -257,
+          "top_share": 1.0
+        },
+        "259": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": -258,
+          "top_share": 1.0
+        },
+        "260": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": -259,
+          "top_share": 0.8
+        },
+        "261": {
+          "distinct_offsets": 2,
+          "loans": 3,
+          "top_n": 2,
+          "top_offset": -260,
+          "top_share": 0.6666666666666666
+        },
+        "262": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -268,
+          "top_share": 0.3333333333333333
+        },
+        "263": {
+          "distinct_offsets": 1,
+          "loans": 7,
+          "top_n": 7,
+          "top_offset": -262,
+          "top_share": 1.0
+        },
+        "264": {
+          "distinct_offsets": 9,
+          "loans": 251,
+          "top_n": 237,
+          "top_offset": -263,
+          "top_share": 0.9442231075697212
+        },
+        "265": {
+          "distinct_offsets": 3,
+          "loans": 11,
+          "top_n": 9,
+          "top_offset": -264,
+          "top_share": 0.8181818181818182
+        },
+        "266": {
+          "distinct_offsets": 3,
+          "loans": 8,
+          "top_n": 5,
+          "top_offset": -265,
+          "top_share": 0.625
+        },
+        "267": {
+          "distinct_offsets": 3,
+          "loans": 14,
+          "top_n": 9,
+          "top_offset": -266,
+          "top_share": 0.6428571428571429
+        },
+        "268": {
+          "distinct_offsets": 4,
+          "loans": 11,
+          "top_n": 8,
+          "top_offset": -267,
+          "top_share": 0.7272727272727273
+        },
+        "269": {
+          "distinct_offsets": 2,
+          "loans": 9,
+          "top_n": 7,
+          "top_offset": -268,
+          "top_share": 0.7777777777777778
+        },
+        "270": {
+          "distinct_offsets": 3,
+          "loans": 15,
+          "top_n": 9,
+          "top_offset": -269,
+          "top_share": 0.6
+        },
+        "271": {
+          "distinct_offsets": 9,
+          "loans": 36,
+          "top_n": 24,
+          "top_offset": -270,
+          "top_share": 0.6666666666666666
+        },
+        "272": {
+          "distinct_offsets": 4,
+          "loans": 19,
+          "top_n": 16,
+          "top_offset": -271,
+          "top_share": 0.8421052631578947
+        },
+        "273": {
+          "distinct_offsets": 7,
+          "loans": 16,
+          "top_n": 7,
+          "top_offset": -272,
+          "top_share": 0.4375
+        },
+        "274": {
+          "distinct_offsets": 8,
+          "loans": 24,
+          "top_n": 11,
+          "top_offset": -273,
+          "top_share": 0.4583333333333333
+        },
+        "275": {
+          "distinct_offsets": 7,
+          "loans": 30,
+          "top_n": 18,
+          "top_offset": -274,
+          "top_share": 0.6
+        },
+        "276": {
+          "distinct_offsets": 17,
+          "loans": 459,
+          "top_n": 404,
+          "top_offset": -275,
+          "top_share": 0.8801742919389978
+        },
+        "277": {
+          "distinct_offsets": 2,
+          "loans": 12,
+          "top_n": 10,
+          "top_offset": -276,
+          "top_share": 0.8333333333333334
+        },
+        "278": {
+          "distinct_offsets": 6,
+          "loans": 19,
+          "top_n": 10,
+          "top_offset": -277,
+          "top_share": 0.5263157894736842
+        },
+        "279": {
+          "distinct_offsets": 3,
+          "loans": 12,
+          "top_n": 9,
+          "top_offset": -278,
+          "top_share": 0.75
+        },
+        "280": {
+          "distinct_offsets": 5,
+          "loans": 16,
+          "top_n": 11,
+          "top_offset": -279,
+          "top_share": 0.6875
+        },
+        "281": {
+          "distinct_offsets": 8,
+          "loans": 19,
+          "top_n": 11,
+          "top_offset": -280,
+          "top_share": 0.5789473684210527
+        },
+        "282": {
+          "distinct_offsets": 9,
+          "loans": 23,
+          "top_n": 13,
+          "top_offset": -281,
+          "top_share": 0.5652173913043478
+        },
+        "283": {
+          "distinct_offsets": 5,
+          "loans": 17,
+          "top_n": 10,
+          "top_offset": -282,
+          "top_share": 0.5882352941176471
+        },
+        "284": {
+          "distinct_offsets": 6,
+          "loans": 17,
+          "top_n": 11,
+          "top_offset": -283,
+          "top_share": 0.6470588235294118
+        },
+        "285": {
+          "distinct_offsets": 6,
+          "loans": 16,
+          "top_n": 10,
+          "top_offset": -284,
+          "top_share": 0.625
+        },
+        "286": {
+          "distinct_offsets": 6,
+          "loans": 15,
+          "top_n": 8,
+          "top_offset": -285,
+          "top_share": 0.5333333333333333
+        },
+        "287": {
+          "distinct_offsets": 4,
+          "loans": 24,
+          "top_n": 17,
+          "top_offset": -286,
+          "top_share": 0.7083333333333334
+        },
+        "288": {
+          "distinct_offsets": 11,
+          "loans": 351,
+          "top_n": 329,
+          "top_offset": -287,
+          "top_share": 0.9373219373219374
+        },
+        "289": {
+          "distinct_offsets": 5,
+          "loans": 22,
+          "top_n": 17,
+          "top_offset": -288,
+          "top_share": 0.7727272727272727
+        },
+        "290": {
+          "distinct_offsets": 5,
+          "loans": 18,
+          "top_n": 11,
+          "top_offset": -289,
+          "top_share": 0.6111111111111112
+        },
+        "291": {
+          "distinct_offsets": 3,
+          "loans": 20,
+          "top_n": 16,
+          "top_offset": -290,
+          "top_share": 0.8
+        },
+        "292": {
+          "distinct_offsets": 3,
+          "loans": 13,
+          "top_n": 10,
+          "top_offset": -291,
+          "top_share": 0.7692307692307693
+        },
+        "293": {
+          "distinct_offsets": 2,
+          "loans": 16,
+          "top_n": 14,
+          "top_offset": -292,
+          "top_share": 0.875
+        },
+        "294": {
+          "distinct_offsets": 4,
+          "loans": 17,
+          "top_n": 13,
+          "top_offset": -293,
+          "top_share": 0.7647058823529411
+        },
+        "295": {
+          "distinct_offsets": 4,
+          "loans": 16,
+          "top_n": 13,
+          "top_offset": -294,
+          "top_share": 0.8125
+        },
+        "296": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": -295,
+          "top_share": 0.6923076923076923
+        },
+        "297": {
+          "distinct_offsets": 4,
+          "loans": 12,
+          "top_n": 8,
+          "top_offset": -296,
+          "top_share": 0.6666666666666666
+        },
+        "298": {
+          "distinct_offsets": 2,
+          "loans": 13,
+          "top_n": 12,
+          "top_offset": -297,
+          "top_share": 0.9230769230769231
+        },
+        "299": {
+          "distinct_offsets": 3,
+          "loans": 15,
+          "top_n": 13,
+          "top_offset": -298,
+          "top_share": 0.8666666666666667
+        },
+        "30": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -52,
+          "top_share": 1.0
+        },
+        "300": {
+          "distinct_offsets": 54,
+          "loans": 8668,
+          "top_n": 7809,
+          "top_offset": -299,
+          "top_share": 0.90089986155976
+        },
+        "301": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 5,
+          "top_offset": -300,
+          "top_share": 0.5555555555555556
+        },
+        "302": {
+          "distinct_offsets": 3,
+          "loans": 9,
+          "top_n": 7,
+          "top_offset": -301,
+          "top_share": 0.7777777777777778
+        },
+        "303": {
+          "distinct_offsets": 5,
+          "loans": 19,
+          "top_n": 14,
+          "top_offset": -302,
+          "top_share": 0.7368421052631579
+        },
+        "304": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": -303,
+          "top_share": 0.6923076923076923
+        },
+        "305": {
+          "distinct_offsets": 4,
+          "loans": 20,
+          "top_n": 15,
+          "top_offset": -304,
+          "top_share": 0.75
+        },
+        "306": {
+          "distinct_offsets": 3,
+          "loans": 13,
+          "top_n": 11,
+          "top_offset": -305,
+          "top_share": 0.8461538461538461
+        },
+        "307": {
+          "distinct_offsets": 4,
+          "loans": 16,
+          "top_n": 13,
+          "top_offset": -306,
+          "top_share": 0.8125
+        },
+        "308": {
+          "distinct_offsets": 5,
+          "loans": 17,
+          "top_n": 13,
+          "top_offset": -307,
+          "top_share": 0.7647058823529411
+        },
+        "309": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": -308,
+          "top_share": 0.6923076923076923
+        },
+        "310": {
+          "distinct_offsets": 6,
+          "loans": 20,
+          "top_n": 15,
+          "top_offset": -309,
+          "top_share": 0.75
+        },
+        "311": {
+          "distinct_offsets": 4,
+          "loans": 10,
+          "top_n": 7,
+          "top_offset": -310,
+          "top_share": 0.7
+        },
+        "312": {
+          "distinct_offsets": 9,
+          "loans": 299,
+          "top_n": 283,
+          "top_offset": -311,
+          "top_share": 0.9464882943143813
+        },
+        "313": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": -312,
+          "top_share": 0.6923076923076923
+        },
+        "314": {
+          "distinct_offsets": 6,
+          "loans": 18,
+          "top_n": 12,
+          "top_offset": -313,
+          "top_share": 0.6666666666666666
+        },
+        "315": {
+          "distinct_offsets": 2,
+          "loans": 9,
+          "top_n": 8,
+          "top_offset": -314,
+          "top_share": 0.8888888888888888
+        },
+        "316": {
+          "distinct_offsets": 6,
+          "loans": 22,
+          "top_n": 16,
+          "top_offset": -315,
+          "top_share": 0.7272727272727273
+        },
+        "317": {
+          "distinct_offsets": 4,
+          "loans": 9,
+          "top_n": 6,
+          "top_offset": -316,
+          "top_share": 0.6666666666666666
+        },
+        "318": {
+          "distinct_offsets": 5,
+          "loans": 24,
+          "top_n": 20,
+          "top_offset": -317,
+          "top_share": 0.8333333333333334
+        },
+        "319": {
+          "distinct_offsets": 6,
+          "loans": 16,
+          "top_n": 9,
+          "top_offset": -318,
+          "top_share": 0.5625
+        },
+        "320": {
+          "distinct_offsets": 8,
+          "loans": 23,
+          "top_n": 16,
+          "top_offset": -319,
+          "top_share": 0.6956521739130435
+        },
+        "321": {
+          "distinct_offsets": 2,
+          "loans": 11,
+          "top_n": 10,
+          "top_offset": -320,
+          "top_share": 0.9090909090909091
+        },
+        "322": {
+          "distinct_offsets": 6,
+          "loans": 21,
+          "top_n": 13,
+          "top_offset": -321,
+          "top_share": 0.6190476190476191
+        },
+        "323": {
+          "distinct_offsets": 5,
+          "loans": 18,
+          "top_n": 13,
+          "top_offset": -322,
+          "top_share": 0.7222222222222222
+        },
+        "324": {
+          "distinct_offsets": 7,
+          "loans": 933,
+          "top_n": 896,
+          "top_offset": -323,
+          "top_share": 0.9603429796355841
+        },
+        "325": {
+          "distinct_offsets": 7,
+          "loans": 27,
+          "top_n": 16,
+          "top_offset": -324,
+          "top_share": 0.5925925925925926
+        },
+        "326": {
+          "distinct_offsets": 10,
+          "loans": 28,
+          "top_n": 15,
+          "top_offset": -325,
+          "top_share": 0.5357142857142857
+        },
+        "327": {
+          "distinct_offsets": 7,
+          "loans": 19,
+          "top_n": 12,
+          "top_offset": -326,
+          "top_share": 0.631578947368421
+        },
+        "328": {
+          "distinct_offsets": 5,
+          "loans": 28,
+          "top_n": 18,
+          "top_offset": -327,
+          "top_share": 0.6428571428571429
+        },
+        "329": {
+          "distinct_offsets": 6,
+          "loans": 35,
+          "top_n": 24,
+          "top_offset": -328,
+          "top_share": 0.6857142857142857
+        },
+        "330": {
+          "distinct_offsets": 5,
+          "loans": 47,
+          "top_n": 43,
+          "top_offset": -329,
+          "top_share": 0.9148936170212766
+        },
+        "331": {
+          "distinct_offsets": 8,
+          "loans": 31,
+          "top_n": 23,
+          "top_offset": -330,
+          "top_share": 0.7419354838709677
+        },
+        "332": {
+          "distinct_offsets": 7,
+          "loans": 35,
+          "top_n": 26,
+          "top_offset": -331,
+          "top_share": 0.7428571428571429
+        },
+        "333": {
+          "distinct_offsets": 8,
+          "loans": 45,
+          "top_n": 29,
+          "top_offset": -332,
+          "top_share": 0.6444444444444445
+        },
+        "334": {
+          "distinct_offsets": 9,
+          "loans": 40,
+          "top_n": 29,
+          "top_offset": -333,
+          "top_share": 0.725
+        },
+        "335": {
+          "distinct_offsets": 8,
+          "loans": 48,
+          "top_n": 33,
+          "top_offset": -334,
+          "top_share": 0.6875
+        },
+        "336": {
+          "distinct_offsets": 8,
+          "loans": 522,
+          "top_n": 479,
+          "top_offset": -335,
+          "top_share": 0.9176245210727969
+        },
+        "337": {
+          "distinct_offsets": 8,
+          "loans": 44,
+          "top_n": 24,
+          "top_offset": -336,
+          "top_share": 0.5454545454545454
+        },
+        "338": {
+          "distinct_offsets": 12,
+          "loans": 48,
+          "top_n": 30,
+          "top_offset": -337,
+          "top_share": 0.625
+        },
+        "339": {
+          "distinct_offsets": 8,
+          "loans": 57,
+          "top_n": 37,
+          "top_offset": -338,
+          "top_share": 0.6491228070175439
+        },
+        "340": {
+          "distinct_offsets": 8,
+          "loans": 49,
+          "top_n": 32,
+          "top_offset": -339,
+          "top_share": 0.6530612244897959
+        },
+        "341": {
+          "distinct_offsets": 5,
+          "loans": 43,
+          "top_n": 32,
+          "top_offset": -340,
+          "top_share": 0.7441860465116279
+        },
+        "342": {
+          "distinct_offsets": 12,
+          "loans": 89,
+          "top_n": 62,
+          "top_offset": -341,
+          "top_share": 0.6966292134831461
+        },
+        "343": {
+          "distinct_offsets": 8,
+          "loans": 80,
+          "top_n": 58,
+          "top_offset": -342,
+          "top_share": 0.725
+        },
+        "344": {
+          "distinct_offsets": 12,
+          "loans": 97,
+          "top_n": 71,
+          "top_offset": -343,
+          "top_share": 0.7319587628865979
+        },
+        "345": {
+          "distinct_offsets": 9,
+          "loans": 72,
+          "top_n": 49,
+          "top_offset": -344,
+          "top_share": 0.6805555555555556
+        },
+        "346": {
+          "distinct_offsets": 9,
+          "loans": 85,
+          "top_n": 60,
+          "top_offset": -345,
+          "top_share": 0.7058823529411765
+        },
+        "347": {
+          "distinct_offsets": 20,
+          "loans": 104,
+          "top_n": 56,
+          "top_offset": -346,
+          "top_share": 0.5384615384615384
+        },
+        "348": {
+          "distinct_offsets": 18,
+          "loans": 969,
+          "top_n": 880,
+          "top_offset": -347,
+          "top_share": 0.9081527347781218
+        },
+        "349": {
+          "distinct_offsets": 10,
+          "loans": 141,
+          "top_n": 70,
+          "top_offset": -348,
+          "top_share": 0.49645390070921985
+        },
+        "350": {
+          "distinct_offsets": 16,
+          "loans": 153,
+          "top_n": 77,
+          "top_offset": -349,
+          "top_share": 0.5032679738562091
+        },
+        "351": {
+          "distinct_offsets": 16,
+          "loans": 172,
+          "top_n": 97,
+          "top_offset": -350,
+          "top_share": 0.563953488372093
+        },
+        "352": {
+          "distinct_offsets": 12,
+          "loans": 167,
+          "top_n": 93,
+          "top_offset": -351,
+          "top_share": 0.5568862275449101
+        },
+        "353": {
+          "distinct_offsets": 16,
+          "loans": 155,
+          "top_n": 90,
+          "top_offset": -352,
+          "top_share": 0.5806451612903226
+        },
+        "354": {
+          "distinct_offsets": 31,
+          "loans": 361,
+          "top_n": 133,
+          "top_offset": -353,
+          "top_share": 0.3684210526315789
+        },
+        "355": {
+          "distinct_offsets": 14,
+          "loans": 134,
+          "top_n": 88,
+          "top_offset": -354,
+          "top_share": 0.6567164179104478
+        },
+        "356": {
+          "distinct_offsets": 19,
+          "loans": 117,
+          "top_n": 55,
+          "top_offset": -355,
+          "top_share": 0.4700854700854701
+        },
+        "357": {
+          "distinct_offsets": 15,
+          "loans": 99,
+          "top_n": 49,
+          "top_offset": -356,
+          "top_share": 0.494949494949495
+        },
+        "358": {
+          "distinct_offsets": 21,
+          "loans": 95,
+          "top_n": 51,
+          "top_offset": -357,
+          "top_share": 0.5368421052631579
+        },
+        "359": {
+          "distinct_offsets": 17,
+          "loans": 181,
+          "top_n": 122,
+          "top_offset": -358,
+          "top_share": 0.6740331491712708
+        },
+        "36": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -41,
+          "top_share": 1.0
+        },
+        "360": {
+          "distinct_offsets": 152,
+          "loans": 1010805,
+          "top_n": 907560,
+          "top_offset": -359,
+          "top_share": 0.8978586374226483
+        },
+        "361": {
+          "distinct_offsets": 3,
+          "loans": 5,
+          "top_n": 3,
+          "top_offset": -360,
+          "top_share": 0.6
+        },
+        "366": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -365,
+          "top_share": 1.0
+        },
+        "386": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -385,
+          "top_share": 1.0
+        },
+        "465": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -464,
+          "top_share": 1.0
+        },
+        "480": {
+          "distinct_offsets": 22,
+          "loans": 206,
+          "top_n": 141,
+          "top_offset": -479,
+          "top_share": 0.6844660194174758
+        },
+        "513": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -512,
+          "top_share": 1.0
+        },
+        "60": {
+          "distinct_offsets": 19,
+          "loans": 32,
+          "top_n": 9,
+          "top_offset": -59,
+          "top_share": 0.28125
+        },
+        "61": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -95,
+          "top_share": 0.5
+        },
+        "65": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -106,
+          "top_share": 1.0
+        },
+        "66": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -88,
+          "top_share": 1.0
+        },
+        "67": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -67,
+          "top_share": 1.0
+        },
+        "72": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 4,
+          "top_offset": -72,
+          "top_share": 0.4444444444444444
+        },
+        "76": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -97,
+          "top_share": 1.0
+        },
+        "80": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -55,
+          "top_share": 1.0
+        },
+        "81": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -125,
+          "top_share": 1.0
+        },
+        "82": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -81,
+          "top_share": 1.0
+        },
+        "84": {
+          "distinct_offsets": 12,
+          "loans": 28,
+          "top_n": 11,
+          "top_offset": -83,
+          "top_share": 0.39285714285714285
+        },
+        "85": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -92,
+          "top_share": 0.5
+        },
+        "88": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -97,
+          "top_share": 1.0
+        },
+        "89": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -89,
+          "top_share": 1.0
+        },
+        "90": {
+          "distinct_offsets": 3,
+          "loans": 5,
+          "top_n": 3,
+          "top_offset": -89,
+          "top_share": 0.6
+        },
+        "94": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -94,
+          "top_share": 1.0
+        },
+        "96": {
+          "distinct_offsets": 17,
+          "loans": 178,
+          "top_n": 146,
+          "top_offset": -95,
+          "top_share": 0.8202247191011236
+        },
+        "97": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -97,
+          "top_share": 1.0
+        },
+        "98": {
+          "distinct_offsets": 1,
+          "loans": 3,
+          "top_n": 3,
+          "top_offset": -97,
+          "top_share": 1.0
+        },
+        "99": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -155,
+          "top_share": 0.5
+        }
+      },
+      "thinnest_stratum": [
+        30,
+        1
+      ],
+      "top_offsets": [
+        -512,
+        -479,
+        -464,
+        -385,
+        -365,
+        -360,
+        -359,
+        -358,
+        -357,
+        -356,
+        -355,
+        -354,
+        -353,
+        -352,
+        -351,
+        -350,
+        -349,
+        -348,
+        -347,
+        -346,
+        -345,
+        -344,
+        -343,
+        -342,
+        -341,
+        -340,
+        -339,
+        -338,
+        -337,
+        -336,
+        -335,
+        -334,
+        -333,
+        -332,
+        -331,
+        -330,
+        -329,
+        -328,
+        -327,
+        -326,
+        -325,
+        -324,
+        -323,
+        -322,
+        -321,
+        -320,
+        -319,
+        -318,
+        -317,
+        -316,
+        -315,
+        -314,
+        -313,
+        -312,
+        -311,
+        -310,
+        -309,
+        -308,
+        -307,
+        -306,
+        -305,
+        -304,
+        -303,
+        -302,
+        -301,
+        -300,
+        -299,
+        -298,
+        -297,
+        -296,
+        -295,
+        -294,
+        -293,
+        -292,
+        -291,
+        -290,
+        -289,
+        -288,
+        -287,
+        -286,
+        -285,
+        -284,
+        -283,
+        -282,
+        -281,
+        -280,
+        -279,
+        -278,
+        -277,
+        -276,
+        -275,
+        -274,
+        -273,
+        -272,
+        -271,
+        -270,
+        -269,
+        -268,
+        -267,
+        -266,
+        -265,
+        -264,
+        -263,
+        -262,
+        -260,
+        -259,
+        -258,
+        -257,
+        -256,
+        -255,
+        -254,
+        -253,
+        -252,
+        -251,
+        -249,
+        -247,
+        -246,
+        -245,
+        -244,
+        -241,
+        -240,
+        -239,
+        -238,
+        -237,
+        -236,
+        -235,
+        -234,
+        -233,
+        -232,
+        -231,
+        -230,
+        -229,
+        -228,
+        -227,
+        -226,
+        -225,
+        -223,
+        -221,
+        -220,
+        -219,
+        -217,
+        -216,
+        -215,
+        -213,
+        -212,
+        -210,
+        -209,
+        -208,
+        -205,
+        -203,
+        -200,
+        -191,
+        -190,
+        -187,
+        -186,
+        -180,
+        -179,
+        -178,
+        -177,
+        -176,
+        -175,
+        -174,
+        -173,
+        -172,
+        -171,
+        -170,
+        -169,
+        -168,
+        -167,
+        -166,
+        -165,
+        -164,
+        -163,
+        -162,
+        -161,
+        -160,
+        -159,
+        -158,
+        -157,
+        -156,
+        -155,
+        -154,
+        -153,
+        -152,
+        -151,
+        -150,
+        -149,
+        -148,
+        -147,
+        -146,
+        -145,
+        -144,
+        -143,
+        -142,
+        -141,
+        -140,
+        -139,
+        -138,
+        -137,
+        -136,
+        -135,
+        -134,
+        -133,
+        -131,
+        -130,
+        -128,
+        -127,
+        -126,
+        -125,
+        -124,
+        -123,
+        -122,
+        -120,
+        -119,
+        -118,
+        -113,
+        -109,
+        -107,
+        -106,
+        -101,
+        -97,
+        -95,
+        -94,
+        -92,
+        -89,
+        -88,
+        -83,
+        -81,
+        -72,
+        -67,
+        -59,
+        -55,
+        -52,
+        -41
+      ],
+      "yyyymm_rows": 1362490
+    },
+    "3": {
+      "col_1indexed": 4,
+      "distinct_top_offsets": 27,
+      "invariant": false,
+      "n_strata": 264,
+      "strata": {
+        "102": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "103": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -54,
+          "top_share": 1.0
+        },
+        "104": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -52,
+          "top_share": 1.0
+        },
+        "107": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -3,
+          "top_share": 0.3333333333333333
+        },
+        "108": {
+          "distinct_offsets": 5,
+          "loans": 35,
+          "top_n": 29,
+          "top_offset": 0,
+          "top_share": 0.8285714285714286
+        },
+        "110": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "111": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -37,
+          "top_share": 0.3333333333333333
+        },
+        "114": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "116": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -3,
+          "top_share": 1.0
+        },
+        "119": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -12,
+          "top_share": 0.3333333333333333
+        },
+        "120": {
+          "distinct_offsets": 75,
+          "loans": 18783,
+          "top_n": 14299,
+          "top_offset": 0,
+          "top_share": 0.7612734919874354
+        },
+        "121": {
+          "distinct_offsets": 5,
+          "loans": 84,
+          "top_n": 73,
+          "top_offset": 0,
+          "top_share": 0.8690476190476191
+        },
+        "122": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -2,
+          "top_share": 0.3333333333333333
+        },
+        "123": {
+          "distinct_offsets": 2,
+          "loans": 13,
+          "top_n": 12,
+          "top_offset": 0,
+          "top_share": 0.9230769230769231
+        },
+        "124": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -24,
+          "top_share": 0.5
+        },
+        "125": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "126": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "127": {
+          "distinct_offsets": 3,
+          "loans": 6,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "128": {
+          "distinct_offsets": 3,
+          "loans": 9,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 0.7777777777777778
+        },
+        "129": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 0.5
+        },
+        "130": {
+          "distinct_offsets": 5,
+          "loans": 7,
+          "top_n": 2,
+          "top_offset": -2,
+          "top_share": 0.2857142857142857
+        },
+        "131": {
+          "distinct_offsets": 1,
+          "loans": 7,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "132": {
+          "distinct_offsets": 9,
+          "loans": 279,
+          "top_n": 231,
+          "top_offset": 0,
+          "top_share": 0.8279569892473119
+        },
+        "133": {
+          "distinct_offsets": 4,
+          "loans": 6,
+          "top_n": 2,
+          "top_offset": -6,
+          "top_share": 0.3333333333333333
+        },
+        "134": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 0.4444444444444444
+        },
+        "135": {
+          "distinct_offsets": 2,
+          "loans": 10,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.9
+        },
+        "136": {
+          "distinct_offsets": 2,
+          "loans": 3,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "137": {
+          "distinct_offsets": 4,
+          "loans": 8,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.625
+        },
+        "138": {
+          "distinct_offsets": 8,
+          "loans": 21,
+          "top_n": 12,
+          "top_offset": 0,
+          "top_share": 0.5714285714285714
+        },
+        "139": {
+          "distinct_offsets": 4,
+          "loans": 15,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.7333333333333333
+        },
+        "140": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 8,
+          "top_offset": 0,
+          "top_share": 0.6153846153846154
+        },
+        "141": {
+          "distinct_offsets": 9,
+          "loans": 19,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.5263157894736842
+        },
+        "142": {
+          "distinct_offsets": 10,
+          "loans": 19,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.47368421052631576
+        },
+        "143": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.5555555555555556
+        },
+        "144": {
+          "distinct_offsets": 23,
+          "loans": 820,
+          "top_n": 713,
+          "top_offset": 0,
+          "top_share": 0.8695121951219512
+        },
+        "145": {
+          "distinct_offsets": 8,
+          "loans": 19,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 0.3684210526315789
+        },
+        "146": {
+          "distinct_offsets": 9,
+          "loans": 19,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.47368421052631576
+        },
+        "147": {
+          "distinct_offsets": 6,
+          "loans": 19,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.6842105263157895
+        },
+        "148": {
+          "distinct_offsets": 5,
+          "loans": 19,
+          "top_n": 15,
+          "top_offset": 0,
+          "top_share": 0.7894736842105263
+        },
+        "149": {
+          "distinct_offsets": 8,
+          "loans": 14,
+          "top_n": 6,
+          "top_offset": 0,
+          "top_share": 0.42857142857142855
+        },
+        "150": {
+          "distinct_offsets": 6,
+          "loans": 39,
+          "top_n": 33,
+          "top_offset": 0,
+          "top_share": 0.8461538461538461
+        },
+        "151": {
+          "distinct_offsets": 5,
+          "loans": 15,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.7333333333333333
+        },
+        "152": {
+          "distinct_offsets": 5,
+          "loans": 15,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "153": {
+          "distinct_offsets": 4,
+          "loans": 17,
+          "top_n": 14,
+          "top_offset": 0,
+          "top_share": 0.8235294117647058
+        },
+        "154": {
+          "distinct_offsets": 6,
+          "loans": 17,
+          "top_n": 12,
+          "top_offset": 0,
+          "top_share": 0.7058823529411765
+        },
+        "155": {
+          "distinct_offsets": 10,
+          "loans": 35,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.45714285714285713
+        },
+        "156": {
+          "distinct_offsets": 14,
+          "loans": 552,
+          "top_n": 471,
+          "top_offset": 0,
+          "top_share": 0.8532608695652174
+        },
+        "157": {
+          "distinct_offsets": 10,
+          "loans": 38,
+          "top_n": 17,
+          "top_offset": 0,
+          "top_share": 0.4473684210526316
+        },
+        "158": {
+          "distinct_offsets": 13,
+          "loans": 50,
+          "top_n": 28,
+          "top_offset": 0,
+          "top_share": 0.56
+        },
+        "159": {
+          "distinct_offsets": 10,
+          "loans": 52,
+          "top_n": 31,
+          "top_offset": 0,
+          "top_share": 0.5961538461538461
+        },
+        "160": {
+          "distinct_offsets": 12,
+          "loans": 64,
+          "top_n": 42,
+          "top_offset": 0,
+          "top_share": 0.65625
+        },
+        "161": {
+          "distinct_offsets": 5,
+          "loans": 30,
+          "top_n": 24,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "162": {
+          "distinct_offsets": 4,
+          "loans": 54,
+          "top_n": 45,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "163": {
+          "distinct_offsets": 5,
+          "loans": 25,
+          "top_n": 20,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "164": {
+          "distinct_offsets": 3,
+          "loans": 21,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.7619047619047619
+        },
+        "165": {
+          "distinct_offsets": 5,
+          "loans": 25,
+          "top_n": 20,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "166": {
+          "distinct_offsets": 3,
+          "loans": 26,
+          "top_n": 22,
+          "top_offset": 0,
+          "top_share": 0.8461538461538461
+        },
+        "167": {
+          "distinct_offsets": 4,
+          "loans": 18,
+          "top_n": 15,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "168": {
+          "distinct_offsets": 12,
+          "loans": 472,
+          "top_n": 405,
+          "top_offset": 0,
+          "top_share": 0.8580508474576272
+        },
+        "169": {
+          "distinct_offsets": 4,
+          "loans": 26,
+          "top_n": 20,
+          "top_offset": 0,
+          "top_share": 0.7692307692307693
+        },
+        "170": {
+          "distinct_offsets": 9,
+          "loans": 31,
+          "top_n": 19,
+          "top_offset": 0,
+          "top_share": 0.6129032258064516
+        },
+        "171": {
+          "distinct_offsets": 4,
+          "loans": 20,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "172": {
+          "distinct_offsets": 3,
+          "loans": 20,
+          "top_n": 18,
+          "top_offset": 0,
+          "top_share": 0.9
+        },
+        "173": {
+          "distinct_offsets": 5,
+          "loans": 19,
+          "top_n": 14,
+          "top_offset": 0,
+          "top_share": 0.7368421052631579
+        },
+        "174": {
+          "distinct_offsets": 16,
+          "loans": 61,
+          "top_n": 30,
+          "top_offset": 0,
+          "top_share": 0.4918032786885246
+        },
+        "175": {
+          "distinct_offsets": 12,
+          "loans": 38,
+          "top_n": 23,
+          "top_offset": 0,
+          "top_share": 0.6052631578947368
+        },
+        "176": {
+          "distinct_offsets": 6,
+          "loans": 11,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 0.36363636363636365
+        },
+        "177": {
+          "distinct_offsets": 9,
+          "loans": 22,
+          "top_n": 12,
+          "top_offset": 0,
+          "top_share": 0.5454545454545454
+        },
+        "178": {
+          "distinct_offsets": 3,
+          "loans": 11,
+          "top_n": 8,
+          "top_offset": 0,
+          "top_share": 0.7272727272727273
+        },
+        "179": {
+          "distinct_offsets": 6,
+          "loans": 25,
+          "top_n": 14,
+          "top_offset": 0,
+          "top_share": 0.56
+        },
+        "180": {
+          "distinct_offsets": 114,
+          "loans": 246033,
+          "top_n": 193053,
+          "top_offset": 0,
+          "top_share": 0.7846630330077673
+        },
+        "181": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "186": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -1,
+          "top_share": 0.5
+        },
+        "187": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": -1,
+          "top_share": 1.0
+        },
+        "191": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "192": {
+          "distinct_offsets": 6,
+          "loans": 72,
+          "top_n": 67,
+          "top_offset": 0,
+          "top_share": 0.9305555555555556
+        },
+        "194": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -20,
+          "top_share": 0.5
+        },
+        "197": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -40,
+          "top_share": 1.0
+        },
+        "198": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -8,
+          "top_share": 0.5
+        },
+        "199": {
+          "distinct_offsets": 6,
+          "loans": 7,
+          "top_n": 2,
+          "top_offset": -5,
+          "top_share": 0.2857142857142857
+        },
+        "200": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -13,
+          "top_share": 0.5
+        },
+        "201": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "202": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": 48,
+          "top_share": 0.5
+        },
+        "203": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -50,
+          "top_share": 0.3333333333333333
+        },
+        "204": {
+          "distinct_offsets": 5,
+          "loans": 91,
+          "top_n": 85,
+          "top_offset": 0,
+          "top_share": 0.9340659340659341
+        },
+        "205": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -4,
+          "top_share": 0.5
+        },
+        "206": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "207": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": -2,
+          "top_share": 0.5
+        },
+        "209": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 0.5
+        },
+        "210": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 0.75
+        },
+        "211": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "213": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "214": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -2,
+          "top_share": 0.3333333333333333
+        },
+        "215": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -23,
+          "top_share": 1.0
+        },
+        "216": {
+          "distinct_offsets": 4,
+          "loans": 201,
+          "top_n": 189,
+          "top_offset": 0,
+          "top_share": 0.9402985074626866
+        },
+        "217": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 0.75
+        },
+        "218": {
+          "distinct_offsets": 1,
+          "loans": 3,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "220": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "221": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 0.5
+        },
+        "222": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "224": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "225": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -1,
+          "top_share": 0.5
+        },
+        "226": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "227": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 0.75
+        },
+        "228": {
+          "distinct_offsets": 6,
+          "loans": 215,
+          "top_n": 206,
+          "top_offset": 0,
+          "top_share": 0.958139534883721
+        },
+        "229": {
+          "distinct_offsets": 3,
+          "loans": 6,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 0.5
+        },
+        "230": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "231": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "232": {
+          "distinct_offsets": 2,
+          "loans": 6,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "233": {
+          "distinct_offsets": 1,
+          "loans": 7,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "234": {
+          "distinct_offsets": 5,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.6923076923076923
+        },
+        "235": {
+          "distinct_offsets": 3,
+          "loans": 8,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.625
+        },
+        "236": {
+          "distinct_offsets": 2,
+          "loans": 4,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 0.75
+        },
+        "237": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 0.5
+        },
+        "238": {
+          "distinct_offsets": 4,
+          "loans": 5,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 0.4
+        },
+        "239": {
+          "distinct_offsets": 3,
+          "loans": 11,
+          "top_n": 8,
+          "top_offset": 0,
+          "top_share": 0.7272727272727273
+        },
+        "240": {
+          "distinct_offsets": 89,
+          "loans": 65679,
+          "top_n": 59467,
+          "top_offset": 0,
+          "top_share": 0.9054187792140562
+        },
+        "241": {
+          "distinct_offsets": 3,
+          "loans": 32,
+          "top_n": 29,
+          "top_offset": 0,
+          "top_share": 0.90625
+        },
+        "242": {
+          "distinct_offsets": 3,
+          "loans": 4,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 0.5
+        },
+        "244": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -37,
+          "top_share": 1.0
+        },
+        "245": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "246": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "247": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "248": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "249": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -37,
+          "top_share": 1.0
+        },
+        "250": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "251": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -1,
+          "top_share": 0.5
+        },
+        "252": {
+          "distinct_offsets": 6,
+          "loans": 227,
+          "top_n": 211,
+          "top_offset": 0,
+          "top_share": 0.9295154185022027
+        },
+        "253": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "254": {
+          "distinct_offsets": 1,
+          "loans": 3,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "255": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "256": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "257": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "258": {
+          "distinct_offsets": 1,
+          "loans": 2,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "259": {
+          "distinct_offsets": 1,
+          "loans": 4,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "260": {
+          "distinct_offsets": 2,
+          "loans": 5,
+          "top_n": 4,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "261": {
+          "distinct_offsets": 2,
+          "loans": 3,
+          "top_n": 2,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "262": {
+          "distinct_offsets": 3,
+          "loans": 3,
+          "top_n": 1,
+          "top_offset": -7,
+          "top_share": 0.3333333333333333
+        },
+        "263": {
+          "distinct_offsets": 1,
+          "loans": 7,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "264": {
+          "distinct_offsets": 9,
+          "loans": 251,
+          "top_n": 237,
+          "top_offset": 0,
+          "top_share": 0.9442231075697212
+        },
+        "265": {
+          "distinct_offsets": 3,
+          "loans": 11,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.8181818181818182
+        },
+        "266": {
+          "distinct_offsets": 3,
+          "loans": 8,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.625
+        },
+        "267": {
+          "distinct_offsets": 3,
+          "loans": 14,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.6428571428571429
+        },
+        "268": {
+          "distinct_offsets": 4,
+          "loans": 11,
+          "top_n": 8,
+          "top_offset": 0,
+          "top_share": 0.7272727272727273
+        },
+        "269": {
+          "distinct_offsets": 2,
+          "loans": 9,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 0.7777777777777778
+        },
+        "270": {
+          "distinct_offsets": 3,
+          "loans": 15,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.6
+        },
+        "271": {
+          "distinct_offsets": 9,
+          "loans": 36,
+          "top_n": 24,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "272": {
+          "distinct_offsets": 4,
+          "loans": 19,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.8421052631578947
+        },
+        "273": {
+          "distinct_offsets": 7,
+          "loans": 16,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 0.4375
+        },
+        "274": {
+          "distinct_offsets": 8,
+          "loans": 24,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.4583333333333333
+        },
+        "275": {
+          "distinct_offsets": 7,
+          "loans": 30,
+          "top_n": 18,
+          "top_offset": 0,
+          "top_share": 0.6
+        },
+        "276": {
+          "distinct_offsets": 17,
+          "loans": 459,
+          "top_n": 404,
+          "top_offset": 0,
+          "top_share": 0.8801742919389978
+        },
+        "277": {
+          "distinct_offsets": 2,
+          "loans": 12,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "278": {
+          "distinct_offsets": 6,
+          "loans": 19,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.5263157894736842
+        },
+        "279": {
+          "distinct_offsets": 3,
+          "loans": 12,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.75
+        },
+        "280": {
+          "distinct_offsets": 5,
+          "loans": 16,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.6875
+        },
+        "281": {
+          "distinct_offsets": 8,
+          "loans": 19,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.5789473684210527
+        },
+        "282": {
+          "distinct_offsets": 9,
+          "loans": 23,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.5652173913043478
+        },
+        "283": {
+          "distinct_offsets": 5,
+          "loans": 17,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.5882352941176471
+        },
+        "284": {
+          "distinct_offsets": 6,
+          "loans": 17,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.6470588235294118
+        },
+        "285": {
+          "distinct_offsets": 6,
+          "loans": 16,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.625
+        },
+        "286": {
+          "distinct_offsets": 6,
+          "loans": 15,
+          "top_n": 8,
+          "top_offset": 0,
+          "top_share": 0.5333333333333333
+        },
+        "287": {
+          "distinct_offsets": 4,
+          "loans": 24,
+          "top_n": 17,
+          "top_offset": 0,
+          "top_share": 0.7083333333333334
+        },
+        "288": {
+          "distinct_offsets": 11,
+          "loans": 351,
+          "top_n": 329,
+          "top_offset": 0,
+          "top_share": 0.9373219373219374
+        },
+        "289": {
+          "distinct_offsets": 5,
+          "loans": 22,
+          "top_n": 17,
+          "top_offset": 0,
+          "top_share": 0.7727272727272727
+        },
+        "290": {
+          "distinct_offsets": 5,
+          "loans": 18,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.6111111111111112
+        },
+        "291": {
+          "distinct_offsets": 3,
+          "loans": 20,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.8
+        },
+        "292": {
+          "distinct_offsets": 3,
+          "loans": 13,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.7692307692307693
+        },
+        "293": {
+          "distinct_offsets": 2,
+          "loans": 16,
+          "top_n": 14,
+          "top_offset": 0,
+          "top_share": 0.875
+        },
+        "294": {
+          "distinct_offsets": 4,
+          "loans": 17,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.7647058823529411
+        },
+        "295": {
+          "distinct_offsets": 4,
+          "loans": 16,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.8125
+        },
+        "296": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.6923076923076923
+        },
+        "297": {
+          "distinct_offsets": 4,
+          "loans": 12,
+          "top_n": 8,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "298": {
+          "distinct_offsets": 2,
+          "loans": 13,
+          "top_n": 12,
+          "top_offset": 0,
+          "top_share": 0.9230769230769231
+        },
+        "299": {
+          "distinct_offsets": 3,
+          "loans": 15,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.8666666666666667
+        },
+        "30": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -23,
+          "top_share": 1.0
+        },
+        "300": {
+          "distinct_offsets": 54,
+          "loans": 8668,
+          "top_n": 7809,
+          "top_offset": 0,
+          "top_share": 0.90089986155976
+        },
+        "301": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 5,
+          "top_offset": 0,
+          "top_share": 0.5555555555555556
+        },
+        "302": {
+          "distinct_offsets": 3,
+          "loans": 9,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 0.7777777777777778
+        },
+        "303": {
+          "distinct_offsets": 5,
+          "loans": 19,
+          "top_n": 14,
+          "top_offset": 0,
+          "top_share": 0.7368421052631579
+        },
+        "304": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.6923076923076923
+        },
+        "305": {
+          "distinct_offsets": 4,
+          "loans": 20,
+          "top_n": 15,
+          "top_offset": 0,
+          "top_share": 0.75
+        },
+        "306": {
+          "distinct_offsets": 3,
+          "loans": 13,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.8461538461538461
+        },
+        "307": {
+          "distinct_offsets": 4,
+          "loans": 16,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.8125
+        },
+        "308": {
+          "distinct_offsets": 5,
+          "loans": 17,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.7647058823529411
+        },
+        "309": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.6923076923076923
+        },
+        "310": {
+          "distinct_offsets": 6,
+          "loans": 20,
+          "top_n": 15,
+          "top_offset": 0,
+          "top_share": 0.75
+        },
+        "311": {
+          "distinct_offsets": 4,
+          "loans": 10,
+          "top_n": 7,
+          "top_offset": 0,
+          "top_share": 0.7
+        },
+        "312": {
+          "distinct_offsets": 9,
+          "loans": 299,
+          "top_n": 283,
+          "top_offset": 0,
+          "top_share": 0.9464882943143813
+        },
+        "313": {
+          "distinct_offsets": 4,
+          "loans": 13,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.6923076923076923
+        },
+        "314": {
+          "distinct_offsets": 6,
+          "loans": 18,
+          "top_n": 12,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "315": {
+          "distinct_offsets": 2,
+          "loans": 9,
+          "top_n": 8,
+          "top_offset": 0,
+          "top_share": 0.8888888888888888
+        },
+        "316": {
+          "distinct_offsets": 6,
+          "loans": 22,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.7272727272727273
+        },
+        "317": {
+          "distinct_offsets": 4,
+          "loans": 9,
+          "top_n": 6,
+          "top_offset": 0,
+          "top_share": 0.6666666666666666
+        },
+        "318": {
+          "distinct_offsets": 5,
+          "loans": 24,
+          "top_n": 20,
+          "top_offset": 0,
+          "top_share": 0.8333333333333334
+        },
+        "319": {
+          "distinct_offsets": 6,
+          "loans": 16,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.5625
+        },
+        "320": {
+          "distinct_offsets": 8,
+          "loans": 23,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.6956521739130435
+        },
+        "321": {
+          "distinct_offsets": 2,
+          "loans": 11,
+          "top_n": 10,
+          "top_offset": 0,
+          "top_share": 0.9090909090909091
+        },
+        "322": {
+          "distinct_offsets": 6,
+          "loans": 21,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.6190476190476191
+        },
+        "323": {
+          "distinct_offsets": 5,
+          "loans": 18,
+          "top_n": 13,
+          "top_offset": 0,
+          "top_share": 0.7222222222222222
+        },
+        "324": {
+          "distinct_offsets": 7,
+          "loans": 933,
+          "top_n": 896,
+          "top_offset": 0,
+          "top_share": 0.9603429796355841
+        },
+        "325": {
+          "distinct_offsets": 7,
+          "loans": 27,
+          "top_n": 16,
+          "top_offset": 0,
+          "top_share": 0.5925925925925926
+        },
+        "326": {
+          "distinct_offsets": 10,
+          "loans": 28,
+          "top_n": 15,
+          "top_offset": 0,
+          "top_share": 0.5357142857142857
+        },
+        "327": {
+          "distinct_offsets": 7,
+          "loans": 19,
+          "top_n": 12,
+          "top_offset": 0,
+          "top_share": 0.631578947368421
+        },
+        "328": {
+          "distinct_offsets": 5,
+          "loans": 28,
+          "top_n": 18,
+          "top_offset": 0,
+          "top_share": 0.6428571428571429
+        },
+        "329": {
+          "distinct_offsets": 6,
+          "loans": 35,
+          "top_n": 24,
+          "top_offset": 0,
+          "top_share": 0.6857142857142857
+        },
+        "330": {
+          "distinct_offsets": 5,
+          "loans": 47,
+          "top_n": 43,
+          "top_offset": 0,
+          "top_share": 0.9148936170212766
+        },
+        "331": {
+          "distinct_offsets": 8,
+          "loans": 31,
+          "top_n": 23,
+          "top_offset": 0,
+          "top_share": 0.7419354838709677
+        },
+        "332": {
+          "distinct_offsets": 7,
+          "loans": 35,
+          "top_n": 26,
+          "top_offset": 0,
+          "top_share": 0.7428571428571429
+        },
+        "333": {
+          "distinct_offsets": 8,
+          "loans": 45,
+          "top_n": 29,
+          "top_offset": 0,
+          "top_share": 0.6444444444444445
+        },
+        "334": {
+          "distinct_offsets": 9,
+          "loans": 40,
+          "top_n": 29,
+          "top_offset": 0,
+          "top_share": 0.725
+        },
+        "335": {
+          "distinct_offsets": 8,
+          "loans": 48,
+          "top_n": 33,
+          "top_offset": 0,
+          "top_share": 0.6875
+        },
+        "336": {
+          "distinct_offsets": 8,
+          "loans": 522,
+          "top_n": 479,
+          "top_offset": 0,
+          "top_share": 0.9176245210727969
+        },
+        "337": {
+          "distinct_offsets": 8,
+          "loans": 44,
+          "top_n": 24,
+          "top_offset": 0,
+          "top_share": 0.5454545454545454
+        },
+        "338": {
+          "distinct_offsets": 12,
+          "loans": 48,
+          "top_n": 30,
+          "top_offset": 0,
+          "top_share": 0.625
+        },
+        "339": {
+          "distinct_offsets": 8,
+          "loans": 57,
+          "top_n": 37,
+          "top_offset": 0,
+          "top_share": 0.6491228070175439
+        },
+        "340": {
+          "distinct_offsets": 8,
+          "loans": 49,
+          "top_n": 32,
+          "top_offset": 0,
+          "top_share": 0.6530612244897959
+        },
+        "341": {
+          "distinct_offsets": 5,
+          "loans": 43,
+          "top_n": 32,
+          "top_offset": 0,
+          "top_share": 0.7441860465116279
+        },
+        "342": {
+          "distinct_offsets": 12,
+          "loans": 89,
+          "top_n": 62,
+          "top_offset": 0,
+          "top_share": 0.6966292134831461
+        },
+        "343": {
+          "distinct_offsets": 8,
+          "loans": 80,
+          "top_n": 58,
+          "top_offset": 0,
+          "top_share": 0.725
+        },
+        "344": {
+          "distinct_offsets": 12,
+          "loans": 97,
+          "top_n": 71,
+          "top_offset": 0,
+          "top_share": 0.7319587628865979
+        },
+        "345": {
+          "distinct_offsets": 9,
+          "loans": 72,
+          "top_n": 49,
+          "top_offset": 0,
+          "top_share": 0.6805555555555556
+        },
+        "346": {
+          "distinct_offsets": 9,
+          "loans": 85,
+          "top_n": 60,
+          "top_offset": 0,
+          "top_share": 0.7058823529411765
+        },
+        "347": {
+          "distinct_offsets": 20,
+          "loans": 104,
+          "top_n": 56,
+          "top_offset": 0,
+          "top_share": 0.5384615384615384
+        },
+        "348": {
+          "distinct_offsets": 18,
+          "loans": 969,
+          "top_n": 880,
+          "top_offset": 0,
+          "top_share": 0.9081527347781218
+        },
+        "349": {
+          "distinct_offsets": 10,
+          "loans": 141,
+          "top_n": 70,
+          "top_offset": 0,
+          "top_share": 0.49645390070921985
+        },
+        "350": {
+          "distinct_offsets": 16,
+          "loans": 153,
+          "top_n": 77,
+          "top_offset": 0,
+          "top_share": 0.5032679738562091
+        },
+        "351": {
+          "distinct_offsets": 16,
+          "loans": 172,
+          "top_n": 97,
+          "top_offset": 0,
+          "top_share": 0.563953488372093
+        },
+        "352": {
+          "distinct_offsets": 12,
+          "loans": 167,
+          "top_n": 93,
+          "top_offset": 0,
+          "top_share": 0.5568862275449101
+        },
+        "353": {
+          "distinct_offsets": 16,
+          "loans": 155,
+          "top_n": 90,
+          "top_offset": 0,
+          "top_share": 0.5806451612903226
+        },
+        "354": {
+          "distinct_offsets": 31,
+          "loans": 361,
+          "top_n": 133,
+          "top_offset": 0,
+          "top_share": 0.3684210526315789
+        },
+        "355": {
+          "distinct_offsets": 14,
+          "loans": 134,
+          "top_n": 88,
+          "top_offset": 0,
+          "top_share": 0.6567164179104478
+        },
+        "356": {
+          "distinct_offsets": 19,
+          "loans": 117,
+          "top_n": 55,
+          "top_offset": 0,
+          "top_share": 0.4700854700854701
+        },
+        "357": {
+          "distinct_offsets": 15,
+          "loans": 99,
+          "top_n": 49,
+          "top_offset": 0,
+          "top_share": 0.494949494949495
+        },
+        "358": {
+          "distinct_offsets": 21,
+          "loans": 95,
+          "top_n": 51,
+          "top_offset": 0,
+          "top_share": 0.5368421052631579
+        },
+        "359": {
+          "distinct_offsets": 17,
+          "loans": 181,
+          "top_n": 122,
+          "top_offset": 0,
+          "top_share": 0.6740331491712708
+        },
+        "36": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -6,
+          "top_share": 1.0
+        },
+        "360": {
+          "distinct_offsets": 152,
+          "loans": 1010805,
+          "top_n": 907560,
+          "top_offset": 0,
+          "top_share": 0.8978586374226483
+        },
+        "361": {
+          "distinct_offsets": 3,
+          "loans": 5,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 0.6
+        },
+        "366": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "386": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "465": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "480": {
+          "distinct_offsets": 22,
+          "loans": 206,
+          "top_n": 141,
+          "top_offset": 0,
+          "top_share": 0.6844660194174758
+        },
+        "513": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "60": {
+          "distinct_offsets": 19,
+          "loans": 32,
+          "top_n": 9,
+          "top_offset": 0,
+          "top_share": 0.28125
+        },
+        "61": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -35,
+          "top_share": 0.5
+        },
+        "65": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -42,
+          "top_share": 1.0
+        },
+        "66": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -23,
+          "top_share": 1.0
+        },
+        "67": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -1,
+          "top_share": 1.0
+        },
+        "72": {
+          "distinct_offsets": 5,
+          "loans": 9,
+          "top_n": 4,
+          "top_offset": -1,
+          "top_share": 0.4444444444444444
+        },
+        "76": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -22,
+          "top_share": 1.0
+        },
+        "80": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 24,
+          "top_share": 1.0
+        },
+        "81": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -45,
+          "top_share": 1.0
+        },
+        "82": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "84": {
+          "distinct_offsets": 12,
+          "loans": 28,
+          "top_n": 11,
+          "top_offset": 0,
+          "top_share": 0.39285714285714285
+        },
+        "85": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -8,
+          "top_share": 0.5
+        },
+        "88": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -10,
+          "top_share": 1.0
+        },
+        "89": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -1,
+          "top_share": 1.0
+        },
+        "90": {
+          "distinct_offsets": 3,
+          "loans": 5,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 0.6
+        },
+        "94": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -1,
+          "top_share": 1.0
+        },
+        "96": {
+          "distinct_offsets": 17,
+          "loans": 178,
+          "top_n": 146,
+          "top_offset": 0,
+          "top_share": 0.8202247191011236
+        },
+        "97": {
+          "distinct_offsets": 1,
+          "loans": 1,
+          "top_n": 1,
+          "top_offset": -1,
+          "top_share": 1.0
+        },
+        "98": {
+          "distinct_offsets": 1,
+          "loans": 3,
+          "top_n": 3,
+          "top_offset": 0,
+          "top_share": 1.0
+        },
+        "99": {
+          "distinct_offsets": 2,
+          "loans": 2,
+          "top_n": 1,
+          "top_offset": -57,
+          "top_share": 0.5
+        }
+      },
+      "thinnest_stratum": [
+        30,
+        1
+      ],
+      "top_offsets": [
+        -57,
+        -54,
+        -52,
+        -50,
+        -45,
+        -42,
+        -40,
+        -37,
+        -35,
+        -24,
+        -23,
+        -22,
+        -20,
+        -13,
+        -12,
+        -10,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        24,
+        48
+      ],
+      "yyyymm_rows": 1362490
+    }
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. Does not re-decide \u00a78\u00b714\u00b76's landing. Strata are the data's own term values; no binning here. --balloon is untouched.",
+  "loans": 1362490,
+  "loans_by_term": {
+    "102": 1,
+    "103": 1,
+    "104": 1,
+    "107": 3,
+    "108": 35,
+    "110": 1,
+    "111": 3,
+    "114": 2,
+    "116": 1,
+    "119": 3,
+    "120": 18783,
+    "121": 84,
+    "122": 3,
+    "123": 13,
+    "124": 2,
+    "125": 2,
+    "126": 2,
+    "127": 6,
+    "128": 9,
+    "129": 4,
+    "130": 7,
+    "131": 7,
+    "132": 279,
+    "133": 6,
+    "134": 9,
+    "135": 10,
+    "136": 3,
+    "137": 8,
+    "138": 21,
+    "139": 15,
+    "140": 13,
+    "141": 19,
+    "142": 19,
+    "143": 9,
+    "144": 820,
+    "145": 19,
+    "146": 19,
+    "147": 19,
+    "148": 19,
+    "149": 14,
+    "150": 39,
+    "151": 15,
+    "152": 15,
+    "153": 17,
+    "154": 17,
+    "155": 35,
+    "156": 552,
+    "157": 38,
+    "158": 50,
+    "159": 52,
+    "160": 64,
+    "161": 30,
+    "162": 54,
+    "163": 25,
+    "164": 21,
+    "165": 25,
+    "166": 26,
+    "167": 18,
+    "168": 472,
+    "169": 26,
+    "170": 31,
+    "171": 20,
+    "172": 20,
+    "173": 19,
+    "174": 61,
+    "175": 38,
+    "176": 11,
+    "177": 22,
+    "178": 11,
+    "179": 25,
+    "180": 246033,
+    "181": 6,
+    "186": 2,
+    "187": 2,
+    "191": 1,
+    "192": 72,
+    "194": 2,
+    "197": 1,
+    "198": 2,
+    "199": 7,
+    "200": 2,
+    "201": 1,
+    "202": 2,
+    "203": 3,
+    "204": 91,
+    "205": 2,
+    "206": 2,
+    "207": 4,
+    "209": 2,
+    "210": 4,
+    "211": 2,
+    "213": 6,
+    "214": 3,
+    "215": 1,
+    "216": 201,
+    "217": 4,
+    "218": 3,
+    "220": 5,
+    "221": 4,
+    "222": 5,
+    "224": 5,
+    "225": 2,
+    "226": 2,
+    "227": 4,
+    "228": 215,
+    "229": 6,
+    "230": 4,
+    "231": 6,
+    "232": 6,
+    "233": 7,
+    "234": 13,
+    "235": 8,
+    "236": 4,
+    "237": 4,
+    "238": 5,
+    "239": 11,
+    "240": 65679,
+    "241": 32,
+    "242": 4,
+    "244": 1,
+    "245": 4,
+    "246": 4,
+    "247": 1,
+    "248": 2,
+    "249": 1,
+    "250": 4,
+    "251": 2,
+    "252": 227,
+    "253": 2,
+    "254": 3,
+    "255": 2,
+    "256": 4,
+    "257": 1,
+    "258": 2,
+    "259": 4,
+    "260": 5,
+    "261": 3,
+    "262": 3,
+    "263": 7,
+    "264": 251,
+    "265": 11,
+    "266": 8,
+    "267": 14,
+    "268": 11,
+    "269": 9,
+    "270": 15,
+    "271": 36,
+    "272": 19,
+    "273": 16,
+    "274": 24,
+    "275": 30,
+    "276": 459,
+    "277": 12,
+    "278": 19,
+    "279": 12,
+    "280": 16,
+    "281": 19,
+    "282": 23,
+    "283": 17,
+    "284": 17,
+    "285": 16,
+    "286": 15,
+    "287": 24,
+    "288": 351,
+    "289": 22,
+    "290": 18,
+    "291": 20,
+    "292": 13,
+    "293": 16,
+    "294": 17,
+    "295": 16,
+    "296": 13,
+    "297": 12,
+    "298": 13,
+    "299": 15,
+    "30": 1,
+    "300": 8668,
+    "301": 9,
+    "302": 9,
+    "303": 19,
+    "304": 13,
+    "305": 20,
+    "306": 13,
+    "307": 16,
+    "308": 17,
+    "309": 13,
+    "310": 20,
+    "311": 10,
+    "312": 299,
+    "313": 13,
+    "314": 18,
+    "315": 9,
+    "316": 22,
+    "317": 9,
+    "318": 24,
+    "319": 16,
+    "320": 23,
+    "321": 11,
+    "322": 21,
+    "323": 18,
+    "324": 933,
+    "325": 27,
+    "326": 28,
+    "327": 19,
+    "328": 28,
+    "329": 35,
+    "330": 47,
+    "331": 31,
+    "332": 35,
+    "333": 45,
+    "334": 40,
+    "335": 48,
+    "336": 522,
+    "337": 44,
+    "338": 48,
+    "339": 57,
+    "340": 49,
+    "341": 43,
+    "342": 89,
+    "343": 80,
+    "344": 97,
+    "345": 72,
+    "346": 85,
+    "347": 104,
+    "348": 969,
+    "349": 141,
+    "350": 153,
+    "351": 172,
+    "352": 167,
+    "353": 155,
+    "354": 361,
+    "355": 134,
+    "356": 117,
+    "357": 99,
+    "358": 95,
+    "359": 181,
+    "36": 1,
+    "360": 1010805,
+    "361": 5,
+    "366": 1,
+    "386": 1,
+    "465": 1,
+    "480": 206,
+    "513": 1,
+    "60": 32,
+    "61": 2,
+    "65": 1,
+    "66": 1,
+    "67": 1,
+    "72": 9,
+    "76": 1,
+    "80": 1,
+    "81": 1,
+    "82": 1,
+    "84": 28,
+    "85": 2,
+    "88": 1,
+    "89": 1,
+    "90": 5,
+    "94": 1,
+    "96": 178,
+    "97": 1,
+    "98": 3,
+    "99": 2
+  },
+  "loans_no_orig": 0,
+  "loans_no_period": 0,
+  "loans_no_term": 0,
+  "stage": "B10",
+  "step": "balloon2",
+  "yyyymm_window": [
+    190001,
+    219912
+  ]
+}

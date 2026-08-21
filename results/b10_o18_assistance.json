@@ -1,0 +1,179 @@
+{
+  "age_split_on": true,
+  "anchor_covid": [
+    {
+      "code": "F",
+      "col": 29,
+      "covid_share": 0.80246,
+      "n": 220627,
+      "peak_year": 2020
+    },
+    {
+      "code": "Y",
+      "col": 28,
+      "covid_share": 0.76919,
+      "n": 229459,
+      "peak_year": 2020
+    },
+    {
+      "code": "C",
+      "col": 24,
+      "covid_share": 0.67491,
+      "n": 15331,
+      "peak_year": 2021
+    },
+    {
+      "code": "P",
+      "col": 24,
+      "covid_share": 0.19978,
+      "n": 474097,
+      "peak_year": 2022
+    },
+    {
+      "code": "T",
+      "col": 29,
+      "covid_share": 0.14363,
+      "n": 49739,
+      "peak_year": 2018
+    },
+    {
+      "code": "N",
+      "col": 23,
+      "covid_share": 0.10055,
+      "n": 775175,
+      "peak_year": 2016
+    }
+  ],
+  "anchor_trial": [
+    {
+      "code": "T",
+      "col": 29,
+      "lift": 40.249,
+      "n": 49739,
+      "rate": 0.72967
+    },
+    {
+      "code": "R",
+      "col": 29,
+      "lift": 20.631,
+      "n": 19317,
+      "rate": 0.37402
+    },
+    {
+      "code": "Y",
+      "col": 28,
+      "lift": 11.006,
+      "n": 229459,
+      "rate": 0.19953
+    },
+    {
+      "code": "F",
+      "col": 29,
+      "lift": 8.443,
+      "n": 220627,
+      "rate": 0.15306
+    },
+    {
+      "code": "C",
+      "col": 24,
+      "lift": 5.026,
+      "n": 15331,
+      "rate": 0.09112
+    },
+    {
+      "code": "P",
+      "col": 24,
+      "lift": 4.283,
+      "n": 474097,
+      "rate": 0.07764
+    }
+  ],
+  "column_earned": 29,
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a732. Naming only; no omega, no B8 prediction. The name does not transfer to Fannie (\u00a732.4).",
+  "frozen": 8863587,
+  "frozen_by_code": {
+    "(blank)": 8672357,
+    "F": 164364,
+    "R": 4485,
+    "T": 22381
+  },
+  "moving_by_code": {
+    "(blank)": 63606492,
+    "F": 56206,
+    "R": 14828,
+    "T": 27321
+  },
+  "named": 191230,
+  "pairs": 72568434,
+  "per_window": {
+    "covid": {
+      "by_code": {
+        "F": 141152,
+        "R": 407,
+        "T": 5903
+      },
+      "frozen": 1034156,
+      "named": 147462,
+      "pairs": 9844181
+    },
+    "flex": {
+      "by_code": {
+        "F": 5549,
+        "R": 1136,
+        "T": 4862
+      },
+      "frozen": 1024922,
+      "named": 11547,
+      "pairs": 11009952
+    },
+    "hamp": {
+      "by_code": {
+        "F": 2047,
+        "R": 2255,
+        "T": 5777
+      },
+      "frozen": 2914561,
+      "named": 10079,
+      "pairs": 24389100
+    },
+    "post2023": {
+      "by_code": {
+        "F": 15616,
+        "R": 687,
+        "T": 5839
+      },
+      "frozen": 1172486,
+      "named": 22142,
+      "pairs": 12294898
+    },
+    "pre_crisis": {
+      "by_code": {
+        "F": 0,
+        "R": 0,
+        "T": 0
+      },
+      "frozen": 2717462,
+      "named": 0,
+      "pairs": 15030303
+    }
+  },
+  "residue": 8672357,
+  "stage": "B10",
+  "step": "o18_assistance",
+  "trial_window_months": 12,
+  "two_by_two_age_code": {
+    "a_lt8_code": 7417,
+    "age_split": 8,
+    "b_ge8_code": 183813,
+    "c_lt8_nocode": 4893951,
+    "d_ge8_nocode": 3778406,
+    "frozen_total": 8863587,
+    "pairs_by_age": {
+      "ge8": 62321303,
+      "lt8": 10247131
+    },
+    "residue": 3778406,
+    "union": 5085181
+  }
+}

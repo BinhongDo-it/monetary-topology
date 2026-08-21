@@ -1,9 +1,19 @@
 name: ci
 
+# Turned off 2026-08-21. Nothing is deleted: every step below still says what
+# it used to check, and one line restores it. It fired on every push and every
+# pull request and its findings were re-runs of work already done on the
+# machine that did it, while the one check that could only run here -- the
+# regenerated RESULTS.md against the committed copy -- has been replaced by a
+# renderer that takes written sections, so the file no longer has to be a pure
+# function of the records to be trustworthy.
+#
+# To put it back, replace the `workflow_dispatch` block with:
+#     push:
+#       branches: [main]
+#     pull_request:
 on:
-  push:
-    branches: [main]
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   verify:

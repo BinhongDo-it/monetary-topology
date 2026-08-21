@@ -1,0 +1,1969 @@
+{
+  "stage": "B10",
+  "step": "window_width",
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. Counts and cell widths only; a falsification route for \u00a731\u00b74. C9's B8-4b domain is still Flex alone (\u00a79\u00b77\u00b73).",
+  "fine_grids": [
+    "fico_llpa9",
+    "dti_complement15"
+  ],
+  "by_window_counts": {
+    "pre_crisis": 1130,
+    "hamp": 10709,
+    "flex": 1903,
+    "covid": 2135,
+    "post2023": 2003
+  },
+  "windows": {
+    "pre_crisis": {
+      "triangles": 1130,
+      "grids": {
+        "purpose": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 10,
+              "cells": 28,
+              "min_cell": 1,
+              "mean_cell": 40.36,
+              "loans": 1130
+            },
+            {
+              "w": 2,
+              "bins": 5,
+              "cells": 15,
+              "min_cell": 16,
+              "mean_cell": 75.33,
+              "loans": 1130
+            },
+            {
+              "w": 3,
+              "bins": 4,
+              "cells": 10,
+              "min_cell": 1,
+              "mean_cell": 113.0,
+              "loans": 1130
+            },
+            {
+              "w": 4,
+              "bins": 3,
+              "cells": 9,
+              "min_cell": 16,
+              "mean_cell": 125.56,
+              "loans": 1130
+            },
+            {
+              "w": 5,
+              "bins": 2,
+              "cells": 6,
+              "min_cell": 113,
+              "mean_cell": 188.33,
+              "loans": 1130
+            },
+            {
+              "w": 6,
+              "bins": 2,
+              "cells": 6,
+              "min_cell": 78,
+              "mean_cell": 188.33,
+              "loans": 1130
+            },
+            {
+              "w": 7,
+              "bins": 2,
+              "cells": 6,
+              "min_cell": 37,
+              "mean_cell": 188.33,
+              "loans": 1130
+            },
+            {
+              "w": 8,
+              "bins": 2,
+              "cells": 6,
+              "min_cell": 16,
+              "mean_cell": 188.33,
+              "loans": 1130
+            },
+            {
+              "w": 16,
+              "bins": 1,
+              "cells": 3,
+              "min_cell": 313,
+              "mean_cell": 376.67,
+              "loans": 1130
+            }
+          ],
+          "loans": 1130
+        },
+        "fthb": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 10,
+              "cells": 19,
+              "min_cell": 1,
+              "mean_cell": 59.11,
+              "loans": 1123
+            },
+            {
+              "w": 2,
+              "bins": 5,
+              "cells": 10,
+              "min_cell": 10,
+              "mean_cell": 112.3,
+              "loans": 1123
+            },
+            {
+              "w": 3,
+              "bins": 4,
+              "cells": 7,
+              "min_cell": 1,
+              "mean_cell": 160.43,
+              "loans": 1123
+            },
+            {
+              "w": 4,
+              "bins": 3,
+              "cells": 6,
+              "min_cell": 10,
+              "mean_cell": 187.17,
+              "loans": 1123
+            },
+            {
+              "w": 5,
+              "bins": 2,
+              "cells": 4,
+              "min_cell": 58,
+              "mean_cell": 280.75,
+              "loans": 1123
+            },
+            {
+              "w": 6,
+              "bins": 2,
+              "cells": 4,
+              "min_cell": 45,
+              "mean_cell": 280.75,
+              "loans": 1123
+            },
+            {
+              "w": 7,
+              "bins": 2,
+              "cells": 4,
+              "min_cell": 32,
+              "mean_cell": 280.75,
+              "loans": 1123
+            },
+            {
+              "w": 8,
+              "bins": 2,
+              "cells": 4,
+              "min_cell": 10,
+              "mean_cell": 280.75,
+              "loans": 1123
+            },
+            {
+              "w": 16,
+              "bins": 1,
+              "cells": 2,
+              "min_cell": 150,
+              "mean_cell": 561.5,
+              "loans": 1123
+            }
+          ],
+          "loans": 1123
+        },
+        "fico_llpa_coarse5": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 10,
+              "cells": 45,
+              "min_cell": 1,
+              "mean_cell": 24.93,
+              "loans": 1122
+            },
+            {
+              "w": 2,
+              "bins": 5,
+              "cells": 25,
+              "min_cell": 3,
+              "mean_cell": 44.88,
+              "loans": 1122
+            },
+            {
+              "w": 3,
+              "bins": 4,
+              "cells": 16,
+              "min_cell": 1,
+              "mean_cell": 70.12,
+              "loans": 1122
+            },
+            {
+              "w": 4,
+              "bins": 3,
+              "cells": 15,
+              "min_cell": 3,
+              "mean_cell": 74.8,
+              "loans": 1122
+            },
+            {
+              "w": 5,
+              "bins": 2,
+              "cells": 10,
+              "min_cell": 12,
+              "mean_cell": 112.2,
+              "loans": 1122
+            },
+            {
+              "w": 6,
+              "bins": 2,
+              "cells": 10,
+              "min_cell": 9,
+              "mean_cell": 112.2,
+              "loans": 1122
+            },
+            {
+              "w": 7,
+              "bins": 2,
+              "cells": 10,
+              "min_cell": 4,
+              "mean_cell": 112.2,
+              "loans": 1122
+            },
+            {
+              "w": 8,
+              "bins": 2,
+              "cells": 10,
+              "min_cell": 3,
+              "mean_cell": 112.2,
+              "loans": 1122
+            },
+            {
+              "w": 16,
+              "bins": 1,
+              "cells": 5,
+              "min_cell": 26,
+              "mean_cell": 224.4,
+              "loans": 1122
+            }
+          ],
+          "loans": 1122
+        },
+        "dti_complement15": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 10,
+              "cells": 133,
+              "min_cell": 1,
+              "mean_cell": 8.27,
+              "loans": 1100
+            },
+            {
+              "w": 2,
+              "bins": 5,
+              "cells": 74,
+              "min_cell": 1,
+              "mean_cell": 14.86,
+              "loans": 1100
+            },
+            {
+              "w": 3,
+              "bins": 4,
+              "cells": 46,
+              "min_cell": 1,
+              "mean_cell": 23.91,
+              "loans": 1100
+            },
+            {
+              "w": 4,
+              "bins": 3,
+              "cells": 44,
+              "min_cell": 1,
+              "mean_cell": 25.0,
+              "loans": 1100
+            },
+            {
+              "w": 5,
+              "bins": 2,
+              "cells": 30,
+              "min_cell": 9,
+              "mean_cell": 36.67,
+              "loans": 1100
+            },
+            {
+              "w": 6,
+              "bins": 2,
+              "cells": 30,
+              "min_cell": 5,
+              "mean_cell": 36.67,
+              "loans": 1100
+            },
+            {
+              "w": 7,
+              "bins": 2,
+              "cells": 30,
+              "min_cell": 3,
+              "mean_cell": 36.67,
+              "loans": 1100
+            },
+            {
+              "w": 8,
+              "bins": 2,
+              "cells": 29,
+              "min_cell": 1,
+              "mean_cell": 37.93,
+              "loans": 1100
+            },
+            {
+              "w": 16,
+              "bins": 1,
+              "cells": 15,
+              "min_cell": 21,
+              "mean_cell": 73.33,
+              "loans": 1100
+            }
+          ],
+          "loans": 1100
+        },
+        "fico_llpa9": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 10,
+              "cells": 77,
+              "min_cell": 1,
+              "mean_cell": 14.57,
+              "loans": 1122
+            },
+            {
+              "w": 2,
+              "bins": 5,
+              "cells": 45,
+              "min_cell": 1,
+              "mean_cell": 24.93,
+              "loans": 1122
+            },
+            {
+              "w": 3,
+              "bins": 4,
+              "cells": 28,
+              "min_cell": 1,
+              "mean_cell": 40.07,
+              "loans": 1122
+            },
+            {
+              "w": 4,
+              "bins": 3,
+              "cells": 27,
+              "min_cell": 1,
+              "mean_cell": 41.56,
+              "loans": 1122
+            },
+            {
+              "w": 5,
+              "bins": 2,
+              "cells": 18,
+              "min_cell": 5,
+              "mean_cell": 62.33,
+              "loans": 1122
+            },
+            {
+              "w": 6,
+              "bins": 2,
+              "cells": 18,
+              "min_cell": 4,
+              "mean_cell": 62.33,
+              "loans": 1122
+            },
+            {
+              "w": 7,
+              "bins": 2,
+              "cells": 18,
+              "min_cell": 2,
+              "mean_cell": 62.33,
+              "loans": 1122
+            },
+            {
+              "w": 8,
+              "bins": 2,
+              "cells": 18,
+              "min_cell": 1,
+              "mean_cell": 62.33,
+              "loans": 1122
+            },
+            {
+              "w": 16,
+              "bins": 1,
+              "cells": 9,
+              "min_cell": 12,
+              "mean_cell": 124.67,
+              "loans": 1122
+            }
+          ],
+          "loans": 1122
+        }
+      }
+    },
+    "hamp": {
+      "triangles": 10709,
+      "grids": {
+        "purpose": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 17,
+              "cells": 50,
+              "min_cell": 1,
+              "mean_cell": 214.18,
+              "loans": 10709
+            },
+            {
+              "w": 2,
+              "bins": 9,
+              "cells": 26,
+              "min_cell": 1,
+              "mean_cell": 411.88,
+              "loans": 10709
+            },
+            {
+              "w": 3,
+              "bins": 6,
+              "cells": 18,
+              "min_cell": 5,
+              "mean_cell": 594.94,
+              "loans": 10709
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 14,
+              "min_cell": 1,
+              "mean_cell": 764.93,
+              "loans": 10709
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 12,
+              "min_cell": 5,
+              "mean_cell": 892.42,
+              "loans": 10709
+            },
+            {
+              "w": 6,
+              "bins": 3,
+              "cells": 9,
+              "min_cell": 36,
+              "mean_cell": 1189.89,
+              "loans": 10709
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 9,
+              "min_cell": 13,
+              "mean_cell": 1189.89,
+              "loans": 10709
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 8,
+              "min_cell": 1,
+              "mean_cell": 1338.62,
+              "loans": 10709
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 5,
+              "min_cell": 1,
+              "mean_cell": 2141.8,
+              "loans": 10709
+            }
+          ],
+          "loans": 10709
+        },
+        "fthb": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 17,
+              "cells": 33,
+              "min_cell": 4,
+              "mean_cell": 324.42,
+              "loans": 10706
+            },
+            {
+              "w": 2,
+              "bins": 9,
+              "cells": 17,
+              "min_cell": 5,
+              "mean_cell": 629.76,
+              "loans": 10706
+            },
+            {
+              "w": 3,
+              "bins": 6,
+              "cells": 12,
+              "min_cell": 5,
+              "mean_cell": 892.17,
+              "loans": 10706
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 9,
+              "min_cell": 5,
+              "mean_cell": 1189.56,
+              "loans": 10706
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 8,
+              "min_cell": 5,
+              "mean_cell": 1338.25,
+              "loans": 10706
+            },
+            {
+              "w": 6,
+              "bins": 3,
+              "cells": 6,
+              "min_cell": 27,
+              "mean_cell": 1784.33,
+              "loans": 10706
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 6,
+              "min_cell": 10,
+              "mean_cell": 1784.33,
+              "loans": 10706
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 5,
+              "min_cell": 5,
+              "mean_cell": 2141.2,
+              "loans": 10706
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 3,
+              "min_cell": 5,
+              "mean_cell": 3568.67,
+              "loans": 10706
+            }
+          ],
+          "loans": 10706
+        },
+        "fico_llpa_coarse5": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 17,
+              "cells": 84,
+              "min_cell": 1,
+              "mean_cell": 127.43,
+              "loans": 10704
+            },
+            {
+              "w": 2,
+              "bins": 9,
+              "cells": 44,
+              "min_cell": 1,
+              "mean_cell": 243.27,
+              "loans": 10704
+            },
+            {
+              "w": 3,
+              "bins": 6,
+              "cells": 30,
+              "min_cell": 7,
+              "mean_cell": 356.8,
+              "loans": 10704
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 24,
+              "min_cell": 1,
+              "mean_cell": 446.0,
+              "loans": 10704
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 20,
+              "min_cell": 7,
+              "mean_cell": 535.2,
+              "loans": 10704
+            },
+            {
+              "w": 6,
+              "bins": 3,
+              "cells": 15,
+              "min_cell": 54,
+              "mean_cell": 713.6,
+              "loans": 10704
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 15,
+              "min_cell": 13,
+              "mean_cell": 713.6,
+              "loans": 10704
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 14,
+              "min_cell": 1,
+              "mean_cell": 764.57,
+              "loans": 10704
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 9,
+              "min_cell": 1,
+              "mean_cell": 1189.33,
+              "loans": 10704
+            }
+          ],
+          "loans": 10704
+        },
+        "dti_complement15": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 17,
+              "cells": 217,
+              "min_cell": 1,
+              "mean_cell": 45.33,
+              "loans": 9836
+            },
+            {
+              "w": 2,
+              "bins": 9,
+              "cells": 119,
+              "min_cell": 1,
+              "mean_cell": 82.66,
+              "loans": 9836
+            },
+            {
+              "w": 3,
+              "bins": 6,
+              "cells": 83,
+              "min_cell": 1,
+              "mean_cell": 118.51,
+              "loans": 9836
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 62,
+              "min_cell": 1,
+              "mean_cell": 158.65,
+              "loans": 9836
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 54,
+              "min_cell": 1,
+              "mean_cell": 182.15,
+              "loans": 9836
+            },
+            {
+              "w": 6,
+              "bins": 3,
+              "cells": 45,
+              "min_cell": 1,
+              "mean_cell": 218.58,
+              "loans": 9836
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 43,
+              "min_cell": 1,
+              "mean_cell": 228.74,
+              "loans": 9836
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 32,
+              "min_cell": 1,
+              "mean_cell": 307.38,
+              "loans": 9836
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 17,
+              "min_cell": 1,
+              "mean_cell": 578.59,
+              "loans": 9836
+            }
+          ],
+          "loans": 9836
+        },
+        "fico_llpa9": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 17,
+              "cells": 146,
+              "min_cell": 1,
+              "mean_cell": 73.32,
+              "loans": 10704
+            },
+            {
+              "w": 2,
+              "bins": 9,
+              "cells": 75,
+              "min_cell": 1,
+              "mean_cell": 142.72,
+              "loans": 10704
+            },
+            {
+              "w": 3,
+              "bins": 6,
+              "cells": 54,
+              "min_cell": 1,
+              "mean_cell": 198.22,
+              "loans": 10704
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 40,
+              "min_cell": 1,
+              "mean_cell": 267.6,
+              "loans": 10704
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 36,
+              "min_cell": 1,
+              "mean_cell": 297.33,
+              "loans": 10704
+            },
+            {
+              "w": 6,
+              "bins": 3,
+              "cells": 27,
+              "min_cell": 23,
+              "mean_cell": 396.44,
+              "loans": 10704
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 27,
+              "min_cell": 5,
+              "mean_cell": 396.44,
+              "loans": 10704
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 22,
+              "min_cell": 1,
+              "mean_cell": 486.55,
+              "loans": 10704
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 13,
+              "min_cell": 1,
+              "mean_cell": 823.38,
+              "loans": 10704
+            }
+          ],
+          "loans": 10704
+        }
+      }
+    },
+    "flex": {
+      "triangles": 1903,
+      "grids": {
+        "purpose": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 20,
+              "cells": 60,
+              "min_cell": 1,
+              "mean_cell": 31.72,
+              "loans": 1903
+            },
+            {
+              "w": 2,
+              "bins": 10,
+              "cells": 30,
+              "min_cell": 3,
+              "mean_cell": 63.43,
+              "loans": 1903
+            },
+            {
+              "w": 3,
+              "bins": 7,
+              "cells": 21,
+              "min_cell": 6,
+              "mean_cell": 90.62,
+              "loans": 1903
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 15,
+              "min_cell": 14,
+              "mean_cell": 126.87,
+              "loans": 1903
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 12,
+              "min_cell": 23,
+              "mean_cell": 158.58,
+              "loans": 1903
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 12,
+              "min_cell": 32,
+              "mean_cell": 158.58,
+              "loans": 1903
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 9,
+              "min_cell": 67,
+              "mean_cell": 211.44,
+              "loans": 1903
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 9,
+              "min_cell": 90,
+              "mean_cell": 211.44,
+              "loans": 1903
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 6,
+              "min_cell": 135,
+              "mean_cell": 317.17,
+              "loans": 1903
+            }
+          ],
+          "loans": 1903
+        },
+        "fthb": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 20,
+              "cells": 37,
+              "min_cell": 1,
+              "mean_cell": 51.38,
+              "loans": 1901
+            },
+            {
+              "w": 2,
+              "bins": 10,
+              "cells": 19,
+              "min_cell": 3,
+              "mean_cell": 100.05,
+              "loans": 1901
+            },
+            {
+              "w": 3,
+              "bins": 7,
+              "cells": 14,
+              "min_cell": 3,
+              "mean_cell": 135.79,
+              "loans": 1901
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 10,
+              "min_cell": 3,
+              "mean_cell": 190.1,
+              "loans": 1901
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 8,
+              "min_cell": 3,
+              "mean_cell": 237.62,
+              "loans": 1901
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 8,
+              "min_cell": 6,
+              "mean_cell": 237.62,
+              "loans": 1901
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 6,
+              "min_cell": 15,
+              "mean_cell": 316.83,
+              "loans": 1901
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 6,
+              "min_cell": 25,
+              "mean_cell": 316.83,
+              "loans": 1901
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 4,
+              "min_cell": 139,
+              "mean_cell": 475.25,
+              "loans": 1901
+            }
+          ],
+          "loans": 1901
+        },
+        "fico_llpa_coarse5": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 20,
+              "cells": 97,
+              "min_cell": 1,
+              "mean_cell": 19.59,
+              "loans": 1900
+            },
+            {
+              "w": 2,
+              "bins": 10,
+              "cells": 50,
+              "min_cell": 1,
+              "mean_cell": 38.0,
+              "loans": 1900
+            },
+            {
+              "w": 3,
+              "bins": 7,
+              "cells": 35,
+              "min_cell": 1,
+              "mean_cell": 54.29,
+              "loans": 1900
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 25,
+              "min_cell": 3,
+              "mean_cell": 76.0,
+              "loans": 1900
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 20,
+              "min_cell": 3,
+              "mean_cell": 95.0,
+              "loans": 1900
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 20,
+              "min_cell": 6,
+              "mean_cell": 95.0,
+              "loans": 1900
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 15,
+              "min_cell": 13,
+              "mean_cell": 126.67,
+              "loans": 1900
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 15,
+              "min_cell": 18,
+              "mean_cell": 126.67,
+              "loans": 1900
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 10,
+              "min_cell": 74,
+              "mean_cell": 190.0,
+              "loans": 1900
+            }
+          ],
+          "loans": 1900
+        },
+        "dti_complement15": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 20,
+              "cells": 237,
+              "min_cell": 1,
+              "mean_cell": 6.07,
+              "loans": 1438
+            },
+            {
+              "w": 2,
+              "bins": 10,
+              "cells": 134,
+              "min_cell": 1,
+              "mean_cell": 10.73,
+              "loans": 1438
+            },
+            {
+              "w": 3,
+              "bins": 7,
+              "cells": 98,
+              "min_cell": 1,
+              "mean_cell": 14.67,
+              "loans": 1438
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 72,
+              "min_cell": 1,
+              "mean_cell": 19.97,
+              "loans": 1438
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 60,
+              "min_cell": 1,
+              "mean_cell": 23.97,
+              "loans": 1438
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 59,
+              "min_cell": 2,
+              "mean_cell": 24.37,
+              "loans": 1438
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 45,
+              "min_cell": 3,
+              "mean_cell": 31.96,
+              "loans": 1438
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 45,
+              "min_cell": 4,
+              "mean_cell": 31.96,
+              "loans": 1438
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 30,
+              "min_cell": 4,
+              "mean_cell": 47.93,
+              "loans": 1438
+            }
+          ],
+          "loans": 1438
+        },
+        "fico_llpa9": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 20,
+              "cells": 162,
+              "min_cell": 1,
+              "mean_cell": 11.73,
+              "loans": 1900
+            },
+            {
+              "w": 2,
+              "bins": 10,
+              "cells": 87,
+              "min_cell": 1,
+              "mean_cell": 21.84,
+              "loans": 1900
+            },
+            {
+              "w": 3,
+              "bins": 7,
+              "cells": 61,
+              "min_cell": 1,
+              "mean_cell": 31.15,
+              "loans": 1900
+            },
+            {
+              "w": 4,
+              "bins": 5,
+              "cells": 44,
+              "min_cell": 2,
+              "mean_cell": 43.18,
+              "loans": 1900
+            },
+            {
+              "w": 5,
+              "bins": 4,
+              "cells": 35,
+              "min_cell": 3,
+              "mean_cell": 54.29,
+              "loans": 1900
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 35,
+              "min_cell": 6,
+              "mean_cell": 54.29,
+              "loans": 1900
+            },
+            {
+              "w": 7,
+              "bins": 3,
+              "cells": 27,
+              "min_cell": 1,
+              "mean_cell": 70.37,
+              "loans": 1900
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 27,
+              "min_cell": 2,
+              "mean_cell": 70.37,
+              "loans": 1900
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 18,
+              "min_cell": 38,
+              "mean_cell": 105.56,
+              "loans": 1900
+            }
+          ],
+          "loans": 1900
+        }
+      }
+    },
+    "covid": {
+      "triangles": 2135,
+      "grids": {
+        "purpose": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 23,
+              "cells": 66,
+              "min_cell": 1,
+              "mean_cell": 32.35,
+              "loans": 2135
+            },
+            {
+              "w": 2,
+              "bins": 12,
+              "cells": 35,
+              "min_cell": 1,
+              "mean_cell": 61.0,
+              "loans": 2135
+            },
+            {
+              "w": 3,
+              "bins": 8,
+              "cells": 24,
+              "min_cell": 3,
+              "mean_cell": 88.96,
+              "loans": 2135
+            },
+            {
+              "w": 4,
+              "bins": 6,
+              "cells": 18,
+              "min_cell": 4,
+              "mean_cell": 118.61,
+              "loans": 2135
+            },
+            {
+              "w": 5,
+              "bins": 5,
+              "cells": 15,
+              "min_cell": 8,
+              "mean_cell": 142.33,
+              "loans": 2135
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 12,
+              "min_cell": 16,
+              "mean_cell": 177.92,
+              "loans": 2135
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 12,
+              "min_cell": 19,
+              "mean_cell": 177.92,
+              "loans": 2135
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 9,
+              "min_cell": 29,
+              "mean_cell": 237.22,
+              "loans": 2135
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 6,
+              "min_cell": 145,
+              "mean_cell": 355.83,
+              "loans": 2135
+            }
+          ],
+          "loans": 2135
+        },
+        "fthb": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 23,
+              "cells": 44,
+              "min_cell": 1,
+              "mean_cell": 48.5,
+              "loans": 2134
+            },
+            {
+              "w": 2,
+              "bins": 12,
+              "cells": 23,
+              "min_cell": 1,
+              "mean_cell": 92.78,
+              "loans": 2134
+            },
+            {
+              "w": 3,
+              "bins": 8,
+              "cells": 16,
+              "min_cell": 2,
+              "mean_cell": 133.38,
+              "loans": 2134
+            },
+            {
+              "w": 4,
+              "bins": 6,
+              "cells": 12,
+              "min_cell": 2,
+              "mean_cell": 177.83,
+              "loans": 2134
+            },
+            {
+              "w": 5,
+              "bins": 5,
+              "cells": 10,
+              "min_cell": 3,
+              "mean_cell": 213.4,
+              "loans": 2134
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 8,
+              "min_cell": 4,
+              "mean_cell": 266.75,
+              "loans": 2134
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 8,
+              "min_cell": 5,
+              "mean_cell": 266.75,
+              "loans": 2134
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 6,
+              "min_cell": 10,
+              "mean_cell": 355.67,
+              "loans": 2134
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 4,
+              "min_cell": 68,
+              "mean_cell": 533.5,
+              "loans": 2134
+            }
+          ],
+          "loans": 2134
+        },
+        "fico_llpa_coarse5": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 23,
+              "cells": 101,
+              "min_cell": 1,
+              "mean_cell": 21.13,
+              "loans": 2134
+            },
+            {
+              "w": 2,
+              "bins": 12,
+              "cells": 54,
+              "min_cell": 1,
+              "mean_cell": 39.52,
+              "loans": 2134
+            },
+            {
+              "w": 3,
+              "bins": 8,
+              "cells": 39,
+              "min_cell": 2,
+              "mean_cell": 54.72,
+              "loans": 2134
+            },
+            {
+              "w": 4,
+              "bins": 6,
+              "cells": 29,
+              "min_cell": 2,
+              "mean_cell": 73.59,
+              "loans": 2134
+            },
+            {
+              "w": 5,
+              "bins": 5,
+              "cells": 25,
+              "min_cell": 2,
+              "mean_cell": 85.36,
+              "loans": 2134
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 20,
+              "min_cell": 2,
+              "mean_cell": 106.7,
+              "loans": 2134
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 20,
+              "min_cell": 2,
+              "mean_cell": 106.7,
+              "loans": 2134
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 15,
+              "min_cell": 2,
+              "mean_cell": 142.27,
+              "loans": 2134
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 10,
+              "min_cell": 101,
+              "mean_cell": 213.4,
+              "loans": 2134
+            }
+          ],
+          "loans": 2134
+        },
+        "dti_complement15": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 23,
+              "cells": 213,
+              "min_cell": 1,
+              "mean_cell": 8.5,
+              "loans": 1811
+            },
+            {
+              "w": 2,
+              "bins": 12,
+              "cells": 127,
+              "min_cell": 1,
+              "mean_cell": 14.26,
+              "loans": 1811
+            },
+            {
+              "w": 3,
+              "bins": 8,
+              "cells": 102,
+              "min_cell": 1,
+              "mean_cell": 17.75,
+              "loans": 1811
+            },
+            {
+              "w": 4,
+              "bins": 6,
+              "cells": 77,
+              "min_cell": 1,
+              "mean_cell": 23.52,
+              "loans": 1811
+            },
+            {
+              "w": 5,
+              "bins": 5,
+              "cells": 68,
+              "min_cell": 1,
+              "mean_cell": 26.63,
+              "loans": 1811
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 58,
+              "min_cell": 1,
+              "mean_cell": 31.22,
+              "loans": 1811
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 58,
+              "min_cell": 1,
+              "mean_cell": 31.22,
+              "loans": 1811
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 43,
+              "min_cell": 2,
+              "mean_cell": 42.12,
+              "loans": 1811
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 30,
+              "min_cell": 5,
+              "mean_cell": 60.37,
+              "loans": 1811
+            }
+          ],
+          "loans": 1811
+        },
+        "fico_llpa9": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 23,
+              "cells": 166,
+              "min_cell": 1,
+              "mean_cell": 12.86,
+              "loans": 2134
+            },
+            {
+              "w": 2,
+              "bins": 12,
+              "cells": 92,
+              "min_cell": 1,
+              "mean_cell": 23.2,
+              "loans": 2134
+            },
+            {
+              "w": 3,
+              "bins": 8,
+              "cells": 68,
+              "min_cell": 1,
+              "mean_cell": 31.38,
+              "loans": 2134
+            },
+            {
+              "w": 4,
+              "bins": 6,
+              "cells": 51,
+              "min_cell": 1,
+              "mean_cell": 41.84,
+              "loans": 2134
+            },
+            {
+              "w": 5,
+              "bins": 5,
+              "cells": 44,
+              "min_cell": 1,
+              "mean_cell": 48.5,
+              "loans": 2134
+            },
+            {
+              "w": 6,
+              "bins": 4,
+              "cells": 35,
+              "min_cell": 2,
+              "mean_cell": 60.97,
+              "loans": 2134
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 35,
+              "min_cell": 2,
+              "mean_cell": 60.97,
+              "loans": 2134
+            },
+            {
+              "w": 8,
+              "bins": 3,
+              "cells": 26,
+              "min_cell": 2,
+              "mean_cell": 82.08,
+              "loans": 2134
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 18,
+              "min_cell": 56,
+              "mean_cell": 118.56,
+              "loans": 2134
+            }
+          ],
+          "loans": 2134
+        }
+      }
+    },
+    "post2023": {
+      "triangles": 2003,
+      "grids": {
+        "purpose": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 26,
+              "cells": 68,
+              "min_cell": 1,
+              "mean_cell": 29.46,
+              "loans": 2003
+            },
+            {
+              "w": 2,
+              "bins": 13,
+              "cells": 37,
+              "min_cell": 1,
+              "mean_cell": 54.14,
+              "loans": 2003
+            },
+            {
+              "w": 3,
+              "bins": 9,
+              "cells": 26,
+              "min_cell": 1,
+              "mean_cell": 77.04,
+              "loans": 2003
+            },
+            {
+              "w": 4,
+              "bins": 7,
+              "cells": 20,
+              "min_cell": 3,
+              "mean_cell": 100.15,
+              "loans": 2003
+            },
+            {
+              "w": 5,
+              "bins": 6,
+              "cells": 18,
+              "min_cell": 3,
+              "mean_cell": 111.28,
+              "loans": 2003
+            },
+            {
+              "w": 6,
+              "bins": 5,
+              "cells": 15,
+              "min_cell": 6,
+              "mean_cell": 133.53,
+              "loans": 2003
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 12,
+              "min_cell": 10,
+              "mean_cell": 166.92,
+              "loans": 2003
+            },
+            {
+              "w": 8,
+              "bins": 4,
+              "cells": 12,
+              "min_cell": 12,
+              "mean_cell": 166.92,
+              "loans": 2003
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 6,
+              "min_cell": 60,
+              "mean_cell": 333.83,
+              "loans": 2003
+            }
+          ],
+          "loans": 2003
+        },
+        "fthb": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 26,
+              "cells": 43,
+              "min_cell": 1,
+              "mean_cell": 46.56,
+              "loans": 2002
+            },
+            {
+              "w": 2,
+              "bins": 13,
+              "cells": 23,
+              "min_cell": 1,
+              "mean_cell": 87.04,
+              "loans": 2002
+            },
+            {
+              "w": 3,
+              "bins": 9,
+              "cells": 16,
+              "min_cell": 1,
+              "mean_cell": 125.12,
+              "loans": 2002
+            },
+            {
+              "w": 4,
+              "bins": 7,
+              "cells": 13,
+              "min_cell": 2,
+              "mean_cell": 154.0,
+              "loans": 2002
+            },
+            {
+              "w": 5,
+              "bins": 6,
+              "cells": 11,
+              "min_cell": 3,
+              "mean_cell": 182.0,
+              "loans": 2002
+            },
+            {
+              "w": 6,
+              "bins": 5,
+              "cells": 9,
+              "min_cell": 4,
+              "mean_cell": 222.44,
+              "loans": 2002
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 7,
+              "min_cell": 7,
+              "mean_cell": 286.0,
+              "loans": 2002
+            },
+            {
+              "w": 8,
+              "bins": 4,
+              "cells": 8,
+              "min_cell": 2,
+              "mean_cell": 250.25,
+              "loans": 2002
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 4,
+              "min_cell": 23,
+              "mean_cell": 500.5,
+              "loans": 2002
+            }
+          ],
+          "loans": 2002
+        },
+        "fico_llpa_coarse5": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 26,
+              "cells": 106,
+              "min_cell": 1,
+              "mean_cell": 18.9,
+              "loans": 2003
+            },
+            {
+              "w": 2,
+              "bins": 13,
+              "cells": 56,
+              "min_cell": 1,
+              "mean_cell": 35.77,
+              "loans": 2003
+            },
+            {
+              "w": 3,
+              "bins": 9,
+              "cells": 41,
+              "min_cell": 1,
+              "mean_cell": 48.85,
+              "loans": 2003
+            },
+            {
+              "w": 4,
+              "bins": 7,
+              "cells": 33,
+              "min_cell": 1,
+              "mean_cell": 60.7,
+              "loans": 2003
+            },
+            {
+              "w": 5,
+              "bins": 6,
+              "cells": 29,
+              "min_cell": 2,
+              "mean_cell": 69.07,
+              "loans": 2003
+            },
+            {
+              "w": 6,
+              "bins": 5,
+              "cells": 24,
+              "min_cell": 2,
+              "mean_cell": 83.46,
+              "loans": 2003
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 20,
+              "min_cell": 4,
+              "mean_cell": 100.15,
+              "loans": 2003
+            },
+            {
+              "w": 8,
+              "bins": 4,
+              "cells": 20,
+              "min_cell": 5,
+              "mean_cell": 100.15,
+              "loans": 2003
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 10,
+              "min_cell": 27,
+              "mean_cell": 200.3,
+              "loans": 2003
+            }
+          ],
+          "loans": 2003
+        },
+        "dti_complement15": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 26,
+              "cells": 207,
+              "min_cell": 1,
+              "mean_cell": 9.24,
+              "loans": 1913
+            },
+            {
+              "w": 2,
+              "bins": 13,
+              "cells": 122,
+              "min_cell": 1,
+              "mean_cell": 15.68,
+              "loans": 1913
+            },
+            {
+              "w": 3,
+              "bins": 9,
+              "cells": 95,
+              "min_cell": 1,
+              "mean_cell": 20.14,
+              "loans": 1913
+            },
+            {
+              "w": 4,
+              "bins": 7,
+              "cells": 79,
+              "min_cell": 1,
+              "mean_cell": 24.22,
+              "loans": 1913
+            },
+            {
+              "w": 5,
+              "bins": 6,
+              "cells": 74,
+              "min_cell": 1,
+              "mean_cell": 25.85,
+              "loans": 1913
+            },
+            {
+              "w": 6,
+              "bins": 5,
+              "cells": 62,
+              "min_cell": 1,
+              "mean_cell": 30.85,
+              "loans": 1913
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 52,
+              "min_cell": 1,
+              "mean_cell": 36.79,
+              "loans": 1913
+            },
+            {
+              "w": 8,
+              "bins": 4,
+              "cells": 53,
+              "min_cell": 1,
+              "mean_cell": 36.09,
+              "loans": 1913
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 30,
+              "min_cell": 1,
+              "mean_cell": 63.77,
+              "loans": 1913
+            }
+          ],
+          "loans": 1913
+        },
+        "fico_llpa9": {
+          "rows": [
+            {
+              "w": 1,
+              "bins": 26,
+              "cells": 173,
+              "min_cell": 1,
+              "mean_cell": 11.58,
+              "loans": 2003
+            },
+            {
+              "w": 2,
+              "bins": 13,
+              "cells": 96,
+              "min_cell": 1,
+              "mean_cell": 20.86,
+              "loans": 2003
+            },
+            {
+              "w": 3,
+              "bins": 9,
+              "cells": 71,
+              "min_cell": 1,
+              "mean_cell": 28.21,
+              "loans": 2003
+            },
+            {
+              "w": 4,
+              "bins": 7,
+              "cells": 58,
+              "min_cell": 1,
+              "mean_cell": 34.53,
+              "loans": 2003
+            },
+            {
+              "w": 5,
+              "bins": 6,
+              "cells": 50,
+              "min_cell": 1,
+              "mean_cell": 40.06,
+              "loans": 2003
+            },
+            {
+              "w": 6,
+              "bins": 5,
+              "cells": 43,
+              "min_cell": 1,
+              "mean_cell": 46.58,
+              "loans": 2003
+            },
+            {
+              "w": 7,
+              "bins": 4,
+              "cells": 36,
+              "min_cell": 1,
+              "mean_cell": 55.64,
+              "loans": 2003
+            },
+            {
+              "w": 8,
+              "bins": 4,
+              "cells": 36,
+              "min_cell": 1,
+              "mean_cell": 55.64,
+              "loans": 2003
+            },
+            {
+              "w": 16,
+              "bins": 2,
+              "cells": 18,
+              "min_cell": 19,
+              "mean_cell": 111.28,
+              "loans": 2003
+            }
+          ],
+          "loans": 2003
+        }
+      }
+    }
+  }
+}

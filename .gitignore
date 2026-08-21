@@ -63,22 +63,26 @@ COMMIT_MSG*.txt
 # them in. Found 2026-08-18 while auditing what an outside reader would see.
 GIT_HOWTO*.md
 GIT_ADD*.txt
+GIT_REWRITE*
 b8_paths.txt
 
 # Retired out of the repository rather than deleted, because this repository
 # does not delete. Nothing here is on any code path.
 _to_delete/
 
-# B10 and B11: stages with no section in RESULTS.md, whose registers are held
-# outside this repository (2026-08-18). Their code and records are excluded so
-# that `git add -A` cannot sweep in a stage whose pre-registration does not ship.
-# Nothing published rests on either stage; every record they write carries
-# `diagnostic_only` and the renderer skips it.
-experiments/b10_*.py
+# B11: a stage with no section in RESULTS.md, whose register is held outside
+# this repository. Its code and records stay out so that `git add -A` cannot
+# sweep in a stage whose pre-registration does not ship.
 experiments/b11_*.py
-results/b10_*.json
 results/b11_*.json
+
+# B10's working files. The stage itself now ships; these do not. The first
+# rule is the hand-made backups taken before a mechanism changed; the second
+# and third are subset runs, whose file names carry the vintages they cover
+# and whose numbers are therefore not the stage's reading.
 results/b10_*.json.*
+results/b10_*.pre*.json
+results/b10_*.[0-9][0-9][0-9][0-9]*.json
 
 # B11's retrieval side, found 2026-08-19 while preparing the add-list. The rule
 # above excluded `experiments/b11_*.py` and `results/b11_*.json` but not the two

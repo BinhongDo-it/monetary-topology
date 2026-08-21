@@ -1,0 +1,1575 @@
+{
+  "columns": [
+    1,
+    23,
+    3
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a734. One-sided by construction (\u00a734.0). No omega, no B8 prediction.",
+  "min_loans": 200,
+  "one_sided_caveat": "Firm name is an origination-side field and servicing transfers; attribution noise attenuates. A small spread cannot refute.",
+  "stage": "B10",
+  "step": "o18_servicer",
+  "windows": {
+    "col1|covid": {
+      "col": 1,
+      "firms_pooled_small": 63,
+      "firms_read": 223,
+      "firms_total": 286,
+      "grand_mean": 0.14399,
+      "loans": 467425,
+      "loans_pooled_small": 4231,
+      "loans_read": 463194,
+      "rows": [
+        {
+          "firm": "202005",
+          "loans": 5384,
+          "mean": 0.19306,
+          "se": 0.002146,
+          "z": 22.87
+        },
+        {
+          "firm": "202008",
+          "loans": 5063,
+          "mean": 0.16297,
+          "se": 0.002008,
+          "z": 9.45
+        },
+        {
+          "firm": "202112",
+          "loans": 4638,
+          "mean": 0.22695,
+          "se": 0.002117,
+          "z": 39.18
+        },
+        {
+          "firm": "201912",
+          "loans": 4596,
+          "mean": 0.19852,
+          "se": 0.002418,
+          "z": 22.55
+        },
+        {
+          "firm": "201911",
+          "loans": 4532,
+          "mean": 0.17605,
+          "se": 0.002406,
+          "z": 13.33
+        },
+        {
+          "firm": "202105",
+          "loans": 4517,
+          "mean": 0.16815,
+          "se": 0.001995,
+          "z": 12.11
+        },
+        {
+          "firm": "202206",
+          "loans": 4511,
+          "mean": 0.46002,
+          "se": 0.003147,
+          "z": 100.44
+        },
+        {
+          "firm": "202108",
+          "loans": 4491,
+          "mean": 0.1921,
+          "se": 0.002014,
+          "z": 23.89
+        },
+        {
+          "firm": "202012",
+          "loans": 4417,
+          "mean": 0.14475,
+          "se": 0.001836,
+          "z": 0.41
+        },
+        {
+          "firm": "202209",
+          "loans": 4417,
+          "mean": 0.59711,
+          "se": 0.003637,
+          "z": 124.6
+        },
+        {
+          "firm": "202011",
+          "loans": 4393,
+          "mean": 0.14076,
+          "se": 0.001792,
+          "z": -1.8
+        },
+        {
+          "firm": "202212",
+          "loans": 4377,
+          "mean": 0.71899,
+          "se": 0.006794,
+          "z": 84.63
+        }
+      ],
+      "top5_share": 0.0518,
+      "window": "covid",
+      "z_p10_p50_p90": [
+        -32.33,
+        -13.63,
+        22.74
+      ],
+      "z_sd": 28.927
+    },
+    "col1|flex": {
+      "col": 1,
+      "firms_pooled_small": 45,
+      "firms_read": 206,
+      "firms_total": 251,
+      "grand_mean": 0.14625,
+      "loans": 431723,
+      "loans_pooled_small": 3053,
+      "loans_read": 428670,
+      "rows": [
+        {
+          "firm": "201805",
+          "loans": 5119,
+          "mean": 0.22358,
+          "se": 0.001675,
+          "z": 46.17
+        },
+        {
+          "firm": "201712",
+          "loans": 4905,
+          "mean": 0.18983,
+          "se": 0.00171,
+          "z": 25.48
+        },
+        {
+          "firm": "201605",
+          "loans": 4872,
+          "mean": 0.04433,
+          "se": 0.00111,
+          "z": -91.8
+        },
+        {
+          "firm": "201905",
+          "loans": 4843,
+          "mean": 0.45874,
+          "se": 0.002662,
+          "z": 117.4
+        },
+        {
+          "firm": "201812",
+          "loans": 4704,
+          "mean": 0.33601,
+          "se": 0.002175,
+          "z": 87.26
+        },
+        {
+          "firm": "201708",
+          "loans": 4639,
+          "mean": 0.17837,
+          "se": 0.001871,
+          "z": 17.16
+        },
+        {
+          "firm": "201505",
+          "loans": 4637,
+          "mean": 0.04489,
+          "se": 0.001209,
+          "z": -83.83
+        },
+        {
+          "firm": "201608",
+          "loans": 4495,
+          "mean": 0.06348,
+          "se": 0.001279,
+          "z": -64.73
+        },
+        {
+          "firm": "201810",
+          "loans": 4479,
+          "mean": 0.29795,
+          "se": 0.002042,
+          "z": 74.27
+        },
+        {
+          "firm": "201911",
+          "loans": 4455,
+          "mean": 0.56251,
+          "se": 0.005086,
+          "z": 81.85
+        },
+        {
+          "firm": "201610",
+          "loans": 4426,
+          "mean": 0.09682,
+          "se": 0.001545,
+          "z": -31.99
+        },
+        {
+          "firm": "201705",
+          "loans": 4417,
+          "mean": 0.17611,
+          "se": 0.001948,
+          "z": 15.33
+        }
+      ],
+      "top5_share": 0.0566,
+      "window": "flex",
+      "z_p10_p50_p90": [
+        -63.96,
+        -9.89,
+        35.85
+      ],
+      "z_sd": 42.52
+    },
+    "col1|hamp": {
+      "col": 1,
+      "firms_pooled_small": 16,
+      "firms_read": 199,
+      "firms_total": 215,
+      "grand_mean": 0.16359,
+      "loans": 641688,
+      "loans_pooled_small": 2357,
+      "loans_read": 639331,
+      "rows": [
+        {
+          "firm": "200909",
+          "loans": 5354,
+          "mean": 0.15115,
+          "se": 0.001942,
+          "z": -6.41
+        },
+        {
+          "firm": "201103",
+          "loans": 5340,
+          "mean": 0.13725,
+          "se": 0.001858,
+          "z": -14.18
+        },
+        {
+          "firm": "200902",
+          "loans": 5247,
+          "mean": 0.22694,
+          "se": 0.002758,
+          "z": 22.96
+        },
+        {
+          "firm": "201309",
+          "loans": 5158,
+          "mean": 0.13897,
+          "se": 0.001577,
+          "z": -15.62
+        },
+        {
+          "firm": "201505",
+          "loans": 5124,
+          "mean": 0.19626,
+          "se": 0.001711,
+          "z": 19.09
+        },
+        {
+          "firm": "201605",
+          "loans": 5053,
+          "mean": 0.42363,
+          "se": 0.002762,
+          "z": 94.14
+        },
+        {
+          "firm": "201111",
+          "loans": 4964,
+          "mean": 0.13194,
+          "se": 0.002026,
+          "z": -15.63
+        },
+        {
+          "firm": "200804",
+          "loans": 4928,
+          "mean": 0.08728,
+          "se": 0.002421,
+          "z": -31.52
+        },
+        {
+          "firm": "201405",
+          "loans": 4904,
+          "mean": 0.18987,
+          "se": 0.001987,
+          "z": 13.23
+        },
+        {
+          "firm": "200905",
+          "loans": 4896,
+          "mean": 0.14561,
+          "se": 0.001754,
+          "z": -10.26
+        },
+        {
+          "firm": "201011",
+          "loans": 4751,
+          "mean": 0.12124,
+          "se": 0.001666,
+          "z": -25.42
+        },
+        {
+          "firm": "200806",
+          "loans": 4728,
+          "mean": 0.08071,
+          "se": 0.00232,
+          "z": -35.72
+        }
+      ],
+      "top5_share": 0.0409,
+      "window": "hamp",
+      "z_p10_p50_p90": [
+        -31.04,
+        -11.51,
+        28.36
+      ],
+      "z_sd": 28.859
+    },
+    "col1|post2023": {
+      "col": 1,
+      "firms_pooled_small": 121,
+      "firms_read": 204,
+      "firms_total": 325,
+      "grand_mean": 0.15404,
+      "loans": 430634,
+      "loans_pooled_small": 10632,
+      "loans_read": 420002,
+      "rows": [
+        {
+          "firm": "202305",
+          "loans": 5229,
+          "mean": 0.17605,
+          "se": 0.00186,
+          "z": 11.83
+        },
+        {
+          "firm": "202603",
+          "loans": 5142,
+          "mean": 0.54901,
+          "se": 0.006939,
+          "z": 56.92
+        },
+        {
+          "firm": "202412",
+          "loans": 5020,
+          "mean": 0.25297,
+          "se": 0.001943,
+          "z": 50.91
+        },
+        {
+          "firm": "202405",
+          "loans": 5014,
+          "mean": 0.23221,
+          "se": 0.002095,
+          "z": 37.31
+        },
+        {
+          "firm": "202505",
+          "loans": 4928,
+          "mean": 0.35808,
+          "se": 0.002311,
+          "z": 88.27
+        },
+        {
+          "firm": "202312",
+          "loans": 4760,
+          "mean": 0.232,
+          "se": 0.002236,
+          "z": 34.86
+        },
+        {
+          "firm": "202212",
+          "loans": 4549,
+          "mean": 0.15371,
+          "se": 0.002043,
+          "z": -0.16
+        },
+        {
+          "firm": "202512",
+          "loans": 4546,
+          "mean": 0.53303,
+          "se": 0.004182,
+          "z": 90.62
+        },
+        {
+          "firm": "202310",
+          "loans": 4541,
+          "mean": 0.20224,
+          "se": 0.002088,
+          "z": 23.08
+        },
+        {
+          "firm": "202308",
+          "loans": 4490,
+          "mean": 0.18408,
+          "se": 0.002004,
+          "z": 14.99
+        },
+        {
+          "firm": "202511",
+          "loans": 4480,
+          "mean": 0.57376,
+          "se": 0.003956,
+          "z": 106.1
+        },
+        {
+          "firm": "202307",
+          "loans": 4453,
+          "mean": 0.17867,
+          "se": 0.002011,
+          "z": 12.25
+        }
+      ],
+      "top5_share": 0.0588,
+      "window": "post2023",
+      "z_p10_p50_p90": [
+        -67.89,
+        -26.9,
+        43.95
+      ],
+      "z_sd": 39.904
+    },
+    "col1|pre_crisis": {
+      "col": 1,
+      "firms_pooled_small": 2,
+      "firms_read": 118,
+      "firms_total": 120,
+      "grand_mean": 0.28622,
+      "loans": 487796,
+      "loans_pooled_small": 117,
+      "loans_read": 487679,
+      "rows": [
+        {
+          "firm": "200406",
+          "loans": 5791,
+          "mean": 0.16151,
+          "se": 0.002008,
+          "z": -62.11
+        },
+        {
+          "firm": "200309",
+          "loans": 5637,
+          "mean": 0.14284,
+          "se": 0.001877,
+          "z": -76.37
+        },
+        {
+          "firm": "200105",
+          "loans": 5583,
+          "mean": 0.26634,
+          "se": 0.002535,
+          "z": -7.84
+        },
+        {
+          "firm": "200405",
+          "loans": 5466,
+          "mean": 0.16323,
+          "se": 0.002098,
+          "z": -58.61
+        },
+        {
+          "firm": "200505",
+          "loans": 5322,
+          "mean": 0.19472,
+          "se": 0.002276,
+          "z": -40.2
+        },
+        {
+          "firm": "200211",
+          "loans": 5156,
+          "mean": 0.25844,
+          "se": 0.003263,
+          "z": -8.51
+        },
+        {
+          "firm": "200804",
+          "loans": 5088,
+          "mean": 0.46079,
+          "se": 0.002313,
+          "z": 75.48
+        },
+        {
+          "firm": "200312",
+          "loans": 4957,
+          "mean": 0.19745,
+          "se": 0.002726,
+          "z": -32.56
+        },
+        {
+          "firm": "200705",
+          "loans": 4870,
+          "mean": 0.27723,
+          "se": 0.002078,
+          "z": -4.32
+        },
+        {
+          "firm": "200308",
+          "loans": 4867,
+          "mean": 0.14571,
+          "se": 0.002097,
+          "z": -67.01
+        },
+        {
+          "firm": "200806",
+          "loans": 4863,
+          "mean": 0.59577,
+          "se": 0.002708,
+          "z": 114.3
+        },
+        {
+          "firm": "200212",
+          "loans": 4853,
+          "mean": 0.23908,
+          "se": 0.003284,
+          "z": -14.36
+        }
+      ],
+      "top5_share": 0.057,
+      "window": "pre_crisis",
+      "z_p10_p50_p90": [
+        -47.62,
+        -12.37,
+        54.91
+      ],
+      "z_sd": 43.827
+    },
+    "col23|covid": {
+      "col": 23,
+      "firms_pooled_small": 37,
+      "firms_read": 71,
+      "firms_total": 108,
+      "grand_mean": 0.14399,
+      "loans": 467425,
+      "loans_pooled_small": 1806,
+      "loans_read": 465619,
+      "rows": [
+        {
+          "firm": "OTHER",
+          "loans": 154669,
+          "mean": 0.14427,
+          "se": 0.00051,
+          "z": 0.54
+        },
+        {
+          "firm": "WELLS FARGO BANK, N.A.",
+          "loans": 58465,
+          "mean": 0.1108,
+          "se": 0.00073,
+          "z": -45.48
+        },
+        {
+          "firm": "U.S. BANK N.A.",
+          "loans": 21974,
+          "mean": 0.12201,
+          "se": 0.001244,
+          "z": -17.67
+        },
+        {
+          "firm": "JPMORGAN CHASE BANK, N.A.",
+          "loans": 20690,
+          "mean": 0.05832,
+          "se": 0.000845,
+          "z": -101.35
+        },
+        {
+          "firm": "QUICKEN LOANS INC.",
+          "loans": 14964,
+          "mean": 0.10429,
+          "se": 0.001352,
+          "z": -29.35
+        },
+        {
+          "firm": "BANK OF AMERICA, N.A.",
+          "loans": 13306,
+          "mean": 0.08101,
+          "se": 0.001284,
+          "z": -49.06
+        },
+        {
+          "firm": "JPMORGAN CHASE BANK, NATIONAL ASSO",
+          "loans": 12354,
+          "mean": 0.21449,
+          "se": 0.002108,
+          "z": 33.45
+        },
+        {
+          "firm": "AMERIHOME MORTGAGE COMPANY, LLC",
+          "loans": 11536,
+          "mean": 0.20792,
+          "se": 0.002329,
+          "z": 27.46
+        },
+        {
+          "firm": "CALIBER HOME LOANS, INC.",
+          "loans": 10847,
+          "mean": 0.14152,
+          "se": 0.001794,
+          "z": -1.37
+        },
+        {
+          "firm": "BRANCH BANKING & TRUST COMPANY",
+          "loans": 10079,
+          "mean": 0.0727,
+          "se": 0.001299,
+          "z": -54.89
+        },
+        {
+          "firm": "LOANDEPOT.COM, LLC",
+          "loans": 8871,
+          "mean": 0.17038,
+          "se": 0.002171,
+          "z": 12.16
+        },
+        {
+          "firm": "UNITED WHOLESALE MORTGAGE, LLC",
+          "loans": 7994,
+          "mean": 0.33118,
+          "se": 0.00328,
+          "z": 57.08
+        }
+      ],
+      "top5_share": 0.5793,
+      "window": "covid",
+      "z_p10_p50_p90": [
+        -33.08,
+        -3.96,
+        29.53
+      ],
+      "z_sd": 25.766
+    },
+    "col23|flex": {
+      "col": 23,
+      "firms_pooled_small": 34,
+      "firms_read": 62,
+      "firms_total": 96,
+      "grand_mean": 0.14625,
+      "loans": 431723,
+      "loans_pooled_small": 1976,
+      "loans_read": 429747,
+      "rows": [
+        {
+          "firm": "OTHER",
+          "loans": 134475,
+          "mean": 0.155,
+          "se": 0.000572,
+          "z": 15.29
+        },
+        {
+          "firm": "WELLS FARGO BANK, N.A.",
+          "loans": 68949,
+          "mean": 0.11644,
+          "se": 0.000668,
+          "z": -44.65
+        },
+        {
+          "firm": "JPMORGAN CHASE BANK, N.A.",
+          "loans": 27194,
+          "mean": 0.09067,
+          "se": 0.000781,
+          "z": -71.18
+        },
+        {
+          "firm": "U.S. BANK N.A.",
+          "loans": 24515,
+          "mean": 0.11179,
+          "se": 0.001173,
+          "z": -29.39
+        },
+        {
+          "firm": "BANK OF AMERICA, N.A.",
+          "loans": 18769,
+          "mean": 0.06493,
+          "se": 0.000845,
+          "z": -96.24
+        },
+        {
+          "firm": "QUICKEN LOANS INC.",
+          "loans": 18227,
+          "mean": 0.21095,
+          "se": 0.00168,
+          "z": 38.5
+        },
+        {
+          "firm": "BRANCH BANKING & TRUST COMPANY",
+          "loans": 13783,
+          "mean": 0.08084,
+          "se": 0.00104,
+          "z": -62.89
+        },
+        {
+          "firm": "CALIBER HOME LOANS, INC.",
+          "loans": 9337,
+          "mean": 0.21089,
+          "se": 0.002224,
+          "z": 29.06
+        },
+        {
+          "firm": "CITIMORTGAGE, INC.",
+          "loans": 8371,
+          "mean": 0.06435,
+          "se": 0.001343,
+          "z": -60.98
+        },
+        {
+          "firm": "AMERIHOME MORTGAGE COMPANY, LLC",
+          "loans": 7569,
+          "mean": 0.27454,
+          "se": 0.002834,
+          "z": 45.27
+        },
+        {
+          "firm": "FLAGSTAR BANK, FSB",
+          "loans": 5717,
+          "mean": 0.18925,
+          "se": 0.00284,
+          "z": 15.14
+        },
+        {
+          "firm": "LOANDEPOT.COM, LLC",
+          "loans": 5533,
+          "mean": 0.16036,
+          "se": 0.002477,
+          "z": 5.7
+        }
+      ],
+      "top5_share": 0.6344,
+      "window": "flex",
+      "z_p10_p50_p90": [
+        -43.39,
+        -4.49,
+        43.97
+      ],
+      "z_sd": 34.02
+    },
+    "col23|hamp": {
+      "col": 23,
+      "firms_pooled_small": 23,
+      "firms_read": 54,
+      "firms_total": 77,
+      "grand_mean": 0.16359,
+      "loans": 641688,
+      "loans_pooled_small": 2419,
+      "loans_read": 639269,
+      "rows": [
+        {
+          "firm": "OTHER",
+          "loans": 153943,
+          "mean": 0.17835,
+          "se": 0.000517,
+          "z": 28.54
+        },
+        {
+          "firm": "WELLS FARGO BANK, N.A.",
+          "loans": 132484,
+          "mean": 0.16212,
+          "se": 0.000538,
+          "z": -2.75
+        },
+        {
+          "firm": "BANK OF AMERICA, N.A.",
+          "loans": 40448,
+          "mean": 0.15227,
+          "se": 0.000918,
+          "z": -12.33
+        },
+        {
+          "firm": "U.S. BANK N.A.",
+          "loans": 38777,
+          "mean": 0.16871,
+          "se": 0.000956,
+          "z": 5.35
+        },
+        {
+          "firm": "JPMORGAN CHASE BANK, N.A.",
+          "loans": 24298,
+          "mean": 0.171,
+          "se": 0.001169,
+          "z": 6.33
+        },
+        {
+          "firm": "CHASE HOME FINANCE LLC",
+          "loans": 23752,
+          "mean": 0.1311,
+          "se": 0.001245,
+          "z": -26.1
+        },
+        {
+          "firm": "BRANCH BANKING & TRUST COMPANY",
+          "loans": 21675,
+          "mean": 0.18261,
+          "se": 0.001271,
+          "z": 14.97
+        },
+        {
+          "firm": "CITIMORTGAGE, INC.",
+          "loans": 17964,
+          "mean": 0.16817,
+          "se": 0.001347,
+          "z": 3.4
+        },
+        {
+          "firm": "WELLS FARGO HOME MORTGAGE, INC.",
+          "loans": 17090,
+          "mean": 0.06689,
+          "se": 0.00105,
+          "z": -92.14
+        },
+        {
+          "firm": "ABN AMRO MORTGAGE GROUP, INC.",
+          "loans": 15712,
+          "mean": 0.08663,
+          "se": 0.001405,
+          "z": -54.76
+        },
+        {
+          "firm": "COUNTRYWIDE HOME LOANS, INC.",
+          "loans": 14588,
+          "mean": 0.14337,
+          "se": 0.001941,
+          "z": -10.42
+        },
+        {
+          "firm": "FIFTH THIRD BANK",
+          "loans": 12047,
+          "mean": 0.11293,
+          "se": 0.001473,
+          "z": -34.39
+        }
+      ],
+      "top5_share": 0.6077,
+      "window": "hamp",
+      "z_p10_p50_p90": [
+        -32.42,
+        -3.11,
+        33.13
+      ],
+      "z_sd": 26.613
+    },
+    "col23|post2023": {
+      "col": 23,
+      "firms_pooled_small": 45,
+      "firms_read": 66,
+      "firms_total": 111,
+      "grand_mean": 0.15404,
+      "loans": 430634,
+      "loans_pooled_small": 2206,
+      "loans_read": 428428,
+      "rows": [
+        {
+          "firm": "OTHER",
+          "loans": 143920,
+          "mean": 0.15977,
+          "se": 0.000569,
+          "z": 10.07
+        },
+        {
+          "firm": "WELLS FARGO BANK, N.A.",
+          "loans": 33120,
+          "mean": 0.06792,
+          "se": 0.000665,
+          "z": -129.47
+        },
+        {
+          "firm": "UNITED WHOLESALE MORTGAGE, LLC",
+          "loans": 27147,
+          "mean": 0.22184,
+          "se": 0.001329,
+          "z": 51.02
+        },
+        {
+          "firm": "ROCKET MORTGAGE, LLC",
+          "loans": 19504,
+          "mean": 0.27333,
+          "se": 0.001885,
+          "z": 63.3
+        },
+        {
+          "firm": "AMERIHOME MORTGAGE COMPANY, LLC",
+          "loans": 16125,
+          "mean": 0.19995,
+          "se": 0.00168,
+          "z": 27.32
+        },
+        {
+          "firm": "U.S. BANK N.A.",
+          "loans": 15621,
+          "mean": 0.12118,
+          "se": 0.001402,
+          "z": -23.44
+        },
+        {
+          "firm": "JPMORGAN CHASE BANK, NATIONAL ASSO",
+          "loans": 14844,
+          "mean": 0.15759,
+          "se": 0.001675,
+          "z": 2.12
+        },
+        {
+          "firm": "PENNYMAC LOAN SERVICES, LLC",
+          "loans": 12099,
+          "mean": 0.2688,
+          "se": 0.002072,
+          "z": 55.39
+        },
+        {
+          "firm": "NEWREZ LLC",
+          "loans": 11333,
+          "mean": 0.21719,
+          "se": 0.002142,
+          "z": 29.48
+        },
+        {
+          "firm": "JPMORGAN CHASE BANK, N.A.",
+          "loans": 9506,
+          "mean": 0.04873,
+          "se": 0.001066,
+          "z": -98.8
+        },
+        {
+          "firm": "NATIONSTAR MORTGAGE LLC DBA MR. CO",
+          "loans": 9141,
+          "mean": 0.1877,
+          "se": 0.002196,
+          "z": 15.33
+        },
+        {
+          "firm": "PENNYMAC CORP.",
+          "loans": 8916,
+          "mean": 0.13264,
+          "se": 0.001832,
+          "z": -11.68
+        }
+      ],
+      "top5_share": 0.5569,
+      "window": "post2023",
+      "z_p10_p50_p90": [
+        -58.05,
+        -11.44,
+        29.54
+      ],
+      "z_sd": 34.085
+    },
+    "col23|pre_crisis": {
+      "col": 23,
+      "firms_pooled_small": 5,
+      "firms_read": 42,
+      "firms_total": 47,
+      "grand_mean": 0.28622,
+      "loans": 487796,
+      "loans_pooled_small": 811,
+      "loans_read": 486985,
+      "rows": [
+        {
+          "firm": "OTHER",
+          "loans": 95162,
+          "mean": 0.26451,
+          "se": 0.000733,
+          "z": -29.6
+        },
+        {
+          "firm": "WELLS FARGO HOME MORTGAGE, INC.",
+          "loans": 61043,
+          "mean": 0.26249,
+          "se": 0.000871,
+          "z": -27.25
+        },
+        {
+          "firm": "WELLS FARGO BANK, N.A.",
+          "loans": 58867,
+          "mean": 0.31755,
+          "se": 0.001012,
+          "z": 30.97
+        },
+        {
+          "firm": "ABN AMRO MORTGAGE GROUP, INC.",
+          "loans": 40921,
+          "mean": 0.27091,
+          "se": 0.001075,
+          "z": -14.24
+        },
+        {
+          "firm": "BANK OF AMERICA, N.A.",
+          "loans": 28151,
+          "mean": 0.32359,
+          "se": 0.001593,
+          "z": 23.47
+        },
+        {
+          "firm": "COUNTRYWIDE HOME LOANS, INC.",
+          "loans": 24153,
+          "mean": 0.26219,
+          "se": 0.001142,
+          "z": -21.05
+        },
+        {
+          "firm": "CHASE HOME FINANCE LLC",
+          "loans": 18121,
+          "mean": 0.33631,
+          "se": 0.001859,
+          "z": 26.95
+        },
+        {
+          "firm": "WASHINGTON MUTUAL BANK",
+          "loans": 16953,
+          "mean": 0.29505,
+          "se": 0.001628,
+          "z": 5.43
+        },
+        {
+          "firm": "CHASE MANHATTAN MORTGAGE CORPORATI",
+          "loans": 15485,
+          "mean": 0.21614,
+          "se": 0.00153,
+          "z": -45.79
+        },
+        {
+          "firm": "NORWEST MORTGAGE, INC.",
+          "loans": 13625,
+          "mean": 0.23563,
+          "se": 0.001359,
+          "z": -37.22
+        },
+        {
+          "firm": "NATIONAL CITY MORTGAGE CO.",
+          "loans": 13073,
+          "mean": 0.25523,
+          "se": 0.001912,
+          "z": -16.21
+        },
+        {
+          "firm": "PRINCIPAL RESIDENTIAL MORTGAGE, IN",
+          "loans": 13008,
+          "mean": 0.25269,
+          "se": 0.001817,
+          "z": -18.45
+        }
+      ],
+      "top5_share": 0.5825,
+      "window": "pre_crisis",
+      "z_p10_p50_p90": [
+        -35.89,
+        -3.97,
+        36.18
+      ],
+      "z_sd": 27.996
+    },
+    "col3|covid": {
+      "col": 3,
+      "firms_pooled_small": 99,
+      "firms_read": 337,
+      "firms_total": 436,
+      "grand_mean": 0.14399,
+      "loans": 467425,
+      "loans_pooled_small": 5355,
+      "loans_read": 462070,
+      "rows": [
+        {
+          "firm": "205004",
+          "loans": 4108,
+          "mean": 0.21566,
+          "se": 0.002496,
+          "z": 28.71
+        },
+        {
+          "firm": "205211",
+          "loans": 4045,
+          "mean": 0.74141,
+          "se": 0.006885,
+          "z": 86.78
+        },
+        {
+          "firm": "205208",
+          "loans": 3988,
+          "mean": 0.62475,
+          "se": 0.003482,
+          "z": 138.08
+        },
+        {
+          "firm": "205209",
+          "loans": 3909,
+          "mean": 0.63205,
+          "se": 0.003861,
+          "z": 126.41
+        },
+        {
+          "firm": "205205",
+          "loans": 3844,
+          "mean": 0.49227,
+          "se": 0.00312,
+          "z": 111.62
+        },
+        {
+          "firm": "204904",
+          "loans": 3633,
+          "mean": 0.08068,
+          "se": 0.002315,
+          "z": -27.35
+        },
+        {
+          "firm": "205207",
+          "loans": 3630,
+          "mean": 0.60722,
+          "se": 0.003567,
+          "z": 129.87
+        },
+        {
+          "firm": "204907",
+          "loans": 3598,
+          "mean": 0.12497,
+          "se": 0.002683,
+          "z": -7.09
+        },
+        {
+          "firm": "204911",
+          "loans": 3591,
+          "mean": 0.22058,
+          "se": 0.00277,
+          "z": 27.65
+        },
+        {
+          "firm": "205007",
+          "loans": 3573,
+          "mean": 0.18634,
+          "se": 0.002469,
+          "z": 17.15
+        },
+        {
+          "firm": "204910",
+          "loans": 3552,
+          "mean": 0.19529,
+          "se": 0.002741,
+          "z": 18.71
+        },
+        {
+          "firm": "205206",
+          "loans": 3537,
+          "mean": 0.60564,
+          "se": 0.003535,
+          "z": 130.58
+        }
+      ],
+      "top5_share": 0.0426,
+      "window": "covid",
+      "z_p10_p50_p90": [
+        -23.79,
+        -14.64,
+        11.92
+      ],
+      "z_sd": 24.365
+    },
+    "col3|flex": {
+      "col": 3,
+      "firms_pooled_small": 94,
+      "firms_read": 324,
+      "firms_total": 418,
+      "grand_mean": 0.14625,
+      "loans": 431723,
+      "loans_pooled_small": 9412,
+      "loans_read": 422311,
+      "rows": [
+        {
+          "firm": "204804",
+          "loans": 4244,
+          "mean": 0.23967,
+          "se": 0.001749,
+          "z": 53.41
+        },
+        {
+          "firm": "204904",
+          "loans": 4112,
+          "mean": 0.49105,
+          "se": 0.002517,
+          "z": 136.96
+        },
+        {
+          "firm": "204811",
+          "loans": 4046,
+          "mean": 0.36006,
+          "se": 0.002172,
+          "z": 98.45
+        },
+        {
+          "firm": "204711",
+          "loans": 3923,
+          "mean": 0.20879,
+          "se": 0.001924,
+          "z": 32.51
+        },
+        {
+          "firm": "204809",
+          "loans": 3848,
+          "mean": 0.31725,
+          "se": 0.002057,
+          "z": 83.15
+        },
+        {
+          "firm": "204707",
+          "loans": 3799,
+          "mean": 0.19133,
+          "se": 0.002078,
+          "z": 21.69
+        },
+        {
+          "firm": "204806",
+          "loans": 3687,
+          "mean": 0.26558,
+          "se": 0.001938,
+          "z": 61.57
+        },
+        {
+          "firm": "204808",
+          "loans": 3678,
+          "mean": 0.29749,
+          "se": 0.002001,
+          "z": 75.59
+        },
+        {
+          "firm": "204907",
+          "loans": 3642,
+          "mean": 0.6216,
+          "se": 0.003491,
+          "z": 136.15
+        },
+        {
+          "firm": "204906",
+          "loans": 3635,
+          "mean": 0.62237,
+          "se": 0.003522,
+          "z": 135.19
+        },
+        {
+          "firm": "204604",
+          "loans": 3619,
+          "mean": 0.04462,
+          "se": 0.001327,
+          "z": -76.56
+        },
+        {
+          "firm": "204903",
+          "loans": 3572,
+          "mean": 0.45615,
+          "se": 0.002555,
+          "z": 121.29
+        }
+      ],
+      "top5_share": 0.0467,
+      "window": "flex",
+      "z_p10_p50_p90": [
+        -42.23,
+        -17.43,
+        18.59
+      ],
+      "z_sd": 34.085
+    },
+    "col3|hamp": {
+      "col": 3,
+      "firms_pooled_small": 107,
+      "firms_read": 370,
+      "firms_total": 477,
+      "grand_mean": 0.16359,
+      "loans": 641688,
+      "loans_pooled_small": 4873,
+      "loans_read": 636815,
+      "rows": [
+        {
+          "firm": "203901",
+          "loans": 4633,
+          "mean": 0.23859,
+          "se": 0.003001,
+          "z": 24.99
+        },
+        {
+          "firm": "203908",
+          "loans": 4150,
+          "mean": 0.16764,
+          "se": 0.002316,
+          "z": 1.75
+        },
+        {
+          "firm": "203808",
+          "loans": 4054,
+          "mean": 0.21837,
+          "se": 0.003923,
+          "z": 13.96
+        },
+        {
+          "firm": "203803",
+          "loans": 3910,
+          "mean": 0.09899,
+          "se": 0.002912,
+          "z": -22.19
+        },
+        {
+          "firm": "203904",
+          "loans": 3904,
+          "mean": 0.15944,
+          "se": 0.002041,
+          "z": -2.03
+        },
+        {
+          "firm": "203805",
+          "loans": 3840,
+          "mean": 0.08907,
+          "se": 0.002731,
+          "z": -27.29
+        },
+        {
+          "firm": "203811",
+          "loans": 3770,
+          "mean": 0.27935,
+          "se": 0.00392,
+          "z": 29.53
+        },
+        {
+          "firm": "204604",
+          "loans": 3742,
+          "mean": 0.48034,
+          "se": 0.002595,
+          "z": 122.07
+        },
+        {
+          "firm": "203801",
+          "loans": 3725,
+          "mean": 0.12227,
+          "se": 0.003423,
+          "z": -12.07
+        },
+        {
+          "firm": "203704",
+          "loans": 3712,
+          "mean": 0.12788,
+          "se": 0.003521,
+          "z": -10.14
+        },
+        {
+          "firm": "204404",
+          "loans": 3623,
+          "mean": 0.21211,
+          "se": 0.002359,
+          "z": 20.57
+        },
+        {
+          "firm": "204504",
+          "loans": 3547,
+          "mean": 0.22639,
+          "se": 0.001944,
+          "z": 32.31
+        }
+      ],
+      "top5_share": 0.0322,
+      "window": "hamp",
+      "z_p10_p50_p90": [
+        -29.62,
+        -13.54,
+        18.91
+      ],
+      "z_sd": 26.823
+    },
+    "col3|post2023": {
+      "col": 3,
+      "firms_pooled_small": 92,
+      "firms_read": 359,
+      "firms_total": 451,
+      "grand_mean": 0.15404,
+      "loans": 430634,
+      "loans_pooled_small": 3642,
+      "loans_read": 426992,
+      "rows": [
+        {
+          "firm": "205304",
+          "loans": 4852,
+          "mean": 0.18014,
+          "se": 0.001931,
+          "z": 13.52
+        },
+        {
+          "firm": "205404",
+          "loans": 4741,
+          "mean": 0.23725,
+          "se": 0.002143,
+          "z": 38.84
+        },
+        {
+          "firm": "205311",
+          "loans": 4537,
+          "mean": 0.23871,
+          "se": 0.002304,
+          "z": 36.75
+        },
+        {
+          "firm": "205411",
+          "loans": 4477,
+          "mean": 0.26642,
+          "se": 0.001965,
+          "z": 57.18
+        },
+        {
+          "firm": "205504",
+          "loans": 4451,
+          "mean": 0.3778,
+          "se": 0.002228,
+          "z": 100.42
+        },
+        {
+          "firm": "205602",
+          "loans": 4304,
+          "mean": 0.60757,
+          "se": 0.007443,
+          "z": 60.94
+        },
+        {
+          "firm": "205309",
+          "loans": 4251,
+          "mean": 0.20847,
+          "se": 0.002163,
+          "z": 25.17
+        },
+        {
+          "firm": "205211",
+          "loans": 4220,
+          "mean": 0.15845,
+          "se": 0.002144,
+          "z": 2.06
+        },
+        {
+          "firm": "205307",
+          "loans": 4197,
+          "mean": 0.18894,
+          "se": 0.002078,
+          "z": 16.79
+        },
+        {
+          "firm": "205306",
+          "loans": 4155,
+          "mean": 0.18327,
+          "se": 0.002072,
+          "z": 14.11
+        },
+        {
+          "firm": "205409",
+          "loans": 4044,
+          "mean": 0.26068,
+          "se": 0.002054,
+          "z": 51.92
+        },
+        {
+          "firm": "205405",
+          "loans": 4012,
+          "mean": 0.24533,
+          "se": 0.00225,
+          "z": 40.56
+        }
+      ],
+      "top5_share": 0.0535,
+      "window": "post2023",
+      "z_p10_p50_p90": [
+        -34.54,
+        -18.37,
+        12.67
+      ],
+      "z_sd": 30.236
+    },
+    "col3|pre_crisis": {
+      "col": 3,
+      "firms_pooled_small": 158,
+      "firms_read": 273,
+      "firms_total": 431,
+      "grand_mean": 0.28622,
+      "loans": 487796,
+      "loans_pooled_small": 9178,
+      "loans_read": 478618,
+      "rows": [
+        {
+          "firm": "203808",
+          "loans": 4234,
+          "mean": 0.78708,
+          "se": 0.002723,
+          "z": 183.94
+        },
+        {
+          "firm": "203704",
+          "loans": 4158,
+          "mean": 0.29134,
+          "se": 0.002228,
+          "z": 2.3
+        },
+        {
+          "firm": "203803",
+          "loans": 3953,
+          "mean": 0.50587,
+          "se": 0.001969,
+          "z": 111.56
+        },
+        {
+          "firm": "203801",
+          "loans": 3912,
+          "mean": 0.4589,
+          "se": 0.002069,
+          "z": 83.45
+        },
+        {
+          "firm": "203805",
+          "loans": 3891,
+          "mean": 0.64155,
+          "se": 0.002278,
+          "z": 155.96
+        },
+        {
+          "firm": "203004",
+          "loans": 3849,
+          "mean": 0.35113,
+          "se": 0.003196,
+          "z": 20.31
+        },
+        {
+          "firm": "203504",
+          "loans": 3810,
+          "mean": 0.21456,
+          "se": 0.002818,
+          "z": -25.43
+        },
+        {
+          "firm": "203604",
+          "loans": 3810,
+          "mean": 0.23625,
+          "se": 0.002626,
+          "z": -19.03
+        },
+        {
+          "firm": "203511",
+          "loans": 3792,
+          "mean": 0.21232,
+          "se": 0.002448,
+          "z": -30.19
+        },
+        {
+          "firm": "203705",
+          "loans": 3776,
+          "mean": 0.29835,
+          "se": 0.002209,
+          "z": 5.49
+        },
+        {
+          "firm": "203607",
+          "loans": 3758,
+          "mean": 0.26695,
+          "se": 0.002889,
+          "z": -6.67
+        },
+        {
+          "firm": "203708",
+          "loans": 3740,
+          "mean": 0.38105,
+          "se": 0.002749,
+          "z": 34.5
+        }
+      ],
+      "top5_share": 0.0413,
+      "window": "pre_crisis",
+      "z_p10_p50_p90": [
+        -36.75,
+        -11.36,
+        23.16
+      ],
+      "z_sd": 35.587
+    }
+  }
+}

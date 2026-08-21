@@ -1,0 +1,318 @@
+{
+  "archives": [
+    {
+      "archive": "2002Q1",
+      "cx_loans": 0,
+      "cx_max_rows_one_loan": 0,
+      "cx_rows_per_loan": {},
+      "d_ge_99": 647,
+      "d_hist": {},
+      "d_max": 261,
+      "d_min": 99,
+      "d_q": [
+        102,
+        116,
+        196
+      ],
+      "d_under_99": 0,
+      "next_none": 3,
+      "next_value": {
+        "0": 4,
+        "254": 31,
+        "53": 1,
+        "55": 3,
+        "56": 1,
+        "66": 1,
+        "88": 1,
+        "99": 600
+      },
+      "no_00_ever": 0,
+      "prev_none": 0,
+      "prev_value": {
+        "254": 1,
+        "51": 1,
+        "55": 1,
+        "64": 1,
+        "66": 1,
+        "68": 1,
+        "98": 41,
+        "99": 600
+      },
+      "rows": 42679752,
+      "rows_99": 647,
+      "run_len": {
+        "1": 6,
+        "10": 2,
+        "15": 3,
+        "2": 3,
+        "20": 2,
+        "4": 5,
+        "5": 3,
+        "8": 3
+      },
+      "runs": 47,
+      "since_first_row_q": [
+        159,
+        194,
+        239
+      ],
+      "since_first_under_99": 0,
+      "with_00": 647
+    },
+    {
+      "archive": "2006Q1",
+      "cx_loans": 4,
+      "cx_max_rows_one_loan": 2,
+      "cx_rows_per_loan": {
+        "1": 3,
+        "2": 1
+      },
+      "d_ge_99": 2184,
+      "d_hist": {
+        "1": 2,
+        "13": 1,
+        "2": 1,
+        "3": 1
+      },
+      "d_max": 206,
+      "d_min": 1,
+      "d_q": [
+        102,
+        117,
+        156
+      ],
+      "d_under_99": 5,
+      "next_none": 21,
+      "next_value": {
+        "0": 12,
+        "1": 3,
+        "254": 77,
+        "55": 2,
+        "56": 2,
+        "67": 1,
+        "68": 1,
+        "99": 2077
+      },
+      "no_00_ever": 10,
+      "prev_none": 0,
+      "prev_value": {
+        "0": 2,
+        "1": 1,
+        "254": 8,
+        "66": 1,
+        "67": 1,
+        "98": 109,
+        "99": 2077
+      },
+      "rows": 18198237,
+      "rows_99": 2199,
+      "run_len": {
+        "1": 10,
+        "11": 5,
+        "13": 7,
+        "2": 10,
+        "3": 8,
+        "4": 5,
+        "6": 7,
+        "7": 8
+      },
+      "runs": 122,
+      "since_first_row_q": [
+        130,
+        153,
+        199
+      ],
+      "since_first_under_99": 0,
+      "with_00": 2189
+    },
+    {
+      "archive": "2007Q1",
+      "cx_loans": 2,
+      "cx_max_rows_one_loan": 16,
+      "cx_rows_per_loan": {
+        "1": 1,
+        "16": 1
+      },
+      "d_ge_99": 1866,
+      "d_hist": {
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1,
+        "29": 1,
+        "30": 1,
+        "31": 1
+      },
+      "d_max": 203,
+      "d_min": 20,
+      "d_q": [
+        102,
+        116,
+        159
+      ],
+      "d_under_99": 17,
+      "next_none": 17,
+      "next_value": {
+        "0": 15,
+        "1": 1,
+        "254": 61,
+        "5": 1,
+        "55": 4,
+        "56": 1,
+        "88": 1,
+        "99": 1780
+      },
+      "no_00_ever": 0,
+      "prev_none": 0,
+      "prev_value": {
+        "19": 1,
+        "254": 4,
+        "68": 1,
+        "69": 1,
+        "78": 1,
+        "98": 95,
+        "99": 1780
+      },
+      "rows": 16782203,
+      "rows_99": 1883,
+      "run_len": {
+        "1": 8,
+        "10": 5,
+        "11": 3,
+        "2": 5,
+        "4": 5,
+        "5": 8,
+        "8": 4,
+        "9": 8
+      },
+      "runs": 103,
+      "since_first_row_q": [
+        119,
+        146,
+        197
+      ],
+      "since_first_under_99": 0,
+      "with_00": 1883
+    },
+    {
+      "archive": "2012Q1",
+      "cx_loans": 1,
+      "cx_max_rows_one_loan": 1,
+      "cx_rows_per_loan": {
+        "1": 1
+      },
+      "d_ge_99": 89,
+      "d_hist": {
+        "1": 1
+      },
+      "d_max": 155,
+      "d_min": 1,
+      "d_q": [
+        102,
+        126,
+        146
+      ],
+      "d_under_99": 1,
+      "next_none": 5,
+      "next_value": {
+        "0": 1,
+        "99": 84
+      },
+      "no_00_ever": 0,
+      "prev_none": 0,
+      "prev_value": {
+        "0": 1,
+        "98": 5,
+        "99": 84
+      },
+      "rows": 50416530,
+      "rows_99": 90,
+      "run_len": {
+        "1": 1,
+        "16": 1,
+        "17": 1,
+        "2": 1,
+        "45": 1,
+        "9": 1
+      },
+      "runs": 6,
+      "since_first_row_q": [
+        126,
+        152,
+        166
+      ],
+      "since_first_under_99": 0,
+      "with_00": 90
+    },
+    {
+      "archive": "2017Q1",
+      "cx_loans": 0,
+      "cx_max_rows_one_loan": 0,
+      "cx_rows_per_loan": {},
+      "d_ge_99": 1,
+      "d_hist": {},
+      "d_max": 100,
+      "d_min": 100,
+      "d_q": [
+        100,
+        100,
+        100
+      ],
+      "d_under_99": 0,
+      "next_none": 1,
+      "next_value": {},
+      "no_00_ever": 0,
+      "prev_none": 0,
+      "prev_value": {
+        "98": 1
+      },
+      "rows": 30161652,
+      "rows_99": 1,
+      "run_len": {
+        "1": 1
+      },
+      "runs": 1,
+      "since_first_row_q": [
+        110,
+        110,
+        110
+      ],
+      "since_first_under_99": 0,
+      "with_00": 1
+    },
+    {
+      "archive": "2019Q1",
+      "cx_loans": 0,
+      "cx_max_rows_one_loan": 0,
+      "cx_rows_per_loan": {},
+      "d_ge_99": 0,
+      "d_hist": {},
+      "d_max": null,
+      "d_min": null,
+      "d_q": null,
+      "d_under_99": 0,
+      "next_none": 0,
+      "next_value": {},
+      "no_00_ever": 0,
+      "prev_none": 0,
+      "prev_value": {},
+      "rows": 11774637,
+      "rows_99": 0,
+      "run_len": {},
+      "runs": 0,
+      "since_first_row_q": null,
+      "since_first_under_99": 0,
+      "with_00": 0
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. Names delinq == 99 by behaviour, per C0b. Reads no layout document, computes no omega, and does not carry to Freddie (\u00a78\u00b715\u00b73).",
+  "stage": "B10",
+  "step": "holonomy_name99",
+  "value": 99
+}

@@ -1,0 +1,277 @@
+{
+  "bands": [
+    [
+      7,
+      12
+    ],
+    [
+      13,
+      24
+    ],
+    [
+      25,
+      60
+    ],
+    [
+      61,
+      120
+    ],
+    [
+      121,
+      1000000000
+    ]
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a736. Counts only; no omega, no B8 prediction. One-sided on the calendar (\u00a736.1).",
+  "edge": 3,
+  "loans": 1353651,
+  "min_age": 8,
+  "min_pairs": 7,
+  "pairs": 62321303,
+  "per_window": {
+    "covid|term": {
+      "end": 0.08337,
+      "middle": 0.07746,
+      "start": 0.07054
+    },
+    "flex|term": {
+      "end": 0.08227,
+      "middle": 0.05175,
+      "start": 0.04342
+    },
+    "hamp|term": {
+      "end": 0.10152,
+      "middle": 0.07539,
+      "start": 0.04136
+    },
+    "post2023|open": {
+      "end": 0.05124,
+      "middle": 0.04925,
+      "start": 0.04938
+    },
+    "post2023|term": {
+      "end": 0.08859,
+      "middle": 0.06502,
+      "start": 0.05017
+    },
+    "pre_crisis|term": {
+      "end": 0.08317,
+      "middle": 0.06093,
+      "start": 0.05825
+    }
+  },
+  "short": {
+    "by_n": {
+      "0": [
+        0,
+        0
+      ],
+      "1": [
+        1332,
+        18872
+      ],
+      "2": [
+        2483,
+        40364
+      ],
+      "3": [
+        3714,
+        63306
+      ],
+      "4": [
+        4708,
+        80372
+      ],
+      "5": [
+        5911,
+        99340
+      ],
+      "6": [
+        7117,
+        119514
+      ]
+    },
+    "frozen": 25265,
+    "loans": 237760,
+    "pairs": 421768
+  },
+  "sign_tables": {
+    "still_reporting": {
+      "end_vs_middle": "mixed",
+      "rows": [
+        {
+          "band": "7-12",
+          "end_minus_middle": -0.00142,
+          "n": {
+            "end": 63906,
+            "middle": 72444,
+            "start": 63906
+          },
+          "rates": {
+            "end": 0.04784,
+            "middle": 0.04925,
+            "start": 0.04713
+          },
+          "readable": true,
+          "start_minus_middle": -0.00212
+        },
+        {
+          "band": "13-24",
+          "end_minus_middle": 0.00204,
+          "n": {
+            "end": 111063,
+            "middle": 462505,
+            "start": 111063
+          },
+          "rates": {
+            "end": 0.05348,
+            "middle": 0.05144,
+            "start": 0.04972
+          },
+          "readable": true,
+          "start_minus_middle": -0.00172
+        },
+        {
+          "band": "25-60",
+          "end_minus_middle": 0.00151,
+          "n": {
+            "end": 352044,
+            "middle": 4260505,
+            "start": 352044
+          },
+          "rates": {
+            "end": 0.04838,
+            "middle": 0.04687,
+            "start": 0.05027
+          },
+          "readable": true,
+          "start_minus_middle": 0.0034
+        },
+        {
+          "band": "61-120",
+          "end_minus_middle": -0.00527,
+          "n": {
+            "end": 201291,
+            "middle": 5516850,
+            "start": 201291
+          },
+          "rates": {
+            "end": 0.05361,
+            "middle": 0.05888,
+            "start": 0.05743
+          },
+          "readable": true,
+          "start_minus_middle": -0.00144
+        },
+        {
+          "band": "121+",
+          "end_minus_middle": -0.00221,
+          "n": {
+            "end": 150987,
+            "middle": 7798303,
+            "start": 150987
+          },
+          "rates": {
+            "end": 0.05452,
+            "middle": 0.05674,
+            "start": 0.047
+          },
+          "readable": true,
+          "start_minus_middle": -0.00974
+        }
+      ],
+      "start_vs_middle": "mixed",
+      "terminated": false
+    },
+    "terminated": {
+      "end_vs_middle": "all_positive",
+      "rows": [
+        {
+          "band": "7-12",
+          "end_minus_middle": 0.00878,
+          "n": {
+            "end": 299046,
+            "middle": 344590,
+            "start": 299046
+          },
+          "rates": {
+            "end": 0.06643,
+            "middle": 0.05765,
+            "start": 0.05551
+          },
+          "readable": true,
+          "start_minus_middle": -0.00213
+        },
+        {
+          "band": "13-24",
+          "end_minus_middle": 0.01372,
+          "n": {
+            "end": 502542,
+            "middle": 2039117,
+            "start": 502542
+          },
+          "rates": {
+            "end": 0.07356,
+            "middle": 0.05984,
+            "start": 0.05233
+          },
+          "readable": true,
+          "start_minus_middle": -0.00751
+        },
+        {
+          "band": "25-60",
+          "end_minus_middle": 0.02908,
+          "n": {
+            "end": 887199,
+            "middle": 10103377,
+            "start": 887199
+          },
+          "rates": {
+            "end": 0.09201,
+            "middle": 0.06293,
+            "start": 0.04825
+          },
+          "readable": true,
+          "start_minus_middle": -0.01468
+        },
+        {
+          "band": "61-120",
+          "end_minus_middle": 0.04045,
+          "n": {
+            "end": 595737,
+            "middle": 15581576,
+            "start": 595737
+          },
+          "rates": {
+            "end": 0.10573,
+            "middle": 0.06528,
+            "start": 0.04779
+          },
+          "readable": true,
+          "start_minus_middle": -0.01748
+        },
+        {
+          "band": "121+",
+          "end_minus_middle": 0.04215,
+          "n": {
+            "end": 183858,
+            "middle": 9024922,
+            "start": 183858
+          },
+          "rates": {
+            "end": 0.12075,
+            "middle": 0.07859,
+            "start": 0.0585
+          },
+          "readable": true,
+          "start_minus_middle": -0.02009
+        }
+      ],
+      "start_vs_middle": "all_negative",
+      "terminated": true
+    }
+  },
+  "stage": "B10",
+  "step": "o18_position",
+  "terminated_loans": 1006190
+}

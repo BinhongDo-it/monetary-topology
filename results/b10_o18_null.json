@@ -1,0 +1,124 @@
+{
+  "age_split": 8,
+  "assist_col": 29,
+  "buckets": [
+    "+1",
+    "le0",
+    "ge+2",
+    "RA",
+    "blank_or_other"
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a741. Counts only; no omega, no B8 prediction; does not transfer to Fannie (\u00a741.4).",
+  "grid_check": {
+    "+1": 0.012418165703942247,
+    "consistent_with_s38": true,
+    "le0": 0.9851312939571156
+  },
+  "populations": {
+    "coded_age_ge8|frozen": {
+      "counts": {
+        "+1": 176360,
+        "RA": 3,
+        "blank_or_other": 0,
+        "ge+2": 137,
+        "le0": 7313
+      },
+      "n": 183813,
+      "shares": {
+        "+1": 0.959453357488317,
+        "RA": 1.632093486314896e-05,
+        "blank_or_other": 0.0,
+        "ge+2": 0.0007453226920838026,
+        "le0": 0.03978499888473612
+      }
+    },
+    "coded_age_ge8|moving": {
+      "counts": {
+        "+1": 4996,
+        "RA": 0,
+        "blank_or_other": 0,
+        "ge+2": 514,
+        "le0": 88234
+      },
+      "n": 93744,
+      "shares": {
+        "+1": 0.05329407748762587,
+        "RA": 0.0,
+        "blank_or_other": 0.0,
+        "ge+2": 0.005483017579791773,
+        "le0": 0.9412229049325823
+      }
+    },
+    "grid_age_lt8|frozen": {
+      "counts": {
+        "+1": 60866,
+        "RA": 115,
+        "blank_or_other": 10753,
+        "ge+2": 1143,
+        "le0": 4828491
+      },
+      "n": 4901368,
+      "shares": {
+        "+1": 0.012418165703942247,
+        "RA": 2.3462837313990705e-05,
+        "blank_or_other": 0.0021938773011942786,
+        "ge+2": 0.00023320020043383807,
+        "le0": 0.9851312939571156
+      }
+    },
+    "grid_age_lt8|moving": {
+      "counts": {
+        "+1": 18581,
+        "RA": 21,
+        "blank_or_other": 7926,
+        "ge+2": 609,
+        "le0": 5318626
+      },
+      "n": 5345763,
+      "shares": {
+        "+1": 0.003475836844992941,
+        "RA": 3.928344747045464e-06,
+        "blank_or_other": 0.0014826695459563021,
+        "ge+2": 0.00011392199766431845,
+        "le0": 0.9949236432666394
+      }
+    },
+    "residue|frozen": {
+      "counts": {
+        "+1": 863159,
+        "RA": 88482,
+        "blank_or_other": 0,
+        "ge+2": 3342,
+        "le0": 2823423
+      },
+      "n": 3778406,
+      "shares": {
+        "+1": 0.22844527560034575,
+        "RA": 0.02341781163802937,
+        "blank_or_other": 0.0,
+        "ge+2": 0.0008844999716811798,
+        "le0": 0.7472524127899437
+      }
+    },
+    "residue|moving": {
+      "counts": {
+        "+1": 242723,
+        "RA": 146,
+        "blank_or_other": 0,
+        "ge+2": 3391,
+        "le0": 58019080
+      },
+      "n": 58265340,
+      "shares": {
+        "+1": 0.004165821395704547,
+        "RA": 2.5057778775512168e-06,
+        "blank_or_other": 0.0,
+        "ge+2": 5.819926563545325e-05,
+        "le0": 0.9957734735607825
+      }
+    }
+  },
+  "stage": "B10",
+  "step": "o18_null"
+}

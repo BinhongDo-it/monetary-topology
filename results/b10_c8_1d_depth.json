@@ -1,0 +1,1032 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "B8-1 has not been run on Fannie, so this stage's readings serve only the payment model decision in b8_omega.py and carry no omega claim. docs/b10_freddie_availability.md \u00a712.0.",
+  "drops_total": {
+    "dropped_age_lt_8": 10393345,
+    "dropped_delinquent": 2061543,
+    "dropped_modified": 741830,
+    "dropped_upb_nonpositive": 140,
+    "dropped_zero_balance_code": 903491,
+    "segment_failed_u0_gate": 456828,
+    "unparsed_rows": 349
+  },
+  "min_age": 8,
+  "stage": "B10",
+  "step": "c8_1d_depth",
+  "u0_half_grid": 500.0,
+  "vintages": [
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 351548,
+        "dropped_delinquent": 68200,
+        "dropped_modified": 8165,
+        "dropped_upb_nonpositive": 44,
+        "dropped_zero_balance_code": 46533,
+        "segment_failed_u0_gate": 15488
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.7467418853732319,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 37948,
+      "orig_fields": 31,
+      "segments_all": 61155,
+      "segments_by_length_all": {
+        "1-7": 11309,
+        "13-24": 13787,
+        "25-60": 23668,
+        "61+": 6561,
+        "8-12": 5830
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 7996,
+        "13-24": 10446,
+        "25-60": 17945,
+        "61+": 4922,
+        "8-12": 4358
+      },
+      "segments_gate_pass": 45667,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 1999
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 366304,
+        "dropped_delinquent": 65519,
+        "dropped_modified": 7535,
+        "dropped_upb_nonpositive": 43,
+        "dropped_zero_balance_code": 43154,
+        "segment_failed_u0_gate": 11190,
+        "unparsed_rows": 170
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.7825072886297376,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 34678,
+      "orig_fields": 31,
+      "segments_all": 51450,
+      "segments_by_length_all": {
+        "1-7": 20038,
+        "13-24": 13225,
+        "25-60": 7018,
+        "61+": 2305,
+        "8-12": 8864
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 15497,
+        "13-24": 10483,
+        "25-60": 5502,
+        "61+": 1803,
+        "8-12": 6975
+      },
+      "segments_gate_pass": 40260,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2000
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 376816,
+        "dropped_delinquent": 62791,
+        "dropped_modified": 10766,
+        "dropped_upb_nonpositive": 42,
+        "dropped_zero_balance_code": 45448,
+        "segment_failed_u0_gate": 13911
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.749184140778537,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 35880,
+      "orig_fields": 31,
+      "segments_all": 55463,
+      "segments_by_length_all": {
+        "1-7": 15775,
+        "13-24": 13600,
+        "25-60": 7483,
+        "61+": 6470,
+        "8-12": 12135
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 11598,
+        "13-24": 10351,
+        "25-60": 5571,
+        "61+": 4876,
+        "8-12": 9156
+      },
+      "segments_gate_pass": 41552,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2001
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 375527,
+        "dropped_delinquent": 69178,
+        "dropped_modified": 15896,
+        "dropped_upb_nonpositive": 2,
+        "dropped_zero_balance_code": 42239,
+        "segment_failed_u0_gate": 14323
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.7168975945288873,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 30995,
+      "orig_fields": 31,
+      "segments_all": 50593,
+      "segments_by_length_all": {
+        "1-7": 16860,
+        "13-24": 7305,
+        "25-60": 8184,
+        "61+": 12680,
+        "8-12": 5564
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 11855,
+        "13-24": 5287,
+        "25-60": 5813,
+        "61+": 9274,
+        "8-12": 4041
+      },
+      "segments_gate_pass": 36270,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2002
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 376158,
+        "dropped_delinquent": 83447,
+        "dropped_modified": 28083,
+        "dropped_upb_nonpositive": 3,
+        "dropped_zero_balance_code": 44784,
+        "segment_failed_u0_gate": 18641
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6871843063549865,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 34700,
+      "orig_fields": 31,
+      "segments_all": 59591,
+      "segments_by_length_all": {
+        "1-7": 10751,
+        "13-24": 7035,
+        "25-60": 11770,
+        "61+": 25931,
+        "8-12": 4104
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 6707,
+        "13-24": 4822,
+        "25-60": 8003,
+        "61+": 18659,
+        "8-12": 2759
+      },
+      "segments_gate_pass": 40950,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2003
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 384995,
+        "dropped_delinquent": 143951,
+        "dropped_modified": 51434,
+        "dropped_upb_nonpositive": 2,
+        "dropped_zero_balance_code": 43472,
+        "segment_failed_u0_gate": 19360
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6998914896915207,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 36087,
+      "orig_fields": 31,
+      "segments_all": 64510,
+      "segments_by_length_all": {
+        "1-7": 14078,
+        "13-24": 7245,
+        "25-60": 15506,
+        "61+": 23210,
+        "8-12": 4471
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 8883,
+        "13-24": 4977,
+        "25-60": 11026,
+        "61+": 17291,
+        "8-12": 2973
+      },
+      "segments_gate_pass": 45150,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2004
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 392951,
+        "dropped_delinquent": 203737,
+        "dropped_modified": 95752,
+        "dropped_upb_nonpositive": 1,
+        "dropped_zero_balance_code": 42088,
+        "segment_failed_u0_gate": 18475
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.7215187965391456,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 38115,
+      "orig_fields": 31,
+      "segments_all": 66342,
+      "segments_by_length_all": {
+        "1-7": 13807,
+        "13-24": 7505,
+        "25-60": 20710,
+        "61+": 19838,
+        "8-12": 4482
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 8459,
+        "13-24": 5303,
+        "25-60": 15421,
+        "61+": 15557,
+        "8-12": 3127
+      },
+      "segments_gate_pass": 47867,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2005
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 389317,
+        "dropped_delinquent": 255760,
+        "dropped_modified": 134464,
+        "dropped_zero_balance_code": 40342,
+        "segment_failed_u0_gate": 16310
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.750980960960044,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 38580,
+      "orig_fields": 31,
+      "segments_all": 65497,
+      "segments_by_length_all": {
+        "1-7": 15083,
+        "13-24": 11453,
+        "25-60": 21439,
+        "61+": 11874,
+        "8-12": 5648
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 10143,
+        "13-24": 8659,
+        "25-60": 16802,
+        "61+": 9469,
+        "8-12": 4114
+      },
+      "segments_gate_pass": 49187,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2006
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 394721,
+        "dropped_delinquent": 282981,
+        "dropped_modified": 156119,
+        "dropped_zero_balance_code": 38754,
+        "segment_failed_u0_gate": 16257,
+        "unparsed_rows": 63
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.7483514442277329,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 37602,
+      "orig_fields": 31,
+      "segments_all": 64602,
+      "segments_by_length_all": {
+        "1-7": 16108,
+        "13-24": 12738,
+        "25-60": 19513,
+        "61+": 9158,
+        "8-12": 7085
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 10986,
+        "13-24": 9612,
+        "25-60": 15227,
+        "61+": 7264,
+        "8-12": 5256
+      },
+      "segments_gate_pass": 48345,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2007
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 395302,
+        "dropped_delinquent": 154426,
+        "dropped_modified": 86407,
+        "dropped_upb_nonpositive": 1,
+        "dropped_zero_balance_code": 40252,
+        "segment_failed_u0_gate": 14381,
+        "unparsed_rows": 71
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.7407520911450822,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 34137,
+      "orig_fields": 31,
+      "segments_all": 55472,
+      "segments_by_length_all": {
+        "1-7": 14249,
+        "13-24": 11475,
+        "25-60": 16932,
+        "61+": 6910,
+        "8-12": 5906
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 9999,
+        "13-24": 8604,
+        "25-60": 12918,
+        "61+": 5342,
+        "8-12": 4228
+      },
+      "segments_gate_pass": 41091,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2008
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 394631,
+        "dropped_delinquent": 51044,
+        "dropped_modified": 17644,
+        "dropped_zero_balance_code": 45472,
+        "segment_failed_u0_gate": 17351
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6864938115457584,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 34661,
+      "orig_fields": 31,
+      "segments_all": 55345,
+      "segments_by_length_all": {
+        "1-7": 7390,
+        "13-24": 10019,
+        "25-60": 19225,
+        "61+": 14555,
+        "8-12": 4156
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4530,
+        "13-24": 6626,
+        "25-60": 13477,
+        "61+": 10709,
+        "8-12": 2652
+      },
+      "segments_gate_pass": 37994,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2009
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 390920,
+        "dropped_delinquent": 48070,
+        "dropped_modified": 16223,
+        "dropped_zero_balance_code": 43914,
+        "segment_failed_u0_gate": 17734
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6766641748865024,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 33773,
+      "orig_fields": 31,
+      "segments_all": 54847,
+      "segments_by_length_all": {
+        "1-7": 7098,
+        "13-24": 10933,
+        "25-60": 13965,
+        "61+": 18366,
+        "8-12": 4485
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4239,
+        "13-24": 7346,
+        "25-60": 9450,
+        "61+": 13183,
+        "8-12": 2895
+      },
+      "segments_gate_pass": 37113,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2010
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 388096,
+        "dropped_delinquent": 44307,
+        "dropped_modified": 12673,
+        "dropped_upb_nonpositive": 1,
+        "dropped_zero_balance_code": 41912,
+        "segment_failed_u0_gate": 18242
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6601713859910581,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 32393,
+      "orig_fields": 31,
+      "segments_all": 53680,
+      "segments_by_length_all": {
+        "1-7": 8520,
+        "13-24": 6181,
+        "25-60": 13749,
+        "61+": 20810,
+        "8-12": 4420
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 5102,
+        "13-24": 3895,
+        "25-60": 9099,
+        "61+": 14506,
+        "8-12": 2836
+      },
+      "segments_gate_pass": 35438,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2011
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 385777,
+        "dropped_delinquent": 44340,
+        "dropped_modified": 10677,
+        "dropped_zero_balance_code": 38275,
+        "segment_failed_u0_gate": 19425
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6528832579832383,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 33480,
+      "orig_fields": 31,
+      "segments_all": 55961,
+      "segments_by_length_all": {
+        "1-7": 5399,
+        "13-24": 4829,
+        "25-60": 14233,
+        "61+": 29396,
+        "8-12": 2104
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 2823,
+        "13-24": 2992,
+        "25-60": 9074,
+        "61+": 20454,
+        "8-12": 1193
+      },
+      "segments_gate_pass": 36536,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2012
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 383014,
+        "dropped_delinquent": 50850,
+        "dropped_modified": 11383,
+        "dropped_zero_balance_code": 37878,
+        "segment_failed_u0_gate": 19179
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6746012894468951,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 35468,
+      "orig_fields": 31,
+      "segments_all": 58940,
+      "segments_by_length_all": {
+        "1-7": 7035,
+        "13-24": 6442,
+        "25-60": 14468,
+        "61+": 27698,
+        "8-12": 3297
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4037,
+        "13-24": 4262,
+        "25-60": 9744,
+        "61+": 19634,
+        "8-12": 2084
+      },
+      "segments_gate_pass": 39761,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2013
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 383222,
+        "dropped_delinquent": 53071,
+        "dropped_modified": 11911,
+        "dropped_zero_balance_code": 38594,
+        "segment_failed_u0_gate": 17711
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6888549242823513,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 35050,
+      "orig_fields": 31,
+      "segments_all": 56922,
+      "segments_by_length_all": {
+        "1-7": 8178,
+        "13-24": 8840,
+        "25-60": 15411,
+        "61+": 20493,
+        "8-12": 4000
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4901,
+        "13-24": 6049,
+        "25-60": 10754,
+        "61+": 14874,
+        "8-12": 2633
+      },
+      "segments_gate_pass": 39211,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2014
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 382614,
+        "dropped_delinquent": 50074,
+        "dropped_modified": 11835,
+        "dropped_upb_nonpositive": 1,
+        "dropped_zero_balance_code": 36707,
+        "segment_failed_u0_gate": 18627
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6742392444910807,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 34735,
+      "orig_fields": 31,
+      "segments_all": 57180,
+      "segments_by_length_all": {
+        "1-7": 7520,
+        "13-24": 6927,
+        "25-60": 20783,
+        "61+": 18380,
+        "8-12": 3570
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4418,
+        "13-24": 4516,
+        "25-60": 14460,
+        "61+": 12952,
+        "8-12": 2207
+      },
+      "segments_gate_pass": 38553,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2015
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 390451,
+        "dropped_delinquent": 51930,
+        "dropped_modified": 13710,
+        "dropped_zero_balance_code": 34290,
+        "segment_failed_u0_gate": 18560,
+        "unparsed_rows": 4
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6779287486768355,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 35278,
+      "orig_fields": 31,
+      "segments_all": 57627,
+      "segments_by_length_all": {
+        "1-7": 6576,
+        "13-24": 6255,
+        "25-60": 24981,
+        "61+": 16729,
+        "8-12": 3086
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 3748,
+        "13-24": 4140,
+        "25-60": 17469,
+        "61+": 11769,
+        "8-12": 1941
+      },
+      "segments_gate_pass": 39067,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2016
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 391495,
+        "dropped_delinquent": 61755,
+        "dropped_modified": 14190,
+        "dropped_zero_balance_code": 35803,
+        "segment_failed_u0_gate": 17772
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.691066803414049,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 35688,
+      "orig_fields": 31,
+      "segments_all": 57527,
+      "segments_by_length_all": {
+        "1-7": 7012,
+        "13-24": 11809,
+        "25-60": 22259,
+        "61+": 12921,
+        "8-12": 3526
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4052,
+        "13-24": 8432,
+        "25-60": 15813,
+        "61+": 9202,
+        "8-12": 2256
+      },
+      "segments_gate_pass": 39755,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2017
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 388225,
+        "dropped_delinquent": 55387,
+        "dropped_modified": 12213,
+        "dropped_zero_balance_code": 37900,
+        "segment_failed_u0_gate": 17668
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6777382580939353,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 33763,
+      "orig_fields": 31,
+      "segments_all": 54825,
+      "segments_by_length_all": {
+        "1-7": 11577,
+        "13-24": 15805,
+        "25-60": 10135,
+        "61+": 9167,
+        "8-12": 8141
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 7234,
+        "13-24": 11124,
+        "25-60": 6726,
+        "61+": 6538,
+        "8-12": 5535
+      },
+      "segments_gate_pass": 37157,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2018
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 391378,
+        "dropped_delinquent": 46495,
+        "dropped_modified": 8115,
+        "dropped_zero_balance_code": 32257,
+        "segment_failed_u0_gate": 18536
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6291761693274117,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 29038,
+      "orig_fields": 31,
+      "segments_all": 49986,
+      "segments_by_length_all": {
+        "1-7": 15830,
+        "13-24": 8584,
+        "25-60": 5933,
+        "61+": 12656,
+        "8-12": 6983
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 9690,
+        "13-24": 5547,
+        "25-60": 3355,
+        "61+": 8409,
+        "8-12": 4449
+      },
+      "segments_gate_pass": 31450,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2019
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 394693,
+        "dropped_delinquent": 19950,
+        "dropped_modified": 2671,
+        "dropped_zero_balance_code": 16503,
+        "segment_failed_u0_gate": 20695
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.5829638884410769,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 26882,
+      "orig_fields": 31,
+      "segments_all": 49624,
+      "segments_by_length_all": {
+        "1-7": 7920,
+        "13-24": 3843,
+        "25-60": 26351,
+        "61+": 8311,
+        "8-12": 3199
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4671,
+        "13-24": 2235,
+        "25-60": 15030,
+        "61+": 5054,
+        "8-12": 1939
+      },
+      "segments_gate_pass": 28929,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2020
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 396334,
+        "dropped_delinquent": 25536,
+        "dropped_modified": 1402,
+        "dropped_zero_balance_code": 8313,
+        "segment_failed_u0_gate": 20988
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6088779560574719,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 29695,
+      "orig_fields": 31,
+      "segments_all": 53661,
+      "segments_by_length_all": {
+        "1-7": 5186,
+        "13-24": 3946,
+        "25-60": 42475,
+        "8-12": 2054
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 3172,
+        "13-24": 2441,
+        "25-60": 25776,
+        "8-12": 1284
+      },
+      "segments_gate_pass": 32673,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2021
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 397907,
+        "dropped_delinquent": 37305,
+        "dropped_modified": 2201,
+        "dropped_zero_balance_code": 8652,
+        "segment_failed_u0_gate": 17624
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6775704354189536,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 33226,
+      "orig_fields": 31,
+      "segments_all": 54660,
+      "segments_by_length_all": {
+        "1-7": 6677,
+        "13-24": 5963,
+        "25-60": 39176,
+        "8-12": 2844
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4447,
+        "13-24": 4083,
+        "25-60": 26595,
+        "8-12": 1911
+      },
+      "segments_gate_pass": 37036,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2022
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 394058,
+        "dropped_delinquent": 22411,
+        "dropped_modified": 347,
+        "dropped_zero_balance_code": 11537,
+        "segment_failed_u0_gate": 16057
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6823666719417629,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 32456,
+      "orig_fields": 31,
+      "segments_all": 50552,
+      "segments_by_length_all": {
+        "1-7": 6612,
+        "13-24": 25745,
+        "25-60": 14874,
+        "8-12": 3321
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 4519,
+        "13-24": 17627,
+        "25-60": 10113,
+        "8-12": 2236
+      },
+      "segments_gate_pass": 34495,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2023
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 392851,
+        "dropped_delinquent": 8390,
+        "dropped_modified": 14,
+        "dropped_zero_balance_code": 7352,
+        "segment_failed_u0_gate": 15819
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6693076344175934,
+      "loans_seen": 50000,
+      "loans_with_a_gated_segment": 31356,
+      "orig_fields": 31,
+      "segments_all": 47836,
+      "segments_by_length_all": {
+        "1-7": 11863,
+        "13-24": 15862,
+        "8-12": 20111
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 7965,
+        "13-24": 10783,
+        "8-12": 13269
+      },
+      "segments_gate_pass": 32017,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2024
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 326398,
+        "dropped_delinquent": 638,
+        "dropped_zero_balance_code": 1066,
+        "segment_failed_u0_gate": 6504,
+        "unparsed_rows": 35
+      },
+      "frm_loans": 50000,
+      "gate_pass_share": 0.6541161455009572,
+      "loans_seen": 49995,
+      "loans_with_a_gated_segment": 12293,
+      "orig_fields": 31,
+      "segments_all": 18804,
+      "segments_by_length_all": {
+        "1-7": 18804
+      },
+      "segments_by_length_gate_pass": {
+        "1-7": 12300
+      },
+      "segments_gate_pass": 12300,
+      "shortest_three_gate_pass": [
+        1,
+        1,
+        1
+      ],
+      "vintage": 2025
+    },
+    {
+      "arm_or_other": 0,
+      "drops": {
+        "dropped_age_lt_8": 17642,
+        "unparsed_rows": 6
+      },
+      "frm_loans": 12500,
+      "gate_pass_share": 0.0,
+      "loans_seen": 12495,
+      "loans_with_a_gated_segment": 0,
+      "orig_fields": 31,
+      "segments_all": 0,
+      "segments_by_length_all": {},
+      "segments_by_length_gate_pass": {},
+      "segments_gate_pass": 0,
+      "shortest_three_gate_pass": [],
+      "vintage": 2026
+    }
+  ]
+}

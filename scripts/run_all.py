@@ -6,6 +6,15 @@ Usage::
     python scripts/run_all.py              # lint, tests, every experiment
     python scripts/run_all.py --quick      # lint and tests only
     python scripts/run_all.py --b2         # include B2, which needs fetched data
+    python scripts/run_all.py --skip-done  # read the records already on disk
+    python scripts/run_all.py --only A4 B1 # these stages only
+
+**`--skip-done` reads instead of running.** A stage whose record is already in
+``results/`` is not re-run; its criteria are read off that record and appear in
+the digest exactly as if it had been. The digest marks them, so a read is never
+mistaken for a run. Without it this script re-derives, every time, results that
+were derived once and written down, and the expensive part of that is not the
+computation.
 
 Each experiment already prints its own criteria in full. This runs them with
 output suppressed and reports only the pass counts, the exit codes, and any
@@ -466,6 +475,15 @@ def main() -> int:
     ap.add_argument(
         "--slow", action="store_true", help="include A6r, about fifteen minutes"
     )
+    ap.add_argument(
+        "--skip-done", action="store_true",
+        help="do not re-run a stage whose record is already in results/; "
+             "read that record instead"
+    )
+    ap.add_argument(
+        "--only", nargs="+", metavar="NAME", default=None,
+        help="run only the stages whose label starts with one of these"
+    )
     args = ap.parse_args()
 
     lines: list[str] = []
@@ -484,12 +502,33 @@ def main() -> int:
     if not args.quick:
         jobs = list(EXPERIMENTS) + (DATA_STAGES if args.b2 else [B1_SYNTHETIC])
         jobs += SLOW_STAGES if args.slow else []
+        if args.only:
+            want = tuple(args.only)
+            dropped = [lb for lb, _, _ in jobs if not lb.startswith(want)]
+            jobs = [j for j in jobs if j[0].startswith(want)]
+            # Named, not silently dropped, for the reason every other skip in
+            # this file is named.
+            if dropped:
+                print(f"  --only: not selected: "
+                      f"{', '.join(d.split()[0] for d in dropped)}",
+                      file=sys.stderr)
         total_p = total_n = 0
         n_expected = 0
+        n_read = 0
         for label, script, result_file in jobs:
-            announce(label)
-            code, secs = run([sys.executable, *script.split()])
-            p, n, failed, seen = criteria_from(RESULTS / result_file)
+            record = RESULTS / result_file
+            # **Read, not run.** The record on disk is the same object the run
+            # would write, so the digest is the same digest; what changes is
+            # that a result derived once is not derived again. A missing record
+            # still runs, because there is nothing to read.
+            reading = args.skip_done and record.exists()
+            if reading:
+                n_read += 1
+                code, secs = 0, "read"
+            else:
+                announce(label)
+                code, secs = run([sys.executable, *script.split()])
+            p, n, failed, seen = criteria_from(record)
             total_p += p
             total_n += n
             expected = [f for f in failed if f in EXPECTED_FAILURES]
@@ -500,7 +539,8 @@ def main() -> int:
             ]
             n_expected += len(expected)
             mark = f"{p}/{n}" if n else "no result"
-            lines.append(f"  {label:<32} {mark:>8}   exit {code}   {secs}")
+            how = "READ " if reading else f"exit {code}"
+            lines.append(f"  {label:<32} {mark:>8}   {how}   {secs}")
             for name in unexpected:
                 lines.append(f"       FAILED: {name}")
             for name in expected:
@@ -518,11 +558,18 @@ def main() -> int:
             # expected. It still matters when nothing failed, which is what a
             # crash before the result file was written looks like.
             ok &= not unexpected and not surprises
-            ok &= code == 0 or bool(failed)
+            # A read has no exit code of its own, so the record's own criteria
+            # are the whole of what it can say.
+            ok &= reading or code == 0 or bool(failed)
         lines.append(
             f"  {'TOTAL':<32} {f'{total_p}/{total_n}':>8}"
             + (f"   {n_expected} expected failures" if n_expected else "")
         )
+        if n_read:
+            lines.append(
+                f"  {n_read} stage(s) marked READ: their record was already on "
+                f"disk and --skip-done was given, so they were not re-run"
+            )
         if not args.slow:
             names = ", ".join(label.split()[0] for label, _, _ in SLOW_STAGES)
             lines.append(f"  NOT RUN: {names}. Add --slow to include them")

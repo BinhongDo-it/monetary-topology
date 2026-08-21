@@ -1,0 +1,222 @@
+{
+  "arms": {
+    "defer": {
+      "agree": true,
+      "n_tied_archives": 1,
+      "paired_verdict": "mixed",
+      "per_archive": [
+        {
+          "archive": "2002Q1",
+          "n_neg": 1,
+          "n_pos": 0,
+          "n_tie": 0,
+          "read": false
+        },
+        {
+          "archive": "2006Q1",
+          "n_neg": 0,
+          "n_pos": 1,
+          "n_tie": 1,
+          "read": false
+        },
+        {
+          "archive": "2007Q1",
+          "n_neg": 0,
+          "n_pos": 2,
+          "n_tie": 1,
+          "read": false
+        },
+        {
+          "D": 0.0,
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            12
+          ],
+          "archive": "2012Q1",
+          "n_neg": 2,
+          "n_pos": 3,
+          "n_tie": 2,
+          "read": true
+        },
+        {
+          "D": -0.08301855047352125,
+          "L": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            17
+          ],
+          "archive": "2017Q1",
+          "n_neg": 5,
+          "n_pos": 9,
+          "n_tie": 0,
+          "read": true
+        },
+        {
+          "D": 0.06750131775860146,
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "archive": "2019Q1",
+          "n_neg": 3,
+          "n_pos": 8,
+          "n_tie": 0,
+          "read": true
+        }
+      ],
+      "unpaired_verdict": "mixed"
+    },
+    "mod": {
+      "agree": false,
+      "n_tied_archives": 0,
+      "paired_verdict": "mixed",
+      "per_archive": [
+        {
+          "D": 0.13252122582001127,
+          "L": [
+            4,
+            5,
+            6,
+            7,
+            9,
+            11,
+            13
+          ],
+          "archive": "2002Q1",
+          "n_neg": 2,
+          "n_pos": 4,
+          "n_tie": 1,
+          "read": true
+        },
+        {
+          "D": 0.032405777789185214,
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            15,
+            21,
+            22,
+            24,
+            25
+          ],
+          "archive": "2006Q1",
+          "n_neg": 4,
+          "n_pos": 9,
+          "n_tie": 1,
+          "read": true
+        },
+        {
+          "D": -0.01785072653263898,
+          "L": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            20,
+            22,
+            24,
+            25
+          ],
+          "archive": "2007Q1",
+          "n_neg": 7,
+          "n_pos": 13,
+          "n_tie": 0,
+          "read": true
+        },
+        {
+          "D": 0.10579286484446804,
+          "L": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            18
+          ],
+          "archive": "2012Q1",
+          "n_neg": 2,
+          "n_pos": 3,
+          "n_tie": 1,
+          "read": true
+        },
+        {
+          "D": 0.04489862115509258,
+          "L": [
+            6,
+            7,
+            8
+          ],
+          "archive": "2017Q1",
+          "n_neg": 1,
+          "n_pos": 2,
+          "n_tie": 0,
+          "read": true
+        },
+        {
+          "archive": "2019Q1",
+          "n_neg": 0,
+          "n_pos": 1,
+          "n_tie": 0,
+          "read": false
+        }
+      ],
+      "unpaired_verdict": "all_positive"
+    }
+  },
+  "carrier": "fannie_only_see_section_21_3",
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered in the B10 availability register \u00a722.9.2. Reads the strata file only; no B8 prediction, no floor (\u00a721.6 rule 1).",
+  "min_cells": 3,
+  "reading": {
+    "all_negative": "\u00a721.5 row 2 (between-class spread grows as the grid refines) fails on every archive. \u00a722.4.4 replicates.",
+    "all_positive": "The finer grid does explain more, on every archive. \u00a721.5 row 2 holds and 2019Q1 is the exception to investigate.",
+    "mixed": "The sign flips across archives, so the gap is noise. \u00a722.4.4's 1.551-against-1.716 must NOT be quoted as a reading.",
+    "no_referent": "Fewer than two archives had a usable paired figure. No sign to read."
+  },
+  "stage": "B10",
+  "step": "holonomy_paired"
+}

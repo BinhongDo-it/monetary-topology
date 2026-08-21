@@ -1,0 +1,1262 @@
+{
+  "cols": {
+    "0": {
+      "col_1indexed": 1,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 74937616,
+      "numeric": 0,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "1": {
+      "col_1indexed": 2,
+      "distinct": 327,
+      "distinct_capped_at": null,
+      "nonblank": 74937616,
+      "numeric": 74937616,
+      "positive": 74937616,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "10": {
+      "col_1indexed": 11,
+      "distinct": 4417,
+      "distinct_capped_at": null,
+      "nonblank": 74937616,
+      "numeric": 74937616,
+      "positive": 74937616,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "11": {
+      "col_1indexed": 12,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 74937616,
+      "numeric": 74937616,
+      "positive": 679416,
+      "rows": 74937616,
+      "zero": 74258200
+    },
+    "12": {
+      "col_1indexed": 13,
+      "distinct": 412,
+      "distinct_capped_at": null,
+      "nonblank": 358248,
+      "numeric": 358248,
+      "positive": 358248,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "13": {
+      "col_1indexed": 14,
+      "distinct": 4843,
+      "distinct_capped_at": null,
+      "nonblank": 19544,
+      "numeric": 19544,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 14703
+    },
+    "14": {
+      "col_1indexed": 15,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19638,
+      "numeric": 19638,
+      "positive": 72,
+      "rows": 74937616,
+      "zero": 238
+    },
+    "15": {
+      "col_1indexed": 16,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19544,
+      "numeric": 19544,
+      "positive": 17,
+      "rows": 74937616,
+      "zero": 3295
+    },
+    "16": {
+      "col_1indexed": 17,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19544,
+      "numeric": 19544,
+      "positive": 19416,
+      "rows": 74937616,
+      "zero": 41
+    },
+    "17": {
+      "col_1indexed": 18,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19544,
+      "numeric": 19544,
+      "positive": 17430,
+      "rows": 74937616,
+      "zero": 2088
+    },
+    "18": {
+      "col_1indexed": 19,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19544,
+      "numeric": 19544,
+      "positive": 17924,
+      "rows": 74937616,
+      "zero": 1615
+    },
+    "19": {
+      "col_1indexed": 20,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19544,
+      "numeric": 19544,
+      "positive": 17238,
+      "rows": 74937616,
+      "zero": 2035
+    },
+    "2": {
+      "col_1indexed": 3,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 74937616,
+      "numeric": 74937616,
+      "positive": 73930019,
+      "rows": 74937616,
+      "zero": 1007597
+    },
+    "20": {
+      "col_1indexed": 21,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19544,
+      "numeric": 19544,
+      "positive": 18810,
+      "rows": 74937616,
+      "zero": 409
+    },
+    "21": {
+      "col_1indexed": 22,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19639,
+      "numeric": 19639,
+      "positive": 18788,
+      "rows": 74937616,
+      "zero": 95
+    },
+    "22": {
+      "col_1indexed": 23,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 24197,
+      "numeric": 24197,
+      "positive": 24197,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "23": {
+      "col_1indexed": 24,
+      "distinct": 3,
+      "distinct_capped_at": null,
+      "nonblank": 1138675,
+      "numeric": 0,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "24": {
+      "col_1indexed": 25,
+      "distinct": 3,
+      "distinct_capped_at": null,
+      "nonblank": 489428,
+      "numeric": 0,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "25": {
+      "col_1indexed": 26,
+      "distinct": 398,
+      "distinct_capped_at": null,
+      "nonblank": 74937616,
+      "numeric": 74937616,
+      "positive": 74937616,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "26": {
+      "col_1indexed": 27,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 1007421,
+      "numeric": 1007421,
+      "positive": 1007418,
+      "rows": 74937616,
+      "zero": 3
+    },
+    "27": {
+      "col_1indexed": 28,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 19639,
+      "numeric": 19639,
+      "positive": 19525,
+      "rows": 74937616,
+      "zero": 110
+    },
+    "28": {
+      "col_1indexed": 29,
+      "distinct": 2,
+      "distinct_capped_at": null,
+      "nonblank": 229459,
+      "numeric": 0,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "29": {
+      "col_1indexed": 30,
+      "distinct": 4,
+      "distinct_capped_at": null,
+      "nonblank": 289683,
+      "numeric": 0,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "3": {
+      "col_1indexed": 4,
+      "distinct": 102,
+      "distinct_capped_at": null,
+      "nonblank": 74937616,
+      "numeric": 74811792,
+      "positive": 2050723,
+      "rows": 74937616,
+      "zero": 72761069
+    },
+    "30": {
+      "col_1indexed": 31,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 1597525,
+      "numeric": 1597525,
+      "positive": 1283954,
+      "rows": 74937616,
+      "zero": 214803
+    },
+    "31": {
+      "col_1indexed": 32,
+      "distinct": null,
+      "distinct_capped_at": 5000,
+      "nonblank": 74937616,
+      "numeric": 74937616,
+      "positive": 73930019,
+      "rows": 74937616,
+      "zero": 1007597
+    },
+    "32": {
+      "col_1indexed": 33,
+      "distinct": 3,
+      "distinct_capped_at": null,
+      "nonblank": 74937616,
+      "numeric": 68449645,
+      "positive": 68449645,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "33": {
+      "col_1indexed": 34,
+      "distinct": 97,
+      "distinct_capped_at": null,
+      "nonblank": 74937616,
+      "numeric": 0,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "34": {
+      "col_1indexed": 35,
+      "distinct": 35,
+      "distinct_capped_at": null,
+      "nonblank": 2121800,
+      "numeric": 2121800,
+      "positive": 57,
+      "rows": 74937616,
+      "zero": 2121743
+    },
+    "4": {
+      "col_1indexed": 5,
+      "distinct": 326,
+      "distinct_capped_at": null,
+      "nonblank": 74937616,
+      "numeric": 74937616,
+      "positive": 73742900,
+      "rows": 74937616,
+      "zero": 1194716
+    },
+    "5": {
+      "col_1indexed": 6,
+      "distinct": 664,
+      "distinct_capped_at": null,
+      "nonblank": 74937267,
+      "numeric": 74937267,
+      "positive": 74934106,
+      "rows": 74937616,
+      "zero": 2524
+    },
+    "6": {
+      "col_1indexed": 7,
+      "distinct": 319,
+      "distinct_capped_at": null,
+      "nonblank": 5647,
+      "numeric": 5647,
+      "positive": 5647,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "7": {
+      "col_1indexed": 8,
+      "distinct": 3,
+      "distinct_capped_at": null,
+      "nonblank": 1138675,
+      "numeric": 0,
+      "positive": 0,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "8": {
+      "col_1indexed": 9,
+      "distinct": 8,
+      "distinct_capped_at": null,
+      "nonblank": 1007421,
+      "numeric": 1007421,
+      "positive": 1007421,
+      "rows": 74937616,
+      "zero": 0
+    },
+    "9": {
+      "col_1indexed": 10,
+      "distinct": 328,
+      "distinct_capped_at": null,
+      "nonblank": 1007420,
+      "numeric": 1007420,
+      "positive": 1007420,
+      "rows": 74937616,
+      "zero": 0
+    }
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. Enumeration and rising edges only; assumes no column identity (C0b). Decides only whether V's zero-interest split has a basis, not any omega.",
+  "distinct_cap": 5000,
+  "edges": {
+    "11": {
+      "amount_sampled": 17429,
+      "col_1indexed": 12,
+      "distinct_periods": 198,
+      "median_amount": 9769.33,
+      "median_upb_step_at_edge": 5707.18,
+      "n": 17429,
+      "share_in_top_period": 0.06902289287968329,
+      "share_with_mod_flag": 0.1365540191634632,
+      "share_with_pay_deferral_flag": 0.7606862126341155,
+      "top_periods": [
+        {
+          "n": 1203,
+          "period": 202007,
+          "share": 0.06902289287968329
+        },
+        {
+          "n": 983,
+          "period": 202010,
+          "share": 0.05640025245280854
+        },
+        {
+          "n": 809,
+          "period": 202009,
+          "share": 0.046416891387916694
+        },
+        {
+          "n": 738,
+          "period": 202011,
+          "share": 0.04234322106833439
+        },
+        {
+          "n": 690,
+          "period": 202008,
+          "share": 0.03958919042974353
+        }
+      ],
+      "vintages_with_an_edge": 27
+    },
+    "12": {
+      "amount_sampled": 200000,
+      "col_1indexed": 13,
+      "distinct_periods": 321,
+      "median_amount": 202010.0,
+      "median_upb_step_at_edge": -125805.54,
+      "n": 357854,
+      "share_in_top_period": 0.02693836033689717,
+      "share_with_mod_flag": 0.02596030783503887,
+      "share_with_pay_deferral_flag": 0.016783380931888425,
+      "top_periods": [
+        {
+          "n": 9640,
+          "period": 202010,
+          "share": 0.02693836033689717
+        },
+        {
+          "n": 9627,
+          "period": 202103,
+          "share": 0.026902032672542434
+        },
+        {
+          "n": 9141,
+          "period": 202012,
+          "share": 0.025543936912819195
+        },
+        {
+          "n": 9107,
+          "period": 202007,
+          "share": 0.025448926098352958
+        },
+        {
+          "n": 9056,
+          "period": 202009,
+          "share": 0.025306409876653606
+        }
+      ],
+      "vintages_with_an_edge": 28
+    },
+    "14": {
+      "amount_sampled": 72,
+      "col_1indexed": 15,
+      "distinct_periods": 60,
+      "median_amount": 1937.91,
+      "median_upb_step_at_edge": -40857.27,
+      "n": 72,
+      "share_in_top_period": 0.041666666666666664,
+      "share_with_mod_flag": 0.08333333333333333,
+      "share_with_pay_deferral_flag": 0.0,
+      "top_periods": [
+        {
+          "n": 3,
+          "period": 201301,
+          "share": 0.041666666666666664
+        },
+        {
+          "n": 3,
+          "period": 201608,
+          "share": 0.041666666666666664
+        },
+        {
+          "n": 2,
+          "period": 201304,
+          "share": 0.027777777777777776
+        },
+        {
+          "n": 2,
+          "period": 200502,
+          "share": 0.027777777777777776
+        },
+        {
+          "n": 2,
+          "period": 201502,
+          "share": 0.027777777777777776
+        }
+      ],
+      "vintages_with_an_edge": 14
+    },
+    "15": {
+      "amount_sampled": 17,
+      "col_1indexed": 16,
+      "distinct_periods": 12,
+      "median_amount": 4091.7,
+      "median_upb_step_at_edge": -108636.92,
+      "n": 17,
+      "share_in_top_period": 0.17647058823529413,
+      "share_with_mod_flag": 0.23529411764705882,
+      "share_with_pay_deferral_flag": 0.0,
+      "top_periods": [
+        {
+          "n": 3,
+          "period": 201405,
+          "share": 0.17647058823529413
+        },
+        {
+          "n": 3,
+          "period": 201408,
+          "share": 0.17647058823529413
+        },
+        {
+          "n": 2,
+          "period": 201508,
+          "share": 0.11764705882352941
+        },
+        {
+          "n": 1,
+          "period": 200502,
+          "share": 0.058823529411764705
+        },
+        {
+          "n": 1,
+          "period": 201501,
+          "share": 0.058823529411764705
+        }
+      ],
+      "vintages_with_an_edge": 9
+    },
+    "16": {
+      "amount_sampled": 19394,
+      "col_1indexed": 17,
+      "distinct_periods": 300,
+      "median_amount": 11792.19,
+      "median_upb_step_at_edge": -141623.25,
+      "n": 19394,
+      "share_in_top_period": 0.015004640610498093,
+      "share_with_mod_flag": 0.12993709394658143,
+      "share_with_pay_deferral_flag": 0.004073424770547592,
+      "top_periods": [
+        {
+          "n": 291,
+          "period": 201103,
+          "share": 0.015004640610498093
+        },
+        {
+          "n": 262,
+          "period": 201206,
+          "share": 0.013509332783335052
+        },
+        {
+          "n": 256,
+          "period": 201203,
+          "share": 0.013199958750128906
+        },
+        {
+          "n": 254,
+          "period": 201208,
+          "share": 0.013096834072393523
+        },
+        {
+          "n": 251,
+          "period": 201205,
+          "share": 0.012942147055790451
+        }
+      ],
+      "vintages_with_an_edge": 26
+    },
+    "17": {
+      "amount_sampled": 17408,
+      "col_1indexed": 18,
+      "distinct_periods": 298,
+      "median_amount": 3400.41,
+      "median_upb_step_at_edge": -139953.15,
+      "n": 17408,
+      "share_in_top_period": 0.015567555147058824,
+      "share_with_mod_flag": 0.1318359375,
+      "share_with_pay_deferral_flag": 0.0038488051470588237,
+      "top_periods": [
+        {
+          "n": 271,
+          "period": 201103,
+          "share": 0.015567555147058824
+        },
+        {
+          "n": 234,
+          "period": 201203,
+          "share": 0.013442095588235295
+        },
+        {
+          "n": 230,
+          "period": 201207,
+          "share": 0.013212316176470588
+        },
+        {
+          "n": 229,
+          "period": 201205,
+          "share": 0.013154871323529412
+        },
+        {
+          "n": 226,
+          "period": 201208,
+          "share": 0.012982536764705883
+        }
+      ],
+      "vintages_with_an_edge": 26
+    },
+    "18": {
+      "amount_sampled": 17902,
+      "col_1indexed": 19,
+      "distinct_periods": 297,
+      "median_amount": 2531.21,
+      "median_upb_step_at_edge": -141449.89,
+      "n": 17902,
+      "share_in_top_period": 0.01580828957658362,
+      "share_with_mod_flag": 0.13071165232934867,
+      "share_with_pay_deferral_flag": 0.003686738911853424,
+      "top_periods": [
+        {
+          "n": 283,
+          "period": 201103,
+          "share": 0.01580828957658362
+        },
+        {
+          "n": 248,
+          "period": 201203,
+          "share": 0.013853200759691655
+        },
+        {
+          "n": 244,
+          "period": 201206,
+          "share": 0.013629762037761143
+        },
+        {
+          "n": 238,
+          "period": 201207,
+          "share": 0.013294603954865378
+        },
+        {
+          "n": 238,
+          "period": 201204,
+          "share": 0.013294603954865378
+        }
+      ],
+      "vintages_with_an_edge": 26
+    },
+    "19": {
+      "amount_sampled": 17216,
+      "col_1indexed": 20,
+      "distinct_periods": 299,
+      "median_amount": 4394.67,
+      "median_upb_step_at_edge": -142665.98,
+      "n": 17216,
+      "share_in_top_period": 0.015741171003717472,
+      "share_with_mod_flag": 0.13394516728624536,
+      "share_with_pay_deferral_flag": 0.0034851301115241635,
+      "top_periods": [
+        {
+          "n": 271,
+          "period": 201103,
+          "share": 0.015741171003717472
+        },
+        {
+          "n": 241,
+          "period": 201203,
+          "share": 0.01399860594795539
+        },
+        {
+          "n": 241,
+          "period": 201206,
+          "share": 0.01399860594795539
+        },
+        {
+          "n": 235,
+          "period": 201205,
+          "share": 0.013650092936802975
+        },
+        {
+          "n": 232,
+          "period": 201204,
+          "share": 0.013475836431226766
+        }
+      ],
+      "vintages_with_an_edge": 26
+    },
+    "2": {
+      "amount_sampled": 159,
+      "col_1indexed": 3,
+      "distinct_periods": 11,
+      "median_amount": 136217.41,
+      "median_upb_step_at_edge": 136217.41,
+      "n": 159,
+      "share_in_top_period": 0.9371069182389937,
+      "share_with_mod_flag": 0.012578616352201259,
+      "share_with_pay_deferral_flag": 0.0,
+      "top_periods": [
+        {
+          "n": 149,
+          "period": 200203,
+          "share": 0.9371069182389937
+        },
+        {
+          "n": 1,
+          "period": 200309,
+          "share": 0.006289308176100629
+        },
+        {
+          "n": 1,
+          "period": 200407,
+          "share": 0.006289308176100629
+        },
+        {
+          "n": 1,
+          "period": 200502,
+          "share": 0.006289308176100629
+        },
+        {
+          "n": 1,
+          "period": 200310,
+          "share": 0.006289308176100629
+        }
+      ],
+      "vintages_with_an_edge": 8
+    },
+    "20": {
+      "amount_sampled": 18788,
+      "col_1indexed": 21,
+      "distinct_periods": 299,
+      "median_amount": 436.44,
+      "median_upb_step_at_edge": -141343.96,
+      "n": 18788,
+      "share_in_top_period": 0.015382158824781776,
+      "share_with_mod_flag": 0.1261975729188844,
+      "share_with_pay_deferral_flag": 0.0035661060251224188,
+      "top_periods": [
+        {
+          "n": 289,
+          "period": 201103,
+          "share": 0.015382158824781776
+        },
+        {
+          "n": 258,
+          "period": 201206,
+          "share": 0.013732169469874388
+        },
+        {
+          "n": 251,
+          "period": 201203,
+          "share": 0.013359591228443688
+        },
+        {
+          "n": 250,
+          "period": 201208,
+          "share": 0.01330636576538216
+        },
+        {
+          "n": 248,
+          "period": 201204,
+          "share": 0.013199914839259102
+        }
+      ],
+      "vintages_with_an_edge": 26
+    },
+    "21": {
+      "amount_sampled": 18768,
+      "col_1indexed": 22,
+      "distinct_periods": 298,
+      "median_amount": 60998.17,
+      "median_upb_step_at_edge": -141767.14,
+      "n": 18768,
+      "share_in_top_period": 0.015451832907075873,
+      "share_with_mod_flag": 0.1314471440750213,
+      "share_with_pay_deferral_flag": 0.003942881500426257,
+      "top_periods": [
+        {
+          "n": 290,
+          "period": 201103,
+          "share": 0.015451832907075873
+        },
+        {
+          "n": 254,
+          "period": 201203,
+          "share": 0.013533674339300937
+        },
+        {
+          "n": 253,
+          "period": 201206,
+          "share": 0.013480392156862746
+        },
+        {
+          "n": 249,
+          "period": 201208,
+          "share": 0.013267263427109974
+        },
+        {
+          "n": 249,
+          "period": 201205,
+          "share": 0.013267263427109974
+        }
+      ],
+      "vintages_with_an_edge": 26
+    },
+    "22": {
+      "amount_sampled": 24195,
+      "col_1indexed": 23,
+      "distinct_periods": 243,
+      "median_amount": 2846.88,
+      "median_upb_step_at_edge": -92634.39,
+      "n": 24195,
+      "share_in_top_period": 0.4048770407108907,
+      "share_with_mod_flag": 0.5000619962802232,
+      "share_with_pay_deferral_flag": 0.5375904112419921,
+      "top_periods": [
+        {
+          "n": 9796,
+          "period": 202603,
+          "share": 0.4048770407108907
+        },
+        {
+          "n": 330,
+          "period": 201905,
+          "share": 0.013639181649101054
+        },
+        {
+          "n": 302,
+          "period": 201811,
+          "share": 0.012481917751601571
+        },
+        {
+          "n": 300,
+          "period": 202107,
+          "share": 0.012399256044637322
+        },
+        {
+          "n": 289,
+          "period": 202011,
+          "share": 0.011944616656333954
+        }
+      ],
+      "vintages_with_an_edge": 27
+    },
+    "26": {
+      "amount_sampled": 200000,
+      "col_1indexed": 27,
+      "distinct_periods": 325,
+      "median_amount": 106748.19,
+      "median_upb_step_at_edge": -106752.07,
+      "n": 1006163,
+      "share_in_top_period": 0.009580952589192804,
+      "share_with_mod_flag": 0.01387548538358099,
+      "share_with_pay_deferral_flag": 0.006015923861243159,
+      "top_periods": [
+        {
+          "n": 9640,
+          "period": 202010,
+          "share": 0.009580952589192804
+        },
+        {
+          "n": 9627,
+          "period": 202103,
+          "share": 0.009568032217443893
+        },
+        {
+          "n": 9141,
+          "period": 202012,
+          "share": 0.009085009088984589
+        },
+        {
+          "n": 9107,
+          "period": 202007,
+          "share": 0.009051217347487435
+        },
+        {
+          "n": 9056,
+          "period": 202009,
+          "share": 0.009000529735241706
+        }
+      ],
+      "vintages_with_an_edge": 28
+    },
+    "27": {
+      "amount_sampled": 19503,
+      "col_1indexed": 28,
+      "distinct_periods": 301,
+      "median_amount": 11156.14,
+      "median_upb_step_at_edge": -141282.93,
+      "n": 19503,
+      "share_in_top_period": 0.014869507255294057,
+      "share_with_mod_flag": 0.1299287289135005,
+      "share_with_pay_deferral_flag": 0.004101933035943188,
+      "top_periods": [
+        {
+          "n": 290,
+          "period": 201103,
+          "share": 0.014869507255294057
+        },
+        {
+          "n": 258,
+          "period": 201206,
+          "share": 0.013228734040916783
+        },
+        {
+          "n": 256,
+          "period": 201203,
+          "share": 0.013126185715018203
+        },
+        {
+          "n": 253,
+          "period": 201208,
+          "share": 0.012972363226170333
+        },
+        {
+          "n": 250,
+          "period": 201207,
+          "share": 0.012818540737322463
+        }
+      ],
+      "vintages_with_an_edge": 26
+    },
+    "3": {
+      "amount_sampled": 200000,
+      "col_1indexed": 4,
+      "distinct_periods": 325,
+      "median_amount": 1.0,
+      "median_upb_step_at_edge": -75.17999999999302,
+      "n": 478245,
+      "share_in_top_period": 0.019853840604710973,
+      "share_with_mod_flag": 0.08783991468807828,
+      "share_with_pay_deferral_flag": 0.02628359941034407,
+      "top_periods": [
+        {
+          "n": 9495,
+          "period": 202004,
+          "share": 0.019853840604710973
+        },
+        {
+          "n": 6000,
+          "period": 202005,
+          "share": 0.0125458708402597
+        },
+        {
+          "n": 3683,
+          "period": 200908,
+          "share": 0.007701073717446079
+        },
+        {
+          "n": 2979,
+          "period": 200811,
+          "share": 0.0062290248721889405
+        },
+        {
+          "n": 2730,
+          "period": 201002,
+          "share": 0.005708371232318163
+        }
+      ],
+      "vintages_with_an_edge": 28
+    },
+    "30": {
+      "amount_sampled": 24779,
+      "col_1indexed": 31,
+      "distinct_periods": 258,
+      "median_amount": 78.26,
+      "median_upb_step_at_edge": 1731.25,
+      "n": 24779,
+      "share_in_top_period": 0.047217401832196616,
+      "share_with_mod_flag": 0.4804471528310263,
+      "share_with_pay_deferral_flag": 0.5392065862222043,
+      "top_periods": [
+        {
+          "n": 1170,
+          "period": 202007,
+          "share": 0.047217401832196616
+        },
+        {
+          "n": 962,
+          "period": 202010,
+          "share": 0.03882319706202833
+        },
+        {
+          "n": 799,
+          "period": 202009,
+          "share": 0.03224504620848299
+        },
+        {
+          "n": 733,
+          "period": 202011,
+          "share": 0.029581500464102666
+        },
+        {
+          "n": 672,
+          "period": 202008,
+          "share": 0.027119738488236005
+        }
+      ],
+      "vintages_with_an_edge": 27
+    },
+    "31": {
+      "amount_sampled": 159,
+      "col_1indexed": 32,
+      "distinct_periods": 11,
+      "median_amount": 136217.41,
+      "median_upb_step_at_edge": 136217.41,
+      "n": 159,
+      "share_in_top_period": 0.9371069182389937,
+      "share_with_mod_flag": 0.012578616352201259,
+      "share_with_pay_deferral_flag": 0.0,
+      "top_periods": [
+        {
+          "n": 149,
+          "period": 200203,
+          "share": 0.9371069182389937
+        },
+        {
+          "n": 1,
+          "period": 200309,
+          "share": 0.006289308176100629
+        },
+        {
+          "n": 1,
+          "period": 200407,
+          "share": 0.006289308176100629
+        },
+        {
+          "n": 1,
+          "period": 200502,
+          "share": 0.006289308176100629
+        },
+        {
+          "n": 1,
+          "period": 200310,
+          "share": 0.006289308176100629
+        }
+      ],
+      "vintages_with_an_edge": 8
+    },
+    "34": {
+      "amount_sampled": 33,
+      "col_1indexed": 35,
+      "distinct_periods": 23,
+      "median_amount": 27113.3,
+      "median_upb_step_at_edge": -53207.9,
+      "n": 33,
+      "share_in_top_period": 0.12121212121212122,
+      "share_with_mod_flag": 0.9090909090909091,
+      "share_with_pay_deferral_flag": 0.030303030303030304,
+      "top_periods": [
+        {
+          "n": 4,
+          "period": 202509,
+          "share": 0.12121212121212122
+        },
+        {
+          "n": 4,
+          "period": 201911,
+          "share": 0.12121212121212122
+        },
+        {
+          "n": 2,
+          "period": 202110,
+          "share": 0.06060606060606061
+        },
+        {
+          "n": 2,
+          "period": 202205,
+          "share": 0.06060606060606061
+        },
+        {
+          "n": 2,
+          "period": 201812,
+          "share": 0.06060606060606061
+        }
+      ],
+      "vintages_with_an_edge": 12
+    },
+    "4": {
+      "amount_sampled": 200000,
+      "col_1indexed": 5,
+      "distinct_periods": 326,
+      "median_amount": 1.0,
+      "median_upb_step_at_edge": 0.0,
+      "n": 1187156,
+      "share_in_top_period": 0.004453500635131356,
+      "share_with_mod_flag": 0.002173261138384509,
+      "share_with_pay_deferral_flag": 0.0,
+      "top_periods": [
+        {
+          "n": 5287,
+          "period": 202005,
+          "share": 0.004453500635131356
+        },
+        {
+          "n": 5207,
+          "period": 202603,
+          "share": 0.0043861126928558675
+        },
+        {
+          "n": 5004,
+          "period": 202305,
+          "share": 0.0042151157893318145
+        },
+        {
+          "n": 5003,
+          "period": 202008,
+          "share": 0.0042142734400533715
+        },
+        {
+          "n": 4885,
+          "period": 202405,
+          "share": 0.004114876225197026
+        }
+      ],
+      "vintages_with_an_edge": 28
+    },
+    "5": {
+      "amount_sampled": 15,
+      "col_1indexed": 6,
+      "distinct_periods": 15,
+      "median_amount": 339.0,
+      "median_upb_step_at_edge": -34.63000000000466,
+      "n": 15,
+      "share_in_top_period": 0.06666666666666667,
+      "share_with_mod_flag": 0.6,
+      "share_with_pay_deferral_flag": 0.0,
+      "top_periods": [
+        {
+          "n": 1,
+          "period": 201711,
+          "share": 0.06666666666666667
+        },
+        {
+          "n": 1,
+          "period": 201412,
+          "share": 0.06666666666666667
+        },
+        {
+          "n": 1,
+          "period": 201505,
+          "share": 0.06666666666666667
+        },
+        {
+          "n": 1,
+          "period": 201610,
+          "share": 0.06666666666666667
+        },
+        {
+          "n": 1,
+          "period": 201501,
+          "share": 0.06666666666666667
+        }
+      ],
+      "vintages_with_an_edge": 9
+    },
+    "6": {
+      "amount_sampled": 5626,
+      "col_1indexed": 7,
+      "distinct_periods": 316,
+      "median_amount": 201208.0,
+      "median_upb_step_at_edge": -175422.21,
+      "n": 5626,
+      "share_in_top_period": 0.017241379310344827,
+      "share_with_mod_flag": 0.09758265197298258,
+      "share_with_pay_deferral_flag": 0.008531816565943833,
+      "top_periods": [
+        {
+          "n": 97,
+          "period": 201012,
+          "share": 0.017241379310344827
+        },
+        {
+          "n": 95,
+          "period": 201408,
+          "share": 0.0168858869534305
+        },
+        {
+          "n": 93,
+          "period": 201205,
+          "share": 0.016530394596516174
+        },
+        {
+          "n": 85,
+          "period": 201106,
+          "share": 0.01510842516885887
+        },
+        {
+          "n": 66,
+          "period": 201010,
+          "share": 0.01173124777817277
+        }
+      ],
+      "vintages_with_an_edge": 27
+    },
+    "8": {
+      "amount_sampled": 200000,
+      "col_1indexed": 9,
+      "distinct_periods": 325,
+      "median_amount": 1.0,
+      "median_upb_step_at_edge": -106751.96,
+      "n": 1006164,
+      "share_in_top_period": 0.00958094306693541,
+      "share_with_mod_flag": 0.01387547159310013,
+      "share_with_pay_deferral_flag": 0.006015917882174278,
+      "top_periods": [
+        {
+          "n": 9640,
+          "period": 202010,
+          "share": 0.00958094306693541
+        },
+        {
+          "n": 9627,
+          "period": 202103,
+          "share": 0.009568022708027717
+        },
+        {
+          "n": 9141,
+          "period": 202012,
+          "share": 0.009085000059632425
+        },
+        {
+          "n": 9107,
+          "period": 202007,
+          "share": 0.009051208351719998
+        },
+        {
+          "n": 9056,
+          "period": 202009,
+          "share": 0.009000520789851356
+        }
+      ],
+      "vintages_with_an_edge": 28
+    },
+    "9": {
+      "amount_sampled": 200000,
+      "col_1indexed": 10,
+      "distinct_periods": 325,
+      "median_amount": 200305.0,
+      "median_upb_step_at_edge": -106751.96,
+      "n": 1006163,
+      "share_in_top_period": 0.009580952589192804,
+      "share_with_mod_flag": 0.01387548538358099,
+      "share_with_pay_deferral_flag": 0.006015923861243159,
+      "top_periods": [
+        {
+          "n": 9640,
+          "period": 202010,
+          "share": 0.009580952589192804
+        },
+        {
+          "n": 9627,
+          "period": 202103,
+          "share": 0.009568032217443893
+        },
+        {
+          "n": 9141,
+          "period": 202012,
+          "share": 0.009085009088984589
+        },
+        {
+          "n": 9107,
+          "period": 202007,
+          "share": 0.009051217347487435
+        },
+        {
+          "n": 9056,
+          "period": 202009,
+          "share": 0.009000529735241706
+        }
+      ],
+      "vintages_with_an_edge": 28
+    }
+  },
+  "gap_pairs": 200,
+  "loans": 1362490,
+  "rows": 74937616,
+  "short_fields": 0,
+  "stage": "B10",
+  "step": "defer"
+}

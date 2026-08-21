@@ -1,0 +1,57 @@
+{
+  "age0": 1192244,
+  "bucket": {
+    "reporting_gap": 6,
+    "terminated": 1010
+  },
+  "by_code": {
+    "01": 993,
+    "96": 17
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. Counts only; names the residue of \u00a75\u00b72's double-rounding explanation. Nothing here transfers to Fannie (\u00a75\u00b74\u00b74).",
+  "gap_len": {
+    "0": 6
+  },
+  "mismatch": 144761,
+  "no_orig": 0,
+  "orig_sum": 248189000.0,
+  "per_vintage": {
+    "1999": 33,
+    "2000": 66,
+    "2001": 28,
+    "2002": 43,
+    "2003": 32,
+    "2004": 43,
+    "2005": 43,
+    "2006": 35,
+    "2007": 36,
+    "2008": 70,
+    "2009": 19,
+    "2010": 21,
+    "2011": 14,
+    "2012": 13,
+    "2013": 14,
+    "2014": 17,
+    "2015": 20,
+    "2016": 18,
+    "2017": 28,
+    "2018": 45,
+    "2019": 30,
+    "2020": 18,
+    "2021": 22,
+    "2022": 58,
+    "2023": 74,
+    "2024": 83,
+    "2025": 87,
+    "2026": 6
+  },
+  "rows_hist": {
+    "1": 1010,
+    "12": 6
+  },
+  "stage": "B10",
+  "step": "zero_upb",
+  "unparsed": 0,
+  "zero": 1016
+}

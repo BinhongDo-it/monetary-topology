@@ -1,0 +1,54 @@
+{
+  "bad_horizon": {},
+  "bad_horizon_distinct": 0,
+  "bad_month": {},
+  "bad_period_rows": {},
+  "bad_periods": [],
+  "cells": 803,
+  "census": {
+    "files": [
+      "treasury_1990.csv",
+      "treasury_1991.csv",
+      "treasury_1992.csv",
+      "treasury_1993.csv",
+      "treasury_1994.csv",
+      "treasury_1995.csv",
+      "treasury_1996.csv",
+      "treasury_1997.csv"
+    ],
+    "first_index": 0,
+    "first_month": 199001,
+    "h_max": 600,
+    "h_med": 600,
+    "h_min": 600,
+    "last_index": 439,
+    "last_month": 202608,
+    "missing": [],
+    "months": 440,
+    "n_files": 37
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. Coverage only: does the CMT curve reach the horizons Freddie's priced round trips need. No residual formula, no omega. Population is \u00a78\u00b716's, via the same floor_window.",
+  "horizon": "rem_legal, per \u00a78\u00b714\u00b76\u00b78",
+  "loans": 1362490,
+  "max_h": 600,
+  "priced_trips": 123792,
+  "roundtrips": 164975,
+  "row_status": {
+    "horizon_unreadable": 57,
+    "usable": 603552
+  },
+  "rows": 603609,
+  "stage": "B10",
+  "step": "curve",
+  "thinnest_cell": {
+    "calendar_year": 1999,
+    "horizon_year": 27,
+    "rows": 1
+  },
+  "trip_status": {
+    "horizon_unreadable": 4,
+    "usable": 123788
+  },
+  "usable_trips": 123788
+}

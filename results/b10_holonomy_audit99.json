@@ -1,0 +1,374 @@
+{
+  "archives": [
+    {
+      "archive": "2002Q1",
+      "grids": {
+        "g0m": {
+          "defer": {
+            "E_all": 0.07903573480501358,
+            "E_clean": 0.07903573480501358,
+            "classes_with_none": 0,
+            "n": 423,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.20580192141200437,
+            "E_clean": 0.2031985983266742,
+            "classes_with_none": 1,
+            "n": 5136,
+            "n_contaminated": 1
+          }
+        },
+        "g1": {
+          "defer": {
+            "E_all": 0.006308146658140057,
+            "E_clean": 0.006308146658140057,
+            "classes_with_none": 0,
+            "n": 423,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.008806343035014819,
+            "E_clean": 0.00878359775643145,
+            "classes_with_none": 0,
+            "n": 5134,
+            "n_contaminated": 1
+          }
+        },
+        "g2": {
+          "defer": {
+            "E_all": 0.0016092665696169073,
+            "E_clean": 0.0016092665696169073,
+            "classes_with_none": 0,
+            "n": 417,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": -6.937288905284333e-05,
+            "E_clean": -7.504116139389616e-05,
+            "classes_with_none": 0,
+            "n": 4942,
+            "n_contaminated": 1
+          }
+        }
+      },
+      "loops": 6457,
+      "loops_contaminated": 1,
+      "measurable_contaminated": 1,
+      "rows": 42679752,
+      "rows_unnamed": 647,
+      "unnamed_values": {
+        "99": 647
+      }
+    },
+    {
+      "archive": "2006Q1",
+      "grids": {
+        "g0m": {
+          "defer": {
+            "E_all": 0.07869012426289024,
+            "E_clean": 0.07869012426289024,
+            "classes_with_none": 0,
+            "n": 754,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.058896157560811235,
+            "E_clean": 0.05831760859122215,
+            "classes_with_none": 1,
+            "n": 10111,
+            "n_contaminated": 2
+          }
+        },
+        "g1": {
+          "defer": {
+            "E_all": 0.024479898736041728,
+            "E_clean": 0.024479898736041728,
+            "classes_with_none": 0,
+            "n": 754,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.005100195858905976,
+            "E_clean": 0.005148121777723058,
+            "classes_with_none": 0,
+            "n": 10110,
+            "n_contaminated": 2
+          }
+        },
+        "g2": {
+          "defer": {
+            "E_all": -0.00017238413348408255,
+            "E_clean": -0.00017238413348408255,
+            "classes_with_none": 0,
+            "n": 744,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": -2.6492023307289614e-06,
+            "E_clean": -5.717614019906669e-06,
+            "classes_with_none": 0,
+            "n": 9927,
+            "n_contaminated": 2
+          }
+        }
+      },
+      "loops": 14194,
+      "loops_contaminated": 4,
+      "measurable_contaminated": 2,
+      "rows": 18198237,
+      "rows_unnamed": 2199,
+      "unnamed_values": {
+        "99": 2199
+      }
+    },
+    {
+      "archive": "2007Q1",
+      "grids": {
+        "g0m": {
+          "defer": {
+            "E_all": 0.041398560290440645,
+            "E_clean": 0.041398560290440645,
+            "classes_with_none": 0,
+            "n": 901,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.048119816873217536,
+            "E_clean": 0.04709146058094349,
+            "classes_with_none": 1,
+            "n": 12629,
+            "n_contaminated": 3
+          }
+        },
+        "g1": {
+          "defer": {
+            "E_all": 0.018721336255014043,
+            "E_clean": 0.018721336255014043,
+            "classes_with_none": 0,
+            "n": 901,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.0038853372040896783,
+            "E_clean": 0.0039764896225773505,
+            "classes_with_none": 0,
+            "n": 12627,
+            "n_contaminated": 3
+          }
+        },
+        "g2": {
+          "defer": {
+            "E_all": -0.00011349007516547882,
+            "E_clean": -0.00011349007516547882,
+            "classes_with_none": 0,
+            "n": 880,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.0,
+            "E_clean": 0.0,
+            "classes_with_none": 0,
+            "n": 12410,
+            "n_contaminated": 3
+          }
+        }
+      },
+      "loops": 18414,
+      "loops_contaminated": 7,
+      "measurable_contaminated": 3,
+      "rows": 16782203,
+      "rows_unnamed": 1883,
+      "unnamed_values": {
+        "99": 1883
+      }
+    },
+    {
+      "archive": "2012Q1",
+      "grids": {
+        "g0m": {
+          "defer": {
+            "E_all": 0.16337691220332862,
+            "E_clean": 0.16337691220332862,
+            "classes_with_none": 0,
+            "n": 4748,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.24058993828779984,
+            "E_clean": 0.24058993828779984,
+            "classes_with_none": 0,
+            "n": 2673,
+            "n_contaminated": 0
+          }
+        },
+        "g1": {
+          "defer": {
+            "E_all": 0.03503188590885764,
+            "E_clean": 0.03503188590885764,
+            "classes_with_none": 0,
+            "n": 4748,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.029380128651563697,
+            "E_clean": 0.029380128651563697,
+            "classes_with_none": 0,
+            "n": 2672,
+            "n_contaminated": 0
+          }
+        },
+        "g2": {
+          "defer": {
+            "E_all": -4.761952952936355e-05,
+            "E_clean": -4.761952952936355e-05,
+            "classes_with_none": 0,
+            "n": 4703,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.0,
+            "E_clean": 0.0,
+            "classes_with_none": 0,
+            "n": 2566,
+            "n_contaminated": 0
+          }
+        }
+      },
+      "loops": 7794,
+      "loops_contaminated": 0,
+      "measurable_contaminated": 0,
+      "rows": 50416530,
+      "rows_unnamed": 90,
+      "unnamed_values": {
+        "99": 90
+      }
+    },
+    {
+      "archive": "2017Q1",
+      "grids": {
+        "g0m": {
+          "defer": {
+            "E_all": 0.17732963322983553,
+            "E_clean": 0.17732963322983553,
+            "classes_with_none": 0,
+            "n": 13392,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.12635061120147928,
+            "E_clean": 0.12635061120147928,
+            "classes_with_none": 0,
+            "n": 4164,
+            "n_contaminated": 0
+          }
+        },
+        "g1": {
+          "defer": {
+            "E_all": 0.02692304623098618,
+            "E_clean": 0.02692304623098618,
+            "classes_with_none": 0,
+            "n": 13388,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.021458105474775557,
+            "E_clean": 0.021458105474775557,
+            "classes_with_none": 0,
+            "n": 4160,
+            "n_contaminated": 0
+          }
+        },
+        "g2": {
+          "defer": {
+            "E_all": -1.000725143762704e-05,
+            "E_clean": -1.000725143762704e-05,
+            "classes_with_none": 0,
+            "n": 13212,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": -8.812822130732645e-05,
+            "E_clean": -8.812822130732645e-05,
+            "classes_with_none": 0,
+            "n": 4019,
+            "n_contaminated": 0
+          }
+        }
+      },
+      "loops": 19262,
+      "loops_contaminated": 0,
+      "measurable_contaminated": 0,
+      "rows": 30161652,
+      "rows_unnamed": 1,
+      "unnamed_values": {
+        "99": 1
+      }
+    },
+    {
+      "archive": "2019Q1",
+      "grids": {
+        "g0m": {
+          "defer": {
+            "E_all": 0.5514682854894793,
+            "E_clean": 0.5514682854894793,
+            "classes_with_none": 0,
+            "n": 13878,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.04499162558433145,
+            "E_clean": 0.04499162558433145,
+            "classes_with_none": 0,
+            "n": 3869,
+            "n_contaminated": 0
+          }
+        },
+        "g1": {
+          "defer": {
+            "E_all": 0.10560733590500027,
+            "E_clean": 0.10560733590500027,
+            "classes_with_none": 0,
+            "n": 13873,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": 0.008209800622791419,
+            "E_clean": 0.008209800622791419,
+            "classes_with_none": 0,
+            "n": 3867,
+            "n_contaminated": 0
+          }
+        },
+        "g2": {
+          "defer": {
+            "E_all": 6.462949393704065e-05,
+            "E_clean": 6.462949393704065e-05,
+            "classes_with_none": 0,
+            "n": 13710,
+            "n_contaminated": 0
+          },
+          "mod": {
+            "E_all": -0.00012016666981240487,
+            "E_clean": -0.00012016666981240487,
+            "classes_with_none": 0,
+            "n": 3767,
+            "n_contaminated": 0
+          }
+        }
+      },
+      "loops": 19187,
+      "loops_contaminated": 0,
+      "measurable_contaminated": 0,
+      "rows": 11774637,
+      "rows_unnamed": 0,
+      "unnamed_values": {}
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "MEASUREMENT.md \u5931\u6548\u6a21\u5f0f 19 against this file's own \u00a78\u00b712 run. Reads loop_sums, recomputes no omega. Fannie only (\u00a78\u00b74).",
+  "n_perm": 999,
+  "seed": 20260819,
+  "stage": "B10",
+  "step": "holonomy_audit99"
+}

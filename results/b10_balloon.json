@@ -1,0 +1,98 @@
+{
+  "anchor_span": 480,
+  "cols": {
+    "1": {
+      "anchor_hist": {
+        "-119": 14300,
+        "-179": 193063,
+        "-180": 39069,
+        "-239": 59476,
+        "-299": 7814,
+        "-359": 907619,
+        "-360": 63868,
+        "-361": 16255
+      },
+      "anchor_n": 1362490,
+      "anchor_out": 114,
+      "anchor_top": {
+        "n": 907619,
+        "offset": -359,
+        "share": 0.666147274475409
+      },
+      "cmp_hist": {
+        "-119": 1910,
+        "-179": 52361,
+        "-239": 21223,
+        "-299": 3510,
+        "-359": 374719,
+        "-363": 369,
+        "-364": 410,
+        "out": 217953
+      },
+      "cmp_n": 679416,
+      "cmp_out": 217953,
+      "cmp_top": {
+        "n": 374719,
+        "offset": -359,
+        "share": 0.5515310207590048
+      },
+      "col_1indexed": 2,
+      "yyyymm_rows": 1362490
+    },
+    "3": {
+      "anchor_hist": {
+        "-1": 111405,
+        "-2": 25592,
+        "-3": 7076,
+        "-4": 3166,
+        "-5": 1987,
+        "-6": 1571,
+        "-7": 1266,
+        "0": 1191944
+      },
+      "anchor_n": 1362490,
+      "anchor_out": 0,
+      "anchor_top": {
+        "n": 1191944,
+        "offset": 0,
+        "share": 0.874827705157469
+      },
+      "cmp_hist": {
+        "-154": 2906,
+        "-163": 3406,
+        "-169": 3069,
+        "-172": 2903,
+        "-183": 2908,
+        "-184": 3029,
+        "-196": 2994,
+        "0": 455899
+      },
+      "cmp_n": 679416,
+      "cmp_out": 87,
+      "cmp_top": {
+        "n": 455899,
+        "offset": 0,
+        "share": 0.6710159902033511
+      },
+      "col_1indexed": 4,
+      "yyyymm_rows": 1362490
+    }
+  },
+  "defer_column_1indexed": 12,
+  "defer_rows": 679416,
+  "defer_rows_no_rem": 0,
+  "defer_rows_rem_ok": 679416,
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. Enumerates the orig columns that look like a YYYYMM, anchors on the already-earned term column, and compares the two horizon paths on the deferral rows \u00a78\u00b714\u00b75 defined. No omega.",
+  "loans": 1362490,
+  "loans_no_orig": 0,
+  "loans_no_term": 0,
+  "orig_loans": 1362500,
+  "rows": 74937616,
+  "stage": "B10",
+  "step": "balloon",
+  "yyyymm_window": [
+    190001,
+    219912
+  ]
+}

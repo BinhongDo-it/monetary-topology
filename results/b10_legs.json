@@ -1,0 +1,177 @@
+{
+  "arm": {
+    "defer": 15590,
+    "mod": 5260
+  },
+  "caveats": [
+    "the modification arm is the early-flagged minority (\u00a78\u00b722\u00b78)",
+    "bn == n; forgiven is 0 by absence; P is an estimate",
+    "no field 63 counterpart: 3.2%-11.2% narrower (\u00a78\u00b722\u00b72)"
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Registered before the code. omega on the loop windows and its three legs. Read against no floor: that is \u00a78\u00b724, and b8_loop_omega draws the same line in its own file.",
+  "loans": 1362490,
+  "loops": 20850,
+  "payment": "\u00a712.2's substitution, split at t_M (\u00a78\u00b723\u00b70); `orig` carried beside it and wrong on leg 3 by construction",
+  "schemes": {
+    "orig": {
+      "all3": 2675,
+      "by_arm": {
+        "defer": {
+          "absmed": 0.0213111375651156,
+          "n": 15590,
+          "q": [
+            -0.00017803593311960242,
+            0.016858635245073472,
+            0.06483506421282925
+          ]
+        },
+        "mod": {
+          "absmed": 0.11622226104170252,
+          "n": 5254,
+          "q": [
+            -0.2012589094251247,
+            0.04923236839521472,
+            0.259576985732199
+          ]
+        }
+      },
+      "capped": false,
+      "dominant_leg": "leg2",
+      "drop": {
+        "rate or horizon missing on either row": 4,
+        "the counterfactual balance would be non-positive (near payoff)": 2
+      },
+      "drop_total": 6,
+      "empty3_nonzero": 0,
+      "identity_bad": 0,
+      "miss_after": 0,
+      "miss_before": 6,
+      "n": 20850,
+      "n3_zero": 18169,
+      "ok": 20844,
+      "p_reldiff_n": 0,
+      "p_reldiff_tiny": 0,
+      "q_absomega": [
+        0.006290287428043939,
+        0.02999918831191195,
+        0.1858143093554343
+      ],
+      "q_leg1": [
+        0.001663788169469882,
+        0.011173619628650044,
+        0.0419131428396593
+      ],
+      "q_leg2": [
+        -0.0800252500001637,
+        0.0069124793697010745,
+        0.0866850706864053
+      ],
+      "q_leg3": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "q_omega": [
+        -0.05955654817451972,
+        0.018205091125810924,
+        0.13097258855267135
+      ],
+      "q_p_reldiff": null,
+      "sampled": 20844,
+      "share_med_all": {
+        "leg1": 0.5126490959461614,
+        "leg2": 0.5277246386389906,
+        "leg3": 0.0
+      },
+      "share_med_all3": {
+        "leg1": 0.0,
+        "leg2": 0.9831861043801076,
+        "leg3": 0.05850990722448303
+      }
+    },
+    "sub": {
+      "all3": 2675,
+      "by_arm": {
+        "defer": {
+          "absmed": 0.020101564945379735,
+          "n": 15590,
+          "q": [
+            -0.0044561566655083595,
+            0.015658452556897018,
+            0.060158894620183645
+          ]
+        },
+        "mod": {
+          "absmed": 0.11641042455322648,
+          "n": 5256,
+          "q": [
+            -0.20507201642984718,
+            0.048188548378711005,
+            0.2549051970920839
+          ]
+        }
+      },
+      "capped": false,
+      "dominant_leg": "leg2",
+      "drop": {
+        "no payment for the window": 1,
+        "rate or horizon missing on either row": 3
+      },
+      "drop_total": 4,
+      "empty3_nonzero": 0,
+      "identity_bad": 0,
+      "miss_after": 0,
+      "miss_before": 4,
+      "n": 20850,
+      "n3_zero": 18171,
+      "ok": 20846,
+      "p_reldiff_n": 20849,
+      "p_reldiff_tiny": 3982,
+      "q_absomega": [
+        0.005817963251342206,
+        0.02868556614751938,
+        0.18495234920421133
+      ],
+      "q_leg1": [
+        0.001335101706430919,
+        0.010066459409388884,
+        0.03701398573087644
+      ],
+      "q_leg2": [
+        -0.08052470767188247,
+        0.006731862403173139,
+        0.08653500523088908
+      ],
+      "q_leg3": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "q_omega": [
+        -0.06444335604285634,
+        0.0168175077225019,
+        0.12480425221647096
+      ],
+      "q_p_reldiff": [
+        1.2259069576122403e-07,
+        0.0021443560793012644,
+        0.2801463612473956,
+        0.6056476540996656
+      ],
+      "sampled": 20846,
+      "share_med_all": {
+        "leg1": 0.4957120786212138,
+        "leg2": 0.544110922486996,
+        "leg3": 0.0
+      },
+      "share_med_all3": {
+        "leg1": 0.0,
+        "leg2": 0.9871367649505748,
+        "leg3": 0.02692461428789754
+      }
+    }
+  },
+  "stage": "B10",
+  "step": "legs"
+}
