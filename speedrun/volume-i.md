@@ -160,7 +160,7 @@ void**; A1c **2 of 2**; A1d **7 of 9**.
 - The delinquency gradient on a matched twelve-month window, on both pairs either side can resolve,
   in all six sweep cells.
 
-**Retracted / failed.** Four, each named for what kind of failure it is.
+**Withdrawn, refuted, or undecidable.** Four, each named for which of those it is.
 
 - **A cross-section of first defaults is not a sequence.** It is the holdings composed with the cost
   rule: **two households in five hold neither of the first two rungs.** *Aggregate delinquency
@@ -204,7 +204,7 @@ and **fails in four of fourteen grid cells, left unfixed**. The record's own rea
 conclusion lives on one parameter value and A3-4's does not, and that is a finding of the grid
 rather than a defect to tune away.
 
-**Retracted / failed.** Six, and they are the most instructive part of the station.
+**Withdrawn, refuted, or undecidable.** Six, and they are the most instructive part of the station.
 
 - **The service-flow return was deleted.** Imputed rent has no honest accounting representation
   here: you either conjure claims and break conservation, or you invent a conversion rate, and
@@ -305,7 +305,7 @@ the project. And the measured negative result: each opponent acting alone raises
 **`−0.00006`** (assortative mating), **all below the `0.02` floor**; after one conduit was removed,
 no opponent moved more than **1.60%** of the stock in any cell of the entire design.
 
-**Retracted / failed.** Two criteria are **void**, and both are among the claims the project most
+**Withdrawn, refuted, or undecidable.** Two criteria are **void**, and both are among the claims the project most
 wants.
 
 **Caveat.** The headline Gini comparison **stands on a domain the project itself measured to be
@@ -331,7 +331,7 @@ production layer's effective reachability is `ρ = 5.88` against the financial l
 > The station file `docs/a5_reachability.md` §2 reads `0.25` / `5.88`, a factor of `23.5`.
 > **The ratio was right; the numerator was not.**
 
-**Retracted / failed.** **The headline here is the record, not the verdict.** The stage's stored
+**Withdrawn, refuted, or undecidable.** **The headline here is the record, not the verdict.** The stage's stored
 results file **cannot be produced by the code committed alongside it**, and the inconsistency
 survived five subsequent commits. The cause was a mechanism added as default-on to a machine A5 runs
 entirely on, without re-running A5. With that mechanism set back to zero the five stored numbers
@@ -366,7 +366,7 @@ error of **`5e-11`** with two control cells moving 0.01% over sixty thousand rou
 160 model pairs bitwise with **0 mismatches**, against the unmodified model itself rather than a
 stored fixture.
 
-**Retracted / failed.** Four, and the first is a pre-run gate that rejected an external suggestion
+**Withdrawn, refuted, or undecidable.** Four, and the first is a pre-run gate that rejected an external suggestion
 **with numbers rather than with an opinion**: the suggestion to widen the tax-rate sweep was refused
 because the grid was already swept to `0.95`, because raising the levy **makes the two problem seeds
 worse**, and because one arm is monotonically non-decreasing and therefore **has no fixed point
@@ -421,7 +421,7 @@ estimator.** Two further criteria are not adjudicable and one is recorded as not
 a threshold a transmitting mechanism has **no stock**, so running it would produce zeros whose cause
 is the carrier.
 
-**Retracted / failed.** Five of six leg-A criteria failed or were voided, and the station keeps
+**Withdrawn, refuted, or undecidable.** Five of six leg-A criteria failed or were voided, and the station keeps
 them.
 
 - **One criterion's registered shape is wrong.** There is no gradient. There is a **step at the

@@ -59,9 +59,12 @@ stations run in build order, which is why nobody should start there.
 | [Volume II, B12–B14](speedrun/volume-ii-part-3.md) | the zero domain, and the first carrier built to be able to fail |
 
 **The retraction attached to each station is part of the entry, not a footnote.**
-Roughly half of what this programme produced is a failure, and the speedrun
-reports failures at the same resolution as passes because that is where most of
-the information turned out to be.
+The speedrun reports every criterion at the same resolution, whichever way it
+came out, and it distinguishes three outcomes that get collapsed elsewhere:
+**a prediction the data said no to**, **a claim this programme withdrew**, and
+**a question the instrument could not reach**. The third is the largest group and
+it is not a failure of anything. It is a measurement of what is not yet known,
+and knowing which questions are in it is most of what this record is for.
 
 For the machine-readable record, one entry per criterion with the number beside
 it, see [RESULTS.md](RESULTS.md). The run records it draws on are in
@@ -122,10 +125,11 @@ lender is supposed to price on — same neighbourhood, same year, same kind of
 loan, same position in the queue — and most of the variation in the terms
 borrowers get is still there, inside those groups. A single price schedule
 predicts none of it. The same non-zero loop shows up in three other places that
-share no data and no code with the first. Meanwhile roughly half the tests here
-failed, several of the failures are more interesting than the passes, and one
-station's headline result was withdrawn on a counterexample this programme
-built against itself.
+share no data and no code with the first. A large part of the register is
+neither a pass nor a refutation: the instrument could not separate the question,
+and that is recorded with the reason and the number rather than rounded to a
+verdict. One station's headline result was withdrawn on a counterexample this
+programme built against itself.
 
 **What this is not.** It is not a claim that markets are bad, that planning is
 better, or that anyone is being cheated. None of those follow, and

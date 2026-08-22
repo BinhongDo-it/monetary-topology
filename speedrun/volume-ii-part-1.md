@@ -337,7 +337,7 @@ unbounded ray is directly readable: `log(410/24) = 2.84` on 2025-12-19 rising to
 across thirteen currencies with a worst relative departure of **0.0018%**, and the publisher
 **truncates rather than rounds**, in **27,132 of 27,132** channel values.
 
-**Retracted / failed.** Three, and two of them are the useful ones.
+**Withdrawn, refuted, or undecidable.** Three, and two of them are the useful ones.
 
 - **B6-8's first result is withdrawn as an artefact.** It had failed on eight yuan rungs. The yuan's
   API record begins twelve days after the segment opened, the XLSX back-fills its first published

@@ -87,13 +87,20 @@ evidence that would distinguish one object from five coincidences.
 a result that **weakens** this framework: when conversions run one way only, a
 non-zero directed loop sum no longer implies an obstruction. Another shows the
 question **dissolves entirely** on a single-index price vector, so it is only
-real for a genuinely two-index field. The unifying claim on the mechanism side
-has an empirical form that **has never been run**. And roughly half of what this
-programme produced is a failure, recorded at the same resolution as the passes.
+real for a genuinely two-index field. And the unifying claim on the mechanism
+side has an empirical form that **has never been run**.
+
+**A fourth thing is worth separating out, because it is usually reported as
+failure and it is not.** A large share of the register is neither a pass nor a
+refutation: the instrument could not separate the question at the available
+power, or the criterion turned out to be malformed and was voided. Those are
+recorded with the reason and the number, on the same terms as everything else,
+because **which questions are currently unreachable is itself a result** and it
+is the part that tells the next person where to spend.
 
 **None of that is hedging.** It is the reason the positive readings are worth
-anything: a programme that could not have produced these three admissions would
-not have been able to produce a real zero either.
+anything: a programme that could not have produced these admissions would not
+have been able to produce a real zero either.
 
 ---
 

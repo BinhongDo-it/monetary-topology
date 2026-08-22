@@ -30,7 +30,7 @@ economics: `v₁` is a **tilt** (monotone along DTI, sign change between 38 and 
 `γ(c,a) ≈ f(c)·m(a)`. The national table's shape is shared; the amplitude is local. At the lowest
 DTI cell, local disagreement is **0.136 against a national gradient spanning 0.1807, which is 75%**.
 
-**Retracted / failed.** This is the most retracted station in the programme.
+**Withdrawn, refuted, or undecidable.** This station withdrew more than any other.
 
 - **B7-4, the stage's number, was withdrawn.** Rank 2 turned out to be the diagonal entries of the
   two thinnest classes: `>60%` and `50%-60%` hold **1.18 and 1.37 loans per cell-class entry**
@@ -113,7 +113,7 @@ different accumulated `ω` in every one of six cohorts, at five to six orders of
 instrument constant. Stratifying by path **enlarges** the gap rather than shrinking it. It needs no
 claim about node identity, no causal identification, and no assumption about who chose which route.
 
-**Retracted / failed.** Eight that matter.
+**Withdrawn, refuted, or undecidable.** Eight that matter.
 
 - **`§14.5`'s gate criterion, "the clean-cure round trip must return zero to floating-point
   tolerance", is wrong.** The round trip returns a deterministic closed form. The station's own
@@ -191,7 +191,7 @@ contractual**: creation and redemption run only through a Participant Agreement 
 shares, and no price completes that edge. `λ` rises with stress (D1 median +0.076 → +0.121, 10/11)
 and the distribution shifts toward discount (0.453 → 0.508, 10/11).
 
-**Retracted / failed.** Three, all the same family: **a quantity placed against the wrong
+**Withdrawn, refuted, or undecidable.** Three, all the same family: **a quantity placed against the wrong
 reference.** The station once treated the measurement floor and the arbitrage cost as one object.
 It once set a tolerance **9.3× below the statistic's own noise floor**, which made fifteen cells
 break by necessity, and then a mechanism was invented for the breakage. It once derived `π`'s
@@ -242,7 +242,7 @@ that same extra state survives; and the document prints Freddie's `g0m` as **83*
 **108** in another without reconciling them, which is almost certainly a walkable-versus-undirected
 distinction the text never states.
 
-**Retracted / failed.** Six, and two are worth naming for outside readers.
+**Withdrawn, refuted, or undecidable.** Six, and two are worth naming for outside readers.
 
 - **The first run measured the wrong object entirely.** It computed the directed circuit space
   rather than the cohomology, so a mutual pair counted twice. All v1 results are void and not cited.
@@ -292,7 +292,7 @@ class count be printed beside its own grid's `b₁`, and the run's table carries
 the side-by-side was never actually printed. And the two zeros in the `g3` column **are a
 construction, not a reading**: the station forbids citing them as a result.
 
-**Retracted / failed.** The between-class-over-within-class comparison, which is the part that would
+**Withdrawn, refuted, or undecidable.** The between-class-over-within-class comparison, which is the part that would
 have answered the actual question, **has been withdrawn and currently has no reading.**
 
 - The cross-grid comparison on the deferral arm was voided when the sign of the difference
@@ -347,7 +347,7 @@ longer the binding constraint, because `V` is re-registered as the present value
 coupon stream on the Treasury curve, copying B8's definition verbatim: **B8 never read a market
 price, start to finish.**
 
-**Retracted / failed.** The availability register's assumption that the marker could only come from
+**Withdrawn, refuted, or undecidable.** The availability register's assumption that the marker could only come from
 one agency's annual default study by name-matching is superseded and shown redundant: the gate can
 be computed inside a single file with zero name matching. Registered as unavailable with reasons:
 two European regulatory archives, a public bond-index series, and one vendor's anonymous bulk
