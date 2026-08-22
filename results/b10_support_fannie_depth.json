@@ -9,7 +9,7 @@
   ],
   "defer_col": "defer_amt",
   "diagnostic_only": true,
-  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a716. It measures a cycle-space capacity on B8's carrier and carries no omega or holonomy claim (\u00a716.0).",
+  "diagnostic_reason": "Registered in the B10 availability register \u00a716. It measures a cycle-space capacity on B8's carrier and carries no omega or holonomy claim (\u00a716.0).",
   "distinct_pairs": 1806,
   "drops": {
     "2002Q1:dropped_month_gap": 341,

@@ -1,0 +1,341 @@
+{
+  "runs": [
+    {
+      "asset_class": "Corporate",
+      "files": [
+        {
+          "bytes": 58824807,
+          "expected_bytes": 58824807,
+          "lines": 220838,
+          "lines_match_listing": true,
+          "listed_lines": 220839,
+          "name": "20241115 Moody's Investors Service Corporate.csv",
+          "sha256": "82f76d3439963ee9bb65de76ab15d5c5e48804ff6f108b4ee09482386f9527fc",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20241115 Moody's Investors Service Corporate.csv"
+        }
+      ],
+      "listing_sha256": "c3f88e34fefaf98f35ac5d0b184b5187a3a053b6b4a0b9d47d6d631f04562854",
+      "retrieved_utc": "2026-08-17T12:16:51Z"
+    },
+    {
+      "asset_class": "Corporate",
+      "files": [
+        {
+          "bytes": 28487984,
+          "expected_bytes": 28487984,
+          "lines": 124469,
+          "lines_match_listing": true,
+          "listed_lines": 124470,
+          "name": "20260801 Fitch Ratings Corporate.csv",
+          "sha256": "be9a50f9ff94121cb86e38a46d20e009b543f8213cecb83e94262644030f8cc4",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260801 Fitch Ratings Corporate.csv"
+        }
+      ],
+      "listing_sha256": "c3f88e34fefaf98f35ac5d0b184b5187a3a053b6b4a0b9d47d6d631f04562854",
+      "retrieved_utc": "2026-08-17T13:20:28Z"
+    },
+    {
+      "asset_class": "Financial",
+      "files": [
+        {
+          "bytes": 10208468,
+          "expected_bytes": 10208468,
+          "lines": 46132,
+          "lines_match_listing": true,
+          "listed_lines": 46133,
+          "name": "20241028 DBRS Financial.csv",
+          "sha256": "8b2d5364abbd1321b807e295ed7614a524c7d8eff080af21927333a9d54e1b19",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20241028 DBRS Financial.csv"
+        },
+        {
+          "bytes": 68939385,
+          "expected_bytes": 68939385,
+          "lines": 382299,
+          "lines_match_listing": true,
+          "listed_lines": 382300,
+          "name": "20260810 Egan-Jones Ratings Company Financial.csv",
+          "sha256": "a43330e744bc31a28f68364bc3e785243e5303223c113dfc4274c0dc62d3cefc",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260810 Egan-Jones Ratings Company Financial.csv"
+        },
+        {
+          "bytes": 71997362,
+          "expected_bytes": 71997362,
+          "lines": 310887,
+          "lines_match_listing": true,
+          "listed_lines": 310888,
+          "name": "20260801 Fitch Ratings Financial.csv",
+          "sha256": "786dd5dd754ba00e7143c007d9f7190460a9c624bea4a544fa2bf950d89d7ffd",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260801 Fitch Ratings Financial.csv"
+        },
+        {
+          "bytes": 3870742,
+          "expected_bytes": 3870742,
+          "lines": 15308,
+          "lines_match_listing": true,
+          "listed_lines": 15309,
+          "name": "20260731 Japan Credit Rating Agency,Ltd. Financial.csv",
+          "sha256": "912dcf3146dda59c24581c2fc3724169696f7c6ac1b7d6f1cabc4e8c5baa7e1f",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260731 Japan Credit Rating Agency,Ltd. Financial.csv"
+        },
+        {
+          "bytes": 2292127,
+          "expected_bytes": 2292127,
+          "lines": 11110,
+          "lines_match_listing": true,
+          "listed_lines": 11111,
+          "name": "20250101 Kroll Bond Rating Agency, Inc. Financial.csv",
+          "sha256": "feea53cb4a252f72920e875039fac4864f1cb6a40bb916ce1c60567ac0e2df88",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20250101 Kroll Bond Rating Agency, Inc. Financial.csv"
+        },
+        {
+          "bytes": 90576676,
+          "expected_bytes": 90576676,
+          "lines": 323696,
+          "lines_match_listing": true,
+          "listed_lines": 323697,
+          "name": "20241115 Moody's Investors Service Financial.csv",
+          "sha256": "31c53a7a8f286aa3cab7730b47e6091884e0eaeebc193f86ced0c98f005fffaf",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20241115 Moody's Investors Service Financial.csv"
+        }
+      ],
+      "listing_sha256": "c3f88e34fefaf98f35ac5d0b184b5187a3a053b6b4a0b9d47d6d631f04562854",
+      "retrieved_utc": "2026-08-17T13:38:34Z"
+    },
+    {
+      "asset_class": "Insurance",
+      "files": [
+        {
+          "bytes": 276480,
+          "expected_bytes": 276480,
+          "lines": 1271,
+          "lines_match_listing": true,
+          "listed_lines": 1272,
+          "name": "20241028 DBRS Insurance.csv",
+          "sha256": "20adc22d2e85ec14eb1da399f4dce4929cb1d14c8d9598184764b72ec3a7bce2",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20241028 DBRS Insurance.csv"
+        },
+        {
+          "bytes": 1900270,
+          "expected_bytes": 1900270,
+          "lines": 11730,
+          "lines_match_listing": true,
+          "listed_lines": 11731,
+          "name": "20260727 Demotech, Inc. Insurance.csv",
+          "sha256": "ec9602c3daac2956cd29c7f7250ac395f8ce6c7fffc1d7b9f1d2ac35aab01a96",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260727 Demotech, Inc. Insurance.csv"
+        },
+        {
+          "bytes": 3951995,
+          "expected_bytes": 3951995,
+          "lines": 22528,
+          "lines_match_listing": true,
+          "listed_lines": 22529,
+          "name": "20260810 Egan-Jones Ratings Company Insurance.csv",
+          "sha256": "bd49b4655ea686ba91ee7ad7b43cc51db465e423f3500f740312eed9f8207d90",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260810 Egan-Jones Ratings Company Insurance.csv"
+        },
+        {
+          "bytes": 2667870,
+          "expected_bytes": 2667870,
+          "lines": 12223,
+          "lines_match_listing": true,
+          "listed_lines": 12224,
+          "name": "20260801 Fitch Ratings Insurance.csv",
+          "sha256": "3e8e716710ce4a5295c4e0f16517e9a6e038a7a132fa2ba6c4135c9f5d275f78",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260801 Fitch Ratings Insurance.csv"
+        },
+        {
+          "bytes": 286419,
+          "expected_bytes": 286419,
+          "lines": 1266,
+          "lines_match_listing": true,
+          "listed_lines": 1267,
+          "name": "20260731 Japan Credit Rating Agency,Ltd. Insurance.csv",
+          "sha256": "f6b4700990ff825bf0c50a30779c2d105eeec29d55cd84ea9998f8516f6e4aaf",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20260731 Japan Credit Rating Agency,Ltd. Insurance.csv"
+        },
+        {
+          "bytes": 220070,
+          "expected_bytes": 220070,
+          "lines": 1035,
+          "lines_match_listing": true,
+          "listed_lines": 1036,
+          "name": "20250101 Kroll Bond Rating Agency, Inc. Insurance.csv",
+          "sha256": "0a7aae191af82f2fd21a636cb5534f1bf864c8c5246734aee6e9736457a4a1de",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20250101 Kroll Bond Rating Agency, Inc. Insurance.csv"
+        },
+        {
+          "bytes": 3412627,
+          "expected_bytes": 3412627,
+          "lines": 13202,
+          "lines_match_listing": true,
+          "listed_lines": 13203,
+          "name": "20241115 Moody's Investors Service Insurance.csv",
+          "sha256": "f3e006f3a8f35a3bc0f87dc628391c4e3eed151ff2e17c015b08ed054f6f8583",
+          "status": "fetched",
+          "url": "https://ratingshistory.info/api/public/20241115 Moody's Investors Service Insurance.csv"
+        }
+      ],
+      "listing_sha256": "c3f88e34fefaf98f35ac5d0b184b5187a3a053b6b4a0b9d47d6d631f04562854",
+      "retrieved_utc": "2026-08-17T13:38:41Z"
+    },
+    {
+      "asset_class": "Financial",
+      "files": [
+        {
+          "bytes": 10208468,
+          "lines": 46132,
+          "lines_match_listing": true,
+          "listed_lines": 46133,
+          "name": "20241028 DBRS Financial.csv",
+          "sha256": "8b2d5364abbd1321b807e295ed7614a524c7d8eff080af21927333a9d54e1b19",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20241028 DBRS Financial.csv"
+        },
+        {
+          "bytes": 68939385,
+          "lines": 382299,
+          "lines_match_listing": true,
+          "listed_lines": 382300,
+          "name": "20260810 Egan-Jones Ratings Company Financial.csv",
+          "sha256": "a43330e744bc31a28f68364bc3e785243e5303223c113dfc4274c0dc62d3cefc",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20260810 Egan-Jones Ratings Company Financial.csv"
+        },
+        {
+          "bytes": 71997362,
+          "lines": 310887,
+          "lines_match_listing": true,
+          "listed_lines": 310888,
+          "name": "20260801 Fitch Ratings Financial.csv",
+          "sha256": "786dd5dd754ba00e7143c007d9f7190460a9c624bea4a544fa2bf950d89d7ffd",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20260801 Fitch Ratings Financial.csv"
+        },
+        {
+          "bytes": 3870742,
+          "lines": 15308,
+          "lines_match_listing": true,
+          "listed_lines": 15309,
+          "name": "20260731 Japan Credit Rating Agency,Ltd. Financial.csv",
+          "sha256": "912dcf3146dda59c24581c2fc3724169696f7c6ac1b7d6f1cabc4e8c5baa7e1f",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20260731 Japan Credit Rating Agency,Ltd. Financial.csv"
+        },
+        {
+          "bytes": 2292127,
+          "lines": 11110,
+          "lines_match_listing": true,
+          "listed_lines": 11111,
+          "name": "20250101 Kroll Bond Rating Agency, Inc. Financial.csv",
+          "sha256": "feea53cb4a252f72920e875039fac4864f1cb6a40bb916ce1c60567ac0e2df88",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20250101 Kroll Bond Rating Agency, Inc. Financial.csv"
+        },
+        {
+          "bytes": 90576676,
+          "lines": 323696,
+          "lines_match_listing": true,
+          "listed_lines": 323697,
+          "name": "20241115 Moody's Investors Service Financial.csv",
+          "sha256": "31c53a7a8f286aa3cab7730b47e6091884e0eaeebc193f86ced0c98f005fffaf",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20241115 Moody's Investors Service Financial.csv"
+        }
+      ],
+      "listing_sha256": "c3f88e34fefaf98f35ac5d0b184b5187a3a053b6b4a0b9d47d6d631f04562854",
+      "retrieved_utc": "2026-08-19T19:33:45Z"
+    },
+    {
+      "asset_class": "Insurance",
+      "files": [
+        {
+          "bytes": 276480,
+          "lines": 1271,
+          "lines_match_listing": true,
+          "listed_lines": 1272,
+          "name": "20241028 DBRS Insurance.csv",
+          "sha256": "20adc22d2e85ec14eb1da399f4dce4929cb1d14c8d9598184764b72ec3a7bce2",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20241028 DBRS Insurance.csv"
+        },
+        {
+          "bytes": 1900270,
+          "lines": 11730,
+          "lines_match_listing": true,
+          "listed_lines": 11731,
+          "name": "20260727 Demotech, Inc. Insurance.csv",
+          "sha256": "ec9602c3daac2956cd29c7f7250ac395f8ce6c7fffc1d7b9f1d2ac35aab01a96",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20260727 Demotech, Inc. Insurance.csv"
+        },
+        {
+          "bytes": 3951995,
+          "lines": 22528,
+          "lines_match_listing": true,
+          "listed_lines": 22529,
+          "name": "20260810 Egan-Jones Ratings Company Insurance.csv",
+          "sha256": "bd49b4655ea686ba91ee7ad7b43cc51db465e423f3500f740312eed9f8207d90",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20260810 Egan-Jones Ratings Company Insurance.csv"
+        },
+        {
+          "bytes": 2667870,
+          "lines": 12223,
+          "lines_match_listing": true,
+          "listed_lines": 12224,
+          "name": "20260801 Fitch Ratings Insurance.csv",
+          "sha256": "3e8e716710ce4a5295c4e0f16517e9a6e038a7a132fa2ba6c4135c9f5d275f78",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20260801 Fitch Ratings Insurance.csv"
+        },
+        {
+          "bytes": 286419,
+          "lines": 1266,
+          "lines_match_listing": true,
+          "listed_lines": 1267,
+          "name": "20260731 Japan Credit Rating Agency,Ltd. Insurance.csv",
+          "sha256": "f6b4700990ff825bf0c50a30779c2d105eeec29d55cd84ea9998f8516f6e4aaf",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20260731 Japan Credit Rating Agency,Ltd. Insurance.csv"
+        },
+        {
+          "bytes": 220070,
+          "lines": 1035,
+          "lines_match_listing": true,
+          "listed_lines": 1036,
+          "name": "20250101 Kroll Bond Rating Agency, Inc. Insurance.csv",
+          "sha256": "0a7aae191af82f2fd21a636cb5534f1bf864c8c5246734aee6e9736457a4a1de",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20250101 Kroll Bond Rating Agency, Inc. Insurance.csv"
+        },
+        {
+          "bytes": 3412627,
+          "lines": 13202,
+          "lines_match_listing": true,
+          "listed_lines": 13203,
+          "name": "20241115 Moody's Investors Service Insurance.csv",
+          "sha256": "f3e006f3a8f35a3bc0f87dc628391c4e3eed151ff2e17c015b08ed054f6f8583",
+          "status": "cached",
+          "url": "https://ratingshistory.info/api/public/20241115 Moody's Investors Service Insurance.csv"
+        }
+      ],
+      "listing_sha256": "c3f88e34fefaf98f35ac5d0b184b5187a3a053b6b4a0b9d47d6d631f04562854",
+      "retrieved_utc": "2026-08-19T19:33:45Z"
+    }
+  ]
+}

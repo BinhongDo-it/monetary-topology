@@ -767,7 +767,7 @@
     ]
   },
   "diagnostic_only": true,
-  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a724. Field identification only; no omega, no triangles, no B8 prediction (\u00a724.7).",
+  "diagnostic_reason": "Registered in the B10 availability register \u00a724. Field identification only; no omega, no triangles, no B8 prediction (\u00a724.7).",
   "dti_col": 9,
   "fico_col": 0,
   "fico_margin": 22,

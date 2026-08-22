@@ -76,7 +76,7 @@
     }
   ],
   "diagnostic_only": true,
-  "diagnostic_reason": "Registered in docs/b8_inputs_availability.md \u00a76.2.5.4 as a candidate component of B8's open third mechanism. It changes no B8 criterion and carries no omega claim.",
+  "diagnostic_reason": "Registered in the B8 inputs register \u00a76.2.5.4 as a candidate component of B8's open third mechanism. It changes no B8 criterion and carries no omega claim.",
   "stage": "B10",
   "step": "stale_upb_fannie"
 }

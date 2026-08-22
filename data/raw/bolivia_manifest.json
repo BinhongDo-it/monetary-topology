@@ -1,0 +1,6223 @@
+{
+  "authority": "docs/b15_bolivia_prereg.md",
+  "event_date": "2026-06-29",
+  "generated_utc": "2026-08-21T19:23:29+00:00",
+  "guards_run": {
+    "guard_header": "S3 all.csv only",
+    "guard_press_free": "pass",
+    "guard_span": "pass",
+    "guard_truncation": "per payload, see responses"
+  },
+  "prefix_cutoff": "2026-06-29",
+  "provenance": "S1: Banco Central de Bolivia, Tipo de Cambio Oficial, annual table, compra and venta as separate columns, one file per year, fetched in two serialisations because the payload format of xls.php is not documented and the standard library does not read BIFF. S3: dolarbluebolivia.click, best available offer on each side of one venue's Binance P2P book at 15-minute resolution, reused under terms requiring the attribution 'Powered by dolarbluebolivia.click'. The parallel leg of this stage is one venue's book and not 'the Bolivian parallel market'; b15_bolivia_prereg.md \u00a73.6 A3 and \u00a78. data/raw/ is excluded from the repository and only this manifest is tracked.",
+  "responses": [
+    {
+      "ambiguous_codes": [],
+      "codes": 45,
+      "date": "2026-06-26",
+      "echoed_date": "2026-06-26",
+      "encoding": "utf-8",
+      "eur_row": [
+        7.80255,
+        0.8792
+      ],
+      "file": "bcb_cotizaciones_2026-06-26.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 55,
+      "sha256_body": "a91ba293abfec149c41fd854d666cd6e8f41329e8cc1619a27e35ddf13b641eb",
+      "sha256_payload": "8adc847fd24f995f5f011c8d8468436c0537f759ea7cd2590dfb66f1054bde8e",
+      "sha256_prefix": "7ae0fd25a11a66b27b594b171cbb0ed9708780f1af1cd2ed9412e0e7872a1880",
+      "source": "S7",
+      "span": {
+        "duplicates": 2,
+        "first": "PA\u00cdS",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 51
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 19492,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=26&qmm=6&qaa=2026",
+      "usd_row": [
+        6.86,
+        1.0
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 45,
+      "date": "2026-06-27",
+      "echoed_date": "2026-06-29",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.08247,
+        0.87796
+      ],
+      "file": "bcb_cotizaciones_2026-06-27.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 55,
+      "sha256_body": "b82a2223fc31ea66a9215dd791806ebf923f8f7ddfba630a76d0481988eb4442",
+      "sha256_payload": "892f20d64764b4c6be0ef8c0757f49b8b465da5d0190d3edfc7cdd24f9be5210",
+      "sha256_prefix": "341595727d6e776b32677a18e4f5ee7c64a3bcf6dab0ba3635db5ef02b0d4e4a",
+      "source": "S7",
+      "span": {
+        "duplicates": 2,
+        "first": "PA\u00cdS",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 51
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 19494,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=27&qmm=6&qaa=2026",
+      "usd_row": [
+        9.73,
+        1.0
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 45,
+      "date": "2026-06-28",
+      "echoed_date": "2026-06-29",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.08247,
+        0.87796
+      ],
+      "file": "bcb_cotizaciones_2026-06-28.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 55,
+      "sha256_body": "accb28e17edefcacdc85a8ef89b698426cfc2b6522f2bc966e3c041a66c54904",
+      "sha256_payload": "892f20d64764b4c6be0ef8c0757f49b8b465da5d0190d3edfc7cdd24f9be5210",
+      "sha256_prefix": "341595727d6e776b32677a18e4f5ee7c64a3bcf6dab0ba3635db5ef02b0d4e4a",
+      "source": "S7",
+      "span": {
+        "duplicates": 2,
+        "first": "PA\u00cdS",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 51
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 19494,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=28&qmm=6&qaa=2026",
+      "usd_row": [
+        9.73,
+        1.0
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-06-29",
+      "echoed_date": "2026-06-29",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.08247,
+        0.87796
+      ],
+      "file": "bcb_cotizaciones_2026-06-29.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "9c301a195b8d85a34e44252df9eea714f035b418b10c4f62706ad17f677c6c37",
+      "sha256_payload": "7600799b1bc85cf4a342371aa290ccd02e2e44ced4a73dfcbe7e4490207fe74c",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=29&qmm=6&qaa=2026",
+      "usd_row": [
+        9.73
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "COP"
+      ],
+      "codes": 26,
+      "date": "2026-06-30",
+      "echoed_date": "2026-06-30",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.14983,
+        0.87535
+      ],
+      "file": "bcb_cotizaciones_2026-06-30.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "5a6337483443bf0fd85775b6e23249a9286f037481e7dc6a4d10778e6a708631",
+      "sha256_payload": "272636e1c9e3514d9d7a6e1cff954b8d727d995f88bb0225749595c777ed8d8b",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11360,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=30&qmm=6&qaa=2026",
+      "usd_row": [
+        9.76
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-01",
+      "echoed_date": "2026-07-01",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.15084,
+        0.87527
+      ],
+      "file": "bcb_cotizaciones_2026-07-01.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "653e2136fd0f83fbfe4243b1cbc16558e7467e101ca939bd8e8f7034c225f628",
+      "sha256_payload": "e0bb17b3c0a65779dd8582f3ee95f17af83a3eca1a6cd14f3dce83fa39cc5276",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11351,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=1&qmm=7&qaa=2026",
+      "usd_row": [
+        9.76
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-02",
+      "echoed_date": "2026-07-02",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.1297,
+        0.87873
+      ],
+      "file": "bcb_cotizaciones_2026-07-02.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "565582b13053690891bf9eeb2fd123db595d2d1339e22cf491ee333ab6269598",
+      "sha256_payload": "3364af4323bb5e3d98bf51c06329acbec299a2b9652082bf7cfa47c84cd251af",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11363,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=2&qmm=7&qaa=2026",
+      "usd_row": [
+        9.78
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-03",
+      "echoed_date": "2026-07-03",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.19846,
+        0.87512
+      ],
+      "file": "bcb_cotizaciones_2026-07-03.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "7492fa0802643feaca3887cfa2d919c6696e3217e37f476238ccc3508f7e749d",
+      "sha256_payload": "fcfd045d58921113611e2d1e61216eede1a4057e4b72811c93ad1638b3bcc9ab",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=3&qmm=7&qaa=2026",
+      "usd_row": [
+        9.8
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-04",
+      "echoed_date": "2026-07-06",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.24354,
+        0.87428
+      ],
+      "file": "bcb_cotizaciones_2026-07-04.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "f16daa997b7b5506337f886a44ecb6811ded569c9956f930cc8454787c130b61",
+      "sha256_payload": "fb1a0afc30b742b8182a4cc0a48d3ea01a0b3bed0370a6ca49b9b44a4104ddfc",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=4&qmm=7&qaa=2026",
+      "usd_row": [
+        9.83
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-05",
+      "echoed_date": "2026-07-06",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.24354,
+        0.87428
+      ],
+      "file": "bcb_cotizaciones_2026-07-05.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "14503f62515b2c3b6bf08945b1300f199c562d8d541eb69773a2239b5e05e29e",
+      "sha256_payload": "fb1a0afc30b742b8182a4cc0a48d3ea01a0b3bed0370a6ca49b9b44a4104ddfc",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=5&qmm=7&qaa=2026",
+      "usd_row": [
+        9.83
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-06",
+      "echoed_date": "2026-07-06",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.24354,
+        0.87428
+      ],
+      "file": "bcb_cotizaciones_2026-07-06.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "cc891d5c5baa1e524bf0ebb465fae1be0d1abb0fa14800d5108d3d1532a28465",
+      "sha256_payload": "fb1a0afc30b742b8182a4cc0a48d3ea01a0b3bed0370a6ca49b9b44a4104ddfc",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11365,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=6&qmm=7&qaa=2026",
+      "usd_row": [
+        9.83
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-07",
+      "echoed_date": "2026-07-07",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.31411,
+        0.87413
+      ],
+      "file": "bcb_cotizaciones_2026-07-07.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "a2b9167ba0e674356492e16a16466eac98ded537b39534225713c3d039d15a37",
+      "sha256_payload": "7a9d994699ed06e2ef4dd6716e9ba8e4b9ca838edce5d119a2e6c93843caf3f6",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11362,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=7&qmm=7&qaa=2026",
+      "usd_row": [
+        9.89
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-08",
+      "echoed_date": "2026-07-08",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.37038,
+        0.87596
+      ],
+      "file": "bcb_cotizaciones_2026-07-08.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "c3d0ea81b0fa61455bcd79f848ce25e5ce82b8cdf22179fbece2a50e42bac948",
+      "sha256_payload": "8d135333b35f60531cb4c3d2ee6ed73dec0349308e00ec2f0f57b276fe31c539",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11362,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=8&qmm=7&qaa=2026",
+      "usd_row": [
+        9.96
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-09",
+      "echoed_date": "2026-07-09",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.54022,
+        0.8752
+      ],
+      "file": "bcb_cotizaciones_2026-07-09.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "2bdb50522efb371b18db9b42db0e5e6f912caa0ed72e962dd089d0c6511a1424",
+      "sha256_payload": "17ae2f6784be2160a13b0754e192ac3172f51e924d62fed1be2c3d6f75a83791",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11363,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=9&qmm=7&qaa=2026",
+      "usd_row": [
+        10.1
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-10",
+      "echoed_date": "2026-07-10",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.70433,
+        0.87489
+      ],
+      "file": "bcb_cotizaciones_2026-07-10.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "ea9b0f37538ba2e08342e50945e57dc3212640c4ed8cd5191499b44b2780aa58",
+      "sha256_payload": "22b9bf4e371958f9489ba0d7d0c5b81b2372537823485daf7b9fbb194be6dab2",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11367,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=10&qmm=7&qaa=2026",
+      "usd_row": [
+        10.24
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-11",
+      "echoed_date": "2026-07-13",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.8716,
+        0.87604
+      ],
+      "file": "bcb_cotizaciones_2026-07-11.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "5ca87e1f94f344111618316f573cdfa0773496f78dba58302d09525262b2cb5b",
+      "sha256_payload": "24d8f4ada7879acb3b7d37e42df3728b253728e68587750d0b5c9c3529b8a09d",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=11&qmm=7&qaa=2026",
+      "usd_row": [
+        10.4
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-12",
+      "echoed_date": "2026-07-13",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.8716,
+        0.87604
+      ],
+      "file": "bcb_cotizaciones_2026-07-12.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "60c9d573fe585cd901683a38b06f68a737a4b834363112a3a74c757b8f945f7f",
+      "sha256_payload": "24d8f4ada7879acb3b7d37e42df3728b253728e68587750d0b5c9c3529b8a09d",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11367,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=12&qmm=7&qaa=2026",
+      "usd_row": [
+        10.4
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-13",
+      "echoed_date": "2026-07-13",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.8716,
+        0.87604
+      ],
+      "file": "bcb_cotizaciones_2026-07-13.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "e874706ed976f2d19312d11de38965fa0514c0e95041944722bbea4540ff14bd",
+      "sha256_payload": "24d8f4ada7879acb3b7d37e42df3728b253728e68587750d0b5c9c3529b8a09d",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=13&qmm=7&qaa=2026",
+      "usd_row": [
+        10.4
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-14",
+      "echoed_date": "2026-07-14",
+      "encoding": "utf-8",
+      "eur_row": [
+        11.95314,
+        0.87843
+      ],
+      "file": "bcb_cotizaciones_2026-07-14.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "f7bb26071c433aaabf51001e815a2ae3822fd27793befbb33b8b1a6e04d0ea1b",
+      "sha256_payload": "c1c58f3f7e4c6bcc4c1d9d1b6d22c6346f61f5670bc1999eb2ea1693b04c14c7",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=14&qmm=7&qaa=2026",
+      "usd_row": [
+        10.5
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-15",
+      "echoed_date": "2026-07-15",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.2248,
+        0.87527
+      ],
+      "file": "bcb_cotizaciones_2026-07-15.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "169e1d8a04e9c1eb4d90889c761fcf5557b583810274477a889df6f196b7b69e",
+      "sha256_payload": "364419a8ddd8b29c01c6d4c21427a2db8336f3a7b12a4337fd82b88b4332e1b5",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=15&qmm=7&qaa=2026",
+      "usd_row": [
+        10.7
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-16",
+      "echoed_date": "2026-07-16",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.30442,
+        0.87367
+      ],
+      "file": "bcb_cotizaciones_2026-07-16.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "3655dd9d687e33a5ebf23439caa43ffe6c8541d6243a8e6d900365292b5cd462",
+      "sha256_payload": "71dff807fab8397f2936b6d7ea6c431f52b41cd0426126ea6cf8fe159a2bb824",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11367,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=16&qmm=7&qaa=2026",
+      "usd_row": [
+        10.75
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-17",
+      "echoed_date": "2026-07-17",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.30442,
+        0.87367
+      ],
+      "file": "bcb_cotizaciones_2026-07-17.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "ab19e7bf439f22cef439e39c55f3ac34f959a0f3c4aaeb9b892ccc5fdde78369",
+      "sha256_payload": "a76565e8f2487a3424768ec52c7149f10b253ce47c23d8da0976c51391c3d7bb",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=17&qmm=7&qaa=2026",
+      "usd_row": [
+        10.75
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-18",
+      "echoed_date": "2026-07-20",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.41348,
+        0.87405
+      ],
+      "file": "bcb_cotizaciones_2026-07-18.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "404b5cae138ae394c30eb43fee250e865f671908845c576c6201f9c7148c32df",
+      "sha256_payload": "dbf7fa4c24e17e71519414e734d6e9e3a0426e6c1e679668771278847b4161dc",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11359,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=18&qmm=7&qaa=2026",
+      "usd_row": [
+        10.85
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-19",
+      "echoed_date": "2026-07-20",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.41348,
+        0.87405
+      ],
+      "file": "bcb_cotizaciones_2026-07-19.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "adf3ac26c00d2765e7580fa29d46a12d18398294e28a2a2c76280d01868e509d",
+      "sha256_payload": "c4127f4daf5516b33ddc2a040ecb2c39a080da60d6feb6b7668f99e4128a6d73",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11358,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=19&qmm=7&qaa=2026",
+      "usd_row": [
+        10.85
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-20",
+      "echoed_date": "2026-07-20",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.41348,
+        0.87405
+      ],
+      "file": "bcb_cotizaciones_2026-07-20.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "c9e0684f0a18ad096be410bc580b1fa999643e5b89b1dcc7c60ac859bea5bf1a",
+      "sha256_payload": "744f5f8799001cd890d5971de6c4fc9a71511ec83e3def3468afd46830040602",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11358,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=20&qmm=7&qaa=2026",
+      "usd_row": [
+        10.85
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-21",
+      "echoed_date": "2026-07-21",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.44449,
+        0.87589
+      ],
+      "file": "bcb_cotizaciones_2026-07-21.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "54b99d038e4c36e130b3f0ac03c03e28874242bedf983130f75bdf123be370ec",
+      "sha256_payload": "18f8c6a2b472f811e198282af8646aacb52d6673250d32c8ab0fdcd2fac031c5",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11363,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=21&qmm=7&qaa=2026",
+      "usd_row": [
+        10.9
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-22",
+      "echoed_date": "2026-07-22",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.5444,
+        0.87689
+      ],
+      "file": "bcb_cotizaciones_2026-07-22.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "708b405dfbea30ce90f4fb61b48508b217db162c8b9a2759e4a7d6af53cee210",
+      "sha256_payload": "07538e87f95af5a77692940475c40292a3556f96b16881aadcc7ac61c55fca66",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11356,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=22&qmm=7&qaa=2026",
+      "usd_row": [
+        11.0
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-23",
+      "echoed_date": "2026-07-23",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.70041,
+        0.87635
+      ],
+      "file": "bcb_cotizaciones_2026-07-23.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "d9cf3ded2048a739daa289120d4a12a8917926e352e206488bb31734d58eb26a",
+      "sha256_payload": "b49b6bb6057f09c0d053645477d911f6f50832ecbb48c14df6129d212fae23af",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11367,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=23&qmm=7&qaa=2026",
+      "usd_row": [
+        11.13
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-24",
+      "echoed_date": "2026-07-24",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.75139,
+        0.87912
+      ],
+      "file": "bcb_cotizaciones_2026-07-24.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "6f7475423e88a648abbad946322159804be895b4207b70b4fc8de9158b82448b",
+      "sha256_payload": "9af5cc1210e82f8143b7dc90e62bb5deb14b4355986459740ab425266241ae4f",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11360,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=24&qmm=7&qaa=2026",
+      "usd_row": [
+        11.21
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-25",
+      "echoed_date": "2026-07-27",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.92662,
+        0.87958
+      ],
+      "file": "bcb_cotizaciones_2026-07-25.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "2156acde948b51042fb54c0d05b9b7374cdbea87d68753456d0fe71893a972e6",
+      "sha256_payload": "90b29150f8277f9fa30b9695b9f405b3ebde916b8ae2fa0261591e59dc4179c0",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=25&qmm=7&qaa=2026",
+      "usd_row": [
+        11.37
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-26",
+      "echoed_date": "2026-07-27",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.92662,
+        0.87958
+      ],
+      "file": "bcb_cotizaciones_2026-07-26.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "0863a22fa9da32d7d9007363f2a0312f84c05e39ca080956075444034e026fe9",
+      "sha256_payload": "5850253bdbc789d801266bdbafcc1e15d746409a1fe6d52f12d47f8682d76207",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=26&qmm=7&qaa=2026",
+      "usd_row": [
+        11.37
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-27",
+      "echoed_date": "2026-07-27",
+      "encoding": "utf-8",
+      "eur_row": [
+        12.92662,
+        0.87958
+      ],
+      "file": "bcb_cotizaciones_2026-07-27.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "f4370e882a820512aee966844687281655fac643640f619c3b5d8870104a50d8",
+      "sha256_payload": "3ccb117fcd50dbcfffc69d65acdc9405db579904835b8dcbf0105585cb6c86f7",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=27&qmm=7&qaa=2026",
+      "usd_row": [
+        11.37
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-28",
+      "echoed_date": "2026-07-28",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.12214,
+        0.87943
+      ],
+      "file": "bcb_cotizaciones_2026-07-28.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "bfed44d271035657fc696a085533a68f5d7d2ab8bf6a429f026fa6ab1d692df7",
+      "sha256_payload": "9eb620db13a1887bfedea82b9d92cccbc2d45be1ea165934b7b767d5c76d8b0f",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=28&qmm=7&qaa=2026",
+      "usd_row": [
+        11.54
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-07-29",
+      "echoed_date": "2026-07-29",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.44025,
+        0.87796
+      ],
+      "file": "bcb_cotizaciones_2026-07-29.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "6ad2c6ac62edc026f3637674561e127f717cd42c5b655d9d0d904136eec9718e",
+      "sha256_payload": "99b2d51aa0991dc36a8291f47a1182872f02028b98b33574682a0f71755e4d26",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11361,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=29&qmm=7&qaa=2026",
+      "usd_row": [
+        11.8
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-30",
+      "echoed_date": "2026-07-30",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.62832,
+        0.87245
+      ],
+      "file": "bcb_cotizaciones_2026-07-30.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "18a5879283a2849fab2352345ef7a8593246afe5c993deba739275e3e0c3334e",
+      "sha256_payload": "b8ac0bc8632021f4d28bba9ba110c0d23cdebeb0a1f737616cc263c40427e164",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11360,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=30&qmm=7&qaa=2026",
+      "usd_row": [
+        11.89
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-07-31",
+      "echoed_date": "2026-07-31",
+      "encoding": "utf-8",
+      "eur_row": [
+        14.00899,
+        0.8673
+      ],
+      "file": "bcb_cotizaciones_2026-07-31.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "c64e08f82db76da2ff642a5b0c40bdcbf041f07da4847fd3856c1b5ca1adee9f",
+      "sha256_payload": "9bfcfbb501f904428d8830aec21afb479377403afe31dbf9f5bacd09f29bef20",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=31&qmm=7&qaa=2026",
+      "usd_row": [
+        12.15
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-08-01",
+      "echoed_date": "2026-08-03",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.98223,
+        0.86753
+      ],
+      "file": "bcb_cotizaciones_2026-08-01.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "37fee7a7aca529496373482a1c54d77f152b767148dd26dd5798965eb6bdc9c3",
+      "sha256_payload": "9bb11e18bcf87f3c0ac8d97fb8b2038859351d9d2495c894f78d1aa3795c79c5",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11365,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=1&qmm=8&qaa=2026",
+      "usd_row": [
+        12.13
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-08-02",
+      "echoed_date": "2026-08-03",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.98223,
+        0.86753
+      ],
+      "file": "bcb_cotizaciones_2026-08-02.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "aa92260e6fa86b5897a862b4d026ecc3088d2aa13b709130b6aa146eaa8724ac",
+      "sha256_payload": "3a18ba63343e82a5d4bb62ed490b9b1e4d5d1be24f01ae59515000f1e304aad4",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=2&qmm=8&qaa=2026",
+      "usd_row": [
+        12.13
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-08-03",
+      "echoed_date": "2026-08-03",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.98223,
+        0.86753
+      ],
+      "file": "bcb_cotizaciones_2026-08-03.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "14a463eddab045415c165b19743f655b372866fe95273368f1c48885279fa1b5",
+      "sha256_payload": "ab1d8bced523c2c91ed031875a8d18cde24021fa62a02c91aef3bd2bedc441b5",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11364,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=3&qmm=8&qaa=2026",
+      "usd_row": [
+        12.13
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "PYG"
+      ],
+      "codes": 26,
+      "date": "2026-08-04",
+      "echoed_date": "2026-08-04",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.90408,
+        0.86881
+      ],
+      "file": "bcb_cotizaciones_2026-08-04.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "663ffa31d204539764afd1831802f2b6ba8ab2b9b5ed198c92fad986c1dcc6ca",
+      "sha256_payload": "158bcc7db90450b79587b961e0be1ca1964a9ffbb0824fad7ea4ca3cfe13eb4f",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11359,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=4&qmm=8&qaa=2026",
+      "usd_row": [
+        12.08
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-05",
+      "echoed_date": "2026-08-05",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.8591,
+        0.8673
+      ],
+      "file": "bcb_cotizaciones_2026-08-05.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "434a4f1e96fc885b0c209591072a9f013dc1f36d197ba81b097a247f2c3123ea",
+      "sha256_payload": "c5d41346419f008e4380b603b40264d0bedf4acf8c9ed3687d457a16690e14bd",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11359,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=5&qmm=8&qaa=2026",
+      "usd_row": [
+        12.02
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-06",
+      "echoed_date": "2026-08-10",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.70655,
+        0.86528
+      ],
+      "file": "bcb_cotizaciones_2026-08-06.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "ceab5b615bbb11d1dae2012d94a5069f9851e0a0fd7adb2e8b658c1382eef857",
+      "sha256_payload": "107856a10c1d7ee85ddcf261350c17fa121e12f6af91986d95e86fbee6a0a6f8",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11368,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=6&qmm=8&qaa=2026",
+      "usd_row": [
+        11.86
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-07",
+      "echoed_date": "2026-08-10",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.70655,
+        0.86528
+      ],
+      "file": "bcb_cotizaciones_2026-08-07.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "719c631d167517729b7c11fd7342c3ebeac62c8ce8bf0d01e5bb776e8b1a01ab",
+      "sha256_payload": "a504415e29a079439eb80d316bfe60ac0b333f7bad95deea0f6b9709243dbf48",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11369,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=7&qmm=8&qaa=2026",
+      "usd_row": [
+        11.86
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-08",
+      "echoed_date": "2026-08-10",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.70655,
+        0.86528
+      ],
+      "file": "bcb_cotizaciones_2026-08-08.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "e16410e0f7e48ac697d789f8b3b240869c8b1b2ca40ed5a63cbe9e7338109e7d",
+      "sha256_payload": "d2d8ab83d52fa5f3ff204d86f36363485cdbe74f31fa08a84893a38fde51198c",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11368,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=8&qmm=8&qaa=2026",
+      "usd_row": [
+        11.86
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-09",
+      "echoed_date": "2026-08-10",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.70655,
+        0.86528
+      ],
+      "file": "bcb_cotizaciones_2026-08-09.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "8e61f44f386b148cb64345572d0fef7e84c67bc1bc41db2e7424c848081f454f",
+      "sha256_payload": "bae3a5ce8599800ee7ead1ea67825b5bd7b1b68f85d817454fbed0f142993419",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11369,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=9&qmm=8&qaa=2026",
+      "usd_row": [
+        11.86
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-10",
+      "echoed_date": "2026-08-10",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.70655,
+        0.86528
+      ],
+      "file": "bcb_cotizaciones_2026-08-10.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "1bf0f396611dd872a4604488b98046f9b1982b24da97e258107b9e14409e341c",
+      "sha256_payload": "a5b9e908e64cf445ee2074783ff1f36aed4546f7c27341134ba526151c458a16",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11369,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=10&qmm=8&qaa=2026",
+      "usd_row": [
+        11.86
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-11",
+      "echoed_date": "2026-08-11",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.58369,
+        0.86648
+      ],
+      "file": "bcb_cotizaciones_2026-08-11.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "32f229c5c9a6446680bc8cd3f9f927dedc3fe0799373fb64e9db2ebd305cc70e",
+      "sha256_payload": "1a92fac683c220cc1e64e553973b2689345e5914a5e2805a61e6312104b8fa8d",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11361,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=11&qmm=8&qaa=2026",
+      "usd_row": [
+        11.77
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "COP"
+      ],
+      "codes": 26,
+      "date": "2026-08-12",
+      "echoed_date": "2026-08-12",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.51804,
+        0.86625
+      ],
+      "file": "bcb_cotizaciones_2026-08-12.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "f9bf91fbd06aac717638b70a71d7de99932d9daaded37bc16f378cf6313ca262",
+      "sha256_payload": "5ee24aca78865d6f9644e0ea9a101dc00896e17edab3caf6c5a5c19daf762ae9",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11367,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=12&qmm=8&qaa=2026",
+      "usd_row": [
+        11.71
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-13",
+      "echoed_date": "2026-08-13",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.43473,
+        0.8679
+      ],
+      "file": "bcb_cotizaciones_2026-08-13.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "a5defbc550b09cf5b378a370ec2173a2dc3b4929147f6d864c7407fcde7ee73c",
+      "sha256_payload": "71f920b9f987d79831fc6a03085e1eb86e45de318b55dfbed16d390a733874fe",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11366,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=13&qmm=8&qaa=2026",
+      "usd_row": [
+        11.66
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-14",
+      "echoed_date": "2026-08-14",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.39898,
+        0.86723
+      ],
+      "file": "bcb_cotizaciones_2026-08-14.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "9181a786dad001970d4932cb094cb7a237bc9f514e09e601fe621e8bf00a856b",
+      "sha256_payload": "2df6224fe39ecaba0c1edc0986de707cb176dbedeb60a6b4d083931d7777dde9",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11363,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=14&qmm=8&qaa=2026",
+      "usd_row": [
+        11.62
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-15",
+      "echoed_date": "2026-08-17",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.40262,
+        0.86401
+      ],
+      "file": "bcb_cotizaciones_2026-08-15.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "a3c3cf8edd01fb7f7ac1e72f76b646fe1aac9b5bbbaa26cce00af702b2d6c563",
+      "sha256_payload": "451e807c7ecf9600939f7e3d59630fa2ae8acc2ca693cffffa9959f2458ca680",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11367,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=15&qmm=8&qaa=2026",
+      "usd_row": [
+        11.58
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-16",
+      "echoed_date": "2026-08-17",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.40262,
+        0.86401
+      ],
+      "file": "bcb_cotizaciones_2026-08-16.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "51f706bac53ab0fb36e8ab5f64919e44c079a2ed1ee7be50fc05519c5e075192",
+      "sha256_payload": "534d7c956ca7cde62899dc6ec8df88a94a48125b99cfc6fff8c54049db9bff48",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11367,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=16&qmm=8&qaa=2026",
+      "usd_row": [
+        11.58
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-17",
+      "echoed_date": "2026-08-17",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.40262,
+        0.86401
+      ],
+      "file": "bcb_cotizaciones_2026-08-17.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "15eef743fc0d6fce5ed34104484f5d5ef0edec02895885e7908a5c59c58c4d0d",
+      "sha256_payload": "00201eb42b423d1c01c300b32ea64024210925aa707be1fbbc5da8c801b837b9",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11368,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=17&qmm=8&qaa=2026",
+      "usd_row": [
+        11.58
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "KRW"
+      ],
+      "codes": 26,
+      "date": "2026-08-18",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.37719,
+        0.86341
+      ],
+      "file": "bcb_cotizaciones_2026-08-18.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "7832d60c0ea97133747de4117511f8d064b71aea21503faaa53d9f9abf6b0197",
+      "sha256_payload": "923a6d01bc9ce7954178bf8b6cfc64fdc782c9d7a0876d60b7966cc61f5d9290",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11362,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=18&qmm=8&qaa=2026",
+      "usd_row": [
+        11.55
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [
+        "ARS"
+      ],
+      "codes": 26,
+      "date": "2026-08-19",
+      "echoed_date": "2026-08-19",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.33555,
+        0.86386
+      ],
+      "file": "bcb_cotizaciones_2026-08-19.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "6f262e395e6cf881757ef2a947dc106d082f002f6e63328d2dcf2f5d0394c1f4",
+      "sha256_payload": "74fd40c21dd2b40539de035eb9d487583e7c7daae583c235c91baca7ef6567fb",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11360,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=19&qmm=8&qaa=2026",
+      "usd_row": [
+        11.52
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-20",
+      "echoed_date": "2026-08-20",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.44962,
+        0.85653
+      ],
+      "file": "bcb_cotizaciones_2026-08-20.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "32f1d60ab60f61af1971dd9da33555b213eb5c6878f2be077224a483b782a8a0",
+      "sha256_payload": "d3d16ffbe7d5d5c64085e355aa38fe54d8879fa3a314581bd41d04f13f67bd62",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11358,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=20&qmm=8&qaa=2026",
+      "usd_row": [
+        11.52
+      ],
+      "wait": 0.0
+    },
+    {
+      "ambiguous_codes": [],
+      "codes": 26,
+      "date": "2026-08-21",
+      "echoed_date": "2026-08-21",
+      "encoding": "utf-8",
+      "eur_row": [
+        13.45417,
+        0.85624
+      ],
+      "file": "bcb_cotizaciones_2026-08-21.html",
+      "header": [
+        ""
+      ],
+      "is_fallback": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repeated_codes": {},
+      "rows": 34,
+      "sha256_body": "367a5e3e7b2d7ad166dafadf433906be0b2db5ae8c8868c65168d58f434cca70",
+      "sha256_payload": "e50b758f6ebefc5cba237bd3667b2ddaf69fd72001c71db48285b81fb8c6ea60",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S7",
+      "span": {
+        "duplicates": 0,
+        "first": "Pa\u00eds / Concepto",
+        "last": "SOFR (Secured Overnight Financing Rate)*",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 11363,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir2.php?qdd=21&qmm=8&qaa=2026",
+      "usd_row": [
+        11.52
+      ],
+      "wait": 0.0
+    },
+    {
+      "encoding": null,
+      "file": "bcb_tco_2024.ods",
+      "header": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "requested_format": "ods",
+      "rows": 48,
+      "sha256_body": "be3e6281963c2a92746b9ecb0ee39be4e06c4d53b528b6bbbfbef53193f84eed",
+      "sha256_payload": "bd473ae36fbc40a348f3796e833c276c495dfb5c591cb195d191f4a7d5e953c0",
+      "sha256_prefix": "3b7d8fd7024980e4ad4e9b34a5b16fe2751ae2de5452980ae45ee41f3849ac61",
+      "source": "S1",
+      "span": {
+        "duplicates": 1,
+        "first": "BANCO CENTRAL DE BOLIVIA",
+        "last": "DEPARTAMENTO DE OPERACIONES CAMBIARIAS Y CONVENIOS",
+        "monotonic": false,
+        "rows": 39
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 14362,
+        "declared_length": null,
+        "format": "zip",
+        "length_checked": false,
+        "structural_check": "end of central directory present"
+      },
+      "url": "https://www.bcb.gob.bo/tiposDeCambioHistorico/ods.php?anio=2024",
+      "wait": 0.0,
+      "year": 2024
+    },
+    {
+      "encoding": null,
+      "file": "bcb_tco_2024.xls",
+      "parse": "not attempted: OLE2 workbook. The standard library does not read BIFF and this project's dependencies are numpy and matplotlib. The ODS export of the same year carries the same table and is fetched beside it.",
+      "requested_format": "xls",
+      "rows": null,
+      "sha256_body": "b0014075b806ddb70f2b4baf85c46e2dfb200de0b83dbd113f4eb8bbf582a136",
+      "sha256_payload": null,
+      "source": "S1",
+      "status": "cached",
+      "truncation": {
+        "bytes": 28672,
+        "declared_length": null,
+        "format": "ole2",
+        "length_checked": false,
+        "structural_check": "sector-aligned, header sane"
+      },
+      "url": "https://www.bcb.gob.bo/tiposDeCambioHistorico/xls.php?anio=2024",
+      "wait": 0.0,
+      "year": 2024
+    },
+    {
+      "encoding": null,
+      "file": "bcb_tco_2025.ods",
+      "header": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "requested_format": "ods",
+      "rows": 48,
+      "sha256_body": "18e791409aed88b9d67ec45cb5b12d0c9bd513d36d22e5ab8e41509509fd1cba",
+      "sha256_payload": "76bcf233b4f3e34b07da495970bbc4adada74616976701a5d751047a1d52d1ea",
+      "sha256_prefix": "38c67ae486aea207cd96f399dd216c96e6e0869fa2b69e4fe43b27618b35fc4d",
+      "source": "S1",
+      "span": {
+        "duplicates": 1,
+        "first": "BANCO CENTRAL DE BOLIVIA",
+        "last": "DEPARTAMENTO DE OPERACIONES CAMBIARIAS Y CONVENIOS",
+        "monotonic": false,
+        "rows": 39
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 14348,
+        "declared_length": null,
+        "format": "zip",
+        "length_checked": false,
+        "structural_check": "end of central directory present"
+      },
+      "url": "https://www.bcb.gob.bo/tiposDeCambioHistorico/ods.php?anio=2025",
+      "wait": 0.0,
+      "year": 2025
+    },
+    {
+      "encoding": null,
+      "file": "bcb_tco_2025.xls",
+      "parse": "not attempted: OLE2 workbook. The standard library does not read BIFF and this project's dependencies are numpy and matplotlib. The ODS export of the same year carries the same table and is fetched beside it.",
+      "requested_format": "xls",
+      "rows": null,
+      "sha256_body": "e02da69a6953586b74ac69f68c292465ade0ecd19bcac1791790286d0392ff75",
+      "sha256_payload": null,
+      "source": "S1",
+      "status": "cached",
+      "truncation": {
+        "bytes": 28672,
+        "declared_length": null,
+        "format": "ole2",
+        "length_checked": false,
+        "structural_check": "sector-aligned, header sane"
+      },
+      "url": "https://www.bcb.gob.bo/tiposDeCambioHistorico/xls.php?anio=2025",
+      "wait": 0.0,
+      "year": 2025
+    },
+    {
+      "encoding": null,
+      "file": "bcb_tco_2026.ods",
+      "header": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "requested_format": "ods",
+      "rows": 48,
+      "sha256_body": "7a0a84af24fa37d3f935cdd6f669676a9f5ef5afc5f105e52bc858cabcb546a8",
+      "sha256_payload": "0b04a3b812dc9c992009824f9e1aca19daa470f5643e0e1e35f0897d3deeb9a7",
+      "sha256_prefix": "912dd64bef921a763bbccaa5eec27db869afb1a9b80511f8bbd3158888933a92",
+      "source": "S1",
+      "span": {
+        "duplicates": 1,
+        "first": "BANCO CENTRAL DE BOLIVIA",
+        "last": "DEPARTAMENTO DE OPERACIONES CAMBIARIAS Y CONVENIOS",
+        "monotonic": false,
+        "rows": 39
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 14467,
+        "declared_length": null,
+        "format": "zip",
+        "length_checked": false,
+        "structural_check": "end of central directory present"
+      },
+      "url": "https://www.bcb.gob.bo/tiposDeCambioHistorico/ods.php?anio=2026",
+      "wait": 0.0,
+      "year": 2026
+    },
+    {
+      "encoding": null,
+      "file": "bcb_tco_2026.xls",
+      "parse": "not attempted: OLE2 workbook. The standard library does not read BIFF and this project's dependencies are numpy and matplotlib. The ODS export of the same year carries the same table and is fetched beside it.",
+      "requested_format": "xls",
+      "rows": null,
+      "sha256_body": "1e860307112d3f5c04a4fb099ae7b53be7629e20028bf01f5d05ee2116f7a5aa",
+      "sha256_payload": null,
+      "source": "S1",
+      "status": "cached",
+      "truncation": {
+        "bytes": 29184,
+        "declared_length": null,
+        "format": "ole2",
+        "length_checked": false,
+        "structural_check": "sector-aligned, header sane"
+      },
+      "url": "https://www.bcb.gob.bo/tiposDeCambioHistorico/xls.php?anio=2026",
+      "wait": 0.0,
+      "year": 2026
+    },
+    {
+      "banks": 15,
+      "date": "2026-06-26",
+      "echoed_date": "2026-06-26",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-06-26.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 35,
+      "sha256_body": "5c74d50d9d2ed53e27ed0ca2e510c8a960efb1b7251a8013f204239ab3f17222",
+      "sha256_payload": "ea86e0b97a4aa19acfc9214c4ae940075add2c3998fcbe3d28e423044843d03e",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 34
+      },
+      "status": "cached",
+      "tiers": 31,
+      "truncation": {
+        "bytes": 87167,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-06-26",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-06-27",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-06-27.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-06-27",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-06-28",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-06-28.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-06-28",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-06-29",
+      "echoed_date": "2026-06-29",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-06-29.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 34,
+      "sha256_body": "c7de9123995303e95b5eee056c17fea158ca379a72ba4a77eafeb9fca921c73d",
+      "sha256_payload": "d99a6ae622ad07b5c4799df41b22435ec1283f3b43ac32616fb58a288208cb2b",
+      "sha256_prefix": "6c8bfda4fa9ef5d0bcd7af144b2252eddf69f95ea9cfc97d026805a4a5e8ec3a",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "tiers": 30,
+      "truncation": {
+        "bytes": 85287,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-06-29",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-06-30",
+      "echoed_date": "2026-06-30",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-06-30.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 29,
+      "sha256_body": "dbabab992d0eeed6cddc4be34705a82c5b56d54f4d873137716819d96e38fd0f",
+      "sha256_payload": "7664b556a6dc83b58f2145bdb41ab0cb7f416e11f9a92b9bcb050ed75a10fb89",
+      "sha256_prefix": "535dea6b2fd31cc55319025720d6fa731a7e303658629693bce1ac4261758c21",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 28
+      },
+      "status": "cached",
+      "tiers": 25,
+      "truncation": {
+        "bytes": 76023,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-06-30",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-01",
+      "echoed_date": "2026-07-01",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-01.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 28,
+      "sha256_body": "539c07fead1a9860dacfb2f3f7dddb62bbaadb51135729eecd4f9fd93703cb33",
+      "sha256_payload": "e31c370e3be3066e970e2ae55f4c206ce4c3b156b0f2957bccaa2b5f0a8fabda",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 27
+      },
+      "status": "cached",
+      "tiers": 24,
+      "truncation": {
+        "bytes": 74244,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-01",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-02",
+      "echoed_date": "2026-07-02",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-02.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 36,
+      "sha256_body": "cfb343078d1607b3c18cf33ae3f9a9ccc84370871a95491bd725857b2ea21322",
+      "sha256_payload": "b2e36aca5b9fc47c56f3f3a240ec43042d851510c387a1a9aed5c8a65e82c15c",
+      "sha256_prefix": "52ae4785cbcf8c14350ac7bdab3b7703cb7c51a4aecbdf82f5575c15f29655f3",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 35
+      },
+      "status": "cached",
+      "tiers": 32,
+      "truncation": {
+        "bytes": 89190,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-02",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-03",
+      "echoed_date": "2026-07-03",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-03.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 34,
+      "sha256_body": "6ea506e4b735b71899d172fee424448d5943fd140f03bcb577b42e749f80d427",
+      "sha256_payload": "3915aa862670d8174e9167757483878b699a1749c3fa8293491fbebb1daa8224",
+      "sha256_prefix": "4d9c5443a49071f6bea13e4484da30984192a9f1dc2f55b49f82f4e506aad7fe",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 33
+      },
+      "status": "cached",
+      "tiers": 30,
+      "truncation": {
+        "bytes": 85415,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-03",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-04",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-04.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-04",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-05",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-05.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-05",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-06",
+      "echoed_date": "2026-07-06",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-06.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 32,
+      "sha256_body": "03009f2087061164dcdd550dc4c8805ef1c655633829379824eb2e61921a60c2",
+      "sha256_payload": "47428baf182a412b967129437abf27a7a83274f353a2a78bc79813647e3e1ef2",
+      "sha256_prefix": "1baa1c9833bc362ca0121c1fdb9b6ddb5788e5f26683d79a4df490db4327e19d",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 31
+      },
+      "status": "cached",
+      "tiers": 28,
+      "truncation": {
+        "bytes": 81665,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-06",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-07",
+      "echoed_date": "2026-07-07",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-07.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 37,
+      "sha256_body": "61ba3755bcf35f24dbcc6b0d0e30ab4a106e27e4c81187adface5a3ee5d092bb",
+      "sha256_payload": "a2439b279c3addd1ec38c0bc7f488814fb74a2f0f6d85b787e0c91230b6628ba",
+      "sha256_prefix": "947e57bb5af6fd4a3a5b8c421604eb7aa7d82b9e090d5faf13530ca5c45f6f5d",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 36
+      },
+      "status": "cached",
+      "tiers": 33,
+      "truncation": {
+        "bytes": 91069,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-07",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-08",
+      "echoed_date": "2026-07-08",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-08.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 47,
+      "sha256_body": "cd1ad28773e897523b2218e8ecd868a3edf5c64ed42fc67cf625c98abb9bc679",
+      "sha256_payload": "265bb24283775477ce707de35e600ce51bbb8aca308471502e74176f20f16237",
+      "sha256_prefix": "8b953d3d9593f480c8ba82114f8eba348bf277f879b48da954f82a23619d2b5f",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 46
+      },
+      "status": "cached",
+      "tiers": 43,
+      "truncation": {
+        "bytes": 109708,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-08",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-09",
+      "echoed_date": "2026-07-09",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-09.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 48,
+      "sha256_body": "c05afc12c1c1fbd8b89c6faa998a7a8d487c90951d3400003da439d4f147f1e4",
+      "sha256_payload": "e15b8038122a89aed54c0a08b9df5cc394fddab93f9577b3bbfabacb246218ce",
+      "sha256_prefix": "75bea6a80c31c25419a292114c76833332b1a3896b7db66986ed420244413a88",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 47
+      },
+      "status": "cached",
+      "tiers": 44,
+      "truncation": {
+        "bytes": 111660,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-09",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-10",
+      "echoed_date": "2026-07-10",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-10.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 47,
+      "sha256_body": "42de7c9d5545be4bde94bde781d0ab8626c9b54752ca892ee297a15aea4d90c4",
+      "sha256_payload": "428a41c248fe7a390df1c22e8292d83fc452ac485615e03cc0496ecb34fdbff9",
+      "sha256_prefix": "8abdca49e730698e96bfba19e6c317804c8f9e4145319586702a40f507db8fbb",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 46
+      },
+      "status": "cached",
+      "tiers": 43,
+      "truncation": {
+        "bytes": 109818,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-10",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-11",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-11.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-11",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-12",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-12.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-12",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-13",
+      "echoed_date": "2026-07-13",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-13.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 38,
+      "sha256_body": "3366c4151f266f4a0194b47566c90c899a2ad2486b055fe56a09273a547368bf",
+      "sha256_payload": "554cebaae3050203ddf330179e67577f91fa30b5a50d4b86803418c195722e77",
+      "sha256_prefix": "ec440e3af4c0748e5446c7042fac3feafdcdf38f9f43ac949a77b7e57e34da4a",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 37
+      },
+      "status": "cached",
+      "tiers": 34,
+      "truncation": {
+        "bytes": 92874,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-13",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-14",
+      "echoed_date": "2026-07-14",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-14.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 41,
+      "sha256_body": "4208c67ca183d0fafcf656bbcb35a14c7c721c9c14a213f64eda939bded653f5",
+      "sha256_payload": "3bb55168802f8ca5eee48c15901c61bd54e436569990af33b91752ddf967fef1",
+      "sha256_prefix": "ff490da4548667bf8fe0facc02b8cf3c51ef784ed993b5f2bada74a2e175af51",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 40
+      },
+      "status": "cached",
+      "tiers": 37,
+      "truncation": {
+        "bytes": 98595,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-14",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-15",
+      "echoed_date": "2026-07-15",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-15.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 43,
+      "sha256_body": "f22dddfbb038b7faa234ffc1c51999a1aaa9e26de31ccfe2b03f751af44cea8d",
+      "sha256_payload": "e8459b2f2ed9fbb2561d58ee1088c5f9853f4404be6d01402b735f519bc7b9f5",
+      "sha256_prefix": "472eb1ba98cba9524f7374583dc3ef5388db5f52bb51f32d24663dee9145e84c",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 42
+      },
+      "status": "cached",
+      "tiers": 39,
+      "truncation": {
+        "bytes": 102259,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-15",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-16",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-16.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-16",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-17",
+      "echoed_date": "2026-07-17",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-17.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 46,
+      "sha256_body": "ed9a50e9266cac38af04645f294be504382f5ab2c5ff8e8e8c691e8fc9dcf971",
+      "sha256_payload": "9e3241acac56a3d38316d7e3cf841aa3b380896af381b1dafc8384cdef3c2ffa",
+      "sha256_prefix": "d3a6f3c98329fd0295032acca281a801a5196809123b417c832e762fca21acc5",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 45
+      },
+      "status": "cached",
+      "tiers": 42,
+      "truncation": {
+        "bytes": 107902,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-17",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-18",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-18.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-18",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-19",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-19.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-19",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-20",
+      "echoed_date": "2026-07-20",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-20.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 37,
+      "sha256_body": "1e6af770b08841ff4aae7df61c1490070bcb7512f1f6dc848df0c3e65867d128",
+      "sha256_payload": "d11311389ad462b1abb4166b00a245446618f6b8a792f379bac448dee2a2a6d0",
+      "sha256_prefix": "21c18e0b8924e29f7379dd49a5c3a99233c92eea1f66aa69f4022474062290b7",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 36
+      },
+      "status": "cached",
+      "tiers": 33,
+      "truncation": {
+        "bytes": 91029,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-20",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-21",
+      "echoed_date": "2026-07-21",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-21.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 39,
+      "sha256_body": "3846c47e5159d1b876f11d04881549a6e9aed307f0e9761fc65627c5fda77295",
+      "sha256_payload": "e6045b0d234ad09c80bbf32b11c95a812e906ffabceae40698625b6a32a4d798",
+      "sha256_prefix": "95f158da57f68bb8da687f35b00e1078fa280b66f167ed0ce34dd33a842901b8",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 38
+      },
+      "status": "cached",
+      "tiers": 35,
+      "truncation": {
+        "bytes": 94869,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-21",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-22",
+      "echoed_date": "2026-07-22",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-22.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 46,
+      "sha256_body": "d21598413f51c67db869c715e9f28a48dfab549bb2517d4faa8f93755bed5fae",
+      "sha256_payload": "c742451c09939c82f114183d3dcbb5b711a39af81d1474cc0a5e8b66ebf19dc4",
+      "sha256_prefix": "4fab39218643976c3ae191f2db88b0755a38546cbe6479a1d99bd0c7f7339a6f",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 45
+      },
+      "status": "cached",
+      "tiers": 42,
+      "truncation": {
+        "bytes": 107990,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-22",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-23",
+      "echoed_date": "2026-07-23",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-23.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 44,
+      "sha256_body": "363edd6aed4de59d73cdaa7d235727ce30032ead65e36715668be85b4873a63c",
+      "sha256_payload": "3fab84f9a79910403dd52f5f3e556c245341428e9af5cba0edccee41ea51f413",
+      "sha256_prefix": "c919b4cdc86a08cd7f3623378f32a180bbdb8f83b9a53abfa6e5c035399ac05d",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 43
+      },
+      "status": "cached",
+      "tiers": 40,
+      "truncation": {
+        "bytes": 104212,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-23",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-24",
+      "echoed_date": "2026-07-24",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-24.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 53,
+      "sha256_body": "8bea5f4f4bdf627042f6f0d1cb802e4ba99eac812bde525cdbce07c454b9fa1c",
+      "sha256_payload": "c218a268b7c6380ecd7ca1a83ff043b9dc87b2220dc2b36bd597ced9b17549a9",
+      "sha256_prefix": "c804a9bf19800d5b694824246678cf72d73c965b9deaa48c6d119a9a9ababece",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 52
+      },
+      "status": "cached",
+      "tiers": 49,
+      "truncation": {
+        "bytes": 121016,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-24",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-25",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-25.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-25",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-26",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-26.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-26",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-27",
+      "echoed_date": "2026-07-27",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-27.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "ed84e30165193df06df23e789e7e22d0dedd5556108bd0eaa87b01801f154d52",
+      "sha256_payload": "a43be06d47e2b226dd7d4184e4fd6b79dcd0c6bb4b4a80b316fca8ea18d9f190",
+      "sha256_prefix": "3ac225fba3d08f68b6ffed952f8e2e07c0572e6cf0cfce64ed15b4a02cb49289",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117219,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-27",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-28",
+      "echoed_date": "2026-07-28",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-28.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 62,
+      "sha256_body": "88536f978bf732d5e2d8c0acbff1dd1f0516f72ba7da004d2685714b4349b79a",
+      "sha256_payload": "90006ab2f9244ff13650e3b463e92a4732ab020c3bf829f5d867b6c91269b66e",
+      "sha256_prefix": "8f137c874c5033e69214f36cefc3b339de4aad0456f3172b0988c2c8747bcf5a",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 61
+      },
+      "status": "cached",
+      "tiers": 58,
+      "truncation": {
+        "bytes": 137803,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-28",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-29",
+      "echoed_date": "2026-07-29",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-29.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 56,
+      "sha256_body": "c40caaaf99902846aff9d659498525b969ae75238a5bb31020867b39a255498b",
+      "sha256_payload": "c2752bb82b4ee3c4ab9d56763eaada79a61058c2f6a397e85212859090bcc307",
+      "sha256_prefix": "b8514be6900c5c7014b5c7b6ba7f09074f2478b7e0179c2ba66644b9336c0ed3",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 55
+      },
+      "status": "cached",
+      "tiers": 52,
+      "truncation": {
+        "bytes": 126620,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-29",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-30",
+      "echoed_date": "2026-07-30",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-30.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 49,
+      "sha256_body": "ff578eb1de36d3a19899461abfabde703d8d3862cb50b3aca4bde461f5b98351",
+      "sha256_payload": "66b367b3e87ab611c3e169bd1a895d2d1db5e2d02505f51bc1b952ae92b5ee12",
+      "sha256_prefix": "11aafeec8d890e58c8e70d0db2120fb340153111890b04029af4b289d8584435",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 48
+      },
+      "status": "cached",
+      "tiers": 45,
+      "truncation": {
+        "bytes": 113597,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-30",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-07-31",
+      "echoed_date": "2026-07-31",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-07-31.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 37,
+      "sha256_body": "6180393535238cf37b5690ce78d4ba8a040526ed2bdc463265af4d23fe02b2cc",
+      "sha256_payload": "4f172dd096fcc66acdc892f28112781a5d073e8cb80a048a8a7910dbf59acb18",
+      "sha256_prefix": "c583341b35399b92a41d20e0bd4af67a8e043015f0859c99b8fdcfc50e71c310",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 36
+      },
+      "status": "cached",
+      "tiers": 33,
+      "truncation": {
+        "bytes": 91263,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-07-31",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-01",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-01.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-01",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-02",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-02.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-02",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-03",
+      "echoed_date": "2026-08-03",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-03.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 35,
+      "sha256_body": "f655731e924ddf1ae0e73061347f108d02507fd4fc01917aef0cf48988a34a54",
+      "sha256_payload": "da83d805c279f1b959b8595369149ca34f8977e95d5b1be5dd571f3c4f7daf58",
+      "sha256_prefix": "ec6eff8fe10c33263415dd9544621a22ea1a74dbeba912e69df695074e1f2a92",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 34
+      },
+      "status": "cached",
+      "tiers": 31,
+      "truncation": {
+        "bytes": 87380,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-03",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-04",
+      "echoed_date": "2026-08-04",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-04.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 40,
+      "sha256_body": "b59f378d1e54187a470bd2a04161901777e66e99a075c431090dedc758cc8bec",
+      "sha256_payload": "b98e8a7d3f4353a26d31166aab5450e22510dcdf24f35781d4df7f8478f3873f",
+      "sha256_prefix": "a4e18f671b49c01c65709a28f394cef68738cc1a278b7c4bf389ff57f1142431",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 39
+      },
+      "status": "cached",
+      "tiers": 36,
+      "truncation": {
+        "bytes": 96826,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-04",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-05",
+      "echoed_date": "2026-08-05",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-05.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 49,
+      "sha256_body": "a627e0e0c155fa4fc3292563fa025185eb25bafe015555f2b373b6b103da7659",
+      "sha256_payload": "9fd3be84f3f968f4b221fc7de4a2a3d062a26ec74df8f935f32c73112bf9874a",
+      "sha256_prefix": "5ee88d47de380bbff8f2c4ede281b0016c9e5f1028f23b2a295e6705d565ab89",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 48
+      },
+      "status": "cached",
+      "tiers": 45,
+      "truncation": {
+        "bytes": 113663,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-05",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-06",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-06.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-06",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-07",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-07.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-07",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-08",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-08.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-08",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-09",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-09.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-09",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-10",
+      "echoed_date": "2026-08-10",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-10.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 55,
+      "sha256_body": "d6db25aad88c32fbfab51dbbf7f44b7b59b848a05e9f492dd723780ad35c9086",
+      "sha256_payload": "670847a63ab2d0997727a75f6f49acc88db027e6f06886f4b8f8144b9a713b05",
+      "sha256_prefix": "cac8c33e5e24e43e5aa44777778b269493732d63eb10ce438b914c3a7e59d846",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 54
+      },
+      "status": "cached",
+      "tiers": 51,
+      "truncation": {
+        "bytes": 124797,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-10",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-11",
+      "echoed_date": "2026-08-11",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-11.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "07fff960cd42e40f67b64b9877c416200314f3c4dd2617b76f445f49f5ed6cd2",
+      "sha256_payload": "ec6b122c3981b925b953ee5bda9bcf61a234215ee5e6f15dae27940fa37ab8ca",
+      "sha256_prefix": "06218a6ba45efe029be82ddfbaf89984632ad29246f7c713a03cff51e2317d9e",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117311,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-11",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-12",
+      "echoed_date": "2026-08-12",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-12.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 58,
+      "sha256_body": "30a684c41df1be68bc9eca04bd8f0b2288728f5b5f5b1c0e5d0892c82bfe545f",
+      "sha256_payload": "a15349f67b14829c73a2c494de623220473df4dab19cb7016b9b825e335d9745",
+      "sha256_prefix": "e8aa03984afb3cf6949831fbea5bbcc46c9e02396457b310999143b006f8a3d5",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 57
+      },
+      "status": "cached",
+      "tiers": 54,
+      "truncation": {
+        "bytes": 130379,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-12",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-13",
+      "echoed_date": "2026-08-13",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-13.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 56,
+      "sha256_body": "1348fe8a3aaabc94de90138fda7acc84f9401b392ac67ad529cdb993e579baa8",
+      "sha256_payload": "44f307d535762a8bce753a9b91095b736a8bb91a7f2bcf5fc79327e6a83a92cd",
+      "sha256_prefix": "93f07c3acb8475e4b195881f70ab25a2a611cb4fea55e881445bf16b7bcef706",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 55
+      },
+      "status": "cached",
+      "tiers": 52,
+      "truncation": {
+        "bytes": 126625,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-13",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-14",
+      "echoed_date": "2026-08-14",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-14.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 45,
+      "sha256_body": "95f0a3b2d81b8e27fac6b5d0effe20b41b6f28db0ea52042ebe133f87218c1a4",
+      "sha256_payload": "4f501f78ca04b9cccf3c75023cf39c571e40a480ab443f03ccd877c54bb0f6be",
+      "sha256_prefix": "906255be1d9be1011f094e1dd966b78e617b2b68813799a04ef68c0baf456594",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 44
+      },
+      "status": "cached",
+      "tiers": 41,
+      "truncation": {
+        "bytes": 106057,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-14",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-15",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-15.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-15",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-16",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-16.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-16",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-17",
+      "echoed_date": "2026-08-17",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-17.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 50,
+      "sha256_body": "8699f940645e12fea6c05fc0508408f1b9217cd2b16e3d0c08bc4db5a6d0ef24",
+      "sha256_payload": "7f93163f2bee42b36d0e7fd3eeecf9b0c08cde760a4e93ae9bd520ad4a968cd0",
+      "sha256_prefix": "82786d5cc0dab0c9723231ea8ce577833dbccaa50d14cfe8628343b316edf6dc",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 49
+      },
+      "status": "cached",
+      "tiers": 46,
+      "truncation": {
+        "bytes": 115361,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-17",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-18",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-18.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-18",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "date": "2026-08-19",
+      "echoed_date": "2026-08-18",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-19.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rows": 51,
+      "sha256_body": "2f93bdd756a88f582549d37edc78ceaccfb9ce44a7a48d78cbc0cb4f0f0c3380",
+      "sha256_payload": "88292b021bbb45b7f8ce4fd03ffd0862a7c10214c5a63dc8166cbcac4508199d",
+      "sha256_prefix": "1c842a706842083238b2757f96bead10be14b861b596ca549126f043b0925fe9",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 50
+      },
+      "status": "cached",
+      "tiers": 47,
+      "truncation": {
+        "bytes": 117211,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-19",
+      "wait": 0.0
+    },
+    {
+      "banks": 15,
+      "content_type": "text/html; charset=UTF-8",
+      "date": "2026-08-20",
+      "echoed_date": "2026-08-20",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-20.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": false,
+      "last_modified": null,
+      "own_grid": true,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rate_limit": {
+        "retry-after": null,
+        "x-ratelimit-limit": null,
+        "x-ratelimit-remaining": null,
+        "x-ratelimit-reset": null
+      },
+      "rows": 47,
+      "sha256_body": "b33acdbe705471ee324499d32c2e487008b640eb466925f3155bb588a647f1c6",
+      "sha256_payload": "931a81f08dc99ce53bd6526bf02e80bcaf98a061f00071b6b2522e76aacee0c3",
+      "sha256_prefix": "f4b401a5befebbc5f3e8af872bfd0efdac067fc636050c737972f23a6bed530a",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 46
+      },
+      "status": "downloaded",
+      "tiers": 43,
+      "truncation": {
+        "bytes": 110038,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-20",
+      "wait": 5.0
+    },
+    {
+      "banks": 15,
+      "content_type": "text/html; charset=UTF-8",
+      "date": "2026-08-21",
+      "echoed_date": "2026-08-20",
+      "encoding": "utf-8",
+      "file": "bcb_tco_detail_2026-08-21.html",
+      "has_grid": true,
+      "header": [
+        "TC(En Bs/USD)",
+        "BANCO BISA",
+        "BANCO DE CR\u00c9DITO",
+        "BANCO DE LA NACI\u00d3N ARGENTINA",
+        "BANCO ECON\u00d3MICO",
+        "BANCO FIE",
+        "BANCO FORTALEZA",
+        "BANCO GANADERO",
+        "BANCO MERCANTIL SANTA CRUZ",
+        "BANCO NACIONAL DE BOLIVIA",
+        "BANCO PRODEM",
+        "BANCO PYME DE LA COMUNIDAD",
+        "BANCO PYME ECOFUTURO",
+        "BANCO SOLIDARIO",
+        "BANCO UNION",
+        "TOTAL BANCOS"
+      ],
+      "is_fallback": true,
+      "last_modified": null,
+      "own_grid": false,
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rate_limit": {
+        "retry-after": null,
+        "x-ratelimit-limit": null,
+        "x-ratelimit-remaining": null,
+        "x-ratelimit-reset": null
+      },
+      "rows": 47,
+      "sha256_body": "b33acdbe705471ee324499d32c2e487008b640eb466925f3155bb588a647f1c6",
+      "sha256_payload": "931a81f08dc99ce53bd6526bf02e80bcaf98a061f00071b6b2522e76aacee0c3",
+      "sha256_prefix": "f4b401a5befebbc5f3e8af872bfd0efdac067fc636050c737972f23a6bed530a",
+      "source": "S2",
+      "span": {
+        "duplicates": 0,
+        "first": "N\u00b0",
+        "last": "TCO",
+        "monotonic": false,
+        "rows": 46
+      },
+      "status": "downloaded",
+      "tiers": 43,
+      "truncation": {
+        "bytes": 110038,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.bcb.gob.bo/tco_reporte_detalle_historico.php?fecha=2026-08-21",
+      "wait": 5.0
+    },
+    {
+      "encoding": null,
+      "file": "bcb_tco_series.csv",
+      "parse": "not attempted: no parser for format 'unknown'",
+      "role": "the published TCO series, B15-6's comparison target",
+      "rows": null,
+      "sha256_body": "58e47a7ceda61bff73f92839f3a751767a4114443851f7a2f64f46e87f22b9d6",
+      "sha256_payload": null,
+      "source": "S2",
+      "status": "cached",
+      "truncation": {
+        "bytes": 160812,
+        "declared_length": null,
+        "format": "unknown",
+        "length_checked": false,
+        "structural_check": "none available for this format"
+      },
+      "url": "https://www.bcb.gob.bo/tco_tcreferencial_descargar_csv.php?desde=2026-06-26&hasta=2026-08-21",
+      "wait": 0.0
+    },
+    {
+      "content_type": "text/xml",
+      "days": 65,
+      "encoding": "utf-8",
+      "file": "ecb_eurofxref_90d.xml",
+      "last_modified": "Fri, 21 Aug 2026 13:56:22 GMT",
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "rate_limit": {
+        "retry-after": null,
+        "x-ratelimit-limit": null,
+        "x-ratelimit-remaining": null,
+        "x-ratelimit-reset": null
+      },
+      "role": "the outside euro cross, B15-12's referee",
+      "rows": 0,
+      "sha256_body": "a69d7595644486571590051f8fde844f2fe886aa23d71ef1d40acdc449588453",
+      "sha256_payload": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "S6",
+      "span": {
+        "first": "2026-05-25",
+        "last": "2026-08-21"
+      },
+      "status": "downloaded",
+      "truncation": {
+        "bytes": 70603,
+        "declared_length": null,
+        "format": "html",
+        "length_checked": false,
+        "structural_check": "closing table tag present"
+      },
+      "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml",
+      "usd_present": 65,
+      "wait": 5.0
+    },
+    {
+      "branch": "main",
+      "citation": "github.com/mauforonda/dolares, every observation fixed by a commit",
+      "encoding": "utf-8",
+      "file": "mauforonda_buy.csv",
+      "header": [
+        "timestamp",
+        "low",
+        "high",
+        "median",
+        "vwap",
+        "naive"
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repo": "mauforonda/dolares",
+      "rows": 26364,
+      "sha256_body": "d6803f7ad45b983fb2eb31c480c26e4e7beb2698c066f75218c5b7d0bc507697",
+      "sha256_payload": "5d0ca5549993273539e4d69f896484533ea40fcc6230be45353aa025d07eeb42",
+      "sha256_prefix": "fdf16408a5856ce3810134adecf79f75254fcfb6ddd925fabee5c76969315bc7",
+      "source": "S5",
+      "span": {
+        "duplicates": 0,
+        "first": "2024-08-05T20:41-04:00",
+        "last": "2026-08-19T19:22-04:00",
+        "monotonic": true,
+        "rows": 26363
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 1380437,
+        "categorical_columns_checked": [],
+        "declared_length": null,
+        "format": "csv",
+        "length_checked": false,
+        "numeric_columns_checked": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "structural_check": "last record complete"
+      },
+      "url": "https://raw.githubusercontent.com/mauforonda/dolares/main/buy.csv",
+      "wait": 0.0
+    },
+    {
+      "branch": "main",
+      "citation": "github.com/mauforonda/dolares, every observation fixed by a commit",
+      "encoding": "utf-8",
+      "file": "mauforonda_buy_oficial.csv",
+      "header": [
+        "timestamp",
+        "value"
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repo": "mauforonda/dolares",
+      "rows": 385,
+      "sha256_body": "078d23d8e8d0f2bba42c373d7f91661312b96e241fdb23c959575fc392edf9a1",
+      "sha256_payload": "0f321d804149c7e3d7be891e917c4a96979ee4e6dc31ea430c1b1720d0a0af5d",
+      "sha256_prefix": "effd5d8fac78f9c771b11dc6f971415accd88fa0db92dfdfc96ccee1d7c66904",
+      "source": "S5",
+      "span": {
+        "duplicates": 0,
+        "first": "2005-06-01",
+        "last": "2026-06-26",
+        "monotonic": true,
+        "rows": 384
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 6192,
+        "categorical_columns_checked": [],
+        "declared_length": null,
+        "format": "csv",
+        "length_checked": false,
+        "numeric_columns_checked": [
+          1
+        ],
+        "structural_check": "last record complete"
+      },
+      "url": "https://raw.githubusercontent.com/mauforonda/dolares/main/buy_oficial.csv",
+      "wait": 0.0
+    },
+    {
+      "branch": "main",
+      "citation": "github.com/mauforonda/dolares, every observation fixed by a commit",
+      "encoding": "utf-8",
+      "file": "mauforonda_buy_oficial_completo.csv",
+      "header": [
+        "timestamp",
+        "banco_bisa",
+        "banco_de_credito",
+        "banco_de_la_nacion_argentina",
+        "banco_economico",
+        "banco_fie",
+        "banco_ganadero",
+        "banco_mercantil_santa_cruz",
+        "banco_nacional_de_bolivia",
+        "banco_solidario",
+        "banco_union",
+        "value",
+        "banco_fortaleza",
+        "banco_pyme_de_la_comunidad",
+        "banco_pyme_ecofuturo",
+        "banco_prodem"
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repo": "mauforonda/dolares",
+      "rows": 139,
+      "sha256_body": "37755ec952427d4f19d752e0be17655e756ec9842ffa0c019057a8eec0e2793d",
+      "sha256_payload": "97cd5993d94f6717f307cab609c4d11697031c76c45391eea9b975bb6cd78d74",
+      "sha256_prefix": "90ab26b511a4b0ac6f5539aedb4ab73aa494eac97472e1feda5dbea1a2f46b05",
+      "source": "S5",
+      "span": {
+        "duplicates": 0,
+        "first": "2025-12-01",
+        "last": "2026-06-26",
+        "monotonic": true,
+        "rows": 138
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 10340,
+        "categorical_columns_checked": [],
+        "declared_length": null,
+        "format": "csv",
+        "length_checked": false,
+        "numeric_columns_checked": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "structural_check": "last record complete"
+      },
+      "url": "https://raw.githubusercontent.com/mauforonda/dolares/main/buy_oficial_completo.csv",
+      "wait": 0.0
+    },
+    {
+      "branch": "main",
+      "citation": "github.com/mauforonda/dolares, every observation fixed by a commit",
+      "encoding": "utf-8",
+      "file": "mauforonda_buy_oficial_monto.csv",
+      "header": [
+        "timestamp",
+        "banco_bisa",
+        "banco_de_credito",
+        "banco_de_la_nacion_argentina",
+        "banco_economico",
+        "banco_fie",
+        "banco_fortaleza",
+        "banco_ganadero",
+        "banco_mercantil_santa_cruz",
+        "banco_nacional_de_bolivia",
+        "banco_prodem",
+        "banco_pyme_de_la_comunidad",
+        "banco_pyme_ecofuturo",
+        "banco_solidario",
+        "banco_union",
+        "value"
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repo": "mauforonda/dolares",
+      "rows": 118,
+      "sha256_body": "a9fce9ff611793b2b4f06737900f260ececfd1163acadd35475c39433222f09d",
+      "sha256_payload": "f857f43d9b535675ce68562c86fba928337478bf0079901ddd465dba4812a957",
+      "sha256_prefix": "d24f99811c5dc4338ad49895b30b4458948fb5839e797a6abcd0e7f5fa0d1859",
+      "source": "S5",
+      "span": {
+        "duplicates": 0,
+        "first": "2026-01-05",
+        "last": "2026-06-26",
+        "monotonic": true,
+        "rows": 117
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 15172,
+        "categorical_columns_checked": [],
+        "declared_length": null,
+        "format": "csv",
+        "length_checked": false,
+        "numeric_columns_checked": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "structural_check": "last record complete"
+      },
+      "url": "https://raw.githubusercontent.com/mauforonda/dolares/main/buy_oficial_monto.csv",
+      "wait": 0.0
+    },
+    {
+      "branch": "main",
+      "citation": "github.com/mauforonda/dolares, every observation fixed by a commit",
+      "encoding": "utf-8",
+      "file": "mauforonda_sell.csv",
+      "header": [
+        "timestamp",
+        "low",
+        "high",
+        "median",
+        "vwap",
+        "naive"
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repo": "mauforonda/dolares",
+      "rows": 26209,
+      "sha256_body": "e3cc36991083e4a704b2b4eadb0d4c40c313fefaad5b2ded2cc1c0a17f9b8cc7",
+      "sha256_payload": "8f3b6700f192aad33c8c874f4de3816331401f4236588c58b7fbb9f9099309d8",
+      "sha256_prefix": "3904a5dae4fc514c91c17548fd66e11d379a8d4508c1034a93210258353e73f2",
+      "source": "S5",
+      "span": {
+        "duplicates": 0,
+        "first": "2024-08-05T20:41-04:00",
+        "last": "2026-08-19T19:22-04:00",
+        "monotonic": true,
+        "rows": 26208
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 1308800,
+        "categorical_columns_checked": [],
+        "declared_length": null,
+        "format": "csv",
+        "length_checked": false,
+        "numeric_columns_checked": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "structural_check": "last record complete"
+      },
+      "url": "https://raw.githubusercontent.com/mauforonda/dolares/main/sell.csv",
+      "wait": 0.0
+    },
+    {
+      "branch": "main",
+      "citation": "github.com/mauforonda/dolares, every observation fixed by a commit",
+      "encoding": "utf-8",
+      "file": "mauforonda_sell_oficial.csv",
+      "header": [
+        "timestamp",
+        "value"
+      ],
+      "parse": "ok",
+      "prefix_cutoff": "2026-06-29",
+      "repo": "mauforonda/dolares",
+      "rows": 183,
+      "sha256_body": "bd7bce87adbabbd35be321350d37e2a2c7a6df49756985ed6336528dc2667660",
+      "sha256_payload": "d874761a74a74088dac6637f7a76ef64dbd9e2559ed8087677604f27a3448b79",
+      "sha256_prefix": "a1e4fc54b1b2cfdd21e0200c61179ef283e4cdc19c1a094a387a6973bde11e60",
+      "source": "S5",
+      "span": {
+        "duplicates": 0,
+        "first": "2025-11-01",
+        "last": "2026-06-26",
+        "monotonic": true,
+        "rows": 182
+      },
+      "status": "cached",
+      "truncation": {
+        "bytes": 2957,
+        "categorical_columns_checked": [],
+        "declared_length": null,
+        "format": "csv",
+        "length_checked": false,
+        "numeric_columns_checked": [
+          1
+        ],
+        "structural_check": "last record complete"
+      },
+      "url": "https://raw.githubusercontent.com/mauforonda/dolares/main/sell_oficial.csv",
+      "wait": 0.0
+    },
+    {
+      "citation": "paralelo.bo (https://paralelo.bo), CC-BY 4.0",
+      "encoding": null,
+      "file": "paralelo_historical.csv",
+      "header_matches_register": false,
+      "parse": "not attempted: no parser for format 'unknown'",
+      "rows": null,
+      "sha256_body": "737cbe0153d63e46cae6a96bf98504c922fde43d8943c0957cc13fe28bf5d857",
+      "sha256_payload": null,
+      "source": "S4",
+      "status": "cached",
+      "truncation": {
+        "bytes": 12539,
+        "declared_length": null,
+        "format": "unknown",
+        "length_checked": false,
+        "structural_check": "none available for this format"
+      },
+      "url": "https://paralelo.bo/api/v1/historical.csv",
+      "wait": 0.0
+    }
+  ],
+  "run_covers": "s7",
+  "run_failed": null,
+  "s3_bulk_acknowledged": false,
+  "s3_terms": "dolarbluebolivia.click permits reuse with attribution and commercial use, sets no visit limit on the public endpoint, asks for no polling faster than 60 seconds, and states that bulk downloads and historical data require registration for its beta API. /v1/chart/all.csv is served without a key. bolivia_availability.md \u00a73.2.1, b15_bolivia_prereg.md \u00a710.",
+  "stage": "B15",
+  "window": [
+    "2024-07-21",
+    "2026-08-21"
+  ]
+}

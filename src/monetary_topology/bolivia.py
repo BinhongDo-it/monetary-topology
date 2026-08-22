@@ -1269,9 +1269,9 @@ def utc_stamp() -> str:
 
 
 def rendered(criterion: dict, name: str, detail: str) -> dict:
-    """Give a criterion dict the four keys ``scripts/render_results.py`` reads.
+    """Give a criterion dict the four keys a criteria block is read by.
 
-    The renderer's contract is ``name``, ``passed``, ``detail`` and ``void``.
+    The contract is ``name``, ``passed``, ``detail`` and ``void``.
     These records were written with ``criterion`` and ``verdict`` instead, and
     nothing caught it, because every one of them carried ``diagnostic_only``
     while the stage was open and the renderer skips those entirely. **Flipping

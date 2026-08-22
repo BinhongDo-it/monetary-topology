@@ -59,7 +59,8 @@ BASE = "http://ftp.nyxdata.com/Tick_Pilot/"
 #: directory index on 2026-08-19; `--aux` pulls them into `data/raw/ticksize/`.
 #: `TSPilotChanges20181001.txt` is dated the first trading day after the pilot's
 #: quoting and trading requirements ended (2018-09-28 close), so it is the file
-#: that records the reversal, and `B14_设计_v1.md` §7·补2 needs it.
+#: that records the reversal, and B14's registered design needs it to date the
+#: end of the pilot independently of the monthly archives.
 AUX = (
     "Appendix_B_Pilot_File_Updates.xlsx",
     "Pilot_File_Updates.xlsx",

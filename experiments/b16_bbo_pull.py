@@ -444,7 +444,13 @@ def verify(arm):
         print("  gate two condition 1: PASS, one field layout across %d batches"
               % len(heads))
         if distinct:
-            print("    %s" % distinct[0][:120])
+            #: Print the whole header, never a slice of it. A truncated print here
+            #: showed 14 of the 17 columns while the count beside it said 17, and
+            #: the three it hid included `symbol`, the one column the whole
+            #: map_symbols argument was about. The count was right and the object
+            #: was wrong, which is the failure this project keeps paying for.
+            for i, c in enumerate(distinct[0].split(",")):
+                print("    %2d  %s" % (i, c))
     else:
         ok = False
         print("  gate two condition 1: FAIL, %d distinct field layouts" % len(distinct))

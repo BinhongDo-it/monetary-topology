@@ -1,0 +1,204 @@
+{
+  "datasets": [
+    {
+      "dataset": "ARCX.PILLAR",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "BATS.PITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "BATY.PITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "DBEQ.BASIC",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2023-03-28"
+    },
+    {
+      "dataset": "EDGA.PITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "EDGX.PITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "EPRL.DOM",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2023-03-28"
+    },
+    {
+      "dataset": "EQUS.MINI",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2023-03-28"
+    },
+    {
+      "dataset": "EQUS.SUMMARY",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2024-07-01"
+    },
+    {
+      "dataset": "GLBX.MDP3",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2010-06-06"
+    },
+    {
+      "dataset": "IEXG.TOPS",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2023-03-28"
+    },
+    {
+      "dataset": "IFEU.IMPACT",
+      "end": "2026-08-21",
+      "eu_hint": true,
+      "start": "2018-12-23"
+    },
+    {
+      "dataset": "IFLL.IMPACT",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-12-23"
+    },
+    {
+      "dataset": "IFUS.IMPACT",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-12-23"
+    },
+    {
+      "dataset": "MEMX.MEMOIR",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2023-03-28"
+    },
+    {
+      "dataset": "NDEX.IMPACT",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-12-23"
+    },
+    {
+      "dataset": "OCEA.MEMOIR",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2025-08-24"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-08-21",
+      "eu_hint": true,
+      "start": "2013-04-01"
+    },
+    {
+      "dataset": "XASE.PILLAR",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "XBOS.ITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "XCBF.PITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-11-04"
+    },
+    {
+      "dataset": "XCHI.PILLAR",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2023-03-28"
+    },
+    {
+      "dataset": "XCIS.TRADESBBO",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2023-03-28"
+    },
+    {
+      "dataset": "XEEE.EOBI",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2026-07-21"
+    },
+    {
+      "dataset": "XEUR.EOBI",
+      "end": "2026-08-21",
+      "eu_hint": true,
+      "start": "2025-03-10"
+    },
+    {
+      "dataset": "XNAS.BASIC",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2024-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "XNYS.PILLAR",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    },
+    {
+      "dataset": "XPSX.ITCH",
+      "end": "2026-08-21",
+      "eu_hint": false,
+      "start": "2018-05-01"
+    }
+  ],
+  "eu_hints": [
+    "XMIL",
+    "MTAA",
+    "EURONEXT",
+    "XPAR",
+    "XAMS",
+    "XBRU",
+    "XLIS",
+    "XLON",
+    "CHIX",
+    "BATE",
+    "CEUX",
+    "DXE",
+    "TRQX",
+    "TQEX",
+    "AQEU",
+    "AQXE",
+    "EQTA",
+    "EQTB",
+    "XETR",
+    "XSWX",
+    "EUR",
+    "EU.",
+    "ICE",
+    "OPRA"
+  ]
+}

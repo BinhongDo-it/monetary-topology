@@ -1,6 +1,6 @@
 {
   "diagnostic_only": true,
-  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a716. It measures a cycle-space capacity and carries no omega or holonomy claim (\u00a716.0).",
+  "diagnostic_reason": "Registered in the B10 availability register \u00a716. It measures a cycle-space capacity and carries no omega or holonomy claim (\u00a716.0).",
   "drop_states": [
     "XX"
   ],

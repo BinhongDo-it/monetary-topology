@@ -10,12 +10,15 @@ from the scripts it calls.
 **Why a runner rather than a shell loop.** Three reasons, each of which has
 already cost this project something:
 
-1. **Seventeen products on disk carry a "Registered in `docs/b8_inputs_availability.md`"
-   line pointing at a file that moved.** The writers were corrected; the outputs
-   on disk are from before the correction. Nothing regenerates them on its own,
-   so the stale pointer survives every partial re-run. A pass that re-runs the
-   writers clears all seventeen at once, and `--check-pointers` says whether it
-   did.
+1. **A corrected writer does not correct the product it already wrote.** When
+   the B8 inputs register moved, the writers were corrected and the products on
+   disk were not, and nothing regenerates a product on its own, so the stale
+   pointer survived every partial re-run for four days. Those header lines were
+   corrected in place on 2026-08-22, each checked against the string its own
+   writer now assembles. `--check-pointers` is what says so, and it stays
+   because the general failure does not go away with this instance of it: a
+   whole-package pass is the only thing that puts every product back in step
+   with its writer at once.
 2. **Order matters and is not obvious.** The core table feeds the loop cache,
    the loop cache feeds four stations, and `b8_verdicts.py` reads the products
    of nine. Run out of order and a station reads a stale upstream without
@@ -43,13 +46,13 @@ merits:
   registered parameters or any other, and the products on disk predate the
   change. The column is now in both. That is `--minimal`, and all three read the
   core table rather than the archives.
-- **The remaining products are stale in a header line only**: they name
-  `docs/b8_inputs_availability.md`, which moved. Clearing that costs a full
-  re-run of those stations, several of which rescan the 2.9 GB of archives.
-  **That trade is bad, and this project has already ruled the other way once**:
-  the thirty references inside `HANDOFF_B8.md` were handled on 2026-08-18 by
-  annotating the replacement file rather than by editing thirty places
-  (ledger seven.2.3). The same treatment fits here.
+- **The remaining products were stale in a header line only**, and a re-run was
+  the wrong price for it: several of those stations rescan the 2.9 GB of
+  archives to reprint a line that names no number. They were corrected in place
+  on 2026-08-22 against their own writers' strings instead, which is the same
+  ruling reached on 2026-08-18 for the references inside the handoff, and for
+  the same reason: **a header line is not a measurement, so re-measuring is not
+  what fixes it.**
 
 So the full pass is for **after something upstream actually changes** — the core
 table, the loop cache's source hash, or a station's arithmetic. It is written
@@ -205,7 +208,7 @@ def main() -> int:
     ap.add_argument("--offparam", action="store_true",
                     help="also the off-parameter sweeps, which write .offparam_ files")
     ap.add_argument("--check-pointers", action="store_true",
-                    help="list the products still naming the moved register, run nothing")
+                    help="list any product still naming the moved register, run nothing")
     a = ap.parse_args()
 
     if a.check_pointers:

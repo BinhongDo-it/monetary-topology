@@ -19,17 +19,21 @@ documents (`results/b8_c8_arithmetic.md`, `b8_c8_1c_contract_payment.md`,
 
 ---
 
-## 0. Addendum, 2026-08-19: the products that name the old path
+## 0. Addendum: the register this file replaces, and how the products name it
 
-**Seventeen files under `results/b8_*.md` carry a header line reading
-"Registered in `docs/b8_inputs_availability.md`".** That file moved; this one
-replaces it. The writers were corrected, so any product regenerated after the
-correction names the register without a path. The seventeen on disk are older
-outputs.
+**The B8 inputs register moved out of this repository on 2026-08-18** and this
+file replaces it. The writers were corrected the same week to name the register
+without a path, so anything they produce from then on reads "the B8 inputs
+register" and a section number.
 
-**They are not being regenerated for this.** Clearing a header line would cost a
-re-run of seventeen stations, several of which rescan 2.9 GB of archives, and
-their numbers were verified on 2026-08-18, digit for digit.
+**The products on disk kept the old path for four days**, because nothing
+regenerates a product on its own and a partial re-run never touches the ones it
+does not run. Re-running eleven stations to clear a header line was refused:
+several rescan 2.9 GB of archives, and their numbers had been verified on
+2026-08-18 digit for digit. **The header lines were corrected in place on
+2026-08-22 instead**, each one checked against the string its own writer now
+assembles, so a re-run reproduces the file rather than changing it. **No number
+was touched and none moved.**
 
 **Two exceptions, and they are exceptions to the numbers and not only to the
 header, found on 2026-08-19.** `b8_c8_1e_undermode.md` and
@@ -40,11 +44,7 @@ between 2026-08-17 and 2026-08-19: both opened the core table without
 silently netting field 63 alone. **Those two products therefore predate C11-1's
 `12 - 63 - 108` and their numbers will move when the writers are re-run.** The
 column has been added to both; the re-run is `run_b8_package.py --minimal`.
-Everything below this paragraph concerns the remaining fifteen, whose numbers
-stand. **This is the same ruling made on 2026-08-18 for the
-thirty references inside `HANDOFF_B8.md`**, which were handled by annotating the
-replacement rather than by editing thirty places, on the ground that editing
-them loses the history of where they pointed.
+Everything below this paragraph concerns the products whose numbers stand.
 
 **So, for a reader who meets one of those seventeen headers:**
 

@@ -11,7 +11,7 @@ Rules crossed: interpolation ['linear_in_tenor', 'linear_in_log_tenor'], beyond 
 
 ## 1. The spread against the B8-0a(i-b) noise floor
 
-The floor is the median absolute loop sum on the same archive (`b8_inputs_availability.md` §6.2.11.4). **A spread below it means the choice cannot be seen through the measurement and any rule serves. Above it, the choice must be ruled.**
+The floor is the median absolute loop sum on the same archive (the B8 inputs register §6.2.11.4). **A spread below it means the choice cannot be seen through the measurement and any rule serves. Above it, the choice must be ruled.**
 
 | archive | priced | **spread p50** | p90 | p99 | max | **(i-b) floor** | **p50 / floor** | **load bearing?** |
 |---|---|---|---|---|---|---|---|---|

@@ -1,0 +1,169 @@
+{
+  "criteria": [
+    {
+      "detail": "27 of 276 obligors carrying the marker survive to a priceable instrument (0.0978 retention)",
+      "diagnostic": true,
+      "name": "T0 exact LEI: a contract-priced V can exist for >= 200 marked obligors",
+      "passed": false
+    },
+    {
+      "detail": "29 of 276 (0.1051 retention). A finance subsidiary issuing under a parent guarantee is the ordinary structure here, so T0 understates. This is the tier C11-1 should be ruled on.",
+      "diagnostic": true,
+      "name": "T1 immediate family: same, allowing one ownership hop",
+      "passed": false
+    },
+    {
+      "detail": "29 of 276 (0.1051 retention). Collapses every arm of a conglomerate to one node, so a match here can pair an exchanged bond with a contract from an unrelated affiliate. Not a basis for a ruling.",
+      "diagnostic": true,
+      "name": "T2 same ultimate root: upper bound only",
+      "passed": false
+    },
+    {
+      "detail": "5 of 276 (0.0181 retention). No entity inference: the contract V is built from is the security the exchange rewrote. This is the tier C11-1 should be ruled on if it clears the LEI tiers.",
+      "diagnostic": true,
+      "name": "T3 same security by CUSIP-8: a contract-priced V for >= 200 marked obligors",
+      "passed": false
+    },
+    {
+      "detail": "5 of 276 (0.0181 retention). Terms may come from a different bond of the same issuer than the one exchanged.",
+      "diagnostic": true,
+      "name": "T4 same issuer by CUSIP-6: upper bound on T3",
+      "passed": false
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Availability measurement for the C11-1 ruling. No investment-grade condition is applied and no rating path is walked, so C11-0 is not evaluated here.",
+  "funnel": {
+    "1_carries_marker": 276,
+    "2_has_lei": 186,
+    "2a_lei_on_marker_row": 176,
+    "3_lei_in_terms_agency": 32,
+    "4_T1_immediate_family": 29,
+    "4_T2_same_ultimate_root": 29,
+    "4_T3_same_security_cusip8": 5,
+    "4_T4_same_issuer_cusip6": 5,
+    "4_has_priceable_instrument": 27,
+    "4b_reached_only_by_name": 63,
+    "cusip_index_keys": 4214,
+    "cusip_reached_by_column": {
+      "issuer_identifier": 8
+    },
+    "marked_with_any_cusip": 8,
+    "marked_with_any_identifier": 263,
+    "per_window_T1": {
+      "covid": 8,
+      "energy": 8,
+      "outside": 11,
+      "rates": 2
+    },
+    "per_window_T2": {
+      "covid": 8,
+      "energy": 8,
+      "outside": 11,
+      "rates": 2
+    },
+    "per_window_T3": {
+      "energy": 1,
+      "outside": 3,
+      "rates": 2
+    },
+    "per_window_T4": {
+      "energy": 1,
+      "outside": 3,
+      "rates": 2
+    },
+    "per_window_step1": {
+      "covid": 62,
+      "energy": 47,
+      "outside": 131,
+      "rates": 62
+    },
+    "per_window_step4": {
+      "covid": 7,
+      "energy": 8,
+      "outside": 10,
+      "rates": 2
+    },
+    "terms_priceable_cusip8": 65263
+  },
+  "gleif": {
+    "dropped": {
+      "IS_DIRECTLY_CONSOLIDATED_BY/INACTIVE": 23,
+      "IS_DIRECTLY_CONSOLIDATED_BY/unusable": 4,
+      "IS_FEEDER_TO": 1385,
+      "IS_FUND-MANAGED_BY": 149241,
+      "IS_INTERNATIONAL_BRANCH_OF/INACTIVE": 1,
+      "IS_INTERNATIONAL_BRANCH_OF/unusable": 5,
+      "IS_SUBFUND_OF": 73102,
+      "IS_ULTIMATELY_CONSOLIDATED_BY/INACTIVE": 41,
+      "IS_ULTIMATELY_CONSOLIDATED_BY/unusable": 3
+    },
+    "file": "20260817-0800-gleif-goldencopy-rr-golden-copy.csv.zip",
+    "guard_hits": {},
+    "max_chain": 16,
+    "ownership_edges_kept": {
+      "IS_DIRECTLY_CONSOLIDATED_BY": 126337,
+      "IS_INTERNATIONAL_BRANCH_OF": 1938,
+      "IS_ULTIMATELY_CONSOLIDATED_BY": 132479
+    },
+    "ownership_types": [
+      "IS_DIRECTLY_CONSOLIDATED_BY",
+      "IS_INTERNATIONAL_BRANCH_OF",
+      "IS_ULTIMATELY_CONSOLIDATED_BY"
+    ],
+    "registration_status": {
+      "LAPSED": 75419,
+      "PENDING_ARCHIVAL": 8,
+      "PENDING_TRANSFER": 1,
+      "PUBLISHED": 185326
+    }
+  },
+  "marker_side": {
+    "rows": 447579
+  },
+  "parameters": {
+    "contract_columns": [
+      "coupon_date",
+      "maturity_date",
+      "par_value"
+    ],
+    "marker_agency": "Fitch",
+    "marker_files": [
+      "20260801 Fitch Ratings Corporate.csv",
+      "20260801 Fitch Ratings Financial.csv",
+      "20260801 Fitch Ratings Insurance.csv"
+    ],
+    "no_fixed_coupon_term": "Bank Credit Facility",
+    "terms_agency": "Moody",
+    "terms_files": [
+      "20241115 Moody's Investors Service Corporate.csv",
+      "20241115 Moody's Investors Service Financial.csv",
+      "20241115 Moody's Investors Service Insurance.csv"
+    ],
+    "windows": [
+      [
+        "energy",
+        "2015-01-01",
+        "2016-12-31"
+      ],
+      [
+        "covid",
+        "2020-01-01",
+        "2021-12-31"
+      ],
+      [
+        "rates",
+        "2022-01-01",
+        "2023-12-31"
+      ]
+    ]
+  },
+  "stage": "B11-coverage",
+  "terms_side": {
+    "distinct_leis": 4023,
+    "distinct_leis_priceable": 2594,
+    "own_default_obligors": 344,
+    "priceable_rows": 388767,
+    "rows": 557736
+  }
+}

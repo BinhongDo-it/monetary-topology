@@ -22,7 +22,7 @@
     ]
   ],
   "diagnostic_only": true,
-  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a736. Counts only; no omega, no B8 prediction. One-sided on the calendar (\u00a736.1).",
+  "diagnostic_reason": "Registered in the B10 availability register \u00a736. Counts only; no omega, no B8 prediction. One-sided on the calendar (\u00a736.1).",
   "edge": 3,
   "loans": 1353651,
   "min_age": 0,

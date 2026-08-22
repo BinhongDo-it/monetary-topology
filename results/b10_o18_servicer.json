@@ -5,7 +5,7 @@
     3
   ],
   "diagnostic_only": true,
-  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a734. One-sided by construction (\u00a734.0). No omega, no B8 prediction.",
+  "diagnostic_reason": "Registered in the B10 availability register \u00a734. One-sided by construction (\u00a734.0). No omega, no B8 prediction.",
   "min_loans": 200,
   "one_sided_caveat": "Firm name is an origination-side field and servicing transfers; attribution noise attenuates. A small spread cannot refute.",
   "stage": "B10",

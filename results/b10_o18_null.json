@@ -9,7 +9,7 @@
     "blank_or_other"
   ],
   "diagnostic_only": true,
-  "diagnostic_reason": "Registered in docs/b10_freddie_availability.md \u00a741. Counts only; no omega, no B8 prediction; does not transfer to Fannie (\u00a741.4).",
+  "diagnostic_reason": "Registered in the B10 availability register \u00a741. Counts only; no omega, no B8 prediction; does not transfer to Fannie (\u00a741.4).",
   "grid_check": {
     "+1": 0.012418165703942247,
     "consistent_with_s38": true,

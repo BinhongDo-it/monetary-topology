@@ -666,7 +666,7 @@
     }
   },
   "diagnostic_only": true,
-  "diagnostic_reason": "B8-1 has not been run on Fannie, so this stage's readings serve only the payment model decision in b8_omega.py and carry no omega claim. docs/b10_freddie_availability.md \u00a712.0.",
+  "diagnostic_reason": "B8-1 has not been run on Fannie, so this stage's readings serve only the payment model decision in b8_omega.py and carry no omega claim. the B10 availability register \u00a712.0.",
   "min_age": 8,
   "moduli": [
     10,

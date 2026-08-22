@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {
+      "api": "https://goldencopy.gleif.org/api/v2/golden-copies/publishes?format=json",
+      "bytes": 24209447,
+      "file": "20260817-0800-gleif-goldencopy-rr-golden-copy.csv.zip",
+      "publish_date": "2026-08-17 08:00:00",
+      "retrieved_utc": "2026-08-17T14:22:38Z",
+      "sha256": "dfe4a562498316276fd2cc6182d89726737e0c434ddf335897f01d05c8c7e20f",
+      "url": "https://goldencopy.gleif.org/storage/golden-copy-files/2026/08/17/1264925/20260817-0800-gleif-goldencopy-rr-golden-copy.csv.zip"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 """B10 / C8-1d on Freddie: separating the contract payment from the habitual one.
 
-Pre-registered in ``docs/b10_freddie_availability.md`` §12, **before this file was
+Pre-registered in the B10 availability register §12, **before this file was
 written**. Every reading it can return is declared there and nothing is added here.
 
 Why this file exists
@@ -14,7 +14,7 @@ runnable*. The reason, as it was written at the time:
 
 Freddie publishes those three fields separately and two of the three have been
 earned by behaviour rather than taken from a layout document
-(``docs/b10_freddie_availability.md`` §10.1):
+(the B10 availability register §10.1):
 
 * original interest rate matches the first month's current rate to ``5e-4`` on
   **99.958%** of 1,362,490 loans;
@@ -48,7 +48,7 @@ statement about an amortisation identity, not about the world.
 
 The age-8 rule, which is not optional
 -------------------------------------
-``docs/b10_freddie_availability.md`` §11.3 measured Freddie's disclosure grid:
+The B10 availability register §11.3 measured Freddie's disclosure grid:
 **Current Actual UPB is rounded to the nearest $1,000 for loan ages 0 to 6 and
 reported to the cent from age 7.** So every ``P(t)`` for ``t`` in 1..7 is rounding
 noise of order ±$1,000, two orders of magnitude above a real payment, and the
@@ -103,7 +103,7 @@ VINTAGES = tuple(range(1999, 2027))
 # Field positions. Zero-based. Confirmed against the files themselves rather
 # than against a layout document: `--depth` prints the field count of every
 # archive and all twenty-eight read `orig = 31`, `perf = 35`
-# (`docs/b10_freddie_availability.md` §11.1).
+# (the B10 availability register §11.1).
 # ---------------------------------------------------------------------------
 P_SEQ, P_PERIOD, P_UPB, P_DELINQ, P_AGE, P_REM = 0, 1, 2, 3, 4, 5
 P_MODFLAG, P_ZEROBAL, P_RATE = 7, 8, 10
@@ -1692,7 +1692,7 @@ def cmd_depth(only) -> int:
          "diagnostic_reason":
              "B8-1 has not been run on Fannie, so this stage's readings serve "
              "only the payment model decision in b8_omega.py and carry no omega "
-             "claim. docs/b10_freddie_availability.md §12.0.",
+             "claim. the B10 availability register §12.0.",
          "min_age": MIN_AGE, "u0_half_grid": U0_HALF_GRID,
          "vintages": rows, "drops_total": dict(sorted(totals.items()))},
         indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
@@ -1838,7 +1838,7 @@ def _write_run(summary) -> int:
          "diagnostic_reason":
              "B8-1 has not been run on Fannie, so this stage's readings serve "
              "only the payment model decision in b8_omega.py and carry no omega "
-             "claim. docs/b10_freddie_availability.md §12.0.",
+             "claim. the B10 availability register §12.0.",
          "min_age": MIN_AGE, "u0_half_grid": U0_HALF_GRID,
          "moduli": list(MODULI), "arms": summary},
         indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")

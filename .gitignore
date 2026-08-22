@@ -34,10 +34,10 @@ data/processed/*
 !figures/*.png
 !results/*.json
 
-# Reduced runs live here so they cannot displace a full record: the renderer's
-# glob is not recursive, so nothing in this directory reaches RESULTS.md. They
-# are committed anyway, because a smoke run that disagrees with the full one is
-# the thing you want in the history rather than out of it.
+# Reduced runs live here, in their own directory, so a smoke run can never be
+# read as a stage's record: the directory is the separation. They are committed
+# anyway, because a smoke run that disagrees with the full one is the thing you
+# want in the history rather than out of it.
 !results/subset/*.json
 
 .DS_Store
@@ -70,33 +70,41 @@ b8_paths.txt
 # does not delete. Nothing here is on any code path.
 _to_delete/
 
-# B11: a stage with no section in RESULTS.md, whose register is held outside
-# this repository. Its code and records stay out so that `git add -A` cannot
-# sweep in a stage whose pre-registration does not ship.
-experiments/b11_*.py
-results/b11_*.json
+# ---------------------------------------------------------------------------
+# Per-stage exclusions. Read this before adding one.
+#
+# The test is a PROPERTY OF THE FILE, never a state of the stage. "This stage
+# has not closed yet", "its register is held elsewhere", "it has no section in
+# RESULTS.md" are all states, and states go stale while the rule that quotes
+# them does not. Whoever reads such a rule later cannot tell whether it still
+# holds without re-deriving it, which is the cost this paragraph exists to
+# prevent.
+#
+# That is not hypothetical. A rule here once kept an entire stage's code and
+# records out on the ground that it had no section in RESULTS.md. It then
+# closed and reported 422 marker rows across 227 issuers in RESULTS.md, and the
+# rule went on excluding the very script that produced those numbers, because
+# nothing makes a rule notice that its premise expired. Removed 2026-08-22
+# after re-deriving it by hand: the second time anyone had to.
+#
+# An unfinished stage is not a reason to exclude anything. Its records ship
+# carrying `diagnostic_only` and a `diagnostic_reason` that says in plain words
+# which readings are not yet the stage's own. That is the mechanism for
+# incompleteness, and it is already running.
+#
+# So a rule below is well formed only if it names a file that is not a stage's
+# reading and never will be: a hand-made backup, a subset run, a scratch file,
+# a cache that rebuilds from raw. If the reason cannot be written without
+# describing what some stage is currently doing, the rule is the wrong shape.
+# ---------------------------------------------------------------------------
 
-# B10's working files. The stage itself now ships; these do not. The first
-# rule is the hand-made backups taken before a mechanism changed; the second
-# and third are subset runs, whose file names carry the vintages they cover
-# and whose numbers are therefore not the stage's reading.
+# B10. Never the stage's reading, by construction rather than by timing. The
+# first rule catches the hand-made backups taken before a mechanism changed;
+# the second and third catch subset runs, whose file names carry the vintages
+# they cover, so their numbers answer a narrower question than the stage's.
 results/b10_*.json.*
 results/b10_*.pre*.json
 results/b10_*.[0-9][0-9][0-9][0-9]*.json
-
-# B11's retrieval side, found 2026-08-19 while preparing the add-list. The rule
-# above excluded `experiments/b11_*.py` and `results/b11_*.json` but not the two
-# fetchers those files import, nor the two manifests they write. Each is reached
-# only from an already-excluded B11 file, so committing them would ship half a
-# stage whose pre-registration is held outside this repository. The manifest
-# negation `!data/raw/*_manifest.json` is above, so these two lines have to come
-# after it: last match wins.
-data/fetch_rocr.py
-data/fetch_gleif.py
-data/raw/rocr_manifest.json
-data/raw/gleif_manifest.json
-
-# B14 的派生面板缓存（data/cache/
 
 # B14 的派生面板缓存（data/cache/b14/panel_*.csv，约 60 MB）。
 # 与 data/raw/* 同理：可从原始 .gzip 两分钟重建，不进仓库。
