@@ -107,10 +107,13 @@ MIN_BYTES = 20_000
 #: the default because it is what gets through; ``--user-agent`` overrides it,
 #: and BLS's own guidance is to identify automated requests, so a contact
 #: address there is the courteous form.
-DEFAULT_USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
-)
+#: This repository identifies itself to every publisher it reads. That is the
+#: convention across the other fetchers here and it is the convention because
+#: a publisher who wants to refuse an automated reader is entitled to, and a
+#: header that hides the reader takes that decision away from them. If a
+#: publisher filters on the header, ``--user-agent`` overrides it for one run
+#: on the machine doing the reading; the default that ships stays honest.
+DEFAULT_USER_AGENT = "monetary-topology/1.0 (academic replication; contact via repo)"
 ACCEPT = (
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,"
     "application/vnd.ms-excel,*/*;q=0.8"
@@ -425,7 +428,7 @@ def main() -> int:
     ap.add_argument("--force", action="store_true",
                     help="refetch, retiring the current files")
     ap.add_argument("--user-agent", default=DEFAULT_USER_AGENT,
-                    help="request header this publisher filters on")
+                    help="override the identifying header for one run")
     args = ap.parse_args()
 
     print("CEX income deciles, income before taxes and the necessities basket")

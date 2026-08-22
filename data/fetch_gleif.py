@@ -65,10 +65,13 @@ TIMEOUT_SECONDS = 600
 RETRY_ATTEMPTS = 3
 RETRY_BACKOFF_SECONDS = 2.0
 
-DEFAULT_USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
-)
+#: This repository identifies itself to every publisher it reads. That is the
+#: convention across the other fetchers here and it is the convention because
+#: a publisher who wants to refuse an automated reader is entitled to, and a
+#: header that hides the reader takes that decision away from them. If a
+#: publisher filters on the header, ``--user-agent`` overrides it for one run
+#: on the machine doing the reading; the default that ships stays honest.
+DEFAULT_USER_AGENT = "monetary-topology/1.0 (academic replication; contact via repo)"
 
 PATH_SAFE = "/:@&=+$,;~()'!*"
 

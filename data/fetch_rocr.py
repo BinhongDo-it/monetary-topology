@@ -125,10 +125,13 @@ ASSET_CLASSES = (
 #: The listing was rejected by no publisher so far, but BLS rejected a bare
 #: agent with a 403 on this project once already (``data/fetch_cex.py``), and a
 #: browser-shaped default costs nothing.
-DEFAULT_USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
-)
+#: This repository identifies itself to every publisher it reads. That is the
+#: convention across the other fetchers here and it is the convention because
+#: a publisher who wants to refuse an automated reader is entitled to, and a
+#: header that hides the reader takes that decision away from them. If a
+#: publisher filters on the header, ``--user-agent`` overrides it for one run
+#: on the machine doing the reading; the default that ships stays honest.
+DEFAULT_USER_AGENT = "monetary-topology/1.0 (academic replication; contact via repo)"
 
 #: Tokens the ROCR schema uses for the fields C11-1 is about. The peek report
 #: flags a column whose name contains one of these, and then prints the raw
@@ -197,8 +200,9 @@ def request(url: str, agent: str, headers: dict[str, str] | None = None):
             if exc.code == 403:
                 raise Forbidden(
                     f"HTTP 403 for {url}\n"
-                    "The publisher refused this agent. Retry with --user-agent, "
-                    "or fetch the file in a browser and drop it in "
+                    "The publisher refused this client. That is their decision to "
+                    "make and this file does not work around it: fetch the file in "
+                    "a browser yourself and drop it in "
                     f"{ROCR} under the same name; every later mode reads the cache."
                 ) from exc
             if 500 <= exc.code < 600:
