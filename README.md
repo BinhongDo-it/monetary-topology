@@ -198,10 +198,20 @@ most useful file here for anyone who wants to know how much to trust the rest.**
 
 ---
 
-## What the model assumes
+## What the A-track model assumes
 
-Stated plainly, because the results follow from these and a reader should be
-able to attack them directly rather than reverse-engineer them from code.
+**This section is about the A track only, and the B track rests on none of it.**
+The A track is a simulation, so it has to declare a population, a behavioural
+rule and a parameter range before it can produce anything, and every one of
+those is a place to attack it. The B track measures a closed-loop sum on
+administrative data; it needs no strata, no spending propensity, no elasticity
+and no calibrated wage bill, and its scope is fixed instead by B0, which states
+what a non-zero loop does and does not license. **A reader who came for the
+measurement stations can skip to the next section.**
+
+Stated plainly, because the A-track results follow from these and a reader
+should be able to attack them directly rather than reverse-engineer them from
+code.
 
 **Load-bearing.** The financial layer has no discretionary edge into the
 production layer. Its spending can land only inside itself. The single downward
@@ -250,11 +260,6 @@ limitation, and it is the reason stage A3 exists.
 ---
 
 ## What this is not
-
-> **[2026-08-18]** This section is kept here because it is written for outside readers.
-> The project's disciplines are maintained outside this repository and are not
-> published; this section is the part a reader of the repository needs.
-
 
 - Not a forecast. Nothing here predicts the timing of anything.
 - Not *fitted* to data. Published levels are substituted directly into the model

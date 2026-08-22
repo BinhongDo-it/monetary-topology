@@ -48,9 +48,9 @@
 > failure mode with an instance in this repository, followed by the checklist to run before
 > reporting a number and one meta-rule.
 >
-> **It is not the project's rulebook.** The engineering and research disciplines that govern what
-> may be registered, run, and quoted are maintained outside this repository and are not published.
-> Nothing here depends on them: every failure mode below stands on its own instance.
+> **Every failure mode below stands on its own instance**, which is in this
+> repository and can be checked against the record. Nothing here rests on anything
+> that is not here.
 
 （度量约定：报任何数之前先过这一遍）
 
