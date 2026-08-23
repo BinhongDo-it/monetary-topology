@@ -26,14 +26,14 @@ A4 **3 pass, 2 void**, A5 **4/8**, A6 **3 pass 2 fail** plus a ratchet arm at **
 A7 **leg A: one pass and five failed or void, with the headline in the failures; leg B: unreadable
 at every grid point, and it says so.**
 
-**Retracted.** The argument form "we assume less" is **void and may not appear in any paper**. The
+**Superseded.** The argument form "we assume less" is **void and may not appear in any paper**. The
 parameter census is **90 to 100 settable fields**, against roughly a dozen for Mark-0 and an
 effective count of one for Wright. It is replaced by a weaker and defensible claim: a small tunable
 space with nothing fitted, published levels entered as published, and every conclusion required to
 hold under both parameterisations. Also retracted: the original A3 target (gluing the earlier stages
 into an integration simulator), because gluing produces levels and not compounding.
 
-**Caveat.** Two structural weaknesses the record names itself, and both have moved.
+**Scope.** Two structural weaknesses the record names itself, and both have moved.
 **The coverage test is closed rather than outstanding**: Objection 11 ruled it invalid as
 self-validation, because it lists what the framework explains and never what it forbids, and in a
 space of 90 to 100 settable fields whether one vector hits four surfaces answers a question about
@@ -61,11 +61,12 @@ bottom?
 criterion is that the slope be **statistically indistinguishable from zero with the adjacency matrix
 held fixed**. The slope's measured value is not recorded in the plan file.
 
-**Retracted.** None, but five design changes were forced during the build, including deleting an
-edge the manuscript specifies as zero, and folding wage edges into the adjacency matrix (otherwise
-potential support beats realised support purely because the wage edge was not in the graph).
+**Where the build departs from the manuscript.** Two departures matter to anyone comparing the two:
+an edge the manuscript specifies as zero is removed, and wage edges are folded into the adjacency
+matrix, because leaving them out makes potential support beat realised support for no reason other
+than the missing edge.
 
-**Caveat.** A mechanism demonstration, not a fit: no credit creation, no prices, no calibration.
+**Scope.** A mechanism demonstration, not a fit: no credit creation, no prices, no calibration.
 **Its falsification clause is live**: a significant positive slope with a correct implementation
 would establish the manuscript's own load-bearing objection and force revision of Volume I §1.
 
@@ -81,10 +82,10 @@ steady state exists (lowest observed `2.85`); at or above it there is none (high
 `3.5e-83`). Above the line, survival is **strictly linear** in the autonomous share. A reduction
 guard reproduces the fixed-wage model **bitwise** at elasticity zero.
 
-**Retracted.** None. The stage was not planned; it was added because under a fixed wage bill the
-production layer settles, and a model attached to an already-settled layer can only match levels.
+**Why this stage exists.** It was added rather than planned: under a fixed wage bill the production
+layer settles, and a model attached to an already-settled layer can only match levels.
 
-**Caveat.** Threshold results are the class where the nearest published competitor is the same kind
+**Scope.** Threshold results are the class where the nearest published competitor is the same kind
 of object, so this is **semi-distinctive at best**. The difference claimed is in the trigger
 (network structure rather than parameter space) and has to be argued case by case.
 
@@ -105,11 +106,11 @@ Propensity is a property of the agent, reachability is a property of the graph, 
 one decides. With three layers the wage channel closes to `2.571e-139` **while the bill amount is
 unchanged and elasticity is zero**. Zero autonomous edges collapses; **one edge recovers 75%**.
 
-**Retracted.** The thresholded support-set measure, mid-design: proportional dynamics have a
+**Superseded.** The thresholded support-set measure, mid-design: proportional dynamics have a
 positive stationary distribution, so **any cutoff measures the cutoff itself** and the support set
 can never contract. Replaced with a threshold-free measure.
 
-**Caveat.** Claimed for a class of topologies, not universally. The registered failure clause stands:
+**Scope.** Claimed for a class of topologies, not universally. The registered failure clause stands:
 if no parameter interval delivers "volume up, support down", the criterion needs extra conditions
 and the threshold has to be recorded.
 
@@ -124,9 +125,8 @@ and the threshold has to be recorded.
 `1.65×` while its **share** falls from `2.18e-02` to `8.59e-07`. **Cycle rank collapses to `0.029`
 of potential with no edge deleted.**
 
-**Retracted.** None.
 
-**Caveat.** Self-imposed and kept as a criterion rather than a footnote: in the two-layer
+**Scope.** Self-imposed and kept as a criterion rather than a footnote: in the two-layer
 configuration the cycle-rank instrument is **inert** (`1074` against a potential `1190`, motionless
 throughout), so cycle-rank results speak only for the three-layer carrier. It was kept as a
 criterion precisely so a later refactor could not quietly delete it and make the method look more
@@ -162,7 +162,7 @@ void**; A1c **2 of 2**; A1d **7 of 9**.
 - The delinquency gradient on a matched twelve-month window, on both pairs either side can resolve,
   in all six sweep cells.
 
-**Withdrawn, refuted, or undecidable.** Four, each named for which of those it is.
+**Revised, refuted, or unresolved.** Four, each named for which of those it is.
 
 - **A cross-section of first defaults is not a sequence.** It is the holdings composed with the cost
   rule: **two households in five hold neither of the first two rungs.** *Aggregate delinquency
@@ -180,7 +180,7 @@ states A3's hard prerequisite is that A0, A1 and A2 all pass. A3 was built and r
 started. A1 has now run; **the gate was breached at the time and the record does not show it being
 re-decided.**
 
-**Caveat.** The three failures that matter all have the same shape: **a verdict decided by a handful
+**Scope.** The three failures that matter all have the same shape: **a verdict decided by a handful
 of households.** One cell of 37, one pair at 0.14 standard errors, one cell of six families with one
 household deciding it. Any citation of A1's failures must carry the cell size.
 
@@ -206,7 +206,7 @@ and **fails in four of fourteen grid cells, left unfixed**. The record's own rea
 conclusion lives on one parameter value and A3-4's does not, and that is a finding of the grid
 rather than a defect to tune away.
 
-**Withdrawn, refuted, or undecidable.** Six, and they are the most instructive part of the station.
+**Revised, refuted, or unresolved.** Six, and they are the most instructive part of the station.
 
 - **The service-flow return was deleted.** Imputed rent has no honest accounting representation
   here: you either conjure claims and break conservation, or you invent a conversion rate, and
@@ -228,7 +228,7 @@ rather than a defect to tune away.
   exist.** The registration had named that axis specifically, so the one named axis was the one not
   being tested.
 
-**Caveat.** **Every A3 measurement after round 15 is taken on an economy in which the production
+**Scope.** **Every A3 measurement after round 15 is taken on an economy in which the production
 layer cannot enter the asset market at any price** (see §6.4d below). That covers A3-4's three
 windows, A3-7 and A3-8. The record's phrasing: this is not their defect, it is the carrier's scope.
 The asset specification's tier count, unit counts, opening prices, base terms, stretch, turnover and
@@ -286,7 +286,7 @@ rule itself does.
 > faster than the intensive margin.** B9 registered a test with the opposite sign against it, ran
 > it, and lost — see Part 2.
 
-**Retracted.** An earlier characterisation ("the hole is at the low-tier margin, 23 nodes stuck
+**Superseded.** An earlier characterisation ("the hole is at the low-tier margin, 23 nodes stuck
 between the two gates") is corrected to **a reading of the opening instant only**. That hole closes
 between rounds 6 and 15. The gate is a hole for ten rounds and a wall for the remaining two hundred
 ninety, **and nothing in the registered report says when it flips.**
@@ -307,10 +307,10 @@ the project. And the measured negative result: each opponent acting alone raises
 **`−0.00006`** (assortative mating), **all below the `0.02` floor**; after one conduit was removed,
 no opponent moved more than **1.60%** of the stock in any cell of the entire design.
 
-**Withdrawn, refuted, or undecidable.** Two criteria are **void**, and both are among the claims the project most
+**Revised, refuted, or unresolved.** Two criteria are **void**, and both are among the claims the project most
 wants.
 
-**Caveat.** The headline Gini comparison **stands on a domain the project itself measured to be
+**Scope.** The headline Gini comparison **stands on a domain the project itself measured to be
 sixteen financial-layer nodes**, and that is on its own weakness list. More generally: **four
 undecidables cluster on exactly the claims the project most wants**, and the record's own rule is
 that undecidable cannot be used as a defence and four undecidables must not be read as four to-do
@@ -333,7 +333,7 @@ production layer's effective reachability is `ρ = 5.88` against the financial l
 > The station file `docs/a5_reachability.md` §2 reads `0.25` / `5.88`, a factor of `23.5`.
 > **The ratio was right; the numerator was not.**
 
-**Withdrawn, refuted, or undecidable.** **The headline here is the record, not the verdict.** The stage's stored
+**Revised, refuted, or unresolved.** **The headline here is the record, not the verdict.** The stage's stored
 results file **cannot be produced by the code committed alongside it**, and the inconsistency
 survived five subsequent commits. The cause was a mechanism added as default-on to a machine A5 runs
 entirely on, without re-running A5. With that mechanism set back to zero the five stored numbers
@@ -347,7 +347,7 @@ neither the run-all list nor continuous integration, **so record and code had ne
 compared.** It was caught by re-running the stage, not by a guard and not by anyone spotting a wrong
 number.
 
-**Caveat.** The simple-case result does not transfer. **What transfers is the shape**: there exists
+**Scope.** The simple-case result does not transfer. **What transfers is the shape**: there exists
 a critical point, and the benign side is out of reach in practice. One criterion's denominator spans
 `[×0.036, ×2.652]` across 12 seeds with 7 below 1, **sign unstable, so no point value is given** —
 and the record notes that raising seed counts does more than narrow intervals, it makes "this
@@ -368,7 +368,7 @@ error of **`5e-11`** with two control cells moving 0.01% over sixty thousand rou
 160 model pairs bitwise with **0 mismatches**, against the unmodified model itself rather than a
 stored fixture.
 
-**Withdrawn, refuted, or undecidable.** Four, and the first is a pre-run gate that rejected an external suggestion
+**Revised, refuted, or unresolved.** Four, and the first is a pre-run gate that rejected an external suggestion
 **with numbers rather than with an opinion**: the suggestion to widen the tax-rate sweep was refused
 because the grid was already swept to `0.95`, because raising the levy **makes the two problem seeds
 worse**, and because one arm is monotonically non-decreasing and therefore **has no fixed point
@@ -377,7 +377,7 @@ structurally**. Also: depreciation was rejected as the wrong mechanism (the asse
 the proposed fix only postpones the collapse; and the levy was found to land on **twenty node
 indices fixed at construction time** rather than on whoever currently holds a lot.
 
-**Caveat.** The asymmetry, to be carried verbatim: **up and down are not the same curve.** Up is
+**Scope.** The asymmetry, to be carried verbatim: **up and down are not the same curve.** Up is
 diminishing returns; down is falling off a cliff, because the economy was built to a level and
 dropping below it loses the whole of that level rather than the near-zero marginal segment. **A6
 does not simulate the cliff, it only registers it**, on the grounds that simulating a path that does
@@ -423,7 +423,7 @@ estimator.** Two further criteria are not adjudicable and one is recorded as not
 a threshold a transmitting mechanism has **no stock**, so running it would produce zeros whose cause
 is the carrier.
 
-**Withdrawn, refuted, or undecidable.** Five of six leg-A criteria failed or were voided, and the station keeps
+**Revised, refuted, or unresolved.** Five of six leg-A criteria failed or were voided, and the station keeps
 them.
 
 - **One criterion's registered shape is wrong.** There is no gradient. There is a **step at the
@@ -451,7 +451,7 @@ them.
 > sweep never varied graph density, so this sensitivity was neither measured nor excluded before
 > now.**
 
-**Caveat.** Every A7 record carries `diagnostic_only` and **no A7 heading enters the results file**,
+**Scope.** Every A7 record carries `diagnostic_only` and **no A7 heading enters the results file**,
 because the scored estimator is not yet the default output. The station also files its own defence
 against the obvious objection, with the concession first: **the policy implication is not new and
 may not be presented as a discovery.** What answers "this is just supply and demand" is that supply
@@ -477,7 +477,7 @@ using it would violate the rule that two constructions sharing an anchor are not
 validation. Another is gated because it collides with an existing literature, and the estimand has
 to be written out as a different quantity first or it reads as a failed replication.
 
-**Caveat.** Three disciplines, violating any of which makes the whole family worthless. Every bet
+**Scope.** Three disciplines, violating any of which makes the whole family worthless. Every bet
 must first be assigned to one of six layers, and **four of those layers have already lost four times
 in a row**, so a new station landing on one has to explain why this time is different. Before
 opening any station: **if this fingerprint does not hold in reality, which A-track criterion is

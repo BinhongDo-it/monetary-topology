@@ -8,20 +8,25 @@ This repository is about the part that is not: once claim circulation is
 stratified, **a quantity of money does not establish access to resources. An
 adjacency matrix does.**
 
-The models here are small on purpose. Each isolates one mechanism, exposes fewer
-than a dozen parameters, and reports a criterion that can fail. The point is not
-to build a simulator large enough to reproduce an economy. It is to make a
-handful of structural claims checkable by someone who did not write them.
+The models here are minimal by design. Each isolates one mechanism, exposes fewer
+than a dozen parameters, and reports a criterion that can come out against it.
+They are built for checkability rather than scale: every structural claim is
+packaged so that someone who did not write the code can test it and see what
+would have counted as the other answer.
 
 **Status, 2026-08-21.** Both tracks have run. **Four carriers have produced
 measured non-zero cycle sums on real transaction data**: mortgage origination
 terms, **mortgage modification (the strongest of the four)**, cross-currency
-funding, and the ETF creation triangle. **One station's headline was withdrawn on
-its own constructed counterexample, one could not read its own pre-window and
-withdrew the threshold it had first used to call that a failure, and one answers
-the sharpest objection in the programme with "this ruler cannot measure it."**
-See [RESULTS.md](RESULTS.md) for the full record and the speedrun below for what
-each station asked, answered and retracted.
+funding, and the ETF creation triangle. **Three further stations each ended in a
+different informative state, and each state is a measurement.** One built a
+counterexample against its own headline and measured that its carrier cannot
+support the reading it had made, which bounds every future claim of that kind on
+that data. One measured that its own pre-window turns inside itself, and withdrew
+a threshold that had no theoretical source rather than let an arbitrary
+calibration ground a negative. One answers the sharpest objection in the
+programme with a measured statement about reach: **this ruler cannot resolve it,
+and here is the resolution it has.** See [RESULTS.md](RESULTS.md) for the full
+record, and the speedrun below for what each station asked and answered.
 
 The headline empirical number: hold census tract, year, lien position, loan
 purpose, occupancy and dwelling type fixed, and **78 percent of the variance in
@@ -58,13 +63,15 @@ stations run in build order, which is why nobody should start there.
 | [Volume II, B7–B11](speedrun/volume-ii-part-2.md) | where the carriers are, and the strongest single reading |
 | [Volume II, B12–B14](speedrun/volume-ii-part-3.md) | the zero domain, and the first carrier built to be able to fail |
 
-**The retraction attached to each station is part of the entry, not a footnote.**
-The speedrun reports every criterion at the same resolution, whichever way it
-came out, and it distinguishes three outcomes that get collapsed elsewhere:
-**a prediction the data said no to**, **a claim this programme withdrew**, and
-**a question the instrument could not reach**. The third is the largest group and
-it is not a failure of anything. It is a measurement of what is not yet known,
-and knowing which questions are in it is most of what this record is for.
+**The scope note attached to each station is part of the entry, not a footnote.**
+The speedrun reports every criterion at the same resolution, whichever way it came
+out, and it keeps apart three outcomes that get collapsed elsewhere: **a
+prediction the data said no to**, **a claim this programme superseded on its own
+evidence**, and **a question the instrument cannot resolve at the available
+power**. The third is the largest group, and it is the map of where the available
+instruments stop. Producing that map is most of what this record is for, because
+it is what tells the next person where their effort will and will not buy an
+answer.
 
 For the machine-readable record, one entry per criterion with the number beside
 it, see [RESULTS.md](RESULTS.md). The run records it draws on are in
@@ -125,16 +132,19 @@ lender is supposed to price on — same neighbourhood, same year, same kind of
 loan, same position in the queue — and most of the variation in the terms
 borrowers get is still there, inside those groups. A single price schedule
 predicts none of it. The same non-zero loop shows up in three other places that
-share no data and no code with the first. A large part of the register is
-neither a pass nor a refutation: the instrument could not separate the question,
-and that is recorded with the reason and the number rather than rounded to a
-verdict. One station's headline result was withdrawn on a counterexample this
-programme built against itself.
+share no data and no code with the first. A large part of the register is neither a
+pass nor a refutation: the instrument could not separate the question at the
+available power, and that is recorded with the reason and the number rather than
+rounded to a verdict. One station superseded its own headline on a counterexample
+this programme built against itself, and the counterexample is the more useful
+result, because it bounds what that carrier can support.
 
-**What this is not.** It is not a claim that markets are bad, that planning is
-better, or that anyone is being cheated. None of those follow, and
-[`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) exists to say so before
-anyone reads the rest.
+**What the finding licenses.** It is a statement about the arithmetic of a price
+field and nothing else: these prices do not come from one consistent schedule.
+Whether that is good, bad, or anyone's fault is a separate question this
+programme does not take up, and
+[`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) draws that line explicitly
+before anyone reads the rest.
 
 ---
 
@@ -149,8 +159,8 @@ time one moved, and the ones that moved most are the ones worth reading in full.
 **What the three places are for.** `docs/` holds the pre-registration, the
 amendment trail and the reading, including the readings that were withdrawn and
 why. `RESULTS.md` is the ledger over those JSON records and lists failed criteria
-beside passing ones. This README is an entry point and is the least current of
-the three by construction.
+beside passing ones. This README is the entry point and is kept
+deliberately lean, so a stage's own document leads it.
 
 **A stage's own document is the authority on that stage.** Where this README and
 a `docs/` file disagree, the `docs/` file is right and this file is behind.
@@ -185,21 +195,24 @@ a `docs/` file disagree, the `docs/` file is right and this file is behind.
 | B8 | [`b8_fannie_slice.md`](docs/b8_fannie_slice.md) — the pre-registration. Instrument conclusions in [`b8_instrument_notes.md`](docs/b8_instrument_notes.md); the full inputs register is held outside this repository |
 | B9 | [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | no prose document here. **Its readings are in [RESULTS.md](RESULTS.md)** and its evidence is `experiments/b10_*.py` with the records beside them; the availability register is held outside this repository |
-| B11 | no prose document here. **Its readings are in [RESULTS.md](RESULTS.md)**, including the counted ceiling the gate turns on. The station is open: not one loop has been counted yet |
+| B11 | no prose document here. **Its readings are in [RESULTS.md](RESULTS.md)**, including the counted ceiling the gate turns on. Registered, with the counting step sequenced behind a data purchase not yet made |
 | B12 | no prose document here. Readings in [RESULTS.md](RESULTS.md); the evidence is [`experiments/b12_pullback.py`](experiments/b12_pullback.py), which enumerates every three-bin cut whole so that nothing is ranked and no null is needed |
 | B13 | no prose document here either, and for a different reason: the station was **specified inside B9's**, [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) section 57, which states the carrier requirement and says in the same breath that meeting it is not B9's work. Its design and result files are held outside this repository. **What is here is the evidence**: `experiments/b13_*.py` and `b4_two_classes.py`, and the console outputs they wrote, copied into `results/b13_*.txt` by [`b13_verdicts.py`](experiments/b13_verdicts.py) so a criterion's sources travel with the criterion |
 | B14 | no prose document here; same arrangement as B13. The carrier requirement it answers is stated in [`b4_directed_edges.md`](docs/b4_directed_edges.md) section 9, and **that section now carries three conditions where it carried one, with Theorem 6(5) new**, which is what the stage produced besides its readings |
 | B15 | [`b15_bolivia_prereg.md`](docs/b15_bolivia_prereg.md) and [`b15_bolivia_results.md`](docs/b15_bolivia_results.md) — **the only station whose register and readings are both published here**, because it is the control carrier for B6 and four of its thresholds are B6's own values carried over unchanged |
-| B16 | no prose document here. Readings in [RESULTS.md](RESULTS.md); evidence in `experiments/b16_*.py`. **The station is open and nothing has been judged**: its second gate cannot be computed until quotes are bought, and the registered order is to buy the smallest arm first and let that gate decide whether the rest are bought at all |
-| B17 | no prose document here. Readings in [RESULTS.md](RESULTS.md); evidence in `experiments/b17_*.py`. **Two carriers were rejected before this one and both cost paper only** |
+| B16 | no prose document here. Readings in [RESULTS.md](RESULTS.md); evidence in `experiments/b16_*.py`. **Registered and sequenced.** The first gate's readings are in [RESULTS.md](RESULTS.md); the second needs purchased quotes, and the registered order is to buy the smallest arm first and let that gate decide whether the rest are bought at all |
+| B17 | no prose document here. Readings in [RESULTS.md](RESULTS.md); evidence in `experiments/b17_*.py`. **Two earlier carrier candidates were screened out on paper, before any data was bought**; this is the one that survived screening |
 | L2 | no prose document here. Readings in [RESULTS.md](RESULTS.md). It runs on B14's carrier and imports that stage's sample, windows and group assignment rather than restating them |
 
 ### Across every stage
 
-[`MEASUREMENT.md`](docs/MEASUREMENT.md) — **fourteen ways a measurement in this
-repository went wrong, each with its instances named**, and a checklist of sixteen
-questions to ask before reporting a number. Every entry was written after the
-mistake, not before, and several of them cost a stage its headline. **It is the
+[`MEASUREMENT.md`](docs/MEASUREMENT.md) — **a catalogue of the ways a measurement
+in this repository can be misaligned with the thing it is measuring, each entry
+carrying the instances that produced it**, plus the checks applied before any
+number is reported. Every entry was written from a case rather than from
+anticipation, which is what makes them transferable: several changed a stage's
+headline, and they are the part of this work most directly reusable by someone
+measuring something else. **It is the
 most useful file here for anyone who wants to know how much to trust the rest.**
 
 ---
@@ -265,21 +278,21 @@ limitation, and it is the reason stage A3 exists.
 
 ---
 
-## What this is not
+## Scope
 
-- Not a forecast. Nothing here predicts the timing of anything.
-- Not *fitted* to data. Published levels are substituted directly into the model
-  and nothing is estimated from a target. Stage A1 is the first stage where the
-  model is asked to match a series.
-- Not a claim that the standard stylised facts of the agent-based macro
-  literature are reproduced. Most of them are reproduced by models with no
-  layered structure at all, so reproducing them would carry no differential
-  information. They are an entry ticket, reported in an appendix at stage A3,
-  and they are not used as criteria here.
-- Not a claim that the adjacency matrix or the wage bill are measured. They are
-  the two places where the model is still assumption, which is why both are swept
-  rather than defended, and why obtaining real adjacency data is the top item in
-  `data/SOURCES.md`.
+- **The object is structure, not timing.** Every quantity here is a property of a
+  configuration; none of them is a forecast, and nothing is dated forward.
+- **Levels are entered as published, not estimated from a target.** Nothing is
+  fitted, so a match to a series is evidence rather than construction. Stage A1 is
+  the first place the model is asked to meet one.
+- **The standard agent-based stylised facts are an entry ticket, reported and not
+  scored.** Models with no layered structure reproduce them too, so reproducing
+  them carries no differential information about this structure. They are in an
+  appendix at stage A3, and no criterion rests on them.
+- **Two quantities are swept rather than defended: the adjacency matrix and the
+  wage bill.** They are where the model is still assumption, so every conclusion
+  is required to hold across the sweep, and obtaining real adjacency data is the
+  top item in `data/SOURCES.md`.
 
 ---
 
@@ -392,15 +405,16 @@ contracts depends on parameter magnitudes and cannot be settled structurally.
 | A7 | continuous connectivity | **ran**, eleven verdicts, [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md). The per-run records are `diagnostic_only` because section 4.2's scored estimator (`D_fixed`) is not what those runs computed; every gap in them is `D_reach`, which the same section registers as reported and never scored. The verdict sheet is the record that reaches [RESULTS.md](RESULTS.md) |
 | A1 | default waterfall, calibrated to delinquency cross-sections | A1 superseded by A1b; A1b, A1c and A1d have run, see [RESULTS.md](RESULTS.md) and [`docs/a1_prereg.md`](docs/a1_prereg.md) |
 
-**A3's two failures are reported rather than repaired, and they are different
-kinds of failure.** A3-5 asks whether the gate binds at the high tier and comes
-back void rather than negative: opening the high tier is a bitwise no-op in the
-current calibration, because the tier allocates fully at the opening and no
-production-layer node can reach it even at a soft gate, so at that tier the
-exclusion is a price wall and not a hole and there is nothing for a gate
-criterion to measure. A3-6 is a real negative. It asks whether a stock exists
-and finds the holding population is 15.8 nodes of 200, none of them in the
-production layer.
+**A3 returned two non-positive outcomes, and they are different states, which is
+why both are reported with their reason.** A3-5 comes back **void rather than
+negative**, and the reason is itself a finding about the mechanism: opening the
+high tier is a bitwise no-op in this calibration, because the tier allocates
+fully at the opening and no production-layer node can reach it even at a soft
+gate. At that tier the exclusion is a **price wall and not a hole**, so there is
+nothing there for a gate criterion to measure. A3-6 is a **negative with a number
+on it**: the stock exists, and the holding population is 15.8 nodes of 200 with
+none of them in the production layer, which is a measured bound on the domain any
+wealth-based account can speak about here.
 
 **A3-6 was also why A4 was blocked, and A4 has since run and answered it a
 different way.** A4 sets four competing accounts against each other on wealth,

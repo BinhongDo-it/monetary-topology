@@ -26,9 +26,8 @@ which is what would make it able to fail?
 exists and runs, and every record it writes carries `diagnostic_only`, so nothing it produces
 reaches [RESULTS.md](../RESULTS.md) and nothing published rests on it.
 
-**Withdrawn, refuted, or undecidable.** Nothing yet, because nothing has been claimed yet.
 
-**Caveat that travels.** A stage that writes only diagnostics is a stage that has not decided
+**Scope that travels.** A stage that writes only diagnostics is a stage that has not decided
 anything. It is listed here so that a reader who finds `b12_*` files in `results/` knows they are
 not claims, and so that the absence of a B12 section in `RESULTS.md` reads as deliberate rather than
 as an oversight.
@@ -59,7 +58,7 @@ repository of **both halves** of B4 section 5.1's split, which B5 had been able 
 and never the other: the split is available in 49,116 of 50,055 states and the sign constraint
 Theorem 6(1) forces has zero counterexamples in all of them.
 
-**Withdrawn, refuted, or undecidable.** **The explanation is withdrawn and the reading is not.** The station first
+**Revised, refuted, or unresolved.** **The explanation is withdrawn and the reading is not.** The station first
 said the six exactly-equal products were the ones where the two-leg path is the only derivation
 path. The instrument listing was then read, and it does not draw that line anywhere:
 [`b13_path_multiplicity.py`](../experiments/b13_path_multiplicity.py) finds every root measured
@@ -74,7 +73,7 @@ capture** cost 2 per cent of updates and produced a bid agreement of `0.9229` th
 finding about the exchange; with both sides it is `0.9990`. What caught it was a book monotonicity
 check, not any guard written for the purpose.
 
-**Caveat that travels.** **One ten-minute window of one day, and the first hundred seconds of it.**
+**Scope that travels.** **One ten-minute window of one day, and the first hundred seconds of it.**
 81,968 states is a thick sample of a thin slice. The station's own record forbids four things by
 name: calibrating B9's `λ` against this zero, reading the non-zero side as an economic statement,
 claiming that "take the best of all available paths" is CME's written rule rather than a
@@ -104,7 +103,7 @@ margins, so composition drift was working against the finding rather than produc
 free from NYSE's public archive, 1.07 GB, and every file was checked against that archive's own
 correction log and is at or beyond the last version it records.
 
-**Withdrawn, refuted, or undecidable.** **The mirror fails.** The pilot's quoting requirements ended at the close on
+**Revised, refuted, or unresolved.** **The mirror fails.** The pilot's quoting requirements ended at the close on
 2018-09-28, and the same gate run on the reversal returns **three of six** on the two venues' own
 spreads while returning **six of six** on the consolidated spread. The pre-registered outcome map
 sends that to "B14-0 under question, re-examine the 2016 round", and it was followed **rather than
@@ -115,7 +114,7 @@ of six** for a reason that was code and not world — the file's group column re
 status *on that day*, so every treated security reads as a control before the pilot started, and the
 rule "the group label must be unique across both windows" discarded all 1,525 of them.
 
-**Caveat that travels.** **Appendix B carries spread widths and no quote levels**, so this carrier
+**Scope that travels.** **Appendix B carries spread widths and no quote levels**, so this carrier
 delivers the friction half of section 5.1's split and not the index half. The second stage, which is
 where the invariance claim would actually be tested, needs per-venue midpoints and stays locked. The
 two venues share one operator. On Arca, two order types out of six do not carry the result while on

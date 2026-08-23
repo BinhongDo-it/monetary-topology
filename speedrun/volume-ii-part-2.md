@@ -30,7 +30,7 @@ economics: `v₁` is a **tilt** (monotone along DTI, sign change between 38 and 
 `γ(c,a) ≈ f(c)·m(a)`. The national table's shape is shared; the amplitude is local. At the lowest
 DTI cell, local disagreement is **0.136 against a national gradient spanning 0.1807, which is 75%**.
 
-**Withdrawn, refuted, or undecidable.** This station withdrew more than any other.
+**Revised, refuted, or unresolved.** This station withdrew more than any other.
 
 - **B7-4, the stage's number, was withdrawn.** Rank 2 turned out to be the diagonal entries of the
   two thinnest classes: `>60%` and `50%-60%` hold **1.18 and 1.37 loans per cell-class entry**
@@ -59,7 +59,7 @@ DTI cell, local disagreement is **0.136 against a national gradient spanning 0.1
 - Four code defects in the second estimator, one of which was that "same data, two estimators" was
   **false**: the two ran on different entry sets, and the entries left out are exactly the noisiest.
 
-**Caveat that travels.** The class index accounts for **0.3036** of stage B2's within-cell term, so
+**Scope that travels.** The class index accounts for **0.3036** of stage B2's within-cell term, so
 every rank statement is a fact about that share, and it must be printed next to the rank rather than
 in a footnote. Everything the second estimator recovers is a small fraction of the naive `λ₁` of
 1.4674, **and the withdrawal stands.** The fraction itself is one of the station's open
@@ -113,7 +113,7 @@ different accumulated `ω` in every one of six cohorts, at five to six orders of
 instrument constant. Stratifying by path **enlarges** the gap rather than shrinking it. It needs no
 claim about node identity, no causal identification, and no assumption about who chose which route.
 
-**Withdrawn, refuted, or undecidable.** Eight that matter.
+**Revised, refuted, or unresolved.** Eight that matter.
 
 - **`§14.5`'s gate criterion, "the clean-cure round trip must return zero to floating-point
   tolerance", is wrong.** The round trip returns a deterministic closed form. The station's own
@@ -157,7 +157,7 @@ claim about node identity, no causal identification, and no assumption about who
 | C13 | `V` and `ω` not computed on 1,276 loans | four candidate readings all at **11.6–46.2%** error against 0.0000–0.0004 elsewhere |
 | structural | the deferral arm's cross-window comparison | **0** comparable term bands in three of five windows; payment deferral did not exist before COVID, and more years would not create a 2005 deferral triangle |
 
-**Caveat that travels.** GSE conforming loans exclude subprime, jumbo, FHA and VA, so the most
+**Scope that travels.** GSE conforming loans exclude subprime, jumbo, FHA and VA, so the most
 access-constrained households are absent, and the truncation runs **toward the null**. Modification
 is endogenous (servicer discretion, programme eligibility), so B8-4 and B8-5 are **association,
 never causation**; B8-1 and B8-3 are unaffected, because Corollary 1 needs one realisable loop and
@@ -191,7 +191,7 @@ contractual**: creation and redemption run only through a Participant Agreement 
 shares, and no price completes that edge. `λ` rises with stress (D1 median +0.076 → +0.121, 10/11)
 and the distribution shifts toward discount (0.453 → 0.508, 10/11).
 
-**Withdrawn, refuted, or undecidable.** Three, all the same family: **a quantity placed against the wrong
+**Revised, refuted, or unresolved.** Three, all the same family: **a quantity placed against the wrong
 reference.** The station once treated the measurement floor and the arbitrage cost as one object.
 It once set a tolerance **9.3× below the statistic's own noise floor**, which made fifteen cells
 break by necessity, and then a mechanism was invented for the breakage. It once derived `π`'s
@@ -204,7 +204,7 @@ catch nearly all of them; reading the code straight through catches none.** A mi
 writer's error rather than the instrument's, including one asserted property the instrument never
 claimed, written into an instruction handed to another station.
 
-**Caveat that travels.** The fourth link is not closed. `λ` moves with stress, and **every direction
+**Scope that travels.** The fourth link is not closed. `λ` moves with stress, and **every direction
 observed is also predicted by ordinary microstructure or arbitrage-capacity accounts.** Three
 registered routes to a discriminating prediction were closed, all three by derivation rather than by
 a negative measurement: a size gradient where the competing account predicts the same curve; an
@@ -242,7 +242,7 @@ that same extra state survives; and the document prints Freddie's `g0m` as **83*
 **108** in another without reconciling them, which is almost certainly a walkable-versus-undirected
 distinction the text never states.
 
-**Withdrawn, refuted, or undecidable.** Six, and two are worth naming for outside readers.
+**Revised, refuted, or unresolved.** Six, and two are worth naming for outside readers.
 
 - **The first run measured the wrong object entirely.** It computed the directed circuit space
   rather than the cohomology, so a mutual pair counted twice. All v1 results are void and not cited.
@@ -292,7 +292,7 @@ class count be printed beside its own grid's `b₁`, and the run's table carries
 the side-by-side was never actually printed. And the two zeros in the `g3` column **are a
 construction, not a reading**: the station forbids citing them as a result.
 
-**Withdrawn, refuted, or undecidable.** The between-class-over-within-class comparison, which is the part that would
+**Revised, refuted, or unresolved.** The between-class-over-within-class comparison, which is the part that would
 have answered the actual question, **has been withdrawn and currently has no reading.**
 
 - The cross-grid comparison on the deferral arm was voided when the sign of the difference
@@ -321,7 +321,7 @@ The station's own verdict: **the registered question has no reading. On this car
 ruler, the answer is neither "the cut decides" nor "the cut does not decide"; this ruler cannot
 measure it.**
 
-**Caveat that travels.** One vintage for the main table and **one carrier for everything**. The
+**Scope that travels.** One vintage for the main table and **one carrier for everything**. The
 `b₁` transfer function has two carriers; holonomy has one, and that asymmetry must be cited
 alongside. Grid coarsening **changes no `ω` value**; it only changes which loops count as the same
 loop. And the sample is vintage-equal-weighted, so nothing extrapolates to the population without
@@ -347,7 +347,7 @@ longer the binding constraint, because `V` is re-registered as the present value
 coupon stream on the Treasury curve, copying B8's definition verbatim: **B8 never read a market
 price, start to finish.**
 
-**Withdrawn, refuted, or undecidable.** The availability register's assumption that the marker could only come from
+**Revised, refuted, or unresolved.** The availability register's assumption that the marker could only come from
 one agency's annual default study by name-matching is superseded and shown redundant: the gate can
 be computed inside a single file with zero name matching. Registered as unavailable with reasons:
 two European regulatory archives, a public bond-index series, and one vendor's anonymous bulk

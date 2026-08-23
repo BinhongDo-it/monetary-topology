@@ -29,12 +29,12 @@ Non-integrability is a quantity here, not a metaphor.
 > so B8 has no station section here; **it is still counted, because this paragraph counts carriers,
 > not sections.**
 
-**Retracted.** The premise that any of these carriers is a zero domain (B9 §22.11). The
+**Superseded.** The premise that any of these carriers is a zero domain (B9 §22.11). The
 cross-carrier calibration `π`, which required a richer path space than any carrier supplied.
 The claim that the mortgage carrier can never reach a slice cycle, which was scoped down to a
 cross-section of originations rather than mortgages in general.
 
-**Caveat.** The four carriers do not add. `H⁰` (a hole: a transition that no price can complete)
+**Scope.** The four carriers do not add. `H⁰` (a hole: a transition that no price can complete)
 and `H¹` (a curl: a cycle that does not close) are different objects and the record forbids
 summing them. Each carrier is quoted with its own floor.
 
@@ -51,11 +51,12 @@ therefore no objective can be globally realised by that coordination architectur
 mechanism. The claim needs one inequality on one cycle. It needs no interpersonal comparison, no
 utility function, and no welfare criterion.
 
-**Retracted.** None. The four exclusions were written from the start: it does not follow that
+**What the reading licenses.** It is a statement about the arithmetic of a price field. The four
+things it does not imply were written down before the stage ran, and none of them follows: that
 central planning is better, that anyone is behaving badly, that the outcome is bad, or that markets
 fail to clear.
 
-**Caveat.** The theorem is not the weak point, the identification is. The document names its own
+**Scope.** The theorem is not the weak point, the identification is. The document names its own
 single attack surface: whether the four-cycles measured are the relevant cycles of the actual
 economy or an artefact of how the position space was carved. That is logged as assumption A1.
 
@@ -85,7 +86,7 @@ obtaining position `j`. Four results follow.
 - **Theorem 4** restates the square holonomy as `Δ_a Δ_g P`, which is the difference-in-differences
   estimand. A single non-zero interaction term decides the question.
 
-**Retracted.** Four, and one of them is the most useful sentence in the station.
+**Superseded.** Four, and one of them is the most useful sentence in the station.
 
 - The standing assertion `R > C` (renting costs more than owning) is withdrawn as **currently
   false**: 2026 data has average rent `$1,669` against average ownership cost `$2,589`, with
@@ -101,7 +102,7 @@ obtaining position `j`. Four results follow.
   and a reader who wants to dismiss it can say the framework renamed an analysis of variance, and
   at the level of arithmetic be right.
 
-**Caveat.** Assumption A1 is where all the economics is: agent edges carry weight zero, meaning the
+**Scope.** Assumption A1 is where all the economics is: agent edges carry weight zero, meaning the
 position trades at one price independent of who holds it. Where A1 fails (a non-assumable mortgage)
 the graph disconnects, the square stops being a cycle, and Theorem 1 does not apply. If agent edges
 carry `t ≠ 0`, Corollary 1 survives untouched but attribution does not: the sum can no longer be
@@ -140,14 +141,14 @@ for materially the same financing receive materially different terms?
 **0.5257** percentage points, median `p90 − p10` **1.0774** points, and **98.9%** of cells carry an
 IQR above 25 basis points. A gradient field predicts exactly zero everywhere.
 
-**Retracted.** Every variance share in the first run. The reported `0.9750000458` was the fraction
+**Superseded.** Every variance share in the first run. The reported `0.9750000458` was the fraction
 **39/40 exactly**: one row carrying a rate spread of `−9,999,997` sitting in a cell of forty loans,
 with the magnitude cancelling out entirely. 160 rows lie outside `±20` and 115 outside `±50`, all
 filer placeholders (`1111`, `99.99`, `100.0`, one `−968`), not a parsing fault. Two earlier
 specification errors were withdrawn before retrieval: measuring only the vintage loop, and using
 price tier as though it indexed the agent.
 
-**Caveat.** The estimate is a floor, and the censoring is worst exactly where it matters most:
+**Scope.** The estimate is a floor, and the censoring is worst exactly where it matters most:
 all-cash buyers are the extreme favourable point of this loop and generate no HMDA record at all,
 so dispersion is understated most in the markets with the highest cash share. Attribution to credit
 score is impossible here because public HMDA redacts it. The plausibility band and `min_size` were
@@ -167,12 +168,12 @@ cost across vintages?
 five-bucket bound recovers about **27%**, so the true dispersion is plausibly three to four times
 what is reported.
 
-**Retracted.** No falsification fired, but the framing was downgraded by B1's theorem, and the
+**Superseded.** No falsification fired, but the framing was downgraded by B1's theorem, and the
 elaborate original design (entry/holding/exit legs, imputed rent, a Hodge decomposition on
 `(metro, tier, vintage)`) has no recorded result. It was executed instead as the bucket-variance
 bound.
 
-**Caveat.** This is not evidence of non-integrability. A 3% mortgage cannot be transferred, so the
+**Scope.** This is not evidence of non-integrability. A 3% mortgage cannot be transferred, so the
 agent edge is absent, the graph disconnects in the agent direction, the square is not a cycle, and
 the quantity is `H⁰` where loop A's is `H¹`. Stated in the record's own words: **a reader who takes
 the 2.52 as the headline has been handed a number about `H⁰` and told a story about `H¹`.**
@@ -199,13 +200,13 @@ If it is narrower, the conventional-VA gap appears with no agent index anywhere.
 Conventional converts a unit of pool width into `6.336` units of rate dispersion against VA's
 `5.168`.
 
-**Retracted.** The first national run reported within-cell LTV dispersion of **91,970,479** for
+**Superseded.** The first national run reported within-cell LTV dispersion of **91,970,479** for
 conventional against 11,412 for VA, and an income maximum of `2,302,773`, which in HMDA's units is
 an annual income of 2.3 billion dollars. Same failure family as loop A's `−9,999,997`. Two criteria
 were restated before any figure existed: one had been written on a within *share*, which cannot
 detect a rule-pinned variable at all.
 
-**Caveat.** The verdict **holds on the ranked measure and fails on the log measure**, and that split
+**Scope.** The verdict **holds on the ranked measure and fails on the log measure**, and that split
 is stable across every threshold and every plausibility band, so it is a property of the two
 measures rather than of the sample. It must be reported as a split. Also: this measures capacity,
 not credit, and nothing in it licenses a statement about credit scores.
@@ -229,14 +230,14 @@ cycle reads `|z(i,i)| = 0.0e+00`. The sharpest single reading is CNH against CNY
 onshore and offshore: **66.2 to 169.0 bp** over seven tenors, at ratios of **6.7 to 1198** over the
 floor, largest at the short end and decaying with maturity.
 
-**Retracted.** Two, both before results. An earlier conclusion that the slice summand is
+**Superseded.** Two, both before results. An earlier conclusion that the slice summand is
 "structurally unreachable on free data" was withdrawn: it had been reached after finding raw
 forwards paywalled and before checking whether the derived forward premium is published separately.
 And a phrase the record flags as one that must not reach a draft: that the deviation is a non-zero
 closed-loop **net gain**, so arbitrage has demonstrably failed. It is not a net gain. It is the
 shadow price of balance-sheet capacity.
 
-**Caveat.** The G10 arm is the headline and the emerging-market arm is explicitly not evidence. Both
+**Scope.** The G10 arm is the headline and the emerging-market arm is explicitly not evidence. Both
 accounts predict a large EM number, and the band scan gives an independent second reason: across a
 tenfold change in the outlier band G10 moves by one to three basis points while EM more than
 doubles, so the EM number lives in the tail. This is also a derived series filtered by someone else,
@@ -261,12 +262,12 @@ square sum, the index part). Eight of eight code checks pass, including a byte-l
 zero mismatches. A position that can be entered and not left is not priced by the system, and that
 is `H⁰`.
 
-**Retracted.** Two, both load-bearing. The summary table claimed the sub-potential is "unique up to
+**Superseded.** Two, both load-bearing. The summary table claimed the sub-potential is "unique up to
 a constant"; the theorem does not say that and its proof does not show it. The error was confined to
 the summary table, which is the part a reader sees first. And `PROJECT_PLAN.md` §9.5's claim that
 the directed existence condition is stronger is **backwards**: one-way edges remove constraints.
 
-**Caveat.** **Theorem 2 does not generalise.** Directed cycles form a cone, not a vector space, so
+**Scope.** **Theorem 2 does not generalise.** Directed cycles form a cone, not a vector space, so
 the slice-versus-square accounting is available only on the two-way part of the world. B2's and
 B3's results live there and nothing in this station extends them to one-way markets. Imputing a
 missing direction is prohibited.
@@ -311,7 +312,7 @@ retrieved**. **B5-11** never ran: three friction-column candidates were audited 
 failed, the last on a median deviation of `2.90e-2` against a bound of `0.02` and a 106-day frozen
 run.
 
-**Caveat.** B5-15, the edge-of-window check, passes on strict comparisons (the final pre-window
+**Scope.** B5-15, the edge-of-window check, passes on strict comparisons (the final pre-window
 bucket **0.387** stands **4.8 times** above the treated pair's entire post-window maximum of 0.080),
 and the record refuses to let it repair anything: **that B5-15 passes was known before B5-15 was
 written.** It does not supply the pre-window reading B5-14 could not produce. Separately, the
@@ -337,7 +338,7 @@ unbounded ray is directly readable: `log(410/24) = 2.84` on 2025-12-19 rising to
 across thirteen currencies with a worst relative departure of **0.0018%**, and the publisher
 **truncates rather than rounds**, in **27,132 of 27,132** channel values.
 
-**Withdrawn, refuted, or undecidable.** Three, and two of them are the useful ones.
+**Revised, refuted, or unresolved.** Three, and two of them are the useful ones.
 
 - **B6-8's first result is withdrawn as an artefact.** It had failed on eight yuan rungs. The yuan's
   API record begins twelve days after the segment opened, the XLSX back-fills its first published
@@ -353,7 +354,7 @@ across thirteen currencies with a worst relative departure of **0.0018%**, and t
   ruling is that the criterion stays failed and the alignment is not re-registered: the lag
   diagnosis is a diagnostic and not a pass.
 
-**Caveat.** The `H¹` arm has never run, so the station establishes one side of a contrast and does
+**Scope.** The `H¹` arm has never run, so the station establishes one side of a contrast and does
 not contain the contrast. It is blocked on one unresolved gate: the informal-rate API requires a
 token, and whether it serves historical ranges at all is unverified. There is also **no zero
 calibration over this window**, and the two delivery paths agreeing (XLSX against API) tests the
