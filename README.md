@@ -181,7 +181,7 @@ a `docs/` file disagree, the `docs/` file is right and this file is behind.
 | B4 | [`b4_directed_edges.md`](docs/b4_directed_edges.md) |
 | B5 | [`b5_orphan_prereg.md`](docs/b5_orphan_prereg.md), availability [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
 | B6 | [`b6_cuba_prereg.md`](docs/b6_cuba_prereg.md), availability [`b6_cuba_availability.md`](docs/b6_cuba_availability.md) |
-| B7 | [`b7_interaction_rank.md`](docs/b7_interaction_rank.md) — **the headline is withdrawn and the stage still returns something; §11 and §11.12** |
+| B7 | [`b7_interaction_rank.md`](docs/b7_interaction_rank.md) — **what the class index carries, and a bound on every rank claim this carrier can support; §11 and §11.12** |
 | B8 | [`b8_fannie_slice.md`](docs/b8_fannie_slice.md) — the pre-registration. Instrument conclusions in [`b8_instrument_notes.md`](docs/b8_instrument_notes.md); the full inputs register is held outside this repository |
 | B9 | [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | no prose document here. **Its readings are in [RESULTS.md](RESULTS.md)** and its evidence is `experiments/b10_*.py` with the records beside them; the availability register is held outside this repository |
@@ -455,7 +455,14 @@ lets `C` move one thing at a time, which the binary switch does not: `uniform_ac
 collapses the adjacency, the payroll incidence, the routing, the propensities and
 the opening holdings together, and the design notes say so.
 
-**A7 is now pre-registered and has not been run.** [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md)
+**A7 is pre-registered and has run: 3 of 7 live criteria pass and 4 are void, and
+what it returns runs against this track's own headline.** A7-A-2 finds the registered
+shape wrong, a step at the first grid point rather than a gradient; A7-A-4 finds A3-8'
+holding nowhere, including where it was derived. Adding 350 edges to 1,039 removes 98
+per cent of the compounding divergence and the placebo falls by the same 98 per cent,
+while holonomy rises 4.9 and 7.0 per cent. **The reading is that position rent here is
+lock-in and not a spread, and one alternative path ends it.**
+[`docs/a7_continuous_c.md`](docs/a7_continuous_c.md)
 files one registration with two legs, because the holonomy is not computable on
 A4's carrier: the loop sum is defined on the `terms` matrix, which lives on
 `A3Model`, while `A4Model` subclasses `Network` and has no edge field. Leg A7-A
@@ -522,7 +529,7 @@ simulating instances.
 | B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
 | B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void, not failed**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band that first made this a failure was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A |
 | B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md) |
-| B7 | matrix rank of the cell-by-class interaction on 16m loans | **the rank-2 headline is withdrawn** — withdrawn, not qualified. The cross-fold estimator then returns a **numerically non-zero** rank on the corrected diagonal at a small fraction of the withdrawn magnitude. **What the rank is, is not currently known, so no number is quoted here,** [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
+| B7 | matrix rank of the cell-by-class interaction on 16m loans | **the class index carries 0.3036 of stage B2's within-term dispersion** over 16,035,398 loans in 326,872 cells, and **there is no single ladder in it**: the 19-class and 6-class cuts read alike. **The stage then measured what its own carrier can support, and withdrew its rank-2 headline on that measurement.** With two classes at 1.18 and 1.37 loans per entry, a constructed field carrying **no interaction at all** reads back exactly 2 in 20 of 20 repetitions, and the second-moment matrix is near-diagonal (off-diagonal correlations max `0.1417`), so per-class noise lands on the diagonal and there is nothing off it for a rank to count. **That bound governs any future rank claim on this data**, which is why no number is quoted, [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
 | B8 | the slice summand on a household carrier, from loan modification | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the four carriers. B8-4b does not run for want of C9 and section 15.3 registers that as not a failure of the stage, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md) |
 | B9 | the measured zero, and the path share | ran; the ETF creation triangle carries a non-zero holonomy of 1.2 to 1.7 bp and its quantization explanation is falsified. The stage is under re-audit, [`docs/b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | Freddie as a carrier, and the shape of the state graph | **closed.** The holonomy machinery was rebuilt on a second GSE: 1,362,490 loans, 74,937,616 monthly rows, 28 vintages. The structural reading is the cheap one and it bounds every path design on this data: **of 10,816 possible ordered state pairs only 1,496 ever occur, 13.83 per cent**. The stage also names what its carrier stops recording in mid-2019 |

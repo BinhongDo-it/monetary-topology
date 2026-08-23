@@ -33,13 +33,15 @@ space with nothing fitted, published levels entered as published, and every conc
 hold under both parameterisations. Also retracted: the original A3 target (gluing the earlier stages
 into an integration simulator), because gluing produces levels and not compounding.
 
-**Caveat.** Two structural weaknesses the record names itself, and one of them has now moved.
-**The coverage test has still never run**: each stage produces its own readings, and not once
-has a single parameter vector produced all four surfaces. Until it runs, "one mechanism, many
-surfaces" is empty in this implementation, and it is the only possible empirical form of the
-unified-theory claim. The other has partly moved: **A1 has run against real household data**, so
-"nothing here has ever been checked against real data" is no longer true, though nine stages of ten
-still have no external carrier and the five registered external fingerprint checks remain unstarted.
+**Caveat.** Two structural weaknesses the record names itself, and both have moved.
+**The coverage test is closed rather than outstanding**: Objection 11 ruled it invalid as
+self-validation, because it lists what the framework explains and never what it forbids, and in a
+space of 90 to 100 settable fields whether one vector hits four surfaces answers a question about
+the field count rather than about the mechanism. Its replacement is a **zero domain**, which the B
+track has met twice and the A track has not written. The second has partly moved: **A1 has run
+against real household data**, so "nothing here has ever been checked against real data" is no
+longer true, though nine stages of ten still have no external carrier and the five registered
+external fingerprint checks remain unstarted.
 
 **And one result now runs against the track's own headline.** A7 measures that adding **350 edges to
 1,039** removes **98%** of the compounding divergence, with disjoint per-seed distributions. The
@@ -484,15 +486,20 @@ overturned? A station that cannot answer is not opened.** And the shape and crit
 
 ---
 
-## The two things the A track has not done, in its own words
+## The A track's two open items, and what closed the criterion they replace
 
-**The coverage test has never run.** Each stage produces its own readings, and not
-once has one parameter vector produced all four surfaces. **Until it runs, "one mechanism, many
-surfaces" is empty in this implementation**, and it is the only possible empirical form of the
-unified-theory claim. Worse, the criterion's **form** has been ruled defective from the B track's
-side: it lists what is explained and never what is forbidden. The repair adopted there is a **zero
-domain**, an obligation to name where the framework's own quantity should be zero and then measure
-it. That repair was built into the B track. **No equivalent exists for the A track.**
+**The A track has no zero domain.** The unified-mechanism claim was once to be tested by a coverage
+test, one parameter vector producing all four surfaces at once. **That criterion is closed, and it
+is closed on the merits rather than by failing.** Objection 11 ruled it invalid as self-validation:
+it lists what the framework explains and never what it forbids. It is also undecidable in this
+parameter space, because with 90 to 100 settable fields the existence of a four-surface vector is
+fixed by the field count rather than by the mechanism, so a hit would carry no information and a
+miss is already implied by the parameter census.
+
+The repair adopted in its place is a **zero domain**: name where the framework's own quantity must
+be zero, where it could have been non-zero, and where the same family reads non-zero, then measure
+there. **The B track has met it twice**, on B6's derived channel columns and on B13's implied
+exchange book. **The A track's has not been written**, and writing it is the open item.
 
 **A1 is the only stage attached to real household data**; every other A-track stage is closed-world.
 The B track has four external empirical carriers.

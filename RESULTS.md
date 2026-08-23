@@ -206,7 +206,7 @@ them.
 Cells and the wealth-income copula are in `results/a1a_joint_probe.json` and
 `data/processed/scf_joint_cells.csv`.
 
-## A1b — the cascade on a measured population (A1-7 is void: the registration names two rankings and they disagree)
+## A1b — the cascade on a measured population: the K shape holds ordinally, one rule covers every rung, and the representative arm is degenerate
 
 **6/8 live criteria passed, 1 void**
 
@@ -222,7 +222,7 @@ Cells and the wealth-income copula are in `results/a1a_joint_probe.json` and
 | **FAIL** | A1b-1 the delinquency gradient | LATE60 by net worth: bottom50 0.0847, next40 0.0163, next9 0.0022, top1 0.0026. Model over 6 sweep cells: seed 7x1 0.301/0.174/0.017/0.000  <-; seed 7x3 0.258/0.140/0.017/0.000  <-; seed 8x1 0.301/0.177/0.017/0.000  <-; seed 8x3 0.262/0.144/0.017/0.000  <-; seed 9x1 0.280/0.158/0.017/0.000  <-; seed 9x3 0.233/0.122/0.017/0.000  <-. Decreasing in every cell: True. Ordering matches the survey in every cell: False. Group sizes at 20,000 households: [9993, 7998, 1895, 114]. Including rent, reported only: 0.483/0.191/0.017/0.000. The target's smallest adjacent gap is 0.0004, which is what the ordering turns on |
 | PASS | A1-11 free parameters within the registered bound | 5 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, cost.grace_basket=1, cost.grace_rent=4, population.buffer_months=1. A1 counted six; the service-share dispersion is measured here |
 
-## A1c — the order inside a household (the renter's cascade; the mortgage-before-car reversal is reported and never scored)
+## A1c — the order inside a household: the sequence holds with 2 inversions of 1,142, and all 13 inversions are attributed to the release clause
 
 **2/2 live criteria passed**
 
@@ -300,6 +300,9 @@ Cells and the wealth-income copula are in `results/a1a_joint_probe.json` and
 
 `rounds=300` `5 seeds`
 
+Record with no criteria block, kept as evidence and named here so it is findable:
+`results/a3b_construction.json`, the initial-construction run. It adjudicates
+nothing, and no criterion anywhere reads it.
 
 ## A3 P-C
 
@@ -385,7 +388,7 @@ the second would manufacture the step this is testing for.
 
 </details>
 
-## A5 — the reachability threshold (A5-6 is a zero calibration and its failure is the finding)
+## A5 — the reachability threshold: the crossing runs through the price channel and not the wage bill, issuance or turnover, measured at 654.51% against a 1% zero calibration
 
 `rounds=300` `12 seeds`
 
@@ -426,7 +429,7 @@ the second would manufacture the step this is testing for.
 | PASS | A6-22 | band of lambda keeping every seed open, exp, on the corrected instrument: 0.001 to 0.01. The other columns, one change at a time: A exp laye/laye 0.001 to 0.01; B exp thre/laye 0.001 to 0.01; C clip thre/thre 0.003 to 0.01; C exp rho=1 0.001 to 0.1 |
 | PASS | A6-23 | clip control band on the corrected instrument: 0.003 to 0.01, scanned over [0.001, 0.003, 0.01, 0.03, 0.1] |
 
-## A6 — the siphon in tax points (A6-1 fails on its own scope, A6-5 fails for real)
+## A6 — the siphon in tax points: the stratified graph needs R* = 0.060 where the flat graph needs 0.000, and that difference is the siphon
 
 5 seeds `rounds=300` `long_run=2000`
 
@@ -440,14 +443,13 @@ the second would manufacture the step this is testing for.
 | PASS | A6-4 | R*(I)/R*(T) under access against 0.75: fair 0.083 (an upper bound, R*(I) is on the grid floor), stratified 0.031 (an upper bound, R*(I) is on the grid floor) |
 | **FAIL** | A6-5 | at R* = 0.005 over 2000 rounds, end over start per seed 1.66x, 0.07x, 1.60x, 1.86x, 0.15x. 2 of 5 seeds collapsed and the rest ended more open. The registered band is symmetric and scores those as the same failure |
 
-## A7-A continuous connectivity
+## A7 — continuous connectivity
 
 `rounds=300` `20 seeds`
 
-
-## A7
-
-`rounds=300` `20 seeds`
+Record with no criteria block, kept as evidence and named here so it is findable:
+`results/a7_continuous_c.json`, the run itself. The criteria below are adjudicated
+in `results/a7_verdicts.json`, which reads it.
 
 **3/7 live criteria passed, 4 void**
 
@@ -1548,7 +1550,7 @@ The verdict is in the heading, which is where it belongs: this is a source audit
 The verdict is in the heading, which is where it belongs: this is a source audit and not a set of pre-registered criteria, so there is no table under it and there never was one.
 
 
-## B5 pre-window guards — B5-14 is void, and B5-15 was written after it came back void
+## B5 pre-window guards — the edge premium reads 4.83x and 9.80x with no threshold in either leg, and the pre-window is measured to turn inside itself
 
 **1/1 live criteria passed.** B5-14 is void and therefore in neither the
 numerator nor the denominator: a criterion the run could not evaluate is not a
@@ -1568,7 +1570,7 @@ estimator, and with the three shares inside a span of 0.12 the verdict was a ste
 function of where the band sat. The registered consequence, that B5-8's collapse
 enters the headline as confounded with a pre-existing trend, **is withdrawn and
 nothing replaces it**; it was not available on the day it was written.
-`docs/b5_orphan_prereg.md` §6A 作废栏 and §11 carry the full entry. **B5-15 is
+`docs/b5_orphan_prereg.md` §6A void section and §11 carry the full entry. **B5-15 is
 untouched: it never had a threshold.**
 
 ## B5 — the agent index on one conversion, and what the April 2025 intervention did to it
@@ -1756,11 +1758,13 @@ Derived quantities:
 | PASS | B7-4  reported, not judged: where the estimator stops working | fill 0.85: 0->0/1->1/2->2/3->3  fill 0.6: 0->0/1->1/2->2/3->3  fill 0.35: 0->0/1->1/2->3/3->3  fill 0.2: 0->0/1->1/2->3/3->6  fill 0.15: 0->0/1->1/2->3/3->1.  The gated form of this criterion asserted the error runs upward and never downward; that assertion is REFUTED by this sweep and was withdrawn on 2026-08-15 rather than restated until it passed. Outside its usable regime the estimate is unreliable in either direction, and a `rank >= 2` result is not admissible without B7-0 |
 | PASS | B7-0  the gate is implemented and is not vacuous | a rank-one field at the observed signal strength, read back on the same design: fill 0.85 -> 1, fill 0.6 -> 3, fill 0.35 -> 4.  **A gate that passed everywhere would not be a gate.** It fails here on designs where B7-4 says it should, which is what makes a pass on the real design mean something |
 
-## B8 — the modification triangle on Fannie Mae loan performance (B8-4b does not run for want of C9, and section 15.3 registers that as not a failure of the stage)
+## B8 — the modification triangle on Fannie Mae loan performance: eight of eight live criteria, on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans
 
 2,942,295 loans
 
-**8/8 live criteria passed, 1 void**
+**8/8 live criteria passed, 1 void.** B8-4b does not run for want of C9, and
+section 15.3 of the register fixes that as a gate that was never opened rather
+than a criterion the stage failed.
 
 | | criterion | detail |
 |---|---|---|
@@ -1841,8 +1845,9 @@ values, **the cleared counts at 0 and at 50,000 are identical fund by fund**, an
 nothing moves until the threshold passes 500,000. **A parameter that could have
 been tuned until a zero appeared is shown to be untunable.**
 
-**The weakest number is named rather than buried.** `Δρ_c` is **0.693 of its own
-standard error**, using the standard error of a difference between two disjoint
+**One quantity here is below the resolution of this window, and the day count
+that would reach it is computed rather than guessed at.** `Δρ_c` is **0.693 of its
+own standard error**, using the standard error of a difference between two disjoint
 partitions of the same window and not one end's. Reaching two standard errors
 needs about **3,348 trading days** against the 404 in hand, roughly 11.7 years at
 one per day. **Nothing is concluded from it.** And the extrapolation that

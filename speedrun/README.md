@@ -83,20 +83,23 @@ a strong claim and it is the reason the carriers were deliberately chosen to be
 institutionally unrelated: shared structure across unrelated settings is the only
 evidence that would distinguish one object from five coincidences.
 
-**The honest counterweight, stated here rather than buried.** One station proves
-a result that **weakens** this framework: when conversions run one way only, a
-non-zero directed loop sum no longer implies an obstruction. Another shows the
-question **dissolves entirely** on a single-index price vector, so it is only
-real for a genuinely two-index field. And the unifying claim on the mechanism
-side has an empirical form that **has never been run**.
+**Three of the results bound the framework, which is the part a framework has to
+be able to produce about itself.** B4 proves that when conversions run one way
+only, a non-zero directed loop sum no longer implies an obstruction, so the
+directed setting needs a different argument and now has a theorem saying which.
+B1 shows the question **dissolves entirely** on a single-index price vector, which
+fixes the domain: it is a real question exactly for a genuinely two-index field.
+And the criterion originally written to carry the unifying claim was withdrawn as
+self-validating and replaced by a stricter one, a **zero domain**, which the B
+track has since met twice.
 
-**A fourth thing is worth separating out, because it is usually reported as
-failure and it is not.** A large share of the register is neither a pass nor a
-refutation: the instrument could not separate the question at the available
-power, or the criterion turned out to be malformed and was voided. Those are
-recorded with the reason and the number, on the same terms as everything else,
-because **which questions are currently unreachable is itself a result** and it
-is the part that tells the next person where to spend.
+**A fourth class of reading is neither a pass nor a refutation, and it is a
+result.** Where the instrument could not separate the question at the available
+power, or a criterion turned out to be malformed, the register says so with the
+reason and the number, on the same terms as everything else. **Which questions
+are currently unreachable, and at what power, is what tells the next person where
+to spend.** Undecidable is a different state from decided-against, and this
+register keeps them apart.
 
 **None of that is hedging.** It is the reason the positive readings are worth
 anything: a programme that could not have produced these admissions would not
@@ -212,9 +215,16 @@ comparison is between two routes rather than between two people, which removes
 the borrower-heterogeneity problem that the cross-sectional literature spends
 most of its effort on.
 
-**What is still open.** B7's first estimator read rank 2 and **that reading was
-withdrawn**; a second estimator was built after the station closed. The
-withdrawal is in the station's own text.
+**B7's result is about what this carrier can support.** Its first estimator read
+rank 2, and the stage then measured why: at the cell occupancy HMDA actually has,
+with two classes at **1.18 and 1.37 loans per entry**, a constructed field with
+**no interaction at all** reads back exactly 2 in **20 repetitions of 20**, and the
+second-moment matrix is near-diagonal (off-diagonal correlations max `0.1417`).
+**So the rank was the carrier's own thinness, and the reading was withdrawn on
+that measurement rather than on an argument.** What survives is a bound on every
+future rank claim on this data, plus the finding the stage was built to get: the
+class index carries **0.3036** of the within-term dispersion over 16,035,398
+loans, and there is no single ladder in it.
 
 ---
 
@@ -328,12 +338,23 @@ parameter. Here it is the primitive, and the four standard explanations are trea
 as operating **inside** a space that connectivity fixes, rather than as competing
 additive channels.
 
-**The honest ceiling, stated by the track itself.** The coverage test — one
-parameter vector producing all four surfaces at once — **has never run**. Until
-it does, the unified-mechanism claim has no empirical content in this
-implementation, and the criterion's form has separately been ruled defective from
-the other track's side because it lists what the framework explains and never
-what it forbids.
+**The ceiling, and where it actually sits.** The unified-mechanism claim was
+originally to be tested by a coverage test: one parameter vector producing all
+four surfaces at once. **That criterion is closed, and not because it failed.**
+Objection 11 ruled it invalid as self-validation, on the ground that it lists
+what the framework explains and never what it forbids. It is also undecidable in
+this parameter space on its own terms: with 90 to 100 settable fields, whether
+some vector hits four surfaces is a question about the field count rather than
+about the mechanism, so finding one would carry no information and not finding
+one is already implied by the parameter census.
+
+**The replacement is a zero domain**, and it is stricter: name the place the
+framework's own quantity must be zero, where it could have been non-zero, and
+where its neighbours read non-zero, then go measure there. **The B track has
+delivered it twice** — B6's derived channel columns read `2.2e-16`, and B13
+closed seven criteria of seven on the exchange's implied book against its quoted
+one. **The A track has no zero domain yet.** That is the open item, and it is a
+smaller and more specific one than the criterion it replaces.
 
 ---
 
@@ -342,8 +363,9 @@ what it forbids.
 **Stations: B1, B4, B12, B13, B7.**
 
 This is the section for readers who want to attack the design rather than the
-subject. **Two of these stations weaken the framework's own claims**, which is why
-they are listed here rather than buried.
+subject. **Two of these stations produce results that bound the framework**, and
+both are stated as what they establish: B1 fixes the domain the question is real
+on, and B4 supplies the theorem the directed setting needs.
 
 **B1** asks whether the whole question dissolves into notation. It does on one
 index and survives on two: on a single-currency price vector, `log R_ij` is
@@ -426,15 +448,19 @@ field that is integrable.
 
 ## What is not here
 
-- **The coverage test has not run.** See the macro section.
+- **The A track has no zero domain.** The B track's version of this obligation
+  has been met twice; the A track's has not been written. See the macro section
+  for why the criterion it replaces is closed rather than pending.
 - **Two stations are open for want of data**, not for want of design, and both
   produced results worth having before they stopped.
 - **B4 weakens the framework** in the directed setting, and is listed in the
   econometrics section rather than omitted.
-- **B7's first estimator was withdrawn**, and the withdrawal is in the text.
-- **B5's pre-trend check is void and the threshold behind it was withdrawn**, in
-  the text and not in a footnote: an arbitrary calibration value may not ground a
-  negative finding, and undecidable is not the same state as decided-against.
+- **B7 quotes no rank**, because it measured that this carrier cannot support one:
+  a zero-interaction field reads back 2 on the same design. The bound is the result.
+- **B5's pre-trend check is void and the threshold behind it was withdrawn**: an
+  arbitrary calibration value may not ground a negative finding, and undecidable
+  is not the same state as decided-against. Both are in the text rather than a
+  footnote.
 - **Every failed criterion is in [RESULTS.md](../RESULTS.md)** with its reading, on
   the same terms as the passing ones. A failed criterion is citable.
 
