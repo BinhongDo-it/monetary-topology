@@ -1,11 +1,11 @@
-# Volume II speedrun: what each station asked, what it answered, what it retracted
+# Volume II speedrun: what each station asked, what it answered, and what the evidence revised
 
 **Part 1 of 3. Stations B0 through B6.** Part 2 covers B7 through B11, which are the three
 carriers that produced the headline readings. Part 3 covers B12 through B14, which were built after
 the programme knew what it was short of, and two of the three were built to be able to fail.
 
 Every entry has the same four fields, in the same order. The third field is the point of the
-document: a station that never retracted anything has not been tested by anything.
+document: a station whose own evidence never moved it has not been tested by anything.
 
 Figures are quoted exactly as the record carries them. Where the record superseded itself, the
 later reading is given and the earlier one is named as superseded.
@@ -287,7 +287,7 @@ appear, and does it collapse when the government deletes the eligibility rule th
 **0.712**, **1.050**, **0.999**, against a registered band of ≥ 2/3. The differential prediction
 was registered before retrieval: the index part collapses, the friction part does not.
 
-**Retracted / void.** **B5-14, the pre-trend check, returns no reading, and it is not a failure.**
+**Revised / void.** **B5-14, the pre-trend check, returns no reading, and it is not a failure.**
 The pre-window bucket series turns inside the window, at bucket 3 and bucket 8 of 12, so the fitted
 slope is set by where the series turned rather than by where it ended and cannot be extrapolated
 past the edge. An estimator that does not describe the object returns no verdict about the object.
@@ -304,7 +304,7 @@ a line across an estimator: the three shares sit inside a span of 0.12, so the v
 function of where the band was placed and unanimous on either side of it. **B5-8's headline carries
 no pre-trend caveat from this arm.**
 
-Three further failures, and these are failures. **B5-5** was retracted whole: Ámbito's `dolar/tarjeta` turns out to be
+Three further failures, and these are failures. **B5-5** was superseded whole: Ámbito's `dolar/tarjeta` turns out to be
 byte-aliased to `dolar/oficial`, reading a ratio of **1.0000** in a month when the true regulated
 multiplier was about 1.6. **B5-9, B5-12 and B5-13** never ran: the only free daily P2P history has a
 longest frozen run of **47 days** against a threshold of **21 registered before the candidate was
@@ -369,7 +369,7 @@ Six stations **in Part 1** (the carrier count above is four and spans both parts
 Two are pure theory and one of them (B4) proves a result that **weakens** the
 framework's own falsifiable claim in the directed setting. Two produced measured non-zero cycle
 sums (B2 loop A, B3). One (B5) produced a clean-looking result, could not read its own pre-window,
-and withdrew the band it had first used to call that a failure. One (B6) validated its instrument, retracted its
+and withdrew the band it had first used to call that a failure. One (B6) validated its instrument, superseded its
 first instrument failure as an artefact, and has not yet run the arm it exists for.
 
 The largest number in Part 1 is B2 loop B's `2.52`, and the record's instruction is not to quote it

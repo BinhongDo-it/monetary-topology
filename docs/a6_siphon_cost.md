@@ -1618,7 +1618,7 @@ statement about a counterfactual in which the frontier never moves.** At the
 absorption rate the historical example implies, the arm has a fixed point and
 holds it at sixty thousand rounds to within `0.01%`.
 
-### 17.4 Three limits on the mapping, stated rather than buried
+### 17.4 Three limits on the mapping, and what each one governs
 
 - **The estimand does not match.** `calibration.py` says so itself: FHN measure
   a marginal propensity to consume out of a transitory income shock, and this

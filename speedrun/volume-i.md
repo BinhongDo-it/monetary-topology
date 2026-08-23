@@ -30,7 +30,7 @@ at every grid point, and it says so.**
 parameter census is **90 to 100 settable fields**, against roughly a dozen for Mark-0 and an
 effective count of one for Wright. It is replaced by a weaker and defensible claim: a small tunable
 space with nothing fitted, published levels entered as published, and every conclusion required to
-hold under both parameterisations. Also retracted: the original A3 target (gluing the earlier stages
+hold under both parameterisations. Also superseded: the original A3 target (gluing the earlier stages
 into an integration simulator), because gluing produces levels and not compounding.
 
 **Scope.** Two structural weaknesses the record names itself, and both have moved.
@@ -214,7 +214,7 @@ rather than a defect to tune away.
   checking it.**
 - **`γ` was redefined** from a down payment to a terms premium, after which the four-cycle sum
   equals `log(γ_b/γ_a)` and **price cancels entirely**.
-- **The pricing rule was retracted as implemented**: evaluating the threshold at the current price
+- **The pricing rule was superseded as implemented**: evaluating the threshold at the current price
   gives negative feedback rather than compounding, and terminal prices came out with the top tier
   stuck in the zero phase of an oscillation.
 - **A3-4 version one read 78.7% error with the mechanism not wrong**, a mapping error, cited
@@ -246,9 +246,9 @@ still holds does not vary smoothly along the income gradient but **jumps** at wh
 asset. That is a prediction of a phenomenon not considered when the theory was built, which is the
 hardest kind of validation available, and it is checkable against real transfer-retention data.
 
-**Answered.** **Fail**, and then three successive retractions of the shape itself.
+**Answered.** **Fail**, and then three successive revisions of the shape itself.
 
-1. "The step belongs to layer membership, not to assets" — **retracted**, it is an artefact of the
+1. "The step belongs to layer membership, not to assets" — **superseded**, it is an artefact of the
    rent rate. With rent off, the layer-step to asset-step ratio goes from **26 : 1 to 1.2 : 1**, and
    the mechanism is a floor effect on an instrument's range.
 2. "The asset step is transient" — the word is right and **the reason was wrong**: it does not die
@@ -373,7 +373,7 @@ stored fixture.
 because the grid was already swept to `0.95`, because raising the levy **makes the two problem seeds
 worse**, and because one arm is monotonically non-decreasing and therefore **has no fixed point
 structurally**. Also: depreciation was rejected as the wrong mechanism (the asset does not wear out,
-**the world walks past it**); a mid-course correction was itself retracted after a long run showed
+**the world walks past it**); a mid-course correction was itself superseded after a long run showed
 the proposed fix only postpones the collapse; and the levy was found to land on **twenty node
 indices fixed at construction time** rather than on whoever currently holds a lot.
 
@@ -471,7 +471,7 @@ upward counterparty exists; stratified rather than continuous retention curves; 
 four standard explanations once access structure is controlled; and highly non-linear recovery from
 adding one downward channel.
 
-**Retracted / blocked.** **Two are blocked by measured obstacles before any run.** One is blocked
+**Revised / blocked.** **Two are blocked by measured obstacles before any run.** One is blocked
 because the dataset that would test it **is already an input to this project's own calibration**, so
 using it would violate the rule that two constructions sharing an anchor are not independent
 validation. Another is gated because it collides with an existing literature, and the estimand has

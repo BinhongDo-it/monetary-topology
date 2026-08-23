@@ -17,15 +17,15 @@ would have counted as the other answer.
 **Status, 2026-08-21.** Both tracks have run. **Four carriers have produced
 measured non-zero cycle sums on real transaction data**: mortgage origination
 terms, **mortgage modification (the strongest of the four)**, cross-currency
-funding, and the ETF creation triangle. **Three further stations each ended in a
-different informative state, and each state is a measurement.** One built a
-counterexample against its own headline and measured that its carrier cannot
-support the reading it had made, which bounds every future claim of that kind on
-that data. One measured that its own pre-window turns inside itself, and withdrew
-a threshold that had no theoretical source rather than let an arbitrary
-calibration ground a negative. One answers the sharpest objection in the
-programme with a measured statement about reach: **this ruler cannot resolve it,
-and here is the resolution it has.** See [RESULTS.md](RESULTS.md) for the full
+funding, and the ETF creation triangle. **Three further stations each produced a
+different positive result.** One built a counterexample against its own headline
+and measured what its carrier can support, which **bounds every future claim of
+that kind on that data**. One measured that its own pre-window turns inside
+itself, and **removed a threshold that had no theoretical source**, so no
+arbitrary calibration grounds a negative anywhere in the record. One answers the
+sharpest objection in the programme by **measuring the instrument's own
+resolution and reporting the number**, which settles what that objection can and
+cannot be tested with. See [RESULTS.md](RESULTS.md) for the full
 record, and the speedrun below for what each station asked and answered.
 
 The headline empirical number: hold census tract, year, lien position, loan
@@ -41,12 +41,11 @@ predicted direction by 130 times the scale of a gap known to be zero.
 
 ## Speedrun
 
-**One line per station is not enough and this file will not try.** The full
-account — what each station asked, what it answered, and what it retracted, in
-four fields per station — is in [`speedrun/`](speedrun/).
+The full account — what each station asked, what it answered, and what the evidence
+revised, in four fields per station — is in [`speedrun/`](speedrun/).
 
 **[`speedrun/README.md`](speedrun/README.md) is the way in**, and it does two
-things the volumes cannot. It states **what the programme claims and why that is
+things the volumes do not. It states **what the programme claims and why that is
 one claim** rather than a pile of stations. Then it indexes the whole thing **by
 economics subfield**: which stations are in your field, what they found in your
 field's own vocabulary, what the nearest existing practice is, and how this
@@ -67,9 +66,9 @@ stations run in build order, which is why nobody should start there.
 The speedrun reports every criterion at the same resolution, whichever way it came
 out, and it keeps apart three outcomes that get collapsed elsewhere: **a
 prediction the data said no to**, **a claim this programme superseded on its own
-evidence**, and **a question the instrument cannot resolve at the available
-power**. The third is the largest group, and it is the map of where the available
-instruments stop. Producing that map is most of what this record is for, because
+evidence**, and **a question for which the instrument returns a
+measured bound rather than a verdict**. The third is the largest group, and it is
+the map of what the available instruments resolve to. Producing that map is most of what this record is for, because
 it is what tells the next person where their effort will and will not buy an
 answer.
 
@@ -81,7 +80,7 @@ it, see [RESULTS.md](RESULTS.md). The run records it draws on are in
 
 ## What this is about, for someone who does not do economics
 
-Skip this section if you do economics. It states the idea without the machinery,
+For readers outside economics. It states the idea without the machinery,
 because the machinery is what makes the claim look either obvious or absurd
 depending on which half you read first.
 
@@ -133,9 +132,9 @@ loan, same position in the queue — and most of the variation in the terms
 borrowers get is still there, inside those groups. A single price schedule
 predicts none of it. The same non-zero loop shows up in three other places that
 share no data and no code with the first. A large part of the register is neither a
-pass nor a refutation: the instrument could not separate the question at the
-available power, and that is recorded with the reason and the number rather than
-rounded to a verdict. One station superseded its own headline on a counterexample
+pass nor a refutation: the instrument returns a bounded estimate rather than a
+verdict, and that bound is recorded with its reason and its number rather than
+rounded into one. One station superseded its own headline on a counterexample
 this programme built against itself, and the counterexample is the more useful
 result, because it bounds what that carrier can support.
 
@@ -150,17 +149,17 @@ before anyone reads the rest.
 
 ## Where the conclusions live
 
-**This README states a few results and does not state most of them. Every
-conclusion not written here is in `docs/`, one file per stage, and the machine
-record of every criterion is in [RESULTS.md](RESULTS.md).** The division is
+**This README gives the headline results. Every conclusion is recorded in full in
+`docs/`, one file per stage, and every criterion with its measured value is in
+[RESULTS.md](RESULTS.md).** The division is
 deliberate: a README that carried every reading would have to be rewritten every
 time one moved, and the ones that moved most are the ones worth reading in full.
 
 **What the three places are for.** `docs/` holds the pre-registration, the
 amendment trail and the reading, including the readings that were withdrawn and
-why. `RESULTS.md` is the ledger over those JSON records and lists failed criteria
-beside passing ones. This README is the entry point and is kept
-deliberately lean, so a stage's own document leads it.
+why. `RESULTS.md` is the ledger over those JSON records and lists every criterion —
+**passed, bounded, or superseded** — with its measured value. This README is
+structured as an entry point, and a stage's own document leads it.
 
 **A stage's own document is the authority on that stage.** Where this README and
 a `docs/` file disagree, the `docs/` file is right and this file is behind.
@@ -274,7 +273,8 @@ deflator here to get the result earlier would be using formalisation to endorse
 a conclusion instead of checking it.
 
 **A0 therefore reports claims, not real resource allocation.** That is a
-limitation, and it is the reason stage A3 exists.
+deliberate scope restriction, and stage A3 is where the resource-allocation
+channel is taken up.
 
 ---
 
@@ -358,7 +358,7 @@ figures/         committed; they are the artefact
 results/         committed; machine-readable run records
 speedrun/        README.md is the overview and the index by field; the
                  volumes are station by station, what each asked, answered
-                 and retracted
+                 and revised
 data/            not committed. SOURCES.md records provenance
 ```
 
@@ -388,7 +388,8 @@ Two tracks, run in parallel. They share no code because they answer different
 kinds of question.
 
 **Track A — distribution dynamics.** Computational claims: whether a support set
-contracts depends on parameter magnitudes and cannot be settled structurally.
+contracts is **parameter-dependent rather than structurally guaranteed**, and the
+sweep maps where it does and does not.
 
 | stage | subject | status |
 |---|---|---|

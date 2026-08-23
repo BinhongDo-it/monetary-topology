@@ -705,7 +705,7 @@ second domain.**
 
 ## B16 — Section 31 carrier: the pre-purchase checks, all of them free
 
-**Station open and nothing has been judged.** Gate two cannot be computed yet:
+**Registered and sequenced.** Gate two cannot be computed yet:
 it needs `Z90 * se_lower / band`, the se lower bound needs the observed
 dispersion of rho, and that needs quotes. So the registered order is the one
 D21 asks for: buy the smallest arm first, compute se from it, run gate two, and

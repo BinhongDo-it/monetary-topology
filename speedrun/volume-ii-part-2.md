@@ -1,7 +1,7 @@
 # Volume II speedrun, Part 2: B7 through B11
 
 **Part 2 of 3.** Part 1 covers B0 through B6, Part 3 covers B12 through B14. These five stations are where the carriers are, and
-where most of the retractions are.
+where the evidence moved the most.
 
 Same four fields per entry. Figures quoted exactly as the record carries them; where the record
 supersedes itself, the later reading is given and the earlier is named.
@@ -298,7 +298,7 @@ have answered the actual question, **has been withdrawn and currently has no rea
 - The cross-grid comparison on the deferral arm was voided when the sign of the difference
   **flipped across vintages** (+0.363, −0.034, −0.164, and one vintage exactly zero to the last
   digit). Under the station's own pre-registered reading rule, a sign that flips is noise.
-- A five-vintage "all positive" result on the modification arm was retracted because **the paired
+- A five-vintage "all positive" result on the modification arm was superseded because **the paired
   comparison was not paired**: the statistic computed was the difference of medians, and the paired
   form is the median of differences. Under the correct form one vintage reverses (−0.0179 against
   +0.004) and that arm's verdict changes from `all_positive` to `mixed`. One vintage cell flips sign
@@ -380,7 +380,7 @@ a zero.
 objection in the programme with "this ruler cannot measure it", after retracting a comparison that
 had appeared to answer it. B11 is gated at 200 against a measured ceiling of 227.
 
-**The retraction column is the load-bearing one.** B7 withdrew its headline on a constructed
+**The third column is the load-bearing one.** B7 withdrew its headline on a constructed
 counterexample rather than on an argument. B8 discovered that a gate written as "must return zero"
 would have terminated the stage on a real signal, and that a blocker it had carried for a full round
 rested on a row count of the wrong population. B10 killed its own servicer result with a placebo
