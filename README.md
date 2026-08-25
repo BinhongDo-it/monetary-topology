@@ -26,7 +26,13 @@ arbitrary calibration grounds a negative anywhere in the record. One answers the
 sharpest objection in the programme by **measuring the instrument's own
 resolution and reporting the number**, which settles what that objection can and
 cannot be tested with. See [RESULTS.md](RESULTS.md) for the full
-record, and the speedrun below for what each station asked and answered.
+record, and the index by field below for which stations sit in your field.
+
+This repository gives an exact criterion for when a single scalar price
+vector on positions exists, proves it with no economic assumptions in it,
+and measures it on four carriers. Which standard constructs presuppose that
+object, and what each of their setups says in its own words, is in
+[`b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md).
 
 The headline empirical number: hold census tract, year, lien position, loan
 purpose, occupancy and dwelling type fixed, and **78 percent of the variance in
@@ -39,38 +45,27 @@ predicted direction by 130 times the scale of a gap known to be zero.
 
 ---
 
-## Speedrun
+## Speedrun: the index by field
 
-The full account — what each station asked, what it answered, and what the evidence
-revised, in four fields per station — is in [`speedrun/`](speedrun/).
+**[`speedrun/README.md`](speedrun/README.md) is the way in.** It states **what
+the programme claims and why that is one claim** rather than a pile of stations.
+Then it indexes the whole thing **by economics subfield**: which stations are in
+your field, what they found in your field's own vocabulary, what the nearest
+existing practice is, how this differs from it, and where to read them. **Read
+one section of that, then go to the stations it names.**
 
-**[`speedrun/README.md`](speedrun/README.md) is the way in**, and it does two
-things the volumes do not. It states **what the programme claims and why that is
-one claim** rather than a pile of stations. Then it indexes the whole thing **by
-economics subfield**: which stations are in your field, what they found in your
-field's own vocabulary, what the nearest existing practice is, and how this
-differs from it. **Read one section of that, then go to the stations it names.**
-
-The volumes are numbered after the manuscript they implement, and within them
-stations run in build order, which is why nobody should start there.
-
-| | |
-|---|---|
-| [**Overview and index by field**](speedrun/README.md) | **start here** |
-| [Volume I, the A track](speedrun/volume-i.md) | the mechanism models |
-| [Volume II, B0–B6](speedrun/volume-ii-part-1.md) | the B track's first six stations, including the two theory results |
-| [Volume II, B7–B11](speedrun/volume-ii-part-2.md) | where the carriers are, and the strongest single reading |
-| [Volume II, B12–B14](speedrun/volume-ii-part-3.md) | the zero domain, and the first carrier built to be able to fail |
+The record itself is ordered by station number, which is an internal build order
+and tells an outside reader nothing, which is why nobody should start there.
 
 **The scope note attached to each station is part of the entry, not a footnote.**
-The speedrun reports every criterion at the same resolution, whichever way it came
-out, and it keeps apart three outcomes that get collapsed elsewhere: **a
-prediction the data said no to**, **a claim this programme superseded on its own
-evidence**, and **a question for which the instrument returns a
-measured bound rather than a verdict**. The third is the largest group, and it is
-the map of what the available instruments resolve to. Producing that map is most of what this record is for, because
-it is what tells the next person where their effort will and will not buy an
-answer.
+[RESULTS.md](RESULTS.md) reports every criterion at the same resolution,
+whichever way it came out, and it keeps apart three outcomes that get collapsed
+elsewhere: **a prediction the data said no to**, **a claim this programme
+superseded on its own evidence**, and **a question for which the instrument
+returns a measured bound rather than a verdict**. The third is the largest group,
+and it is the map of what the available instruments resolve to. Producing that
+map is most of what this record is for, because it is what tells the next person
+where their effort will and will not buy an answer.
 
 For the machine-readable record, one entry per criterion with the number beside
 it, see [RESULTS.md](RESULTS.md). The run records it draws on are in
@@ -184,6 +179,7 @@ a `docs/` file disagree, the `docs/` file is right and this file is behind.
 | stage | document |
 |---|---|
 | scope | [`b0_claim_scope.md`](docs/b0_claim_scope.md) — what is claimed and what is deliberately not |
+| scope | [`b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md) — which standard constructs presuppose that Theorem 1's object exists, quoting their setups, and which measurements in this record bear on that. **No measurement of its own** |
 | B1 | [`b1_setup.md`](docs/b1_setup.md), theorem [`b1_theorem.md`](docs/b1_theorem.md) |
 | B2 | [`b2_measurement.md`](docs/b2_measurement.md), loop B [`b2_loop_b.md`](docs/b2_loop_b.md), placebo validation [`b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
 | B3 | [`b3_cip_slice.md`](docs/b3_cip_slice.md), availability [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
@@ -425,9 +421,9 @@ tests/           naming follows the stage, so `test_a4_*.py` are
                  A4's guards and each asserts one claim its docstring states
 figures/         committed; they are the artefact
 results/         committed; machine-readable run records
-speedrun/        README.md is the overview and the index by field; the
-                 volumes are station by station, what each asked, answered
-                 and revised
+speedrun/        README.md is the index by field: which stations sit in
+                 which field, what they found in that field's vocabulary,
+                 and where to read them
 data/            not committed. SOURCES.md records provenance
 ```
 
@@ -610,6 +606,8 @@ simulating instances.
 
 | stage | subject | status |
 |---|---|---|
+| B0 | what the non-integrability claim licenses, and what it does not | **complete**, scope-fixing, no measurement. One inequality on one cycle carries it, with no interpersonal comparison, no utility function and no welfare criterion. The four readings it does not license were written down before the stage ran, and the single attack surface is logged as assumption A1: whether the cycles measured are the relevant cycles of the economy or an artefact of how the position space was carved, [`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) |
+| B0b | which standard constructs need the object Theorem 1 characterises | **complete**, and it runs no measurement of its own: every empirical assertion in it is a pointer to a criterion already in [RESULTS.md](RESULTS.md). Domar-weighted aggregation is the load-bearing one, because it needs a frontier whose gradient is the price vector, [`docs/b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md) |
 | B1 setup | fixing the field so the claim is not vacuous | **complete**, [`docs/b1_setup.md`](docs/b1_setup.md) |
 | B2 design | pre-registration, filters, falsifications | **complete**, [`docs/b2_measurement.md`](docs/b2_measurement.md) |
 | B2 loop A | dispersion at fixed position and date | **complete, 7/7** on 20,071,900 loans |

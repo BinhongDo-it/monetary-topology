@@ -1,21 +1,27 @@
 # What this claims, and which stations are in your field
 
-**This is the overview and the index. It is not a volume.** The volumes are
-numbered after the manuscript they implement; this file sits above them.
+**This is the index.** The first half states what the programme claims and why
+that is one claim rather than a pile of stations. The second half routes you to
+the stations that sit in your field.
 
-The first half states what the programme claims and why the claim is one claim
-rather than a pile of stations. The second half is an index by field.
-
-**The volumes themselves are ordered by station number**, which is an internal
-build order and tells an outside reader nothing. Economics is not one audience,
-and the object being measured here is unfamiliar in most of its rooms, so a
-reader who opens Volume II at B7 has no way to know whether B7 is in their field
-or three fields away.
+**The record itself is ordered by station number**, which is an internal build
+order and tells an outside reader nothing. Economics is not one audience, and the
+object being measured here is unfamiliar in most of its rooms, so a reader who
+opens the results file at B7 has no way to know whether B7 is in their field or
+three fields away.
 
 Each section below names the stations that sit in one field, states what they
 found **in that field's own vocabulary**, names the nearest thing the field
-already does, and says how this differs from it. **Read your own section, then
-go to those stations.** Nobody needs to read all of it.
+already does, and says how this differs from it. Each ends with where to read
+those stations. **Read your own section, then go to the stations it names.**
+Nobody needs to read all of it.
+
+**Two places hold the record itself.** [RESULTS.md](../RESULTS.md) carries every
+criterion with its number beside it, passing and failing on the same terms, one
+section per station. `docs/` carries the station documents for the stations that
+have one; the stations built later do not, and their readings live in
+[RESULTS.md](../RESULTS.md) alone. **Cite by criterion identifier**, such as
+`B8-3` or `A5-6`, never by section number.
 
 ---
 
@@ -171,6 +177,12 @@ money is on the table.
 closing quotes, and the station says so. B14's mirror result is live and
 unresolved.
 
+**Where to read them.** Criteria and readings for B9, B14 and B3 are in
+[RESULTS.md](../RESULTS.md), one section each. Station documents:
+[`b9_zero_holonomy.md`](../docs/b9_zero_holonomy.md),
+[`b3_cip_slice.md`](../docs/b3_cip_slice.md). B14 has no prose document; its
+record is the RESULTS.md section and the `b14_*` files in `results/`.
+
 ---
 
 ## Household finance and consumer credit
@@ -228,6 +240,17 @@ future rank claim on this data, plus the finding the stage was built to get: the
 class index carries **0.3036** of the within-term dispersion over 16,035,398
 loans, and there is no single ladder in it.
 
+**Where to read them.** Criteria and readings for B8, B10, B2 and B7 are in
+[RESULTS.md](../RESULTS.md). Station documents:
+[`b8_fannie_slice.md`](../docs/b8_fannie_slice.md) and its
+[instrument notes](../docs/b8_instrument_notes.md),
+[`b2_measurement.md`](../docs/b2_measurement.md),
+[`b2_loop_b.md`](../docs/b2_loop_b.md),
+[`b2_placebo_pool_width.md`](../docs/b2_placebo_pool_width.md),
+[`b7_interaction_rank.md`](../docs/b7_interaction_rank.md). B10 has no prose
+document. **The pitfalls this carrier produced are catalogued separately**, in
+[`b8_pitfalls.md`](../docs/b8_pitfalls.md).
+
 ---
 
 ## International finance and exchange rate regimes
@@ -277,6 +300,16 @@ supplies something the rest of the programme lacks: a **deletion event**, where
 the rule generating the structure is removed on a known date by an actor with no
 interest in this measurement.
 
+**Where to read them.** Criteria and readings for B5, B6, B15, B17 and B3 are in
+[RESULTS.md](../RESULTS.md). Station documents:
+[`b5_orphan_prereg.md`](../docs/b5_orphan_prereg.md),
+[`b6_cuba_prereg.md`](../docs/b6_cuba_prereg.md),
+[`b15_bolivia_prereg.md`](../docs/b15_bolivia_prereg.md) with its
+[results](../docs/b15_bolivia_results.md),
+[`b3_cip_slice.md`](../docs/b3_cip_slice.md). Availability audits, which record
+what was checked before anything was bought, are the `*_availability.md` files
+in the same directory.
+
 ---
 
 ## Corporate finance and credit
@@ -304,6 +337,9 @@ literatures.
 measures whether **the composition of transitions around a closed ring** fails to
 cancel, which is a statement about the pricing of the path rather than about the
 transition.
+
+**Where to read them.** B11's criteria and readings are in
+[RESULTS.md](../RESULTS.md); it has no prose document.
 
 ---
 
@@ -335,10 +371,45 @@ The readings that matter to this field:
 - **A4 and A7.** The four standard explanations for wealth divergence are
   inheritance, education returns, heterogeneous capital returns, and assortative
   mating. A4 asks whether connectivity is a fifth item on that list or the
-  variable that sets the space the other four operate in. A7 makes connectivity
-  continuous rather than a switch, and **partly undercuts A3**, which the volume
-  says in its own heading.
-- **A1** is the only A-track stage attached to real household data.
+  variable that sets the space the other four operate in: each opponent acting
+  alone raises the Gini by at most **0.0093** against a registered floor of 0.02,
+  while **connectivity alone produces 0.9367 against a null of 0.0071.** A7 makes
+  connectivity continuous rather than a switch, and a later decomposition names
+  which edges its step belongs to. A uniform draw over ordered pairs is not
+  uniform over kinds of edge: the 350 edges that remove 98 per cent of the
+  compounding divergence include **21 pointing downward**, against a
+  specification in which that count is zero. Aimed entirely downward, 350 edges
+  reproduce the collapse; aimed inside the production layer they widen the
+  interval threefold instead of collapsing it; aimed upward the lower bound
+  rises. **The step is in the downward edges**, and any statement of the form
+  "the gap closes as connectivity rises" needs that count beside it.
+- **A2d, A13 and A14 say what the terminal distribution is not sensitive to.**
+  The retention vector `σ` — the manuscript's own dial — moves terminal top 1%
+  wealth share by **0.0066** while the structural knobs move it by **0.156**.
+  Letting position itself be bought and sold, in both directions, at every rate
+  tried, moves it by **0.0033**; what that does move is `M/R`, from 33.13 down to
+  17.44, so **concentration and the money stock separate under that mechanism.**
+  A14 then asks which readings are artefacts of running at two hundred nodes, and
+  finds that a sweep of node count alone is a sweep of density: five of six
+  headline quantities reverse between the fixed-degree and density-preserving
+  arms.
+- **A9, A10 and A11 are the three this field will want.** A9 runs one structure
+  twice with nothing changed but the fiscal parameters, checked mechanically
+  rather than asserted, and both the wage share and the concentration reading
+  turn together at a levy of **0.20** — while **A6's `R*` of 0.060, the rate that
+  stops the support set contracting, is not enough to do both.** A10 destroys
+  claims at write-off and refills conditionally: the refill returns the aggregate
+  to the no-crisis path to within **0.08 per cent** over 2,400 rounds while top 1%
+  wealth share runs **1.3 to 6.2 points above the control**, so the aggregate
+  stops showing what the distribution still shows. A11 puts a subsistence floor
+  on the real side, and its reading is this framework's own thesis about
+  aggregates, appearing inside its own model: **the Gini falls from 0.934 to
+  0.715 as the floor rises**, which is 181 nodes frozen below it and no longer
+  being drained while issuance keeps arriving at the top. An economy that has
+  moved most of its population out of circulation reports a better Gini.
+- **A1** is the A-track stage attached to real household data. The stages built
+  after it are closed-world by construction: a run there is a derivation of what
+  a mechanism implies, not an estimate of anything.
 
 **Nearest existing practice.** The inequality-decomposition literature, and
 heterogeneous-agent models where the distribution is a state variable.
@@ -348,23 +419,50 @@ parameter. Here it is the primitive, and the four standard explanations are trea
 as operating **inside** a space that connectivity fixes, rather than as competing
 additive channels.
 
-**The ceiling, and where it actually sits.** The unified-mechanism claim was
-originally to be tested by a coverage test: one parameter vector producing all
-four surfaces at once. **That criterion is closed, and not because it failed.**
-Objection 11 ruled it invalid as self-validation, on the ground that it lists
-what the framework explains and never what it forbids. It is also undecidable in
-this parameter space on its own terms: with 90 to 100 settable fields, whether
-some vector hits four surfaces is a question about the field count rather than
-about the mechanism, so finding one would carry no information and not finding
-one is already implied by the parameter census.
+**The coverage test, which is the unified-mechanism claim in its executable
+form.** Does one setting put all four surfaces on the table at once, and does the
+curve have ends where it does not? **A8 ran it and it holds, four criteria of
+four over 90 runs.** The grid is not that stage's own: the edge counts, the
+elasticities, the intermediate size and the tail window are imported at runtime
+from stage A2's module, and the first criterion is the check that the import is
+what supplied them. Every surface is read as a **direction** — a ratio above one,
+a ratio below one, a count equal to one — so no threshold enters the adjudication
+anywhere. All four are present at edge counts `[1, 2, 3, 5, 8, 12, 20]`, and
+**the two ends of the curve each drop a different one**: at zero autonomous edges
+the consuming-power surface goes, `M_a/R_a` reading 0.000, which is circulation
+having stopped rather than a price ratio holding steady; at thirty edges the
+support surface goes, effective support ending at 1.016 of its opening value.
 
-**The replacement is a zero domain**, and it is stricter: name the place the
-framework's own quantity must be zero, where it could have been non-zero, and
-where its neighbours read non-zero, then go measure there. **The B track has
-delivered it twice** — B6's derived channel columns read `2.2e-16`, and B13
-closed seven criteria of seven on the exchange's implied book against its quoted
-one. **The A track has no zero domain yet.** That is the open item, and it is a
-smaller and more specific one than the criterion it replaces.
+**A conjunction of positive predictions carries information only where it can
+fail, and this one fails at both ends of its own grid, in different places.**
+That is the half that makes it a test rather than a list of what the framework
+explains. **A12** then adds the write-off chain and the subsistence floor,
+neither of which existed when A8 ran and both of which act on quantities those
+surfaces are read from, and reads the curve again over 630 runs: on every arm
+whose subsistence state describes a household, the edge set is the control's,
+edge for edge.
+
+**What remains open is the zero domain**, which is a stricter obligation and a
+different one: name the place the framework's own quantity must be zero, where it
+could have been non-zero, and where its neighbours read non-zero, then go measure
+there. **The B track has delivered it twice** — B6's derived channel columns read
+`2.2e-16`, and B13 closed seven criteria of seven on the exchange's implied book
+against its quoted one. **The A track has no zero domain yet.**
+
+**Where to read them.** Every A-track station has a section in
+[RESULTS.md](../RESULTS.md), with its criteria and the numbers behind them.
+Station documents exist for [`a1_prereg.md`](../docs/a1_prereg.md),
+[`a3_asset_channel.md`](../docs/a3_asset_channel.md) and
+[`a3_restated.md`](../docs/a3_restated.md),
+[`a4_causal_primitive.md`](../docs/a4_causal_primitive.md),
+[`a5_reachability.md`](../docs/a5_reachability.md),
+[`a6_siphon_cost.md`](../docs/a6_siphon_cost.md) and
+[`a7_continuous_c.md`](../docs/a7_continuous_c.md). **A0, A0b, A2, A2c, A2d and
+A8 through A14 have no prose document**, and their readings are in
+[RESULTS.md](../RESULTS.md) alone. **What this claim does and does not license**
+is [`b0_claim_scope.md`](../docs/b0_claim_scope.md), and what it costs
+Domar-weighted aggregation is
+[`b0b_aggregation_and_the_potential.md`](../docs/b0b_aggregation_and_the_potential.md).
 
 ---
 
@@ -413,11 +511,23 @@ Where a criterion drew a line on an estimate, it either wasted the run or was
 itself broken; where a criterion forced an object to be printed, it earned its
 cost. That is a result about method, obtained the expensive way.
 
+**Where to read them.** Criteria and readings for B1, B4, B12, B13 and B7 are in
+[RESULTS.md](../RESULTS.md). Station documents:
+[`b1_setup.md`](../docs/b1_setup.md),
+[`b1_theorem.md`](../docs/b1_theorem.md),
+[`b4_directed_edges.md`](../docs/b4_directed_edges.md),
+[`b7_interaction_rank.md`](../docs/b7_interaction_rank.md). B12 and B13 have no
+prose document. **The scope of the claim itself** is
+[`b0_claim_scope.md`](../docs/b0_claim_scope.md). **The catalogue of ways a
+measurement and its object came apart here**, each entry with the case that
+produced it, is [`MEASUREMENT.md`](../docs/MEASUREMENT.md); it is the methods
+appendix and it is the densest thing in the repository for this field.
+
 ---
 
 ## Networks, complex systems, and agent-based modelling
 
-**Stations: A0, A0b, A2, A2c, A3, A5, A7.**
+**Stations: A0, A0b, A2, A2c, A2d, A3, A5, A7, A13, A14.**
 
 **A0b** finds a threshold rather than a gradient: with a wage bill that responds
 to derived demand, **unit elasticity is the dividing line.** Below it a positive
@@ -436,23 +546,64 @@ reachability at A3's registered parameters, and **four of its eight criteria fai
 and are not fixed**; all four were entered into an expected-failure list with
 reasons, before the fact.
 
+**A13 opens the channel every earlier stage had closed.** Each of them ran on a
+graph fixed at construction, which is the framework's thesis written into the
+construction rather than tested. Letting nodes buy and sell position, in both
+directions, at every rate tried, moves terminal top 1% wealth share by **0.0033**;
+the sharpest arm is the one where 180 of 200 nodes buy in, **the core-periphery
+split ceases to exist**, and terminal top 1% reads 0.2229 against the control's
+0.2229. Two structural readings come with it, both about the qualification rule
+rather than about the economics: **a rank alone is unbounded**, since there is
+always a highest-holding node outside the core and so one joins every round for
+ever, which is what makes the share condition load-bearing rather than
+redundant; and **demotion that cuts only outbound edges is not demotion**, 218
+demotions against **63** once the demoted node's inbound edges go too.
+
+**A14 is the sensitivity analysis this field asks for first.** Every stage runs at
+two hundred nodes. **A sweep of node count alone is a sweep of density**, because
+the degree parameters are absolute edge counts, so raising `n` thins the financial
+layer from 32 per cent internal density at 20 nodes to 6 per cent at 100 and gives
+preferential attachment room to build hubs it did not have. Terminal top 1% wealth
+rises 0.2229 to 0.3419 with degrees held fixed and **falls** to 0.1874 with density
+held instead, and five of six headline quantities reverse the same way. The arm
+with a source behind it is the fixed-degree one, since personal network size does
+not scale with the size of the surrounding population. **Two knobs carry no
+derivation anywhere in this repository** — `n = 200`, and the core at 0.10 of
+nodes — and this stage exists to say what that costs.
+
 **Nearest existing practice.** The standard ABM validation checklist: endogenous
 cycles, fat tails, pro- and counter-cyclicality, volatility ordering, right-skewed
 distributions, power laws, counter-cyclical labour share, endogenous financial
 crises.
 
-**How this differs, and it is a deliberate refusal.** That checklist is **not used
-as a criterion here.** Dozens of existing models reproduce most of it, including
-models with no stratified structure at all, so reproducing it buys no
-distinguishing credit; and the list is a list of aggregate moments, while this
-framework's own claim is that aggregate readings are projections that lose the
-structure in question. Scoring well on an instrument you have argued is blind is
-not evidence. The checklist belongs in an appendix, and it is treated as one.
+**How this differs, and the reason is about degrees of freedom rather than about
+the checklist.** **Reproducing a stylised fact is worth what the model's chance of
+failing to reproduce it was.** A heterogeneous-agent model with a few million
+settable fields returns most of that list, including versions with no stratified
+structure in them at all, so a hit there carries nothing and a miss would be the
+news. A model whose mechanism is pinned before the run can miss, and when it does
+not, that is information: it says this class of mechanism does produce an economy
+of that shape. **So the question to put to any one of those eight is how many
+knobs this model has on it, not how many people have reported it** — and the two
+numbers to write down before paying for the fit are how many knobs can move and
+how many targets have to be hit.
 
-**The distinguishing outputs instead** are the ones nobody has had a reason to
-measure: the size of the reached set moving opposite to total volume; a structural
+**The distinguishing outputs are the ones nobody has had a reason to measure**:
+the size of the reached set moving opposite to total volume; a structural
 component whose magnitude stays flat while its share collapses; the fraction of a
-field that is integrable.
+field that is integrable. Those are where a new fact can be established, because
+nobody has a prior answer to check them against.
+
+**Where to read them.** Every A-track station has a section in
+[RESULTS.md](../RESULTS.md). Station documents:
+[`a3_asset_channel.md`](../docs/a3_asset_channel.md),
+[`a3_restated.md`](../docs/a3_restated.md),
+[`a3b_initial_construction.md`](../docs/a3b_initial_construction.md),
+[`a5_reachability.md`](../docs/a5_reachability.md),
+[`a7_continuous_c.md`](../docs/a7_continuous_c.md). **A0, A0b, A2, A2c, A2d, A13
+and A14 have no prose document**; their readings are in
+[RESULTS.md](../RESULTS.md). The code is `experiments/`, one file per station,
+and every run record is a committed `results/*.json`.
 
 ---
 
