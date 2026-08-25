@@ -14,23 +14,37 @@ They are built for checkability rather than scale: every structural claim is
 packaged so that someone who did not write the code can test it and see what
 would have counted as the other answer.
 
-**Status, 2026-08-21.** Both tracks have run. **Four carriers have produced
-measured non-zero cycle sums on real transaction data**: mortgage origination
-terms, **mortgage modification (the strongest of the four)**, cross-currency
-funding, and the ETF creation triangle. **Three further stations each produced a
-different positive result.** One built a counterexample against its own headline
-and measured what its carrier can support, which **bounds every future claim of
-that kind on that data**. One measured that its own pre-window turns inside
-itself, and **removed a threshold that had no theoretical source**, so no
-arbitrary calibration grounds a negative anywhere in the record. One answers the
-sharpest objection in the programme by **measuring the instrument's own
-resolution and reporting the number**, which settles what that objection can and
-cannot be tested with. See [RESULTS.md](RESULTS.md) for the full
+**Status, 2026-08-25.** Both tracks have run. **Seven carriers have produced
+measured non-zero readings on real transaction data**, each against a floor that
+is measured rather than asserted: mortgage origination terms; **mortgage
+modification, the strongest of them**, on one design and two GSE datasets;
+cross-currency funding; the ETF creation triangle; Argentina's legally distinct
+conversion tracks; Cuba's central-bank table; and CME calendar spreads. Each is a
+separate regulatory environment, which is what makes them separate carriers
+rather than one carrier sampled seven times.
+
+**Six of them read an undirected cycle sum. The seventh reads a directed one**,
+where the question is not whether a potential exists but whether a *sub*-potential
+does, and it arrives with its own zero calibration measured on a second country
+under the same register. **One of the seven returns both a zero and a non-zero
+from the same apparatus on the same feed on the same day**, which is the only
+place in the record where the framework named which side would be which before
+anyone looked.
+
+**Three results are about the instruments rather than about the world, and each
+bounds what may be claimed anywhere in the record.** One built a counterexample
+against its own headline and measured what its carrier can support, which
+**bounds every future rank claim on that data**. One measured that its own
+pre-window turns inside itself, and **removed a threshold that had no theoretical
+source**, so no arbitrary calibration grounds a negative anywhere here. One
+answers the sharpest objection in the programme by **measuring the instrument's
+own resolution and reporting the number**, which settles what that objection can
+and cannot be tested with. See [RESULTS.md](RESULTS.md) for the full
 record, and the index by field below for which stations sit in your field.
 
 This repository gives an exact criterion for when a single scalar price
 vector on positions exists, proves it with no economic assumptions in it,
-and measures it on four carriers. Which standard constructs presuppose that
+and measures it on seven carriers. Which standard constructs presuppose that
 object, and what each of their setups says in its own words, is in
 [`b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md).
 
@@ -144,60 +158,54 @@ before anyone reads the rest.
 
 ## Where the conclusions live
 
-**This README gives the headline results. Every conclusion is recorded in full in
-`docs/`, one file per stage, and every criterion with its measured value is in
-[RESULTS.md](RESULTS.md).** The division is
+**This README gives the headline results. Every criterion, with its measured
+value and whichever way it came out, is in [RESULTS.md](RESULTS.md), one section
+per stage. `docs/` holds a prose document for the stages that have one, and the
+section below says which those are.** The division is
 deliberate: a README that carried every reading would have to be rewritten every
 time one moved, and the ones that moved most are the ones worth reading in full.
 
-**What the three places are for.** `docs/` holds the pre-registration, the
-amendment trail and the reading, including the readings that were withdrawn and
-why. `RESULTS.md` is the ledger over those JSON records and lists every criterion —
-**passed, bounded, or superseded** — with its measured value. This README is
-structured as an entry point, and a stage's own document leads it.
+**What the three places are for.** For a stage that has one, its `docs/` file
+holds the pre-registration, the amendment trail and the reading, including the
+readings that were withdrawn and why. `RESULTS.md` is the ledger over the
+committed JSON records and lists every criterion — **passed, bounded, or
+superseded** — with its measured value, for every stage without exception. This
+README is an entry point and the record leads it.
 
-**A stage's own document is the authority on that stage.** Where this README and
-a `docs/` file disagree, the `docs/` file is right and this file is behind.
+**A stage's own record is the authority on that stage, and this README is behind
+it by construction.** Where this file disagrees with [RESULTS.md](RESULTS.md), or
+with a `docs/` file for a stage that has one, the record is right.
 
-### Track A documents
+### Which stages have a prose document, and which do not
 
-| stage | document |
-|---|---|
-| A0, A0b, A2, A2c | **no separate document.** These four are recorded in [RESULTS.md](RESULTS.md) and in this README's Roadmap only. Their design lives in the experiment files |
-| A1 | [`a1_prereg.md`](docs/a1_prereg.md), availability [`a1_availability.md`](docs/a1_availability.md), inputs [`a1_inputs_availability.md`](docs/a1_inputs_availability.md) |
-| A1b, A1c, A1d | [`a1b_prereg.md`](docs/a1b_prereg.md), [`a1c_prereg.md`](docs/a1c_prereg.md), [`a1d_prereg.md`](docs/a1d_prereg.md) |
-| A3 | [`a3_asset_channel.md`](docs/a3_asset_channel.md) |
-| A3b | [`a3b_initial_construction.md`](docs/a3b_initial_construction.md) |
-| A3c | [`a3_restated.md`](docs/a3_restated.md) |
-| A4 | [`a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
-| A5 | [`a5_reachability.md`](docs/a5_reachability.md) |
-| A6 | [`a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
-| A7 | [`a7_continuous_c.md`](docs/a7_continuous_c.md) |
+**The Roadmap tables below carry the link for every stage that has one.** This
+section says only what a link cannot, which is why the others do not, since that
+is a convention rather than an omission.
 
-### Track B documents
+**The four earliest A-track stages never had one.** A0, A0b, A2 and A2c each
+isolate one mechanism in a few dozen lines, and the design is legible in the
+experiment file itself. Their readings are in [RESULTS.md](RESULTS.md).
 
-| stage | document |
-|---|---|
-| scope | [`b0_claim_scope.md`](docs/b0_claim_scope.md) — what is claimed and what is deliberately not |
-| scope | [`b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md) — which standard constructs presuppose that Theorem 1's object exists, quoting their setups, and which measurements in this record bear on that. **No measurement of its own** |
-| B1 | [`b1_setup.md`](docs/b1_setup.md), theorem [`b1_theorem.md`](docs/b1_theorem.md) |
-| B2 | [`b2_measurement.md`](docs/b2_measurement.md), loop B [`b2_loop_b.md`](docs/b2_loop_b.md), placebo validation [`b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
-| B3 | [`b3_cip_slice.md`](docs/b3_cip_slice.md), availability [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
-| B4 | [`b4_directed_edges.md`](docs/b4_directed_edges.md) |
-| B5 | [`b5_orphan_prereg.md`](docs/b5_orphan_prereg.md), availability [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
-| B6 | [`b6_cuba_prereg.md`](docs/b6_cuba_prereg.md), availability [`b6_cuba_availability.md`](docs/b6_cuba_availability.md) |
-| B7 | [`b7_interaction_rank.md`](docs/b7_interaction_rank.md) — **what the class index carries, and a bound on every rank claim this carrier can support; §11 and §11.12** |
-| B8 | [`b8_fannie_slice.md`](docs/b8_fannie_slice.md) — the pre-registration. Instrument conclusions in [`b8_instrument_notes.md`](docs/b8_instrument_notes.md); the full inputs register is held outside this repository |
-| B9 | [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
-| B10 | no prose document here. **Its readings are in [RESULTS.md](RESULTS.md)** and its evidence is `experiments/b10_*.py` with the records beside them; the availability register is held outside this repository |
-| B11 | no prose document here. **Its readings are in [RESULTS.md](RESULTS.md)**, including the counted ceiling the gate turns on. Registered, with the counting step sequenced behind a data purchase not yet made |
-| B12 | no prose document here. Readings in [RESULTS.md](RESULTS.md); the evidence is [`experiments/b12_pullback.py`](experiments/b12_pullback.py), which enumerates every three-bin cut whole so that nothing is ranked and no null is needed |
-| B13 | no prose document here either, and for a different reason: the station was **specified inside B9's**, [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) section 57, which states the carrier requirement and says in the same breath that meeting it is not B9's work. Its design and result files are held outside this repository. **What is here is the evidence**: `experiments/b13_*.py` and `b4_two_classes.py`, and the console outputs they wrote, copied into `results/b13_*.txt` by [`b13_verdicts.py`](experiments/b13_verdicts.py) so a criterion's sources travel with the criterion |
-| B14 | no prose document here; same arrangement as B13. The carrier requirement it answers is stated in [`b4_directed_edges.md`](docs/b4_directed_edges.md) section 9, and **that section now carries three conditions where it carried one, with Theorem 6(5) new**, which is what the stage produced besides its readings |
-| B15 | [`b15_bolivia_prereg.md`](docs/b15_bolivia_prereg.md) and [`b15_bolivia_results.md`](docs/b15_bolivia_results.md) — **the only station whose register and readings are both published here**, because it is the control carrier for B6 and four of its thresholds are B6's own values carried over unchanged |
-| B16 | no prose document here. Readings in [RESULTS.md](RESULTS.md); evidence in `experiments/b16_*.py`. **Registered and sequenced.** The first gate's readings are in [RESULTS.md](RESULTS.md); the second needs purchased quotes, and the registered order is to buy the smallest arm first and let that gate decide whether the rest are bought at all |
-| B17 | no prose document here. Readings in [RESULTS.md](RESULTS.md); evidence in `experiments/b17_*.py`. **Two earlier carrier candidates were screened out on paper, before any data was bought**; this is the one that survived screening |
-| L2 | no prose document here. Readings in [RESULTS.md](RESULTS.md). It runs on B14's carrier and imports that stage's sample, windows and group assignment rather than restating them |
+**From B10 onward the convention changed, and it is the one still in force.** The
+criteria are written in the experiment script, the record each run writes carries
+them verbatim, and the reading goes into [RESULTS.md](RESULTS.md). The design and
+result documents for those stages are held outside this repository. **What is
+published is the evidence**: `experiments/<stage>_*.py` and the committed
+`results/*.json` beside them, which is what someone re-running a stage actually
+needs. The A-track stages built after A7 follow the same convention.
+
+**Two stations answer a requirement stated inside another station's document**,
+which is worth knowing before looking for a file that does not exist. B13's
+carrier requirement is in [`b9_zero_holonomy.md`](docs/b9_zero_holonomy.md)
+section 57, which states it and says in the same breath that meeting it is not
+B9's work. B14's is in [`b4_directed_edges.md`](docs/b4_directed_edges.md)
+section 9, and **that section now carries three conditions where it carried one,
+with Theorem 6(5) new**, which is what that stage produced besides its readings.
+
+**One station has both its register and its readings published here**, and that
+is B15, because it is the control carrier for B6 and four of its thresholds are
+B6's own values carried over unchanged. Judging two carriers by one ruler means
+something only if the ruler is visible.
 
 ### Across every stage
 
@@ -469,7 +477,7 @@ sweep maps where it does and does not.
 | A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
 | A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below, [`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
 | A7 | continuous connectivity | **ran**, eleven verdicts, [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md). The per-run records are `diagnostic_only` because section 4.2's scored estimator (`D_fixed`) is not what those runs computed; every gap in them is `D_reach`, which the same section registers as reported and never scored. The verdict sheet is the record that reaches [RESULTS.md](RESULTS.md) |
-| A1 | default waterfall, calibrated to delinquency cross-sections | A1 superseded by A1b; A1b, A1c and A1d have run, see [RESULTS.md](RESULTS.md) and [`docs/a1_prereg.md`](docs/a1_prereg.md) |
+| A1 | default waterfall, calibrated to delinquency cross-sections | A1 superseded by A1b; A1b, A1c and A1d have run, see [RESULTS.md](RESULTS.md). Registers: [`a1_prereg.md`](docs/a1_prereg.md), [`a1b_prereg.md`](docs/a1b_prereg.md), [`a1c_prereg.md`](docs/a1c_prereg.md), [`a1d_prereg.md`](docs/a1d_prereg.md); what was checked before retrieval, [`a1_availability.md`](docs/a1_availability.md) and [`a1_inputs_availability.md`](docs/a1_inputs_availability.md) |
 | A2d | what selects the terminal distribution | **complete, 4/4.** Structure moves terminal top1% wealth by 0.156, the savings rate by 0.0066 and where issuance enters by less still |
 | A8 | the coverage test | **complete, 4/4.** Four surfaces are in play at once on a grid fixed before the run, and the two ends of the edge-width curve each drop a different one, which is what a conjunction of positive predictions has to do to carry any information |
 | A9 | the New Deal switch | **complete, 4/4.** One structure, two parameter settings, and the rate at which both readings hold |
@@ -615,19 +623,19 @@ simulating instances.
 | B1 theorem | is the partition result a case of the cohomological claim? | **complete, 7/7**, [`docs/b1_theorem.md`](docs/b1_theorem.md) |
 | B2 loop B | same dwelling, different entry vintages | **complete, 4/4**, [`docs/b2_loop_b.md`](docs/b2_loop_b.md) |
 | B2 placebo validation | is the VA pool actually wide? | **6/9**, the premise survives, [`docs/b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
-| B3 | CIP deviations: the other summand of the cycle space | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md) |
+| B3 | CIP deviations: the other summand of the cycle space | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md); what was checked before retrieval, [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
 | B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
-| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void, not failed**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band that first made this a failure was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A |
-| B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md) |
+| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void, not failed**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band that first made this a failure was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A; what was checked before retrieval, [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
+| B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md); what was checked before retrieval, [`b6_cuba_availability.md`](docs/b6_cuba_availability.md) |
 | B7 | matrix rank of the cell-by-class interaction on 16m loans | **the class index carries 0.3036 of stage B2's within-term dispersion** over 16,035,398 loans in 326,872 cells, and **there is no single ladder in it**: the 19-class and 6-class cuts read alike. **The stage then measured what its own carrier can support, and withdrew its rank-2 headline on that measurement.** With two classes at 1.18 and 1.37 loans per entry, a constructed field carrying **no interaction at all** reads back exactly 2 in 20 of 20 repetitions, and the second-moment matrix is near-diagonal (off-diagonal correlations max `0.1417`), so per-class noise lands on the diagonal and there is nothing off it for a rank to count. **That bound governs any future rank claim on this data**, which is why no number is quoted, [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
-| B8 | the slice summand on a household carrier, from loan modification | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the four carriers. B8-4b does not run for want of C9 and section 15.3 registers that as not a failure of the stage, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md) |
+| B8 | the slice summand on a household carrier, from loan modification | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the seven carriers. B8-4b does not run for want of C9 and section 15.3 registers that as not a failure of the stage, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md). Instrument conclusions the published criteria lean on: [`b8_instrument_notes.md`](docs/b8_instrument_notes.md) |
 | B9 | the measured zero, and the path share | ran; the ETF creation triangle carries a non-zero holonomy of 1.2 to 1.7 bp and its quantization explanation is falsified. The stage is under re-audit, [`docs/b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | Freddie as a carrier, and the shape of the state graph | **closed.** The holonomy machinery was rebuilt on a second GSE: 1,362,490 loans, 74,937,616 monthly rows, 28 vintages. The structural reading is the cheap one and it bounds every path design on this data: **of 10,816 possible ordered state pairs only 1,496 ever occur, 13.83 per cent**. The stage also names what its carrier stops recording in mid-2019 |
 | B11 | corporate credit as the second domain | **open, and the readings taken before the gate are now in [RESULTS.md](RESULTS.md).** The branch table in B8 section 15.6 sends the second domain here; the domain was not chosen. The ceiling is counted rather than assumed: the distressed-exchange marker appears on **422 rows over 227 issuers**, 2012-06-15 to 2025-07-01, against a gate of 200, so the investment-grade filter has to retain 88 per cent to clear it. **Registered and sequenced: C11-0 is the next run** |
 | B12 | grid invariance | **closed, and it binds rather than clears.** Every three-bin threshold cut of the delinquency ladder is enumerated whole, so nothing is ranked and no null is needed. The between-class spread of median holonomy moves **4 to 17 times across cuts**, over the registered line on all six vintages on one arm and on three of six on the other. **Per-loop holonomy is untouched and that half is structural**: coarsening changes which loops are the same loop, not what any one of them sums to. So what this binds is every quantity aggregated over cycle classes, and **the 30/60-day convention is not neutral** |
 | B13 | the zero domain | **closed, 7/7 criteria, in a day, on the vendor's free public sample.** The framework names where its own quantity must be zero and then measures it on CME implied quotes: never worse than the two-leg derivation in **81,968 states** over nine products and three channels, exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states. **The explanation first given for the six-versus-nine split is withdrawn** and B13-2 carries the withdrawal. It also produced the first measurement of both halves of B4 section 5.1's split |
 | B14 | a dated, exogenous, symmetric friction change | **the gate passes in both directions.** The SEC tick size pilot is the carrier B4 section 9 asked for. Imposing the 5-cent grid in 2016 widens the treated spread against the control, six inequalities of six, and it holds under every weighting and adversarial convention tried, thirty of thirty. **Lifting it in 2018 narrows them again, six of six**, once both rounds are read on the securities they share: the venue's Appendix B coverage runs 618 distinct symbols in March 2018 and 2,110 in April, between the two rounds. Four of the six cells then sit outside every gap measured on window pairs where nothing happened, taken both inside the pilot and after it. **Closed rather than paused**: the index half was bought and cannot be adjudicated on this carrier, and the reason is structural. `S - S'` is a difference of price levels and a tick-size change works by moving those levels onto a lattice, so projecting the post-release quotes back onto the nickel grid reproduces **88.7 per cent** of the whole move and the residual sits inside a placebo band. What the stage produced instead is a carrier specification |
-| B15 | Bolivia, as the control carrier for B6 | **closed, and it is B6's zero calibration.** B6 found an edge the law grants, that is posted, and that nobody walks, on 207 of 207 Cuban publication days, and the one thing that reading could not establish about itself is whether the instrument says as much of any economy with an official rate and a parallel market beside it. **It does not.** The register was sealed before a single Bolivian number was downloaded and four of its thresholds are B6's own values carried over unchanged, so one ruler measures both carriers: Bolivia reads **21 of 52** against the same 95 per cent. **B6-15 is therefore a fact about Cuba rather than a reflex of the method.** What the instrument tracks is sharper than the contrast. Measured against Bolivia's own frozen peg the same window reads 100 per cent, and against what the banks were actually selling at, 65 per cent; after the peg went and the official rate began to follow the market, 40 per cent. **A posted price nobody transacts at is what produces the Cuban reading**, and the reading falls when the official rate becomes one somebody trades at |
+| B15 | Bolivia, as the control carrier for B6 | **closed, and it is B6's zero calibration.** B6 found an edge the law grants, that is posted, and that nobody walks, on 207 of 207 Cuban publication days, and the one thing that reading could not establish about itself is whether the instrument says as much of any economy with an official rate and a parallel market beside it. **It does not.** The register was sealed before a single Bolivian number was downloaded and four of its thresholds are B6's own values carried over unchanged, so one ruler measures both carriers: Bolivia reads **21 of 52** against the same 95 per cent. **B6-15 is therefore a fact about Cuba rather than a reflex of the method.** What the instrument tracks is sharper than the contrast. Measured against Bolivia's own frozen peg the same window reads 100 per cent, and against what the banks were actually selling at, 65 per cent; after the peg went and the official rate began to follow the market, 40 per cent. **A posted price nobody transacts at is what produces the Cuban reading**, and the reading falls when the official rate becomes one somebody trades at **Register and readings are both published here**: [`b15_bolivia_prereg.md`](docs/b15_bolivia_prereg.md), [`b15_bolivia_results.md`](docs/b15_bolivia_results.md) |
 | B16 | a purchased-quote carrier, pre-purchase checks only | **open, nothing judged, nothing bought.** Every check run so far was free. The second gate needs the observed dispersion of the statistic, which needs quotes, so the registered order is to buy the smallest arm first, compute the gate from it, and let that decide whether the other five are bought at all. **The screening rule is frozen; the symbol list is not** |
 | B17 | how many independent directions the parallel-rate deviations occupy | **closed**, on Argentina's simultaneously quoted legal conversion tracks, from files already on disk. **Nothing was bought.** Two carriers were screened out on paper before this one, before any data was bought: a GSE monthly panel whose cycle count ran from 1275 to 1 as the state definition changed with no cut having a source, and a depositary-receipt design |
 | B18 | the directional remnant in the direct book | **closed on the instrument's resolution, nothing bought.** One trading day, 295 spread contracts, 3,895,656 snapshots. Absence happens in runs, so counting runs rather than snapshots puts every contract's `A_s` inside two standard errors of zero. See [RESULTS.md](RESULTS.md) |

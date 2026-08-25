@@ -53,14 +53,30 @@ and it is not in dispute; the contribution here is noticing that it converts a
 foundational assumption into something you can go and measure on administrative
 data, and then going and measuring it.
 
-**On four independent carriers it is not zero.**
+**On seven independent carriers the reading is not zero. On one of them it is
+also exactly zero, in the place the framework named before anyone looked.**
 
-Mortgage servicing on 170 million monthly rows. ETF creation and redemption on
-6,201 fund-days. Cross-currency funding on 1.5 million rows. A second GSE. These
-are different institutions, different regulators, different data vendors,
-different decades, and different failure modes. They are not four tests of one
-dataset. **Each one is a carrier of the same object**, and the object is the same
-because the cycle sum is defined by the graph and not by the setting.
+Mortgage origination terms on 20 million reported spreads. Mortgage servicing on
+170 million monthly rows, and the same design again on a second GSE. Cross-currency
+funding on 1.5 million rows. ETF creation and redemption on 6,201 fund-days.
+Argentina's legally distinct conversion tracks over 1,457 dates. Cuba's
+central-bank table over 207 publication days, with Bolivia measured under the same
+sealed register as its zero calibration. CME calendar spreads on 81,968
+end-of-event states, where the exchange's derived book reads zero in every one of
+them and its directly quoted book reads non-zero in 65 to 96 per cent.
+
+These are different institutions, different regulators, different data vendors,
+different decades, and different failure modes. **They are seven regulatory
+environments and not seven samples of one**, which is the whole reason for
+choosing them: shared structure across unrelated settings is the only evidence
+that separates one object from a pile of coincidences. **Each is a carrier of the
+same object**, and the object is the same because the cycle sum is defined by the
+graph and not by the setting.
+
+**Six of them read an undirected cycle sum. The seventh asks the directed
+question**, whether a *sub*-potential exists rather than a potential, which is the
+weaker object a one-way market admits and a different question with its own
+answer.
 
 **What follows is narrow, and the narrowness is the point.** If the loop sum
 carries a non-trivial class, then no global scalar potential exists for those
@@ -81,13 +97,12 @@ claim to.
 
 **What it would reorganise if it holds.** Within-cell rate dispersion in
 mortgages, covered-interest-parity deviations, ETF arbitrage residuals, parallel
-exchange rate gaps, and path dependence in loan modification are currently five
-literatures with five sets of frictions and no reason to talk to each other. On
-this reading they are **five carriers of one measurement**, and the frictions are
-not five explanations but five places the same structure becomes visible. That is
-a strong claim and it is the reason the carriers were deliberately chosen to be
-institutionally unrelated: shared structure across unrelated settings is the only
-evidence that would distinguish one object from five coincidences.
+exchange rate gaps, path dependence in loan modification, and implied against
+directly quoted matching on futures spreads are currently six literatures with six
+sets of frictions and no reason to talk to each other. On this reading they are
+**six readings of one measurement**, and the frictions are not six explanations
+but six places the same structure becomes visible. That is a strong claim, and it
+is why the carriers were deliberately chosen to be institutionally unrelated.
 
 **Three of the results bound the framework, which is the part a framework has to
 be able to produce about itself.** B4 proves that when conversions run one way

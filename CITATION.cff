@@ -12,8 +12,9 @@ abstract: >-
   Small mechanism models for a framework in which a monetary claim and the
   resource it points at are distinct objects. Each model isolates one
   mechanism, exposes fewer than a dozen parameters, and reports a criterion
-  that can fail. Four carriers have produced measured non-zero cycle sums on
-  real transaction data. Failed and withdrawn criteria are kept in the record
+  that can fail. Seven carriers, each a separate regulatory environment, have
+  produced measured non-zero readings on real transaction data, each against a
+  floor that is measured rather than asserted. Failed and withdrawn criteria are kept in the record
   alongside the passing ones.
 type: software
 authors:
