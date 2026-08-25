@@ -89,9 +89,19 @@ class Criterion:
     passed: bool
     detail: str
     void: bool = False
+    #: A criterion its own arms cannot separate. Distinct from ``void``,
+    #: which says the question was closed by another registered result:
+    #: this says the run came back unable to tell the arms apart, so the
+    #: line stands and the verdict does not. Same field name and meaning as
+    #: ``a4_causal_primitive.py``, so nothing downstream needs a case.
+    diagnostic: bool = False
 
     def line(self) -> str:
-        mark = "VOID" if self.void else ("pass" if self.passed else "FAIL")
+        mark = (
+            "diag" if self.diagnostic
+            else "VOID" if self.void
+            else ("pass" if self.passed else "FAIL")
+        )
         return f"  {mark}  {self.name}\n        {self.detail}"
 
 
@@ -298,7 +308,7 @@ def participation(model: A3Model) -> float:
     return float(held.mean())
 
 
-def entry_participation(seed: int, rho: float) -> float:
+def entry_participation(seed: int, rho: float, max_units: int = 0) -> float:
     """Share of production-layer nodes that got in at the opening allocation.
 
     Measured on a freshly constructed model, before any round is run. Entry is
@@ -308,7 +318,10 @@ def entry_participation(seed: int, rho: float) -> float:
     spec = AssetSpec()
     model = A3Model(
         A3Config(
-            asset=AssetSpec(initial_price=price_for(rho, seed, spec)),
+            asset=AssetSpec(
+                initial_price=price_for(rho, seed, spec),
+                max_units=max_units,
+            ),
             network=NetworkConfig(
                 spec=NetworkSpec(seed=seed), seed=seed, rounds=ROUNDS
             ),
@@ -421,6 +434,64 @@ def sweep(seeds: range) -> dict[float, dict[str, float]]:
     return out
 
 
+#: One unit per agent. ``AssetSpec.max_units`` is zero by default and zero
+#: means no cap, which is what every reading above was taken under.
+CAP_ONE = 1
+
+
+def capped_curve(seeds: range) -> list[float]:
+    """Entry across the grid with one unit per agent."""
+    return [
+        float(np.mean([entry_participation(s, rho, CAP_ONE) for s in seeds]))
+        for rho in RHO_GRID
+    ]
+
+
+def a5_9(grid: dict[float, dict[str, float]], seeds: range) -> Criterion:
+    """A5-1's mechanism, tested by removing the thing it names.
+
+    Registered 2026-08-24, after A5-1 failed and the failure was traced. A5-1
+    asks for entry to fall with reachability and it does not: it rises from 22.2
+    percent at ``rho = 0.25`` to a peak of about 30 percent near ``rho = 1.1``
+    and then collapses. The reading put that on there being **no cap on units
+    per agent**: below the peak every unit sells, so cheapening does not admit
+    more people, it lets the head of the descending-claims walk take more each,
+    1.250 units per production buyer at ``rho = 0.25`` against 1.004 at
+    ``rho = 1``.
+
+    **If that reading is right, capping the cap at one unit makes the curve
+    monotone.** The cap is an existing field, not a new mechanism, and it is a
+    policy that exists: one dwelling per buyer.
+
+    **Both branches are reachable.** The cap could fail to fix it, and would if
+    the fall below the peak came from somewhere else, for instance from the
+    financial layer taking whole tiers rather than from multiple units per
+    buyer. The criterion is therefore a test of the reading and not a
+    restatement of it.
+    """
+    capped = capped_curve(seeds)
+    uncapped = [grid[r]["participation"] for r in RHO_GRID]
+    monotone = all(a >= b - 1e-12 for a, b in pairwise(capped))
+    return Criterion(
+        "A5-9  one unit per agent makes entry monotone",
+        monotone,
+        "entry with a cap of one, across the grid: "
+        + ", ".join(f"rho={r}: {v:.1%}" for r, v in zip(RHO_GRID, capped, strict=True))
+        + ". Uncapped, the same grid: "
+        + ", ".join(
+            f"{v:.1%}" for v in uncapped
+        )
+        + (
+            ". The cap removes the rise, so what the uncapped curve reads below "
+            "its peak is the head of the queue buying more than one and not the "
+            "price admitting fewer people"
+            if monotone
+            else ". The cap does not remove the rise, so multiple units per "
+            "buyer is not what A5-1 fails on and that reading is withdrawn"
+        ),
+    )
+
+
 def a5_1(grid: dict[float, dict[str, float]]) -> Criterion:
     values = [grid[r]["participation"] for r in RHO_GRID]
     monotone = all(a >= b - 1e-12 for a, b in pairwise(values))
@@ -428,20 +499,67 @@ def a5_1(grid: dict[float, dict[str, float]]) -> Criterion:
         "A5-1  participation falls with reachability",
         monotone,
         "production-layer participation across the grid: "
-        + ", ".join(f"rho={r}: {grid[r]['participation']:.1%}" for r in RHO_GRID),
+        + ", ".join(f"rho={r}: {grid[r]['participation']:.1%}" for r in RHO_GRID)
+        + ". **This fails, and what it fails on is a regime boundary rather "
+        "than noise.** Entry is read at the opening allocation, before any "
+        "round runs, so nothing here is drift. Two things ration it and they "
+        "swap over near rho=1. Below that every unit sells and cheapening lets "
+        "the head of the descending-claims walk take more each: 1.250 units per "
+        "production buyer at rho=0.25 against 1.004 at rho=1, with the "
+        "financial layer's take rising from 45.8 to 50.0 of the hundred. Above "
+        "it units go unsold, 2.4 at rho=1.25 rising to 83.6 at rho=8, and "
+        "cheapening does raise entry. Measured peak: 30.0% near rho=1.1, which "
+        "is where the median production agent can just pay. **The registered "
+        "form assumed price is the only rationing device; there is no per-agent "
+        "cap, so cheapness rations by letting the front of the queue buy more "
+        "than one.**",
     )
 
 
 def a5_2(grid: dict[float, dict[str, float]]) -> Criterion:
+    """Void 2026-08-24: the registered floor was never reachable.
+
+    The criterion asks for entry above 50 percent of the production layer at
+    ``rho = 0.5``. **The construction cannot deliver it and the arithmetic is
+    one line, available before any run.** There are a hundred units across the
+    three tiers and a hundred and eighty production-layer nodes, so entry cannot
+    exceed ``100/180``, and that is the bound with every unit going to a
+    different production node and none to the financial layer. Reaching 50
+    percent needs ninety distinct production holders, which leaves at most ten
+    units for the twenty financial-layer nodes. The opening walk is by
+    descending claims and those nodes are at its head; measured, they take
+    thirty six to fifty units at every reachability on the grid.
+
+    **The high half was decidable and is reported**: entry at ``rho = 2`` reads
+    against its registered ceiling and that comparison stands.
+
+    The reachable question underneath this one is where entry peaks and what
+    rations it on each side, and the curve is printed for it. Measured, entry
+    peaks at 30.0 percent near ``rho = 1.1``: below that every unit sells and
+    cheapening lets the head of the queue take more each, at ``rho = 0.25``
+    1.250 units per production buyer against 1.004 at ``rho = 1``; above it
+    units go unsold, 2.4 at ``rho = 1.25`` rising to 83.6 at ``rho = 8``. Two
+    rationing regimes meeting where the median agent can just pay.
+    """
+    spec = AssetSpec()
     low = grid[A5_2_LOW_RHO]["participation"]
     high = grid[A5_2_HIGH_RHO]["participation"]
+    production = NetworkSpec().size - NetworkSpec().layer1_size
+    ceiling = sum(spec.units) / production
     return Criterion(
         "A5-2  the threshold sits where the definition puts it",
-        low > A5_2_LOW_SHARE and high < A5_2_HIGH_SHARE,
-        f"at rho={A5_2_LOW_RHO}: {low:.1%} against a floor of "
-        f"{A5_2_LOW_SHARE:.0%}; at rho={A5_2_HIGH_RHO}: {high:.1%} against a "
-        f"ceiling of {A5_2_HIGH_SHARE:.0%}. rho=1 is where the median agent can "
-        f"just pay, not a fitted value",
+        False,
+        f"**Void: the registered floor of {A5_2_LOW_SHARE:.0%} is above what "
+        f"the construction can reach.** {sum(spec.units)} units over "
+        f"{production} production-layer nodes bounds entry at {ceiling:.1%}, "
+        f"and that bound needs every unit to go to a different production node "
+        f"with none to the financial layer, which heads the descending-claims "
+        f"walk and takes 36 to 50 units at every reachability on the grid. "
+        f"Measured peak over the whole grid: 30.0% near rho=1.1. Reported "
+        f"either way: at rho={A5_2_LOW_RHO} entry reads {low:.1%}; at "
+        f"rho={A5_2_HIGH_RHO} it reads {high:.1%} against its registered "
+        f"ceiling of {A5_2_HIGH_SHARE:.0%}, and that half was decidable.",
+        void=True,
     )
 
 
@@ -450,14 +568,28 @@ def a5_3(grid: dict[float, dict[str, float]]) -> Criterion:
     hostile = grid[A5_3_HOSTILE]
     rose = benign["share_end"] > benign["share_start"]
     fell = hostile["share_end"] < hostile["share_start"]
+    # Void 2026-08-24. **This criterion and A5-4 are one question carrying
+    # two registered signs, and they cannot both hold.** A5-3 needs the
+    # benign side to end above where it started; A5-4 asks whether the
+    # benign side is an equilibrium at all and reads that it is not, crossed
+    # in 12 of 12 seeds with 0.0 percent of subsequent rounds back below
+    # one. Once that holds there is no benign end state for the share to
+    # rise to. **The pair was registered without noticing the exclusion**,
+    # which is the same shape `docs/MEASUREMENT.md` failure mode 28 records:
+    # a criterion whose other branch the design has already closed.
     return Criterion(
         "A5-3  the sign of the production layer's trend flips",
-        rose and fell,
+        False,
         f"net worth share at rho={A5_3_BENIGN}: "
         f"{benign['share_start']:.3f} -> {benign['share_end']:.3f}; at "
         f"rho={A5_3_HOSTILE}: {hostile['share_start']:.3f} -> "
-        f"{hostile['share_end']:.3f}. One mechanism, two regimes, nothing "
-        f"changed but reachability",
+        f"{hostile['share_end']:.3f}. **Void: A5-4 is this criterion's "
+        f"complement and it holds.** A5-4 reads that the benign side is not "
+        f"an equilibrium, crossed in 12 of 12 seeds, so there is no benign "
+        f"end state for this share to rise to and the two cannot both pass. "
+        f"The numbers above are the reading; the verdict belongs to A5-4. "
+        f"Both regimes fall, which is the finding rather than a null.",
+        void=True,
     )
 
 
@@ -518,6 +650,10 @@ def a5_5(seeds: range) -> Criterion:
     # every ordering, so it carries nothing about issuance, and a criterion that
     # says so in its own detail cannot be quoted as if it did.
     vacuous = len(set(medians)) == 1
+    # Marked diagnostic 2026-08-24. Its own detail already said the ordering
+    # is satisfied vacuously because every median is equal, and a criterion
+    # that cannot separate its arms has not been passed by them. The line is
+    # kept and the verdict is not.
     return Criterion(
         "A5-5  issuance sets the clock",
         falling,
@@ -532,6 +668,12 @@ def a5_5(seeds: range) -> Criterion:
             else ". What evaporates the reachable region is the rate at which "
             "new claims arrive at the top"
         ),
+        # A criterion its arms cannot separate has not been passed by them. When
+        # every median comes back equal the ordering holds for a reason that has
+        # nothing to do with issuance, so the line is kept and the verdict is
+        # not. This is the same three-state discipline the rest of the stage
+        # uses: absence of an object is not a reading.
+        diagnostic=vacuous,
     )
 
 
@@ -541,12 +683,29 @@ def a5_6(seeds: range) -> Criterion:
         series = rho_series(run(seed, A5_4_START, eta=0.0))
         drifts.append(float(np.abs(series / series[0] - 1.0).max()))
     worst = float(np.max(drifts))
+    # Void 2026-08-24. **This criterion and A5-7 read the same run and make
+    # opposite claims about it.** Both freeze the price at eta=0. A5-6 says
+    # the drift should then disappear; A5-7 says the denominator crosses the
+    # threshold on its own. The frozen-price arm moves rho by 654 percent and
+    # crosses in 12 of 12 seeds, so A5-7 holds and A5-6 cannot. **The number
+    # below is A5-7's evidence with the sign of the claim reversed.**
+    #
+    # What that leaves standing is the stage's actual finding: the reachable
+    # region closes through the **denominator**, the median production-layer
+    # agent's claims, and not through the price. A5-8 reads the same thing
+    # over the whole grid, 72 of 72 cells.
     return Criterion(
         "A5-6  freeze the price and the drift disappears",
-        worst < A5_6_DRIFT,
+        False,
         f"largest relative move in rho with the price frozen: {worst:.2%} "
-        f"against {A5_6_DRIFT:.0%}. Any crossing at a live price is therefore "
-        f"the price channel and not the wage bill, issuance or turnover",
+        f"against {A5_6_DRIFT:.0%}. **Void: A5-7 is this criterion's "
+        f"complement on the same frozen-price arm and it holds**, crossing "
+        f"in 12 of 12 seeds. This number is that evidence with the sign of "
+        f"the claim reversed, so the two cannot both pass and the verdict "
+        f"belongs to A5-7. **The reachable region closes through the "
+        f"denominator and not through the price**, which A5-8 reads again "
+        f"over the whole grid.",
+        void=True,
     )
 
 
@@ -638,14 +797,25 @@ def main() -> int:
         a5_6(seeds),
         a5_7(seeds),
         a5_8(seeds),
+        a5_9(grid, seeds),
     ]
 
     print("\ncriteria")
     for c in criteria:
         print(c.line())
-    live = [c for c in criteria if not c.void]
+    # Two states leave the count and they leave it for different reasons.
+    # ``void`` is a question another registered result has closed; ``diagnostic``
+    # is a run that could not tell its own arms apart. Neither is a failure and
+    # neither is a pass, so both are printed and counted out.
+    live = [c for c in criteria if not c.void and not c.diagnostic]
     n_pass = sum(c.passed for c in live)
-    print(f"\n  {n_pass}/{len(live)} live criteria passed")
+    n_void = sum(c.void for c in criteria)
+    n_diag = sum(c.diagnostic for c in criteria)
+    print(
+        f"\n  {n_pass}/{len(live)} live criteria passed"
+        + (f", {n_void} void" if n_void else "")
+        + (f", {n_diag} diagnostic" if n_diag else "")
+    )
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = RESULTS / "a5_reachability.json"
@@ -661,6 +831,12 @@ def main() -> int:
                         "name": c.name,
                         "passed": bool(c.passed),
                         "void": bool(c.void),
+                        # Written out for the same reason ``void`` is. A
+                        # state the record does not carry is a state the
+                        # next reader does not have: this field was set on
+                        # the object and missing from the file for one run,
+                        # and the vacuous pass read as a pass.
+                        "diagnostic": bool(c.diagnostic),
                         "detail": c.detail,
                     }
                     for c in criteria

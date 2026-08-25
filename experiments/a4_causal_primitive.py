@@ -804,7 +804,157 @@ def evaluate(
         )
     )
 
-    # -- A4-5 -----------------------------------------------------------
+    # -- A4-3b and A4-4b, added 2026-08-24 ------------------------------
+    #
+    # The two originals stay exactly as registered and are not touched. These
+    # sit beside them because both of the grounds that void A4-4 look like
+    # criterion shape rather than absence of an effect, and the repository's own
+    # rule is that a shape written wrong is corrected in place rather than
+    # carried.
+    #
+    # Ground one, the floor. A4-3's threshold is 0.02 in absolute Gini units
+    # while the C=0 control cell sits near 0.0071, so it asks each competitor
+    # for about 2.8 times the control's entire value. That is a line drawn on an
+    # estimator, which this repository bans, and the original detail string says
+    # in the same breath that education's rise is 35.6 control-cell sd and still
+    # below the line. A4-3b asks the same question in the units the rest of this
+    # file already uses for readability, the control cell's own spread.
+    #
+    # Ground two, the ceiling. `A(X)` compares a competitor's effect across the
+    # two arms, and the C=1 control sits at a Gini near 0.935, leaving 0.065 of
+    # room against the C=0 arm's 0.99. Section 11.3 records this as a defect in
+    # the discriminant. Gini is bounded above by one; the effective support,
+    # 1/HHI, is not, and stage A7 measured the same comparison at 15.81 on Gini
+    # against 2.00 on log(1/HHI). A4-4b reads the amplification on the unbounded
+    # measure.
+    sd_bits = []
+    sd_clear = []
+    for name in COMPETITORS:
+        u = _sd_units(floors[name], g["C0_none"])
+        sd_bits.append(f"{LETTER[name]} {u}")
+        try:
+            if float(u) >= 2.0:
+                sd_clear.append(name)
+        except (TypeError, ValueError):
+            pass
+    out.append(
+        Criterion(
+            "A4-3b the same question in control-cell spread rather than in"
+            " absolute Gini units",
+            bool(sd_clear),
+            f"Each competitor alone with C off, rise over the null in"
+            f" control-cell sd: {', '.join(sd_bits)}. Clearing two sd:"
+            f" {', '.join(LETTER[n] for n in sd_clear) or 'none'}."
+            f" A4-3's registered form asks for 0.02 in absolute Gini units"
+            f" against a control cell of {null0:.5f}. Read: this criterion does"
+            f" not replace A4-3, which stands as registered; it reports how many"
+            f" competitors are detectable at all, which is what A4-4's"
+            f" denominator needs.",
+        )
+    )
+
+    # The unbounded measure was registered from the start: `holders` is 1/HHI
+    # and it is already in `SCORED_MEASURES`. A4-4 simply never read it, taking
+    # its ratio on Gini alone. So this is not a new measure, it is the one this
+    # station already records, read where the bounded one could not be.
+    unbounded = []
+    for key in ("holders", "holders_prod"):
+        for name, base in contrasts():
+            a = amplification(rows, key, name, base)
+            if a["quotable"]:
+                unbounded.append(
+                    f"{key} {LETTER[name]}|{a['base']} = {a['pooled']:.2f}"
+                    f" (denominator {a['denominator']:+.5f})"
+                )
+    live_sup = sorted(
+        f"{key} {arm}/{base}/{LETTER[comp]}"
+        for arm, base, comp, key in readable_set(table)
+        if key in ("holders", "holders_prod")
+    )
+    out.append(
+        Criterion(
+            "A4-4b the amplification on a measure with no ceiling",
+            bool(unbounded),
+            f"1/HHI cells readable in both arms:"
+            f" {', '.join(live_sup) or 'none'}. Amplification ratios:"
+            f" {'; '.join(unbounded) or 'none'}. The Gini form is bounded above"
+            f" by one and the C=1 control sits near 0.935, leaving 0.065 of room"
+            f" against 0.99 on the other arm, which section 11.3 records as a"
+            f" defect in the discriminant; stage A7 measured the same comparison"
+            f" at 15.81 on Gini against 2.00 on log(1/HHI). `holders` was in"
+            f" SCORED_MEASURES from the start; A4-4 took its ratio on Gini alone."
+            f" Read: this reports whether the ceiling was the binding problem."
+            f" A4-4 stays void as registered.",
+            void=not unbounded,
+        )
+    )
+
+    # -- A4-4c, added 2026-08-24 ----------------------------------------
+    #
+    # What §11.2's table has been saying and no criterion has read. A(X) is a
+    # ratio across the two arms, so it presupposes that a competitor has an
+    # effect in both. Sorting the resolution table by arm says that presupposition
+    # is false, and not marginally: with connectivity on, inheritance and mating
+    # clear the floor by 36 and 32 control-cell sd while education and capital
+    # read 0.00 and 0.02; with connectivity off the four exchange places, 36 and
+    # 3 against 0.3 and -0.2. The stock-moved diagnostic agrees, inheritance
+    # relocating 44% of the stock under C=1 and 0.4% under C=0.
+    #
+    # Section 1 offered two readings, C parallel and C upstream, and distinguished
+    # them by whether switching C off leaves the others "working at close to full
+    # strength" or attenuates them. Neither describes an exchange. What is here is
+    # a third: connectivity does not scale the other mechanisms, it selects which
+    # of them can operate. Inheritance and mating transmit a position and a
+    # complete graph has none to transmit; education and capital returns are
+    # properties of an agent and survive the graph's removal.
+    #
+    # So this criterion does not draw a line. It prints the two sets and asks
+    # only the question that could make their disjointness an artefact: whether
+    # either arm is simply dead, which would produce the same emptiness for a
+    # reason about the instrument rather than about the world.
+    by_arm: dict[str, set[str]] = {"C=0": set(), "C=1": set()}
+    for arm, base, comp, key in readable_set(table):
+        if base == "null":
+            by_arm[arm].add(LETTER[comp])
+    shared = sorted(by_arm["C=0"] & by_arm["C=1"])
+    both_live = bool(by_arm["C=0"]) and bool(by_arm["C=1"])
+    out.append(
+        Criterion(
+            "A4-4c the two arms' readable competitors, as sets",
+            both_live,
+            f"Readable alone against the null, on any registered measure:"
+            f" C=1 {{{', '.join(sorted(by_arm['C=1'])) or 'none'}}},"
+            f" C=0 {{{', '.join(sorted(by_arm['C=0'])) or 'none'}}}."
+            f" Intersection: {{{', '.join(shared) or 'empty'}}}."
+            f" This criterion passes when both arms have something readable,"
+            f" which is the only way their disjointness could be an artefact of"
+            f" a dead instrument rather than a fact about the design. Read: an"
+            f" empty intersection means A(X) has no domain, because a ratio"
+            f" across arms needs a competitor with an effect in both. Section 1"
+            f" put the alternatives as C parallel, the others near full strength"
+            f" with C off, against C upstream, the others attenuated. An"
+            f" exchange is neither.",
+        )
+    )
+
+    # -- A4-5, reshaped 2026-08-24 --------------------------------------
+    #
+    # Its registered form asks whether the update order decides A4-4, and it was
+    # void for the stated reason that A4-4 has no result for an ordering to
+    # preserve or overturn. A4-4c has one. It is a pair of sets, C=1 against
+    # C=0, and its content is that they do not intersect, which is what leaves
+    # A(X) without a domain. So the question this criterion was written to ask
+    # now has an object: is the disjointness a fact about the design, or a fact
+    # about the order the competitors are applied in.
+    #
+    # The registered form's reported material is kept below rather than dropped.
+    # It was already computed, and it is a printed object rather than a verdict.
+    #
+    # An ordering with a dead arm cannot answer: an empty set intersects nothing,
+    # so it would report disjointness for a reason about the instrument. Those
+    # orderings leave the judgment and are named. If every ordering has a dead
+    # arm the criterion is void, which is the same third state the registered
+    # form used and not a failure.
     base_set = readable_set(table)
     here = stable_verdicts(rows)
     moved, flipped = [], []
@@ -826,20 +976,109 @@ def evaluate(
                 if a != b
             ]
             flipped.append(f"{label} ({', '.join(names)})")
+
+    def arm_sets(t: list[dict]) -> dict[str, set[str]]:
+        """A4-4c's two sets, computed the same way, on any ordering's table."""
+        d: dict[str, set[str]] = {"C=0": set(), "C=1": set()}
+        for arm, base, comp, _key in readable_set(t):
+            if base == "null":
+                d[arm].add(LETTER[comp])
+        return d
+
+    def arm_margins(t: list[dict]) -> dict[str, tuple[float, float, list[str]]]:
+        """Per arm, how far the two sets sit from the floor.
+
+        Membership in a set is a yes or no, and a yes or no hides whether the
+        line was cleared by a hair or by thirty sigma. Two numbers per arm: the
+        smallest score among the competitors that are in, and the largest among
+        those that are out. If those two straddle ``READABLE_SD`` closely the
+        disjointness is a boundary reading and should be treated as one.
+
+        **A competitor can be out for two reasons and only one of them has a
+        distance.** ``_readable`` is a conjunction, a stable sign and a ratio
+        over the floor, so a competitor with no stable measure anywhere is out
+        without ever being scored: it has no distance from the floor and a pair
+        of numbers cannot show it. The first draft of this function printed an
+        empty maximum while a competitor sat outside the set, which is how that
+        was found. Those are returned by name instead.
+
+        Scored the way ``_readable`` scores, per competitor: the largest ratio
+        over the measures whose sign is stable, so membership here and
+        membership in ``arm_sets`` cannot come apart.
+        """
+        out_: dict[str, tuple[float, float, list[str]]] = {}
+        for arm in ("C=1", "C=0"):
+            best: dict[str, float] = {}
+            present: set[str] = set()
+            for r in t:
+                if r["arm"] != arm or r["base"] != "null":
+                    continue
+                letter = LETTER[r["competitor"]]
+                present.add(letter)
+                for key, _ in SCORED_MEASURES:
+                    if r[key]["sign_stable"]:
+                        best[letter] = max(
+                            best.get(letter, float("-inf")), float(r[key]["ratio"])
+                        )
+            inside = [v for v in best.values() if v >= READABLE_SD]
+            outside = [v for v in best.values() if v < READABLE_SD]
+            out_[arm] = (
+                min(inside) if inside else float("nan"),
+                max(outside) if outside else float("nan"),
+                sorted(present - set(best)),
+            )
+        return out_
+
+    order_sets = {"registered": arm_sets(table)}
+    order_margins = {"registered": arm_margins(table)}
+    for label, (_alt_rows, other) in sorted(order_runs.items()):
+        order_sets[label] = arm_sets(other)
+        order_margins[label] = arm_margins(other)
+
+    both_live = {k: bool(v["C=0"]) and bool(v["C=1"]) for k, v in order_sets.items()}
+    judged = [k for k, ok in both_live.items() if ok]
+    dead = [k for k, ok in both_live.items() if not ok]
+    broke = [k for k in judged if order_sets[k]["C=0"] & order_sets[k]["C=1"]]
+
+    def set_text(label: str) -> str:
+        v = order_sets[label]
+        m = order_margins[label]
+        shared = sorted(v["C=0"] & v["C=1"])
+        return (
+            f"{label} C=1 {{{', '.join(sorted(v['C=1'])) or 'none'}}}"
+            f" [in>={m['C=1'][0]:.2f} out<={m['C=1'][1]:.2f}"
+            f" sign-unstable {{{', '.join(m['C=1'][2]) or 'none'}}}]"
+            f" C=0 {{{', '.join(sorted(v['C=0'])) or 'none'}}}"
+            f" [in>={m['C=0'][0]:.2f} out<={m['C=0'][1]:.2f}"
+            f" sign-unstable {{{', '.join(m['C=0'][2]) or 'none'}}}]"
+            f" shared {{{', '.join(shared) or 'empty'}}}"
+        )
+
     out.append(
         Criterion(
-            "A4-5 the update order does not decide it",
-            False,
-            f"**Void: A4-4 has no result for an ordering to preserve or"
-            f" overturn.** What was run in its place, on all four combinations"
-            f" of channel order and event order, and is reported: the set of"
-            f" cells clearing §11.2's floor, and the three verdicts that do not"
-            f" pass through A(X). Registered set has {len(base_set)} cells;"
-            f" orderings whose set differs: {', '.join(moved) or 'none'}."
-            f" A4-1, A4-2 and A4-6 evaluated on every alternative run;"
-            f" orderings where any of the three flips:"
-            f" {', '.join(flipped) or 'none'}.",
-            void=True,
+            "A4-5 the update order does not decide A4-4c's disjointness",
+            bool(judged) and not broke,
+            f"Reshaped 2026-08-24. The registered form was void because A4-4"
+            f" had no result for an ordering to preserve; A4-4c has one and it"
+            f" is a pair of sets, so this now reads that. Judged on"
+            f" {len(judged)} of {len(order_sets)} orderings"
+            + (f"; not judged, one arm empty: {', '.join(dead)}" if dead else "")
+            + (f"; INTERSECTION NON-EMPTY at: {', '.join(broke)}" if broke
+               else "; intersection empty on every ordering judged")
+            + ". " + "; ".join(set_text(k) for k in order_sets)
+            + f". Also reported, unchanged from the registered form: the"
+            f" registered readable set has {len(base_set)} cells; orderings"
+            f" whose set differs: {', '.join(moved) or 'none'}; A4-1, A4-2 and"
+            f" A4-6 evaluated on every alternative run, orderings where any of"
+            f" the three flips: {', '.join(flipped) or 'none'}."
+            f" The bracketed pair after each set is the distance from the floor"
+            f" of {READABLE_SD:.2f}: the smallest score among the competitors"
+            f" that are in, the largest among those that are out, and the"
+            f" competitors that are out for the other reason, no measure with a"
+            f" stable sign, which have no distance from the floor at all. A"
+            f" pair that straddles the floor closely makes that ordering's"
+            f" reading a boundary reading, whatever the sets look like.",
+            void=not judged,
         )
     )
 

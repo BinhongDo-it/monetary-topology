@@ -123,7 +123,7 @@ implementation choice.
 holidays carry the previous business day's TCO by law.
 
 **This does not touch `guard_no_fill`,** and the distinction is worth writing
-down because it is easy to collapse. `guard_no_fill` governs **our** code: we do
+down because it is easy to collapse. `guard_no_fill` governs **my own** code: I do
 not synthesise a value for a date the source did not serve. A weekend row in the
 BCB's own table carrying Friday's number is **the publisher reporting what the
 statute says the rate is on that day**. It is a published value with a named
@@ -577,10 +577,16 @@ empty, while the month headers still span two columns, so the post-reform data
 sits one month-block to the right of its label. **Every count on the sheet is
 right and every identity after June is wrong.**
 
-**Reported and not resolved.** Arm III is suspended, and the only cell arm I or
+**Reported and not resolved, and it stayed that way.** The only cell arm I or
 arm II needs from S1 is the one `ADUANA_ANCHOR` names, whose month is stated by
-a Bolivian state body rather than inferred. Resolving it will need the anchor
-plus the statute's own weekend rule, not a look at the labels.
+a Bolivian state body rather than inferred, and B15-9 later read the eight
+weekly cells it needs off the same sheet by the same route. Resolving the labels
+themselves would need the anchor plus the statute's own weekend rule, not a look
+at the labels, and nothing in the stage came to need it.
+
+**The clause this paragraph carried on 2026-08-20, that arm III is suspended, is
+superseded by §13**: arm III runs. The displacement above is unaffected either
+way, because no criterion reads S1 by its month label.
 
 ### 2.6 The gate
 **SUPERSEDED 2026-08-21T13:10:00Z, see §13.** The gate is open. B15-4 resolves and B15-3's gate is asked on the segment arm III uses.
@@ -1174,7 +1180,7 @@ select.
 ---
 
 ## 8. Where the stage stands
-**VOIDED 2026-08-21T09:35:00Z, see §9.** This section's table and its headline are void. The current table is §9.5, and the comparison against Cuba was not made.
+**SUPERSEDED, and twice. See §13.4 for the current table.** This section's table was the state when eleven criteria had run; §9.5 replaced it when the clock was corrected and B15-4 went void, and §13.4 replaced that when B15-4 was re-decided on the publisher's own columns and arm III ran. **Twelve criteria, twelve verdicts.** The numbers in this section are not withdrawn and it is not rewritten.
 
 
 **Eleven of twelve criteria have run.** The twelfth is `pending on retrieval`
@@ -1836,11 +1842,24 @@ field in the record rather than an inference at the gate.
 **Twelve criteria, twelve verdicts, and B15-7 is one of them.**
 
 **The question §1 opened the stage to answer is answered, and now by a scored
-criterion rather than only by §12's envelope.** B6 found an edge the law
-grants, that is posted, and that nobody walks, on 207 of 207 Cuban publication
-days. Bolivia reads **21 of 52**, against a threshold of 95% carried over
-unchanged from B6 so that the two carriers are judged by one ruler. **The
-framework does not say of any controlled economy what it said of Cuba.**
+criterion rather than only by §12's envelope.**
+
+**This stage is B6's zero calibration and that is the whole of its purpose.**
+B6 found an edge the law grants, that is posted, and that nobody walks, on 207
+of 207 Cuban publication days, and the one thing that reading could not
+establish about itself is whether the instrument says as much of any economy
+with an official rate and a parallel market beside it. Bolivia reads **21 of
+52** against the same 95%, on four thresholds carried over unchanged. **The
+instrument discriminates, so B6-15 is a fact about Cuba rather than a reflex of
+the method.**
+
+**What it discriminates on is sharper than the contrast between two countries.**
+Measured against Bolivia's own frozen peg the same window reads 100%, against
+what the banks were actually selling at 65.4%, and after the peg went and the
+official rate began to follow the market, 40.38%. **A posted price nobody
+transacts at is what produces the Cuban reading.** Bolivia had one until
+2026-06-26 and stopped having one after, and the reading moves with that and
+not with the country.
 
 §12's envelope is not withdrawn and is now a robustness statement rather than
 the finding: across five alignments and both ceiling readings the share runs

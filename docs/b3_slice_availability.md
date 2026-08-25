@@ -102,7 +102,7 @@ retrieved 20.1 million originations and applied filters fixed in advance, and th
 one time that discipline lapsed it cost `0.975` (§11.2). Here the filters have
 already been applied by someone else. The ticker list makes the construction
 **auditable** but not **re-runnable** without a terminal, which is better than an
-opaque series and worse than our own retrieval. Any stage built on this must say
+opaque series and worse than a retrieval of my own. Any stage built on this must say
 so at the top rather than in a footnote.
 
 **`b1_setup.md` §4's framing objection survives Theorem 2 untouched.** §4's

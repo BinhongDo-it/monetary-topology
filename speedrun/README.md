@@ -253,8 +253,16 @@ not left. This is the first carrier to give the `H⁰` half of the object a posi
 reading, which is a different structure from the loop sums everywhere else.
 
 **B15, Bolivia.** A regulated multiple-rate regime with the operative documents
-read from source. The station is open: one criterion is void and the third arm is
-suspended on it.
+read from source, run as **the zero calibration for B6**: twelve criteria at B6's
+own thresholds, four of them carried over unchanged so that one ruler measures
+both carriers. B6 read an edge that is posted and never walked on 207 of 207
+Cuban publication days; **Bolivia reads 21 of 52**, so that reading is a fact
+about its carrier rather than something the instrument returns wherever an
+official rate has a parallel market beside it. **What separates the two is not
+the country.** Measured against Bolivia's own frozen peg the same window reads
+100 per cent, and it falls to 40 once the peg goes and the official rate begins
+to follow the market: **a posted price nobody transacts at is what produces the
+Cuban reading.**
 
 **Nearest existing practice.** The parallel-exchange-rate and capital-control
 literatures, and the CIP deviation literature for B3.

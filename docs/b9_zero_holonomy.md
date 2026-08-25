@@ -3152,8 +3152,8 @@ rather than the true national best bid and offer.
 is the wrong convention by §35.2's whole argument.
 
 **Not the eighteen single-venue feeds aggregated by hand.** That moves the error
-from someone else's convention into our own construction, which is worse because
-it is unmeasured.
+from someone else's convention into the construction here, which is worse
+because it is unmeasured.
 
 > **`XNAS.ITCH`, one venue, coverage from `2018`, `$0.40/GB`.** Schema `bbo-1s`,
 > a one-second subsampled top of book. **The last record at or before
@@ -3272,7 +3272,7 @@ venue.
 
 **Registered as a caveat and not as a solution.** Per-venue coverage depths
 differ, and a consolidation assembled by hand is a construction whose error is
-ours and is unmeasured, which is exactly §36.2's reason for refusing to build one
+mine and is unmeasured, which is exactly §36.2's reason for refusing to build one
 there. **B9-B-2 therefore still needs its own gate**, and §30.3's and §30.5's
 prerequisites are not discharged by §37.
 
@@ -3682,8 +3682,8 @@ the readings, not why it works.
 ## 41.5 §36.2 refused to hand-build a consolidation, and §39.3 built one anyway
 
 §36.2 rejected aggregating single-venue feeds on the grounds that it "moves the
-error from someone else's convention into our own construction, which is worse
-because it is unmeasured."
+error from someone else's convention into the construction here, which is
+worse because it is unmeasured."
 
 **§39.3 then registered exactly that as step 2.** That was not a contradiction
 and the difference is the whole design: **here the construction's error was
@@ -4162,7 +4162,7 @@ quarters since, and it replaced the older disclosure rather than adding to it.**
 
 **This is §34.7's fact seen from a second angle.** §34.7 said the `404`-day
 window is a disclosure limit and only grows forward. §47 adds that the past was
-not merely un-archived by us; **it was never anyone's obligation to keep**, which
+not merely un-archived here; **it was never anyone's obligation to keep**, which
 is why no third party has it either.
 
 **The ERUS document is the exception that shows the rule**: a terminated fund's
@@ -4545,7 +4545,7 @@ series:
 
 ## 51.3 The defect that construction would carry, named before anything is built
 
-**A state-level index applied to each dwelling is ours, not the servicer's.**
+**A state-level index applied to each dwelling is mine, not the servicer's.**
 Within-state dispersion in house prices is large, so the constructed gate is a
 proxy for the gate the institution applies.
 
@@ -4624,7 +4624,7 @@ already states. **§45.3's rule caught it, which is what §45.3 was written for.
 
 ## 52.3 And the proxy problem is worse than §51.3 said
 
-§51.3 registered that a state index applied per dwelling is our proxy rather
+§51.3 registered that a state index applied per dwelling is my proxy rather
 than the servicer's gate. **The Guide says the servicer orders a valuation.**
 
 > **So the constructed MTM-LTV is not a noisy version of the quantity the
@@ -4981,7 +4981,7 @@ entirely in the friction part and **cancels exactly out of the index part**.
 > **So the fee cannot manufacture an index reading. It can only manufacture a friction reading, and
 > a friction reading was never the claim.**
 
-## 56.3 Consequence: §25.1's two ends are mislabelled, and the correction runs in our favour
+## 56.3 Consequence: §25.1's two ends are mislabelled, and the correction runs in this stage's favour
 
 §25.1 reports `|λ| / F_m` at two ends of §16.4's fee interval and calls them a generous corner and a
 conservative corner. **That framing is wrong on B4's decomposition.**
@@ -5017,7 +5017,7 @@ surviving amount is exactly half their difference.
 of the fee table and §48 had to go back for the other half. **This is the third item to come out of
 one paragraph.**
 
-## 56.5 Where the mathematical zero is, and the answer is that we already have it
+## 56.5 Where the mathematical zero is, and the answer is that it is already here
 
 §55.3 said `λ ≡ 0` lives where one leg is **derived** rather than independently quoted, gave the
 cross-rate example, and said this carrier cannot supply it. **The programme already holds such a
@@ -5096,7 +5096,7 @@ into a record.
 
 > **It is the only zero in this programme measured on somebody else's numbers.**
 
-Every other zero here is a construction zero on our own construction: B9-0 was `−x + x`, A3-1
+Every other zero here is a construction zero on the construction here: B9-0 was `−x + x`, A3-1
 reproduces a closed channel bitwise, B1-8's square sums are structurally zero on a synthetic field,
 B3-2's degenerate cycle is a degenerate cycle. **Those check that the instrument does not invent a
 reading.** The Cuban table checks something strictly stronger and cheaper: **the instrument reads
@@ -5144,7 +5144,7 @@ The gap is now narrow enough to name a carrier requirement rather than a wish:
 **not** B9's to run: this station has no grid, no second member, and no reason to hold it.
 
 **Two things it must not become.** It must not become a reason to buy a feed (§18.3 stands). And a
-venue that publishes only derived crosses supplies half a calibration, which is the position we are
+venue that publishes only derived crosses supplies half a calibration, which is the position this stage is
 already in.
 
 ## 57.5 The ledger entry, both halves

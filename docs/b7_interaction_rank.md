@@ -231,7 +231,7 @@ the table runs the other way at every fill from `0.35` down to `0.20`. §4's
 sentence should be read as scoped to what it argues about, and this section is
 the part it does not reach.
 
-**A claim of ours was refuted by our own sweep and is withdrawn rather than
+**A claim of mine was refuted by my own sweep and is withdrawn rather than
 restated.** The first form of criterion B7-4 asserted the error runs upward and
 never downward, on a narrower sweep that showed only over-counts. The `0.15` row
 refutes it: three reads back as two. B7-4 is now **reported and not judged**, in

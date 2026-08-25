@@ -1,0 +1,581 @@
+{
+  "criteria": [
+    {
+      "detail": "sigma 24/24, structure 23/23, issuance 6/6. The stock-flow identity is asserted inside the loop, so reaching here is also the claim that it held in every round of every cell.",
+      "name": "A2d-1  every cell of all three grids ran and returned a finite share",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "sigma grid 0.220472-0.227116, width 0.006644. structure grid 0.151491-0.30793, width 0.156439. structural width is 23.545906x the sigma width. Read: the larger span names the knob that selects the terminal distribution. This criterion prints both and does not draw a line.",
+      "name": "A2d-2  sigma's span on terminal top1% wealth against the structural span",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "on 0.219094-0.222925, off 0.181641-0.181641, gap 0.037453 against sigma's span 0.006644. State: separated by more than sigma's whole span.",
+      "name": "A2d-3  issuance on against issuance off",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "endogenous: top_node 0.222925 vs uniform 0.219094, |diff| 0.003831, issued 3215.370677 vs 1591.774459; fixed: top_node 0.222817 vs uniform 0.220165, |diff| 0.002652, issued 2990.0 vs 2990.0; none: top_node 0.181641 vs uniform 0.181641, |diff| 0.0, issued 0.0 vs 0.0. Largest |diff| 0.003831 against the on-off gap 0.037453. Read: an entry-point effect smaller than the on-off gap says the concentration is not attributable to where issuance lands. This criterion prints the pairs and does not draw a line.",
+      "name": "A2d-4  the entry point, at matched rule and matched sigma",
+      "passed": true,
+      "void": false
+    }
+  ],
+  "issuance_grid": [
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.93673,
+      "issued": 3215.370677,
+      "rule": "endogenous",
+      "support": 13.981057,
+      "target": "top_node",
+      "top10_wealth": 0.996968,
+      "top1_wealth": 0.222925
+    },
+    {
+      "claims_close": 1691.774459,
+      "gini": 0.932986,
+      "issued": 1591.774459,
+      "rule": "endogenous",
+      "support": 14.449902,
+      "target": "uniform",
+      "top10_wealth": 0.990459,
+      "top1_wealth": 0.219094
+    },
+    {
+      "claims_close": 3090.0,
+      "gini": 0.936606,
+      "issued": 2990.0,
+      "rule": "fixed",
+      "support": 14.002365,
+      "target": "top_node",
+      "top10_wealth": 0.996746,
+      "top1_wealth": 0.222817
+    },
+    {
+      "claims_close": 3090.0,
+      "gini": 0.934436,
+      "issued": 2990.0,
+      "rule": "fixed",
+      "support": 14.189562,
+      "target": "uniform",
+      "top10_wealth": 0.993062,
+      "top1_wealth": 0.220165
+    },
+    {
+      "claims_close": 100.0,
+      "gini": 0.882869,
+      "issued": 0.0,
+      "rule": "none",
+      "support": 24.928068,
+      "target": "top_node",
+      "top10_wealth": 0.899566,
+      "top1_wealth": 0.181641
+    },
+    {
+      "claims_close": 100.0,
+      "gini": 0.882869,
+      "issued": 0.0,
+      "rule": "none",
+      "support": 24.928068,
+      "target": "uniform",
+      "top10_wealth": 0.899566,
+      "top1_wealth": 0.181641
+    }
+  ],
+  "retention_l1": [
+    0.2,
+    0.3,
+    0.38,
+    0.5,
+    0.65,
+    0.8
+  ],
+  "retention_l2": [
+    0.0,
+    0.0625,
+    0.15,
+    0.3
+  ],
+  "rounds": 300,
+  "seeds_tested": 5,
+  "sigma_grid": [
+    {
+      "claims_close": 3713.060018,
+      "gini": 0.937091,
+      "issued": 3613.060018,
+      "ret_l1": 0.2,
+      "ret_l2": 0.0,
+      "support": 13.848312,
+      "top10_wealth": 0.99762,
+      "top1_wealth": 0.222135
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.936701,
+      "issued": 3215.370677,
+      "ret_l1": 0.2,
+      "ret_l2": 0.0625,
+      "support": 13.86808,
+      "top10_wealth": 0.997001,
+      "top1_wealth": 0.221972
+    },
+    {
+      "claims_close": 2758.931462,
+      "gini": 0.935906,
+      "issued": 2658.931462,
+      "ret_l1": 0.2,
+      "ret_l2": 0.15,
+      "support": 13.905436,
+      "top10_wealth": 0.995734,
+      "top1_wealth": 0.221643
+    },
+    {
+      "claims_close": 1806.299216,
+      "gini": 0.933037,
+      "issued": 1706.299216,
+      "ret_l1": 0.2,
+      "ret_l2": 0.3,
+      "support": 14.024017,
+      "top10_wealth": 0.991165,
+      "top1_wealth": 0.220472
+    },
+    {
+      "claims_close": 3713.060018,
+      "gini": 0.937099,
+      "issued": 3613.060018,
+      "ret_l1": 0.3,
+      "ret_l2": 0.0,
+      "support": 13.872395,
+      "top10_wealth": 0.997613,
+      "top1_wealth": 0.222372
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.936708,
+      "issued": 3215.370677,
+      "ret_l1": 0.3,
+      "ret_l2": 0.0625,
+      "support": 13.894989,
+      "top10_wealth": 0.996993,
+      "top1_wealth": 0.222199
+    },
+    {
+      "claims_close": 2758.931462,
+      "gini": 0.935908,
+      "issued": 2658.931462,
+      "ret_l1": 0.3,
+      "ret_l2": 0.15,
+      "support": 13.937682,
+      "top10_wealth": 0.995725,
+      "top1_wealth": 0.22185
+    },
+    {
+      "claims_close": 1806.299216,
+      "gini": 0.933025,
+      "issued": 1706.299216,
+      "ret_l1": 0.3,
+      "ret_l2": 0.3,
+      "support": 14.073204,
+      "top10_wealth": 0.99115,
+      "top1_wealth": 0.220618
+    },
+    {
+      "claims_close": 3713.060018,
+      "gini": 0.937109,
+      "issued": 3613.060018,
+      "ret_l1": 0.38,
+      "ret_l2": 0.0,
+      "support": 13.89725,
+      "top10_wealth": 0.997606,
+      "top1_wealth": 0.222617
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.936715,
+      "issued": 3215.370677,
+      "ret_l1": 0.38,
+      "ret_l2": 0.0625,
+      "support": 13.92276,
+      "top10_wealth": 0.996985,
+      "top1_wealth": 0.222433
+    },
+    {
+      "claims_close": 2758.931462,
+      "gini": 0.935911,
+      "issued": 2658.931462,
+      "ret_l1": 0.38,
+      "ret_l2": 0.15,
+      "support": 13.970963,
+      "top10_wealth": 0.995716,
+      "top1_wealth": 0.222065
+    },
+    {
+      "claims_close": 1806.299216,
+      "gini": 0.933014,
+      "issued": 1706.299216,
+      "ret_l1": 0.38,
+      "ret_l2": 0.3,
+      "support": 14.123971,
+      "top10_wealth": 0.991136,
+      "top1_wealth": 0.22077
+    },
+    {
+      "claims_close": 3713.060018,
+      "gini": 0.937129,
+      "issued": 3613.060018,
+      "ret_l1": 0.5,
+      "ret_l2": 0.0,
+      "support": 13.949423,
+      "top10_wealth": 0.997591,
+      "top1_wealth": 0.223131
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.93673,
+      "issued": 3215.370677,
+      "ret_l1": 0.5,
+      "ret_l2": 0.0625,
+      "support": 13.981057,
+      "top10_wealth": 0.996968,
+      "top1_wealth": 0.222925
+    },
+    {
+      "claims_close": 2758.931462,
+      "gini": 0.935917,
+      "issued": 2658.931462,
+      "ret_l1": 0.5,
+      "ret_l2": 0.15,
+      "support": 14.040833,
+      "top10_wealth": 0.995696,
+      "top1_wealth": 0.222515
+    },
+    {
+      "claims_close": 1806.299216,
+      "gini": 0.932993,
+      "issued": 1706.299216,
+      "ret_l1": 0.5,
+      "ret_l2": 0.3,
+      "support": 14.230559,
+      "top10_wealth": 0.991105,
+      "top1_wealth": 0.221089
+    },
+    {
+      "claims_close": 3713.060018,
+      "gini": 0.937174,
+      "issued": 3613.060018,
+      "ret_l1": 0.65,
+      "ret_l2": 0.0,
+      "support": 14.064845,
+      "top10_wealth": 0.997564,
+      "top1_wealth": 0.22427
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.936766,
+      "issued": 3215.370677,
+      "ret_l1": 0.65,
+      "ret_l2": 0.0625,
+      "support": 14.110043,
+      "top10_wealth": 0.996936,
+      "top1_wealth": 0.224015
+    },
+    {
+      "claims_close": 2758.931462,
+      "gini": 0.935934,
+      "issued": 2658.931462,
+      "ret_l1": 0.65,
+      "ret_l2": 0.15,
+      "support": 14.195443,
+      "top10_wealth": 0.995652,
+      "top1_wealth": 0.223512
+    },
+    {
+      "claims_close": 1806.299216,
+      "gini": 0.93295,
+      "issued": 1706.299216,
+      "ret_l1": 0.65,
+      "ret_l2": 0.3,
+      "support": 14.46645,
+      "top10_wealth": 0.991038,
+      "top1_wealth": 0.221794
+    },
+    {
+      "claims_close": 3713.060018,
+      "gini": 0.937302,
+      "issued": 3613.060018,
+      "ret_l1": 0.8,
+      "ret_l2": 0.0,
+      "support": 14.352737,
+      "top10_wealth": 0.997548,
+      "top1_wealth": 0.227116
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.936869,
+      "issued": 3215.370677,
+      "ret_l1": 0.8,
+      "ret_l2": 0.0625,
+      "support": 14.431845,
+      "top10_wealth": 0.996913,
+      "top1_wealth": 0.226739
+    },
+    {
+      "claims_close": 2758.931462,
+      "gini": 0.935993,
+      "issued": 2658.931462,
+      "ret_l1": 0.8,
+      "ret_l2": 0.15,
+      "support": 14.581286,
+      "top10_wealth": 0.995615,
+      "top1_wealth": 0.226004
+    },
+    {
+      "claims_close": 1806.299216,
+      "gini": 0.932866,
+      "issued": 1706.299216,
+      "ret_l1": 0.8,
+      "ret_l2": 0.3,
+      "support": 15.055208,
+      "top10_wealth": 0.990933,
+      "top1_wealth": 0.223557
+    }
+  ],
+  "stage": "A2d",
+  "structure_grid": [
+    {
+      "claims_close": 3339.452033,
+      "gini": 0.956625,
+      "issued": 3239.452033,
+      "knob": "layer1_size",
+      "support": 9.293675,
+      "top10_wealth": 0.997654,
+      "top1_wealth": 0.26641,
+      "value": 10
+    },
+    {
+      "claims_close": 3344.586907,
+      "gini": 0.946714,
+      "issued": 3244.586907,
+      "knob": "layer1_size",
+      "support": 11.791104,
+      "top10_wealth": 0.997404,
+      "top1_wealth": 0.236336,
+      "value": 15
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.93673,
+      "issued": 3215.370677,
+      "knob": "layer1_size",
+      "support": 13.981057,
+      "top10_wealth": 0.996968,
+      "top1_wealth": 0.222925,
+      "value": 20
+    },
+    {
+      "claims_close": 3320.695299,
+      "gini": 0.907118,
+      "issued": 3220.695299,
+      "knob": "layer1_size",
+      "support": 20.787145,
+      "top10_wealth": 0.913232,
+      "top1_wealth": 0.151491,
+      "value": 30
+    },
+    {
+      "claims_close": 3299.327358,
+      "gini": 0.89358,
+      "issued": 3199.327358,
+      "knob": "layer1_size",
+      "support": 23.174086,
+      "top10_wealth": 0.836653,
+      "top1_wealth": 0.159961,
+      "value": 40
+    },
+    {
+      "claims_close": 3320.108517,
+      "gini": 0.950183,
+      "issued": 3220.108517,
+      "knob": "layer1_out_degree",
+      "support": 10.661193,
+      "top10_wealth": 0.997029,
+      "top1_wealth": 0.30793,
+      "value": 3
+    },
+    {
+      "claims_close": 3332.932423,
+      "gini": 0.949649,
+      "issued": 3232.932423,
+      "knob": "layer1_out_degree",
+      "support": 10.967969,
+      "top10_wealth": 0.997125,
+      "top1_wealth": 0.276013,
+      "value": 4
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.93673,
+      "issued": 3215.370677,
+      "knob": "layer1_out_degree",
+      "support": 13.981057,
+      "top10_wealth": 0.996968,
+      "top1_wealth": 0.222925,
+      "value": 6
+    },
+    {
+      "claims_close": 3316.722966,
+      "gini": 0.929046,
+      "issued": 3216.722966,
+      "knob": "layer1_out_degree",
+      "support": 15.825233,
+      "top10_wealth": 0.996921,
+      "top1_wealth": 0.179473,
+      "value": 8
+    },
+    {
+      "claims_close": 3310.908267,
+      "gini": 0.923592,
+      "issued": 3210.908267,
+      "knob": "layer1_out_degree",
+      "support": 17.026756,
+      "top10_wealth": 0.996913,
+      "top1_wealth": 0.162494,
+      "value": 10
+    },
+    {
+      "claims_close": 3212.642331,
+      "gini": 0.937223,
+      "issued": 3112.642331,
+      "knob": "layer2_out_degree",
+      "support": 13.943449,
+      "top10_wealth": 0.997663,
+      "top1_wealth": 0.223576,
+      "value": 2
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.93673,
+      "issued": 3215.370677,
+      "knob": "layer2_out_degree",
+      "support": 13.981057,
+      "top10_wealth": 0.996968,
+      "top1_wealth": 0.222925,
+      "value": 3
+    },
+    {
+      "claims_close": 3318.702378,
+      "gini": 0.936294,
+      "issued": 3218.702378,
+      "knob": "layer2_out_degree",
+      "support": 14.015146,
+      "top10_wealth": 0.99633,
+      "top1_wealth": 0.222943,
+      "value": 4
+    },
+    {
+      "claims_close": 2978.030038,
+      "gini": 0.935235,
+      "issued": 2878.030038,
+      "knob": "layer2_out_degree",
+      "support": 14.125887,
+      "top10_wealth": 0.994719,
+      "top1_wealth": 0.222286,
+      "value": 6
+    },
+    {
+      "claims_close": 2574.191871,
+      "gini": 0.934794,
+      "issued": 2474.191871,
+      "knob": "upward_out_degree",
+      "support": 14.244818,
+      "top10_wealth": 0.992966,
+      "top1_wealth": 0.221768,
+      "value": 1
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.93673,
+      "issued": 3215.370677,
+      "knob": "upward_out_degree",
+      "support": 13.981057,
+      "top10_wealth": 0.996968,
+      "top1_wealth": 0.222925,
+      "value": 2
+    },
+    {
+      "claims_close": 3143.646021,
+      "gini": 0.937077,
+      "issued": 3043.646021,
+      "knob": "upward_out_degree",
+      "support": 13.954165,
+      "top10_wealth": 0.997722,
+      "top1_wealth": 0.22346,
+      "value": 3
+    },
+    {
+      "claims_close": 2882.493298,
+      "gini": 0.937254,
+      "issued": 2782.493298,
+      "knob": "upward_out_degree",
+      "support": 13.938756,
+      "top10_wealth": 0.998013,
+      "top1_wealth": 0.223732,
+      "value": 4
+    },
+    {
+      "claims_close": 5966.962314,
+      "gini": 0.937479,
+      "issued": 5866.962314,
+      "knob": "layer1_initial_share",
+      "support": 13.85043,
+      "top10_wealth": 0.998316,
+      "top1_wealth": 0.223499,
+      "value": 0.5
+    },
+    {
+      "claims_close": 4485.626204,
+      "gini": 0.93717,
+      "issued": 4385.626204,
+      "knob": "layer1_initial_share",
+      "support": 13.904279,
+      "top10_wealth": 0.99776,
+      "top1_wealth": 0.223262,
+      "value": 0.6
+    },
+    {
+      "claims_close": 3315.370677,
+      "gini": 0.93673,
+      "issued": 3215.370677,
+      "knob": "layer1_initial_share",
+      "support": 13.981057,
+      "top10_wealth": 0.996968,
+      "top1_wealth": 0.222925,
+      "value": 0.679
+    },
+    {
+      "claims_close": 2263.622039,
+      "gini": 0.935947,
+      "issued": 2163.622039,
+      "knob": "layer1_initial_share",
+      "support": 14.118431,
+      "top10_wealth": 0.995559,
+      "top1_wealth": 0.222327,
+      "value": 0.75
+    },
+    {
+      "claims_close": 105.473823,
+      "gini": 0.885142,
+      "issued": 5.473823,
+      "knob": "layer1_initial_share",
+      "support": 24.448671,
+      "top10_wealth": 0.903634,
+      "top1_wealth": 0.183696,
+      "value": 0.9
+    }
+  ]
+}

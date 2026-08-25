@@ -1,0 +1,604 @@
+{
+  "2021-09-22_06": {
+    "at": "2026-08-22T22:59:28",
+    "bytes": 16406087,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-22_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-22_18": {
+    "at": "2026-08-22T22:59:29",
+    "bytes": 16430035,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-22_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-23_06": {
+    "at": "2026-08-22T22:59:31",
+    "bytes": 16425116,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-23_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-23_18": {
+    "at": "2026-08-22T22:59:32",
+    "bytes": 16425726,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-23_17-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-24_06": {
+    "at": "2026-08-22T22:59:33",
+    "bytes": 16413713,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-24_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-24_18": {
+    "at": "2026-08-22T22:59:34",
+    "bytes": 16402180,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-24_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-25_06": {
+    "at": "2026-08-22T22:59:35",
+    "bytes": 16369938,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-25_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-25_18": {
+    "at": "2026-08-22T22:59:36",
+    "bytes": 16362358,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-25_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-26_06": {
+    "at": "2026-08-22T22:59:38",
+    "bytes": 16362757,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-26_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-26_18": {
+    "at": "2026-08-22T22:59:38",
+    "bytes": 16375697,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-26_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-27_06": {
+    "at": "2026-08-22T22:59:40",
+    "bytes": 16377584,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-27_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-27_18": {
+    "at": "2026-08-22T22:59:41",
+    "bytes": 16454010,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-27_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-28_06": {
+    "at": "2026-08-22T22:59:42",
+    "bytes": 16453180,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-28_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-28_18": {
+    "at": "2026-08-22T22:59:44",
+    "bytes": 16456582,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-28_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-29_06": {
+    "at": "2026-08-22T22:59:45",
+    "bytes": 16467128,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-29_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-29_18": {
+    "at": "2026-08-22T22:59:46",
+    "bytes": 16462300,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-29_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-30_06": {
+    "at": "2026-08-22T22:59:47",
+    "bytes": 16467294,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-30_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-09-30_18": {
+    "at": "2026-08-22T22:59:48",
+    "bytes": 16467660,
+    "minutes_off": 15,
+    "name": "market-orders-2021-09-30_17-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-01_06": {
+    "at": "2026-08-22T22:59:50",
+    "bytes": 16470504,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-01_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-01_18": {
+    "at": "2026-08-22T22:59:51",
+    "bytes": 16482752,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-01_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-02_06": {
+    "at": "2026-08-22T22:59:52",
+    "bytes": 16470765,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-02_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-02_18": {
+    "at": "2026-08-22T22:59:53",
+    "bytes": 16487190,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-02_17-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-03_06": {
+    "at": "2026-08-22T22:59:55",
+    "bytes": 16474929,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-03_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-03_18": {
+    "at": "2026-08-22T22:59:56",
+    "bytes": 16498998,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-03_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-04_06": {
+    "at": "2026-08-22T22:59:58",
+    "bytes": 16568095,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-04_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-04_18": {
+    "at": "2026-08-22T22:59:58",
+    "bytes": 16553854,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-04_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-05_06": {
+    "at": "2026-08-22T23:00:00",
+    "bytes": 16559057,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-05_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-05_18": {
+    "at": "2026-08-22T23:00:01",
+    "bytes": 16574207,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-05_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-06_06": {
+    "at": "2026-08-22T23:00:04",
+    "bytes": 16573915,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-06_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-06_18": {
+    "at": "2026-08-22T23:00:05",
+    "bytes": 16569876,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-06_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-07_06": {
+    "at": "2026-08-22T23:00:06",
+    "bytes": 16578896,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-07_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-07_18": {
+    "at": "2026-08-22T23:00:07",
+    "bytes": 16598093,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-07_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-08_06": {
+    "at": "2026-08-22T23:00:10",
+    "bytes": 16592927,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-08_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-08_18": {
+    "at": "2026-08-22T23:00:12",
+    "bytes": 16608009,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-08_17-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-09_06": {
+    "at": "2026-08-22T23:00:13",
+    "bytes": 16568285,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-09_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-09_18": {
+    "at": "2026-08-22T23:00:14",
+    "bytes": 16607204,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-09_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-10_06": {
+    "at": "2026-08-22T23:00:15",
+    "bytes": 16593150,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-10_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-10_18": {
+    "at": "2026-08-22T23:00:16",
+    "bytes": 16612118,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-10_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-11_06": {
+    "at": "2026-08-22T23:00:18",
+    "bytes": 16592944,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-11_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-11_18": {
+    "at": "2026-08-22T23:00:19",
+    "bytes": 16648635,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-11_17-45-09.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-12_06": {
+    "at": "2026-08-22T23:00:20",
+    "bytes": 16647170,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-12_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-12_18": {
+    "at": "2026-08-22T23:00:22",
+    "bytes": 16672509,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-12_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-13_06": {
+    "at": "2026-08-22T23:00:23",
+    "bytes": 16657619,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-13_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-13_18": {
+    "at": "2026-08-22T23:00:24",
+    "bytes": 16683965,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-13_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-14_06": {
+    "at": "2026-08-22T23:00:27",
+    "bytes": 16672887,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-14_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-14_18": {
+    "at": "2026-08-22T23:00:27",
+    "bytes": 16687141,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-14_17-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-15_06": {
+    "at": "2026-08-22T23:00:29",
+    "bytes": 16661401,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-15_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-15_18": {
+    "at": "2026-08-22T23:00:30",
+    "bytes": 16674997,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-15_17-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-16_06": {
+    "at": "2026-08-22T23:00:32",
+    "bytes": 16650000,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-16_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-16_18": {
+    "at": "2026-08-22T23:00:33",
+    "bytes": 16638753,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-16_18-15-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-17_06": {
+    "at": "2026-08-22T23:00:36",
+    "bytes": 16591305,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-17_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-17_18": {
+    "at": "2026-08-22T23:00:37",
+    "bytes": 16631270,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-17_17-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-18_06": {
+    "at": "2026-08-22T23:00:38",
+    "bytes": 16624368,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-18_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-18_18": {
+    "at": "2026-08-22T23:00:40",
+    "bytes": 16637078,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-18_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-19_06": {
+    "at": "2026-08-22T23:00:41",
+    "bytes": 16666001,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-19_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-19_18": {
+    "at": "2026-08-22T23:00:43",
+    "bytes": 16660767,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-19_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-20_06": {
+    "at": "2026-08-22T23:00:44",
+    "bytes": 16595132,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-20_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-20_18": {
+    "at": "2026-08-22T23:00:45",
+    "bytes": 16604427,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-20_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-21_06": {
+    "at": "2026-08-22T23:00:47",
+    "bytes": 16599415,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-21_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-21_18": {
+    "at": "2026-08-22T23:00:48",
+    "bytes": 16590078,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-21_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-22_06": {
+    "at": "2026-08-22T23:00:50",
+    "bytes": 16570390,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-22_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-22_18": {
+    "at": "2026-08-22T23:00:51",
+    "bytes": 16617570,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-22_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-23_06": {
+    "at": "2026-08-22T23:00:53",
+    "bytes": 16573350,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-23_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-23_18": {
+    "at": "2026-08-22T23:00:54",
+    "bytes": 16589581,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-23_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-24_06": {
+    "at": "2026-08-22T23:00:55",
+    "bytes": 16559479,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-24_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-24_18": {
+    "at": "2026-08-22T23:00:56",
+    "bytes": 16616803,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-24_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-25_06": {
+    "at": "2026-08-22T23:00:58",
+    "bytes": 16630834,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-25_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-25_18": {
+    "at": "2026-08-22T23:00:59",
+    "bytes": 16666147,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-25_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-26_06": {
+    "at": "2026-08-22T23:01:00",
+    "bytes": 16653722,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-26_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-26_18": {
+    "at": "2026-08-22T23:01:01",
+    "bytes": 16621223,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-26_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-27_06": {
+    "at": "2026-08-22T23:01:02",
+    "bytes": 16613610,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-27_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-27_18": {
+    "at": "2026-08-22T23:01:04",
+    "bytes": 16625686,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-27_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-28_06": {
+    "at": "2026-08-22T23:01:05",
+    "bytes": 16577242,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-28_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-28_18": {
+    "at": "2026-08-22T23:01:06",
+    "bytes": 16567679,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-28_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-29_06": {
+    "at": "2026-08-22T23:01:08",
+    "bytes": 16559876,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-29_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-29_18": {
+    "at": "2026-08-22T23:01:09",
+    "bytes": 16545901,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-29_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-30_06": {
+    "at": "2026-08-22T23:01:10",
+    "bytes": 16499265,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-30_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-30_18": {
+    "at": "2026-08-22T23:01:11",
+    "bytes": 16495039,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-30_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-31_06": {
+    "at": "2026-08-22T23:01:12",
+    "bytes": 16481007,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-31_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-10-31_18": {
+    "at": "2026-08-22T23:01:13",
+    "bytes": 16519574,
+    "minutes_off": 15,
+    "name": "market-orders-2021-10-31_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-11-01_06": {
+    "at": "2026-08-22T23:01:15",
+    "bytes": 16531095,
+    "minutes_off": 15,
+    "name": "market-orders-2021-11-01_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-11-01_18": {
+    "at": "2026-08-22T23:01:16",
+    "bytes": 16525223,
+    "minutes_off": 15,
+    "name": "market-orders-2021-11-01_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-11-02_06": {
+    "at": "2026-08-22T23:01:18",
+    "bytes": 16519125,
+    "minutes_off": 15,
+    "name": "market-orders-2021-11-02_05-45-03.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-11-02_18": {
+    "at": "2026-08-22T23:01:19",
+    "bytes": 16521882,
+    "minutes_off": 15,
+    "name": "market-orders-2021-11-02_17-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-11-03_06": {
+    "at": "2026-08-22T23:01:21",
+    "bytes": 16515821,
+    "minutes_off": 15,
+    "name": "market-orders-2021-11-03_05-45-02.v3.csv.bz2",
+    "status": 200
+  },
+  "2021-11-03_18": {
+    "at": "2026-08-22T23:01:22",
+    "bytes": 16513828,
+    "minutes_off": 165,
+    "name": "market-orders-2021-11-03_15-15-02.v3.csv.bz2",
+    "status": 200
+  }
+}

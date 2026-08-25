@@ -1,0 +1,90 @@
+{
+  "at": "2026-08-22T22:31:42",
+  "bins": [
+    {
+      "delta_allpost_pp": 3.033961724246286,
+      "delta_settled_pp": 3.5726260998901296,
+      "n": 28,
+      "ratio_allpost": 1.759597813859342,
+      "ratio_settled": 1.8944605179182137
+    },
+    {
+      "delta_allpost_pp": 1.338711682259143,
+      "delta_settled_pp": 1.6911037833256704,
+      "n": 28,
+      "ratio_allpost": 1.154710326816304,
+      "ratio_settled": 1.1954350757267516
+    },
+    {
+      "delta_allpost_pp": 1.4009234077351636,
+      "delta_settled_pp": 2.613902888748459,
+      "n": 28,
+      "ratio_allpost": 1.1132405726052013,
+      "ratio_settled": 1.2112891098984495
+    },
+    {
+      "delta_allpost_pp": 3.0105674140988663,
+      "delta_settled_pp": 3.214971318138418,
+      "n": 28,
+      "ratio_allpost": 1.2088924977849675,
+      "ratio_settled": 1.2230753531071432
+    },
+    {
+      "delta_allpost_pp": 5.052651787466445,
+      "delta_settled_pp": 6.3693315126046475,
+      "n": 28,
+      "ratio_allpost": 1.3229503902443918,
+      "ratio_settled": 1.4071086202089151
+    },
+    {
+      "delta_allpost_pp": 1.6976946099808932,
+      "delta_settled_pp": 4.559438563556947,
+      "n": 28,
+      "ratio_allpost": 1.1004305535676464,
+      "ratio_settled": 1.2697227971412668
+    },
+    {
+      "delta_allpost_pp": 6.553199715211336,
+      "delta_settled_pp": 6.03928857833638,
+      "n": 28,
+      "ratio_allpost": 1.3742513934469416,
+      "ratio_settled": 1.3449020728948895
+    },
+    {
+      "delta_allpost_pp": 2.6344470375789797,
+      "delta_settled_pp": 5.668985786367281,
+      "n": 28,
+      "ratio_allpost": 1.1429759751641495,
+      "ratio_settled": 1.3076656161372027
+    },
+    {
+      "delta_allpost_pp": 3.2658084831318988,
+      "delta_settled_pp": 4.831935026884923,
+      "n": 28,
+      "ratio_allpost": 1.171285285347227,
+      "ratio_settled": 1.2534255680129602
+    },
+    {
+      "delta_allpost_pp": 4.29018360851916,
+      "delta_settled_pp": 4.275286010013868,
+      "n": 28,
+      "ratio_allpost": 1.2187663330506886,
+      "ratio_settled": 1.2180066702265167
+    }
+  ],
+  "cv": {
+    "delta_allpost": 0.5184337695830515,
+    "delta_settled": 0.35561535146933143,
+    "ratio_allpost": 0.15702501294039806,
+    "ratio_settled": 0.1564000126392222
+  },
+  "event": "2025-03-12",
+  "event_status": "CONFIRMED",
+  "n_bins": 10,
+  "n_items": 288,
+  "prediction_pp": {
+    "relsum_hi": 3.1499999999999995,
+    "relsum_lo": 3.079999999999999
+  },
+  "settle_from": "2025-03-17"
+}

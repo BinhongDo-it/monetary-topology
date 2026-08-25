@@ -32,7 +32,7 @@ project's dependency set is ``numpy`` and ``matplotlib``. Fetching both costs
 three extra requests against a registered budget of "low tens" and buys two
 things: a parse path that exists whatever ``xls.php`` turns out to serve, and
 **B15-2's known-answer arm as an independent-format check rather than as a
-replay of our own bytes.** Two exports of one year by one publisher through two
+replay of bytes fetched here.** Two exports of one year by one publisher through two
 serialisers must agree row for row, and if they do not, that is the instrument
 reporting on itself. ``b15_bolivia_prereg.md`` §3.1 names ``xls.php`` as S1 and
 that remains the source of record; the ODS is retrieval machinery under §10 and

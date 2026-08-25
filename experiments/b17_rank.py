@@ -12,7 +12,7 @@ stage exists to produce.
 
 Registered constants come from two places and are copied here verbatim:
 the carrier's own filter table (window, intervention date, pre-window, the
-within-day collapse rule, the maximum gap) and this stage's arithmetic sheet
+within-day collapse rule, the maximum gap) and this stage's pre-registration
 (the two class sets, the reading of the second eigenvector's loadings).
 """
 

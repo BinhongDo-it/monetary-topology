@@ -6,7 +6,7 @@ threshold, cycle and criterion below is fixed here.
 Availability, sourcing and the ruling that this stage may be opened at all are in
 [`b3_slice_availability.md`](b3_slice_availability.md). That document also
 carries the two things a reader should see before this one: the data is
-**derived, not retrieved by us**, and the deviation is **not a profit**.
+**derived, not retrieved by me**, and the deviation is **not a profit**.
 
 ---
 
@@ -206,15 +206,15 @@ this stage adds nothing to it; it is shown so a reader can see the two together.
 ## 7. Filters, fixed here
 
 Our filters can act only on the publisher's output. **This is a real limitation
-and §4 of the availability check states it.** What we fix now:
+and §4 of the availability check states it.** What I fix now:
 
 | filter | value | why this and not another |
 |---|---|---|
 | version | `cip_dataset_v4.csv`, October 2025 | pinned; the manifest records the URL and retrieval date, and prior versions are archived by the publisher if a re-check is wanted |
-| sample | 2000-01-01 to the file's end | the publisher's own range; no start date is chosen by us |
-| countries | the publisher's G10 and EM labels, unaltered | choosing our own grouping would be choosing the placebo after seeing it |
+| sample | 2000-01-01 to the file's end | the publisher's own range; no start date is chosen here |
+| countries | the publisher's G10 and EM labels, unaltered | choosing a grouping of my own would be choosing the placebo after seeing it |
 | maturities | all eight, swept | no maturity is preferred |
-| benchmark series | `cip_govt` as the main series, with `_ibor` and `_sofr` used only for §4's noise floor | the publisher fixed the break dates per tenor-currency pair and we do not second-guess them |
+| benchmark series | `cip_govt` as the main series, with `_ibor` and `_sofr` used only for §4's noise floor | the publisher fixed the break dates per tenor-currency pair and they are not second-guessed here |
 | missing | dropped pairwise, with the count of dropped country-date cells reported per arm | silence about a dropped cell is how a sample becomes a selection |
 | **outlier band** | `Z` recomputed at `±100`, `±250`, `±500`, `±1000` bp caps on `x` | **§11.2**: a single unbounded value moves a variance decomposition and the size of the garbage never enters the answer, only the cell it lands in |
 | **rank version** | Spearman-style: `Z` recomputed on within-date ranks of `x` | bounded by construction, so a conclusion that survives it does not depend on the band at all |
@@ -253,7 +253,7 @@ different economic content, and this is the one whose content is arbitrage
 capacity rather than who the borrower is. It completes Volume II's mathematics.
 It says nothing about Volume I.
 
-**It is not our retrieval.** The construction is auditable through the
+**It is not my retrieval.** The construction is auditable through the
 publisher's ticker list and reproducible only with a terminal. Every headline
 carries that qualification.
 

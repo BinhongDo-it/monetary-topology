@@ -1,0 +1,23 @@
+{
+  "b16_cv_assumed": 0.17,
+  "block": 10,
+  "buckets": {
+    "0.120-9.999": {
+      "blocks": 311,
+      "cv_med": 0.15202733989533518,
+      "cv_p25": 0.1182717175928921,
+      "cv_p75": 0.19744166724472112,
+      "med_spread": 0.9273664054647707,
+      "names": 63,
+      "signal_over_noise": 0.014185901499387914
+    }
+  },
+  "dS": 0.002,
+  "diagnostic_only": true,
+  "diagnostic_reason": "measures the noise term for the 2027-11 Rule 610(c) carrier; that station is not open",
+  "n_symbols": 63,
+  "window_utc": [
+    52200,
+    72000
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "arm": 5,
   "boundary": "2023-02-23",
+  "carry_forward": false,
   "per_symbol": {
     "ARGX": {
       "post": {

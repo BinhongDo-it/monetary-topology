@@ -1377,7 +1377,7 @@ concentration and the DFA figures is a calibration echo and must never be quoted
 as confirmation. The default-waterfall figures in the source manuscript — credit
 card, auto, rent, evictions — are cited from the New York Fed, Fitch and
 Eviction Lab; **they are not this project's measurements**, and stage A1, which
-would make them ours, has not started.
+would make them mine, has not started.
 
 So the resonance between this result and ordinary observation is the third
 correspondence standard, 解释力 (*explanatory power*), which is the weakest of the

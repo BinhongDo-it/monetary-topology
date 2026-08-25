@@ -1,0 +1,145 @@
+{
+  "b1": 2,
+  "diagnostic_only": true,
+  "diagnostic_reason": "B17c second-country replication. The station is not closed: the reading here has not yet been written up as B17's, so these numbers are the measurement and not the station's licensed reading.",
+  "first": "2025-12-19",
+  "gate_zero": {
+    "especial_distinct": 62,
+    "n_days": 207,
+    "oficial_distinct": [
+      24
+    ],
+    "publica_over_oficial": [
+      5.0
+    ]
+  },
+  "last": "2026-08-12",
+  "meta": {
+    "informal": {
+      "n_days": 2056,
+      "n_distinct_tasas": 2056,
+      "n_payload_dates": 1,
+      "payload_dates": [
+        "2026-08-19"
+      ],
+      "sensitivity_probes_skipped": 13
+    },
+    "usdt": {
+      "n_days": 2056,
+      "n_distinct_tasas": 2056,
+      "n_payload_dates": 1,
+      "payload_dates": [
+        "2026-08-19"
+      ],
+      "sensitivity_probes_skipped": 13
+    }
+  },
+  "n_changes": 206,
+  "n_joint_days": 207,
+  "null_eigenvalues": [
+    0.000921689224026399,
+    3.473603497780132e-05,
+    -2.3720449118003118e-20
+  ],
+  "observed_eigenvalues": [
+    0.0009120207087729044,
+    3.7444858923775463e-05,
+    2.026625331087827e-19
+  ],
+  "spectrum": {
+    "T": 206,
+    "adjacent_gaps": [
+      {
+        "gap": 0.0008745758498491289,
+        "joint_z90_resolution": 0.00015389570859473915,
+        "pair": "1-2",
+        "separated": true
+      }
+    ],
+    "b1": 2,
+    "classes": [
+      "especial",
+      "informal",
+      "usdt"
+    ],
+    "loading_se": 0.06967330142916177,
+    "modes": [
+      {
+        "abs_cos_with_single_track_contrast": {
+          "especial": 0.5064767531014884,
+          "informal": 0.4934951595421721,
+          "usdt": 0.9999719126436605
+        },
+        "eigenvalue": 0.0009120207087729044,
+        "k": 1,
+        "loadings": {
+          "especial": -0.4135365372267413,
+          "informal": -0.40293711047056613,
+          "usdt": 0.8164736476973075
+        },
+        "share_of_nonzero_total": 0.9605621728709831,
+        "z90_resolution": 0.0001478263962432823
+      },
+      {
+        "abs_cos_with_single_track_contrast": {
+          "especial": 0.8622536161523328,
+          "informal": 0.8697485426883145,
+          "usdt": 0.007494926535981625
+        },
+        "eigenvalue": 3.744485892377546e-05,
+        "k": 2,
+        "loadings": {
+          "especial": -0.7040271294809464,
+          "informal": 0.7101467113718822,
+          "usdt": -0.006119581890932262
+        },
+        "share_of_nonzero_total": 0.03943782712901679,
+        "z90_resolution": 6.069312351456867e-06
+      },
+      {
+        "abs_cos_with_single_track_contrast": {
+          "especial": 1.9915980832339453e-15,
+          "informal": 1.9219380785697315e-15,
+          "usdt": 1.3321662962671623e-16
+        },
+        "eigenvalue": 2.0531406056237058e-19,
+        "k": 3,
+        "loadings": {
+          "especial": 0.5773502691896274,
+          "informal": 0.5773502691896242,
+          "usdt": 0.5773502691896258
+        },
+        "share_of_nonzero_total": 2.1624171275683482e-16,
+        "z90_resolution": 3.327867161245314e-20
+      }
+    ],
+    "nonzero_total_variance": 0.00094946556769668
+  },
+  "structural": {
+    "a_passed": true,
+    "a_rebuild_max_abs_error": 0.0,
+    "b1": 2,
+    "b1_ones_alignment": 1.0000000000000002,
+    "b1_passed": true,
+    "b1_zero_eigenvalue_ratio": 2.251199546100376e-16,
+    "b2_passed": true,
+    "b2_permutation_eigenvalue_max_abs_diff": 4.336808689942018e-19,
+    "b3_passed": true,
+    "b3_span_rank_per_reference": [
+      2,
+      2,
+      2
+    ],
+    "c_numerical_rank_of_all_pairs": 2,
+    "c_passed": true,
+    "n_pairs_written": 3,
+    "superseded_note": "This was the stage's first structural check b and it fails by construction, not by defect. Its number is kept so the correction can be traced.",
+    "superseded_two_reference_eigenvalue_gap": 0.0013361041153704188,
+    "tolerance": 1e-12
+  },
+  "tracks": [
+    "especial",
+    "informal",
+    "usdt"
+  ]
+}

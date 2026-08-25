@@ -54,6 +54,62 @@ EXPERIMENTS = [
         "experiments/a2c_cycle_structure.py",
         "a2c_cycle_structure.json",
     ),
+    # About thirty five seconds for 53 cells at five seeds. It sits after A2c
+    # because it runs on A2's network and its readings qualify A0-4 and A0-9,
+    # so anything that moves those should move this too.
+    (
+        "A2d  what selects the terminal distribution",
+        "experiments/a2d_terminal_selector.py",
+        "a2d_terminal_selector.json",
+    ),
+    # About ten seconds. It sits after A2 because it imports A2's grid at
+    # runtime rather than copying it, so the two move together by construction.
+    (
+        "A8   the coverage test",
+        "experiments/a8_coverage.py",
+        "a8_coverage.json",
+    ),
+    # About seven seconds. Runs A6's redistribution machinery on A2's graph, so
+    # it sits after both.
+    (
+        "A9   the New Deal switch",
+        "experiments/a9_new_deal.py",
+        "a9_new_deal.json",
+    ),
+    # About a minute at the registered twelve seeds.
+    (
+        "A10  the write-off chain",
+        "experiments/a10_writeoff.py",
+        "a10_writeoff.json",
+    ),
+    (
+        "A11  the subsistence floor",
+        "experiments/a11_subsistence.py",
+        "a11_subsistence.json",
+    ),
+    # About a minute at eleven arms. Two of its criteria stand FAIL and the
+    # record carries `diagnostic_only`, so this job exits non-zero by design
+    # until the stage is closed.
+    (
+        "A12  the coverage result under the later mechanisms",
+        "experiments/a12_mechanisms.py",
+        "a12_mechanisms.json",
+    ),
+    # About fifteen seconds at thirteen arms. It reads A2d's record for the two
+    # spans it compares itself against, so it sits after A2d.
+    (
+        "A13  whether position can be bought and sold",
+        "experiments/a13_mobility.py",
+        "a13_mobility.json",
+    ),
+    # About four minutes. The density-preserving arm at 1000 nodes carries
+    # 37,000 edges against the fixed-degree arm's 16,000, and that arm is most
+    # of the cost.
+    (
+        "A14  which readings are scale free",
+        "experiments/a14_scale.py",
+        "a14_scale.json",
+    ),
     (
         "A6   the siphon in tax points",
         "experiments/a6_siphon_cost.py",

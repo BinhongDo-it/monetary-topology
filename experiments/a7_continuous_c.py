@@ -42,6 +42,9 @@ run costs.
 from __future__ import annotations
 
 import argparse
+# ``dataclasses.replace`` and not ``NetworkSpec.replace``: the latter is a
+# hand-written field list and a field added later is silently dropped by it.
+import dataclasses
 import importlib.util
 import json
 import sys
@@ -79,6 +82,12 @@ REGISTERED_SEEDS = 20
 #: 1.111 here against 1.222 and above from `s = 0.1`. `--low` runs exactly these
 #: so the comparison that decides A7-A-3 is not buried in fourteen void rows.
 LOW: tuple[float, ...] = (0.0, 0.01, 0.02, 0.05)
+
+#: The dose ladder for the downward channel, registered 2026-08-24. Zero is
+#: the framework's specification and the top of the ladder is what the
+#: registered shortcut arm happens to open at ``s = 0.01``, so the ladder
+#: spans from the specification to the accident.
+DOSE: tuple[int, ...] = (0, 1, 2, 5, 10, 21)
 
 
 def _a3c():
@@ -211,6 +220,36 @@ def mean_abs_loop_sum(model, nodes: np.ndarray) -> list[float]:
     return out
 
 
+def added_edges_by_kind(spec: NetworkSpec) -> dict[str, int]:
+    """How many edges the shortcut added, split by where they landed.
+
+    **The object A7's scope arms are about.** The draw is uniform over ordered
+    pairs and on a 20/180 graph that is not uniform over kinds of edge: 80.95
+    percent of pairs are production to production and 0.95 percent are financial
+    to financial, so a rate applied to pairs is four different rates applied to
+    kinds. Counted from the graph rather than from the draw, so a scope that
+    cannot hold the matched count shows up here as a smaller total rather than
+    as nothing.
+    """
+    base = build_graph(dataclasses.replace(spec, shortcut_rate=0.0))
+    added = build_graph(spec) - base
+    fin = np.zeros(spec.size, dtype=bool)
+    fin[list(spec.financial_nodes)] = True
+    rows_, cols = np.nonzero(added > 0)
+    out = {"production": 0, "financial": 0, "downward": 0, "upward": 0}
+    for i, j in zip(rows_, cols, strict=True):
+        a_, b_ = bool(fin[i]), bool(fin[j])
+        key = (
+            "financial" if a_ and b_
+            else "downward" if a_
+            else "upward" if b_
+            else "production"
+        )
+        out[key] += 1
+    out["total"] = int(added.sum())
+    return out
+
+
 def row(
     module,
     s: float,
@@ -219,20 +258,44 @@ def row(
     reference=None,
     arm: str = "uniform",
     sd_at_zero: float | None = None,
+    scope: str = "all",
+    downward: int = 0,
 ) -> dict:
     """One grid point: the four-cell factorial, its null, and the columns.
 
     ``reference`` is the `s = 0` null model for ``seeds.start``, built once by
     the caller and reused for the churn columns at every point.
     """
-    spec = NetworkSpec(seed=seeds.start, shortcut_rate=s, shortcut_mode=arm)
+    spec = NetworkSpec(
+        seed=seeds.start, shortcut_rate=s, shortcut_mode=arm,
+        shortcut_scope=scope, downward_edges=downward,
+    )
     started = time.time()
+    edge_kinds = (
+        added_edges_by_kind(spec) if s > 0.0
+        else {"production": 0, "financial": 0, "downward": 0,
+              "upward": 0, "total": 0}
+    )
     if reference is None:
         reference = module.build(
             seeds.start, rounds, **module.FIXED, **module.CELLS["null"]
         )
 
-    kw = {"shortcut_rate": s, "shortcut_mode": arm} if s > 0.0 else {}
+    # ``scope`` is only passed when it is not the registered value, so the
+    # registered path constructs exactly the kwargs it always did and the
+    # reproduction is by construction rather than by a no-op argument.
+    kw = (
+        {"shortcut_rate": s, "shortcut_mode": arm}
+        | ({} if scope == "all" else {"shortcut_scope": scope})
+        if s > 0.0
+        else {}
+    )
+    # The dose arm turns the framework's own channel on directly instead of
+    # reaching it sideways through a uniform draw. Passed only when it is
+    # not zero, so every path that does not ask for it builds the kwargs it
+    # always built.
+    if downward:
+        kw["downward_edges"] = downward
     models, population, devset = module.build_all(seeds, rounds, **kw)
     baseline, base_devs = module.build_baseline(seeds, rounds, **kw)
     rows = {
@@ -254,6 +317,12 @@ def row(
     return {
         "s": s,
         "arm": arm,
+        "scope": scope,
+        "downward_edges": downward,
+        # Counted from the graph, not from the draw, so an arm whose scope
+        # cannot hold the matched count shows a smaller total here rather
+        # than passing for matched. That shortfall is a reading.
+        "edges_added_by_kind": edge_kinds,
         # Section 4.3's readability gate, made visible on the row rather than
         # left to be recomputed. The placebo is registered to hold dispersion
         # near its `s = 0` value; where it does not, that arm's point is void
@@ -538,6 +607,7 @@ def write_record(rows: list[dict], mode: str, args) -> Path:
     registered = (
         mode == "grid"
         and args.arm == "uniform"
+        and getattr(args, "scope", "all") == "all"
         and args.seeds == REGISTERED_SEEDS
         and args.rounds == 300
     )
@@ -545,7 +615,11 @@ def write_record(rows: list[dict], mode: str, args) -> Path:
         "a7_continuous_c.json"
         if registered
         else f"a7_continuous_c.offparam_{mode}_{args.arm}"
-        f"_{args.seeds}x{args.rounds}.json"
+        + (
+            "" if getattr(args, "scope", "all") == "all"
+            else f"_scope-{args.scope}"
+        )
+        + f"_{args.seeds}x{args.rounds}.json"
     )
     payload = {
         "stage": "A7-A continuous connectivity",
@@ -559,11 +633,14 @@ def write_record(rows: list[dict], mode: str, args) -> Path:
             "section registers as reported and never scored."
         ),
         "arm": args.arm,
+        "scope": getattr(args, "scope", "all"),
         "mode": mode,
         "seeds": args.seeds,
         "rounds": args.rounds,
         "registered_parameters": registered,
-        "grid": list(GRID if mode == "grid" else LOW),
+        "grid": list(
+            DOSE if mode == "dose" else (GRID if mode == "grid" else LOW)
+        ),
         "rows": rows,
     }
     RESULTS.mkdir(parents=True, exist_ok=True)
@@ -743,6 +820,27 @@ def main() -> int:
         help="preferential is section 4.3's placebo: same edge count, targets "
              "drawn in proportion to existing in-degree",
     )
+    ap.add_argument(
+        "--dose", action="store_true",
+        help="the downward channel as a dose, at s = 0. NetworkSpec."
+             "downward_edges is the framework's own thin controlled channel and "
+             "zero is its specification; the scope arms showed that 21 such "
+             "edges arriving sideways through the shortcut draw already collapse "
+             "the gap. This turns the channel on directly over "
+             + str(DOSE) + " and reads where the collapse starts.",
+    )
+    ap.add_argument(
+        "--scope",
+        choices=("all", "production", "financial", "downward", "upward"),
+        default="all",
+        help="where the shortcut edges may land, with the count held at "
+             "what the registered arm draws. The draw is uniform over "
+             "ordered pairs and on a 20/180 graph that is not uniform over "
+             "kinds of edge: at a rate of 0.01 the registered arm puts 282 "
+             "edges inside the production layer and 21 pointing downward, "
+             "while downward_edges is zero by default and its docstring "
+             "calls zero the framework's specification",
+    )
     args = ap.parse_args()
 
     module = _a3c()
@@ -831,13 +929,39 @@ def main() -> int:
         print(f"\n  written: {out.name}\n")
         return 0
 
+    if args.dose:
+        # The channel opened directly, at s = 0, so nothing else moves with it.
+        # Registered 2026-08-24 after the scope arms located the collapse in the
+        # downward edges: 21 of them arriving through the shortcut draw already
+        # take the gap down as far as 350 do. That says the channel saturates
+        # early and says nothing about where it starts, which is what this reads.
+        sd0 = graph_columns(NetworkSpec(seed=0))["centrality_sd"]
+        reference = module.build(
+            0, args.rounds, **module.FIXED, **module.CELLS["null"]
+        )
+        print(
+            f"\nDOSE  the downward channel opened directly, s = 0, over {list(DOSE)}."
+            f"\n  downward_edges is zero in the framework's specification; A0-6"
+            f" measured one such edge\n  taking production-layer inflow from"
+            f" 17.7007 to 48.3919. This reads the gap against the count.\n"
+        )
+        rows: list[dict] = []
+        for k in DOSE:
+            r = row(module, 0.0, range(args.seeds), args.rounds, reference,
+                    arm=args.arm, sd_at_zero=sd0, downward=k)
+            print_row(r)
+            rows.append(r)
+        print(f"\n  written: {write_record(rows, 'dose', args).name}\n")
+        return 0
+
     if args.low:
         sd0 = graph_columns(NetworkSpec(seed=0))["centrality_sd"]
         reference = module.build(
             0, args.rounds, **module.FIXED, **module.CELLS["null"]
         )
         print(
-            f"\nLOW  the readable region for the placebo, arm {args.arm}."
+            f"\nLOW  the readable region for the placebo, arm {args.arm}, "
+            f"scope {args.scope}."
             f"\n  centrality sd at s = 0 is {sd0:.6f}. Per-seed gaps printed,"
             f" because section 4.4\n  requires a moved distribution be told"
             f" apart from a mean pulled to zero.\n"
@@ -846,7 +970,7 @@ def main() -> int:
         rows: list[dict] = []
         for s in LOW:
             r = row(module, s, range(args.seeds), args.rounds, reference,
-                    arm=args.arm, sd_at_zero=sd0)
+                    arm=args.arm, sd_at_zero=sd0, scope=args.scope)
             print_row(r)
             print_per_seed(r, zero)
             if s == 0.0:
@@ -866,7 +990,7 @@ def main() -> int:
         rows = []
         for s in GRID:
             r = row(module, s, range(args.seeds), args.rounds, reference,
-                    arm=args.arm, sd_at_zero=sd0)
+                    arm=args.arm, sd_at_zero=sd0, scope=args.scope)
             print_row(r)
             rows.append(r)
         print(f"\n  written: {write_record(rows, 'grid', args).name}\n")

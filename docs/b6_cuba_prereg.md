@@ -843,7 +843,7 @@ the obstruction lives in the position factor, and **Theorem 2's slice summand
 has nothing to act on here**. That is stronger than B6-5's single triangle and it
 is the right sentence for the write-up: on this carrier the whole obstruction is
 in the agent factor, and it is so by the bank's own construction rather than by
-our modelling choice.
+my modelling choice.
 
 **Fails if:** any currency's ladder departs from the dollar's beyond its derived
 tolerance on any publication day, which would mean the bank prices some segment

@@ -88,6 +88,12 @@ def dump(args):
         with open(tmp, "w") as fh:
             fh.write("# name\tseq\tfriction\tindex\n")
             fh.write("# friction = S + S' <= 0 ; index = S - S' ; raw PRICE9\n")
+            fh.write("# s_e = implied ask - implied bid ; s_d = direct ask -"
+                     " direct bid ; friction = -(s_e + s_d)\n")
+            fh.write("# eb = implied bid ; db = direct bid ; so"
+                     " M_E = eb + s_e/2 and M_D = db + s_d/2, the LEVELS."
+                     " Theorem 6(5) needs s/2M and this is the only way to"
+                     " get it\n")
             for key, data in probe.packets(stream, args.limit, 1e18, 5_000_000, None):
                 if key not in groups:
                     continue
@@ -126,9 +132,13 @@ def dump(args):
                         da = books[(sid, "1")].top()
                         if None in (eb, ef, db, da):
                             continue
-                        fr = -((ef[0] - eb[0]) + (da[0] - db[0]))
+                        se = ef[0] - eb[0]
+                        sd = da[0] - db[0]
+                        fr = -(se + sd)
                         ix = (db[0] + da[0]) - (eb[0] + ef[0])
-                        fh.write("%s\t%d\t%d\t%d\n" % (sids[sid], seq, fr, ix))
+                        fh.write("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n"
+                                 % (sids[sid], seq, fr, ix, se, sd,
+                                    eb[0], db[0]))
                         n += 1
                     touched.clear()
     finally:
@@ -145,7 +155,8 @@ def read_cache(path):
         for line in fh:
             if line.startswith("#"):
                 continue
-            name, seq, fr, ix = line.rstrip("\n").split("\t")
+            f = line.rstrip("\n").split("\t")
+            name, seq, fr, ix = f[0], f[1], f[2], f[3]
             per[name].append((int(seq), int(fr), int(ix)))
     return per
 

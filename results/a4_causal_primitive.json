@@ -651,11 +651,32 @@
       "detail": "**Void on two independent grounds and not evaluated.** \u00a77's table: A4-3 fails for 4 of four competitors, and a failed strawman floor makes that competitor's comparison void rather than favourable. \u00a711.8's rule: A(X) is a ratio across the two arms and no competitor is readable in both, so one of its two terms is a reading of the graph draw in every case. Readable Gini cells: C=0/K/I, C=0/null/E, C=0/null/K, C=1/E/I, C=1/E/M, C=1/K/I, C=1/K/M, C=1/null/I, C=1/null/M. Ratios whose per-seed sign happens to agree: I|K = 440.7 (denominator -0.00042), and each rests on a denominator inside two control-cell sd, so the agreement is five draws landing the same way rather than a quantity."
     },
     {
-      "name": "A4-5 the update order does not decide it",
-      "passed": false,
-      "void": true,
+      "name": "A4-3b the same question in control-cell spread rather than in absolute Gini units",
+      "passed": true,
+      "void": false,
       "diagnostic": false,
-      "detail": "**Void: A4-4 has no result for an ordering to preserve or overturn.** What was run in its place, on all four combinations of channel order and event order, and is reported: the set of cells clearing \u00a711.2's floor, and the three verdicts that do not pass through A(X). Registered set has 35 cells; orderings whose set differs: capital_first/match_first (12 cells differ), pooling_first/inherit_first (2 cells differ), pooling_first/match_first (6 cells differ). A4-1, A4-2 and A4-6 evaluated on every alternative run; orderings where any of the three flips: none."
+      "detail": "Each competitor alone with C off, rise over the null in control-cell sd: I 0.3, E 35.6, K 3.1, M -0.2. Clearing two sd: E, K. A4-3's registered form asks for 0.02 in absolute Gini units against a control cell of 0.00711. Read: this criterion does not replace A4-3, which stands as registered; it reports how many competitors are detectable at all, which is what A4-4's denominator needs."
+    },
+    {
+      "name": "A4-4b the amplification on a measure with no ceiling",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "1/HHI cells readable in both arms: holders C=0/K/I, holders C=0/null/E, holders C=0/null/K, holders C=1/E/I, holders C=1/E/M, holders C=1/K/I, holders C=1/K/M, holders C=1/null/I, holders C=1/null/M, holders_prod C=0/null/E, holders_prod C=0/null/K, holders_prod C=1/E/I, holders_prod C=1/E/M, holders_prod C=1/K/I, holders_prod C=1/K/M, holders_prod C=1/null/I, holders_prod C=1/null/M. Amplification ratios: holders I|K = 6948.18 (denominator +0.00397). The Gini form is bounded above by one and the C=1 control sits near 0.935, leaving 0.065 of room against 0.99 on the other arm, which section 11.3 records as a defect in the discriminant; stage A7 measured the same comparison at 15.81 on Gini against 2.00 on log(1/HHI). `holders` was in SCORED_MEASURES from the start; A4-4 took its ratio on Gini alone. Read: this reports whether the ceiling was the binding problem. A4-4 stays void as registered."
+    },
+    {
+      "name": "A4-4c the two arms' readable competitors, as sets",
+      "passed": true,
+      "void": false,
+      "diagnostic": false,
+      "detail": "Readable alone against the null, on any registered measure: C=1 {I, M}, C=0 {E, K}. Intersection: {empty}. This criterion passes when both arms have something readable, which is the only way their disjointness could be an artefact of a dead instrument rather than a fact about the design. Read: an empty intersection means A(X) has no domain, because a ratio across arms needs a competitor with an effect in both. Section 1 put the alternatives as C parallel, the others near full strength with C off, against C upstream, the others attenuated. An exchange is neither."
+    },
+    {
+      "name": "A4-5 the update order does not decide A4-4c's disjointness",
+      "passed": false,
+      "void": false,
+      "diagnostic": false,
+      "detail": "Reshaped 2026-08-24. The registered form was void because A4-4 had no result for an ordering to preserve; A4-4c has one and it is a pair of sets, so this now reads that. Judged on 4 of 4 orderings; INTERSECTION NON-EMPTY at: capital_first/match_first, pooling_first/match_first. registered C=1 {I, M} [in>=32.10 out<=nan sign-unstable {E, K}] C=0 {E, K} [in>=4.35 out<=nan sign-unstable {I, M}] shared {empty}; capital_first/match_first C=1 {I, M} [in>=23.35 out<=nan sign-unstable {E, K}] C=0 {E, K, M} [in>=1.01 out<=nan sign-unstable {I}] shared {M}; pooling_first/inherit_first C=1 {I, M} [in>=32.10 out<=nan sign-unstable {E, K}] C=0 {E, K} [in>=4.35 out<=nan sign-unstable {I, M}] shared {empty}; pooling_first/match_first C=1 {I, M} [in>=23.35 out<=nan sign-unstable {E, K}] C=0 {E, K, M} [in>=1.01 out<=nan sign-unstable {I}] shared {M}. Also reported, unchanged from the registered form: the registered readable set has 35 cells; orderings whose set differs: capital_first/match_first (12 cells differ), pooling_first/inherit_first (2 cells differ), pooling_first/match_first (6 cells differ); A4-1, A4-2 and A4-6 evaluated on every alternative run, orderings where any of the three flips: none. The bracketed pair after each set is the distance from the floor of 1.00: the smallest score among the competitors that are in, the largest among those that are out, and the competitors that are out for the other reason, no measure with a stable sign, which have no distance from the floor at all. A pair that straddles the floor closely makes that ordering's reading a boundary reading, whatever the sets look like."
     },
     {
       "name": "A4-6 caste is derived from holdings, not read off the layer",

@@ -1,0 +1,671 @@
+{
+  "arm": "uniform",
+  "diagnostic_only": true,
+  "diagnostic_reason": "D_fixed, the estimator section 4.2 registers as scored, is not computed here. Every gap in this file is D_reach, which the same section registers as reported and never scored.",
+  "grid": [
+    0,
+    1,
+    2,
+    5,
+    10,
+    21
+  ],
+  "mode": "dose",
+  "registered_parameters": false,
+  "rounds": 120,
+  "rows": [
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 1.0,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "downward_edges": 0,
+      "dropped_to_intersect": 6,
+      "edges_added_by_kind": {
+        "downward": 0,
+        "financial": 0,
+        "production": 0,
+        "total": 0,
+        "upward": 0
+      },
+      "gap_by_seed": {
+        "H0_only": [
+          -1.420440731,
+          -3.096351754,
+          -2.58141666,
+          2.170965848
+        ],
+        "H1_only": [
+          5.398431071,
+          4.736957921,
+          1.871797061,
+          9.603751963
+        ],
+        "both": [
+          7.233023772,
+          5.775795652,
+          9.657284963,
+          13.13107041
+        ],
+        "null": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -3.096351754,
+          2.170965848
+        ],
+        "H1_only": [
+          1.871797061,
+          9.603751963
+        ],
+        "both": [
+          5.775795652,
+          13.13107041
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": -1.231810824,
+        "H1_only": 5.402734504,
+        "both": 8.949293699,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1573374211,
+        "edges": 1039.0,
+        "layer_gap": 0.3942348008,
+        "mean_degree": 5.195
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.0489623733,
+        0.0489623733,
+        0.0489623733
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1369682309,
+        0.1369682309,
+        0.1369682309
+      ],
+      "paired_population": 41.0,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 22.5,
+      "s": 0.0,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": true,
+        "both": true,
+        "null": false
+      },
+      "scope": "all",
+      "sd_ratio_vs_s0": 1.0,
+      "seconds": 1.263664246,
+      "state": "unstable",
+      "unstable_channels": [
+        "H0_only"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.9998064952,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "downward_edges": 1,
+      "dropped_to_intersect": 9,
+      "edges_added_by_kind": {
+        "downward": 0,
+        "financial": 0,
+        "production": 0,
+        "total": 0,
+        "upward": 0
+      },
+      "gap_by_seed": {
+        "H0_only": [
+          0.6787145241,
+          -2.210085333,
+          3.222614745,
+          1.870321822
+        ],
+        "H1_only": [
+          1.845348482,
+          3.607144791,
+          5.315543904,
+          7.368560456
+        ],
+        "both": [
+          0.9946161323,
+          3.780474301,
+          3.829825415,
+          6.995829234
+        ],
+        "null": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -2.210085333,
+          3.222614745
+        ],
+        "H1_only": [
+          1.845348482,
+          7.368560456
+        ],
+        "both": [
+          0.9946161323,
+          6.995829234
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": 0.8903914395,
+        "H1_only": 4.534149408,
+        "both": 3.900186271,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1573182157,
+        "edges": 1040.0,
+        "layer_gap": 0.394129979,
+        "mean_degree": 5.2
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.04892300947,
+        0.04892300947,
+        0.04892300947
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1405234427,
+        0.1405234427,
+        0.1405234427
+      ],
+      "paired_population": 41.0,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 23.25,
+      "s": 0.0,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": true,
+        "both": true,
+        "null": false
+      },
+      "scope": "all",
+      "sd_ratio_vs_s0": 0.9998779352,
+      "seconds": 1.218945503,
+      "state": "unstable",
+      "unstable_channels": [
+        "H0_only"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.9998064952,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "downward_edges": 2,
+      "dropped_to_intersect": 8,
+      "edges_added_by_kind": {
+        "downward": 0,
+        "financial": 0,
+        "production": 0,
+        "total": 0,
+        "upward": 0
+      },
+      "gap_by_seed": {
+        "H0_only": [
+          0.6787145241,
+          -2.51837582,
+          3.222614745,
+          2.955494105
+        ],
+        "H1_only": [
+          1.845348482,
+          1.970783287,
+          5.315543904,
+          4.789317355
+        ],
+        "both": [
+          0.9946161323,
+          2.462582331,
+          3.829825415,
+          2.570957596
+        ],
+        "null": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -2.51837582,
+          3.222614745
+        ],
+        "H1_only": [
+          1.845348482,
+          5.315543904
+        ],
+        "both": [
+          0.9946161323,
+          3.829825415
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": 1.084611888,
+        "H1_only": 3.480248257,
+        "both": 2.464495368,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1572763179,
+        "edges": 1041.0,
+        "layer_gap": 0.3940251572,
+        "mean_degree": 5.205
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.04892300947,
+        0.04892300947,
+        0.04892300947
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1405234427,
+        0.1405234427,
+        0.1405234427
+      ],
+      "paired_population": 41.0,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 23.0,
+      "s": 0.0,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": true,
+        "both": true,
+        "null": false
+      },
+      "scope": "all",
+      "sd_ratio_vs_s0": 0.999611642,
+      "seconds": 1.23316431,
+      "state": "unstable",
+      "unstable_channels": [
+        "H0_only"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.999438986,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "downward_edges": 5,
+      "dropped_to_intersect": 8,
+      "edges_added_by_kind": {
+        "downward": 0,
+        "financial": 0,
+        "production": 0,
+        "total": 0,
+        "upward": 0
+      },
+      "gap_by_seed": {
+        "H0_only": [
+          1.284976261,
+          -0.4533031658,
+          0.0,
+          0.0710393968
+        ],
+        "H1_only": [
+          2.442415108,
+          1.551574072,
+          3.950700232,
+          4.708783807
+        ],
+        "both": [
+          3.373645547,
+          0.9715828183,
+          3.950700232,
+          4.756919757
+        ],
+        "null": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -0.4533031658,
+          1.284976261
+        ],
+        "H1_only": [
+          1.551574072,
+          4.708783807
+        ],
+        "both": [
+          0.9715828183,
+          4.756919757
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": 0.2256781229,
+        "H1_only": 3.163368305,
+        "both": 3.263212089,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1572181628,
+        "edges": 1044.0,
+        "layer_gap": 0.3937106918,
+        "mean_degree": 5.22
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.04893663624,
+        0.04893663624,
+        0.04893663624
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1369682309,
+        0.1369682309,
+        0.1369682309
+      ],
+      "paired_population": 41.0,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 23.0,
+      "s": 0.0,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": true,
+        "both": true,
+        "null": false
+      },
+      "scope": "all",
+      "sd_ratio_vs_s0": 0.9992420223,
+      "seconds": 1.226826906,
+      "state": "unstable",
+      "unstable_channels": [
+        "H0_only"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.9972909323,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "downward_edges": 10,
+      "dropped_to_intersect": 3,
+      "edges_added_by_kind": {
+        "downward": 0,
+        "financial": 0,
+        "production": 0,
+        "total": 0,
+        "upward": 0
+      },
+      "gap_by_seed": {
+        "H0_only": [
+          -0.3357328926,
+          0.2306954605,
+          0.0,
+          0.1073433754
+        ],
+        "H1_only": [
+          -0.04786950652,
+          1.140929283,
+          2.590030062,
+          0.6072316317
+        ],
+        "both": [
+          -0.01292041318,
+          1.156289281,
+          2.590030062,
+          0.6103579878
+        ],
+        "null": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -0.3357328926,
+          0.2306954605
+        ],
+        "H1_only": [
+          -0.04786950652,
+          2.590030062
+        ],
+        "both": [
+          -0.01292041318,
+          2.590030062
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": 0.0005764858332,
+        "H1_only": 1.072580368,
+        "both": 1.08593923,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1570634026,
+        "edges": 1049.0,
+        "layer_gap": 0.3931865828,
+        "mean_degree": 5.245
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.04907453592,
+        0.04907453592,
+        0.04907453592
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1369682309,
+        0.1369682309,
+        0.1369682309
+      ],
+      "paired_population": 40.5,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 21.0,
+      "s": 0.0,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": false,
+        "both": false,
+        "null": false
+      },
+      "scope": "all",
+      "sd_ratio_vs_s0": 0.998258402,
+      "seconds": 1.235280037,
+      "state": "unstable",
+      "unstable_channels": [
+        "H1_only",
+        "H0_only"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "churn": {
+        "opening_rank_corr_vs_s0": 0.9948323708,
+        "payer_jaccard_vs_s0": 1.0,
+        "receiver_jaccard_vs_s0": 1.0
+      },
+      "deviations": [],
+      "downward_edges": 21,
+      "dropped_to_intersect": 1,
+      "edges_added_by_kind": {
+        "downward": 0,
+        "financial": 0,
+        "production": 0,
+        "total": 0,
+        "upward": 0
+      },
+      "gap_by_seed": {
+        "H0_only": [
+          -0.422422402,
+          0.1379554548,
+          0.0,
+          0.04919526832
+        ],
+        "H1_only": [
+          -0.5029309239,
+          1.312441134,
+          0.9609302664,
+          -0.5336063384
+        ],
+        "both": [
+          -0.686326633,
+          1.069731612,
+          0.9609302664,
+          -0.3287024672
+        ],
+        "null": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "gap_range": {
+        "H0_only": [
+          -0.422422402,
+          0.1379554548
+        ],
+        "H1_only": [
+          -0.5336063384,
+          1.312441134
+        ],
+        "both": [
+          -0.686326633,
+          1.069731612
+        ],
+        "null": [
+          0.0,
+          0.0
+        ]
+      },
+      "gaps": {
+        "H0_only": -0.05881791973,
+        "H1_only": 0.3092085346,
+        "both": 0.2539081945,
+        "null": 0.0
+      },
+      "graph": {
+        "centrality_range": 1.0,
+        "centrality_sd": 0.1570350959,
+        "edges": 1060.0,
+        "layer_gap": 0.392033543,
+        "mean_degree": 5.3
+      },
+      "mean_abs_loop_sum_fixed": [
+        0.04918064092,
+        0.04918064092,
+        0.04918064092
+      ],
+      "mean_abs_loop_sum_paired": [
+        0.1369898781,
+        0.1369898781,
+        0.1369898781
+      ],
+      "paired_population": 40.75,
+      "peripheral_participating_by_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peripheral_participating_mean": 0.0,
+      "production_participating_mean": 21.0,
+      "s": 0.0,
+      "same_sign_across_seeds": {
+        "H0_only": false,
+        "H1_only": false,
+        "both": false,
+        "null": false
+      },
+      "scope": "all",
+      "sd_ratio_vs_s0": 0.9980784917,
+      "seconds": 1.237364531,
+      "state": "unstable",
+      "unstable_channels": [
+        "H1_only",
+        "H0_only"
+      ]
+    }
+  ],
+  "scope": "all",
+  "seeds": 4,
+  "stage": "A7-A continuous connectivity"
+}

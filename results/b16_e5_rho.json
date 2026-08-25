@@ -6,7 +6,9 @@
   ],
   "band_half_width": 0.012729561883287801,
   "boundary": "2023-02-23",
+  "carry_forward": false,
   "cell": "C",
+  "distinct_states": null,
   "domain_excluded": 70,
   "dr": -1.49e-05,
   "friction": {

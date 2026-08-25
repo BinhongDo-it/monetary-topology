@@ -297,7 +297,7 @@ def find_loops(c: K.Core) -> dict:
     # `alone = 2` on a fixture carrying exactly one such case, the second being
     # `never_cures` bleeding in through the substitution. So the `alone` figures
     # for the interior tests are computed on the **closed** candidates only, and
-    # the results file says so. Pit 22's shape: it was found by reading our own
+    # the results file says so. Pit 22's shape: it was found by reading my own
     # table, not by a check.
     counts["drop_not_closed_alone"] = int((~closed).sum())
     counts["drop_not_closed"] = int((~closed).sum())

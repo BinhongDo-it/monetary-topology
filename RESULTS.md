@@ -15,6 +15,25 @@ Failed criteria are listed alongside passing ones. A results file that records
 only successes is the same kind of object as a statistic designed to look good,
 and this project's own argument is about that kind of object.
 
+**A criterion is not to be read out of its carrier.** Every criterion here was
+registered against one construction, and several stations have since been read a
+second time on a different one: with A3's asset layer added, at a different node
+count, with an edge scope restricted. A pass or a failure on such a re-read is a
+statement about that carrier and not about the station's registered reading,
+which stays where it is and is quoted unchanged. Where the two disagree, both
+are printed and the section says which construction each belongs to. Taking a
+failure out of that context and reporting it as the station's result is the
+error this paragraph exists to prevent.
+
+**What `diagnostic_only` means on a record.** It gates nothing. The generator it
+used to be read by was retired on 2026-08-21 and so was the runner ratchet, so
+the field no longer excludes a record from anything, this ledger included.
+It is a sentence the record says about itself, and it says one of three things:
+the station is not closed yet, or this number has been superseded and the file is
+kept as the evidence, or the run was made on a carrier the station did not
+register. **Everything that produced a number is in this ledger**, whether or not
+its record carries the field.
+
 **No generation date here on purpose.** Git already records when a file was
 committed and by whom.
 
@@ -206,14 +225,14 @@ them.
 Cells and the wealth-income copula are in `results/a1a_joint_probe.json` and
 `data/processed/scf_joint_cells.csv`.
 
-## A1b — the cascade on a measured population: the K shape holds ordinally, one rule covers every rung, and the representative arm is degenerate
+## A1b — the cascade on a measured population: the K shape holds ordinally, one rule covers every rung, and the first-default reading is now split by tenure
 
-**6/8 live criteria passed, 1 void**
+**6/7 live criteria passed, 2 void**
 
 | | criterion | detail |
 |---|---|---|
 | PASS | A1b-0 zero calibration, by removing the cause | income raised to cover each household's own obligations: every rung exactly 0.000000 over 24 periods |
-| **FAIL** | A1-2  the order is an output | first default among 36,292 defaulting households: card 0.4214, auto 0.0660, shelter 0.3567 (rent 0.2488, mortgage 0.1079), basket 0.1558. Among the 32,547 not short at baseline: card 0.4426, auto 0.0662, shelter 0.3915. The manuscript's sequence is what fails here, not the code |
+| VOID | A1-2  the order is an output | void as registered: the estimator and the object do not line up. The pooled share is a distribution across households, decided both by how hard a rung is and by how many households stand on it, while its denominator is every defaulter. Rent is carried only by tenants and the mortgage only by borrowers. The ordering claim is carried by A1c, which reads the sequence inside one household and holds |
 | PASS | A1-3  K shape, ordinally | mortgage 0.0027 < auto 0.0924 < card 0.1879. Over baseline: mortgage +0.0024, auto +0.0721, card +0.1249. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes |
 | PASS | A1-6  the subprime gradient | bottom 0.1438 against middle 0.0680, ratio x2.12. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them |
 | VOID | A1-7  the rent gradient | by net worth: bottom50 0.6577 (28,776), next40 0.3584 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. By income: bottom50 0.8129 (23,585), next40 0.1046 (7,581), next9 0.0000 (897), top1 0.0000 (35) [monotone]. Overall 0.6220 against SHED's 0.23, reported only: the source counts renters behind at some point in twelve months and this is sixty months of a model. Published by income band: 0.33/0.31/0.17/0.05. **The two readings of the registration disagree**, so this is reported on both and gated on neither. The source is banded by income and the model's strata are net worth, and A1 could not see the difference because it had one ranking |
@@ -222,6 +241,51 @@ Cells and the wealth-income copula are in `results/a1a_joint_probe.json` and
 | **FAIL** | A1b-1 the delinquency gradient | LATE60 by net worth: bottom50 0.0847, next40 0.0163, next9 0.0022, top1 0.0026. Model over 6 sweep cells: seed 7x1 0.301/0.174/0.017/0.000  <-; seed 7x3 0.258/0.140/0.017/0.000  <-; seed 8x1 0.301/0.177/0.017/0.000  <-; seed 8x3 0.262/0.144/0.017/0.000  <-; seed 9x1 0.280/0.158/0.017/0.000  <-; seed 9x3 0.233/0.122/0.017/0.000  <-. Decreasing in every cell: True. Ordering matches the survey in every cell: False. Group sizes at 20,000 households: [9993, 7998, 1895, 114]. Including rent, reported only: 0.483/0.191/0.017/0.000. The target's smallest adjacent gap is 0.0004, which is what the ordering turns on |
 | PASS | A1-11 free parameters within the registered bound | 5 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, cost.grace_basket=1, cost.grace_rent=4, population.buffer_months=1. A1 counted six; the service-share dispersion is measured here |
 
+
+### First default by starting tenure, with each rung on its own denominator
+
+Volume One section 18 states its cascade about tenants, so the rent rung belongs
+inside the tenancy. Two denominators are reported for each rung: the share of that
+tenure's defaulting households, and the rate per household that carries the rung at
+all. The second is what the section 18 reading needs, since a renter without a car
+loan cannot default on one. The structural zeros are a check on the split: a
+mortgaged household carries no rent and an outright owner carries neither.
+
+| tenure | defaulting | rung | share | households carrying it | per carrier |
+|---|---|---|---|---|---|
+| RENTER | 21,478 | rent | 0.4204 | 12,754 | **0.7080** |
+| | | card | 0.3910 | 15,636 | **0.5370** |
+| | | auto | 0.0897 | 10,618 | **0.1814** |
+| | | basket | 0.0989 | 34,054 | 0.0624 |
+| | | mortgage | 0.0000 | **0** | — |
+| MORTGAGED | 10,168 | card | 0.5925 | 22,174 | **0.2717** |
+| | | mortgage | 0.3852 | 31,970 | **0.1225** |
+| | | basket | 0.0157 | 40,894 | 0.0039 |
+| | | auto | 0.0065 | 18,481 | 0.0036 |
+| | | rent | 0.0000 | **0** | — |
+| OUTRIGHT | 4,646 | basket | 0.7256 | 25,052 | 0.1346 |
+| | | card | 0.1879 | 7,472 | 0.1168 |
+| | | auto | 0.0865 | 5,722 | 0.0703 |
+| | | rent / mortgage | 0.0000 | **0** | — |
+
+**Among mortgaged households the card goes first**, 0.2717 per carrier against
+0.1225 for the mortgage, which is the manuscript's order. The pooled reading mixed
+this tenure with the tenancy and produced a shelter aggregate that sat above the
+card.
+
+**Among tenants the rent goes first**, 0.7080 per carrier against 0.5370 for the
+card and 0.1814 for the car loan, and switching to the per-carrier denominator
+widens the gap rather than closing it: 3 points on shares becomes 17 points here.
+So the car loan sitting last is not an exposure artefact. 10,618 of the 12,754
+tenants carry one, and they still default on it far less often than on either of
+the other two.
+
+**Rent is the largest single obligation a tenant holds**, which is the reading this
+supports: a rung is abandoned first because it cannot be met, and the cost rule
+already prices shelter as supporting all of a household's earning capacity. That is
+consistent with A1c holding: among households that fall behind on several rungs the
+sequence inside the household is what the manuscript describes, with 2 inversions in
+1,142, while which rung breaks first across the population is set by size.
 ## A1c — the order inside a household: the sequence holds with 2 inversions of 1,142, and all 13 inversions are attributed to the release clause
 
 **2/2 live criteria passed**
@@ -357,7 +421,290 @@ than recorded as retaining nothing: "the transfer left no trace to measure" and
 "the transfer was recaptured" are different events, and folding the first into
 the second would manufacture the step this is testing for.
 
-## A4 — the causal primitive (A4-4 could not be computed: no competitor is readable in both arms)
+## A2d — what selects the terminal distribution: not sigma, and not where issuance enters
+
+`rounds=300` `seeds=5` `53 cells`
+
+**4/4 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A2d-1  every cell of all three grids ran and returned a finite share | sigma 24/24, structure 23/23, issuance 6/6; the stock-flow assertion in the loop held in every round of every cell |
+| PASS | A2d-2  sigma's span on terminal top1% wealth against the structural span | sigma grid 0.220472-0.227116, width 0.006644; structure grid 0.151491-0.307930, width 0.156439; structural width is 23.55x the sigma width |
+| PASS | A2d-3  issuance on against issuance off | on 0.219094-0.222925, off 0.181641, gap 0.037453 against sigma's span 0.006644; separated by more than sigma's whole span |
+| PASS | A2d-4  the entry point, at matched rule and matched sigma | largest \|diff\| 0.003831 (endogenous), 0.002652 at matched issuance volume (fixed, 2990.0 both arms), 0.000000 with no issuance; all below the on-off gap 0.037453 |
+
+Readings:
+
+- Sigma does not select the terminal distribution. Financial-layer retention over
+  a fourfold range (0.20 to 0.80) crossed with production-layer retention from
+  0.00 to 0.30 moves terminal top1% wealth share by 0.0066. This is A0-4 on a
+  second carrier: the block model read a spending sweep as flat to `0.000e+00`,
+  and the network reads the whole sigma vector as flat to 0.0066.
+- What the terminal distribution is sensitive to is whether the authority issues
+  at all. With issuance the close is top1% 0.2229, Gini 0.9367, effective support
+  13.98; without it, 0.1816, 0.8829, 24.93.
+- Where issuance enters is close to immaterial. At an identical issued volume of
+  2990.0, putting every unit into the single most central financial node against
+  spreading it over all 200 nodes moves terminal top1% wealth share by 0.0027.
+  A0-9's numbers stand; its phrase `the layer it was issued to` does not carry
+  the mechanism on this carrier.
+- Control: with `rule="none"` the two entry points return bitwise identical
+  closes (0.181641 and 0.181641, support 24.928 and 24.928), which is what the
+  switch must do when there is nothing to place.
+
+Structural knobs, printed rather than counted:
+
+| knob | from | to | terminal top1% |
+|---|---|---|---|
+| `layer1_out_degree` | 3 | 10 | 0.3079 to 0.1625 |
+| `layer1_size` | 10 | 40 | 0.2664 to 0.1600 (non-monotone: 0.1515 at 30) |
+| `layer1_initial_share` | 0.50 | 0.90 | 0.2235 to 0.1837 (flat over the first four steps, the last one is a different regime) |
+| `upward_out_degree` | 1 | 4 | 0.2218 to 0.2237 |
+| `layer2_out_degree` | 2 | 6 | 0.2236 to 0.2223 |
+
+Not measured here: the `layer1_initial_share=0.90` regime, which feeds no
+criterion; and any 1925-29 target, which fails gate zero with one value in the
+world.
+
+
+
+Scope, M/R levels only (A13, 2026-08-23): the `mr_close` column is taken on a
+graph fixed at construction. With endogenous rewiring on, M/R moves between −47%
+and +14%; the starvation, topology and Gini readings are unaffected.
+
+### Read again with A3's asset layer on the carrier (2026-08-24)
+
+`--asset` puts A3's asset layer on the same carrier and writes
+`a2d_terminal_selector_asset.json`. The default is off and reproduces the record above key for
+key. **Every concentration number this stage reports is read without asset
+revaluation**, and the empirical decomposition puts the weight on that channel:
+Montecino and Epstein give an employment channel of about −0.5 points on the
+90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+
+**The ordering survives and the margin does not.** Sigma's span on terminal top
+one percent wealth goes from **0.006644 to 0.031873**, nearly five times wider,
+while the structural span barely moves, **0.156439 to 0.153907**. The ratio that
+is this stage's headline goes from **23.5 to 4.83**. The mechanism is plain:
+sigma is a retention rate and retained claims can sit in an appreciating asset,
+so retention buys more when there is something to retain into. **Quote the
+ordering, not the multiple, unless the carrier is named with it.**
+
+**A four-corner probe is not enough to get this number.** Run first on the four
+corners the plain carrier's extremes sit at, the sigma span read 0.015829 and the
+ratio 9.7, both off by about a factor of two. **The extremes move when the
+carrier moves**, so corners chosen on one carrier are not corners on another.
+
+## A13 — whether position can be bought and sold, and whether the terminal distribution notices
+
+`rounds=300` `seeds=5` `17 arms`
+
+**9/9 live criteria passed. Closed.** Most arms here buy edges only: promotion
+does not hand over the financial layer's spending propensity or its payroll
+role, so those arms read what buying access does rather than what becoming a
+layer's other two properties does. A financial-layer node differs from a
+production-layer node in three ways, not one: the edges it holds, the spending
+propensity it draws from, and whether it pays wages. Handing over all three at
+once attributes nothing, so it is a ladder with one rung per property, added
+2026-08-24, and A13-8 reads the steps.
+
+Every stage before this one ran on a graph fixed at construction, which is the
+framework's thesis written into the construction. This stage opens that channel.
+The two rates are read off published work rather than chosen: the cluster fires
+at 0.5 because Chetty et al. (2022) find perfect exposure by status still leaves
+nearly half the connection gap standing, and retention is 1/3 because Eckbo,
+Thorburn and Wang (2015) find one third of the CEOs of bankrupt firms keep
+full-time executive employment with no median pay change while two thirds leave.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A13-1  every arm ran and returned a finite share | 17/17 arms, 85 runs. The stock-flow identity is asserted inside the loop, so reaching here is also the claim that it held in every round of every run |
+| PASS | A13-2  the off arm moves nothing | 0 promoted, 0 demoted over 5 runs; with the switch off the rewire path is unreachable, so every record taken before this stage is this arm |
+| PASS | A13-3  mobility's span on terminal top1% wealth, against sigma's and the structure's | mobility 0.220184-0.223509, width **0.003325**; from A2d's record on the same quantity, sigma width 0.006644 and structure width 0.156439. The criterion prints the three and draws no line |
+| PASS | A13-4  the terminal core size, rank alone against rank with a share | rank alone reaches **200.0 of 200** in all four such arms; with a share, 33.0 and 27.8, from an opening core of 20. A rank always has somebody in it, so rank alone admits somebody every round for ever; the share is what bounds the object |
+| PASS | A13-5  every arm that can fire, fired | counts per arm reported; the two that cannot fire by construction are named rather than filtered |
+| PASS | A13-5a  retaining every candidate is bitwise the construction | four readings per seed over 5 seeds, identical |
+| PASS | A13-6  what mobility does move: M/R | off 33.132214, and across the mobility arms 17.436912-37.660813, per-arm values printed |
+| PASS | A13-7  demotions counted, outbound-only against inbound-cut | both 218, against 63 once the demoted node's inbound edges are cut too; demote .005 reads 2 either way; every arm's count printed |
+| PASS | A13-8  what a promoted node acquires, one mechanism per rung | `both` 0.221707 → `+ propensity` 0.220951 (**−0.000756**) → `+ payroll` 0.221488 (**+0.000537**); whole ladder −0.000219 against the off arm at 0.222923. Prints the steps, draws no line |
+
+Readings:
+
+- **Mobility does not select the terminal distribution.** Letting position be
+  bought and sold, in both directions, at every cluster and retention rate
+  tried, moves terminal top1% wealth share by 0.0033. That is half what the
+  savings rate moves it and a forty-seventh of what the structural knobs move
+  it.
+- The sharpest arm is rank-only acquisition with no cluster: 180 nodes buy in,
+  the terminal core is all 200 nodes so the core-periphery split has ceased to
+  exist, and terminal top1% wealth reads 0.2229 against the control's 0.2229.
+- **A rank alone is unbounded.** There is always a highest-holding node outside
+  the core, so one joins every round for ever. The share condition is what
+  bounds the object, and the two conditions together are required rather than
+  redundant.
+- **What moves is M/R.** Both directions open takes it from 33.13 to 23.36, and
+  to 17.44 when acquisition adds edges instead of redirecting them. The
+  endogenous issuance rule targets active claims per active resource, and
+  rewiring circulates claims more widely, so less issuance is called for.
+  Concentration and the money stock separate under this mechanism.
+- Rewiring every tenth round reads the same as rewiring every round (top1%
+  0.2211 against 0.2217, M/R 23.20 against 23.36). The frequency is not
+  load-bearing.
+- **Demotion that only cuts outbound edges is not demotion.** With both
+  directions open the stage counts 218 demotions; cutting the demoted node's
+  inbound edges as well takes that to 63. What the core keeps sending a demoted
+  node carries its share back over the promotion condition, so it re-enters and
+  is demoted again. The two `inbound cut` arms are what separate the two
+  readings, and terminal top1% barely notices either: 0.2230 with the cut
+  against 0.2217 without.
+- **A promoted node could acquire three things, and taken one at a time they
+  cancel.**
+  The arms above buy edges only. The ladder added 2026-08-24 hands over the
+  spending propensity and then the payroll role, one rung at a time, so each
+  step's difference belongs to the thing that step added. The two steps go
+  **opposite ways** and are the same order of magnitude: taking on the core's
+  propensity moves terminal top1% by **−0.000756**, taking on the payroll role
+  by **+0.000537**, and the whole ladder lands at −0.000219 against an off arm
+  at 0.222923. **The ladder's whole range sits inside the span edge-buying
+  already covers**, so A13-3's width is unchanged at 0.003325 with the two arms
+  in the grid.
+- What the two rungs do move is churn and `M/R`. Demotions go 218 → **271** with
+  the propensity and back to **188** with the payroll role; `M/R` goes 23.36 →
+  **19.91** → **22.20** against the off arm's 33.13. A node that takes on the
+  core's low propensity spends less, falls back under the demotion share sooner,
+  and crosses more often; giving it the payroll role puts a claim outflow back
+  on it and undoes about half of that. **Neither shows up in the terminal
+  distribution**, which is the same separation A13-6 reads on the arms above.
+
+Why the qualification is a rank and a share rather than a level, measured before
+the arms were written: the richest production node peaks in round zero at 1.0477
+and falls monotonically to 0.4518 while the claim stock grows from 100 to 3412.
+A level in claim units is crossed in 300 of 300 rounds at 0.25, in 7 at 0.50, in
+1 at 1.00 and in none at 2.00. There is no usable band, and the same level
+loosens for the core and tightens for the periphery as the stock grows.
+
+Consequence for the readings taken before this stage: the fixed graph is not
+load-bearing for concentration, so top1%, Gini, effective support and the four
+surfaces stand unchanged. Quoted M/R **levels** carry a scope line instead. M/R
+**directions** are unaffected: the minimum across every mobility arm is 17.44
+against an opening ratio of one, so any reading of the form "M/R rises" holds
+with a seventeen-fold margin.
+
+
+### Read again with A3's asset layer on the carrier (2026-08-24)
+
+`--asset` puts A3's asset layer on the same carrier and writes
+`a13_mobility_asset.json`. The default is off and reproduces the record above key for
+key. **Every concentration number this stage reports is read without asset
+revaluation**, and the empirical decomposition puts the weight on that channel:
+Montecino and Epstein give an employment channel of about −0.5 points on the
+90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+
+Mobility's span on terminal top one percent wealth goes from **0.003325 to
+0.010028**, and it stays the smallest of the three: structure 0.154, sigma 0.032,
+mobility 0.010 on that carrier. **The ordering survives; the margin against sigma
+narrows from a factor of two to a factor of three in mobility's favour, and
+against structure it stays an order of magnitude.**
+
+**A13-8's two rungs both reverse sign on this carrier**, and by about eight
+times the magnitude:
+
+| step | registered carrier | asset carrier |
+|---|---|---|
+| `both` → `+ propensity` | **−0.000756** | **+0.006026** |
+| `+ propensity` → `+ payroll` | **+0.000537** | **−0.005068** |
+| whole ladder | −0.000219 | +0.000958 |
+
+On the registered carrier a node that takes the core's low propensity spends
+less and its terminal share falls; with revaluation on the carrier the claims it
+does not spend are the ones that get revalued, so the same move raises its share
+instead. The payroll rung undoes it in both cases and it too changes sign.
+**Which mechanism helps and which hurts is decided by whether the carrier
+revalues**, so neither step's sign is a property of the mechanism alone. Nine of
+nine criteria pass on both carriers, and the registered reading is the one
+without the asset layer.
+
+## A14 — which readings are scale free, and which are artefacts of two hundred nodes
+
+`rounds=300` `seeds=5` `27 cells`
+
+**7/7 live criteria passed. Closed.** A8's and A12's four surfaces are outside
+this stage because `f2i` is an absolute edge count whose maximum of 30 is 7.5%
+of the possible financial-to-intermediate edges at 200 nodes and 0.3% at 1000,
+so the same grid would test a different regime. The rescaling that settles that
+was ruled on 2026-08-24 and `scaled_carrier` solves `f2i` for the registered
+share rather than the registered count, but this stage is not re-run on it: what
+this stage measures is which quantities move with `n`, and rescaling is what
+removes exactly that. The four surfaces are read in A8's and A12's own records.
+
+Two knobs carry no derivation anywhere in this repository: `n = 200`, and the
+core as a share of nodes at 0.10. A2d's structure grid held both fixed.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A14-1  every cell ran, and the construction's own cell reproduces | 27/27 cells; at n=200, fraction 0.10 the two degree arms coincide by definition and both read 0.222923 |
+| PASS | A14-2  the structural span with both knobs in the grid | **0.096596-0.479285, width 0.382689**, against A2d's 0.151491-0.307930, width 0.156439 |
+| PASS | A14-3  the two degree arms, same quantity, direction compared | five of six quantities **reverse**; only `support_close` agrees in direction, and by a factor of 1.7 in magnitude |
+| PASS | A14-4  the core fraction axis at n=1000, density held | 0.05: top1% 0.3704, Gini 0.9641; 0.10: 0.1874, 0.9275; 0.20: 0.0966, 0.8543 |
+| PASS | A14-5  what the top percentiles are, in nodes, at each size | n=200: top1% is 2 nodes, top0.1% is 1 by the floor rather than the construction; n=1000: 10 and 1 |
+| PASS | A14-6  A4's null stays under its registered ceiling at every size | n=200 / 500 / 1000: null 0.007112, 0.007128, 0.007071 against a ceiling of 0.02; gap 0.9296, 0.9383, 0.9462 |
+| PASS | A14-7  Gini per doubling of population, against the published figure | fixed-degree arm **+0.75% per doubling**; density-preserving arm −0.43%; published intra-urban reference about +8% |
+
+Readings:
+
+- **A2d's structural span is a lower bound.** With node count and core share in
+  the grid it is 0.3827, two and a half times the 0.1564 A2d reports.
+- **A sweep of node count alone is a sweep of density.** The degree parameters
+  are absolute edge counts, so raising `n` thins the financial layer from 32%
+  internal density at 20 nodes to 6% at 100 and gives preferential attachment
+  room to build hubs it did not have. Terminal top1% wealth rises 0.2229 to
+  0.3419 with degrees fixed and **falls** to 0.1874 with density held. Five of
+  six headline quantities reverse the same way.
+- **The fixed-degree arm is the one with a source.** Personal network size does
+  not scale with the size of the surrounding population, so a node's count of
+  trading partners should not rise with `n`. Its consequence, that within-group
+  inequality rises with population, is itself an observed regularity: income in
+  the poorest decile of US urban areas scales with city population at 0.97 while
+  the richest decile scales at 1.15-1.16, and intra-urban Gini scales
+  super-linearly with population across 11,000 global urban centres.
+- The model reproduces that direction and misses the magnitude by an order:
+  **+0.75% per doubling against a published reference near +8%**. The gap is
+  bounded by the model's closing Gini already sitting at 0.937, which is a
+  reading about this construction's top tail rather than about population.
+- **The core share is a steeper axis than the node count.** Moving it from 0.10
+  to 0.05 doubles terminal top1% wealth, 0.1874 to 0.3704, and 0.10 carries no
+  derivation while 0.05 has two published sources.
+- A4's null holds at 0.0071 at every size and the gap widens with `n`.
+
+Sources for the two published references are in the stage's design note; both
+are literature rather than measurement, they place the grid and carry no verdict,
+and all three are urban and about income or activity rather than claim holdings.
+
+
+### Read again with A3's asset layer on the carrier (2026-08-24)
+
+`--asset` puts A3's asset layer on the same carrier and writes
+`a14_scale_asset.json`. The default is off and reproduces the record above key for
+key. **Every concentration number this stage reports is read without asset
+revaluation**, and the empirical decomposition puts the weight on that channel:
+Montecino and Epstein give an employment channel of about −0.5 points on the
+90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+
+**A14-6 fails on this carrier and the failure is the finding.** That criterion
+asks whether A4's null stays under its registered ceiling of 0.02. With the asset
+layer it reads **0.030177 at n=200 and 0.065545 at n=500**, over the ceiling; at
+n=1000 it is back to 0.007071. On a complete graph with identical agents there
+are no positions, so nothing here is topology: **the asset market's opening
+allocation generates the dispersion by itself.** A hundred units walked out in
+descending order of claims with no per-agent cap turns a negligible opening
+difference into three units against none. Capping at one unit returns the null
+to 0.0194, under the ceiling. The A8 section carries the full reading.
+**Read this against its carrier.** A4's ceiling was registered on a construction
+with no asset layer, and that registered reading is unchanged. What the failure
+locates is a second generator of dispersion inside the asset layer, which is a
+finding about the asset layer rather than a result about A14.
+
+## A4 — the causal primitive: connectivity does not scale the other mechanisms, it selects which of them operate
 
 `rounds=300` `5 seeds`
 
@@ -369,7 +716,7 @@ the second would manufacture the step this is testing for.
 | PASS | A4-2 connectivity alone is sufficient | Gini 0.93673 against 0.00711, gap +0.92962 against a floor of 0.05, and the sign holds at 5 of 5 seeds. Production layer 0.59490 against 0.00714. |
 | **FAIL** | A4-3 no competitor is a strawman | Each competitor alone with C off, Gini rise over the null against a floor of 0.02: I +0.00007, E +0.00932, K +0.00080, M -0.00006. Below the floor: I, E, K, M. The floor is in absolute Gini units and the C=0 control sits at 0.00711, so it asks each competitor for 2.8 times the control's whole value; the threshold is registered and is not moved on that account. Education's rise is 35.6 control-cell sd and still below it. |
 | VOID | A4-4 connectivity is upstream | **Void on two independent grounds and not evaluated.** §7's table: A4-3 fails for 4 of four competitors, and a failed strawman floor makes that competitor's comparison void rather than favourable. §11.8's rule: A(X) is a ratio across the two arms and no competitor is readable in both, so one of its two terms is a reading of the graph draw in every case. Readable Gini cells: C=0/K/I, C=0/null/E, C=0/null/K, C=1/E/I, C=1/E/M, C=1/K/I, C=1/K/M, C=1/null/I, C=1/null/M. Ratios whose per-seed sign happens to agree: I\|K = 440.7 (denominator -0.00042), and each rests on a denominator inside two control-cell sd, so the agreement is five draws landing the same way rather than a quantity. |
-| VOID | A4-5 the update order does not decide it | **Void: A4-4 has no result for an ordering to preserve or overturn.** What was run in its place, on all four combinations of channel order and event order, and is reported: the set of cells clearing §11.2's floor, and the three verdicts that do not pass through A(X). Registered set has 35 cells; orderings whose set differs: capital_first/match_first (12 cells differ), pooling_first/inherit_first (2 cells differ), pooling_first/match_first (6 cells differ). A4-1, A4-2 and A4-6 evaluated on every alternative run; orderings where any of the three flips: none. |
+| FAIL | A4-5 the update order does not decide A4-4c's disjointness | **Reshaped 2026-08-24**; the registered form was void because A4-4 had no result for an ordering to preserve, and A4-4c has one. Judged on 4 of 4 orderings. **Intersection non-empty at capital_first/match_first and pooling_first/match_first**, both of which apply matching first, and in both it is mating that enters the C=0 set. **It enters at 1.01 against a floor of 1.00.** Registered ordering C=1 {I, M} smallest score 32.10, C=0 {E, K} smallest 4.35, intersection empty; pooling_first/inherit_first identical to it. Readable set has 35 cells; orderings whose set differs: capital_first/match_first 12, pooling_first/inherit_first 2, pooling_first/match_first 6. A4-1, A4-2 and A4-6 flip on none. |
 | PASS | A4-6 caste is derived from holdings, not read off the layer | Matching reads holdings and never the layer label. Cross-layer pairing rate with M on: C=1 0.1610 against C=0 0.1780, uniform-random reference 0.1809, and C=1 is lower at 5 of 5 seeds. On §11.5's based cells the same direction holds and wider: E+M 0.1645 against 0.1835, K+M 0.1645 against 0.1835. This criterion reads a rate directly and takes no ratio across arms, which is why §11's collapse does not reach it. |
 
 <details><summary>Parameters</summary>
@@ -388,22 +735,101 @@ the second would manufacture the step this is testing for.
 
 </details>
 
-## A5 — the reachability threshold: the crossing runs through the price channel and not the wage bill, issuance or turnover, measured at 654.51% against a 1% zero calibration
-
-`rounds=300` `12 seeds`
-
-**4/8 live criteria passed**
+Added 2026-08-24. Three criteria beside the originals, which are unchanged:
 
 | | criterion | detail |
 |---|---|---|
-| **FAIL** | A5-1  participation falls with reachability | production-layer participation across the grid: rho=0.25: 22.2%, rho=0.5: 27.2%, rho=1.0: 29.2%, rho=2.0: 11.1%, rho=4.0: 0.6%, rho=8.0: 0.0% |
-| **FAIL** | A5-2  the threshold sits where the definition puts it | at rho=0.5: 27.2% against a floor of 50%; at rho=2.0: 11.1% against a ceiling of 5%. rho=1 is where the median agent can just pay, not a fitted value |
-| **FAIL** | A5-3  the sign of the production layer's trend flips | net worth share at rho=0.25: 0.279 -> 0.001; at rho=4.0: 0.260 -> 0.010. One mechanism, two regimes, nothing changed but reachability |
-| PASS | A5-4  the benign side is not an equilibrium | configured rho=0.5, rho_opening=0.319: the configured value is never observed, because the opening allocation moves it before any round runs. Crossed in 12/12 seeds, median round 2 counted from rho_opening against 100, and 1 counted from the series origin, which is the count this stage reported before the origin was named. 0.0% of subsequent rounds back below one against 5%. Measured from the series origin, the price moves by x58.554 and the median production-layer agent's claims by no point value: the sign is not stable across seeds, [x0.036, x2.652], 7 of 12 below x1; which of the two closes the reachable region is what A5-7 and A5-8 are registered to score, and this line reports the pair rather than reading it |
-| PASS | A5-5  issuance sets the clock | median crossing round counted from rho_opening, by issuance gain: gain=0.25: 2, gain=0.5: 2, gain=1.0: 2. Every median is equal, so the ordering is satisfied vacuously and this pass carries no information about issuance |
-| **FAIL** | A5-6  freeze the price and the drift disappears | largest relative move in rho with the price frozen: 654.51% against 1%. Any crossing at a live price is therefore the price channel and not the wage bill, issuance or turnover |
-| PASS | A5-7  the denominator crosses the threshold on its own | price frozen at eta=0, configured rho=0.5, rho_opening=0.319: crossed in 12/12 seeds, median round 2 counted from rho_opening against 100 inherited from A5-4, 0.0% of subsequent rounds back below one against 5%. The asset does not move and the reachable region closes anyway |
-| PASS | A5-8  the drain is not a property of one reachability | price frozen: median production-layer claims end below their rho_opening value in 72/72 cells across 6 reachabilities and 12 seeds, ratio x0.045. Reported without a threshold, the same ratio with the price live is no point value: the sign is not stable across seeds, [x0.000, x2.496], 68 of 72 below x1: the two arms are two registered settings of one switch and this line reports both rather than choosing one |
+| PASS | A4-3b  the same question in control-cell spread rather than absolute Gini units | rise over the null in control-cell sd: I 0.3, E **35.6**, K **3.1**, M −0.2; clearing two sd: E, K |
+| PASS | A4-4b  the amplification on a measure with no ceiling | `holders` (1/HHI) was in SCORED_MEASURES from the start and A4-4 took its ratio on Gini alone; on the unbounded measure the readable set is the same one and the single quotable ratio is the same cell |
+| PASS | A4-4c  the two arms' readable competitors, as sets | **C=1 {I, M}, C=0 {E, K}, intersection empty**; passes because both arms are live, which is the only way the disjointness could be an artefact |
+
+Reading:
+
+- The four competitors split into two disjoint pairs and each pair is readable in
+  exactly one arm. With connectivity on, inheritance and assortative mating clear
+  the resolution floor by 36 and 32 control-cell sd while education and capital
+  read **0.00 and 0.02**. With connectivity off the four exchange places: 35.6 and
+  3.1 against 0.3 and −0.2.
+- The stock-moved diagnostic agrees and takes no ratio: inheritance relocates
+  **44.15%** of the closing stock under C=1 and **0.39%** under C=0.
+- So `A(X)` has no domain, and the reason is not the instrument. A ratio across
+  arms needs a competitor with an effect in both. The Gini ceiling and the noisy
+  denominators are both real and A4-4b shows neither was binding.
+- Section 1 offered two readings, the others near full strength with C off, or
+  the others attenuated. **An exchange is neither.** Connectivity does not scale
+  the other mechanisms; it selects which of them can operate. Inheritance and
+  mating transmit a position and a complete graph has none to transmit; education
+  and capital returns are properties of an agent and survive the graph's removal.
+- A4-3 stays FAIL and A4-4 stays VOID, as registered.
+- **A4-5 is no longer void and it fails.** Its registered form had no object,
+  because A4-4 has no result; A4-4c's pair of sets is an object an ordering can
+  move, and two of the four orderings move it. **What the disjointness is
+  fragile to is specifically matching-first**: apply matching before the other
+  channels and mating becomes readable under `C = 0` as well, so `A(X)` acquires
+  a domain of `{M}` on those two orderings. **The margin is 1.01 against a floor
+  of 1.00**, which the criterion prints beside every set for this reason, so the
+  reading is that the disjointness holds away from the floor on the registered
+  ordering and is decided at the detection limit on the two matching-first ones.
+  **What to quote**: `A(X)` has no domain on the registered ordering, with the
+  ordering named, not `A(X)` has no domain full stop.
+
+## A5 — the reachability threshold: the region closes through the denominator, and freezing the price does not stop it
+
+`rounds=300` `12 seeds`
+
+**4 of 5 live criteria passed, 3 void, 1 diagnostic.** Three of the eight
+registered criteria were voided on 2026-08-24 and one was marked diagnostic. The
+reasons are below and none of them is a number changing: two were registered as
+the complements of criteria that hold, one asked for a share the construction
+cannot reach, and one is satisfied by an ordering over three equal values.
+
+**What this stage establishes.** Reachability is `terms x price / median
+production-layer claims`, so it has a numerator and a denominator, and the stage
+was registered expecting the numerator to close the region: the price is set
+against a bidder pool made of the financial layer's claims, and those grow with
+issuance. **Measured, the denominator closes it.** With the price frozen at
+`eta = 0` the region still closes in 12 of 12 seeds, and the median production
+agent's claims end below their opening value in 72 of 72 cells across six
+reachabilities and twelve seeds, at a ratio of `x0.045`. The earlier headline on
+this section named the price channel and has been corrected.
+
+| | criterion | detail |
+|---|---|---|
+| **FAIL** | A5-1  participation falls with reachability | 22.2%, 27.2%, 29.2%, 11.1%, 0.6%, 0.0% across `rho` = 0.25 to 8. **It rises and then falls, and the turn is a regime boundary.** Entry is read at the opening allocation before any round runs, so this is not drift. Below the peak every unit sells and cheapening lets the head of the descending-claims walk take more each, 1.250 units per production buyer at `rho=0.25` against 1.004 at `rho=1`; above it units go unsold, 2.4 at `rho=1.25` rising to 83.6 at `rho=8`. Peak 30.0% near `rho=1.1`, which is where the median production agent can just pay. The registered form assumed price is the only rationing device |
+| **VOID** | A5-2  the threshold sits where the definition puts it | **the registered floor of 50% is above what the construction can reach.** 100 units over 180 production-layer nodes bounds entry at 55.6%, and that bound needs every unit to reach a different production node with none to the financial layer, which heads the walk and takes 36 to 50 units at every reachability. The high half was decidable and is reported: 11.1% at `rho=2` against a registered ceiling of 5% |
+| **VOID** | A5-3  the sign of the production layer's trend flips | share at `rho=0.25`: 0.279 to 0.001; at `rho=4`: 0.260 to 0.010. **A5-4 is this criterion's complement and it holds**: with no benign equilibrium there is no benign end state for the share to rise to, so the two cannot both pass. Both regimes fall, which is the finding |
+| PASS | A5-4  the benign side is not an equilibrium | configured `rho=0.5` is never observed, since the opening allocation moves it to 0.319 before any round runs. Crossed in 12/12 seeds, median round 2 from `rho_opening` against a registered 100, 0.0% of subsequent rounds back below one against 5% |
+| **diag** | A5-5  issuance sets the clock | medians by issuance gain: 2, 2, 2. **Every median is equal, so the ordering is satisfied by every ordering and the arms cannot be told apart.** The line is kept and the verdict is not |
+| **VOID** | A5-6  freeze the price and the drift disappears | largest relative move in `rho` with the price frozen: 654.51% against a registered 1%. **A5-7 is this criterion's complement on the same frozen-price arm and it holds.** This number is that evidence with the sign of the claim reversed |
+| PASS | A5-7  the denominator crosses the threshold on its own | price frozen at `eta=0`: crossed in 12/12 seeds, median round 2, 0.0% of subsequent rounds back below one. The asset does not move and the reachable region closes anyway |
+| PASS | A5-8  the drain is not a property of one reachability | price frozen: median production-layer claims end below their opening value in 72/72 cells across six reachabilities and twelve seeds, ratio `x0.045` |
+| PASS | A5-9  one unit per agent makes entry monotone | registered 2026-08-24 to test A5-1's reading by removing the thing it names. With `max_units=1`: 44.4%, 44.4%, 43.3%, 11.1%, 0.6%, 0.0%. **Monotone.** The cap is an existing field and a policy that exists |
+
+Readings:
+
+- **The reachable region closes through the denominator.** The registered design
+  put the price channel in the load-bearing position and the frozen-price arm
+  closes the region anyway, in every seed and at every reachability. **Four of
+  the stage's failures are one fact read four ways rather than four failures.**
+- **Entry has two rationing regimes and they meet where the median agent can
+  just pay.** Below that point every unit sells, so cheapening does not admit
+  more people; it lets the front of the queue take more each. Above it units go
+  unsold and cheapening does admit more.
+- **A cap of one unit per agent removes the rise, and the number it lands on is
+  arithmetic.** A hundred units to a hundred distinct agents gives the twenty
+  financial-layer nodes one each and the production layer eighty, and `80/180`
+  is 44.4%, which is what it reads. The cap doubles entry at the cheap end,
+  22.2% to 44.4%, **and changes nothing at `rho >= 2`, where price is what
+  rations.** No supply was added; the gain is entirely units returned from
+  multiple holders.
+- **Even with the cap the registered 50% floor is out of reach**, by the 5.6
+  points the financial layer holds. Reaching it needs the cap and the exclusion
+  of that layer together, and the registered form asked for neither.
+- **The cap changes who enters and not who stays.** Entry is the opening
+  allocation; A5-4 and A5-7 read the other side and the region closes on it
+  regardless.
+
+Every number here is read off `results/a5_reachability.json` as it stands.
 
 ## A6-7 to A6-23 — the frontier ratchet, who the levy falls on, who the rebate reaches, and R* as a slope in lambda
 
@@ -456,7 +882,7 @@ in `results/a7_verdicts.json`, which reads it.
 | | criterion | detail |
 |---|---|---|
 | PASS | A7-A-1 | reach: peripheral-tercile participation is 0.0 at every seed through s = 0.7 and first strictly positive at s = 0.8, where the graph carries 32051 of 39800 edges and the layer gap has fallen from 0.394 to 0.030. The carrier gains a measurable population by ceasing to be stratified; docs section 6.1 |
-| **FAIL** | A7-A-2 | the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs section 6.2 |
+| **FAIL** | A7-A-2 | the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs section 6.2. **Scope, added 2026-08-24: it is a step in downward edges and not a step in connectivity.** See the scope reading below |
 | VOID | A7-A-3 | void on the estimator it names. On D_fixed each arm's population is intersected across its own grid, so the two are 24.20 against 35.95 nodes and a difference of falls compares quantities on different agents; docs section 11.2 |
 | **FAIL** | A7-A-4 | A3-8' holds nowhere including where it was derived. Loop-sum-only same-sign across seeds on D_fixed at s = 0: 17/20 and 19/20, against 20/20 on D_reach. A3-8's own state is untouched; docs section 11.3 |
 | **FAIL** | A7-A-5 | the identity does not hold on the measured population. Mean \|loop sum\| over the fixed production layer rises before it falls, to 1.44 times its s = 0 value in the uniform arm and 4.13 in the preferential one; docs section 6 changelog |
@@ -466,6 +892,464 @@ in `results/a7_verdicts.json`, which reads it.
 | PASS | A7-B-3 | the two-measure disagreement clause did not fire. On the aggregate log(1/HHI) both competitors are also sign-unstable and near zero, so the measures agree and what they agree on is that nothing is readable; docs section 13.3 |
 | PASS | A7-B-4 | both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3 |
 | VOID | A7-B-5 | I and M recorded as not run. Above s = 0.02 in the uniform arm a one-off transfer leaves nothing after a generation, so a transmitting mechanism has no stock and their effects are identically zero by construction; docs sections 12.1 and 13.5 |
+
+### The step is in the downward edges (2026-08-24)
+
+The shortcut draw is uniform over ordered pairs, and on a 20/180 graph that is
+not uniform over kinds of edge: 80.95 percent of ordered pairs are production to
+production and 0.95 percent are financial to financial. At `s = 0.01` the
+registered arm adds 350 edges, of which **282 land inside the production layer
+and 21 point downward**. `NetworkSpec.downward_edges` is zero by default and its
+own docstring calls zero the framework's specification, and A0-6 measured what
+one downward edge does: production-layer inflow 17.7007 to 48.3919, a factor of
+2.73. **Every arm with a positive rate therefore moves two things at once.**
+
+`NetworkSpec.shortcut_scope` holds the count and moves only where the edges land,
+the same discipline `shortcut_mode` already applies to targets. Five arms, all
+matched to what the registered arm draws, `H1_only` range:
+
+| arm | edges at `s=0.01` | `H1_only` | width | lower bound positive |
+|---|---|---|---|---|
+| `s = 0`, shared | 0 | `[7.107, 37.422]` | 30.31 | yes |
+| **registered, anywhere** | 350, of which **21 downward** | `[-2.364, 1.711]` | 4.07 | **no** |
+| **downward only** | **350 downward** | **`[-0.966, 1.776]`** | **2.74** | **no** |
+| production only | 350 | `[-30.301, 63.063]` | **93.36** | no, but see below |
+| upward only | 350 | `[14.138, 36.915]` | 22.78 | **yes** |
+| financial only | **260, saturated** | `[5.478, 33.288]` | 27.81 | **yes** |
+
+- **Only the downward arm reproduces the collapse, and it reproduces it almost
+  exactly.** The same edge count placed inside the production layer or pointing
+  upward leaves the gap where it was.
+- **A collapse is not a widening.** The production arm takes the range from 30.31
+  to 93.36 and its lower bound to -30.3. That is the gap becoming unreadable
+  rather than the gap going to zero, and a criterion that only asks whether the
+  lower bound is still positive reads the two as the same event.
+- **Twenty one edges are enough.** The registered arm has 21 downward edges at
+  `s = 0.01` and collapses as far as 350 do. The channel saturates almost at
+  once, which is what A0-6's factor of 2.73 per edge implies.
+- The financial arm exhausts its 380 ordered pairs at 260 edges and reads the
+  same at every rate, so it is printed and not judged. It also says that 260
+  edges inside the financial layer do close to nothing to the gap.
+
+**What this changes.** The shape reading stands: a step at the first grid point,
+flat afterwards. What the step is a step in does not. **Do not write that the gap
+disappears as connectivity rises without saying how many of that point's edges
+point downward.** No number in `results/a7_continuous_c.json` moves; what moves
+is what those numbers carry.
+
+## A8 — the coverage test: four surfaces on one curve, and the edge width that takes them off it
+
+`rounds=600` `seed=0` `5 graph seeds`
+
+Pre-registered, with the criteria fixed before the run and none changed after it.
+The grid is not this stage's: the edge counts, the elasticities, the intermediate
+size and the tail window are imported at runtime from stage A2's module, and
+criterion A8-1 checks that the import is what actually supplied them. Volume One
+section 13 asks whether four symptoms reduce to one topological fact; this stage
+reports the curve over A2's grid and asks whether any single setting puts all four
+on the table, which is the form section 13 of the restated A3 document requires.
+Selecting a setting because it lands where one wants it is what that document
+forbids, and nothing here is selected.
+
+Each surface is read as a direction, so there is no threshold anywhere in the
+adjudication: a ratio above one, a ratio below one, a count equal to one. The
+magnitudes sit beside the flags in `results/a8_coverage.json`, which holds all 90
+runs.
+
+**4/4 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A8-1  the grid comes from A2, not from this stage | imported from A2's module at runtime: edges [0,1,2,3,5,8,12,20,30], elasticities [0.0,0.5,0.9,0.99,1.0], intermediate 30, tail 25 |
+| PASS | A8-2  the real side is a level, not state | across 90 runs, the count of distinct resource values within a run is 1 every time |
+| PASS | A8-3  claims are conserved across the grid | 90/90 runs hold the identity between the holdings row sum and opening-plus-issuance at machine precision, below `1e-9`. The bound rather than the residue, because the residue is decided by accumulation order. Checked across the whole run rather than inside the loop: the loop's own assertion spans the transfer stage, while issuance lands before it and the asset settlement of stage A3 runs after it |
+| PASS | A8-4  one setting puts all four surfaces on the table | all four present at edges [1,2,3,5,8,12,20]; absent at [0,30]; no surface is absent everywhere on the grid |
+
+The two ends of the curve lose different surfaces. At zero autonomous edges the
+consuming-power surface is the one that goes: `M_a/R_a` reads 0.000, which is
+circulation having stopped rather than the ratio a price index reads holding
+steady. At thirty edges the support surface is the one that goes: effective
+support ends at 1.016 of its opening value, so nothing contracted.
+
+Across the whole 45-cell grid `M_a/R_a` stays between 1.008 and 1.028 of its
+opening value while `M/R` runs from 1.02 to 132. Claims per unit of resource rise
+by two orders of magnitude and the ratio a price index reads moves by under three
+percent. `network.layer2_inflow` and `economy.active_claims` carry the same
+definition, claims landing in Layer 2, so this is the same quantity A0 reports.
+
+Two objects are printed without being criteria, and neither can pass or fail. The
+first is the paired reading of payroll: at zero edges and unit elasticity the
+funding ratio reads 0.7559 while the bill it is measured against has gone to zero,
+so the pair is what makes that cell read as an absent surface rather than a healthy
+one, and the pairing was written down before the run. The second is the response
+of each surface across elasticity: holding the edge count at one and moving
+elasticity from zero to unity moves the funding ratio by 10.6% while `M/R` moves
+4.9%, the closing Gini 0.0%, and effective support 0.5%. The surfaces respond to
+the two axes differently, which is the evidence that they are not one collapse
+seen four ways.
+
+Ordering was measured and is not decidable on this carrier, which is a reading
+rather than an omission. Volume One section 12 states a causal chain, so the round
+each surface first holds is printed for all 45 cells in
+`results/a8_coverage.json`. The order does flip between eight and twelve edges,
+support contracting first below that and the claim ratios opening first above it,
+but the gap is one round out of six hundred, all five elasticities give the same
+flip point, and the payroll surface opens at round zero by construction because the
+intermediate block is itself the payer. An order that responds only to the opening
+graph and not at all to any behavioural parameter is reading the initialisation, so
+no criterion is written on it at this resolution.
+
+Scope: this is a statement about this carrier. The stage buys no data. The four
+surfaces are the four symptoms Volume One section 13 lists. The default cascade of
+section 18 is not among them and is not read here; it runs on a separate machine
+that takes published shares rather than the spending propensity this curve is
+drawn over.
+
+**The carrier has no asset revaluation on it, and that is the channel the
+empirical work weights most heavily.** Montecino and Epstein decompose QE into an
+employment channel worth about −0.5 points on the 90/10 ratio and an equity
+channel worth about +6.3 points on the 95/10 ratio, the second dwarfing the
+first. Every concentration reading taken on this carrier and on the stages
+downstream of it therefore carries one channel and not the other. `--asset` puts
+A3's asset layer on the same carrier and writes `a8_coverage_asset.json`; the
+default is off and reproduces this record key for key.
+
+**Read together, the two carriers answer one half of the registered question
+each.** On the registered carrier the four surfaces are present at edges 1
+through 20 and absent at 0 and 30, so widening the edge takes them off the table,
+which is the half section 13 states as the contrast. On the asset carrier they
+are present at every edge on the grid, so that carrier answers whether a setting
+exists and not whether widening removes it; A8-4 prints `NO CONTRAST` when its
+miss list is empty, for exactly this reason. Neither carrier replaces the other.
+
+**The asset layer has two parts and only one of them is a multiplier.**
+
+**Revaluation is a multiplier on position.** Measured on the subsistence arm:
+removing the terms gradient across centrality moves the closing Gini from +0.0772
+to +0.0713, freezing the price while keeping ownership moves it to −0.1856, and
+putting the same asset layer on a complete graph gives a change of −0.0607 with
+claims growing 1.01-fold. **With no positions to multiply, that part returns
+nothing.** This is A4-4c's finding on a second object: connectivity does not
+scale the other mechanisms, it decides which of them can operate.
+
+**The opening allocation is a generator and it does not need positions.**
+Corrected 2026-08-24 after A14-6 read the level rather than the change. On a
+complete graph with identical agents the closing Gini is **0.0075 with no asset
+layer and 0.0307 with one**, against the ceiling of 0.02 A4-1 registers for that
+null. The change over the run is negative because the dispersion arrives at the
+opening auction and then erodes; the level it erodes to is still four times the
+null. **A hundred units are walked out in descending order of claims with no cap
+on units per agent, so an opening difference too small to matter becomes three
+units against none, and units are worth something.**
+
+**The cap is what decides it.** Same complete graph, same asset layer, one unit
+per agent: **0.0194, back under the ceiling.** Three units per agent: 0.0332,
+over it again. **This is A5-9's finding on a different object** — there, capping
+at one unit doubles entry at the cheap end because the head of the queue stops
+taking multiples; here it keeps a null under its registered ceiling for the same
+reason.
+
+## A9 — the New Deal switch: one structure, two parameter settings, and the rate at which both readings turn
+
+`rounds=600` `5 graph seeds`
+
+Pre-registered, with the criteria fixed before the run. Volume One section 15
+states that 1945 to 1973 is the only period in which productivity and wages grew
+together and the only one in which inequality fell, and that the actions were
+dismantled one by one after 1980. This stage makes the second half of the
+extensibility standard executable: one structure, run twice with nothing changed
+but the fiscal parameters, and whether both readings turn together.
+
+Criterion A9-1 is what makes "change the parameters, not the structure" machine
+checkable rather than asserted: every arm is the control object with its fiscal
+field replaced, and the criterion reports the set of fields that differ.
+
+**4/4 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A9-1  one structure, the fiscal parameters only | fields differing from the control across all six arms: ['fiscal'] |
+| PASS | A9-2  the real side is a level and claims are conserved | 30 runs, one distinct resource value within each; 30/30 conserve claims at machine precision below 1e-9 |
+| PASS | A9-3  one rate turns both readings at once | both hold at rates [0.20, 0.35]; exactly one holds at [0.005, 0.02, 0.06]. Wage share retained by rate: 0.034, 0.113, 0.371, 0.768, 0.995, 0.990 |
+| PASS | A9-4  switching it off reverses both | 5/5 control runs have inequality rising and the wage share falling: median gini 0.8166 to 0.9369, median wage share 0.0730 to 0.0025 |
+
+The levy grid is anchored on stage A6's own registered values rather than chosen
+here: 0.005 is A6's first non-zero rate and 0.060 is the R* it measured on the
+stratified graph, the smallest rate at which the support set stops contracting.
+The other three rates are spacing and carry no verdict.
+
+A6's R* sits at 0.060 and both readings here need 0.20. **The rate that stops the
+support set from contracting is not enough to hold the wage share and lower
+concentration at the same time.** That is this stage's increment over A6, which
+measured the support set alone.
+
+The coupling reading is scored against the control arm rather than against each
+run's own opening, and the reason is in the manuscript's wording. "Grew together"
+means the share is unchanged, and an unchanged share tested against itself is an
+equality rather than a direction. The control arm supplies the direction: it keeps
+3.4% of its opening share while the arms that redistribute keep 99%. The reference
+is the control's ceiling rather than its median, since a group compared to its own
+centre has half its members above it by construction.
+
+Two objects are printed without being criteria. The injection target is compared
+between the top node and a uniform spread, because direct injection into Layer 2
+is the first of the five actions section 15 lists. And the five actions are
+inventoried against the knobs that exist: three have one, while unions have no
+bargaining side in this model and Glass-Steagall would mean changing the graph,
+which is changing the structure and would fail A9-1 by construction.
+
+Scope: a statement about this carrier, with no data bought. The levy is a share of
+financial-layer holdings taken each round, so it is not comparable with any
+historical marginal tax rate. This is the second half of the extensibility
+standard; the first half needs a subsistence level, and this model has a constant
+resource pool and no absolute requirement anywhere in it.
+
+## A10 — the write-off chain: one switch, and the aggregate stops showing what the distribution still shows
+
+`rounds=300` `12 graph seeds` `204 runs`
+
+Pre-registered, with the criteria fixed before the run. Volume One section 14
+gives an accounting chain and then states what this stage reads: the mechanism is
+the same and the power topology is different, so the outcome is opposite. Whether
+the head grows back is not endogenous, so it enters as a switch rather than a
+rule. Three of the mechanism's decisions come from that section and none is
+invented here: claims are destroyed at write-off, the loss falls on every holder
+by dilution because nobody can name what they paid, and the refill is conditional.
+
+**4/4 live criteria passed, 1 void**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A10-1  one structure, the write-off field only | fields differing from the control across all 17 arms: ['writeoff'] |
+| PASS | A10-2  the identity holds with destruction in it | 204/204 runs satisfy holdings = opening + issuance - write-offs at machine precision below 1e-9 |
+| PASS | A10-3  destruction shows on the aggregate only where it is not refilled | paired by seed and setting, the refilled arm is nearer its own control than the unrefilled one in 96/96 pairs. Median M/R 32.53 with refill and 7.30 without, against a control at 33.22 |
+| PASS | A10-4a  the refilled arm concentrates further than the control | every seed at 8 of 8 settings; median gini 0.9397 with refill against 0.9348 in the control |
+| VOID | A10-4b  the refilled arm reaches fewer nodes than the control | the reach gap changes sign between seeds, the best setting carrying 10 of 12. Not a seed-count problem: at five seeds it was 4 of 5 and the proportion is not converging |
+
+Same code, same graph, same random stream, one boolean flipped: M/R lands at 2.03
+without the refill and back at 32.29 with it, against a control at 33.22. The
+diagnostic block carries the other half of that: **refilling multiplies cumulative
+destruction by 7.85**, because write-off, refill and write-off again is itself a
+loop. Every one of the sixteen firing arms did fire, so none of them passes a
+criterion by never triggering.
+
+The fourth criterion was registered as a conjunction, concentration up **and**
+reach down, and printed per seed it splits: the concentration gap is one-signed
+across every seed and every setting, between +0.0007 and +0.0082, while the reach
+gap runs from -0.0160 to +0.0104. Reported apart, one holds everywhere and the
+other is undecidable. So section 17's claim that financial activity conceals the
+real economy's dysfunction has **half** its support here: refilling concentrates
+further than doing nothing on every seed, and what it does to circulation's reach
+has no fixed direction.
+
+Scope: a statement about this carrier, with no data bought. The refill is
+exogenous by construction and the stage cannot decide it, which is section 14's
+own claim rather than a modelling omission. The real side of that section, that
+the accounting entry vanishes while the resource transfer does not, is not tested:
+R is a constant here and the write-off touches only the claim side.
+
+Horizon (added 2026-08-23; the main table above is 300 rounds, three seeds at
+600, 1200 and 2400):
+
+| arm | M/R at 300 / 600 / 1200 / 2400 | closing support |
+|---|---|---|
+| control, no write-off | 33.54 → 66.44 → 132.24 → **263.84** | 13.67 |
+| refilled, low rate | 33.52 → 66.46 → 132.32 → **264.05** | 13.73 |
+| unrefilled, low rate | 5.48 → 5.49 → 5.49 → **5.49** | 15.48 |
+| unrefilled, high rate | 9.37 → 9.52 → 9.50 → **9.12** | 14.70 |
+
+- The refill returns the aggregate to the no-crisis path to **0.08%** at 2400
+  rounds, and returns effective support to within 0.43% of it. A10-3 read this
+  as "nearer its own control"; over four horizons the two are the same
+  magnitude.
+- What the refill costs shows in the top of the distribution instead: top1%
+  wealth share runs **1.3 to 6.2 points above the control**, 0.2306 to 0.2927 at
+  the high destruction rate, while cumulative destruction reaches 3,456,069
+  against an opening claim stock of 100.
+- The unrefilled arms settle at 4 to 6 percent of the control's aggregate and
+  hold there across an eightfold change of horizon, with **more** effective
+  support than the control, 8 to 13 percent, and a lower Gini.
+- Event ordering is not readable on this carrier and the reason is a reading
+  rather than an absence: both groups reach a steady state, so the argmin of a
+  flat series is the horizon. Every refilled arm and **the control** return the
+  same last-round position. The one stable interior event is the M/R peak of the
+  unrefilled high-rate arm at round 86, identical at all four horizons.
+
+Scope, M/R levels only (A13, 2026-08-23): the M/R figures quoted here are taken
+on a graph fixed at construction. With endogenous rewiring on, M/R moves between
+−47% and +14%; concentration readings and the direction of every M/R statement
+are unaffected, the minimum across all mobility arms being 17.44 against an
+opening ratio of one.
+
+
+### Read again with A3's asset layer on the carrier (2026-08-24)
+
+`--asset` puts A3's asset layer on the same carrier and writes
+`a10_writeoff_asset.json`. The default is off and reproduces the record above key for
+key. **Every concentration number this stage reports is read without asset
+revaluation**, and the empirical decomposition puts the weight on that channel:
+Montecino and Epstein give an employment channel of about −0.5 points on the
+90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+
+**A10-4a fails on this carrier.** It asks whether the refilled arm concentrates
+further than the control, and on the registered carrier that holds at 8 of 8
+settings. With the asset layer it holds at **4 of 8**, and every split is at rate
+0.02, the mildest write-off on the grid: 8/12, 8/12, 11/12 and 11/12 seeds at
+triggers 2, 5, 10 and 20. **The asset layer's own concentration is of the same
+order as the write-off's at that rate**, so the two are separable only at the
+higher rates. Median closing Gini is 0.9406 with refill against 0.9353 in the
+control, close to the registered 0.9397 against 0.9348.
+**Read this against its carrier.** A10-4a was registered on a construction with
+no asset layer and holds there at 8 of 8; that reading is unchanged. The 4 of 8
+is a statement about how far the write-off separates from asset revaluation at
+the mildest rate on the grid, and it is not A10 failing.
+
+## A11 — the subsistence floor: on a stratified graph position decides who starves, and erasing the topology removes the question
+
+`rounds=300` `5 graph seeds` `90 runs`
+
+Pre-registered. Volume One section 8 states that MPC is a property of an agent
+while this framework talks about the edges of a graph, and that an agent with a
+high marginal propensity and no in-edge starves anyway. That is falsifiable here,
+because the repository already carries an arm that erases the topology and leaves
+every behavioural parameter alone: `uniform_access` puts every node on a complete
+graph. The floor itself is derived rather than transcribed, and the derivation
+sits in the spec's own docstring: it is a level on the real side rather than a
+ratio on the claim side, it is a floor on inflow rather than on holdings, leaving
+is absorbing, and leaving destroys nothing because destruction is the write-off
+of section 14 and has its own switch.
+
+**4/4 live criteria passed**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A11-1  one structure, the subsistence field only | fields differing from the control across all arms: ['subsistence'] |
+| PASS | A11-2  leaving destroys nothing | 90/90 runs hold the claim identity with the floor on, below 1e-9 |
+| PASS | A11-3  on the stratified graph starvation lands on the production side | 40/40 firing runs; median starvation rates 0.050 in the financial layer against 0.986 in the production layer |
+| PASS | A11-4  erasing the topology closes the gap | paired by seed, floor and grace, the gap is narrower on the complete graph in 10/10 pairs. Median gap +0.000 complete against +0.936 stratified |
+
+On the stratified graph the production side dies out step by step while the
+financial layer barely moves: raising the floor twentyfold takes the financial
+layer from zero losses to four out of twenty, while the production layer goes from
+42 of 180 to all 180. On the complete graph there is no middle state at all.
+Below the resource pool per node nobody leaves, and at it all two hundred leave
+together. The two graphs share every behavioural parameter and differ only in
+their edges, so what the comparison isolates is the asymmetry of the edges: with
+no asymmetry there is no question of who starves first, only whether everyone has
+enough.
+
+Three readings come with it. **The Gini falls as the floor rises**, 0.934 to
+0.715, which is not the economy becoming equal: 181 nodes are frozen at a low
+level and stop being drained while new issuance keeps arriving at the top. An
+economy that has moved most of its population out of circulation reports a better
+Gini, which is this framework's own thesis about aggregates appearing inside its
+own model. **Production-side exit drives issuance up**, M/R from 34 to 60, because
+the issuance rule watches the shortfall in Layer 2 inflow and exit is what opens
+that shortfall. And the complete-graph control reads M/R 1.00 with a Gini of
+0.0072: an economy with no stratification concentrates nothing and issues nothing,
+because its active circulation never runs a shortfall.
+
+Scope: a statement about this carrier, with no data bought. The floor's absolute
+value is not comparable with anything outside the model; the resource pool per node
+is a construction scale. Leaving being irreversible is a design choice taken from
+the framework's own absorbing-wall mechanism rather than a measured property.
+
+### Read again with A3's asset layer on the carrier (2026-08-24)
+
+`--asset` puts A3's asset layer on the same carrier and writes
+`a11_subsistence_asset.json`. The default is off and reproduces the record above key for
+key. **Every concentration number this stage reports is read without asset
+revaluation**, and the empirical decomposition puts the weight on that channel:
+Montecino and Epstein give an employment channel of about −0.5 points on the
+90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+
+All four criteria hold on this carrier as they do on the registered one.
+
+## A12 — the coverage result under the two later mechanisms
+
+`rounds=300` `seed=0` `14 arms` `630 runs`
+
+**7/7 criteria passed.** A8 read four surfaces off one parameter curve with the
+write-off chain and the subsistence floor both switched off, because neither
+existed then. Both act on quantities those surfaces are read from, so this is a
+question rather than a re-run. **The answer is that the coverage result stands:
+on every arm whose subsistence state describes a household, the edges carrying
+all four surfaces are `[1, 2, 3, 5, 8, 12, 20]`, which is the control's set
+edge for edge.**
+
+**What this stage cost, and what that bought.** Its first form put a node that
+fell below the floor out of the graph, and left its payroll edge open. Such a
+node draws a wage every round and spends nothing. Measured: a hundred and sixty
+five of them leave by round five, and the claims they hold then grow linearly by
+four per round for the rest of the run, ending at **85.6 percent of every claim
+outstanding**. The stage read that as monetary expansion favouring the middle of
+the distribution, and the middle in question was those hundred and sixty five
+accounts. **Receiving and not passing on is retention, which this framework
+assigns to the top layer**, so the exit state applied a top-layer operation to
+the bottom. `docs/MEASUREMENT.md` failure mode 29 records the shape: a behaviour
+implemented through a membership rule inherits membership's properties, which
+are binary, absorbing and total, while a behaviour is a rate.
+
+The state that has a household in it is `mode="drawdown"`: the node stays in the
+graph and spends `min(need, holdings)`, so it goes on consuming, consumes less,
+and eats its savings. No absorbing wall, and none is needed, since a node with
+nothing spends nothing and one whose edge returns is not below the floor any
+more. **On that arm the frozen stock ends at 0.2 rather than 1202.4, claims grow
+1.7-fold rather than 14.1-fold, and the closing Gini moves +0.0344 against the
+no-mechanism control's +0.0328.**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A12-1  one structure, the two mechanism fields only | fields differing from the control across 14 arms: `subsistence`, `writeoff` |
+| PASS | A12-2  the identity holds with destruction in it | 630/630 runs, below 1e-09 |
+| PASS | A12-3  the both-off arm reproduces A8 | this stage `[1, 2, 3, 5, 8, 12, 20]` against `a8_coverage.json` `[1, 2, 3, 5, 8, 12, 20]` |
+| PASS | A12-4  the coverage result survives each mechanism | judged on the arms whose subsistence state has somebody in it: drawdown `[1,2,3,5,8,12,20]`, write-off `[1,2,3,5,8,12,20]`, drawdown with write-off `[1,2,3,5,8,12,20]`, against the control's `[1,2,3,5,8,12,20]`. The exit arms are printed and not judged on, for the reason above: floor `[]`, both `[1]`, floor payroll kept `[]` |
+| PASS | A12-5  the transfer channel, and who is left in circulation | reshaped: its first form asked whether the transfer arm carries all four surfaces, and surface three needs the closing Gini above the opening one while a per-head transfer lowers it by construction, 90 of 90 paired cells, range −0.20 to −0.86. Judged instead on who is still in circulation, cell by cell. Branch C: excluded nodes 11 down / 12 level / 22 up, support ratio 17 / 0 / 28, the two quantities pointing opposite ways and reported separately |
+| PASS | A12-6  which of the exit floor's two booleans carries the construction artefact | the payroll one. Closing Gini: floor 0.5903, payroll severed 0.9121, payroll kept 0.5908, drawdown 0.9179, against the control's 0.9172. Wage funding 0.5000 / 0.0000 / 0.5000 / 0.7382 against 0.7381 |
+| PASS | A12-7  every write-off-bearing arm fired in at least one cell | write-off 10/45, both 45/45, both with transfers 45/45, write-off refill 10/45, severed without refill 15/45, kept with refill 44/45 |
+
+
+Grid position, so the two edge grids can be compared. The registered grid is
+`(0, 1, 2, 3, 5, 8, 12, 20, 30)`; at a thousand nodes each count is solved to
+reproduce its autonomous share and reads `(0, 2, 5, 8, 15, 28, 45, 72, 128)`.
+
+| arm | 200 | 200 + asset layer | 1000 |
+|---|---|---|---|
+| control, no mechanism | 1–7 | 0–8 | 1–7 |
+| **drawdown floor** | **1–7** | **0–8** | **1–7** |
+| **drawdown floor with write-off** | **1–7** | **0–8** | **1–7** |
+| write-off alone | 1–7 | 0–8 | 1–7 |
+| exit floor, payroll left on | **empty** | 0–8 | **1** |
+| exit floor, payroll severed | 1–8 | 1–8 | 1–8 |
+
+Closing Gini, drawdown against the control: 0.9179 / 0.9172 at two hundred,
+0.9153 / 0.9177 with the asset layer, 0.9377 / 0.9369 at a thousand.
+
+Readings:
+
+- **The coverage result survives both later mechanisms.** Three arms carrying a
+  subsistence state that describes a household return the control's edge set
+  exactly, and the write-off fires in ten of forty five cells on the arms that
+  carry it, so the mechanism ran rather than passing by never running.
+- **A subsistence floor, modelled so that the household below it still eats,
+  does not change where concentration goes.** It changes who is consuming. Every
+  distributional reading this stage produced under the exit state was that
+  state's accumulation, not the floor's.
+- **Transfers repair the flow and not the membership.** Wage funding rises in 37
+  to 38 of 45 paired cells, by up to a full point, while the count of nodes out
+  of circulation rises in 22 of 45 at two hundred nodes and in 42 of 45 at a
+  thousand. A per-head transfer breaks a concentrated inflow into an even
+  trickle, and the floor is a threshold on inflow.
+- **The drawdown result holds on all three carriers, in grid position.** Two
+  hundred nodes, two hundred with A3's asset layer, and a thousand with the edge
+  grid solved for equal autonomous share: on every one the drawdown arm returns
+  the control's positions exactly, `1` to `7` on the two plain carriers and `0`
+  to `8` on the asset one, and the closing Gini differs from the control by at
+  most 0.003. The exit arm is empty at two hundred, a single position at a
+  thousand, and every position on the asset carrier, so the asset layer masks
+  the accumulation rather than removing it. Both variants are marked diagnostic
+  in their own records and are reported beside this run, never in place of it.
+
 
 ## B10 — the holonomy machinery rebuilt on a second carrier, and what that carrier stops recording in mid-2019
 
@@ -627,8 +1511,8 @@ cure.
 
 ## B11 — the second domain: corporate credit, and what it costs to count a loop there
 
-**Station open. C11-0 has not been run**, so not one loop has been counted, and
-every reading below was taken before it. Pre-registered design, criteria fixed
+**Station open, registered and sequenced. C11-0 is the next run**, and every
+reading below was taken before it. Pre-registered design, criteria fixed
 before the code, none rewritten after.
 
 The domain was reached by the branch table: B8-3 passed and B8-4b is not run
@@ -1191,11 +2075,20 @@ line for line.
 and four of its thresholds are B6's own values, so the two carriers are judged
 by one ruler.
 
-**B6 found an edge the law grants, that is posted, and that nobody walks, on
-207 of 207 Cuban publication days. Bolivia reads 21 of 52**, against B6's own
-95% carried over unchanged. **So the framework does not say of any controlled
-economy what it said of Cuba**, and B6's finding is specific to its carrier
-rather than something the framework confers.
+**This stage is B6's zero calibration and that is the whole of its purpose.**
+B6 found an edge the law grants, that is posted, and that nobody walks, on 207
+of 207 Cuban publication days, and the one thing that reading could not
+establish about itself is whether the instrument says as much of any economy
+with an official rate and a parallel market beside it. **Bolivia reads 21 of
+52** against the same 95%. **The instrument discriminates, so B6-15 is a fact
+about Cuba rather than a reflex of the method.**
+
+**What it discriminates on is sharper than the contrast between two countries.**
+Measured against Bolivia's own frozen peg the same window reads 100%, against
+what the banks were actually selling at 65.4%, and after the peg went and the
+official rate began to follow the market, 40.38%. **A posted price nobody
+transacts at is what produces the Cuban reading**, and the reading falls when
+the official rate becomes one somebody trades at.
 
 **The reading is robust to everything the stage left open.** Swept across five
 alignments of the date column and both readings of which published number is
@@ -1949,7 +2842,7 @@ Records with no criteria block and no sample metadata, kept as evidence and list
 **Carrier: Argentina's simultaneously quoted legal conversion tracks, daily, from
 files already on disk. Nothing was bought for this stage.**
 
-**Two carriers were rejected before this one and both cost paper only.** The
+**Two carriers were screened out on paper before this one, before any data was bought.** The
 first was a GSE monthly mortgage panel: `b1` ran from 1275 down to 1 as the state
 definition changed and no cut had a source, and the closing leg of the rulebook
 triangle carried 121 transitions in one vintage and 1 in the other. The second
@@ -2122,3 +3015,54 @@ the magnitudes are 1.5 percent of what the naive estimator read. Code
 `experiments/b17_b7_crossarm.py`, record `results/b17_b7_crossarm.json`, marked
 `diagnostic_only`: it withdraws nothing and no criterion in either stage rests on
 it.
+
+## B18 — the directional remnant: what a position's one-sidedness would leave in the book, and why this day cannot show it
+
+`295 spread contracts` `3,895,656 snapshots` `one trading day` `nothing bought`
+
+**Closed on the instrument's resolution.** The measured quantity is the direct
+book's one-sided-absence asymmetry, `A_s = P(no bid) − P(no ask)`, taken at
+end-of-event snapshots. The direct book rather than the implied one, because an
+implied quote's one-sidedness is fixed by its legs and is the matching engine's
+definition rather than a finding.
+
+**The precondition passed and it answers a different question.** It asks whether
+`A_s` is identically zero. It is not: quantiles run `p10 0.0004` to
+`p90 0.0528`, and the largest contract reads `−0.3893`. **Both of this station's
+axes read a sign**, and the question a sign needs is whether one contract's sign
+can be estimated at all.
+
+**Absence happens in runs, so the independent unit is the run.** One quote away
+for three hundred seconds leaves three hundred correlated snapshots; taking the
+3,895,656 snapshots as `n` inflates the degrees of freedom. Counting runs
+instead, over the same cache in one pass:
+
+| | |
+|---|---|
+| absence segments per contract, both sides summed | **p10 2, p50 2, p90 13, max 63** |
+| `\|A_s\| >= 1 se` | **4 of 295** |
+| `\|A_s\| >= 2 se` | **0 of 295** |
+
+`se` treats the two sides as independent, which is the loose direction:
+correlated sides give a smaller `se` and more eligible contracts, so a contract
+that does not clear here would not clear under a tighter treatment either.
+
+**The largest reading is the least trustworthy one.** `QMU3-QMX3` carries the
+biggest `|A_s|` on the day at `0.3893`, built from **one segment on each side**,
+against an `se` of `0.5306`.
+
+**What this settles about the design.** The registered power for the leg axis was
+computed at `N = 44` and gives 0.997 at a true rate of 0.80. That arithmetic is
+right and its premise is not: it assumes each contract contributes a reliable
+sign. **`N` was never the constraint here; sign quality was.**
+
+**What stays open, and it is a purchase decision.** Segment counts are a property
+of one trading day and add roughly linearly across days, so reaching forty
+contracts at two standard errors needs about two orders of magnitude more days
+against 6.8 GB of capture per day. That decision goes through the depth gate:
+count qualifying cells on what is already on disk before buying more.
+
+**This station makes no claim about the directionality of Theorems 4 and 5.**
+The step from those theorems to "a position's one-sidedness travels into every
+contract containing it" was the design's own and was never derived, and the
+reading side does not stand either, so the station carries neither.

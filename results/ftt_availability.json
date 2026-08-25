@@ -175,6 +175,8 @@
       "start": "2018-05-01"
     }
   ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "A catalogue probe, not a station. Every dataset the vendor lists is checked against a list of EU venue codes and none matches, so the carrier a transaction-tax event study would need does not exist at this vendor. The data cannot be bought here and the station cannot run; this record scores nothing and is kept as the record of that check.",
   "eu_hints": [
     "XMIL",
     "MTAA",

@@ -12,7 +12,7 @@ Usage::
 Writes ``results/b3_cip_slice.json``.
 
 **Read this before the numbers.** The data is a *derived* series built by its
-publishers from Bloomberg and Datastream; we retrieved their output, not the
+publishers from Bloomberg and Datastream; I retrieved their output, not the
 world. And a CIP deviation is **not a profit** — the post-2008 account is that it
 is the shadow price of balance-sheet capacity, which is why the claim here is
 that no global potential exists on the position space *as the price system states
@@ -386,7 +386,7 @@ def main() -> int:
     args = ap.parse_args()
 
     print("B3: the slice summand, on CIP deviations\n")
-    print("  derived series, not our retrieval; a deviation is not a profit")
+    print("  derived series, not my retrieval; a deviation is not a profit")
     data = load()
     print(f"\n  {data['rows']:,} rows, dropped for missing cip_govt: "
           f"{data['dropped']}")
@@ -500,7 +500,7 @@ def main() -> int:
                 "stage": "B3",
                 "source": "Du, Keerati and Schreger (2025), cip_dataset_v4",
                 "caveat": (
-                    "Derived series, not our retrieval. A CIP deviation is the "
+                    "Derived series, not my retrieval. A CIP deviation is the "
                     "shadow price of balance-sheet capacity, not a profit."
                 ),
                 "rows": data["rows"],

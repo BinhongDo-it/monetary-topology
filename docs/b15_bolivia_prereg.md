@@ -739,6 +739,12 @@ The edge is a one-week lag and a lag cuts both ways. results §6.4.
 
 ### 13.3 What did not run, and what that costs
 
+**SUPERSEDED by §13.0b: B15-12 ran, and twelve of twelve criteria carry the
+stage.** The euro was located on a per-day BCB quotation table rather than the
+endpoint §3.1 named, one request each, and the criterion returns FAIL with its
+registered expectation falsified. This section is kept as written and the
+paragraph below is the state on 2026-08-20.
+
 **B15-12 alone.** Its source is not at the endpoint §3.1 named, which is a
 retrieval fact and not a reading. §5 registers its own expectation that it would
 measure a pass-through rather than a rate, it sits in arm IV, and it gates

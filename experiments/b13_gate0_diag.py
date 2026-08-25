@@ -8,7 +8,7 @@ all derivation paths cannot do that. So either
 
   C  the path was not actually available, because the leg's top of book could
      not support the quantity, or
-  B  our book was stale, so the path we computed was not the one standing.
+  B  the book here was stale, so the path computed was not the one standing.
 
 They predict opposite things about the same numbers:
 

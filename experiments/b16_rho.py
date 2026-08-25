@@ -56,6 +56,14 @@ RAW = os.path.join(ROOT, "data", "raw", "b16_bbo")
 CAL_CACHE = os.path.join(RESULTS, "b16_trading_calendar.json")
 UNIVERSE = os.path.join(RESULTS, "b16_universe.json")
 OUT = os.path.join(RESULTS, "b16_e5_rho.json")
+#: --fill writes its own file so the 2026-08-21 reading stays reproducible.
+OUT_FILL = os.path.join(RESULTS, "b16_e5_rho_fill.json")
+#: Engineering rule 4: a big data job writes a reusable cache. This station
+#: has re-read 690 MB of gz on every window experiment so far, which is why
+#: each of them cost minutes instead of seconds.
+NPZ = os.path.join(ROOT, "data", "cache", "b16", "e5_rho.npz")
+FILL = [False]
+SENTINEL = -1.0   # an invalid record: the quote went away, do not carry it
 
 ARM = 5
 BOUNDARY = "2023-02-23"
@@ -251,6 +259,126 @@ def scan(days, want):
 
 # ---------------------------------------------------------------- statistics
 
+
+def ffill_pair(mid, spr):
+    """Carry the last standing quote forward. A BBO is a state, not an event:
+    `bbo-1s` prints when the book changed, so the seconds between two records
+    carry the earlier quote. SENTINEL marks a record that was undefined or
+    crossed, and it ENDS the carry rather than being skipped, because that is
+    the quote going away. Nothing is carried before the first record of a day
+    and nothing is carried across a day boundary; the arrays are per (sym, day).
+    """
+    n = mid.shape[0]
+    idx = np.where(~np.isnan(mid), np.arange(n), -1)
+    np.maximum.accumulate(idx, out=idx)
+    ok = idx >= 0
+    m = np.full(n, np.nan, np.float64)
+    t = np.full(n, np.nan, np.float64)
+    m[ok] = mid[idx[ok]]
+    t[ok] = spr[idx[ok]]
+    dead = m < 0
+    m[dead] = np.nan
+    t[dead] = np.nan
+    return m, t, idx
+
+
+def scan_fill(days, want):
+    """The same object as scan(), computed on standing quotes instead of on
+    seconds that happen to carry a record.
+
+    It also returns `states`: the number of distinct (venue A quote, venue B
+    quote) pairs in the day. THAT is the independent count, not the number of
+    seconds. A quote standing for three hundred seconds gives three hundred
+    identical rho values, and treating them as three hundred observations is
+    category error eleven, which this repository has now paid for twice in one
+    day. Gate two's `se` must be built on `states`.
+    """
+    span = offsets_to_days(days, BOUNDARY, -BOUGHT_EACH_SIDE, BOUGHT_EACH_SIDE - 1)
+    months = sorted({month_of(d) for d in span})
+    rho, denom, states, relsum = {}, {}, {}, {}
+    n_pair = n_viol = 0
+
+    for mm in months:
+        mdays = [d for d in span if month_of(d) == mm]
+        if not mdays:
+            continue
+        bounds = {d: rth_bounds_ns(d)[0] for d in mdays}
+        los = sorted(bounds.values())
+        lo2day = {v: k for k, v in bounds.items()}
+        dayset = set(mdays)
+        raw = {VENUE_A: {}, VENUE_B: {}}
+
+        for path, venue in ((batch_path(VENUE_A, mm), VENUE_A),
+                            (batch_path(VENUE_B, mm), VENUE_B)):
+            if not os.path.exists(path):
+                raise SystemExit("missing %s" % os.path.relpath(path, ROOT))
+            store = raw[venue]
+            with gzip.open(path, "rt", encoding="utf-8", newline="") as fh:
+                head = fh.readline().rstrip("\n").split(",")
+                ix = {c: i for i, c in enumerate(head)}
+                i_ts, i_b, i_a, i_s = (ix["ts_recv"], ix["bid_px_00"],
+                                       ix["ask_px_00"], ix["symbol"])
+                for line in fh:
+                    f = line.rstrip("\n").split(",")
+                    sym = f[i_s]
+                    if sym not in want:
+                        continue
+                    ts = int(f[i_ts])
+                    j = bisect.bisect_right(los, ts) - 1
+                    if j < 0:
+                        continue
+                    off = (ts - los[j]) // 10 ** 9
+                    if off < 0 or off >= RTH_SECONDS:
+                        continue
+                    day = lo2day[los[j]]
+                    if day not in dayset:
+                        continue
+                    key = (sym, day)
+                    arr = store.get(key)
+                    if arr is None:
+                        arr = store[key] = (
+                            np.full(RTH_SECONDS, np.nan, np.float64),
+                            np.full(RTH_SECONDS, np.nan, np.float64))
+                    b, a = int(f[i_b]), int(f[i_a])
+                    if b == UNDEF or a == UNDEF or a <= b:
+                        arr[0][off] = SENTINEL
+                        arr[1][off] = SENTINEL
+                        continue
+                    bp, ap = b * PX_SCALE, a * PX_SCALE
+                    mid = 0.5 * (bp + ap)
+                    arr[0][off] = mid
+                    arr[1][off] = math.log(ap / bp)
+                    rk = (sym, day, venue)
+                    rr = relsum.get(rk)
+                    if rr is None:
+                        rr = relsum[rk] = [0.0, 0]
+                    rr[0] += (ap - bp) / mid
+                    rr[1] += 1
+            print("  %-12s %s" % (venue, os.path.basename(path)))
+
+        for key in sorted(set(raw[VENUE_A]) & set(raw[VENUE_B])):
+            ma, sa, ia = ffill_pair(*raw[VENUE_A][key])
+            mb, sb, ib = ffill_pair(*raw[VENUE_B][key])
+            with np.errstate(invalid="ignore", divide="ignore"):
+                num = np.abs(2.0 * np.log(mb / ma))
+                den = sa + sb
+                r = num / den
+            ok = np.isfinite(r) & (den > 0)
+            n_pair += int(np.count_nonzero(ok))
+            bad = ok & (r > 1.0)
+            n_viol += int(np.count_nonzero(bad))
+            ok &= ~bad
+            if not ok.any():
+                continue
+            rho[key] = r[ok].astype(np.float32)
+            denom[key] = den[ok].astype(np.float32)
+            chg = (np.diff(ia[ok]) != 0) | (np.diff(ib[ok]) != 0)
+            states[key] = 1 + int(np.count_nonzero(chg))
+        del raw
+
+    return rho, denom, relsum, n_pair, n_viol, states
+
+
 def window_median_per_symbol(store, syms, wdays):
     out = {}
     for s in syms:
@@ -290,7 +418,16 @@ def run():
           % (ARM, BOUNDARY, DR * 1e6, len(syms)))
     print("venues %s / %s   schema bbo-1s   session 09:30-16:00 ET\n"
           % (VENUE_A, VENUE_B))
-    rho, denom, _relsum, n_pair, n_viol = scan(days, set(syms))
+    if FILL[0]:
+        rho, denom, _relsum, n_pair, n_viol, states = scan_fill(days, set(syms))
+        tot_st = sum(states.values())
+        print("\n  carry_forward=True. distinct quote states %d against %d"
+              " paired seconds, ratio %.1f" % (tot_st, n_pair,
+                                               n_pair / float(max(1, tot_st))))
+        print("  GATE TWO'S se MUST USE THE STATE COUNT, NOT THE SECOND COUNT.")
+    else:
+        rho, denom, _relsum, n_pair, n_viol = scan(days, set(syms))
+        states = {}
     print("\n  paired seconds %d   outside the Theorem 6(4) domain (rho > 1)"
           " %d, %.4f%%" % (n_pair, n_viol, 100.0 * n_viol / max(1, n_pair)))
     print("  the same exclusion runs on the placebo sub-windows.")
@@ -360,6 +497,8 @@ def run():
     json.dump({"arm": ARM, "boundary": BOUNDARY, "dr": DR,
                "venues": [VENUE_A, VENUE_B], "n_symbols": len(syms),
                "paired_seconds": n_pair, "domain_excluded": n_viol,
+               "carry_forward": bool(FILL[0]),
+               "distinct_states": sum(states.values()) if states else None,
                "placebo": [{"offset": k, "rho_pre": r[0], "rho_post": r[1],
                             "log_R": r[2], "n": r[3]} for k, r in rows],
                "band": [blo, bhi], "band_half_width": half,
@@ -369,9 +508,11 @@ def run():
                "friction": {"band": [dlo, dhi], "pre": dreal[0],
                             "post": dreal[1], "log_move": dreal[2],
                             "outside": bool(out_d)}},
-              open(OUT, "w", encoding="utf-8", newline="\n"),
+              open(OUT_FILL if FILL[0] else OUT, "w", encoding="utf-8",
+                   newline="\n"),
               indent=2, sort_keys=True)
-    print("\n  wrote %s" % os.path.relpath(OUT, ROOT))
+    print("\n  wrote %s   carry_forward=%s"
+          % (os.path.relpath(OUT_FILL if FILL[0] else OUT, ROOT), bool(FILL[0])))
     return 0
 
 
@@ -460,17 +601,72 @@ def selftest():
     chk("15 the band on 0..19 is deterministic and reproducible (%.3f, %.3f)"
         % (lo, hi), abs(lo - 1.9) < 1e-9 and abs(hi - 17.1) < 1e-9)
 
+
+    #: the carry, same rule as b16_bbo_probe.carry_step, tested on its own
+    n = 10
+    mid = np.full(n, np.nan); spr = np.full(n, np.nan)
+    mid[2] = 100.0; spr[2] = 0.01
+    m, t, idx = ffill_pair(mid, spr)
+    chk("a standing quote covers from its second to the end of the day",
+        np.isnan(m[:2]).all() and np.allclose(m[2:], 100.0))
+    mid[6] = SENTINEL; spr[6] = SENTINEL
+    m, t, idx = ffill_pair(mid, spr)
+    chk("an invalid record ends the carry instead of being skipped",
+        np.allclose(m[2:6], 100.0) and np.isnan(m[6:]).all())
+    mid2 = np.full(n, np.nan); spr2 = np.full(n, np.nan)
+    mid2[0] = 1.0; mid2[5] = 2.0; spr2[0] = spr2[5] = 0.01
+    _, _, i2 = ffill_pair(mid2, spr2)
+    chk("the state index changes exactly where a record lands",
+        int(np.count_nonzero(np.diff(i2) != 0)) == 1)
+
     print("\nselftest: %s" % ("PASS" if not fails else "FAIL (%d)" % len(fails)))
     return 0 if not fails else 1
+
+
+def write_cache():
+    """One gz pass -> data/cache/b16/e5_rho.npz. Criteria untouched: this only
+    stores what scan_fill already returns, so every window experiment after it
+    is seconds instead of minutes."""
+    days = load_calendar()
+    uni = load_universe()
+    syms = sorted(arm_symbols(uni["events"][str(ARM)]))
+    rho, denom, relsum, n_pair, n_viol, states = scan_fill(days, set(syms))
+    keys = sorted(rho)
+    flat_r = np.concatenate([rho[k] for k in keys])
+    flat_d = np.concatenate([denom[k] for k in keys])
+    lens = np.asarray([len(rho[k]) for k in keys], np.int64)
+    os.makedirs(os.path.dirname(NPZ), exist_ok=True)
+    tmp = NPZ + ".part.npz"
+    np.savez_compressed(
+        tmp,
+        keys=np.asarray(["%s|%s" % k for k in keys]),
+        lens=lens, rho=flat_r, denom=flat_d,
+        states=np.asarray([states.get(k, 0) for k in keys], np.int64),
+        meta=np.asarray([str(ARM), BOUNDARY, repr(DR), str(n_pair),
+                         str(n_viol), "carry_forward=True"]))
+    os.replace(tmp, NPZ)
+    print("wrote %s   %d (symbol, day) cells   %d values"
+          % (os.path.relpath(NPZ, ROOT), len(keys), len(flat_r)))
+    return 0
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--run", action="store_true")
+    ap.add_argument("--cache", action="store_true",
+                    help="one gz pass, write the reusable per (symbol, day) "
+                         "cache; changes no criterion")
+    ap.add_argument("--fill", action="store_true",
+                    help="carry a standing quote forward between records; "
+                         "default off reproduces the 2026-08-21 reading")
     a = ap.parse_args()
     if a.selftest:
         return selftest()
+    FILL[0] = bool(a.fill)
+    if a.cache:
+        FILL[0] = True
+        return write_cache()
     if a.run:
         return run()
     ap.print_help()

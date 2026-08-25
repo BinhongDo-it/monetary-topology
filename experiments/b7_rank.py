@@ -38,7 +38,7 @@ Usage::
 
 Writes ``results/b7_rank_draws<N>.json``.
 
-What the constructed sweep of §3.5 could not have told us
+What the constructed sweep of §3.5 could not have told me
 ---------------------------------------------------------
 §3.5 swept **fill** and read a boundary off it at `0.60`. The real design's fill
 is `0.7222`, above that boundary. But constructed designs at the *same* fill do

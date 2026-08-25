@@ -811,7 +811,7 @@ def row_residuals(c: K.Core, disc, pay_row=None, known_row=None,
             note_prev=note[sel - 1],
             n_prev=remf[sel - 1] - 1.0,
             balloon_n_prev=bn[sel - 1] - 1.0)
-    # a NaN out of `r_month` on a row we called `ok` is a defect, not a filter
+    # a NaN out of `r_month` on a row called `ok` is a defect, not a filter
     bad = ok & ~np.isfinite(r)
     if bad.any():
         ok = ok & np.isfinite(r)

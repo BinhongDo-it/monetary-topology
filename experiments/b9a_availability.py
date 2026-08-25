@@ -449,7 +449,7 @@ def cache_paths(ticker: str, name: str) -> tuple[Path, Path, Path]:
 
 def cached_ok(final: Path, meta: Path) -> bool:
     """True only if the payload is on disk **and** its hash still matches the
-    sidecar. A byte that changed under us is not silently read."""
+    sidecar. A byte that changed underneath is not silently read."""
     if not (final.is_file() and meta.is_file()):
         return False
     try:

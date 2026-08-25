@@ -144,7 +144,7 @@ def presets() -> tuple[Preset, ...]:
             config=source_faithful(),
             sources=(
                 "wealth shares and propensities from the framework's 100-agent "
-                "worked example; bottom stratum is our explicit completion of "
+                "worked example; bottom stratum is my explicit completion of "
                 "an implicit residual",
             ),
         ),

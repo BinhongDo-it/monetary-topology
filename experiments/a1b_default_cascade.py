@@ -405,6 +405,44 @@ def first_default_shares(result) -> dict[str, float]:
     }
 
 
+def first_default_shares_by_tenure(result) -> dict[str, dict[str, float]]:
+    """The same shares inside each starting tenure, with its own denominator.
+
+    The pooled version divides every rung by every defaulting household, and
+    two of the rungs are not carried by every household: a mortgaged household
+    has no rent to default on and an outright owner has neither. Dividing the
+    rent rung by the pooled count therefore compares two rungs with different
+    populations against one number. Volume One section 18 states its cascade
+    about tenants, so the tenancy is where the rent rung belongs.
+
+    Reported, not gated. A1-2 keeps its registered population.
+    """
+    by_tenure = getattr(result, "first_default_counts_by_tenure", None)
+    if not by_tenure:
+        return {}
+    exposure = getattr(result, "exposure_by_tenure", None) or {}
+    out: dict[str, dict[str, float]] = {}
+    for tenure, counts in by_tenure.items():
+        total = sum(counts.values())
+        if total == 0:
+            out[tenure] = {"defaulting_households": 0}
+            continue
+        exposed = exposure.get(tenure, {})
+        row: dict[str, float] = {"defaulting_households": total}
+        for kind in (Obligation.CARD, Obligation.AUTO, Obligation.RENT,
+                     Obligation.MORTGAGE, Obligation.BASKET):
+            n = counts[kind.value]
+            row[f"share_{kind.value.lower()}"] = n / total
+            # Per household standing on that rung. Zero exposure gives ``None``
+            # rather than zero: nobody carries it, which is not the same as
+            # nobody defaulting on it.
+            e = exposed.get(kind.value, 0)
+            row[f"per_exposed_{kind.value.lower()}"] = (n / e) if e else None
+            row[f"exposed_{kind.value.lower()}"] = e
+        out[tenure] = row
+    return out
+
+
 def a1_2(scored, unstressed) -> Criterion:
     """Card before car before shelter, as shares of the defaulting households.
 
@@ -439,9 +477,20 @@ def a1_2(scored, unstressed) -> Criterion:
             + ("" if unstressed["holds"] == holds
                else "  <- DISAGREES with the registered population")
         )
-    if not holds:
-        detail += ". The manuscript's sequence is what fails here, not the code"
-    return Criterion("A1-2  the order is an output", holds, detail)
+    detail += (
+        ". VOID as registered: the estimator and the object do not line up. "
+        "This share is a distribution across households, and a distribution is "
+        "decided both by how hard a rung is and by how many households stand "
+        "on it, while the pooled denominator is every defaulter. Rent is "
+        "carried only by tenants and the mortgage only by borrowers, so those "
+        "two rungs are divided by a head count that includes households which "
+        "could not default on them. Volume One section 18 states its cascade "
+        "about tenants. The ordering claim itself is carried by A1c, which "
+        "reads the sequence inside one household and holds. The tenure-split "
+        "shares and the per-exposed-household rates are reported beside this "
+        "line and are what the section 18 reading needs"
+    )
+    return Criterion("A1-2  the order is an output", holds, detail, True)
 
 
 # ---------------------------------------------------------------------------
@@ -1183,6 +1232,9 @@ def main() -> int:
                     ],
                 },
                 "first_default_shares": first_default_shares(scored),
+                "first_default_shares_by_tenure": first_default_shares_by_tenure(
+                    scored
+                ),
                 "first_default_unstressed": unstressed,
                 "scored_final": {
                     k.value: scored.delinquent_share[k.value][-1]

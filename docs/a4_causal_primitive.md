@@ -33,6 +33,44 @@ If `C` is upstream, switching it off attenuates them.
 
 ---
 
+## 1a. A third reading, which section 1 did not offer (2026-08-24)
+
+Section 1 stays as written. It records the question that was asked, and what
+follows is that the question's two readings did not cover the case.
+
+The two were: `C` parallel, so switching it off leaves the others "working at
+close to full strength"; or `C` upstream, so switching it off attenuates them.
+Both assume the same four mechanisms operate in both arms and differ in
+strength. Section 11.2's resolution table, sorted by arm, says they do not.
+
+| competitor alone, against the null | C=1, in control-cell sd | C=0 |
+|---|---|---|
+| education | **0.00** | **35.62** |
+| capital returns | **0.02** | **3.07** |
+| inheritance | **36.45** | **0.27** |
+| assortative mating | **32.10** | **0.23** |
+
+The stock-moved diagnostic agrees and is not a ratio: inheritance relocates
+44.15% of the closing stock under `C = 1` and 0.39% under `C = 0`; education
+moves 1.03% under `C = 0` and 0.04% under `C = 1`.
+
+**The four split into two disjoint pairs and each pair is readable in exactly one
+arm.** So the third reading is that connectivity does not scale the other
+mechanisms. **It selects which of them can operate at all.** Inheritance and
+assortative mating transmit a position, and a complete graph has no position to
+transmit; education and capital returns are properties of an agent, and they
+survive the graph's removal and stop mattering once position dominates.
+
+This is why `A(X)` has no domain. A ratio across the two arms needs a competitor
+with an effect in both, and there is none. Section 11.3's ceiling and section
+11.8's noisy denominators are both real, and A4-4b shows neither was the binding
+constraint: on the unbounded measure the readable set is the same one.
+**The instrument was not the problem; the presupposition was.**
+
+A4-4c reports the two sets and passes on the one condition that could make their
+disjointness an artefact, that neither arm is simply dead. Both are live.
+
+
 ## 2. Design
 
 A `2 × 2⁴` factorial: connectivity on or off, crossed with four competing
@@ -1300,3 +1338,104 @@ unchanged, and so does everything downstream of it.
 
 **What to quote from now on.** `+0.2372` with the range attached, not `28.06%`.
 `a7b_p1_check.offparam_uniform_20x300.json` is the record.
+
+---
+
+## 14. A4-5 is no longer void: what it now asks (2026-08-24)
+
+A4-5 asks whether the update order decides the stage's answer. It was registered
+against A4-4, and A4-4 has no result, so A4-5 had nothing for an ordering to
+preserve or overturn and was recorded void with that reason attached.
+
+**A4-4c has a result and it is a pair of sets.** With connectivity on, the
+competitors readable alone against the null are `{I, M}`; with connectivity off
+they are `{E, K}`; the intersection is empty, and that emptiness is what leaves
+`A(X)` without a domain (§1a). A pair of sets is exactly the kind of object an
+ordering can move. So A4-5 now reads that.
+
+### 14.1 What it does
+
+For the registered ordering and each of the three alternatives, it computes the
+same two sets `arm_sets` computes for A4-4c and asks one question: **does the
+intersection stay empty.** A non-empty intersection on any ordering means the
+disjointness is a fact about the order competitors are applied in rather than
+about the design, and the criterion fails.
+
+**An ordering with an empty arm cannot answer**, because an empty set intersects
+nothing and would report disjointness for a reason about the instrument. Those
+orderings are named and leave the judgment. If every ordering has an empty arm
+the criterion is void, which is the third state the registered form already
+used, and not a failure.
+
+**The registered form's reported material is kept**: the size of the readable
+set, which orderings move it and by how many cells, and whether A4-1, A4-2 or
+A4-6 flip on any alternative run. Those were already computed and they are
+printed objects rather than verdicts.
+
+### 14.2 Set membership hides the distance, so the distance is printed too
+
+Membership is a yes or no and a yes or no cannot say whether the floor was
+cleared by a hair or by thirty sigma. Each set therefore carries the smallest
+score among the competitors that are in and the largest among those that are
+out, both against the floor of `READABLE_SD = 1.0`. **A pair straddling the
+floor closely makes that ordering's reading a boundary reading whatever the sets
+look like.**
+
+**A competitor can be out for two reasons and only one of them has a distance.**
+The reading rule is a conjunction, a stable sign and a ratio over the floor, so a
+competitor with no stable measure anywhere is out without ever being scored: it
+has no distance and a pair of numbers cannot show it. The first draft of this
+function printed an empty maximum while a competitor sat outside the set, which
+is how that was noticed. Those competitors are now named separately.
+
+### 14.3 The floor binds at five seeds and does not bind at two
+
+Run at two seeds while wiring this up, every sign-stable competitor clears the
+floor and the exclusions are all sign instability: `K` leaves the `C = 1` arm and
+`M` leaves `C = 0` for that reason, and the largest score among the excluded is
+empty in both arms. At the registered five seeds the floor is what binds, the
+excluded competitors scoring `0.00`, `0.02`, `0.27` and `0.23` against a floor of
+`1.00` while the included score `3.07` to `36.45`.
+
+**So a run at fewer seeds is not a preview of this criterion.** The floor is
+stated in control-cell standard deviations and a standard deviation estimated
+from two draws is not the same instrument. Two seeds also returns a non-empty
+intersection, which is the opposite of the registered reading.
+
+### 14.4 It ran, and it fails on the two orderings that apply matching first
+
+Registered five seeds, three hundred rounds.
+
+| ordering | `C = 1` | `C = 0` | intersection |
+|---|---|---|---|
+| registered (`capital_first` / `inherit_first`) | `{I, M}`, smallest score `32.10` | `{E, K}`, smallest `4.35` | **empty** |
+| `pooling_first` / `inherit_first` | `{I, M}`, `32.10` | `{E, K}`, `4.35` | **empty** |
+| `capital_first` / **`match_first`** | `{I, M}`, `23.35` | `{E, K, M}`, smallest **`1.01`** | **`{M}`** |
+| `pooling_first` / **`match_first`** | `{I, M}`, `23.35` | `{E, K, M}`, smallest **`1.01`** | **`{M}`** |
+
+**The event order is what moves it and the channel order does not.** Both
+orderings that apply matching before the other channels put mating into the
+`C = 0` set; neither ordering that applies inheritance first does. On the two
+that move it, `A(X)` has a domain, and that domain is `{M}`.
+
+**The margin says what kind of failure this is.** Mating enters the `C = 0` set
+at `1.01` against a floor of `1.00`, so it crosses by a hundredth of a control-
+cell standard deviation, while everything else in either set on either ordering
+sits at `4.35` or above and the competitors that stay out have no stable sign at
+all. This is the boundary case §14.2's pair of numbers was added to expose, and
+it is the first registered run in which they were printed.
+
+**What this changes about §1a.** The claim that `A(X)` has no domain is now
+carried with its ordering named. It holds on the registered ordering and on
+`pooling_first` / `inherit_first`, away from the floor in both arms. On the two
+matching-first orderings it does not hold, and the thing that breaks it is
+resolved at the detection limit. **Quote the claim with the ordering attached.**
+
+**Why matching-first would do this, stated as a mechanism and not as a result.**
+Applying matching before the other channels lets it sort the opening
+distribution rather than a distribution the other channels have already moved.
+A complete graph has no positions to transmit, which is why mating is normally
+unreadable there, but sorting an unshaped opening distribution is not
+transmission of position and does not need the graph. Whether that is what is
+happening at `1.01` is not established here: at that margin this run cannot tell
+that mechanism from the floor.

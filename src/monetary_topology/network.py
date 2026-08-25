@@ -104,6 +104,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from dataclasses import replace as _dc_replace
 
+import dataclasses
+
 import numpy as np
 
 from .config import LAYER_1, LAYER_2, MonetaryAuthority, SpendRule, WageChannel
@@ -167,9 +169,53 @@ _SHORTCUT_OFFSET = 20_749
 #: dispersion leaves the registered band is void rather than negative.
 SHORTCUT_MODES: tuple[str, ...] = ("uniform", "preferential")
 
+#: Where A7's shortcuts are allowed to land. ``"all"`` is the registered
+#: behaviour and every A7 reading was taken under it.
+#:
+#: **Why the others exist.** The shortcut draw is uniform over ordered pairs,
+#: and on a 20/180 graph that is not uniform over kinds of edge. Pure
+#: combinatorics, no run needed: 80.95 percent of ordered pairs are
+#: production to production, 9.05 percent are financial to production, and
+#: **0.95 percent are financial to financial**. So a rate of 0.01 adds about
+#: 322 edges inside the production layer and about **36 pointing downward**,
+#: while ``NetworkSpec.downward_edges`` is zero by default and its own
+#: docstring says zero is the framework's specification. A0-6 measured what
+#: one downward edge does: production-layer inflow 17.7007 to 48.3919, a
+#: factor of 2.73. **Every arm with a positive rate therefore moves two
+#: things at once, and A7 read the result as density.**
+#:
+#: These scopes hold the count and move only where the edges land, which is
+#: the same discipline ``shortcut_mode`` already applies to targets.
+#:
+#: ``"all"``          anywhere, the registered behaviour
+#: ``"production"``   both endpoints outside the financial layer
+#: ``"financial"``    both endpoints inside it
+#: ``"downward"``     financial to production
+#: ``"upward"``       production to financial
+#:
+#: **A scope can be too small to hold the matched count and the caller has to
+#: check.** The financial layer offers 380 ordered pairs against a matched
+#: count of about 398 at a rate of 0.01, so that arm saturates. Nothing here
+#: raises: the graph is returned with what fits, and an arm that wanted more
+#: is visible by counting the edges it actually gained.
+SHORTCUT_SCOPES: tuple[str, ...] = (
+    "all", "production", "financial", "downward", "upward",
+)
+
+#: A third fresh stream, so a scoped placement cannot correlate with either
+#: the uniform draw or the preferential targets.
+_SCOPE_OFFSET = 60_013
+
 #: A second fresh stream, so the placebo's choice of targets cannot correlate
 #: with which pairs the uniform arm happened to draw.
 _PREFERENTIAL_OFFSET = 31_337
+
+#: Offset for the stream that drives endogenous rewiring. A fresh constant, so
+#: the rewire draws cannot correlate with the stratified graph's own draw
+#: (``seed``), the payroll receiver order (``seed + 4241``), the opening
+#: permutation (``seed + 9301``), A7's shortcuts (``seed + 20749``) or the
+#: placebo's targets (``seed + 31337``).
+_REWIRE_OFFSET = 51_413
 
 #: Where newly issued claims are credited. ``PROJECT_PLAN.md`` §16.2 registers
 #: both arms as the two readings of the source's own claim that money is
@@ -342,6 +388,10 @@ class NetworkSpec:
     #: object, the stratified graph and the complete graph respectively.
     shortcut_mode: str = "uniform"
 
+    #: See ``SHORTCUT_SCOPES``. Only read when ``shortcut_rate`` is strictly
+    #: between zero and one, for the same reason ``shortcut_mode`` is.
+    shortcut_scope: str = "all"
+
     @property
     def size(self) -> int:
         return self.layer1_size + self.intermediate_size + self.layer2_size
@@ -384,6 +434,11 @@ class NetworkSpec:
             )
         if not 0.0 <= self.shortcut_rate <= 1.0:
             raise ValueError("shortcut_rate must lie in [0, 1]")
+        if self.shortcut_scope not in SHORTCUT_SCOPES:
+            raise ValueError(
+                f"shortcut_scope must be one of {SHORTCUT_SCOPES}, "
+                f"got {self.shortcut_scope!r}"
+            )
         if self.shortcut_mode not in SHORTCUT_MODES:
             raise ValueError(
                 f"shortcut_mode must be one of {SHORTCUT_MODES}, "
@@ -433,6 +488,7 @@ class NetworkSpec:
             "uniform_access": self.uniform_access,
             "shortcut_rate": self.shortcut_rate,
             "shortcut_mode": self.shortcut_mode,
+            "shortcut_scope": self.shortcut_scope,
             "uniform_opening": self.uniform_opening,
         }
         fields.update(changes)
@@ -599,7 +655,42 @@ def build_graph(spec: NetworkSpec, wage_edges: np.ndarray | None = None) -> np.n
         shortcut_rng = np.random.default_rng(spec.seed + _SHORTCUT_OFFSET)
         drawn = shortcut_rng.random((n, n)) < spec.shortcut_rate
         np.fill_diagonal(drawn, False)
-        if spec.shortcut_mode == "uniform":
+        if spec.shortcut_scope != "all":
+            # The count comes from the same draw as every other arm, so the
+            # scoped arms and the registered one are matched edge for edge at
+            # every rate and seed. Only where the edges may land moves.
+            #
+            # **Placed rather than masked.** Masking the draw by the scope would
+            # give the small scopes proportionally fewer edges, which is the
+            # confound this exists to remove: it would make an arm both scoped
+            # and sparser and no reading could tell the two apart.
+            free = a == 0.0
+            np.fill_diagonal(free, False)
+            m = int((drawn & free).sum())
+            is_fin = np.zeros(n, dtype=bool)
+            is_fin[fin] = True
+            row_fin = np.repeat(is_fin[:, None], n, axis=1)
+            col_fin = np.repeat(is_fin[None, :], n, axis=0)
+            allowed = {
+                "production": ~row_fin & ~col_fin,
+                "financial": row_fin & col_fin,
+                "downward": row_fin & ~col_fin,
+                "upward": ~row_fin & col_fin,
+            }[spec.shortcut_scope]
+            candidates = np.flatnonzero((free & allowed).ravel())
+            # A scope smaller than the matched count saturates. Returning what
+            # fits keeps the arm runnable and leaves the shortfall visible to
+            # anyone who counts the edges the graph actually gained, which is
+            # the reading rather than a flag: the financial layer offers 380
+            # ordered pairs against about 398 wanted at a rate of 0.01.
+            take = min(m, candidates.size)
+            if take > 0:
+                scope_rng = np.random.default_rng(spec.seed + _SCOPE_OFFSET)
+                chosen = scope_rng.choice(candidates, size=take, replace=False)
+                flat = a.ravel()
+                flat[chosen] = 1.0
+                a = flat.reshape(n, n)
+        elif spec.shortcut_mode == "uniform":
             a = np.clip(a + drawn.astype(float), 0.0, 1.0)
         else:
             # The same count, different targets. ``drawn`` is read only for how
@@ -638,6 +729,386 @@ def build_graph(spec: NetworkSpec, wage_edges: np.ndarray | None = None) -> np.n
 
 
 @dataclass(frozen=True)
+class SubsistenceSpec:
+    """An absolute floor under a node's inflow, below which it leaves circulation.
+
+    Derived rather than transcribed, so the derivation is here. Three things
+    about the framework fix the shape and none of them is a choice made in this
+    file.
+
+    **It is a level on the real side, not a ratio on the claim side.** A claim
+    is nominal and the framework's whole content is that the two come apart, so
+    a floor that scaled with the claim stock would move with the thing it is
+    supposed to be independent of. The floor is therefore in resource units,
+    and claims and resources open one to one in this model, which is what makes
+    the comparison meaningful at all.
+
+    **It is a floor on inflow, not on holdings.** Volume One's own statement is
+    that an agent with a high marginal propensity and no in-edge starves anyway:
+    a claim about edges rather than about behaviour or about stock. A stock
+    floor would let a node coast on what it accumulated, and the proposition
+    being modelled is about the flow reaching it.
+
+    **Leaving is absorbing.** The general preamble's mechanism is path
+    dependence with absorbing walls, and the manuscript distinguishes a sector
+    that was cut from one that was drained precisely because an edge into a
+    drained region does not revive it. A node that leaves therefore does not
+    come back when flow returns.
+
+    **What leaving does not do is destroy claims.** Destruction is the write-off
+    of section 14 and it has its own switch. A node that drops out freezes: it
+    stops spending, stops receiving, and its holdings stay where they are. The
+    claim total is untouched, so this mechanism and the conservation identity do
+    not interact.
+
+    Off by default, and off runs the original code path rather than a masked
+    version of it, so the bit-for-bit reproduction is by construction.
+    """
+
+    #: Minimum inflow per round, in the units claims and resources share at the
+    #: opening. Zero is off. The natural scale is the resource pool over the
+    #: node count, and the value is swept rather than set: nothing in the
+    #: framework fixes where subsistence sits, only that there is one.
+    need: float = 0.0
+    #: Consecutive rounds below the floor before the node leaves. One means it
+    #: leaves the first time it is short.
+    grace: int = 1
+
+    #: Whether payroll is cut too. **False is the original behaviour** and is
+    #: what every record taken before 2026-08-23 was produced under: a node that
+    #: dropped out stopped trading but kept receiving wages.
+    #:
+    #: Two independent things, kept independent rather than bundled into one
+    #: label, because they are two different questions. This one asks whether
+    #: every channel closes or only the market.
+    cut_payroll: bool = False
+
+    #: Whether inflow returning above the floor brings the node back. **False is
+    #: the original behaviour**, an absorbing wall.
+    reversible: bool = False
+
+    #: What being below the floor does. ``"exit"`` is the original behaviour
+    #: and the default, so a run that does not name a mode is bit-for-bit
+    #: what it was.
+    #:
+    #: ``"exit"`` --- the node stops trading. With ``cut_payroll`` false it
+    #: goes on receiving wages, and it spends nothing, ever.
+    #:
+    #: **That combination describes nobody.** A household that has fallen
+    #: below subsistence has no savings; one that has lost its job goes on
+    #: consuming and consumes less. This one draws a wage every round,
+    #: consumes zero, and never returns. Measured on A12's carrier: a
+    #: hundred and sixty five nodes leave by round five, and the claims they
+    #: hold then grow linearly by four per round for the rest of the run, to
+    #: **85.6 percent of every claim outstanding at the close**. Receiving
+    #: and not passing on is retention, and retention is this framework's
+    #: mechanism for the **top** layer. The exit mode applies it to the
+    #: bottom, which is why the distribution it produces is upside down.
+    #: **Kept as a construction control, not as a regime.**
+    #:
+    #: ``"drawdown"`` --- the node stays in the graph and its spending is
+    #: taken off subsistence rather than off propensity: it spends
+    #: ``min(need, holdings)``, which does not consult inflow. So it goes on
+    #: consuming, consumes less, and eats its savings. **There is no
+    #: absorbing wall in this mode and none is needed**: the stock runs out
+    #: on its own and a node with nothing spends nothing. ``cut_payroll``
+    #: and ``reversible`` do not apply here and are ignored.
+    mode: str = "exit"
+
+    def __post_init__(self) -> None:
+        if self.need < 0.0:
+            raise ValueError("subsistence need must be non-negative")
+        if self.grace < 1:
+            raise ValueError("subsistence grace must be at least one round")
+        if self.mode not in {"exit", "drawdown"}:
+            raise ValueError(f"unknown subsistence mode: {self.mode}")
+
+    @classmethod
+    def payroll_severed(cls, need: float, grace: int = 1) -> SubsistenceSpec:
+        """Every channel closes and nothing comes back.
+
+        **A corner of the exit mode, not a regime.** Added 2026-08-24: the
+        exit mode has another corner that leaves payroll on, and a node there
+        draws a wage every round while spending nothing, which describes
+        nobody. This corner closes that leak by closing the wage edge too, so
+        its numbers are usable. It still holds the stock still and still
+        never lets the node back. **The state with a household in it is the
+        drawdown mode**, which keeps the node in the graph and lets it eat
+        its savings. Read that one for anything about subsistence and read
+        this one only as the exit mode with its leak closed.
+
+        Renamed from ``starving`` on 2026-08-23. The old name asserted a social
+        phenomenon the mechanism does not model: nothing here dies, a node stops
+        transacting. Volume One section 18 motivates the setting, and section 18
+        is where the motivation belongs; the constructor names the edge
+        operation, which is what this actually does.
+
+        **Which of the two booleans carries the difference is measured, not
+        assumed.** On A12's carrier ``cut_payroll`` moves closing gini by 0.32
+        and ``reversible`` moves it by 0.0005, so the separation between this
+        and ``payroll_kept_reversible`` is carried by the payroll switch alone.
+        The two remaining corners of the pair have not been run.
+        """
+        return cls(need=need, grace=grace, cut_payroll=True, reversible=False)
+
+    @classmethod
+    def payroll_kept_reversible(cls, need: float, grace: int = 1) -> SubsistenceSpec:
+        """The market closes, the wage edge does not, and the exit is undone
+        when inflow returns.
+
+        **This is the corner with the leak in it**, and 2026-08-24 measured
+        what the leak does: the node goes on drawing a wage and spends
+        nothing, so a hundred and sixty five of them end A12's run holding
+        85.6 percent of every claim outstanding and the stage reads monetary
+        expansion as favouring the middle. **Receiving and not passing on is
+        retention, which this framework assigns to the top layer.** Keep this
+        as a construction control and do not read a regime off it. The
+        household state is the drawdown mode.
+
+        Renamed from ``bankrupting`` on 2026-08-23, for the reason in
+        ``payroll_severed``. Section 18's present regime motivates it: output
+        ample, access intermediated by debt, and the same relative position
+        invisible because nobody is visibly destitute.
+
+        **Read the caveat in ``payroll_severed`` before using this as a regime.**
+        Its ``reversible`` boolean is the one measured to move nothing, so on the
+        carrier tested this differs from a plain ``SubsistenceSpec(need=...)`` by
+        0.0005 in closing gini. It is a named corner of a two-boolean square, not
+        an established second regime.
+        """
+        return cls(need=need, grace=grace, cut_payroll=False, reversible=True)
+
+    @property
+    def active(self) -> bool:
+        return self.need > 0.0
+
+
+@dataclass(frozen=True)
+class RewireSpec:
+    """Whether position is bought and sold, or fixed at construction.
+
+    Every stage before 2026-08-23 ran on a graph that never changes: the
+    adjacency built at construction is bitwise identical after three hundred
+    rounds. That is the framework's thesis stated as a construction, and the
+    thesis is what the stages were meant to test, so this switch exists to stop
+    assuming the conclusion in the one place it matters most.
+
+    The measured motivation. At ``t = 0`` the two layers overlap in holdings,
+    the richest production node at ``1.0477`` against the poorest financial node
+    at ``0.7929``. By round three hundred the poorest financial node holds forty
+    times the richest production node and the overlap is empty. **The total
+    separation is produced during the run, on a graph that cannot respond to
+    it.**
+
+    Three parts, and the two rates are read off published work rather than
+    chosen here.
+
+    **Acquisition is graded and it fires twice.** Chetty et al. (Nature 2022)
+    decompose cross-class connection into exposure, the share of high-status
+    members in the group, and friending bias, the rate of actually connecting
+    conditional on exposure. Exposure explains about 54 percent of the gap and
+    friending bias about 46, and their own statement of the residual is that
+    perfect integration by status would leave nearly half the gap standing. So
+    qualifying is one draw and the cluster firing is a second, and the second
+    does not fire for everyone. Their friending bias is also higher in larger
+    groups, so ``cluster_rate`` is swept rather than pinned.
+
+    **Loss is bimodal, not graded.** Eckbo, Thorburn and Wang (JFE 2015) follow
+    the CEOs of 322 large public Chapter 11 filings from 1996 to 2007: one third
+    keep full-time executive employment and their median compensation change is
+    statistically indistinguishable from zero, and two thirds leave the
+    executive labour market outright. Nobody keeps half a network. So a demoted
+    node keeps all of its core edges or none of them, at a rate near one third.
+
+    **Demotion redirects rather than deletes.** A node that leaves the core is
+    not a sink; it trades with the production layer instead. Out-degree is
+    conserved on that side so the change is in targets rather than in density,
+    which matters because density moves the terminal distribution far more than
+    anything behavioural does. ``conserve_degree`` extends the same discipline
+    to acquisition, and False is available precisely so the density confound can
+    be measured rather than assumed away.
+
+    Off by default. Off leaves ``_rewire`` unreachable rather than running a
+    no-op version of it, so the bit-for-bit reproduction is by construction.
+    """
+
+    #: Holdings at or above this level qualify a production-layer node for an
+    #: edge into the financial core. Zero is off. Same units as claims, and the
+    #: natural scale is ``initial_claims / n`` as it is for the subsistence
+    #: floor. Nothing in the framework fixes the level, only that wealth buys
+    #: access, so it is swept.
+    acquire_level: float = 0.0
+
+    #: How many non-core nodes join per rewire round, taken from the top of the
+    #: non-core holdings order. Zero is off.
+    #:
+    #: This is the scale-free half of the pair, and it exists because the level
+    #: form is not reachable on this model's own trajectory. Measured before
+    #: writing it: the richest production node peaks at ``1.0477`` in **round
+    #: zero** and falls monotonically to ``0.4518``, while the whole claim stock
+    #: grows from ``100`` to ``3412``. So a level in claim units is crossed in
+    #: 300 of 300 rounds at ``0.25``, in 7 at ``0.50``, in 1 at ``1.00`` and in
+    #: none at ``2.00``: below the band everyone always qualifies and above it
+    #: nobody ever does, and the same level loosens for the core and tightens
+    #: for the periphery as the stock grows. **A rank always has somebody in
+    #: it.**
+    acquire_top_k: int = 0
+
+    #: The second condition, applied together with the rank: a node must hold at
+    #: least this share of the total claim stock. Zero is off, and with
+    #: ``acquire_top_k`` set it is the difference between "the top k" and "the
+    #: top k that are actually large".
+    #:
+    #: Two conditions rather than one because a core is a count **and** a share.
+    #: The published cores are stated that way: Fedwire's tightly connected core
+    #: is 25 nodes carrying 75% of value; the US top one percent held 38% of
+    #: wealth in 2018. Neither number alone names the object.
+    min_claim_share: float = 0.0
+
+    #: Share form of ``demote_level``, on the same scale-free footing. A core
+    #: node holding less than this share of the stock is demoted. Zero is off.
+    demote_claim_share: float = 0.0
+
+    #: Probability that qualifying pulls in the whole core rather than a single
+    #: node. Zero means one edge per qualification and no cluster at all.
+    cluster_rate: float = 0.0
+
+    #: Financial-layer nodes whose holdings fall below this level are demoted.
+    #: Zero is off, and it is separate from ``acquire_level`` because the two
+    #: directions are not measured to be symmetric.
+    demote_level: float = 0.0
+
+    #: Probability a demoted node keeps its core edges regardless. The published
+    #: figure is near one third; swept, because the figure is for large public
+    #: company CEOs and this model's core is not that population.
+    retain_rate: float = 0.0
+
+    #: Whether demotion also removes the core's edges **into** this node. False
+    #: is the original behaviour and it redirects outbound edges only.
+    #:
+    #: Added 2026-08-24 after reading what the outbound-only form implements.
+    #: Grindaker, Kostol and Roszbach identify the effect of bankruptcy on a
+    #: CEO's career off the random assignment of petitions to judges of varying
+    #: strictness, in Norwegian small and medium firms, and find two halves that
+    #: come apart: **no enduring effect on labour income after five years**, and
+    #: a **permanent fall in capital income** of about five percent of gross
+    #: income a year, worth 60 percent of a pre-bankruptcy year over the rest of
+    #: the career. Displaced executives relocate quickly and take lower-ranked
+    #: positions.
+    #:
+    #: Mapped onto this graph, the recovering half is trading with the
+    #: production layer again, which outbound redirection already delivers and
+    #: delivers for free: a demoted node keeps its payroll position, because the
+    #: wage mask is never rewired, and keeps trading, because its out-edges are
+    #: replaced rather than deleted. **The permanent half has no carrier at all
+    #: without this switch**, because what falls permanently is what the core
+    #: sends down, and demotion did not touch a single edge pointing in.
+    #:
+    #: So this is not a horizon. A horizon would restore something that was
+    #: never taken. The asymmetry the published estimates describe is between
+    #: two channels, not between two dates.
+    demote_cuts_inbound: bool = False
+
+    #: Whether acquisition redirects an existing edge (True, out-degree fixed)
+    #: or adds a new one (False, out-degree rises and density moves with it).
+    conserve_degree: bool = True
+
+    #: Rounds between rewires. One is every round.
+    interval: int = 1
+
+    #: Whether promotion also hands over the core's spending propensity, and
+    #: demotion hands it back. Off by default, and off is the arm every reading
+    #: before 2026-08-24 was taken on: promotion buys edges and nothing else,
+    #: so what those readings measure is what buying access does.
+    #:
+    #: **A no-op under ``uniform_access``**, where both layers already share one
+    #: flat propensity by construction and there is nothing to transfer.
+    transfer_propensity: bool = False
+
+    #: Whether promotion also hands over the payroll role, and demotion hands it
+    #: back. A node added here becomes a wage payer in the same round and gains
+    #: the edges to the wage receivers that the construction gives every other
+    #: payer, so the graph means the same thing for it as for them.
+    #:
+    #: **This one moves out-degree** on top of what ``conserve_degree`` holds,
+    #: which is why it is a switch of its own rather than part of the one above:
+    #: run both at once and a change cannot be attributed to either. The two are
+    #: meant to be climbed one rung at a time.
+    #:
+    #: The payer set is never allowed to empty, because the payroll bill is
+    #: divided by its size.
+    transfer_payroll: bool = False
+
+    def __post_init__(self) -> None:
+        for name in ("acquire_level", "demote_level"):
+            if getattr(self, name) < 0.0:
+                raise ValueError(f"{name} must be non-negative")
+        for name in ("cluster_rate", "retain_rate", "min_claim_share",
+                     "demote_claim_share"):
+            if not 0.0 <= getattr(self, name) <= 1.0:
+                raise ValueError(f"{name} must lie in [0, 1]")
+        if self.acquire_top_k < 0:
+            raise ValueError("acquire_top_k must be non-negative")
+        if self.interval < 1:
+            raise ValueError("rewire interval must be at least one round")
+
+    @property
+    def active(self) -> bool:
+        return (
+            self.acquire_level > 0.0
+            or self.acquire_top_k > 0
+            or self.demote_level > 0.0
+            or self.demote_claim_share > 0.0
+        )
+
+
+@dataclass(frozen=True)
+class WriteOffSpec:
+    """Volume One section 14: the accounting chain of a write-off.
+
+    The chain the manuscript states is: credit creation mints money as debt,
+    default sends the paper out at a discount, part is recovered, owners'
+    equity carries the difference, and **money is destroyed at write-off**. So
+    the claim stock falls, which is the one thing in this model that breaks
+    conservation, and it breaks it in a stated direction rather than as slack.
+
+    Two decisions come from the same section and neither is invented here.
+    **The loss is borne by dilution and nobody can name what they paid**
+    (section 14, closing paragraph), so the destruction is proportional across
+    every holder rather than aimed at anyone. And **whether the head grows back
+    is a political condition rather than a mechanism** (the hydra clause): the
+    United States had TARP and Iceland did not, same mechanism, opposite
+    outcome. That is ``refill``, and it is a switch precisely because the
+    manuscript says it is not endogenous.
+
+    Off by default, and off reproduces a run without it to the last bit.
+    """
+
+    #: Share of the outstanding claim stock destroyed in a round where the
+    #: trigger is met. Zero is off.
+    rate: float = 0.0
+    #: The claims-per-unit-resource ratio above which claims start being judged
+    #: to have no backing. Zero is off. Swept rather than set: the manuscript
+    #: states that the referent of a quasi-money claim is empty in some states,
+    #: not at which ratio that begins.
+    trigger: float = 0.0
+    #: Whether issuance refills what was destroyed, on the round after. The
+    #: hydra clause: the equity that absorbs the loss is conserved, and what
+    #: grows back is funded from the layer that is not.
+    refill: bool = False
+
+    def __post_init__(self) -> None:
+        if not 0.0 <= self.rate < 1.0:
+            raise ValueError("write-off rate must lie in [0, 1)")
+        if self.trigger < 0.0:
+            raise ValueError("write-off trigger must be non-negative")
+
+    @property
+    def active(self) -> bool:
+        return self.rate > 0.0 and self.trigger > 0.0
+
+
+@dataclass(frozen=True)
 class NetworkConfig:
     """Parameters for one A2 run."""
 
@@ -651,6 +1122,24 @@ class NetworkConfig:
     #: Total claims at t=0, split so that the layer shares match the block model.
     initial_claims: float = 100.0
     layer1_initial_share: float = 0.679
+
+    #: Total real resources. Closed economy, no real growth by default. Same
+    #: name, same default and same meaning as ``EconomyConfig``, so ``M/R`` read
+    #: off either model is on one scale. Constant by construction: this graph
+    #: moves claims, it does not produce the pool those claims are claims on.
+    total_resources: float = 100.0
+    #: Share of resources withheld from market each round, the dormant resource
+    #: pool. Zero here so the stage isolates the claim side, as in A0.
+    resource_withholding: float = 0.0
+
+    #: Volume One section 14's write-off chain. Off by default.
+    writeoff: WriteOffSpec = field(default_factory=WriteOffSpec)
+
+    #: The subsistence floor. Off by default.
+    subsistence: SubsistenceSpec = field(default_factory=SubsistenceSpec)
+
+    #: Endogenous rewiring. Off by default.
+    rewire: RewireSpec = field(default_factory=RewireSpec)
 
     epsilon: float = DEFAULT_EPSILON
     rounds: int = 300
@@ -673,6 +1162,8 @@ class NetworkConfig:
             raise ValueError("layer1_initial_share must lie in (0, 1)")
         if self.epsilon <= 0.0:
             raise ValueError("epsilon must be positive")
+        if not 0.0 <= self.resource_withholding < 1.0:
+            raise ValueError("resource_withholding must lie in [0, 1)")
         if self.rounds < 1:
             raise ValueError("rounds must be >= 1")
         if self.snapshot_every < 0:
@@ -715,6 +1206,13 @@ class NetworkHistory:
     intermediate_holdings: np.ndarray  # (rounds,) claims held by the middle block
     holdings: np.ndarray  # (rounds, n) claims held
     issuance: np.ndarray  # (rounds,) new claims
+    active_resources: np.ndarray  # (rounds,) R_a
+    total_resources: np.ndarray  # (rounds,) R
+    written_off: np.ndarray  # (rounds,) claims destroyed this round
+    starved: np.ndarray  # (rounds,) nodes that have left circulation, cumulative
+    promoted: np.ndarray  # (rounds,) nodes that bought into the core this round
+    demoted: np.ndarray  # (rounds,) nodes that lost the core this round
+    frozen_holdings: np.ndarray  # (rounds,) claims held by nodes that have left
     potential_support: int  # constant: nodes reachable in the potential graph
     node_count: int  # constant: nodes in the graph
     adjacency: np.ndarray  # the potential graph, fixed for the whole run
@@ -743,6 +1241,33 @@ class NetworkHistory:
             out=np.ones_like(self.wage_paid),
             where=self.wage_owed > 0,
         )
+
+    @property
+    def total_claims(self) -> np.ndarray:
+        """M: claims outstanding at the end of each round.
+
+        Read off the row sums of ``holdings`` rather than tracked alongside
+        them. This model carries no stock-flow assertion in its loop, unlike
+        ``economy.py``, so the row sum is the only statement of M here.
+        """
+        return np.asarray(self.holdings, dtype=float).sum(axis=1)
+
+    @property
+    def active_ratio(self) -> np.ndarray:
+        """M_a / R_a. What the authority targets and a price index reads.
+
+        ``layer2_inflow`` carries the same definition as ``economy.py``'s
+        ``active_claims``, claims landing in Layer 2, so this ratio is the one
+        A0 reports, computed on the graph instead of on the block model.
+        """
+        return np.asarray(self.layer2_inflow, dtype=float) / np.asarray(
+            self.active_resources, dtype=float
+        )
+
+    @property
+    def total_ratio(self) -> np.ndarray:
+        """M / R. What nobody targets."""
+        return self.total_claims / np.asarray(self.total_resources, dtype=float)
 
     @property
     def divergence(self) -> tuple[float, float]:
@@ -856,6 +1381,15 @@ class Network:
         )
         self._has_out = row_sums.ravel() > 0
 
+        # Rewiring's own stream, built once so the sweep is a path rather than a
+        # fresh draw per round. Never touched when the switch is off.
+        self._rewire_rng = np.random.default_rng(config.seed + _REWIRE_OFFSET)
+        #: Which layer each node currently belongs to. Only rewiring moves an
+        #: entry, and with rewiring off this is the construction's own split for
+        #: the whole run.
+        self._in_core = np.zeros(n, dtype=bool)
+        self._in_core[self._l1] = True
+
         # Injection at the most central financial node, where new money enters in
         # the block model.
         in_degree = self.adjacency.sum(axis=0)
@@ -874,6 +1408,14 @@ class Network:
         self._p_high[self._l1] = hi[list(LAYER_1)].mean()
         self._p_low[self._l2] = lo[list(LAYER_2)].mean()
         self._p_high[self._l2] = hi[list(LAYER_2)].mean()
+        # Kept as scalars so ``RewireSpec.transfer_propensity`` has the two
+        # layer values to move a node between. Read only; the arrays above are
+        # the state, and under ``uniform_access`` they are overwritten below,
+        # which is what makes that switch a no-op for this one.
+        self._p_core = (float(self._p_low[self._l1][0]),
+                        float(self._p_high[self._l1][0]))
+        self._p_outside = (float(self._p_low[self._l2][0]),
+                           float(self._p_high[self._l2][0]))
         if spec.uniform_access:
             # The two values above are defined *by layer*, and a complete graph
             # has no layers to define them by. Both are replaced by a single
@@ -950,6 +1492,16 @@ class Network:
         #: fail on the difference.
         self._wage_weights: np.ndarray | None = None
 
+        #: Who is still in circulation. All of them until a floor is set and
+        #: somebody falls under it; never set back to True, per the absorbing
+        #: wall in the spec's docstring.
+        self._alive = np.ones(n, dtype=bool)
+        #: Who is below the floor, in ``drawdown`` mode. Distinct from
+        #: ``_alive``, which is membership: these nodes are still in the
+        #: graph and still trading, only on a different spending rule.
+        self._below = np.zeros(n, dtype=bool)
+        self._short_for = np.zeros(n, dtype=int)
+
         self._total_claims = float(config.initial_claims)
         self._pending_issuance = 0.0
         self._baseline_active: float | None = None
@@ -979,8 +1531,20 @@ class Network:
         if bill <= 0.0:
             return matrix, 0.0
 
-        per_payer = bill / self._wage_payers.size
-        paid = np.minimum(per_payer, np.maximum(self.holdings[self._wage_payers], 0.0))
+        payers, receivers = self._wage_payers, self._wage_receivers
+        if self.config.subsistence.cut_payroll and not self._alive.all():
+            # Starving cuts every channel. Bankruptcy does not: payroll is how a
+            # node that lost the market can still be reached, and the difference
+            # between the two exits is exactly this line.
+            payers = payers[self._alive[payers]]
+            receivers = receivers[self._alive[receivers]]
+            if payers.size == 0 or receivers.size == 0:
+                self._last_bill_owed = bill
+                self._last_bill_paid = 0.0
+                return matrix, bill
+
+        per_payer = bill / payers.size
+        paid = np.minimum(per_payer, np.maximum(self.holdings[payers], 0.0))
         total = float(paid.sum())
         self._last_bill_owed = bill
         self._last_bill_paid = total
@@ -988,28 +1552,60 @@ class Network:
             return matrix, 0.0
 
         if self._wage_weights is None:
-            share = total / self._wage_receivers.size
-            for idx, payer in enumerate(self._wage_payers):
+            share = total / receivers.size
+            for idx, payer in enumerate(payers):
                 if paid[idx] <= 0:
                     continue
-                portion = paid[idx] / self._wage_receivers.size
-                matrix[payer, self._wage_receivers] += portion
-            self.holdings[self._wage_payers] -= paid
-            self.holdings[self._wage_receivers] += share
+                portion = paid[idx] / receivers.size
+                matrix[payer, receivers] += portion
+            self.holdings[payers] -= paid
+            self.holdings[receivers] += share
         else:
             w = self._wage_weights
-            for idx, payer in enumerate(self._wage_payers):
+            for idx, payer in enumerate(payers):
                 if paid[idx] <= 0:
                     continue
-                matrix[payer, self._wage_receivers] += paid[idx] * w
-            self.holdings[self._wage_payers] -= paid
-            self.holdings[self._wage_receivers] += total * w
+                matrix[payer, receivers] += paid[idx] * w
+            self.holdings[payers] -= paid
+            self.holdings[receivers] += total * w
         return matrix, bill
 
     def _discretionary_flow(self) -> np.ndarray:
         propensity = self.rng.uniform(self._p_low, self._p_high)
         spent = propensity * np.maximum(self.holdings, 0.0) * self._has_out
-        matrix = spent[:, None] * self._route
+        if self._below.any():
+            # ``drawdown``: below the floor, spending comes off subsistence
+            # rather than off propensity, and it does not consult inflow.
+            # The node goes on consuming, consumes less, and eats its stock.
+            #
+            # ``min`` with holdings is the whole of the exit condition. A
+            # node whose stock is gone spends zero and receives whatever
+            # still points at it, so it leaves circulation by running out
+            # rather than by a flag, and it comes back if an edge does.
+            # **No absorbing wall, and none is needed.**
+            need = self.config.subsistence.need
+            floor_spend = np.minimum(
+                need, np.maximum(self.holdings, 0.0)
+            ) * self._has_out
+            spent = np.where(self._below, floor_spend, spent)
+        route = self._route
+        if not self._alive.all():
+            # A node that has left is not a counterparty either way. Its own
+            # spending stops, and the routes into it are removed and the rest
+            # renormalised, so what would have gone there goes to whoever is
+            # still trading rather than vanishing. The branch is guarded so that
+            # a run with no floor never touches this arithmetic.
+            spent = spent * self._alive
+            route = self._route * self._alive[None, :]
+            sums = route.sum(axis=1, keepdims=True)
+            route = np.divide(route, sums, out=np.zeros_like(route), where=sums > 0)
+            # A node whose every out-edge points at a node that has left has
+            # nowhere to spend. Without this line it still spends and nobody
+            # receives, so the claim total falls by that amount and the identity
+            # breaks. The in-loop assertion caught this on the infrastructure
+            # channel, which reweights the routes and so reaches the case first.
+            spent = spent * (sums.ravel() > 0)
+        matrix = spent[:, None] * route
         self.holdings = self.holdings - spent + matrix.sum(axis=0)
         return matrix
 
@@ -1019,6 +1615,172 @@ class Network:
     # mechanisms without a second copy of the round loop. A second copy would
     # make the bitwise reproduction of A2 a claim about two files staying in
     # step, which is not a claim anyone can check by reading either one.
+
+    def _rebuild_route(self) -> None:
+        """Recompute the discretionary routing from the current adjacency.
+
+        Same two lines as the constructor, factored out rather than duplicated
+        so a rewired graph and a freshly built one cannot route differently.
+        The payroll mask is not rebuilt: wages are a separate channel and moving
+        them here would be a second intervention riding on this one.
+        """
+        if self.config.spec.uniform_access:
+            discretionary = self.adjacency.copy()
+        else:
+            discretionary = np.clip(self.adjacency - self.wage_mask, 0.0, 1.0)
+        row_sums = discretionary.sum(axis=1, keepdims=True)
+        self._route = np.divide(
+            discretionary,
+            row_sums,
+            out=np.zeros_like(discretionary),
+            where=row_sums > 0,
+        )
+        self._has_out = row_sums.ravel() > 0
+
+    def _add_wage_payer(self, i: int) -> None:
+        """Give node ``i`` the payroll role, edges included.
+
+        The construction gives every wage payer an edge to every wage receiver
+        before the graph is built, so a node handed the role mid-run gets the
+        same edges. Without them the node would pay wages along a channel the
+        adjacency does not show, and every topological reading of the payroll
+        would be reading a different graph from the one paying.
+        """
+        if i in self._wage_payers:
+            return
+        self._wage_payers = np.append(self._wage_payers, i)
+        self.adjacency[i, self._wage_receivers] = 1.0
+
+    def _drop_wage_payer(self, i: int) -> None:
+        """Take the payroll role back, and the edges with it.
+
+        **Never empties the set.** The bill is divided by the number of payers,
+        so an empty set is a division by zero rather than an economy with no
+        wages. A demotion that would empty it leaves the role where it is and
+        the node loses its core edges only, which is the same thing the switch
+        does when it is off.
+        """
+        if self._wage_payers.size <= 1 or i not in self._wage_payers:
+            return
+        self._wage_payers = self._wage_payers[self._wage_payers != i]
+        self.adjacency[i, self._wage_receivers] = 0.0
+
+    def _rewire(self, t: int) -> tuple[int, int]:
+        """Move nodes between layers on holdings, and move their edges with them.
+
+        Returns the number promoted and the number demoted this round, so a run
+        that never fires says so in the record rather than passing every reading
+        by never having run.
+        """
+        spec = self.config.rewire
+        rng = self._rewire_rng
+        core = np.flatnonzero(self._in_core)
+        outside = np.flatnonzero(~self._in_core)
+        changed = False
+        promoted = demoted = 0
+
+        # Demotion first, so a node cannot be promoted and demoted in one round
+        # on two different holdings readings of the same vector.
+        stock = float(self.holdings.sum())
+        share = self.holdings / stock if stock > 0 else np.zeros_like(self.holdings)
+        if (spec.demote_level > 0.0 or spec.demote_claim_share > 0.0) and core.size:
+            below = np.zeros(core.size, dtype=bool)
+            if spec.demote_level > 0.0:
+                below |= self.holdings[core] < spec.demote_level
+            if spec.demote_claim_share > 0.0:
+                below |= share[core] < spec.demote_claim_share
+            falling = core[below]
+            for i in falling:
+                if rng.random() < spec.retain_rate:
+                    continue
+                # Redirect this node's core edges at the production layer. Out-
+                # degree is conserved, so what changes is targets and not
+                # density.
+                targets = np.flatnonzero(self.adjacency[i] > 0) if outside.size else np.array([], int)
+                targets = targets[self._in_core[targets]]
+                if not targets.size:
+                    continue
+                self.adjacency[i, targets] = 0.0
+                pick = rng.choice(outside, size=targets.size, replace=targets.size > outside.size)
+                self.adjacency[i, np.atleast_1d(pick)] = 1.0
+                if spec.demote_cuts_inbound:
+                    # What the core sends this node, which is the channel the
+                    # published estimates find permanently reduced. Deleted
+                    # rather than redirected: the core does not acquire a new
+                    # counterparty because one of its own left, and adding one
+                    # would change the core's out-degree for a reason nothing
+                    # in the account calls for.
+                    senders = np.flatnonzero(self.adjacency[:, i] > 0)
+                    senders = senders[self._in_core[senders]]
+                    self.adjacency[senders, i] = 0.0
+                self._in_core[i] = False
+                if spec.transfer_propensity:
+                    self._p_low[i], self._p_high[i] = self._p_outside
+                if spec.transfer_payroll:
+                    self._drop_wage_payer(int(i))
+                changed = True
+                demoted += 1
+
+        if spec.acquire_level > 0.0 or spec.acquire_top_k > 0:
+            outside = np.flatnonzero(~self._in_core)
+            core = np.flatnonzero(self._in_core)
+            if outside.size and core.size:
+                # Both conditions, applied together. A core is a count and a
+                # share, and either alone names a different object.
+                eligible = outside
+                if spec.min_claim_share > 0.0:
+                    eligible = eligible[share[eligible] >= spec.min_claim_share]
+                if spec.acquire_level > 0.0:
+                    eligible = eligible[self.holdings[eligible] >= spec.acquire_level]
+                if spec.acquire_top_k > 0 and eligible.size:
+                    order = eligible[np.argsort(-self.holdings[eligible], kind="stable")]
+                    eligible = order[: spec.acquire_top_k]
+                qualifying = eligible
+                for i in qualifying:
+                    # Stage one, getting into the room: one edge, aimed the way
+                    # the construction aims every other edge, by in-degree.
+                    weight = self.adjacency.sum(axis=0)[core] + 1.0
+                    first = int(rng.choice(core, p=weight / weight.sum()))
+                    new_targets = [first]
+                    # Stage two, the cluster firing. It does not fire for
+                    # everyone, which is the whole content of the second draw.
+                    if rng.random() < spec.cluster_rate:
+                        new_targets = list(core)
+                    held = np.flatnonzero(self.adjacency[i] > 0)
+                    if spec.conserve_degree and held.size:
+                        drop = rng.choice(held, size=min(len(new_targets), held.size),
+                                          replace=False)
+                        self.adjacency[i, np.atleast_1d(drop)] = 0.0
+                    self.adjacency[i, new_targets] = 1.0
+                    self._in_core[i] = True
+                    if spec.transfer_propensity:
+                        self._p_low[i], self._p_high[i] = self._p_core
+                    if spec.transfer_payroll:
+                        self._add_wage_payer(int(i))
+                    changed = True
+                    promoted += 1
+
+        if changed:
+            np.fill_diagonal(self.adjacency, 0.0)
+            self._rebuild_route()
+        return promoted, demoted
+
+    def _fiscal_flow(self, t: int) -> np.ndarray | None:
+        """Claims moved by a fiscal channel, as a flow matrix. ``None`` here.
+
+        A subclass that moves claims between nodes has two places to do it: this
+        hook, whose matrix joins the round's flow and therefore counts as inflow
+        wherever inflow is read, or ``_post_round``, which moves holdings
+        directly and does not appear in the flow at all. The two are different
+        objects and the choice matters: a transfer routed through here is an
+        edge, and a transfer applied in ``_post_round`` is money that arrives
+        without one.
+
+        Whichever it does, it must conserve the claim total, since the
+        assertion above compares the holdings before and after this whole
+        stage.
+        """
+        return None
 
     def _pre_round(self, t: int) -> None:
         """Called before issuance is credited. Base class does nothing."""
@@ -1052,7 +1814,19 @@ class Network:
             "wage_paid": np.zeros(rounds),
             "intermediate_holdings": np.zeros(rounds),
             "holdings": np.zeros((rounds, n)),
+            "active_resources": np.zeros(rounds),
+            "total_resources": np.zeros(rounds),
+            "written_off": np.zeros(rounds),
+            "starved": np.zeros(rounds),
+            "promoted": np.zeros(rounds),
+            "demoted": np.zeros(rounds),
+            "frozen_holdings": np.zeros(rounds),
         }
+
+        # The real side. Constant every round, exactly as in ``economy.py``:
+        # nothing in this stage produces or consumes resources, so R and R_a
+        # are levels the claim side is measured against, not state.
+        resources_offered = cfg.total_resources * (1.0 - cfg.resource_withholding)
 
         epsilon_abs: float | None = None
         snapshots: dict[int, np.ndarray] = {}
@@ -1075,7 +1849,10 @@ class Network:
             before = float(self.holdings.sum())
             wage_matrix, _ = self._wage_flow()
             spend_matrix = self._discretionary_flow()
+            fiscal_matrix = self._fiscal_flow(t)
             flow = wage_matrix + spend_matrix
+            if fiscal_matrix is not None:
+                flow = flow + fiscal_matrix
             after = float(self.holdings.sum())
             if abs(after - before) > 1e-8:
                 raise AssertionError(
@@ -1105,7 +1882,86 @@ class Network:
             out["intermediate_holdings"][t] = (
                 float(self.holdings[self._mid].sum()) if self._mid.size else 0.0
             )
+            # Section 14's chain, before the round's holdings are recorded: the
+            # write-off is an end-of-round event, so the stock this round leaves
+            # behind is the stock after it. Recording first and destroying after
+            # would put the destruction in one round and its effect in the next,
+            # and the conservation identity would not close. Zero rate leaves
+            # every line here inert.
+            #
+            # The refill is deliberately **not** here. The issuance rule below
+            # assigns ``_pending_issuance`` rather than adding to it, so adding
+            # the refill at this point would be overwritten a few lines later
+            # and the switch would do nothing while every other reading looked
+            # normal. The refill is applied after that assignment.
+            write_spec = cfg.writeoff
+            destroyed_this_round = 0.0
+            if write_spec.active:
+                ratio = self._total_claims / max(resources_offered, 1e-12)
+                if ratio > write_spec.trigger:
+                    destroyed_this_round = write_spec.rate * self._total_claims
+                    self.holdings *= 1.0 - write_spec.rate
+                    self._total_claims -= destroyed_this_round
+                    out["written_off"][t] = destroyed_this_round
+
+            # The subsistence floor, read on this round's inflow. Guarded, so a
+            # run without a floor never evaluates it.
+            sub = cfg.subsistence
+            if sub.active and sub.mode == "drawdown":
+                # No membership flag moves here. Below the floor is a
+                # spending rule and it is re-read every round, so a node
+                # whose inflow returns is simply not below it any more.
+                inflow_by_node = flow.sum(axis=0)
+                short = inflow_by_node < sub.need
+                self._short_for[short] += 1
+                self._short_for[~short] = 0
+                self._below = self._short_for >= sub.grace
+            elif sub.active:
+                inflow_by_node = flow.sum(axis=0)
+                short = (inflow_by_node < sub.need) & self._alive
+                self._short_for[short] += 1
+                self._short_for[~short] = 0
+                leaving = self._alive & (self._short_for >= sub.grace)
+                if leaving.any():
+                    self._alive[leaving] = False
+                if sub.reversible:
+                    # An in-edge that returns brings the node back. Under
+                    # ``starve`` there is no such line, which is what makes that
+                    # exit an absorbing wall and this one not.
+                    back = (~self._alive) & (inflow_by_node >= sub.need)
+                    if back.any():
+                        self._alive[back] = True
+                        self._short_for[back] = 0
+            # Endogenous rewiring, read on this round's closing holdings so the
+            # next round trades on the new graph. Guarded, so a run without it
+            # never reaches ``_rewire`` and the reproduction is by construction
+            # rather than by a no-op path.
+            # Skipped under ``uniform_access`` for the reason the payroll-mask
+            # subtraction is skipped: that arm is a complete graph with no
+            # layers, so there is no core to buy into and every node already
+            # reaches every other. Rewiring there does not model mobility, it
+            # manufactures the structure the arm exists to remove. Measured:
+            # with this guard absent the ``C = 0`` null read a closing Gini of
+            # 0.13065 against A4-1's registered ceiling of 0.02, an eighteenfold
+            # rise over the 0.00711 that arm is supposed to produce.
+            rw = cfg.rewire
+            if rw.active and not cfg.spec.uniform_access and t % rw.interval == 0:
+                got, lost = self._rewire(t)
+                out["promoted"][t] = got
+                out["demoted"][t] = lost
+
+            # Two modes, two objects, one pair of columns. In ``exit`` these
+            # count nodes that have left and the claims they took with them;
+            # in ``drawdown`` nobody leaves, so they count nodes below the
+            # floor and the claims those still hold. **Read them against the
+            # record's mode**, which is why the mode is written out.
+            out_of_market = self._below if cfg.subsistence.mode == "drawdown" else ~self._alive
+            out["starved"][t] = int(out_of_market.sum())
+            out["frozen_holdings"][t] = float(self.holdings[out_of_market].sum())
+
             out["holdings"][t] = self.holdings
+            out["active_resources"][t] = resources_offered
+            out["total_resources"][t] = cfg.total_resources
 
             l2_spending = float(spend_matrix[self._l2, :].sum())
             if self._baseline_l2_spending is None:
@@ -1127,6 +1983,13 @@ class Network:
                     0.0, auth.gain * (self._baseline_active - l2_inflow)
                 )
 
+            # The hydra clause, after the issuance rule has had its say: what was
+            # destroyed is funded again from the layer that is not conserved.
+            # Section 14 puts this step last and makes it conditional, which is
+            # why it is a switch and sits outside the rule above.
+            if destroyed_this_round and cfg.writeoff.refill:
+                self._pending_issuance += destroyed_this_round
+
             self._post_round(t)
 
         return NetworkHistory(
@@ -1137,6 +2000,185 @@ class Network:
             epsilon_absolute=float(epsilon_abs or 0.0),
             **out,
         )
+
+
+#: Memo for ``autonomous_share``. The quantity is a property of the
+#: construction and the construction is deterministic in these five fields, so
+#: a repeat is a lookup. It matters because ``scaled_carrier`` solves nine
+#: targets by bisection and each step is a graph build: at a thousand nodes one
+#: build is about half a second, nine targets at nine steps is about forty five,
+#: and that is paid once per process rather than once per grid point.
+_AUTONOMOUS_SHARE_MEMO: dict[tuple[int, int, int, int, int], float] = {}
+
+
+def autonomous_share(config: NetworkConfig) -> float:
+    """What share of the intermediate block's opening inflow comes from above.
+
+    ``financial_to_intermediate_edges`` is an edge count, and stage A0b's
+    registered prediction is about a **share**: survival is linear in the
+    autonomous share, the part of the intermediary's revenue that does not come
+    from the households its own payroll pays. The two are the same parameter
+    only at one graph size. At 200 nodes with a core of 20 and a block of 30,
+    thirty edges buy a share of ``0.3111``; at 1000 nodes with a core of 100 and
+    a block of 150 the same thirty edges buy ``0.1600``. Neither the node ratio
+    nor the possible-edge ratio converts one into the other, because the share
+    is not linear in the count.
+
+    So a grid written in edges means a different thing at every size, and the
+    way to carry it across is to hold the share and solve for the count. This
+    function is the forward direction and ``f2i_for_share`` is the inverse.
+
+    Read on the opening round, which is where the quantity is defined: it is a
+    property of the construction rather than of the trajectory, and taking it
+    later would fold in the drain the stage is measuring.
+    """
+    if config.spec.intermediate_size <= 0:
+        raise ValueError("autonomous share needs an intermediate block")
+
+    key = (
+        config.spec.seed,
+        config.spec.layer1_size,
+        config.spec.layer2_size,
+        config.spec.intermediate_size,
+        config.spec.financial_to_intermediate_edges,
+    )
+    if key in _AUTONOMOUS_SHARE_MEMO:
+        return _AUTONOMOUS_SHARE_MEMO[key]
+
+    captured: list[np.ndarray] = []
+
+    class _Probe(Network):
+        def _discretionary_flow(self) -> np.ndarray:
+            m = super()._discretionary_flow()
+            if not captured:
+                captured.append((self._first_wage + m).copy())
+            return m
+
+        def _wage_flow(self):
+            m, x = super()._wage_flow()
+            self._first_wage = m
+            return m, x
+
+    net = _Probe(dataclasses.replace(config, rounds=1))
+    net.run()
+    flow = captured[0]
+    block_in = float(flow[:, net._mid].sum())
+    if block_in <= 0.0:
+        _AUTONOMOUS_SHARE_MEMO[key] = 0.0
+        return 0.0
+    from_core = float(flow[np.ix_(net._l1, net._mid)].sum())
+    out = from_core / block_in
+    _AUTONOMOUS_SHARE_MEMO[key] = out
+    return out
+
+
+def scaled_carrier(
+    nodes: int,
+    *,
+    base_nodes: int = 200,
+    base_layer1: int = 20,
+    base_intermediate: int = 30,
+    base_edges: tuple[int, ...] = (),
+    seed: int = 0,
+) -> tuple[dict[str, int], tuple[int, ...]]:
+    """The block sizes and the autonomous-edge grid for a carrier at ``nodes``.
+
+    Sizes scale by the node ratio, which is a choice and a plain one: the three
+    blocks keep their shares of the population. The **edge grid does not scale
+    that way and cannot**, because ``financial_to_intermediate_edges`` is a
+    count while stage A0b's registered prediction is about the autonomous
+    share, and the share is not linear in the count. Solved instead, one
+    bisection per grid point, so each returned count reproduces its original
+    share at the new size.
+
+    Measured, 200 to 1000 nodes: the registered grid
+    ``(0, 1, 2, 3, 5, 8, 12, 20, 30)`` becomes ``(0, 2, 5, 8, 15, 28, 45, 72,
+    128)`` and every share lands within a thousandth of its original. Neither
+    the node ratio of 5 nor the possible-edge ratio of 25 produces that
+    sequence; the implied multiplier runs from 2 at the bottom to 4.3 at the
+    top.
+
+    ``nodes == base_nodes`` returns the originals untouched, so a station that
+    calls this at its default size is bit-identical to one that never did.
+    """
+    if nodes == base_nodes:
+        return (
+            {
+                "layer1_size": base_layer1,
+                "intermediate_size": base_intermediate,
+                "layer2_size": base_nodes - base_layer1 - base_intermediate,
+            },
+            tuple(base_edges),
+        )
+
+    ratio = nodes / base_nodes
+    layer1 = max(2, round(base_layer1 * ratio))
+    intermediate = max(2, round(base_intermediate * ratio))
+    sizes = {
+        "layer1_size": layer1,
+        "intermediate_size": intermediate,
+        "layer2_size": nodes - layer1 - intermediate,
+    }
+
+    def cfg(l1: int, mid: int, l2: int, k: int) -> NetworkConfig:
+        return NetworkConfig(
+            spec=NetworkSpec(
+                seed=seed, layer1_size=l1, intermediate_size=mid,
+                layer2_size=l2, financial_to_intermediate_edges=k,
+            ),
+            seed=seed, rounds=1,
+        )
+
+    base_l2 = base_nodes - base_layer1 - base_intermediate
+    grid = []
+    for k in base_edges:
+        target = autonomous_share(cfg(base_layer1, base_intermediate, base_l2, k))
+        grid.append(
+            f2i_for_share(
+                target,
+                cfg(layer1, intermediate, sizes["layer2_size"], 0),
+            )
+        )
+    return sizes, tuple(grid)
+
+
+def f2i_for_share(target: float, config: NetworkConfig, cap: int = 100_000) -> int:
+    """The edge count whose autonomous share is nearest ``target``, at this size.
+
+    Bisection, because the share is monotone in the count. The first draft
+    scanned coarsely and then linearly around the winner, which at a thousand
+    nodes meant a coarse step of 468 and a fine pass of nearly a thousand graph
+    builds; it did not finish. Monotone plus integer is exactly the shape
+    bisection wants, and it costs about fourteen builds instead.
+
+    ``cap`` bounds the search at the number of edges the two blocks admit.
+    A target above what this size can reach returns that bound rather than
+    running away, so **callers should read the share they actually got** rather
+    than assuming the target was met. The registered grid's top does not
+    transfer: 0.3111 at 200 nodes needs more than 130 edges at 1000.
+    """
+    hi = min(cap, config.spec.layer1_size * config.spec.intermediate_size)
+
+    def share_at(k: int) -> float:
+        return autonomous_share(
+            dataclasses.replace(
+                config,
+                spec=config.spec.replace(financial_to_intermediate_edges=int(k)),
+            )
+        )
+
+    if target <= share_at(0):
+        return 0
+    if target >= share_at(hi):
+        return hi
+    lo = 0
+    while hi - lo > 1:
+        mid = (lo + hi) // 2
+        if share_at(mid) < target:
+            lo = mid
+        else:
+            hi = mid
+    return lo if abs(share_at(lo) - target) <= abs(share_at(hi) - target) else hi
 
 
 def run_network(config: NetworkConfig) -> NetworkHistory:

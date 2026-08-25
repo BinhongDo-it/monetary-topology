@@ -10,9 +10,9 @@ The criterion under test was frozen before this ran, in section 4.A.2:
                  best-over-all-paths rule. One violation kills the premise.
 
   reported       the equality rate, i.e. how often the two-leg path *is* the
-                 best path. **Not a criterion**: it moves with how complete our
-                 enumeration is, and a threshold on it would be a threshold on
-                 our own engineering.
+                 best path. **Not a criterion**: it moves with how complete the
+                 enumeration here is, and a threshold on it would be a threshold
+                 on my own engineering.
 
 Instruments come from section 4.A.4's rule, not from a pick: no leg shared with
 the in-sample CLZ3-CLZ4, min(implied, direct) at least 1000, and **every

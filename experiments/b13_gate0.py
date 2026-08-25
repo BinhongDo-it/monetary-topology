@@ -4,7 +4,7 @@ outright top of book, to the last digit.
 
 Design file section 4. **This gate comes before everything else** because the
 station's claim is that one member of the spread book is exactly zero by
-construction, and a claim of exactness cannot be built on a price we cannot
+construction, and a claim of exactness cannot be built on a price I cannot
 reproduce. B9 spent nine sections learning that: its reconstruction reproduced
 0.8975 of the closing NBBO, which reads as "close enough" and destroyed the
 comparison the stage actually rested on.

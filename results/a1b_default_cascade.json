@@ -234,6 +234,62 @@
     "mortgage": 0.10793012234101179,
     "basket": 0.1558470186266946
   },
+  "first_default_shares_by_tenure": {
+    "RENTER": {
+      "defaulting_households": 21478,
+      "share_card": 0.39095818977558433,
+      "per_exposed_card": 0.5370299309286263,
+      "exposed_card": 15636,
+      "share_auto": 0.08967315392494646,
+      "per_exposed_auto": 0.18139009229610095,
+      "exposed_auto": 10618,
+      "share_rent": 0.42043020765434397,
+      "per_exposed_rent": 0.70801317233809,
+      "exposed_rent": 12754,
+      "share_mortgage": 0.0,
+      "per_exposed_mortgage": null,
+      "exposed_mortgage": 0,
+      "share_basket": 0.09893844864512524,
+      "per_exposed_basket": 0.06240089269982968,
+      "exposed_basket": 34054
+    },
+    "MORTGAGED": {
+      "defaulting_households": 10168,
+      "share_card": 0.5925452399685287,
+      "per_exposed_card": 0.27171462072697755,
+      "exposed_card": 22174,
+      "share_auto": 0.006490952006294256,
+      "per_exposed_auto": 0.0035712353227639196,
+      "exposed_auto": 18481,
+      "share_rent": 0.0,
+      "per_exposed_rent": null,
+      "exposed_rent": 0,
+      "share_mortgage": 0.38522816679779703,
+      "per_exposed_mortgage": 0.12252111354394746,
+      "exposed_mortgage": 31970,
+      "share_basket": 0.015735641227380016,
+      "per_exposed_basket": 0.003912554408959749,
+      "exposed_basket": 40894
+    },
+    "OUTRIGHT": {
+      "defaulting_households": 4646,
+      "share_card": 0.18790357296599225,
+      "per_exposed_card": 0.11683618843683083,
+      "exposed_card": 7472,
+      "share_auto": 0.0865260439087387,
+      "per_exposed_auto": 0.07025515554002097,
+      "exposed_auto": 5722,
+      "share_rent": 0.0,
+      "per_exposed_rent": null,
+      "exposed_rent": 0,
+      "share_mortgage": 0.0,
+      "per_exposed_mortgage": null,
+      "exposed_mortgage": 0,
+      "share_basket": 0.725570383125269,
+      "per_exposed_basket": 0.13456011496088136,
+      "exposed_basket": 25052
+    }
+  },
   "first_default_unstressed": {
     "n": 32547,
     "card": 0.44262143976403356,
@@ -302,8 +358,8 @@
     {
       "name": "A1-2  the order is an output",
       "passed": false,
-      "void": false,
-      "detail": "first default among 36,292 defaulting households: card 0.4214, auto 0.0660, shelter 0.3567 (rent 0.2488, mortgage 0.1079), basket 0.1558. Among the 32,547 not short at baseline: card 0.4426, auto 0.0662, shelter 0.3915. The manuscript's sequence is what fails here, not the code"
+      "void": true,
+      "detail": "first default among 36,292 defaulting households: card 0.4214, auto 0.0660, shelter 0.3567 (rent 0.2488, mortgage 0.1079), basket 0.1558. Among the 32,547 not short at baseline: card 0.4426, auto 0.0662, shelter 0.3915. VOID as registered: the estimator and the object do not line up. This share is a distribution across households, and a distribution is decided both by how hard a rung is and by how many households stand on it, while the pooled denominator is every defaulter. Rent is carried only by tenants and the mortgage only by borrowers, so those two rungs are divided by a head count that includes households which could not default on them. Volume One section 18 states its cascade about tenants. The ordering claim itself is carried by A1c, which reads the sequence inside one household and holds. The tenure-split shares and the per-exposed-household rates are reported beside this line and are what the section 18 reading needs"
     },
     {
       "name": "A1-3  K shape, ordinally",

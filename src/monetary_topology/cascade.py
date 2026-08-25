@@ -1255,6 +1255,20 @@ class CascadeResult:
     #: The same quantity computed within a reporting group, for the gradients.
     delinquent_share_by_group: dict[str, list[float]]
     first_default_counts: dict[str, int]
+    #: The same counts within each starting tenure. The pooled counts above put
+    #: every defaulting household in one denominator, and a household that holds
+    #: its dwelling outright can never default on rent while a mortgaged one can
+    #: never default on rent either. Comparing the rent rung against the auto
+    #: rung out of the pooled counts therefore divides two rungs with different
+    #: populations by the same number. The manuscript's cascade is stated about
+    #: tenants, so the rent rung has to be read inside the tenancy.
+    first_default_counts_by_tenure: dict[str, dict[str, int]]
+    #: How many households of each starting tenure carry each obligation at all.
+    #: The denominator the counts above need: a first-default share is decided
+    #: both by how hard a rung is and by how many households are standing on it,
+    #: and dividing every rung by the same head count folds the second into the
+    #: first. A renter without a car loan cannot default on one.
+    exposure_by_tenure: dict[str, dict[str, int]]
     defaulting_households: int
     displaced: int
     displaced_by_group: list[int]
@@ -1415,6 +1429,20 @@ class CascadeModel:
             if house.first_default is not None:
                 counts[house.first_default.value] += 1
 
+        by_tenure: dict[str, dict[str, int]] = {
+            tenure.value: {k.value: 0 for k in Obligation} for tenure in Tenure
+        }
+        for house in self.households:
+            if house.first_default is not None:
+                by_tenure[house.tenure.value][house.first_default.value] += 1
+
+        exposure: dict[str, dict[str, int]] = {
+            tenure.value: {k.value: 0 for k in Obligation} for tenure in Tenure
+        }
+        for house in self.households:
+            for kind in house.balances:
+                exposure[house.tenure.value][kind.value] += 1
+
         # A renter is a household carrying a rent obligation, rather than one
         # that merely lacks a mortgage: a household with no shelter obligation
         # at all is neither, and must not enter the rent rung's denominator.
@@ -1428,6 +1456,8 @@ class CascadeModel:
             delinquent_share=shares,
             delinquent_share_by_group=by_group,
             first_default_counts=counts,
+            first_default_counts_by_tenure=by_tenure,
+            exposure_by_tenure=exposure,
             defaulting_households=sum(
                 1 for h in self.households if h.first_default is not None
             ),

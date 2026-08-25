@@ -1153,7 +1153,7 @@ is 17.3 and costs 9% of the run.
 
 **The span is unchanged.** Ten hours is longer than the criteria need, since
 B6-13, B6-14 and B6-15 all run on B6-A's window and that is about 245 days, or
-1.1 hours. Fetching 2021 onward anyway was ruled by the author on 2026-08-19:
+1.1 hours. Fetching 2021 onward anyway was ruled on 2026-08-19:
 the retrieval is resumable, the background span is what the closure-and-reopening
 reading rests on, and a partial series would have to be refetched later at the
 same rate.

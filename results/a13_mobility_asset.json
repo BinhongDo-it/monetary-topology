@@ -1,0 +1,1174 @@
+{
+  "arms": {
+    "both": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.001, demote_claim_share=0.005, cluster_rate=0.5, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "both + propensity": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.001, demote_claim_share=0.005, cluster_rate=0.5, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=True, transfer_payroll=False)"
+    ],
+    "both + propensity + payroll": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.001, demote_claim_share=0.005, cluster_rate=0.5, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=True, transfer_payroll=True)"
+    ],
+    "both, degree not conserved": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.001, demote_claim_share=0.005, cluster_rate=0.5, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=False, conserve_degree=False, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "both, every 10 rounds": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.001, demote_claim_share=0.005, cluster_rate=0.5, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=False, conserve_degree=True, interval=10, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "both, inbound cut": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.001, demote_claim_share=0.005, cluster_rate=0.5, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=True, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "demote .005": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=0, min_claim_share=0.0, demote_claim_share=0.005, cluster_rate=0.0, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "demote .005 retain 0": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=0, min_claim_share=0.0, demote_claim_share=0.005, cluster_rate=0.0, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "demote .005 retain 1": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=0, min_claim_share=0.0, demote_claim_share=0.005, cluster_rate=0.0, demote_level=0.0, retain_rate=1.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "demote, inbound cut": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=0, min_claim_share=0.0, demote_claim_share=0.005, cluster_rate=0.0, demote_level=0.0, retain_rate=0.3333333333333333, demote_cuts_inbound=True, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "off": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=0, min_claim_share=0.0, demote_claim_share=0.0, cluster_rate=0.0, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "rank k=1 cluster .5": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=1, min_claim_share=0.0, demote_claim_share=0.0, cluster_rate=0.5, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "rank k=1 cluster 0": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=1, min_claim_share=0.0, demote_claim_share=0.0, cluster_rate=0.0, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "rank k=1 cluster 1": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=1, min_claim_share=0.0, demote_claim_share=0.0, cluster_rate=1.0, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "rank k=2 share .001": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.001, demote_claim_share=0.0, cluster_rate=0.5, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "rank k=2 share .002": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=2, min_claim_share=0.002, demote_claim_share=0.0, cluster_rate=0.5, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ],
+    "rank k=5 cluster .5": [
+      "RewireSpec(acquire_level=0.0, acquire_top_k=5, min_claim_share=0.0, demote_claim_share=0.0, cluster_rate=0.5, demote_level=0.0, retain_rate=0.0, demote_cuts_inbound=False, conserve_degree=True, interval=1, transfer_propensity=False, transfer_payroll=False)"
+    ]
+  },
+  "cluster_rate": 0.5,
+  "criteria": [
+    {
+      "detail": "17/17 arms, 85 runs. The stock-flow identity is asserted inside the loop, so reaching here is also the claim that it held in every round of every run.",
+      "name": "A13-1  every arm ran and returned a finite share",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "promoted 0, demoted 0 across 5 runs. With the switch off `_rewire` is unreachable, so this is the construction itself and every record taken before 2026-08-23 is this arm.",
+      "name": "A13-2  the off arm moves nothing",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "mobility 0.219837-0.229865, width 0.010028. From A2d's record on the same quantity: sigma width 0.006644, structure width 0.156439. Read: the larger span names what selects the terminal distribution. This criterion prints the three and does not draw a line.",
+      "name": "A13-3  mobility's span on terminal top1% wealth, against sigma's and the structure's",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "rank alone: rank k=1 cluster 0 200.0, rank k=1 cluster .5 200.0, rank k=1 cluster 1 200.0, rank k=5 cluster .5 200.0 out of 200; with a share: rank k=2 share .001 43.8, rank k=2 share .002 30.2, from an opening core of 20. Read: a rank always has somebody in it, so rank alone admits somebody every round for ever; the share is what bounds the object.",
+      "name": "A13-4  the terminal core size, rank alone against rank with a share",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "rank k=1 cluster 0 +180/-0; rank k=1 cluster .5 +180/-0; rank k=1 cluster 1 +180/-0; rank k=5 cluster .5 +180/-0; rank k=2 share .001 +24/-0; rank k=2 share .002 +10/-0; demote .005 +0/-3; demote .005 retain 0 +0/-3; both +211/-212; both, degree not conserved +202/-204; both, every 10 rounds +22/-24; demote, inbound cut +0/-3; both, inbound cut +56/-58; both + propensity +281/-282; both + propensity + payroll +169/-171. Cannot fire by construction and excluded: ['demote .005 retain 1', 'off'].",
+      "name": "A13-5  every arm that can fire, fired",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "demote .005 retain 1 against off, four readings per seed over 5 seeds: identical",
+      "name": "A13-5a  retaining every candidate is bitwise the construction",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "off 99.77601, and across the mobility arms 71.990571-100.963677. rank k=1 cluster 0 99.976262; rank k=1 cluster .5 96.837002; rank k=1 cluster 1 97.349897; rank k=5 cluster .5 96.87982; rank k=2 share .001 100.963677; rank k=2 share .002 100.318341; demote .005 74.554852; demote .005 retain 0 73.998986; demote .005 retain 1 99.77601; both 89.211841; both, degree not conserved 81.977739; both, every 10 rounds 92.489397; demote, inbound cut 98.526646; both, inbound cut 96.332962; both + propensity 71.990571; both + propensity + payroll 84.414914. Read beside A13-3: the two quantities separate under this mechanism, and which of them moves is the reading.",
+      "name": "A13-6  what mobility does move: M/R",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "both 212; both + propensity 282; both + propensity + payroll 171; both, degree not conserved 204; both, every 10 rounds 24; both, inbound cut 58; demote .005 3; demote .005 retain 0 3; demote .005 retain 1 0; demote, inbound cut 3; rank k=1 cluster .5 0; rank k=1 cluster 0 0; rank k=1 cluster 1 0; rank k=2 share .001 0; rank k=2 share .002 0; rank k=5 cluster .5 0. Read: leaving what the core sends a demoted node untouched lets its share recover to the promotion condition, so the same nodes cross repeatedly. Cutting the inbound edges closes that, and the count is where it shows. This criterion passes when both kinds of arm are present, which is the only way the comparison exists at all.",
+      "name": "A13-7  demotions counted, outbound-only against inbound-cut",
+      "passed": true,
+      "void": false
+    },
+    {
+      "detail": "both -> both + propensity: top1% 0.223839 -> 0.229865 (+0.006026); both + propensity -> both + propensity + payroll: top1% 0.229865 -> 0.224797 (-0.005068). Whole ladder 0.223839 -> 0.224797 (+0.000958), against the off arm at 0.228942. Read: the arms before this one buy edges only, so they measure what buying access does. This ladder adds the spending propensity and then the payroll role, one at a time, so each step's difference belongs to the mechanism that step added. The criterion prints the steps and draws no line: what it settles is whether the three mechanisms are separable at all, not how large any of them is.",
+      "name": "A13-8  what a promoted node acquires, one mechanism per rung",
+      "passed": true,
+      "void": false
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "read on A3's asset layer, which is not this station's registered carrier; the registered reading is results/a13_mobility.json",
+  "retain_rate": 0.3333333333333333,
+  "rounds": 300,
+  "runs": {
+    "both": [
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 83,
+        "gini": 0.932309,
+        "mr_close": 82.052637,
+        "promoted": 83,
+        "seed": 0,
+        "support": 14.600672,
+        "top10_wealth": 0.994377,
+        "top1_wealth": 0.231287
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 258,
+        "gini": 0.941425,
+        "mr_close": 93.110809,
+        "promoted": 256,
+        "seed": 1,
+        "support": 13.091041,
+        "top10_wealth": 0.998546,
+        "top1_wealth": 0.230687
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 226,
+        "gini": 0.937426,
+        "mr_close": 94.280224,
+        "promoted": 226,
+        "seed": 2,
+        "support": 13.854696,
+        "top10_wealth": 0.999465,
+        "top1_wealth": 0.235277
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 69,
+        "gini": 0.931252,
+        "mr_close": 95.105469,
+        "promoted": 66,
+        "seed": 3,
+        "support": 15.224667,
+        "top10_wealth": 0.9995,
+        "top1_wealth": 0.191645
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 424,
+        "gini": 0.944051,
+        "mr_close": 81.510064,
+        "promoted": 422,
+        "seed": 4,
+        "support": 12.51616,
+        "top10_wealth": 0.997548,
+        "top1_wealth": 0.230299
+      }
+    ],
+    "both + propensity": [
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 80,
+        "gini": 0.934462,
+        "mr_close": 84.404392,
+        "promoted": 80,
+        "seed": 0,
+        "support": 14.419575,
+        "top10_wealth": 0.99845,
+        "top1_wealth": 0.233297
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 256,
+        "gini": 0.9407,
+        "mr_close": 88.564283,
+        "promoted": 254,
+        "seed": 1,
+        "support": 13.266201,
+        "top10_wealth": 0.996852,
+        "top1_wealth": 0.26133
+      },
+      {
+        "core_close": 21,
+        "core_open": 20,
+        "demoted": 418,
+        "gini": 0.935021,
+        "mr_close": 51.651774,
+        "promoted": 419,
+        "seed": 2,
+        "support": 14.221077,
+        "top10_wealth": 0.992509,
+        "top1_wealth": 0.234099
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 71,
+        "gini": 0.931406,
+        "mr_close": 96.460226,
+        "promoted": 68,
+        "seed": 3,
+        "support": 15.233039,
+        "top10_wealth": 0.999561,
+        "top1_wealth": 0.191714
+      },
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 587,
+        "gini": 0.939599,
+        "mr_close": 38.87218,
+        "promoted": 586,
+        "seed": 4,
+        "support": 12.905322,
+        "top10_wealth": 0.991308,
+        "top1_wealth": 0.228885
+      }
+    ],
+    "both + propensity + payroll": [
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 104,
+        "gini": 0.933418,
+        "mr_close": 77.567158,
+        "promoted": 104,
+        "seed": 0,
+        "support": 14.503027,
+        "top10_wealth": 0.995774,
+        "top1_wealth": 0.235689
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 238,
+        "gini": 0.94099,
+        "mr_close": 86.975257,
+        "promoted": 236,
+        "seed": 1,
+        "support": 13.08206,
+        "top10_wealth": 0.998568,
+        "top1_wealth": 0.230258
+      },
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 40,
+        "gini": 0.936049,
+        "mr_close": 87.710218,
+        "promoted": 39,
+        "seed": 2,
+        "support": 13.951472,
+        "top10_wealth": 0.996528,
+        "top1_wealth": 0.236051
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 50,
+        "gini": 0.931518,
+        "mr_close": 95.578229,
+        "promoted": 47,
+        "seed": 3,
+        "support": 15.229649,
+        "top10_wealth": 0.99955,
+        "top1_wealth": 0.191388
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 422,
+        "gini": 0.942614,
+        "mr_close": 74.243708,
+        "promoted": 420,
+        "seed": 4,
+        "support": 12.684693,
+        "top10_wealth": 0.996113,
+        "top1_wealth": 0.2306
+      }
+    ],
+    "both, degree not conserved": [
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 82,
+        "gini": 0.93047,
+        "mr_close": 73.203194,
+        "promoted": 82,
+        "seed": 0,
+        "support": 14.621442,
+        "top10_wealth": 0.994144,
+        "top1_wealth": 0.231633
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 243,
+        "gini": 0.940231,
+        "mr_close": 82.654868,
+        "promoted": 241,
+        "seed": 1,
+        "support": 13.123947,
+        "top10_wealth": 0.99828,
+        "top1_wealth": 0.230109
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 230,
+        "gini": 0.936669,
+        "mr_close": 87.993787,
+        "promoted": 230,
+        "seed": 2,
+        "support": 13.879248,
+        "top10_wealth": 0.998669,
+        "top1_wealth": 0.234922
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 54,
+        "gini": 0.931394,
+        "mr_close": 95.099267,
+        "promoted": 51,
+        "seed": 3,
+        "support": 15.233974,
+        "top10_wealth": 0.999543,
+        "top1_wealth": 0.19172
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 410,
+        "gini": 0.941798,
+        "mr_close": 70.93758,
+        "promoted": 408,
+        "seed": 4,
+        "support": 12.574567,
+        "top10_wealth": 0.996862,
+        "top1_wealth": 0.229385
+      }
+    ],
+    "both, every 10 rounds": [
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 14,
+        "gini": 0.933287,
+        "mr_close": 99.957122,
+        "promoted": 14,
+        "seed": 0,
+        "support": 14.482107,
+        "top10_wealth": 0.99695,
+        "top1_wealth": 0.231928
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 30,
+        "gini": 0.941586,
+        "mr_close": 90.757216,
+        "promoted": 28,
+        "seed": 1,
+        "support": 13.071635,
+        "top10_wealth": 0.999473,
+        "top1_wealth": 0.229786
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 22,
+        "gini": 0.937439,
+        "mr_close": 96.541083,
+        "promoted": 22,
+        "seed": 2,
+        "support": 13.849185,
+        "top10_wealth": 0.999496,
+        "top1_wealth": 0.235579
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 9,
+        "gini": 0.931731,
+        "mr_close": 95.503083,
+        "promoted": 6,
+        "seed": 3,
+        "support": 15.203344,
+        "top10_wealth": 0.999486,
+        "top1_wealth": 0.190804
+      },
+      {
+        "core_close": 18,
+        "core_open": 20,
+        "demoted": 44,
+        "gini": 0.944187,
+        "mr_close": 79.688483,
+        "promoted": 42,
+        "seed": 4,
+        "support": 12.480127,
+        "top10_wealth": 0.998433,
+        "top1_wealth": 0.227818
+      }
+    ],
+    "both, inbound cut": [
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 52,
+        "gini": 0.934882,
+        "mr_close": 101.759689,
+        "promoted": 51,
+        "seed": 0,
+        "support": 14.152765,
+        "top10_wealth": 0.99842,
+        "top1_wealth": 0.231401
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 70,
+        "gini": 0.938873,
+        "mr_close": 93.54429,
+        "promoted": 67,
+        "seed": 1,
+        "support": 13.155277,
+        "top10_wealth": 0.996499,
+        "top1_wealth": 0.222289
+      },
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 38,
+        "gini": 0.937675,
+        "mr_close": 97.407331,
+        "promoted": 37,
+        "seed": 2,
+        "support": 13.795305,
+        "top10_wealth": 0.999464,
+        "top1_wealth": 0.235689
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 64,
+        "gini": 0.931228,
+        "mr_close": 94.543955,
+        "promoted": 61,
+        "seed": 3,
+        "support": 15.226555,
+        "top10_wealth": 0.999474,
+        "top1_wealth": 0.191634
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 65,
+        "gini": 0.945359,
+        "mr_close": 94.409544,
+        "promoted": 62,
+        "seed": 4,
+        "support": 12.289902,
+        "top10_wealth": 0.999365,
+        "top1_wealth": 0.23764
+      }
+    ],
+    "demote .005": [
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 1,
+        "gini": 0.932585,
+        "mr_close": 69.189717,
+        "promoted": 0,
+        "seed": 0,
+        "support": 14.653774,
+        "top10_wealth": 0.993746,
+        "top1_wealth": 0.230901
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 3,
+        "gini": 0.941509,
+        "mr_close": 83.610205,
+        "promoted": 0,
+        "seed": 1,
+        "support": 13.099191,
+        "top10_wealth": 0.99868,
+        "top1_wealth": 0.231213
+      },
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 1,
+        "gini": 0.937324,
+        "mr_close": 88.591715,
+        "promoted": 0,
+        "seed": 2,
+        "support": 13.869408,
+        "top10_wealth": 0.998711,
+        "top1_wealth": 0.23597
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 3,
+        "gini": 0.931443,
+        "mr_close": 95.910326,
+        "promoted": 0,
+        "seed": 3,
+        "support": 15.23501,
+        "top10_wealth": 0.999564,
+        "top1_wealth": 0.191991
+      },
+      {
+        "core_close": 15,
+        "core_open": 20,
+        "demoted": 5,
+        "gini": 0.94178,
+        "mr_close": 35.472297,
+        "promoted": 0,
+        "seed": 4,
+        "support": 13.024099,
+        "top10_wealth": 0.99049,
+        "top1_wealth": 0.224939
+      }
+    ],
+    "demote .005 retain 0": [
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 1,
+        "gini": 0.932585,
+        "mr_close": 69.189717,
+        "promoted": 0,
+        "seed": 0,
+        "support": 14.653774,
+        "top10_wealth": 0.993746,
+        "top1_wealth": 0.230901
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 3,
+        "gini": 0.941509,
+        "mr_close": 83.610205,
+        "promoted": 0,
+        "seed": 1,
+        "support": 13.099191,
+        "top10_wealth": 0.99868,
+        "top1_wealth": 0.231213
+      },
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 1,
+        "gini": 0.937325,
+        "mr_close": 88.544358,
+        "promoted": 0,
+        "seed": 2,
+        "support": 13.869473,
+        "top10_wealth": 0.998711,
+        "top1_wealth": 0.235972
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 3,
+        "gini": 0.931509,
+        "mr_close": 95.127846,
+        "promoted": 0,
+        "seed": 3,
+        "support": 15.215325,
+        "top10_wealth": 0.999536,
+        "top1_wealth": 0.190827
+      },
+      {
+        "core_close": 15,
+        "core_open": 20,
+        "demoted": 5,
+        "gini": 0.94161,
+        "mr_close": 33.522805,
+        "promoted": 0,
+        "seed": 4,
+        "support": 13.074926,
+        "top10_wealth": 0.990046,
+        "top1_wealth": 0.228049
+      }
+    ],
+    "demote .005 retain 1": [
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.93353,
+        "mr_close": 104.347538,
+        "promoted": 0,
+        "seed": 0,
+        "support": 14.457147,
+        "top10_wealth": 0.99732,
+        "top1_wealth": 0.231502
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.94214,
+        "mr_close": 97.84688,
+        "promoted": 0,
+        "seed": 1,
+        "support": 13.070044,
+        "top10_wealth": 0.997092,
+        "top1_wealth": 0.258853
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.935407,
+        "mr_close": 100.594028,
+        "promoted": 0,
+        "seed": 2,
+        "support": 14.070644,
+        "top10_wealth": 0.995789,
+        "top1_wealth": 0.234003
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931079,
+        "mr_close": 97.369502,
+        "promoted": 0,
+        "seed": 3,
+        "support": 15.214674,
+        "top10_wealth": 0.999473,
+        "top1_wealth": 0.189801
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.944812,
+        "mr_close": 98.722101,
+        "promoted": 0,
+        "seed": 4,
+        "support": 12.424227,
+        "top10_wealth": 0.99956,
+        "top1_wealth": 0.230551
+      }
+    ],
+    "demote, inbound cut": [
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 1,
+        "gini": 0.935078,
+        "mr_close": 104.211922,
+        "promoted": 0,
+        "seed": 0,
+        "support": 14.143843,
+        "top10_wealth": 0.998588,
+        "top1_wealth": 0.231368
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 3,
+        "gini": 0.941662,
+        "mr_close": 100.390148,
+        "promoted": 0,
+        "seed": 1,
+        "support": 12.607589,
+        "top10_wealth": 0.997883,
+        "top1_wealth": 0.238506
+      },
+      {
+        "core_close": 19,
+        "core_open": 20,
+        "demoted": 1,
+        "gini": 0.935591,
+        "mr_close": 98.916693,
+        "promoted": 0,
+        "seed": 2,
+        "support": 14.022825,
+        "top10_wealth": 0.995813,
+        "top1_wealth": 0.234646
+      },
+      {
+        "core_close": 17,
+        "core_open": 20,
+        "demoted": 3,
+        "gini": 0.931443,
+        "mr_close": 95.910326,
+        "promoted": 0,
+        "seed": 3,
+        "support": 15.23501,
+        "top10_wealth": 0.999564,
+        "top1_wealth": 0.191991
+      },
+      {
+        "core_close": 15,
+        "core_open": 20,
+        "demoted": 5,
+        "gini": 0.945453,
+        "mr_close": 93.204141,
+        "promoted": 0,
+        "seed": 4,
+        "support": 12.146599,
+        "top10_wealth": 0.997507,
+        "top1_wealth": 0.232406
+      }
+    ],
+    "off": [
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.93353,
+        "mr_close": 104.347538,
+        "promoted": 0,
+        "seed": 0,
+        "support": 14.457147,
+        "top10_wealth": 0.99732,
+        "top1_wealth": 0.231502
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.94214,
+        "mr_close": 97.84688,
+        "promoted": 0,
+        "seed": 1,
+        "support": 13.070044,
+        "top10_wealth": 0.997092,
+        "top1_wealth": 0.258853
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.935407,
+        "mr_close": 100.594028,
+        "promoted": 0,
+        "seed": 2,
+        "support": 14.070644,
+        "top10_wealth": 0.995789,
+        "top1_wealth": 0.234003
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931079,
+        "mr_close": 97.369502,
+        "promoted": 0,
+        "seed": 3,
+        "support": 15.214674,
+        "top10_wealth": 0.999473,
+        "top1_wealth": 0.189801
+      },
+      {
+        "core_close": 20,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.944812,
+        "mr_close": 98.722101,
+        "promoted": 0,
+        "seed": 4,
+        "support": 12.424227,
+        "top10_wealth": 0.99956,
+        "top1_wealth": 0.230551
+      }
+    ],
+    "rank k=1 cluster .5": [
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.933063,
+        "mr_close": 101.535721,
+        "promoted": 180,
+        "seed": 0,
+        "support": 14.49988,
+        "top10_wealth": 0.996736,
+        "top1_wealth": 0.231296
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.94174,
+        "mr_close": 95.406254,
+        "promoted": 180,
+        "seed": 1,
+        "support": 12.481574,
+        "top10_wealth": 0.997338,
+        "top1_wealth": 0.247218
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.937335,
+        "mr_close": 97.320581,
+        "promoted": 180,
+        "seed": 2,
+        "support": 13.801534,
+        "top10_wealth": 0.999445,
+        "top1_wealth": 0.232852
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931381,
+        "mr_close": 94.408113,
+        "promoted": 180,
+        "seed": 3,
+        "support": 15.209274,
+        "top10_wealth": 0.999447,
+        "top1_wealth": 0.192309
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.944732,
+        "mr_close": 95.514343,
+        "promoted": 180,
+        "seed": 4,
+        "support": 12.432168,
+        "top10_wealth": 0.999444,
+        "top1_wealth": 0.23054
+      }
+    ],
+    "rank k=1 cluster 0": [
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.933492,
+        "mr_close": 103.872597,
+        "promoted": 180,
+        "seed": 0,
+        "support": 14.464219,
+        "top10_wealth": 0.997224,
+        "top1_wealth": 0.231429
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.941741,
+        "mr_close": 102.268413,
+        "promoted": 180,
+        "seed": 1,
+        "support": 13.032607,
+        "top10_wealth": 0.99958,
+        "top1_wealth": 0.230339
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.937708,
+        "mr_close": 101.944336,
+        "promoted": 180,
+        "seed": 2,
+        "support": 13.817831,
+        "top10_wealth": 0.999534,
+        "top1_wealth": 0.234664
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931843,
+        "mr_close": 98.812974,
+        "promoted": 180,
+        "seed": 3,
+        "support": 15.208499,
+        "top10_wealth": 0.999564,
+        "top1_wealth": 0.191099
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.941533,
+        "mr_close": 92.982992,
+        "promoted": 180,
+        "seed": 4,
+        "support": 12.613231,
+        "top10_wealth": 0.993915,
+        "top1_wealth": 0.241515
+      }
+    ],
+    "rank k=1 cluster 1": [
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.932642,
+        "mr_close": 100.329494,
+        "promoted": 180,
+        "seed": 0,
+        "support": 14.525937,
+        "top10_wealth": 0.99641,
+        "top1_wealth": 0.231155
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.940097,
+        "mr_close": 98.20473,
+        "promoted": 180,
+        "seed": 1,
+        "support": 13.164405,
+        "top10_wealth": 0.99775,
+        "top1_wealth": 0.228497
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.937443,
+        "mr_close": 96.422897,
+        "promoted": 180,
+        "seed": 2,
+        "support": 13.845045,
+        "top10_wealth": 0.9994,
+        "top1_wealth": 0.235202
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931387,
+        "mr_close": 97.243594,
+        "promoted": 180,
+        "seed": 3,
+        "support": 15.234226,
+        "top10_wealth": 0.999405,
+        "top1_wealth": 0.19156
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.944589,
+        "mr_close": 94.548768,
+        "promoted": 180,
+        "seed": 4,
+        "support": 12.417458,
+        "top10_wealth": 0.999382,
+        "top1_wealth": 0.230791
+      }
+    ],
+    "rank k=2 share .001": [
+      {
+        "core_close": 50,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.933657,
+        "mr_close": 106.058081,
+        "promoted": 30,
+        "seed": 0,
+        "support": 14.452238,
+        "top10_wealth": 0.997442,
+        "top1_wealth": 0.231476
+      },
+      {
+        "core_close": 41,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.938323,
+        "mr_close": 102.084264,
+        "promoted": 21,
+        "seed": 1,
+        "support": 13.264992,
+        "top10_wealth": 0.9962,
+        "top1_wealth": 0.211663
+      },
+      {
+        "core_close": 40,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.936497,
+        "mr_close": 101.183327,
+        "promoted": 20,
+        "seed": 2,
+        "support": 13.887464,
+        "top10_wealth": 0.997673,
+        "top1_wealth": 0.235382
+      },
+      {
+        "core_close": 44,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931579,
+        "mr_close": 97.829056,
+        "promoted": 24,
+        "seed": 3,
+        "support": 15.215219,
+        "top10_wealth": 0.999589,
+        "top1_wealth": 0.191199
+      },
+      {
+        "core_close": 44,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931547,
+        "mr_close": 97.663655,
+        "promoted": 24,
+        "seed": 4,
+        "support": 13.111327,
+        "top10_wealth": 0.97432,
+        "top1_wealth": 0.271533
+      }
+    ],
+    "rank k=2 share .002": [
+      {
+        "core_close": 31,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.933558,
+        "mr_close": 105.187114,
+        "promoted": 11,
+        "seed": 0,
+        "support": 14.455461,
+        "top10_wealth": 0.997364,
+        "top1_wealth": 0.231488
+      },
+      {
+        "core_close": 26,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.938283,
+        "mr_close": 101.517796,
+        "promoted": 6,
+        "seed": 1,
+        "support": 13.264568,
+        "top10_wealth": 0.996137,
+        "top1_wealth": 0.211627
+      },
+      {
+        "core_close": 34,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.9372,
+        "mr_close": 99.035425,
+        "promoted": 14,
+        "seed": 2,
+        "support": 13.834307,
+        "top10_wealth": 0.999535,
+        "top1_wealth": 0.234974
+      },
+      {
+        "core_close": 32,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931495,
+        "mr_close": 98.092416,
+        "promoted": 12,
+        "seed": 3,
+        "support": 15.198517,
+        "top10_wealth": 0.999587,
+        "top1_wealth": 0.192443
+      },
+      {
+        "core_close": 28,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.944605,
+        "mr_close": 97.758952,
+        "promoted": 8,
+        "seed": 4,
+        "support": 12.398684,
+        "top10_wealth": 0.999559,
+        "top1_wealth": 0.228655
+      }
+    ],
+    "rank k=5 cluster .5": [
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.933112,
+        "mr_close": 101.109351,
+        "promoted": 180,
+        "seed": 0,
+        "support": 14.497513,
+        "top10_wealth": 0.996813,
+        "top1_wealth": 0.231315
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.94172,
+        "mr_close": 99.824776,
+        "promoted": 180,
+        "seed": 1,
+        "support": 13.009948,
+        "top10_wealth": 0.999478,
+        "top1_wealth": 0.230488
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.937624,
+        "mr_close": 98.86216,
+        "promoted": 180,
+        "seed": 2,
+        "support": 13.824042,
+        "top10_wealth": 0.999472,
+        "top1_wealth": 0.234479
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.931373,
+        "mr_close": 93.72369,
+        "promoted": 180,
+        "seed": 3,
+        "support": 15.244569,
+        "top10_wealth": 0.999443,
+        "top1_wealth": 0.191332
+      },
+      {
+        "core_close": 200,
+        "core_open": 20,
+        "demoted": 0,
+        "gini": 0.94449,
+        "mr_close": 90.879123,
+        "promoted": 180,
+        "seed": 4,
+        "support": 12.431659,
+        "top10_wealth": 0.999399,
+        "top1_wealth": 0.230423
+      }
+    ]
+  },
+  "seeds_tested": 5,
+  "stage": "A13"
+}

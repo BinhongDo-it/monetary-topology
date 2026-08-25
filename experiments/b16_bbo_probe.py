@@ -467,6 +467,30 @@ def screen():
 # ---------------------------------------------------------------- pairing
 
 PAIRS = os.path.join(RESULTS, "b16_e5_pairs.json")
+#: --fill writes its own file. The 2026-08-21 reading stays on disk untouched,
+#: which is what discipline 19 asks for: the two numbers side by side, and the
+#: old one still reproducible.
+PAIRS_FILL = os.path.join(RESULTS, "b16_e5_pairs_fill.json")
+
+
+FILL = [False]
+
+
+def carry_step(m, prev, off, good):
+    """One record under the carry rule. `prev` is (offset, valid) of the last
+    record on the same (symbol, day, venue), or None. Marks the span the
+    PREVIOUS quote was standing over, then becomes the new prev. O(1) memory,
+    which is why pairs() calls this instead of collecting events."""
+    if prev is not None and prev[1] and off > prev[0]:
+        m[prev[0]:off] = b"\x01" * (off - prev[0])
+    return (off, good)
+
+
+def carry_flush(m, prev, n):
+    """The last standing quote of the day runs to the close and not past it."""
+    if prev is not None and prev[1] and prev[0] < n:
+        m[prev[0]:n] = b"\x01" * (n - prev[0])
+
 
 
 def pairs():
@@ -495,6 +519,19 @@ def pairs():
     #: 23,400 bytes is about 88 MB, which is why this is a bitmap and not a set
     #: of timestamps.
     mask = {}
+    #: A BBO IS A STATE, NOT AN EVENT. `bbo-1s` emits a record when the book
+    #: changed in that interval, so a quote standing untouched for thirty
+    #: seconds produces one record and marks one second. Counting records
+    #: therefore measures UPDATE DENSITY, and rule 3's 0.90 was written about
+    #: PRESENCE. With --fill the flag is carried forward from each record to the
+    #: next one on the same (symbol, day, venue), which is what "the quote is
+    #: standing" means, and an invalid record (undefined side, or crossed) ENDS
+    #: the carry instead of being skipped, because that is the quote going away.
+    #:
+    #: Default is off so this reproduces the 2026-08-21 numbers bit for bit,
+    #: which is discipline 19. The two readings are printed side by side.
+    last = {}
+    gaps = {}
     for venue, path in files:
         with gzip.open(path, "rt", encoding="utf-8", newline="") as fh:
             head = fh.readline().rstrip("\n").split(",")
@@ -506,7 +543,8 @@ def pairs():
                 if f[i_sym] not in want:
                     continue
                 b, a = int(f[i_b]), int(f[i_a])
-                if b == UNDEF or a == UNDEF or a <= b:
+                good = not (b == UNDEF or a == UNDEF or a <= b)
+                if not (good or FILL[0]):
                     continue
                 ts = int(f[i_ts])
                 k = bisect.bisect_right(los, ts) - 1
@@ -516,8 +554,41 @@ def pairs():
                 m = mask.get(key)
                 if m is None:
                     m = mask[key] = bytearray(RTH_SECONDS)
-                m[(ts - los[k]) // 10**9] = 1
+                off = (ts - los[k]) // 10**9
+                if not FILL[0]:
+                    m[off] = 1
+                    continue
+                prev = last.get(key)
+                #: engineering rule 13 step 1: measure the worst cell, by name.
+                #: A carry has one failure mode and it is silent: a HALT, or a
+                #: hole in the file, produces no record at all, so nothing ends
+                #: the carry and a stale quote is spread over the gap. The
+                #: length of the longest carried gap is what shows that, and a
+                #: median share of exactly 1.0000 is precisely when it must be
+                #: looked at. No threshold: the distribution is printed.
+                if prev is not None and prev[1] and off > prev[0]:
+                    g = off - prev[0]
+                    st = gaps.setdefault(f[i_sym], [0, 0, 0, 0])
+                    st[0] = max(st[0], g)
+                    st[1] += g
+                    st[2] += 1 if g > 60 else 0
+                    st[3] += 1 if g > 600 else 0
+                last[key] = carry_step(m, prev, off, good)
         print("  %-12s %s" % (venue, os.path.basename(path)))
+    if FILL[0]:
+        #: the close-out carry counts too. A symbol whose last record of the day
+        #: lands at 10:00 gets six hours carried to the close, and that is the
+        #: same silent hole as a halt, just at the end of the day instead of the
+        #: middle. Counting the mid-day gaps and not this one would hide it.
+        for key, prev in last.items():
+            if prev is not None and prev[1] and prev[0] < RTH_SECONDS:
+                g = RTH_SECONDS - prev[0]
+                st = gaps.setdefault(key.split("|")[0], [0, 0, 0, 0])
+                st[0] = max(st[0], g)
+                st[1] += g
+                st[2] += 1 if g > 60 else 0
+                st[3] += 1 if g > 600 else 0
+            carry_flush(mask[key], prev, RTH_SECONDS)
 
     wins = {"ref": offset_days(days, BOUNDARY, *REF_WINDOW),
             "pre": offset_days(days, BOUNDARY, *PRE_WINDOW),
@@ -577,11 +648,37 @@ def pairs():
         print("\n  %-4s total paired seconds %10d of a %d cap, %.3f%%"
               % (wname, tot, cap, 100.0 * tot / cap))
 
+    out_path = PAIRS_FILL if FILL[0] else PAIRS
     json.dump({"arm": ARM, "boundary": BOUNDARY, "venues": list(VENUES),
-               "rth_seconds": RTH_SECONDS, "windows": wins, "per_symbol": out},
-              open(PAIRS, "w", encoding="utf-8", newline="\n"),
+               "rth_seconds": RTH_SECONDS, "windows": wins,
+               "carry_forward": bool(FILL[0]), "per_symbol": out},
+              open(out_path, "w", encoding="utf-8", newline="\n"),
               indent=2, sort_keys=True)
-    print("\n  wrote %s" % os.path.relpath(PAIRS, ROOT))
+    print("\n  wrote %s   carry_forward=%s"
+          % (os.path.relpath(out_path, ROOT), bool(FILL[0])))
+    #: rule 3 read straight off this pass, so the arm's fate is printed here
+    #: rather than in a second file to be forgotten about
+    pre = [(v["pre"]["both"] / float(v["pre"]["cap"]), k) for k, v in out.items()]
+    pre.sort(reverse=True)
+    keep = [k for sh, k in pre if sh >= RULE3_TWO_SIDED_SHARE]
+    print("  rule 3 at %.2f: keeps %d of %d.  best %s %.4f, median %.4f"
+          % (RULE3_TWO_SIDED_SHARE, len(keep), len(pre), pre[0][1], pre[0][0],
+             pre[len(pre) // 2][0]))
+    if FILL[0] and gaps:
+        rows = sorted(((v[0], k, v) for k, v in gaps.items()), reverse=True)
+        mx = [r[0] for r in rows]
+        print("\n  carried gaps, in seconds, over the whole 30-day span")
+        print("    longest per symbol: max %d  p90 %d  median %d  min %d"
+              % (mx[0], mx[int(len(mx) * 0.1)], mx[len(mx) // 2], mx[-1]))
+        print("    %-7s %9s %11s %9s %9s"
+              % ("symbol", "longest", "carried s", ">60s", ">600s"))
+        for g, k, v in rows[:8]:
+            print("    %-7s %9d %11d %9d %9d" % (k, v[0], v[1], v[2], v[3]))
+        big = sum(1 for r in rows if r[0] > 600)
+        print("    symbols whose longest carry exceeds 600s: %d of %d"
+              % (big, len(rows)))
+        print("    a session is %d s. Anything near that is a hole, not a quote."
+              % RTH_SECONDS)
     print("  no rho was computed. This counted timestamps.")
     return 0
 
@@ -697,6 +794,27 @@ def selftest():
             if isinstance(c, ast.Call)}
     chk("15 nothing in this file deletes anything (AST walk)",
         not ({"remove", "unlink", "rmtree", "rmdir"} & dels))
+    #: 17-21 the carry rule. A BBO is a state; counting records measures update
+    #: density instead of presence, and rule 3's 0.90 was written about presence.
+    def _fill(evs, n):
+        m = bytearray(n)
+        prev = None
+        for off, good in evs:
+            prev = carry_step(m, prev, off, good)
+        carry_flush(m, prev, n)
+        return sum(m)
+
+    chk("17 one standing quote at second 10 covers 10..99, not one second",
+        _fill([(10, True)], 100) == 90)
+    chk("18 a second record extends rather than restarts the cover",
+        _fill([(10, True), (50, True)], 200) == 190)
+    chk("19 an invalid record ENDS the cover instead of being skipped",
+        _fill([(10, True), (50, False)], 100) == 40)
+    chk("20 a day that opens invalid covers nothing",
+        _fill([(0, False), (90, False)], 100) == 0)
+    chk("21 the carry changes the answer, so the flag is not cosmetic",
+        _fill([(10, True)], 100) != 1)
+
     chk("16 the scan writes a reusable cache, so re-screening never rereads 4.7 GB",
         DAILY.endswith("b16_e5_daily.json"))
 
@@ -710,6 +828,9 @@ def main():
     ap.add_argument("--scan", action="store_true")
     ap.add_argument("--screen", action="store_true")
     ap.add_argument("--pairs", action="store_true")
+    ap.add_argument("--fill", action="store_true",
+                    help="carry a standing quote forward between "
+                         "records; default off reproduces 2026-08-21")
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -717,6 +838,7 @@ def main():
         return scan()
     if a.screen:
         return screen()
+    FILL[0] = bool(getattr(a, 'fill', False))
     if a.pairs:
         return pairs()
     ap.print_help()

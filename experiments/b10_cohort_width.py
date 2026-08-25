@@ -8463,7 +8463,7 @@ def print_pgrid(pl) -> None:
     elif _hv == "horizon_is_all":
         print("     §8·27·1 -> FIRST BRANCH. Nothing exceeds the bound once")
         print("     the horizon is made consistent with P_orig's own schedule.")
-        print("     **The horizon is the whole cause.** §8·26·2's 36% is ours,")
+        print("     **The horizon is the whole cause.** §8·26·2's 36% is mine,")
         print("     and `P_sub` needs the correction before it can be used.")
     elif _hv == "horizon_is_none":
         print("     §8·27·1 -> SECOND BRANCH. Not one loop changed side. **The")

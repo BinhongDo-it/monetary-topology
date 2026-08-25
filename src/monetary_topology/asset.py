@@ -651,6 +651,37 @@ SWEEP_CELLS: tuple[tuple[str, dict], ...] = (
 CLOSED = AssetSpec(tiers=0, units=(), base_terms=(), initial_price=())
 
 
+def carrier_model(config: NetworkConfig, *, asset: bool = False) -> Network:
+    """The model for one run, with or without A3's asset layer on top.
+
+    **One place, because five stages need the same two lines and a copy in each
+    is five chances to write them differently.** A2d, A10, A11, A13 and A14 all
+    read concentration off a carrier with no asset revaluation on it, and
+    revaluation is the channel the empirical work weights most heavily:
+    Montecino and Epstein put an employment channel at about -0.5 points on the
+    90/10 ratio against an equity channel at about +6.3 on the 95/10 ratio.
+
+    **The returned object is the model and not the history**, because a caller
+    may want the state after the run: A11 reads ``_alive`` to see who left. Call
+    ``.run()`` on it.
+
+    ``asset=False`` constructs a plain ``Network``, so the default path is the
+    path those stages always took and reproduction is by construction.
+
+    **What the asset layer changes is measured, not assumed.** A2d's four
+    corners, 2026-08-24: the structural span on terminal top one percent wealth
+    moves 0.156440 to 0.153907, essentially not at all, while sigma's span moves
+    0.006645 to 0.015829, more than doubling. The ratio between them, which is
+    that stage's headline, goes from 23.5 to 9.7. **The direction survives and
+    the number does not**, and the mechanism is plain: sigma is a retention rate
+    and retained claims can sit in an appreciating asset, so retention buys more
+    when there is something to retain into.
+    """
+    if not asset:
+        return Network(config)
+    return A3Model(A3Config(asset=AssetSpec(), network=config))
+
+
 @dataclass(frozen=True)
 class A3Config:
     asset: AssetSpec = field(default_factory=lambda: CLOSED)

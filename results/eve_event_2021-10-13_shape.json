@@ -1,0 +1,107 @@
+{
+  "at": "2026-08-22T23:10:48",
+  "bins": [
+    {
+      "delta_allpost_pp": 2.7004410031382124,
+      "delta_settled_pp": 2.6612507996480335,
+      "n": 21,
+      "ratio_allpost": 1.439391261389457,
+      "ratio_settled": 1.4330145870145503
+    },
+    {
+      "delta_allpost_pp": 5.381585371230529,
+      "delta_settled_pp": 5.449470540867504,
+      "n": 21,
+      "ratio_allpost": 1.4892970360298707,
+      "ratio_settled": 1.4954691972058929
+    },
+    {
+      "delta_allpost_pp": 2.957159916394075,
+      "delta_settled_pp": 4.798783950943472,
+      "n": 21,
+      "ratio_allpost": 1.228498177824405,
+      "ratio_settled": 1.3707994899040352
+    },
+    {
+      "delta_allpost_pp": 3.6403704278651223,
+      "delta_settled_pp": 5.163169799278161,
+      "n": 21,
+      "ratio_allpost": 1.2514509354335224,
+      "ratio_settled": 1.3566351011679814
+    },
+    {
+      "delta_allpost_pp": 5.507031578231294,
+      "delta_settled_pp": 9.582185527349472,
+      "n": 21,
+      "ratio_allpost": 1.344824144645948,
+      "ratio_settled": 1.5999909173152536
+    },
+    {
+      "delta_allpost_pp": 9.65068791339026,
+      "delta_settled_pp": 10.983270537784168,
+      "n": 21,
+      "ratio_allpost": 1.5652309910526336,
+      "ratio_settled": 1.6432790021587234
+    },
+    {
+      "delta_allpost_pp": 2.0270373848150753,
+      "delta_settled_pp": 4.297980508756688,
+      "n": 21,
+      "ratio_allpost": 1.113419933952855,
+      "ratio_settled": 1.2404872594287712
+    },
+    {
+      "delta_allpost_pp": 4.180473110957913,
+      "delta_settled_pp": 5.409208713359245,
+      "n": 21,
+      "ratio_allpost": 1.225720299178318,
+      "ratio_settled": 1.2920646005106442
+    },
+    {
+      "delta_allpost_pp": 6.38489880696555,
+      "delta_settled_pp": 6.38964664109925,
+      "n": 21,
+      "ratio_allpost": 1.3359070325846132,
+      "ratio_settled": 1.3361568142841
+    },
+    {
+      "delta_allpost_pp": 5.534446431743456,
+      "delta_settled_pp": 6.587199292331475,
+      "n": 21,
+      "ratio_allpost": 1.2812002250338888,
+      "ratio_settled": 1.334689647138416
+    }
+  ],
+  "cv": {
+    "delta_allpost": 0.46433034446837057,
+    "delta_settled": 0.402490555198181,
+    "ratio_allpost": 0.10337949464730044,
+    "ratio_settled": 0.09350606787840716
+  },
+  "event": "2021-10-13",
+  "event_status": "CANDIDATE",
+  "n_bins": 10,
+  "n_items": 212,
+  "prediction_pp": {
+    "opposite": true,
+    "rt_band": [
+      -5.3,
+      -2.0
+    ],
+    "rt_base": -2.0,
+    "rt_skilled": [
+      -5.3,
+      -5.3
+    ],
+    "tx_band": [
+      2.7,
+      6.0
+    ],
+    "tx_base": 6.0,
+    "tx_skilled": [
+      2.7,
+      2.7
+    ]
+  },
+  "settle_from": "2021-10-18"
+}

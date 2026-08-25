@@ -109,6 +109,23 @@ class FiscalSpec:
     #: Which arm.
     channel: str = "transfer"
 
+    #: Whether the transfer travels as an edge in the round's flow matrix, or
+    #: as a direct adjustment to holdings.
+    #:
+    #: **False is the original behaviour** and is what every record before
+    #: 2026-08-23 was produced under. Under it the levy and the payout never
+    #: appear in the flow, so anything read off the flow does not see them:
+    #: ``effective_support`` does not, and neither does a subsistence floor that
+    #: watches inflow. Claims still move and conservation still holds; what is
+    #: missing is the edge.
+    #:
+    #: The module's own opening line calls the transfer arm "a downward edge",
+    #: so False is a gap between that description and the arithmetic. True
+    #: closes it. It is a switch rather than a correction because closing it
+    #: changes every flow-derived reading, and the records taken under False are
+    #: not wrong about what they measured.
+    as_edge: bool = False
+
     #: ``ι``. Upward leakage removed per unit of cumulative investment, in units
     #: of the opening claim stock. At one, a cumulative investment equal to the
     #: opening stock removes the whole of the production layer's upward leakage.
@@ -478,21 +495,57 @@ class A6Model(Network):
             route, rows, out=np.zeros_like(route), where=rows > 0
         )
 
-    def _post_round(self, t: int) -> None:
-        spec = self.a6.fiscal
-        self.palma_history.append(palma(self.holdings))
-        if spec.rate <= 0.0:
-            return
+    def _apply_levy(self) -> tuple[float, np.ndarray | None]:
+        """Move the levy, and return the total plus a flow matrix if asked.
 
+        Both arms move claims identically: out of the financial layer, in equal
+        shares to the production layer. Conservation is exact either way; the
+        matrix is what decides whether the movement is visible to anything that
+        reads the flow.
+        """
+        spec = self.a6.fiscal
         levy = spec.rate * np.maximum(self.holdings[self._l1_idx], 0.0)
         total = float(levy.sum())
         if total <= 0.0:
+            return 0.0, None
+
+        share = total / self._l2_idx.size
+        self.holdings[self._l1_idx] -= levy
+        self.holdings[self._l2_idx] += share
+
+        matrix = None
+        if spec.as_edge:
+            matrix = np.zeros((self._n, self._n))
+            # Each payer's own contribution, spread over the recipients, so the
+            # matrix reproduces the movement rather than approximating it.
+            matrix[np.ix_(self._l1_idx, self._l2_idx)] = (
+                levy[:, None] / self._l2_idx.size
+            )
+        return total, matrix
+
+    def _fiscal_flow(self, t: int) -> np.ndarray | None:
+        spec = self.a6.fiscal
+        if spec.rate <= 0.0 or not spec.as_edge:
+            return None
+        total, matrix = self._apply_levy()
+        if total > 0.0 and spec.channel == "infrastructure":
+            self.invested += total
+            removed = min(
+                1.0, spec.leak_response * self.invested / self._opening_claims
+            )
+            self.leak_factor = 1.0 - removed
+            self._rebuild_route()
+        return matrix
+
+    def _post_round(self, t: int) -> None:
+        spec = self.a6.fiscal
+        self.palma_history.append(palma(self.holdings))
+        if spec.rate <= 0.0 or spec.as_edge:
             return
 
-        # Both arms move claims identically: out of the financial layer, in
-        # equal shares to the production layer. Conservation is exact.
-        self.holdings[self._l1_idx] -= levy
-        self.holdings[self._l2_idx] += total / self._l2_idx.size
+        total, _ = self._apply_levy()
+        if total <= 0.0:
+            return
 
         if spec.channel == "infrastructure":
             self.invested += total
