@@ -232,10 +232,12 @@ def evaluate(result, min_size: int) -> list[Criterion]:
             bool(result.by_occupancy)
             and min(v.within_share for v in result.by_occupancy.values()) > 0.01,
             ", ".join(
-                f"{OCCUPANCY_LABEL.get(k, k)}: {v.within_share:.4f}"
+                f"{OCCUPANCY_LABEL.get(k, k)}: {v.within_share:.4f} over "
+                f"{v.n_cells:,} cells"
                 + (
                     f" ({result.by_occupancy_restricted[k].within_share:.4f} "
-                    f"restricted)"
+                    f"over the {result.by_occupancy_restricted[k].n_cells:,} "
+                    f"of at least {min_size} loans)"
                     if k in result.by_occupancy_restricted
                     else ""
                 )

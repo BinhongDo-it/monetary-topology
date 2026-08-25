@@ -523,11 +523,13 @@ allocation would be better. Every such step is separate and none is taken here.
 **The Hodge decomposition in `topology.py` is the wrong complex for `Γ`.** That
 implementation builds 2-cells from triangles, which is right for the clique complex
 used in stage A2c. The natural 2-cells of a Cartesian product are **squares**, and
-the four-cycles of §3 are squares. A curl-versus-harmonic split on `Γ` therefore
-needs a square complex, which is not built. Until it is, this document claims a
-gradient-versus-non-gradient split and no finer decomposition. Flagged rather than
-papered over, because the finer split is the more interesting one and someone will
-ask for it.
+the four-cycles of §3 are squares. Building the square complex on `Γ` would not
+deliver a finer split, and §12 gives two independent reasons: the harmonic
+component is identically zero on every field this project runs, and Theorem 3's
+quantity lives on the 1-skeleton, so it is invariant under every choice of `C₂`.
+The squares are load-bearing in exactly one place: the hole taxonomy of
+`b1_setup.md` §5, which separates a puncture from a disconnection, and
+`experiments/b1_holes.py` is what gives that claim its source.
 
 ---
 
@@ -605,10 +607,10 @@ asked.
 
 **Added 2026-08-10, after a review that was about to build it.**
 
-§10 records that `topology.py` builds 2-cells from triangles, that the natural
-2-cells of a Cartesian product are squares, and that "a curl-versus-harmonic
-split on `Γ` therefore needs a square complex, which is not built". True, and it
-reads as though building one would deliver the finer split. **It would not.**
+§10 records that `topology.py` builds 2-cells from triangles and that the natural
+2-cells of a Cartesian product are squares. It is tempting to conclude that a
+curl-versus-harmonic split on `Γ` therefore awaits a square complex, and that
+building one would deliver the finer split. **It would not.**
 The answer is fixed before the code runs, for two independent reasons that are
 already in this document.
 

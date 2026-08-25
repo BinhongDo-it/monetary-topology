@@ -2740,7 +2740,7 @@ Derived quantities:
 | PASS | B2A-2  dispersion survives fixing position and date | within share 0.7831 over 1,103,962 cells and 20,071,740 loans. Integrability predicts exactly zero |
 | PASS | B2A-3  the median cell has a non-trivial spread | median within-cell IQR 0.5257 points, median p90-p10 1.0774, over 328,902 cells of at least 20 loans |
 | PASS | B2A-4  restricting to well-populated cells does not weaken it | all cells 0.7831 over 1,103,962 cells; cells of at least 20 loans 0.8480 over 328,902 cells and 16,177,088 loans. Sparse cells have zero within variance by construction, so the unrestricted figure is the conservative one |
-| PASS | B2A-5  it does not vanish within occupancy type | principal residence: 0.8289 (0.8502 restricted), second residence: 0.6155 (0.8418 restricted), investment: 0.3482 (0.5049 restricted) |
+| PASS | B2A-5  it does not vanish within occupancy type | principal residence: 0.8289 over 602,375 cells (0.8502 over the 317,689 of at least 20 loans), second residence: 0.6155 over 259,726 cells (0.8418 over the 10,227 of at least 20 loans), investment: 0.3482 over 241,861 cells (0.5049 over the 986 of at least 20 loans) |
 | PASS | B2A-6  the exclusion band is not doing the work | within share across bands 10:0.8475, 15:0.8478, 20:0.8480, 25:0.8481, 30:0.8482, 50:0.8484; range 9.61e-04. 160 of 20,071,900 rows lie outside +-20 and are not interest-rate differences |
 | PASS | B2A-7  it survives with nothing excluded at all | ranked within share 0.7654 over 20,071,900 loans including every implausible row; 0.8181 restricted. A rank is bounded by the sample size, so no placeholder value can dominate it, and the integrable null still predicts exactly zero |
 
