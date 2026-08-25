@@ -9,7 +9,7 @@ Measured 2026-08-20 on the head of one file: 33 fields, no MPID, no firm and no
 member identifier. So B.IV cannot serve as an exposure variable (market-maker
 overlap is not computable from it) and this station does not try to use it as one.
 
-Windows needed, all of them A11's own and unchanged:
+Windows needed, all of them B14_A11's own and unchanged:
     split      2016-04, 2016-05
     placebo    2016-06, 2016-07  ->  2016-08, 2016-09
     real       2016-08, 2016-09  ->  2016-11, 2016-12
@@ -52,7 +52,7 @@ RAW = os.path.join(ROOT, "data", "raw", "b14_biv")
 BASE = "https://ftp.nyxdata.com/Tick_Pilot/"
 #: One directory per venue, from the root index measured 2026-08-20.
 DIRS = ("NYSE_BIV", "NYSE_Arca_BIV")
-#: A11's windows, unchanged, plus the transition month.
+#: B14_A11's windows, unchanged, plus the transition month.
 MONTHS = ["2016%02d" % m for m in range(4, 13)]
 UA = "Mozilla/5.0 (compatible; research/1.0)"
 PAUSE_SECONDS = 6.0
@@ -219,7 +219,7 @@ def selftest():
         ok = ok and c
 
     src = open(os.path.abspath(__file__), encoding="utf-8").read()
-    chk("the months are A11's own windows plus the transition month",
+    chk("the months are B14_A11's own windows plus the transition month",
         MONTHS[0] == "201604" and MONTHS[-1] == "201612" and len(MONTHS) == 9)
     chk("both venues' B.IV directories are listed", DIRS == ("NYSE_BIV", "NYSE_Arca_BIV"))
     chk("the lax TLS context applies to the registered host only",

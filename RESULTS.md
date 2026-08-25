@@ -1239,11 +1239,25 @@ no asymmetry there is no question of who starves first, only whether everyone ha
 enough.
 
 Three readings come with it. **The Gini falls as the floor rises**, 0.934 to
-0.715, which is not the economy becoming equal: 181 nodes are frozen at a low
-level and stop being drained while new issuance keeps arriving at the top. An
-economy that has moved most of its population out of circulation reports a better
-Gini, which is this framework's own thesis about aggregates appearing inside its
-own model. **Production-side exit drives issuance up**, M/R from 34 to 60, because
+0.715, and it is not the economy becoming equal. **Where the claims go is the
+whole of it, and the record names them**: at a floor of 0.5 the frozen set is 182
+nodes holding **2,382 claims of the 6,031 outstanding, 39.5 per cent**, against
+zero at a floor of zero. An economy that has moved most of its population out of
+circulation reports a better Gini, which is this framework's own thesis about
+aggregates appearing inside its own model.
+
+**The accumulation is a property of this arm's exit rule and A12-6 measured it.**
+A frozen node here stops trading and goes on drawing wages, because
+`cut_payroll` is false in the registered arm, and it never spends what arrives.
+That is the same construction A12-6 isolated on A8's carrier, where the frozen
+set ends holding 85.6 per cent of every claim outstanding, and A12 answers it
+with a second exit rule, `drawdown`, under which a node below the floor stays in
+the graph and spends `min(need, holdings)` instead of leaving. **What this stage
+reports is therefore the Gini under the exit rule, and how much of the fall is
+the accumulation rather than the exit is not yet separated**; running these arms
+again under `drawdown` is what separates it. A11's four criteria are unaffected:
+they read starvation rates by layer and the complete-graph comparison, and
+neither passes through the frozen set's holdings. **Production-side exit drives issuance up**, M/R from 34 to 60, because
 the issuance rule watches the shortfall in Layer 2 inflow and exit is what opens
 that shortfall. And the complete-graph control reads M/R 1.00 with a Gini of
 0.0072: an economy with no stratification concentrates nothing and issues nothing,
@@ -1297,6 +1311,17 @@ nothing spends nothing and one whose edge returns is not below the floor any
 more. **On that arm the frozen stock ends at 0.2 rather than 1202.4, claims grow
 1.7-fold rather than 14.1-fold, and the closing Gini moves +0.0344 against the
 no-mechanism control's +0.0328.**
+
+**One floor depth, and that is a scope on two of the recorded fields.** This
+grid holds the floor at `0.20` and does not vary it, so the `top1_wealth` and
+`top10_wealth` recorded here are readings at that depth. It is not a neutral
+one. At `0.20` the nodes that leave freeze holding **94 per cent** of the
+closing stock, so every concentration measure moves with that accumulation and
+they cannot separate; at `0.05` the leavers hold **0.3 per cent** and the same
+three measures do separate, with the top percentile falling while the top decile
+and the Gini rise. **A16's floor scan is the reading where depth is the axis**,
+and the two fields are recorded here without a criterion resting on them, which
+was already the right handling.
 
 | | criterion | detail |
 |---|---|---|
@@ -1996,7 +2021,7 @@ XNYS.PILLAR and XNAS.ITCH, 27,602,417 cross-venue aligned quote-seconds, $34.689
 | PASS | B14-B2  gate two: the grid's arithmetic reproduces 88.7 per cent of the whole pre/post move | projecting the post-release quotes back onto the nickel grid, bid down and ask up, reproduces most of the inside/outside gap in the primary statistic. The projection is verified by being the identity on treated names inside the pilot, digit for digit, since those are already on the lattice. Theorem 6(5)'s spread term is 1 to 5 per cent of the numerator by mass, so rho is not measuring spread asymmetry |
 | **FAIL** | B14-B3  gate three: the residual is inside the placebo band, and leg B is CLOSED rather than paused | the treatment-specific residual sits inside a range built from six month pairs with no grid change at all. Half-month resolution widens the sample of placebos to fourteen and does not overturn it. A three-bin split on the pre-pilot spread has one bin clear its own band, but that bin's gradient lives in the control arm, which is not treatment heterogeneity. **Closed, not paused**: the arithmetic share is a property of the mechanism, and no quantity of further data changes it. The narrow-band discontinuity is sealed and is the basis of nothing |
 | PASS | B14-19  order-type sensitivity, askable only once T7's code table arrived | the specification gives thirteen order-type codes; twelve are on disk and the absent one is exactly the Not Held code, which is a check that was written before the document was fetched and could have failed. The weighting is share weighted, which settles D3-3 and demotes the order-count convention from a co-verdict to a cross-check without moving any verdict |
-| PASS | B14-20  A11's candidate list reopened: the pilot's rule is an increment rule, so slack does not mean out of reach | a name whose spread already exceeds the increment can still have both sides off the lattice, and projecting widens it. One delta for every bin, bounded by the lattice arithmetic, fits at 0.0228 dollars with the gradient in the treated arm and an r-squared of 0.5074, and the tightest bin's observed margin is reproduced by the curve to a residual of 0.0045. A11's reading that the residue is real stands; its statement that spillover is the only remaining candidate is withdrawn |
+| PASS | B14-20  B14_A11's candidate list reopened: the pilot's rule is an increment rule, so slack does not mean out of reach | a name whose spread already exceeds the increment can still have both sides off the lattice, and projecting widens it. One delta for every bin, bounded by the lattice arithmetic, fits at 0.0228 dollars with the gradient in the treated arm and an r-squared of 0.5074, and the tightest bin's observed margin is reproduced by the curve to a residual of 0.0045. B14_A11's reading that the residue is real stands; its statement that spillover is the only remaining candidate is withdrawn |
 
 ### b14_t1_order_type
 
@@ -3414,6 +3439,150 @@ the magnitudes are 1.5 percent of what the naive estimator read. Code
 `experiments/b17_b7_crossarm.py`, record `results/b17_b7_crossarm.json`, marked
 `diagnostic_only`: it withdraws nothing and no criterion in either stage rests on
 it.
+
+## A15 — which of these phenomena are transcribed, and which fall out
+
+`rounds=300` `f2i=30` `150 rows in two batches` `two rulers read off disk`
+
+**10/10 criteria passed. Closed.** Three phenomena that look like three
+questions share one discriminant: remove the absorbing wall and see whether the
+phenomenon is still there. `SubsistenceSpec.mode` is the instrument, with `exit`
+carrying the wall and `drawdown` not, and nothing else differing.
+
+**The stage cost 80 runs.** The main grid needed none: A12's two records are it,
+630 rows each at seed 0, carrying the four top-share fields because those were
+added to A12 for this stage. Both rulers are disk reads as well, one of A12's
+record and one of A11's two.
+
+**A transcribed switch does no work in forty-four cells of forty-five and full
+scale in the forty-fifth.** Flipping `reversible` alone moves the closing Gini
+by at most 0.000472 everywhere except at `f2i=30, e=0`, where it moves 0.271975.
+On that cell the arm with the return enabled lands back on the no-wall arm to
+within 0.0005. The amplifier between them is the issuance rule, which is a
+stabiliser: a permanent collapse in production-layer inflow makes the authority
+issue continuously, and the claim stock ends 22.7 times its opening rather than
+1.03 times.
+
+**Whether the return catches is bistable.** Across twenty repetitions the closing
+starved count under the returning arm takes one of two values and nothing
+between: four cells at 75 to 78 and sixteen at 151 to 164. The money stock
+splits the same way, four cells at 1.030 to 1.123 against sixteen at 14.152 to
+23.033, an empty band of 12.6 times. Which basin a run lands in is set by the
+graph draw. More financial-to-intermediate edges make the catching basin
+reachable at all, at 4 of 10 against 0 of 10.
+
+**The cascade is not what the wall creates; permanence is.** On the complete
+graph at a floor of 1.00 both exit rules put all two hundred nodes below the
+line. Under `drawdown` all two hundred come back and under `exit` none do. On
+the stratified graph the two rules leave nearly the same count below the line,
+183 to 187 against 179 to 182, and neither returns.
+
+**The wage level scars, and a rescue that catches recovers two thirds of it.**
+With the derived-demand elasticity at zero the bill is constant by definition
+and forty of forty rows read exactly 1.0000, which is the control reading its
+forced value. At 0.5 the closing bill sits 26.2 to 29.5 per cent below its
+opening in every one of ten cells and does not return. On the one cell where the
+return catches, the loss falls from 0.2913 to 0.0988, which is 66.1 per cent of
+it taken back. The bill is still climbing at three hundred rounds, so the
+residual is a reading at that horizon and not a limit.
+
+**The three inequality measures diverge on a graph draw, not on a mechanism.**
+At the registered floor of 0.20 they never diverge, in 1,260 arm-cells across
+two carrier sizes: the Gini rising implies all three rise in 344 of 344 cells
+and the top percentile falling implies all three fall in 266 of 266. At a floor
+of 0.05 ten of A12's fourteen arms produce the divergence, all fifteen hits land
+on one seed, and the arm with no floor at all is among them with zero
+departures. The four arms that produce nothing are the three carrying a fiscal
+transfer and the one combining the exit floor with the write-off.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A15-1 one grid, imported not restated | grid, carrier and arm table taken from A12's module by identity and matched against its record: nine edge counts, five elasticities, fourteen arms |
+| PASS | A15-2 ruler one: a transcribed switch that does no work | 45 cells; `reversible` alone gives a closing-Gini gap of max 0.271975, median 0.000000; `cut_payroll` alone max 0.344037, median 0.300944. The expectation of a null reading is what the per-cell print refuted |
+| PASS | A15-2b does the one cell survive four more seeds | seed 0 reproduces A12's record on 16 of 16 shared cells. Catch rate 3 of 5 at `f2i=30, e=0`, 1 of 5 at `e=0.5`, 0 of 10 at `f2i=20`. The catches sit in a second cluster with an empty band of 12.6 times |
+| PASS | A15-3 ruler two: a cascade nobody wrote | complete graph at 1.00: both rules peak at 200 of 200, `exit` closes at 200 and `drawdown` at 0. Stratified: 183–187 against 179–182, neither returning |
+| PASS | A15-4 do the three measures ever go three ways | at floor 0.20, zero in 1,260 arm-cells, and the target's own pair, the top percentile falling with the Gini rising, is zero there too |
+| PASS | A15-4b the question at the depth where the shape is | at floor 0.05, 10 of 14 arms produce it, every hit on one seed, and the arm with no floor is among them at zero departures |
+| PASS | A15-5 which switches every producing subset shares | nothing produced it at the registered depth, so there was no intersection to take |
+| PASS | A15-5b which switches every producing arm shares | the intersection is empty and must be, since an arm with no mechanisms is in the set. The informative set is the suppressors: three of the four carry a fiscal transfer |
+| PASS | A15-6 how many nodes each top share averages over | 2 and 20 nodes at 200, 10 and 100 at 1000 |
+| PASS | A15-7 does the wage level come back | control reads exactly 1.0000 at forty of forty rows with the elasticity at zero; at 0.5 the closing bill is 26.2–29.5 per cent down in ten of ten cells, and 66.1 per cent of the loss is recovered on the one cell where the return catches |
+
+
+## A16 — a bilateral obligation on the highest-degree nodes, and where the composition effect lives
+
+`rounds=300` `seeds=5` `f2i=30` `e=0.5` `380 rows + a 160-row floor scan`
+
+**6/6 criteria passed on the grid and 1/1 on the floor scan.** This model has no
+liabilities anywhere else: no receivables, no borrowing, claims conserved
+through every exit, and it still produces a cascade. So balance-sheet
+interconnection, which the interbank literature derives cascades from, and real
+input dependence, which the production-network literature derives them from, are
+each sufficient for a cascade here and neither is necessary. This stage adds one
+liability and asks what it changes.
+
+**The obligation is a stream and not a balance.** The first form was a principal
+amortising over a term, and at a principal of 0.9 with a ten-round term the
+whole thing was 48 claims against 400,000 of flow, gone by round ten, and every
+reading came back equal to the arm with the switch off. A continuing rate is
+also what Volume One names: mortgage, rent, tax and interest are claims that
+keep arriving.
+
+**The complete graph is out, on two counts each sufficient.** In-degree there
+takes exactly one value, so "the highest-degree nodes" is not a defined set and
+the selection falls through to index order. And the one reading that moved there
+is an identity: the closing starved count is `nodes - hubs` at every hub count,
+and the survivors are the hub set, because they collect from everyone else. On
+the stratified carrier the survivors are never the hub set, in 0 of 380 runs.
+
+**The cascade does become a function of the debt structure, and the slope is
+flat.** Against the control at the same cell, the closing starved count moves by
+single digits on a base of 76 to 154: `debtor` monotonically down to -9 at the
+highest rate, `creditor` both ways from -4 to +6, `mutual` smallest. The
+sentence this supports is that the cascade size is a function of the debt
+structure, not that debt changes it appreciably.
+
+**The 1929 shape appears, and the debt is not what produces it.** The three
+concentration measures go three ways in 21 of 380 rows, all of them at a floor
+of 0.05, and one of the twenty-one is the arm with the obligation off. The two
+floor depths differ sharply in what the departing nodes carry: at 0.05 they hold
+**0.3 per cent** of the closing stock and at 0.20 they freeze holding **94 per
+cent**.
+
+**What that difference is not is the cause, and A15 is where that was settled.**
+Every arm on this grid carries the floor, including the one named for having no
+obligation, so nothing here can turn the floor off. A15 ran A12's fourteen arms
+at the shallow depth, one of which has no floor at all, and **that arm produces
+the same shape with zero departures**, to within a digit of the arms that have
+one. So the pattern is the baseline drift of a particular graph draw rather than
+a composition effect, and what the mechanisms do to it is destroy it: the four
+arms that do not produce it are the three carrying a fiscal transfer and the one
+combining the exit floor with the write-off, all of which move the closing Gini
+far enough to bury it.
+
+**The boundary is between 0.125 and 0.150, and it is a jump.** Across 160 cells
+the frozen share takes two values and nothing between: 105 cells at or below
+0.0086 and 55 at or above 0.9339, an empty band of 108 times. At 0.150 both
+regimes occur at the same depth on different draws. Within the shallow regime
+the shape lands on the same four cells in twenty at every depth, so which draw
+produces it is a property of the graph and the depth only decides which regime.
+
+**Orientation does not move the boundary.** All four arms cross at the same
+place. What it moves is the frequency inside the shallow regime, and that effect
+is one to two seeds wide: on independent seeds `debtor` is 3 of 5 and the others
+1 of 5, against a grid reading of 13 of 30 against 1 of 30 that came from six
+rate settings sharing one set of seeds.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A16-1 the control arm is A12's floor arm | 6 of 6 fields identical to `a12_mechanisms.json`: closing Gini, `m_ratio`, support ratio, starved, top 1% and top 10% |
+| PASS | A16-2 the hub set, and how much of it is degree | in-degree takes 32 distinct values; the cut is 49 against 47 at two hubs and 33 against 32 at ten, neither a tie. The failing state is one distinct in-degree, which is the complete graph's |
+| PASS | A16-6 do the survivors turn out to be the hub set | 0 of 380 runs, and 0 runs where the survivor count matches the hub count without the sets matching |
+| PASS | A16-4 does the cascade become a function of the debt | all three orientations move it; ranges against the control at the same cell given above |
+| PASS | A16-5 every cell, and the thinnest three | printed per cell rather than averaged, with the three cells where the obligation moved least named |
+| PASS | A16-7 does the obligation add a second concentration process | **no.** 21 of 380 rows carry the 1929 shape, all at a floor of 0.05, and the control arm is among them |
+| PASS | A16-8 where along the floor the composition effect lives | the boundary sits between 0.125 and 0.150; the frozen share is bimodal with an empty band of 108 times; four hits in twenty at every shallow depth, the same four cells |
+
 
 ## B18 — the directional remnant: what a position's one-sidedness would leave in the book, and why this day cannot show it
 

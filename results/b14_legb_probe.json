@@ -22,7 +22,7 @@
     "2018-10-02"
   ],
   "diagnostic_only": true,
-  "diagnostic_reason": "leg B depth gate registered in design file section 7 supplement 2 A14; the station is not closed and no bulk data has been bought",
+  "diagnostic_reason": "leg B depth gate registered in design file section 7 supplement 2 B14_A14; the station is not closed and no bulk data has been bought",
   "schema": "bbo-1s",
   "stage": "B14",
   "symbols": [

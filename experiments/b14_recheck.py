@@ -2,24 +2,24 @@
 
 All three run on caches already on disk. Nothing is fetched, nothing is bought.
 
-  A  (design file section 7 supplement 2, A2)  Split the treated groups by whether
+  A  (design file section 7 supplement 2, B14_A2)  Split the treated groups by whether
      the nickel grid could bind at all, using each symbol's own pre-window spread
      from BEFORE the pilot took effect. The grid mechanism predicts the effect sits
      in the binding half and is absent in the slack half. A competing explanation
      (common time trend, volatility shock, composition drift) gets the slack half
      wrong. This is the discriminating power B14-0 itself does not have.
 
-  B  (A3)  T10: split the 2018 post window into November and December. December is
+  B  (B14_A3)  T10: split the 2018 post window into November and December. December is
      the deepest month of that quarter's volatility event.
 
-  C  (A4)  The outside review's fourth point: inside the pilot the grid forces every
+  C  (B14_A4)  The outside review's fourth point: inside the pilot the grid forces every
      venue, so BBO and NBBO are both pinned at a nickel; outside it the grid only
      permits, and NBBO is a market-wide min. So BBO minus NBBO should sit near zero
      inside the pilot and open up outside it.
 
 Usage
     python experiments/b14_recheck.py --selftest
-    python experiments/b14_recheck.py --census      # A2 reachability count first
+    python experiments/b14_recheck.py --census      # B14_A2 reachability count first
     python experiments/b14_recheck.py --run
 """
 import argparse
@@ -48,7 +48,7 @@ MIN_DAYS_MONTHLY = 5
 def load_raw(pre, post, extra_windows=()):
     """(ctr, sym) -> per-window lists of the raw (not logged) spd, plus labels.
 
-    Kept separate from b14_gate_exit.load because A2 needs the level of the
+    Kept separate from b14_gate_exit.load because B14_A2 needs the level of the
     pre-window spread, which the log-space loader throws away.
     """
     import math
@@ -217,7 +217,7 @@ def test_c(rec2016, rec2018):
 def pure_slack(rec2016):
     """Symbols whose pre-window spread was never under a nickel, not once.
 
-    Design file A5 clause 1. The A2 split uses the median, so its slack half still
+    Design file B14_A5 clause 1. The B14_A2 split uses the median, so its slack half still
     contains days the grid could bind. This is the half with no such days at all.
     """
     out = {}
@@ -233,7 +233,7 @@ def gradient_bins(rec2016):
 
     A nickel is the only fixed cut, and it has a source: it is the increment the
     pilot specifies. Each side of it is split into thirds by its OWN quantiles, so
-    no other cut point is invented (design file A5 clause 2). Bin 2 sits just under
+    no other cut point is invented (design file B14_A5 clause 2). Bin 2 sits just under
     the nickel and bin 3 just over it, so the step between them is the one the grid
     mechanism predicts and a smooth story does not.
     """
@@ -286,11 +286,11 @@ def test_candidates(rec2016, rec2018):
     return res
 
 
-#: Bandwidths for the narrow-band discontinuity test (design file A6). Every one
+#: Bandwidths for the narrow-band discontinuity test (design file B14_A6). Every one
 #: is a multiple or half of the ORIGINAL one-cent grid, so none is a number this
 #: study picked (D5).
 BANDWIDTHS = [0.005, 0.01, 0.02, 0.03]
-#: Placebo cut points with no institutional meaning, for A6 clause 3. The second
+#: Placebo cut points with no institutional meaning, for B14_A6 clause 3. The second
 #: one is supplied by the data, not chosen here.
 PLACEBO_ROUND = 0.10
 
@@ -357,7 +357,7 @@ def show_rd(res, label, sign):
                      row[1][0], row[1][1]))
 
 
-#: Split-sample windows (design file A8). Aug and Sep 2016 are both before the
+#: Split-sample windows (design file B14_A8). Aug and Sep 2016 are both before the
 #: pilot took effect in Oct 2016, so either can define the split while the other
 #: serves as the denominator, and the two never share an observation.
 SPLIT_A = ("20160801", "20160831")
@@ -415,7 +415,7 @@ def test_split_sample(rec2016):
 
 
 def cross_levels(rec2016, mode):
-    """Split levels that share nothing with the outcome denominator (A9).
+    """Split levels that share nothing with the outcome denominator (B14_A9).
 
     mode "venue": a symbol on NYSE is split by its OWN pre-window spread ON ARCA,
     and vice versa. Different order flow, different book, different sampling
@@ -489,7 +489,7 @@ def test_cross(rec2016):
     return res
 
 
-#: Design file A10. The pilot took effect 2016-10-03, so every window here is
+#: Design file B14_A10. The pilot took effect 2016-10-03, so every window here is
 #: before treatment. The split window shares no observation with any other.
 W_APR = ("20160401", "20160430")
 W_MAY = ("20160501", "20160531")
@@ -501,7 +501,7 @@ W_PLACEBO_PRE = ("20160601", "20160731")
 def far_binder(rec):
     """Split on 2016-04 and 2016-05, keeping only names both months agree on.
 
-    Design file A10 clause 2. Screening out the names whose side flips between
+    Design file B14_A10 clause 2. Screening out the names whose side flips between
     the two months removes split noise instead of correcting for it.
     """
     out, unstable, nodata = {}, 0, 0
@@ -545,14 +545,14 @@ def test_placebo_did(rec):
     return res
 
 
-#: Design file A11. Aug and Sep 2018 both sit INSIDE the pilot, so nothing
+#: Design file B14_A11. Aug and Sep 2018 both sit INSIDE the pilot, so nothing
 #: happens between them: that pair is the 2018 placebo.
 W_AUG18 = ("20180801", "20180831")
 W_SEP18 = ("20180901", "20180928")
 
 
 def test_slack_placebo(rec16, rec18):
-    """A11: is the pure-slack residue there before the pilot too, and does the
+    """B14_A11: is the pure-slack residue there before the pilot too, and does the
     2018 gradient survive a placebo inside the pilot."""
     # pure slack defined on the SPLIT window, sharing nothing with either test
     pure, flip = {}, 0
@@ -612,7 +612,7 @@ def run(census_only=False):
 
     a = test_a(r16, r18)
     print("\n" + "=" * 74)
-    print("A  reachability count first (design file A2 clause 3, D15)")
+    print("A  reachability count first (design file B14_A2 clause 3, D15)")
     print("=" * 74)
     print("  split from: %s" % a["split_source"])
     print("  %d symbols splittable, %d of them binding"
@@ -628,7 +628,7 @@ def run(census_only=False):
         return 0
 
     print("\n" + "=" * 74)
-    print("A  the grid split (design file section 7 supplement 2, A2)")
+    print("A  the grid split (design file section 7 supplement 2, B14_A2)")
     print("=" * 74)
     for label in ("2016", "2018"):
         print("\n-- %s round, sign %+d" % (label, E.ROUNDS[label]["sign"]))
@@ -637,14 +637,14 @@ def run(census_only=False):
 
     b = test_b(r18)
     print("\n" + "=" * 74)
-    print("B  T10: the 2018 post window split by month (design file A3)")
+    print("B  T10: the 2018 post window split by month (design file B14_A3)")
     print("=" * 74)
     for m in ("nov", "dec"):
         show_six(m, b[m], -1)
 
     c = test_c(r16, r18)
     print("\n" + "=" * 74)
-    print("C  BBO minus NBBO, in dollars (design file A4)")
+    print("C  BBO minus NBBO, in dollars (design file B14_A4)")
     print("=" * 74)
     for label in ("2016", "2018"):
         inside = "post" if label == "2016" else "pre"
@@ -657,7 +657,7 @@ def run(census_only=False):
 
     cand = test_candidates(r16, r18)
     print("\n" + "=" * 74)
-    print("D  candidates for the slack residue (design file A5)")
+    print("D  candidates for the slack residue (design file B14_A5)")
     print("=" * 74)
     print("  bin cuts (a nickel is the only fixed one): %s"
           % ", ".join("%.4f" % c if c is not None else "None" for c in cand["cuts"]))
@@ -680,7 +680,7 @@ def run(census_only=False):
 
     rd = test_rd(r16, r18)
     print("\n" + "=" * 74)
-    print("E  narrow-band discontinuity at a nickel, with two placebo cuts (A6)")
+    print("E  narrow-band discontinuity at a nickel, with two placebo cuts (B14_A6)")
     print("=" * 74)
     print("  six gaps per cell, ordered N/G1 N/G2 N/G3 P/G1 P/G2 P/G3")
     for label in ("2016", "2018"):
@@ -688,7 +688,7 @@ def run(census_only=False):
 
     sp = test_split_sample(r16)
     print("\n" + "=" * 74)
-    print("F  split sample: the split variable is NOT the denominator (A8)")
+    print("F  split sample: the split variable is NOT the denominator (B14_A8)")
     print("=" * 74)
     for v in ("A", "B"):
         b = sp[v]
@@ -717,7 +717,7 @@ def run(census_only=False):
 
     cx = test_cross(r16)
     print("\n" + "=" * 74)
-    print("G  cross-venue and cross-measure splits: nothing shared at all (A9)")
+    print("G  cross-venue and cross-measure splits: nothing shared at all (B14_A9)")
     print("=" * 74)
     for mode in ("venue", "measure"):
         b = cx[mode]
@@ -748,7 +748,7 @@ def run(census_only=False):
 
     pl = test_placebo_did(r16)
     print("\n" + "=" * 74)
-    print("H  placebo DiD before the pilot, split on 2016-04/05 (A10)")
+    print("H  placebo DiD before the pilot, split on 2016-04/05 (B14_A10)")
     print("=" * 74)
     print("  split screen: %s" % pl["split_stats"])
     print("  cuts: %s" % ", ".join("%.4f" % c if c is not None else "None"
@@ -783,7 +783,7 @@ def run(census_only=False):
 
     sl = test_slack_placebo(r16, r18)
     print("\n" + "=" * 74)
-    print("I  pure-slack residue and the 2018 placebo (A11)")
+    print("I  pure-slack residue and the 2018 placebo (B14_A11)")
     print("=" * 74)
     print("  pure slack on the 2016-04/05 split window: %d symbols" % sl["n_pure_slack"])
     for name in ("placebo", "real"):
@@ -811,7 +811,7 @@ def run(census_only=False):
 
     res = {"stage": "B14", "diagnostic_only": True,
            "diagnostic_reason": ("recheck registered in design file section 7 "
-                                 "supplement 2 clauses A2, A3 and A4; the station "
+                                 "supplement 2 clauses B14_A2, B14_A3 and B14_A4; the station "
                                  "is not closed"),
            "nickel": NICKEL, "min_days_monthly": MIN_DAYS_MONTHLY,
            "A_grid_split": a, "B_month_split": b, "C_bbo_minus_nbbo": c, "D_candidates": cand, "E_narrow_band": rd, "F_split_sample": sp, "G_cross_split": cx, "H_placebo_did": pl, "I_slack_placebo": sl}
@@ -867,9 +867,9 @@ def selftest():
     chk("the gradient yields six bins", len(set(bn.values())) <= 6 and max(bn.values()) <= 5)
     chk("everything under a nickel lands in bins 0 to 2 and everything over in 3 to 5",
         all((v < 3) == (0.01 * (int(k[1]) + 1) < NICKEL) for k, v in bn.items()))
-    chk("the A10 split window shares no observation with any other window",
+    chk("the B14_A10 split window shares no observation with any other window",
         W_MAY[1] < W_PLACEBO_PRE[0] and W_PLACEBO_PRE[1] < "20160801")
-    chk("every A10 window sits before the pilot took effect on 2016-10-03",
+    chk("every B14_A10 window sits before the pilot took effect on 2016-10-03",
         W_PLACEBO_PRE[1] < "20161003")
     fb, st = far_binder({("N", "A"): {"apr": {"bbo": [0.01]}, "may": {"bbo": [0.02]}},
                          ("N", "B"): {"apr": {"bbo": [0.01]}, "may": {"bbo": [0.20]}},

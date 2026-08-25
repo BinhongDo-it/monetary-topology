@@ -1,6 +1,6 @@
 """B14 leg B gate three: the placebo, where the discriminating power is won or lost.
 
-Registered in the design file, section 7 supplement 2, A17 clause 5.
+Registered in the design file, section 7 supplement 2, B14_A17 clause 5.
 
 Gate two left the treatment-specific residual at +0.0117 in the share of cells at
 rho = 0, against a raw pre/post gap of -0.3617. Whether +0.0117 is a finding or
@@ -37,7 +37,7 @@ _spec = importlib.util.spec_from_file_location(
 G2 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(G2)
 
-#: A17 clause 5. Four inside pairs, two outside pairs, and the real one.
+#: B14_A17 clause 5. Four inside pairs, two outside pairs, and the real one.
 PAIRS = [("P1", "2018-05", "2018-06", "inside"),
          ("P2", "2018-06", "2018-07", "inside"),
          ("P3", "2018-07", "2018-08", "inside"),
@@ -74,7 +74,7 @@ def run():
             cache[(m, arm)] = share_rho0_on_grid(np, m, g_of, arm)
         return cache[(m, arm)]
 
-    print("Gate three, A17 clause 5. Statistic: share of cells at rho = 0, both")
+    print("Gate three, B14_A17 clause 5. Statistic: share of cells at rho = 0, both")
     print("venues projected onto the nickel grid, so every pair is compared on one")
     print("grid and only the presence of a grid CHANGE differs between rows.\n")
     print("  pair   months              G first  G second   dG        dC        DiD")
@@ -98,7 +98,7 @@ def run():
     print("  placebo range %+.4f .. %+.4f      the real one %+.4f" % (lo, hi, real))
     print("  placebos whose magnitude reaches the real one: %d of %d"
           % (bigger, len(plac)))
-    print("\n  reading, A17 clause 5, fixed before the run:")
+    print("\n  reading, B14_A17 clause 5, fixed before the run:")
     if bigger == 0 and (real > hi or real < lo):
         print("    every placebo falls inside a band the real one is outside of.")
         print("    THE DISCRIMINATING POWER IS BOUGHT.")

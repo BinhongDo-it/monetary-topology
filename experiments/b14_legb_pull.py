@@ -1,7 +1,7 @@
 """B14 leg B bulk pull.
 
-Authorised by the design file, section 7 supplement 2, A14 clause 3 row one: all
-four probe checks passed, so the full set is bought. The specification is A15.
+Authorised by the design file, section 7 supplement 2, B14_A14 clause 3 row one: all
+four probe checks passed, so the full set is bought. The specification is B14_A15.
 
   108 symbols from results/b14_legb_symbols.json
   2018-05-01 through 2018-12-31
@@ -13,7 +13,7 @@ audit each one as it lands. Nothing is overwritten and nothing is deleted: a
 batch whose file is already on disk is skipped, and a stale .part from a crashed
 run is renamed with an .expired suffix rather than removed.
 
-The event boundary is A15 clause 1: the pilot was in force for the whole session
+The event boundary is B14_A15 clause 1: the pilot was in force for the whole session
 of 2018-09-28, so inside ends 09-28 inclusive and outside begins 10-01.
 
 The API key is read from the environment or from the repo .env; it is never
@@ -52,8 +52,8 @@ VENUES = ["XNYS.PILLAR", "XNAS.ITCH"]
 SCHEMA = "bbo-1s"
 MONTHS = ["2018-%02d" % m for m in range(5, 13)]
 
-#: A15 clause 3. $100 is the cumulative stop, set so that the second-venue
-#: extension of A15 clause 5 still has room under it.
+#: B14_A15 clause 3. $100 is the cumulative stop, set so that the second-venue
+#: extension of B14_A15 clause 5 still has room under it.
 BATCH_CEILING_USD = 15.00
 TOTAL_CEILING_USD = 100.00
 
@@ -65,11 +65,11 @@ GZIP_LEVEL = 6
 #: minutes and there was no way to tell a slow pull from a hung one.
 PROGRESS_EVERY_BYTES = 100 << 20
 
-#: A15 clause 1, measured on the probe rather than read off the prospectus.
+#: B14_A15 clause 1, measured on the probe rather than read off the prospectus.
 LAST_INSIDE_DAY = "2018-09-28"
 FIRST_OUTSIDE_DAY = "2018-10-01"
 
-#: Wire format, fixed by the probe (results file, A14 reading 2).
+#: Wire format, fixed by the probe (results file, B14_A14 reading 2).
 PX_SCALE = 1e9
 NULL_I64 = 9223372036854775807
 NULL_U64 = 18446744073709551615
@@ -182,7 +182,7 @@ def resolve(key):
     json.dump({"window": [a, b], "venues": out}, open(RESOLVED, "w"),
               indent=2, sort_keys=True)
     print("\n  written %s" % os.path.relpath(RESOLVED, ROOT))
-    print("  a symbol listed above is NOT silently dropped; A15 clause 4 says it")
+    print("  a symbol listed above is NOT silently dropped; B14_A15 clause 4 says it")
     print("  gets named in the results file before any decision is taken.")
     return 0
 
@@ -427,11 +427,11 @@ def selftest():
         and month_window("2018-12") == ("2018-12-01", "2019-01-01"))
     chk("the whole window brackets the pilot termination on both sides",
         month_window(MONTHS[0])[0] < LAST_INSIDE_DAY < month_window(MONTHS[-1])[1])
-    chk("the event boundary is the one A15 clause 1 fixed from the probe",
+    chk("the event boundary is the one B14_A15 clause 1 fixed from the probe",
         LAST_INSIDE_DAY == "2018-09-28" and FIRST_OUTSIDE_DAY == "2018-10-01")
     chk("the schema is the probe's; changing it needs its own registration",
         SCHEMA == "bbo-1s")
-    chk("venues are the two A15 clause 2 registered, and no third one crept in",
+    chk("venues are the two B14_A15 clause 2 registered, and no third one crept in",
         VENUES == ["XNYS.PILLAR", "XNAS.ITCH"])
     chk("both ceilings are set, and the batch one is below the cumulative one",
         0 < BATCH_CEILING_USD < TOTAL_CEILING_USD <= 124.50)

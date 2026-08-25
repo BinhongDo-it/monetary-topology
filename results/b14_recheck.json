@@ -9781,7 +9781,7 @@
     }
   },
   "diagnostic_only": true,
-  "diagnostic_reason": "recheck registered in design file section 7 supplement 2 clauses A2, A3 and A4; the station is not closed",
+  "diagnostic_reason": "recheck registered in design file section 7 supplement 2 clauses B14_A2, B14_A3 and B14_A4; the station is not closed",
   "min_days_monthly": 5,
   "nickel": 0.05,
   "stage": "B14"

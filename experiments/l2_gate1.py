@@ -20,7 +20,7 @@ pilot-only reporting on 2016-09-06 and B.I on 2016-10-01, but the count of PILOT
 symbols is flat across all nine months in both, so neither switch touches the
 sample.
 
-Everything about the sample and the windows is A11's: the pure-slack definition,
+Everything about the sample and the windows is B14_A11's: the pure-slack definition,
 the split window, the placebo segment and the real segment are imported from
 b14_recheck, not restated.
 
@@ -49,7 +49,7 @@ _spec = importlib.util.spec_from_file_location(
 R = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(R)
 
-#: A11's own segments, unchanged. Each is (name, pre months, post months).
+#: B14_A11's own segments, unchanged. Each is (name, pre months, post months).
 SEGMENTS = (("real", ("201608", "201609"), ("201611", "201612")),
             ("placebo", ("201606", "201607"), ("201608", "201609")))
 #: The three participation measures L2's design file section 2 registered.
@@ -152,7 +152,7 @@ def run():
             grp_of[k] = g
     g_all = groups()
     want = {s for (_, s) in pure}
-    print("A11's pure slack: %d (venue, symbol); %d distinct symbols"
+    print("B14_A11's pure slack: %d (venue, symbol); %d distinct symbols"
           % (len(pure), len(want)))
     per = load(want)
     if per is None:
@@ -231,7 +231,7 @@ def selftest():
         ok = ok and c
 
     src = open(os.path.abspath(__file__), encoding="utf-8").read()
-    chk("the segments are A11's own, real and placebo",
+    chk("the segments are B14_A11's own, real and placebo",
         SEGMENTS[0][0] == "real" and SEGMENTS[0][1] == ("201608", "201609")
         and SEGMENTS[0][2] == ("201611", "201612")
         and SEGMENTS[1][2] == ("201608", "201609"))

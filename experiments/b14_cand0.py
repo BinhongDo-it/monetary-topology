@@ -1,8 +1,8 @@
 """B14 candidate zero: is the pure-slack residue the nickel LATTICE, not spillover?
 
-Registered in the design file, section 7 supplement 2, A20.
+Registered in the design file, section 7 supplement 2, B14_A20.
 
-A11 closed with three candidates and only spillover left standing. Candidate zero
+B14_A11 closed with three candidates and only spillover left standing. Candidate zero
 was never on the list: the pilot's quoting rule is an INCREMENT rule, not a
 minimum-width rule, so a name whose spread already exceeds five cents is still
 forced onto the nickel lattice, and projecting a penny bid down and a penny ask up
@@ -15,7 +15,7 @@ That gives a one-parameter curve with an arithmetic bound, not merely a directio
 because each side moves 0 to 4 cents and delta is a property of the lattice rather
 than of the name. Spillover predicts no such relation to the name's own spread.
 
-A20 clause 2 adds the second judge, taken from what A18 cost: the gradient must
+B14_A20 clause 2 adds the second judge, taken from what B14_A18 cost: the gradient must
 live in the TREATED arm. Slice B satisfied "clears and monotone" while its
 gradient sat in the control arm, and that was not heterogeneity. Same ruler here,
 fitted before the run rather than after.
@@ -45,9 +45,9 @@ _spec = importlib.util.spec_from_file_location(
 R = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(R)
 
-#: A20 clause 4. Written down, not tunable.
+#: B14_A20 clause 4. Written down, not tunable.
 N_BINS = 5
-#: A20 clause 1. Each side of a penny quote moves 0 to 4 cents onto the nickel
+#: B14_A20 clause 1. Each side of a penny quote moves 0 to 4 cents onto the nickel
 #: lattice, so the total widening cannot exceed eight cents. This is arithmetic.
 DELTA_LO, DELTA_HI = 0.0, 0.08
 #: The expectation if penny prices are uniform modulo five cents: two cents a side.
@@ -77,7 +77,7 @@ def run():
     """Load exactly the windows b14_recheck.run loads for the 2016 round.
 
     Copied from that call site rather than re-derived, so the split window, the
-    placebo window and the two test windows are the same objects A11 used.
+    placebo window and the two test windows are the same objects B14_A11 used.
     """
     rec16 = R.load_raw(R.E.ROUNDS["2016"]["pre"], R.E.ROUNDS["2016"]["post"],
                        extra_windows=[("aug", R.SPLIT_A), ("sep", R.SPLIT_B),
@@ -96,7 +96,7 @@ def _run(rec16):
             pure[k] = not any(x < R.NICKEL for x in v)
     lev, _ = R.far_binder(rec16)
     sub = {k: lev[k] for k in lev if pure.get(k) is True}
-    print("A20. pure slack on the 2016-04/05 split window: %d (venue, symbol)" % len(sub))
+    print("B14_A20. pure slack on the 2016-04/05 split window: %d (venue, symbol)" % len(sub))
     if not sub:
         print("  nothing to bin; nothing written")
         return 1
@@ -151,7 +151,7 @@ def _run(rec16):
                 points.append((s_med, marg))
         print("")
 
-    print("A20 clause 2, judge 1: one delta for every bin, bounded by the lattice")
+    print("B14_A20 clause 2, judge 1: one delta for every bin, bounded by the lattice")
     if len(points) >= 2:
         delta, sse, r2 = fit_delta(points)
         print("  fitted delta = %.4f dollars (%.2f cents), R^2 = %.4f, SSE = %.6f"
@@ -189,7 +189,7 @@ def _run(rec16):
                                           "arm": "treated" if gs > cs else "control"}
     json.dump(res, open(OUT, "w"), indent=2)
     print("\n  written %s" % os.path.relpath(OUT, ROOT))
-    print("  A20 clause 3 decides from these two judges; no threshold is set here.")
+    print("  B14_A20 clause 3 decides from these two judges; no threshold is set here.")
     return 0
 
 
@@ -211,7 +211,7 @@ def selftest():
         abs(DELTA_HI - 0.08) < 1e-12 and DELTA_LO == 0.0)
     chk("the uniform-price expectation is inside the bound",
         DELTA_LO < DELTA_EXPECTED < DELTA_HI)
-    chk("the curve is what A20 clause 1 wrote: log((s+delta)/s)",
+    chk("the curve is what B14_A20 clause 1 wrote: log((s+delta)/s)",
         abs(curve(0.10, 0.04) - math.log(0.14 / 0.10)) < 1e-12)
     chk("the curve is decreasing in s at fixed delta",
         curve(0.05, 0.04) > curve(0.50, 0.04))
@@ -228,11 +228,11 @@ def selftest():
         R.six.__module__ == R.__name__ and R.far_binder.__module__ == R.__name__
         and R.deltas_by.__module__ == R.__name__)
     chk("the nickel constant comes from there too", R.NICKEL == 0.05)
-    chk("the windows are the ones A11 used, taken from b14_recheck's own call site",
+    chk("the windows are the ones B14_A11 used, taken from b14_recheck's own call site",
         all(hasattr(R, w) for w in ("SPLIT_A", "SPLIT_B", "W_APR", "W_MAY",
                                     "W_PLACEBO_PRE")))
     chk("the real segment runs pre -> post and the placebo pre_pl -> pre, both "
-        "as A11 fixed them", '("real", "pre", "post", +1)' in src
+        "as B14_A11 fixed them", '("real", "pre", "post", +1)' in src
         and '("placebo", "pre_pl", "pre", +1)' in src)
     tree = ast.parse(src)
     banned = {("os", "remove"), ("os", "unlink"), ("shutil", "rmtree")}

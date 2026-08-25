@@ -1,16 +1,16 @@
 """B14 leg B gate two: is the pre/post move in rho anything but the grid's arithmetic?
 
-Registered in the design file, section 7 supplement 2, A17 clause 3 (part a) and
-A17 supplement 1 (part b).
+Registered in the design file, section 7 supplement 2, B14_A17 clause 3 (part a) and
+B14_A17 supplement 1 (part b).
 
 Part a, the quantisation counterfactual. The release takes treated names from a
 nickel grid to a penny grid. Invariance predicts rho rises. Pure arithmetic may
 also predict rho rises, because on a nickel grid the numerator can only take the
 values 0, 2.5c, 5c and the denominator is pinned near 10c, so rho collapses onto
 the atoms {0, 0.5, 1}. Same sign, so the raw pre/post comparison is not
-adjudicable on its own (A17 clause 1).
+adjudicable on its own (B14_A17 clause 1).
 
-The move that wins discriminating power is the one A10 used: do not argue about
+The move that wins discriminating power is the one B14_A10 used: do not argue about
 whether the effect is mechanical, compute what the mechanical hypothesis itself
 predicts and see whether the data separates from it. So: take the OUTSIDE cells,
 project both venues' quotes onto the nickel grid the way the rule forces (bid
@@ -39,11 +39,11 @@ CACHE = os.path.join(ROOT, "data", "cache", "b14_legb")
 SYMS_FILE = os.path.join(ROOT, "results", "b14_legb_symbols.json")
 OUT = os.path.join(ROOT, "results", "b14_legb_gate2.json")
 
-#: A16 clause 3, the balanced core window.
+#: B14_A16 clause 3, the balanced core window.
 CORE_INSIDE, CORE_OUTSIDE = "2018-09", "2018-10"
-#: A16 clause 2 plus A16 supplement 4 clause 1.
+#: B14_A16 clause 2 plus B14_A16 supplement 4 clause 1.
 EXCLUDED = {"TA", "SSP", "VNCE", "JONE", "PKD"}
-#: A16 supplement 1: the Nasdaq stub pair, dropped at the analysis layer.
+#: B14_A16 supplement 1: the Nasdaq stub pair, dropped at the analysis layer.
 STUB_BID_CENTS, STUB_ASK_CENTS = 1, 19999999
 NICKEL_CENTS = 5
 
@@ -121,8 +121,8 @@ def run():
                          s["median_interior"], s["mean_rho"]))
         print("")
 
-    print("\npart a, A17 clause 3: how much of the gap does the grid's arithmetic close")
-    print("  the statistic is the share of cells at rho = 0, which A17 clause 4 makes")
+    print("\npart a, B14_A17 clause 3: how much of the gap does the grid's arithmetic close")
+    print("  the statistic is the share of cells at rho = 0, which B14_A17 clause 4 makes")
     print("  primary because rho carries a large atom there.\n")
     for arm in ("G", "C"):
         ins = res[arm][CORE_INSIDE]["actual"]["share_rho0"]
@@ -138,7 +138,7 @@ def run():
         res[arm]["gap_share_rho0"] = {"inside": ins, "outside": out_a,
                                       "outside_rounded": out_r, "raw_gap": gap,
                                       "residual_gap": left, "closed_fraction": closed}
-    print("\n  reading, A17 clause 3, fixed before the run:")
+    print("\n  reading, B14_A17 clause 3, fixed before the run:")
     print("    rounded ~ inside  -> the whole move is the grid's arithmetic, leg B has")
     print("                        no discriminating power on this carrier, stop")
     print("    rounded != inside -> the residual is what arithmetic cannot make, and")
@@ -172,7 +172,7 @@ def selftest():
     except ImportError:
         print("  numpy missing")
         return 1
-    chk("the core window is the balanced pair A16 clause 3 fixed",
+    chk("the core window is the balanced pair B14_A16 clause 3 fixed",
         (CORE_INSIDE, CORE_OUTSIDE) == ("2018-09", "2018-10"))
     chk("the exclusion is the registered five",
         EXCLUDED == {"TA", "SSP", "VNCE", "JONE", "PKD"})

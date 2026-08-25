@@ -2,7 +2,7 @@
   "aligned_cells": 27602417,
   "criteria": [
     {
-      "detail": "the primary share-weighted convention holds all six inequalities, and so do the order-count convention, the adverse convention and the NBBO cross-check. A19 then drops the order types that the code table named: away-from-market orders, which carry the largest single block of the share weight, retail liquidity providing orders, and both together. The primary measure holds 6/6 in every one of the three variants. Same event, same data, only the weight composition changes. **One caveat travels with any citation of T6**: its own 6/6 depends entirely on order type 22, holding under the retail variant and falling to exactly 3/6 under the other two. T6 was excluded from the verdict before the run, so nothing moves, but the dependence must be quoted with it",
+      "detail": "the primary share-weighted convention holds all six inequalities, and so do the order-count convention, the adverse convention and the NBBO cross-check. B14_A19 then drops the order types that the code table named: away-from-market orders, which carry the largest single block of the share weight, retail liquidity providing orders, and both together. The primary measure holds 6/6 in every one of the three variants. Same event, same data, only the weight composition changes. **One caveat travels with any citation of T6**: its own 6/6 depends entirely on order type 22, holding under the retail variant and falling to exactly 3/6 under the other two. T6 was excluded from the verdict before the run, so nothing moves, but the dependence must be quoted with it",
       "name": "B14-0  the friction half moved on the 2016 round, and it is not carried by the orders that do not participate in the spread",
       "passed": true
     },
@@ -37,8 +37,8 @@
       "passed": true
     },
     {
-      "detail": "a name whose spread already exceeds the increment can still have both sides off the lattice, and projecting widens it. One delta for every bin, bounded by the lattice arithmetic, fits at 0.0228 dollars with the gradient in the treated arm and an r-squared of 0.5074, and the tightest bin's observed margin is reproduced by the curve to a residual of 0.0045. A11's reading that the residue is real stands; its statement that spillover is the only remaining candidate is withdrawn",
-      "name": "B14-20  A11's candidate list reopened: the pilot's rule is an increment rule, so slack does not mean out of reach",
+      "detail": "a name whose spread already exceeds the increment can still have both sides off the lattice, and projecting widens it. One delta for every bin, bounded by the lattice arithmetic, fits at 0.0228 dollars with the gradient in the treated arm and an r-squared of 0.5074, and the tightest bin's observed margin is reproduced by the curve to a residual of 0.0045. B14_A11's reading that the residue is real stands; its statement that spillover is the only remaining candidate is withdrawn",
+      "name": "B14-20  B14_A11's candidate list reopened: the pilot's rule is an increment rule, so slack does not mean out of reach",
       "passed": true
     }
   ],

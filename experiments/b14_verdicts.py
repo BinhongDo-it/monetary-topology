@@ -74,7 +74,7 @@ CRITERIA: list[dict] = [
      "passed": True, "detail":
      "the primary share-weighted convention holds all six inequalities, and so "
      "do the order-count convention, the adverse convention and the NBBO "
-     "cross-check. A19 then drops the order types that the code table named: "
+     "cross-check. B14_A19 then drops the order types that the code table named: "
      "away-from-market orders, which carry the largest single block of the share "
      "weight, retail liquidity providing orders, and both together. The primary "
      "measure holds "
@@ -146,7 +146,7 @@ CRITERIA: list[dict] = [
      "weighting is share weighted, which settles D3-3 and demotes the "
      "order-count convention from a co-verdict to a cross-check without moving "
      "any verdict"},
-    {"name": "B14-20  A11's candidate list reopened: the pilot's rule is an "
+    {"name": "B14-20  B14_A11's candidate list reopened: the pilot's rule is an "
              "increment rule, so slack does not mean out of reach",
      "passed": True, "detail":
      "a name whose spread already exceeds the increment can still have both "
@@ -154,7 +154,7 @@ CRITERIA: list[dict] = [
      "bounded by the lattice arithmetic, fits at 0.0228 dollars with the "
      "gradient in the treated arm and an r-squared of 0.5074, and the tightest "
      "bin's observed margin is reproduced by the curve to a residual of 0.0045. "
-     "A11's reading that the residue "
+     "B14_A11's reading that the residue "
      "is real stands; its statement that spillover is the only remaining "
      "candidate is withdrawn"},
 ]

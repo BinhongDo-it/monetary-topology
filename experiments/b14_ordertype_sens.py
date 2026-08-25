@@ -1,13 +1,13 @@
-"""B14: order-type sensitivity, A19.
+"""B14: order-type sensitivity, B14_A19.
 
-Registered in the design file, section 7 supplement 2, A19. The question only
+Registered in the design file, section 7 supplement 2, B14_A19. The question only
 became askable once T7's code table arrived: the primary measure is share
 weighted and 45.69% of the share weight comes from order type 22, Away From
 Market Orders, which by definition do not participate in the spread prevailing
 at their own effective time. The specification says to include them, so the
 convention is not wrong. It has simply never been tested.
 
-Three variants, fixed by A19 clause 1 and not extendable:
+Three variants, fixed by B14_A19 clause 1 and not extendable:
 
     X22      drop order type 22   Away From Market
     X16      drop order type 16   Retail Liquidity Providing
@@ -39,7 +39,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, "results", "b14_ordertype_sens.json")
 
-#: A19 clause 1. Exactly these three; clause 1 forbids a fourth.
+#: B14_A19 clause 1. Exactly these three; clause 1 forbids a fourth.
 VARIANTS = {"X22": {"22"}, "X16": {"16"}, "X2216": {"22", "16"}}
 #: 0-based, from the field line: D | Date | Trdng_Cntr | Symbol | Test_Group | Order_Type
 C_ORDTYPE = 5
@@ -92,7 +92,7 @@ def run_verdict(tag):
 
     The entry points are named explicitly rather than probed for. b14_gate0.run()
     takes no arguments; b14_gate_exit.run(which) takes the round key, and both
-    rounds are run because A19 clause 2 asks about B14-0's six inequalities and
+    rounds are run because B14_A19 clause 2 asks about B14-0's six inequalities and
     about leg A's 3/6 separately. Each module also writes its own record file, so
     OUT is redirected per variant and the real records are not overwritten.
     """
@@ -142,7 +142,7 @@ def run_verdict(tag):
 def verdict(tags):
     # Merge rather than overwrite. The first version wrote only the tags of the
     # current invocation, so running one variant silently erased the record of the
-    # variant run before it, and A19 clause 2's reading needs all three side by
+    # variant run before it, and B14_A19 clause 2's reading needs all three side by
     # side. Nothing is dropped: a tag rerun replaces only its own entry.
     res = json.load(open(OUT, encoding="utf-8")) if os.path.exists(OUT) else {}
     for tag in ["FULL"] + list(tags):
@@ -153,11 +153,11 @@ def verdict(tags):
     have = [t for t in ("X22", "X16", "X2216") if t in res]
     print("\n  variants on record: %s" % (" ".join(have) or "none"))
     if len(have) < 3:
-        print("  A19 clause 1 fixes three variants; the reading is not in force")
+        print("  B14_A19 clause 1 fixes three variants; the reading is not in force")
         print("  until all three are on record. Missing: %s"
               % " ".join(t for t in ("X22", "X16", "X2216") if t not in res))
     print("\n  written %s" % os.path.relpath(OUT, ROOT))
-    print("  A19 clause 2: compare the six inequalities across FULL and each")
+    print("  B14_A19 clause 2: compare the six inequalities across FULL and each")
     print("  variant. Every measured number is printed; no threshold is set.")
     return 0
 
@@ -171,7 +171,7 @@ def selftest():
         ok = ok and c
 
     src = open(os.path.abspath(__file__), encoding="utf-8").read()
-    chk("exactly the three A19 variants are defined",
+    chk("exactly the three B14_A19 variants are defined",
         set(VARIANTS) == {"X22", "X16", "X2216"})
     chk("the variants are the two T7 anomalies and their union",
         VARIANTS["X2216"] == VARIANTS["X22"] | VARIANTS["X16"])
@@ -236,7 +236,7 @@ def main():
         return selftest()
     for t in (a.build or []) + (a.verdict or []):
         if t not in VARIANTS:
-            print("  %s is not one of the three A19 variants; refused" % t)
+            print("  %s is not one of the three B14_A19 variants; refused" % t)
             return 1
     if a.build:
         return build(a.build)

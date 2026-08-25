@@ -1,6 +1,6 @@
 """B14 leg B: build the reusable cross-venue aligned panel cache.
 
-Registered in the design file, section 7 supplement 2, A16.
+Registered in the design file, section 7 supplement 2, B14_A16.
 
 The bulk pull left 14.18 GB of CSV on disk. Parsing that again for every
 statistic would be wasteful, so it gets parsed once into a compact cache and
@@ -24,10 +24,10 @@ above $1 so nothing is lost. That last point is not assumed: every row whose wir
 price is not a whole number of cents is counted and reported, and if that count
 is ever non-zero the unit was the wrong choice and the cache must be rebuilt.
 
-A16 clause 4 fixes six checks that get printed for every month. They are checks,
+B14_A16 clause 4 fixes six checks that get printed for every month. They are checks,
 not verdicts: no threshold is set and every measured number is printed.
 
-Nothing here computes a statistic. A16 clause 5: rho, S+S', S-S' and per-edge
+Nothing here computes a statistic. B14_A16 clause 5: rho, S+S', S-S' and per-edge
 adjudication each need their own registration before they may be computed.
 
 Usage
@@ -59,11 +59,11 @@ VENUE_B = "XNAS.ITCH"
 SCHEMA = "bbo-1s"
 MONTHS = ["2018-%02d" % m for m in range(5, 13)]
 
-#: A15 clause 1, measured off the probe rather than read off the prospectus.
+#: B14_A15 clause 1, measured off the probe rather than read off the prospectus.
 LAST_INSIDE_DAY = "2018-09-28"
-#: A16 clause 3.
+#: B14_A16 clause 3.
 CORE_INSIDE, CORE_OUTSIDE = "2018-09", "2018-10"
-#: A16 clause 2. Both begin quoting on XNYS on 2018-09-24, five sessions before
+#: B14_A16 clause 2. Both begin quoting on XNYS on 2018-09-24, five sessions before
 #: the pilot ended, so their inside window is five days against sixty-odd outside.
 EXCLUDED = {"TA": "XNYS coverage begins 2018-09-24, five sessions before the event",
             "SSP": "XNYS coverage begins 2018-09-24, five sessions before the event"}
@@ -274,7 +274,7 @@ def build(months=None):
 def census():
     np = need_numpy()
     table, grp = symbols()
-    print("A16 clause 4 check 5: cells per group per month, and the composition.")
+    print("B14_A16 clause 4 check 5: cells per group per month, and the composition.")
     print("The exclusion of %s is applied here, not in the cache."
           % " ".join(sorted(EXCLUDED)))
     print("\n  month    group   symbols   cells        cells/symbol")
@@ -317,7 +317,7 @@ def selftest():
         STUB_ASK_CENTS < 2 ** 31)
     chk("the key multiplier exceeds the symbol count, so no two symbols collide",
         128 > 108)
-    chk("the core window is the balanced pair A16 clause 3 fixed",
+    chk("the core window is the balanced pair B14_A16 clause 3 fixed",
         CORE_INSIDE == "2018-09" and CORE_OUTSIDE == "2018-10"
         and CORE_INSIDE in MONTHS and CORE_OUTSIDE in MONTHS)
     chk("the core inside month ends on the event boundary",
@@ -338,7 +338,7 @@ def selftest():
 
     src = open(os.path.abspath(__file__), encoding="utf-8").read()
     tree = ast.parse(src)
-    # A16 clause 5: this file may not compute a statistic. A string match here
+    # B14_A16 clause 5: this file may not compute a statistic. A string match here
     # fires on the check's own literals, which is the fifth time that pattern has
     # shown up in this station, so it walks the function definitions instead.
     stat_names = {"rho", "spread", "friction_half", "index_half", "midpoint",

@@ -1,6 +1,6 @@
 """B14 leg B gate one: are the two venues two classes in the section 5.1 sense?
 
-Registered in the design file, section 7 supplement 2, A17 clause 2.
+Registered in the design file, section 7 supplement 2, B14_A17 clause 2.
 
 The framework supplies its own operational criterion (section 7 supplement 1
 clause 2): S - S' is zero exactly when the two classes face the same
@@ -12,7 +12,7 @@ identically zero", which is measurable.
 so the sign of S - S' is the sign of (bid_b * ask_b) - (bid_a * ask_a), which is
 exact in integer cents. No floating point enters the sign.
 
-A17 clause 2 forbids running this on treated names inside the pilot: a nickel
+B14_A17 clause 2 forbids running this on treated names inside the pilot: a nickel
 grid pins both venues to the same lattice point much of the time, so a zero is
 forced by arithmetic and the gate would misread it as one class. That is D15
 reachability, a branch unreachable in the sample it is run on. The gate
@@ -40,12 +40,12 @@ OUT = os.path.join(ROOT, "results", "b14_legb_gate1.json")
 
 MONTHS = ["2018-%02d" % m for m in range(5, 13)]
 INSIDE = {"2018-05", "2018-06", "2018-07", "2018-08", "2018-09"}
-#: A16 clause 2 plus A16 supplement 4 clause 1.
+#: B14_A16 clause 2 plus B14_A16 supplement 4 clause 1.
 EXCLUDED = {"TA", "SSP", "VNCE", "JONE", "PKD"}
 
 
 def run():
-    """A17 clause 2, second version.
+    """B14_A17 clause 2, second version.
 
     The first version tested P(+ | nonzero) against a band built from the CELL
     count, and read a min() as if it were an all-quantifier. Both are recorded in
@@ -101,7 +101,7 @@ def run():
                 per.setdefault(tab[sy[order][lo]], []).append(
                     (m, pos, neg, (pos - neg) / (pos + neg)))
 
-    print("Gate one, A17 clause 2, unit = (symbol, day), arm = control only.")
+    print("Gate one, B14_A17 clause 2, unit = (symbol, day), arm = control only.")
     print("sign(S - S') = sign(bid_b*ask_b - bid_a*ask_a), exact in integer cents.")
     print("Per symbol: how many of its days lean positive, against Binomial(n, 1/2).\n")
     print("  symbol  days   days+   expected+-2sd     mean lean   verdict")
@@ -174,7 +174,7 @@ def selftest():
     chk("the null is exact and needs no variance model: it is a binomial on a "
         "count of days, not a band built from a cell count",
         "Binomial" in src and "sqrt(n) / 2" in src)
-    chk("this gate computes no rho; rho is A17 clause 4 and comes after",
+    chk("this gate computes no rho; rho is B14_A17 clause 4 and comes after",
         "rho" not in {n.name for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)})
     chk("no CJK in this file",
         not re.search("[\\u4e00-\\u9fff\\u3000-\\u303f\\uff00-\\uffef]", src))

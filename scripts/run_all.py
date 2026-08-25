@@ -352,6 +352,19 @@ DATA_STAGES = [
 #: says which one it is, so adding an entry now requires stating the reason it
 #: is not being repaired rather than the reason it fails.
 EXPECTED_FAILURES = {
+    "A4-5": (
+        "a real negative result that has been read and left alone. The "
+        "registered form was void, because A4-4 had no result for an ordering "
+        "to preserve; the reshaped form reads A4-4c's two sets and finds them "
+        "sharing one competitor under the two orderings that apply matching "
+        "first, at 1.01 against a floor of 1.00. **A boundary reading is the "
+        "finding**, not a defect to repair: it says the disjointness A4-4c "
+        "reports is not robust to update order, and the place that belongs is "
+        "the reading rather than the threshold. Added 2026-08-25 after a sweep "
+        "printed it as an unlabelled failure while RESULTS.md had already "
+        "carried it as a failure, word for word, since it was reshaped. "
+        "docs/a4_causal_primitive.md 11.8"
+    ),
     "A6-1": (
         "scope defect visible on paper: it quantifies over all eight cells "
         "while A6-3 requires the flat four not to contract. Not rewritten "

@@ -1,6 +1,6 @@
-"""B14 leg B, A18: the two authorised slices after gate three failed.
+"""B14 leg B, B14_A18: the two authorised slices after gate three failed.
 
-Registered in the design file, section 7 supplement 2, A18. Exactly two slices
+Registered in the design file, section 7 supplement 2, B14_A18. Exactly two slices
 are authorised and neither may be extended:
 
   A  half-month resolution, which changes only how well the null is estimated
@@ -8,7 +8,7 @@ are authorised and neither may be extended:
   B  three bins on the 2016 pre-pilot relative tick, 5c / P_2016, each bin
      getting its own full placebo set
 
-A18 clause 0: neither slice touches the 88.7% the grid's arithmetic explains.
+B14_A18 clause 0: neither slice touches the 88.7% the grid's arithmetic explains.
 That figure is a property of the mechanism, not of the sample.
 
 The statistic, loader and projection come from the gate two module by import,
@@ -31,14 +31,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 OUT_A = os.path.join(ROOT, "results", "b14_legb_a18_sliceA.json")
 OUT_B = os.path.join(ROOT, "results", "b14_legb_a18_sliceB.json")
-#: A18 supplement 1. The registered split variable was 5c / P_2016, and the 2016
+#: B14_A18 supplement 1. The registered split variable was 5c / P_2016, and the 2016
 #: carrier turns out to hold no price field at all: 52 fields, every one a spread,
-#: a count or a time. Substituted with the other source A17 clause 6 registered as
+#: a count or a time. Substituted with the other source B14_A17 clause 6 registered as
 #: legal, the 2016-04/05 median WA_BBO_Spd. The substitution was made AFTER slice A
 #: failed and is recorded as such; it is forced by the carrier, not chosen from a
 #: menu, and both variables were pre-registered as legal before either was tried.
 SPLIT_2016 = os.path.join(ROOT, "results", "b14_legb_split2016.json")
-#: The registered variable of A18 clause 2, obtainable after all; see
+#: The registered variable of B14_A18 clause 2, obtainable after all; see
 #: experiments/b14_legb_price2016.py.
 PANEL_2016 = os.path.join(ROOT, "results", "b14_legb_price2016.json")
 
@@ -49,7 +49,7 @@ _spec.loader.exec_module(G2)
 
 MONTHS = ["2018-%02d" % m for m in range(5, 13)]
 INSIDE = {"2018-05", "2018-06", "2018-07", "2018-08", "2018-09"}
-#: A18 clause 2: fixed at three, and clause 3 forbids changing it.
+#: B14_A18 clause 2: fixed at three, and clause 3 forbids changing it.
 N_BINS = 3
 
 
@@ -117,17 +117,17 @@ def slice_a():
     import numpy as np
     g_of = {s: g for g, v in
             json.load(open(G2.SYMS_FILE, encoding="utf-8"))["symbols"].items() for s in v}
-    print("A18 slice A: half-month resolution. Estimator unchanged, null better estimated.\n")
+    print("B14_A18 slice A: half-month resolution. Estimator unchanged, null better estimated.\n")
     rows = build_pairs(np, g_of)
     print("  pair                    kind      dG        dC        DiD")
     for r in rows:
         print("  %-22s %-8s %+.4f   %+.4f   %+.4f%s"
               % (r["pair"], r["kind"], r["dG"], r["dC"], r["DiD"],
                  "  <== the real one" if r["kind"] == "REAL" else ""))
-    print("\n  verdict, A18 clause 1, fixed before the run:")
+    print("\n  verdict, B14_A18 clause 1, fixed before the run:")
     v = verdict(rows, "A")
     plac = [r["DiD"] for r in rows if r["kind"] != "REAL"]
-    print("\n  A18 clause 1 third branch: half-month placebo spread %.4f against the"
+    print("\n  B14_A18 clause 1 third branch: half-month placebo spread %.4f against the"
           % (max(plac) - min(plac)))
     print("  month-level spread 0.0332. If this is much wider the resolution's noise")
     print("  ate the gain and the month-level reading stands.")
@@ -137,9 +137,9 @@ def slice_a():
 
 
 def slice_b():
-    """A18 clause 2, run on BOTH bin variables.
+    """B14_A18 clause 2, run on BOTH bin variables.
 
-    The registered variable is 5c / P_2016 (A18 clause 2). A18 supplement 1
+    The registered variable is 5c / P_2016 (B14_A18 clause 2). B14_A18 supplement 1
     substituted the 2016 median WA_BBO_Spd because the Appendix B carrier holds
     no price field; that ground was correct and the conclusion premature, since
     2016 daily closes are freely published. Both are run here and both are
@@ -174,7 +174,7 @@ def slice_b():
         n = len(keyed)
         edges = [0, n // N_BINS, 2 * n // N_BINS, n]
         print("\n" + "=" * 74)
-        print("A18 slice B on the %s variable, %d symbols" % (label, n))
+        print("B14_A18 slice B on the %s variable, %d symbols" % (label, n))
         print("  bin 1 is the most-bound third: %s"
               % ("lowest 2016 price" if kind == "price" else "tightest 2016 spread"))
         print("=" * 74)
@@ -201,7 +201,7 @@ def slice_b():
               % "  ".join("%+.4f" % r for r in reals))
         print("  monotone: %s     bins clearing their own placebo range: %s"
               % (mono, passed or "none"))
-        # A18 clause 2's reading, plus the defect the first run exposed: a bin
+        # B14_A18 clause 2's reading, plus the defect the first run exposed: a bin
         # clearing with the gradient living in the CONTROL arm is not treatment
         # heterogeneity, so which arm carries it is printed too.
         dgs = [[r for r in res["bin%d" % (b + 1)]["rows"] if r["kind"] == "REAL"][0]["dG"]
@@ -219,7 +219,7 @@ def slice_b():
             print("     heterogeneity is real")
         elif passed and mono:
             print("  -> a bin clears and the pattern is monotone, but the gradient is")
-            print("     in the control arm. A18 clause 2 did not require checking which")
+            print("     in the control arm. B14_A18 clause 2 did not require checking which")
             print("     arm carries it; that is a defect in the registration. NOT a")
             print("     reversal.")
         elif passed:
@@ -234,7 +234,7 @@ def slice_b():
     json.dump(out, open(OUT_B, "w"), indent=2)
     print("\n  written %s" % os.path.relpath(OUT_B, ROOT))
     if "price" in out and "spread" in out:
-        print("\n  the REGISTERED variable governs where the two disagree (A18 supp 1).")
+        print("\n  the REGISTERED variable governs where the two disagree (B14_A18 supp 1).")
     return 0
 
 
@@ -254,12 +254,12 @@ def selftest():
     src = open(os.path.abspath(__file__), encoding="utf-8").read()
     tree = ast.parse(src)
     fns = {n.name for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)}
-    chk("exactly two slices are implemented, A and B, per A18 clause 3",
+    chk("exactly two slices are implemented, A and B, per B14_A18 clause 3",
         {"slice_a", "slice_b"} <= fns and not (fns & {"slice_c", "slice_d"}))
     chk("slice B reads both 2016 split files and refuses to source from inside "
         "the window", "SPLIT_2016" in src and "PANEL_2016" in src)
     chk("slice B now also reports which arm carries the gradient, which the first "
-        "run showed A18 clause 2 had failed to require", "gradient_arm" in src)
+        "run showed B14_A18 clause 2 had failed to require", "gradient_arm" in src)
     chk("the substituted split variable is not rho's denominator: it is a 2016 "
         "Appendix B width, two years and a different instrument from the 2018 "
         "Databento quotes rho is built on", "WA_BBO_Spd" in src)

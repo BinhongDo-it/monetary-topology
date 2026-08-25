@@ -1,10 +1,10 @@
 """B14 leg B depth gate: a few symbols, a few days, before any bulk purchase.
 
-Registered in the design file, section 7 supplement 2, A14. D21 / gate five: run
+Registered in the design file, section 7 supplement 2, B14_A14. D21 / gate five: run
 the statistic the bulk pull would use on a small sample first, and count the cells
 that MEET the requirement, not the average per cell.
 
-Four things get judged, all fixed before the run (A14 clause 2):
+Four things get judged, all fixed before the run (B14_A14 clause 2):
 
   1  does bbo-1s carry PRICES (bid_px / ask_px) and not just a width  [binary]
   2  can the two venues' seconds be aligned, and on how many
@@ -244,12 +244,12 @@ def judge():
     res["stage"] = "B14"
     res["diagnostic_only"] = True
     res["diagnostic_reason"] = ("leg B depth gate registered in design file section 7 "
-                                "supplement 2 A14; the station is not closed and no "
+                                "supplement 2 B14_A14; the station is not closed and no "
                                 "bulk data has been bought")
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(res, open(OUT, "w"), indent=2, sort_keys=True)
     print("\nwrote %s" % os.path.relpath(OUT, ROOT))
-    print("\nRead these against the four rows of design file A14 clause 3 before")
+    print("\nRead these against the four rows of design file B14_A14 clause 3 before")
     print("deciding anything. Nothing here authorises a bulk pull on its own.")
     return 0
 

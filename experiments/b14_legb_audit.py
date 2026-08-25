@@ -1,6 +1,6 @@
 """B14 leg B: three diagnostics on the built cache.
 
-Registered in the design file, section 7 supplement 2, A16 supplement 3.
+Registered in the design file, section 7 supplement 2, B14_A16 supplement 3.
 
   D1  alignment rate per group per month
   D2  the exact (bid, ask) literal pairs among wide quotes, ranked by count,
@@ -8,7 +8,7 @@ Registered in the design file, section 7 supplement 2, A16 supplement 3.
   D3  median price per symbol per month, which is what identifies the names
       that dip under a dollar and therefore lose rows to the sub-penny rule
 
-Reads the cache only. Computes no statistic: A16 clause 5 still stands.
+Reads the cache only. Computes no statistic: B14_A16 clause 5 still stands.
 
 Usage
     python experiments/b14_legb_audit.py --selftest

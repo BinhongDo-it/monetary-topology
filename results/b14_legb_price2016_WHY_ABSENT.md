@@ -1,6 +1,6 @@
 # Why results/b14_legb_price2016.json is not on disk
 
-A18 clause 2 registered slice B's bin variable as `5c / P_2016`. Three free routes
+B14_A18 clause 2 registered slice B's bin variable as `5c / P_2016`. Three free routes
 have now been tried for the 2016 price and all three fail, for three different
 reasons. They are listed so the fourth attempt does not repeat one of them.
 

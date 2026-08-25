@@ -20,15 +20,19 @@ type: software
 authors:
   - family-names: Dong
     given-names: Binhong
-    email: bxd454@miami.edu
+    email: binhongd@outlook.com
+    orcid: 'https://orcid.org/0000-0003-0152-3164'
 license: MIT
 repository-code: >-
-  https://github.com/BinhongDo-it/monetary-topology-agent-based-model-of-stratified-claim-circulation
+  https://github.com/BinhongDo-it/monetary-topology
 date-released: 2026-08-18
 keywords:
-  - agent-based model
-  - stock-flow consistency
+  - non-integrability
   - holonomy
-  - stratified claim circulation
-  - pre-registration
+  - closed-loop consistency
+  - price system
   - mortgage loan performance
+  - pre-registration
+  - stock-flow consistency
+  - stratified claim circulation
+  - agent-based model

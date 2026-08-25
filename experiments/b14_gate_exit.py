@@ -2,7 +2,7 @@
 are predicted to reverse.
 
 Criteria fixed before the run in the design file, section 7 supplement 2 clause A
-and its expansion A1:
+and its expansion B14_A1:
 
     the 2016 round (B14-0): pre window before the nickel grid, post window after
                             -> predicts G > C
@@ -22,7 +22,7 @@ results at its default, and the comparison must actually be run.)
 
 Usage
     python experiments/b14_gate_exit.py --selftest
-    python experiments/b14_gate_exit.py --census   # A1 clause 3, the step-zero census
+    python experiments/b14_gate_exit.py --census   # B14_A1 clause 3, the step-zero census
     python experiments/b14_gate_exit.py --repro    # reproduction check only
     python experiments/b14_gate_exit.py --run      # reproduction check, then leg A
 """
@@ -60,11 +60,11 @@ ROUNDS = {
         "pre": ("20180801", "20180928"), "post": ("20181101", "20181231"),
         "grp_from": "pre", "sign": -1, "asof": "20180928",
         "why": "leg A; the pilot ended at the close on 2018-09-28 "
-               "(design file section 7 supplement 2, A1)",
+               "(design file section 7 supplement 2, B14_A1)",
     },
 }
 MIN_DAYS = G.MIN_DAYS
-#: The check A1 clause 1 puts in place: 09-29 and 09-30 are a weekend, so the row
+#: The check B14_A1 clause 1 puts in place: 09-29 and 09-30 are a weekend, so the row
 #: count on those two dates must be zero.
 WEEKEND_PROBE = ("20180929", "20180930")
 
@@ -72,7 +72,7 @@ WEEKEND_PROBE = ("20180929", "20180930")
 # ------------------------------------------------------------ group assignment
 
 def grp_replay(asof):
-    """Check 2: replay TSPilotChanges to the as-of date (design file A1 clause 2
+    """Check 2: replay TSPilotChanges to the as-of date (design file B14_A1 clause 2
     and its addendum).
 
     The file is SCD-2 shaped: each record carries a validity interval
@@ -132,7 +132,7 @@ def load(pre, post):
 
     The same shape as b14_gate0.load, with the windows parameterised and the
     pre-window labels kept as well: the 2018 round reads its groups from the pre
-    window (design file A1 clause 2, D3-9").
+    window (design file B14_A1 clause 2, D3-9").
     """
     rec, probe = {}, 0
     files = sorted(f for f in os.listdir(CACHE)
@@ -274,7 +274,7 @@ def reproduction_check(res):
 
 
 def census():
-    """A1 clause 3, step zero: symbol counts per month per group.
+    """B14_A1 clause 3, step zero: symbol counts per month per group.
 
     Structure only; not one spread is compared here.
     """
@@ -291,7 +291,7 @@ def census():
                 ym, ctr, sym, grp = p[0][:6], p[1], canon(p[2]), p[3]
                 tab.setdefault((ym, ctr), {}).setdefault(grp, set()).add(sym)
                 dates.setdefault((ym, ctr), set()).add(p[0])
-    print("symbol counts per month per group (design file A1 clause 3, step 2)")
+    print("symbol counts per month per group (design file B14_A1 clause 3, step 2)")
     print("  %-7s %-5s %6s %7s %7s %7s %7s"
           % ("month", "venue", "days", "C", "G1", "G2", "G3"))
     for key in sorted(tab):
@@ -345,7 +345,7 @@ def run(which):
               % (rep["checked"], len(rep.get("diffs", []))))
         for x in rep.get("diffs", []):
             print("    %s  %r -> %r" % (x["cell"], x["was"], x["now"]))
-        print("  By design file A1 clause 8 this is a code error and every leg A\n"
+        print("  By design file B14_A1 clause 8 this is a code error and every leg A\n"
               "  reading is void. Stopping here.")
         return 1
 
@@ -356,7 +356,7 @@ def run(which):
 
     # A gate in front: if this round's cache is not on disk, stop and write nothing.
     # What it prevents is reading "the data has not arrived" as a FAIL. The last row
-    # of the outcome map (A1 clause 5) already rules that an empty treated group is a
+    # of the outcome map (B14_A1 clause 5) already rules that an empty treated group is a
     # defect in how groups were taken and not a reading; this moves that ruling to
     # before the run instead of after it.
     need = need_months(cfg)
@@ -374,7 +374,7 @@ def run(which):
     rec, files, probe = load(cfg["pre"], cfg["post"])
     print("read %d cache files, %d (venue, symbol) pairs" % (len(files), len(rec)))
     if cfg["asof"]:
-        print("A1 clause 1 weekend check: %d rows dated 2018-09-29/30 (must be 0)"
+        print("B14_A1 clause 1 weekend check: %d rows dated 2018-09-29/30 (must be 0)"
               % probe)
         if probe:
             print("  **Not zero. Either the calendar is wrong or the pre-window bound\n"
@@ -423,13 +423,13 @@ def run(which):
                     for x in main[primary]["inequalities"] if not x["holds"]],
     }
     print("=" * 74)
-    print("verdict (design file section 7 supplement 2, A1 clause 4)")
+    print("verdict (design file section 7 supplement 2, B14_A1 clause 4)")
     print("  leg A gate = %s (primary convention %s, direction %s)"
           % (out["verdict"]["result"], primary,
              "G > C" if cfg["sign"] > 0 else "G < C"))
     if out["verdict"]["failing"]:
         print("  did not reverse: " + ", ".join(out["verdict"]["failing"]))
-        print("  The reading for this cell is in the outcome map, A1 clause 5,\n"
+        print("  The reading for this cell is in the outcome map, B14_A1 clause 5,\n"
               "  fixed before the run row by row.")
     print("  the three group sources agree: %s"
           % ("yes" if out["verdict"]["sources_agree"] else "no"))
@@ -441,7 +441,7 @@ def run(which):
     out["diagnostic_reason"] = (
         "B14 stage two remains locked (design file section 7); this out-of-sample "
         "leg is registered in section 7 supplement 2 clause A and its reading is "
-        "fixed in supplement 2 A1 clause 5, so the record is evidence and not a "
+        "fixed in supplement 2 B14_A1 clause 5, so the record is evidence and not a "
         "licensed reading until the station closes")
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as fh:

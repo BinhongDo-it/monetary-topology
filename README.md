@@ -348,6 +348,53 @@ resource-allocation channel is taken up.
 
 ---
 
+## Three readings from the later A stages
+
+**A cascade with no liabilities anywhere, stage A16.** The standard derivations of a
+cascade come in two families. Financial contagion runs through balance sheets: A
+owes B, A fails, and B's asset goes with it. Production networks run through
+real inputs: A stops, so B cannot produce. This model has neither. There are no
+debts, no receivables and no input requirements between nodes, and the claim
+total is conserved through every departure. It collapses anyway: a node whose
+inflow falls below subsistence stops spending, its counterparties' inflow falls
+with it, and they stop in turn. So **balance-sheet interconnection and real
+input dependence are each sufficient for a cascade and neither is necessary**.
+Stage A16 then adds one liability on purpose, carried by the highest-degree
+nodes and pointing three ways in turn, and measures what it buys: the closing
+count below the line moves by single digits on a base of 76 to 154. The cascade
+is a function of the debt structure, and a flat one.
+
+**A threshold in the subsistence level with nothing on either side of it, stages A15 and A16.**
+What a departure costs the rest of the economy depends on what the departing
+node was holding. Across 160 runs the share of the closing claim stock held by
+nodes that have left takes one of two values: at or below 0.0086 in 105 of them,
+at or above 0.9339 in the other 55, an empty band of 108 times, and no run
+inside it. The crossing sits between floor multiples of 0.125 and 0.150, and at
+0.150 both regimes occur at the same depth on different draws. **Which side of
+it a configuration sits on decides what every distribution reading means.** On
+the shallow side the leavers hold three tenths of one per cent and the readings
+are redistribution among those still trading; on the deep side they freeze
+holding ninety-four per cent, and every concentration measure moves with that
+accumulation rather than with anything else.
+
+**A control arm that separates a mechanism from the graph, stage A15.** Three inequality
+measures moving three ways at once, the top percentile falling while the top
+decile and the Gini rise, is a pattern with a standard name and a standard
+explanation in terms of who leaves the sample. This model produces it. It also
+produces it in the arm with **every mechanism switched off and no node leaving
+at all**, within a digit of the arms that carry a floor: closing Gini 0.8812
+against 0.8813, top percentile 0.1480 against 0.1480, top decile 0.8171 against
+0.8172. The pattern therefore belongs to the particular graph draw rather than
+to any mechanism here, and what the mechanisms do to it is remove it. The four
+arms of fourteen that do not produce it are the three carrying a fiscal transfer
+and the one combining the absorbing floor with the write-off, each of which
+moves the closing Gini far enough to bury it. **The reading is available because
+the arm exists.** An arm with every switch off is the cheapest configuration in
+the design and the only one that can tell a mechanism's effect from the graph's
+own drift.
+
+---
+
 ## Scope
 
 - **The object is structure, not timing.** Every quantity here is a property of a
@@ -486,6 +533,8 @@ sweep maps where it does and does not.
 | A12 | the coverage result under the two later mechanisms | **complete, 7/7.** The floor and the write-off are added to A8's carrier and the four surfaces are read again |
 | A13 | whether position can be bought and sold | **complete, 9/9.** Every earlier stage ran on a graph fixed at construction; opening that channel moves terminal top1% wealth by 0.0033, half what the savings rate moves it and a forty-seventh of what the structural parameters move it. A promoted node could acquire three things and not one: the core's edges, its spending propensity, and its role in paying wages. They are added one rung at a time so each step's difference has a single owner, and the propensity and the payroll rungs move terminal share in opposite directions |
 | A14 | which readings are scale free | **complete, 7/7.** With node count and core share in the grid the structural span is 0.383, two and a half times what A2d reports with both held fixed |
+| A15 | which of these phenomena are transcribed, and which fall out | **complete, 10/10.** The main grid needed no runs: A12's two records are it. A switch taken from the manuscript moves the closing Gini by under 0.0005 in forty-four cells of forty-five and by 0.271975 in the forty-fifth, where the amplifier is the issuance rule and the claim stock ends 22.7 times its opening. Whether a return catches is bistable, four cells against sixteen with an empty band of 12.6 times in the money stock. On the complete graph both exit rules put all two hundred below the line and only one lets them back, so the wall makes the cascade permanent rather than making it happen. The wage bill closes 26.2 to 29.5 per cent down and does not return; a return that catches recovers 66.1 per cent of that |
+| A16 | a bilateral obligation on the highest-degree nodes | **complete, 6/6 and 1/1 on the floor scan.** The one liability in the flow layer, three orientations, selected by in-degree off the same expression that picks the injection node. It moves the closing count below the line by single digits on a base of 76 to 154. The share of the stock held by departed nodes is bimodal across 160 runs, 105 cells at or under 0.0086 against 55 at or over 0.9339 with nothing between, and the crossing sits between floor multiples of 0.125 and 0.150 |
 
 **A3 returned two non-positive outcomes, and they are different states, which is
 why both are reported with their reason.** A3-5 comes back **void rather than
@@ -539,7 +588,7 @@ where uniform random gives `18.1%`, at five of five seeds. Connectivity does not
 prevent anyone from marrying anyone. It arranges the holdings so that a rule
 which never mentions layers ends up respecting them.
 
-**A7 is what A4's failure points at.** The two arms of a binary `C` are not two
+**A7 is where A4's ratio stops being readable.** The two arms of a binary `C` are not two
 settings of one economy, they are two economies with different state, and a ratio
 between them measures the state difference as much as the mechanism difference. A
 continuous `C` replaces that ratio with a slope along a path, which does not need
@@ -625,10 +674,10 @@ simulating instances.
 | B2 placebo validation | is the VA pool actually wide? | **6/9**, the premise survives, [`docs/b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
 | B3 | CIP deviations: the other summand of the cycle space | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md); what was checked before retrieval, [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
 | B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
-| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void, not failed**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band that first made this a failure was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A; what was checked before retrieval, [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
+| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void rather than negative**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band it was first judged against was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A; what was checked before retrieval, [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
 | B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md); what was checked before retrieval, [`b6_cuba_availability.md`](docs/b6_cuba_availability.md) |
 | B7 | matrix rank of the cell-by-class interaction on 16m loans | **the class index carries 0.3036 of stage B2's within-term dispersion** over 16,035,398 loans in 326,872 cells, and **there is no single ladder in it**: the 19-class and 6-class cuts read alike. **The stage then measured what its own carrier can support, and withdrew its rank-2 headline on that measurement.** With two classes at 1.18 and 1.37 loans per entry, a constructed field carrying **no interaction at all** reads back exactly 2 in 20 of 20 repetitions, and the second-moment matrix is near-diagonal (off-diagonal correlations max `0.1417`), so per-class noise lands on the diagonal and there is nothing off it for a rank to count. **That bound governs any future rank claim on this data**, which is why no number is quoted, [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
-| B8 | the slice summand on a household carrier, from loan modification | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the seven carriers. B8-4b does not run for want of C9 and section 15.3 registers that as not a failure of the stage, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md). Instrument conclusions the published criteria lean on: [`b8_instrument_notes.md`](docs/b8_instrument_notes.md) |
+| B8 | the slice summand on a household carrier, from loan modification | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the seven carriers. B8-4b waits on C9, and section 15.3 puts that outside the stage's scope, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md). Instrument conclusions the published criteria lean on: [`b8_instrument_notes.md`](docs/b8_instrument_notes.md) |
 | B9 | the measured zero, and the path share | ran; the ETF creation triangle carries a non-zero holonomy of 1.2 to 1.7 bp and its quantization explanation is falsified. The stage is under re-audit, [`docs/b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | Freddie as a carrier, and the shape of the state graph | **closed.** The holonomy machinery was rebuilt on a second GSE: 1,362,490 loans, 74,937,616 monthly rows, 28 vintages. The structural reading is the cheap one and it bounds every path design on this data: **of 10,816 possible ordered state pairs only 1,496 ever occur, 13.83 per cent**. The stage also names what its carrier stops recording in mid-2019 |
 | B11 | corporate credit as the second domain | **open, and the readings taken before the gate are now in [RESULTS.md](RESULTS.md).** The branch table in B8 section 15.6 sends the second domain here; the domain was not chosen. The ceiling is counted rather than assumed: the distressed-exchange marker appears on **422 rows over 227 issuers**, 2012-06-15 to 2025-07-01, against a gate of 200, so the investment-grade filter has to retain 88 per cent to clear it. **Registered and sequenced: C11-0 is the next run** |

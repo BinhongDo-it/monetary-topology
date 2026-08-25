@@ -33,6 +33,20 @@ from monetary_topology.asset import A3Config, A3Model, AssetSpec
 from monetary_topology.config import WageChannel
 from monetary_topology.redistribution import A6Config, FiscalSpec, run_a6
 from monetary_topology.mechanisms import gini
+
+
+def top_share(v: np.ndarray, k: int) -> float:
+    """Share of the claim stock held by the top ``k`` nodes.
+
+    The same rule the other stations use, so a number here is comparable with
+    A2d's and A13's without a translation step. ``k`` is taken by the caller as
+    ``max(1, n // 100)`` or ``max(1, n // 1000)``: at two hundred nodes the top
+    one per cent is two nodes and the top tenth of a per cent is one, which is
+    a floor rather than a construction and is why A14-5 prints the counts.
+    """
+    s = np.sort(np.asarray(v, dtype=float))[::-1]
+    total = float(s.sum())
+    return float(s[:k].sum() / total) if total > 0 else float("nan")
 from monetary_topology.network import (
     NetworkConfig,
     NetworkSpec,
@@ -266,6 +280,26 @@ def one_run(
                         / h.active_ratio[0]),
         "m_ratio": r(m[-1] / m[0]),
         "gini_open": r(gini(h.holdings[0])), "gini_close": r(gini(h.holdings[-1])),
+        # Added 2026-08-25 for A15. Recorded, not judged here: this stage's
+        # criteria read the four surfaces and none of them reads a top
+        # share. A15 reads all three of these together and needs them on
+        # the same runs rather than on a re-run of its own.
+        #
+        # **Scope, added the same day after A16 measured it.** These four are
+        # recorded at one floor depth, because ``FLOOR_MULTIPLE`` is 0.20 and
+        # this grid does not vary it, and that depth is not a neutral place to
+        # read a concentration measure from. At 0.20 the nodes that leave freeze
+        # holding 94 per cent of the closing stock, so all three measures move
+        # together and what they mostly report is that accumulation. At 0.05 the
+        # leavers hold 0.3 per cent and the same three measures separate. So
+        # anything read off these fields holds at this depth and is not a
+        # statement about the model: A16's floor scan is where the depth is the
+        # axis. Recording them without judging them was already the right
+        # handling and this is the reason for it.
+        "top1_wealth": r(top_share(h.holdings[-1], max(1, h.holdings.shape[1] // 100))),
+        "top10_wealth": r(top_share(h.holdings[-1], max(1, h.holdings.shape[1] // 10))),
+        "top1_open": r(top_share(h.holdings[0], max(1, h.holdings.shape[1] // 100))),
+        "top10_open": r(top_share(h.holdings[0], max(1, h.holdings.shape[1] // 10))),
         "resource_levels": int(np.unique(h.total_resources).size),
         "support_ratio": r(support[-TAIL:].mean() / support[0]),
         "wage_funding": r(float(np.asarray(h.wage_funding_ratio, dtype=float)[-TAIL:].mean())),

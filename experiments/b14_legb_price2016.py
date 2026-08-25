@@ -1,6 +1,6 @@
 """Fetch 2016-04/05 daily closes for the leg B symbol set.
 
-A18 clause 2 registered the slice B bin variable as 5c / P_2016. A18 supplement 1
+B14_A18 clause 2 registered the slice B bin variable as 5c / P_2016. B14_A18 supplement 1
 substituted the 2016 median WA_BBO_Spd for it, on the ground that the Appendix B
 carrier holds no price field. That ground is correct and the conclusion was
 premature: 2016 daily closes are freely published and were obtainable all along.
@@ -40,7 +40,7 @@ SYMS_FILE = os.path.join(ROOT, "results", "b14_legb_symbols.json")
 RAW = os.path.join(ROOT, "data", "raw", "b14_legb_px2016")
 OUT = os.path.join(ROOT, "results", "b14_legb_price2016.json")
 
-#: A17 clause 6: the split window is 2016-04/05, which predates the pilot's
+#: B14_A17 clause 6: the split window is 2016-04/05, which predates the pilot's
 #: 2016-10-03 effective date by five months.
 D1, D2 = "20160401", "20160531"
 #: Several free sources, tried in order per symbol. The first attempt used one
@@ -363,7 +363,7 @@ def selftest():
         print(("  PASS  " if c else "  FAIL  ") + n)
         ok = ok and c
 
-    chk("the window is A17 clause 6's 2016-04/05, before the 2016-10-03 effective date",
+    chk("the window is B14_A17 clause 6's 2016-04/05, before the 2016-10-03 effective date",
         D1 == "20160401" and D2 == "20160531" and D2 < "20161003")
     if os.path.exists(SYMS_FILE):
         chk("the symbol set is the registered 108", len(symbols()) == 108)

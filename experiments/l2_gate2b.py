@@ -9,7 +9,7 @@ increment; G3 adds trade-at on top. So:
     candidate four  (behavioural response to the quoting rule)          -> hits G1
     candidate two   (the trading-side rules)                            -> does NOT hit G1
 
-so G1 is the discriminant, and it is free: A11 already computed these margins,
+so G1 is the discriminant, and it is free: B14_A11 already computed these margins,
 nobody had read them from this angle.
 
 Supplement note 1: this test needs no mechanical netting. Candidate zero works
@@ -42,7 +42,7 @@ _spec = importlib.util.spec_from_file_location(
 R = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(R)
 
-#: A11's own segments, unchanged.
+#: B14_A11's own segments, unchanged.
 SEGMENTS = (("real", "pre", "post"), ("placebo", "pre_pl", "pre"))
 #: The treated groups, in order of how much the pilot changed for them.
 ARMS = ("G1", "G2", "G3")
@@ -59,7 +59,7 @@ def run():
         if v:
             pure[k] = not any(x < R.NICKEL for x in v)
     n_pure = sum(1 for x in pure.values() if x)
-    print("A11's pure slack: %d (venue, symbol)\n" % n_pure)
+    print("B14_A11's pure slack: %d (venue, symbol)\n" % n_pure)
     print("  G1 changes the QUOTING increment only.")
     print("  G2 adds a trading increment. G3 adds trade-at.")
     print("  Candidate two acts on G2 and G3 and NOT on G1.\n")
@@ -116,7 +116,7 @@ def run():
     print("")
     if inside:
         print("  -> all three arms sit inside the placebo band: the residue is not")
-        print("     significant on pure slack at all, and A11's reading needs review")
+        print("     significant on pure slack at all, and B14_A11's reading needs review")
     elif abs(g1 - m23) <= max(allp or [0]):
         print("  -> G1 is comparable to G2/G3, and the difference between them is")
         print("     smaller than the placebo band. THE TRADING-SIDE RULES ARE NOT")
@@ -143,7 +143,7 @@ def selftest():
         ok = ok and c
 
     src = open(os.path.abspath(__file__), encoding="utf-8").read()
-    chk("the segments are A11's own", SEGMENTS == (("real", "pre", "post"),
+    chk("the segments are B14_A11's own", SEGMENTS == (("real", "pre", "post"),
                                                    ("placebo", "pre_pl", "pre")))
     chk("the three treated arms are read separately and not pooled",
         ARMS == ("G1", "G2", "G3"))

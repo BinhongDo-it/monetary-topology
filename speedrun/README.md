@@ -281,7 +281,7 @@ law who may use which, the agent index is not a latent variable.
 14 April 2025 the cepo was removed and the USD 200 monthly cap deleted. The
 treated pair collapses when the government deletes the eligibility rule that
 generates it. **The station's pre-trend check then returned no reading, and the
-band that had first made that a failure was withdrawn** for having no
+band it had first been judged against was withdrawn** for having no
 theoretical source. What the arm prints is the pre-window series, which turns
 inside the window and so admits no slope that can be extrapolated across the
 edge.
@@ -419,9 +419,30 @@ The readings that matter to this field:
   stops showing what the distribution still shows. A11 puts a subsistence floor
   on the real side, and its reading is this framework's own thesis about
   aggregates, appearing inside its own model: **the Gini falls from 0.934 to
-  0.715 as the floor rises**, which is 181 nodes frozen below it and no longer
-  being drained while issuance keeps arriving at the top. An economy that has
-  moved most of its population out of circulation reports a better Gini.
+  0.715 as the floor rises**, and what falls with it is 182 nodes leaving
+  circulation while holding **39.5 per cent of the claims outstanding**. An
+  economy that has moved most of its population out of circulation reports a
+  better Gini. How much of that fall is the leaving and how much is the holding
+  is a question A12 opens and A11's own arm does not settle, because a node
+  frozen under this arm goes on drawing wages and never spends them.
+- **A15 settles it, and the answer is about this literature's own signature.**
+  Three inequality measures moving three ways at once, the top percentile falling
+  while the top decile and the Gini rise, is the pattern decomposition work reads
+  as a change in who is in the sample. This model produces it. **It also produces
+  it in the arm with every mechanism off and no node leaving at all**, within a
+  digit of the arms that carry a floor: closing Gini 0.8812 against 0.8813, top
+  percentile 0.1480 against 0.1480, top decile 0.8171 against 0.8172. So the
+  signature is available without any change in composition, and here it belongs
+  to the particular graph draw. What the mechanisms do to it is remove it: of
+  fourteen arms the four that do not produce it are the three carrying a fiscal
+  transfer and the one combining the absorbing floor with the write-off, each of
+  which moves the closing Gini far enough to bury it. The separation is available
+  because the all-switches-off arm exists, which is the cheapest configuration in
+  the design and the only one that can tell a mechanism's effect from the graph's
+  own drift. **A15 also answers A11's question directly**: at the registered floor
+  the departed hold 94 per cent of the closing stock and every concentration
+  measure moves with that accumulation, while at a shallower one they hold 0.3 per
+  cent and the measures separate, with nothing in between across 160 runs.
 - **A1** is the A-track stage attached to real household data. The stages built
   after it are closed-world by construction: a run there is a derivation of what
   a mechanism implies, not an estimate of anything.
@@ -473,7 +494,7 @@ Station documents exist for [`a1_prereg.md`](../docs/a1_prereg.md),
 [`a5_reachability.md`](../docs/a5_reachability.md),
 [`a6_siphon_cost.md`](../docs/a6_siphon_cost.md) and
 [`a7_continuous_c.md`](../docs/a7_continuous_c.md). **A0, A0b, A2, A2c, A2d and
-A8 through A14 have no prose document**, and their readings are in
+A8 through A16 have no prose document**, and their readings are in
 [RESULTS.md](../RESULTS.md) alone. **What this claim does and does not license**
 is [`b0_claim_scope.md`](../docs/b0_claim_scope.md), and what it costs
 Domar-weighted aggregation is
@@ -542,7 +563,36 @@ appendix and it is the densest thing in the repository for this field.
 
 ## Networks, complex systems, and agent-based modelling
 
-**Stations: A0, A0b, A2, A2c, A2d, A3, A5, A7, A13, A14.**
+**Stations: A0, A0b, A2, A2c, A2d, A3, A5, A7, A13, A14, A15, A16.**
+
+**A16 produces a cascade with no liabilities anywhere.** The standard
+derivations come in two families: financial contagion, where A owes B and A's
+failure removes B's asset, and production networks, where A's stoppage denies B
+an input. This model has neither. There are no debts, no receivables and no input
+requirements between nodes, and the claim total is conserved through every
+departure. It collapses anyway, through inflow alone: a node whose inflow falls
+below subsistence stops spending, its counterparties' inflow falls with it, and
+they stop in turn. **So balance-sheet interconnection and real input dependence
+are each sufficient for a cascade and neither is necessary.** A16 then adds one
+liability on purpose, carried by the highest-degree nodes and pointing three ways
+in turn, and the closing count below the line moves by single digits on a base of
+76 to 154.
+
+**What the departed carry is bimodal, and that is where the regimes divide.**
+Across 160 runs the share of the closing claim stock held by nodes that have left
+is at or below 0.0086 in 105 of them and at or above 0.9339 in the other 55, an
+empty band of 108 times with no run inside it. The crossing sits between floor
+multiples of 0.125 and 0.150, and at 0.150 both regimes occur at the same depth
+on different draws.
+
+**A15 finds the same shape in a rescue rule.** Letting a node return when its
+inflow recovers either halves the count that leaves and returns the economy to
+its no-wall reading, or does nothing at all: across twenty repetitions the money
+stock ends at 1.030 to 1.123 times its opening in four of them and at 14.152 to
+23.033 in the other sixteen, again with nothing between. Which basin a run lands
+in is set by the graph draw. **And the absorbing wall is not what makes the
+cascade**: on the complete graph both exit rules put all two hundred nodes below
+the line, and the difference is that one lets them back and the other does not.
 
 **A0b** finds a threshold rather than a gradient: with a wage bill that responds
 to derived demand, **unit elasticity is the dividing line.** Below it a positive
@@ -615,8 +665,8 @@ nobody has a prior answer to check them against.
 [`a3_restated.md`](../docs/a3_restated.md),
 [`a3b_initial_construction.md`](../docs/a3b_initial_construction.md),
 [`a5_reachability.md`](../docs/a5_reachability.md),
-[`a7_continuous_c.md`](../docs/a7_continuous_c.md). **A0, A0b, A2, A2c, A2d, A13
-and A14 have no prose document**; their readings are in
+[`a7_continuous_c.md`](../docs/a7_continuous_c.md). **A0, A0b, A2, A2c, A2d and A13
+through A16 have no prose document**; their readings are in
 [RESULTS.md](../RESULTS.md). The code is `experiments/`, one file per station,
 and every run record is a committed `results/*.json`.
 

@@ -1062,6 +1062,114 @@ class RewireSpec:
         )
 
 
+#: Which way the obligation points between the hub set and everyone else.
+#: Each has an object in the manuscript and the framework does not settle which
+#: one produces what, which is why the stage runs all three rather than picking.
+#:
+#: ``creditor``  the hubs collect. Volume One's upward leakage is named as
+#:               mortgage, rent, tax and interest, and the collector is
+#:               upstream, so this is the framework's own default direction.
+#: ``debtor``    the hubs owe, and everyone else holds the claim on them. That
+#:               is the deposit shape, and section 13's fiat-Q construction is
+#:               a hub issuing a claim other people hold as an asset.
+#:
+#:               **This is not A6's fiscal transfer with a different payer**,
+#:               and the difference is four things rather than a label. A6's
+#:               levy (``redistribution.py``, ``_apply_levy``) pays out of
+#:               ``_l1_idx``, which is **layer membership fixed at
+#:               construction**, in **equal shares to every node of
+#:               ``_l2_idx``**, with **no edge test and no liveness test**: a
+#:               production-layer node is paid whether or not the payer can
+#:               reach it and whether or not it is still in the market.
+#:
+#:               Here the payer set is **the top of the in-degree
+#:               distribution**, so it is chosen by the graph rather than by a
+#:               layer label and it moves when the graph does; the payment is
+#:               **routed along the payer's own out-edges** and is therefore
+#:               unequal, with a node the payer cannot reach receiving nothing;
+#:               and the recipient set is **masked by ``_alive``**, so a
+#:               departed creditor drops out and the rest renormalise. A payer
+#:               with no live reachable creditor pays **nothing at all** that
+#:               round, which is a state A6's channel does not have.
+#:
+#:               The two therefore answer different questions. A6 asks what a
+#:               policy that moves claims downward does. This asks what an
+#:               obligation whose counterparties are picked by position and can
+#:               disappear does, which is the only one of the two that can carry
+#:               a contagion.
+#: ``mutual``    the hubs owe each other. Volume One's "investing in each
+#:               other's projects", and the one orientation where a hub's
+#:               failure removes an asset from another hub's book.
+HUB_DEBT_ORIENTATIONS: tuple[str, ...] = ("creditor", "debtor", "mutual")
+
+
+@dataclass(frozen=True)
+class HubDebtSpec:
+    """A bilateral obligation carried by the highest-degree nodes. Off by default.
+
+    **This is the only liability in the flow layer**, and it is deliberately
+    one: the model has no balance sheets anywhere else, claims are conserved
+    through every exit, and it still produces an all-or-nothing cascade. The
+    point of this switch is to find out what a liability adds to that, not to
+    make the cascade possible.
+
+    **The debt does not create claims.** It is a claim on future flow, and the
+    instalment is routed through the payer's own adjacency row, which is the
+    same shape ``asset.py`` gives ``stretch_debt``. Section 14's other reading,
+    that credit creation mints money as debt, is a different switch and the
+    destruction side of it already exists as ``WriteOffSpec``.
+
+    **The instalment is a flow and not a holdings adjustment.** That choice is
+    the one ``_fiscal_flow``'s docstring names: a transfer routed through the
+    flow is an edge and counts as inflow wherever inflow is read, and one
+    applied to holdings directly is money that arrives without one. The
+    obligation has to be the first kind, because the question this switch
+    exists for is whether it changes who falls below the subsistence floor, and
+    the floor reads inflow.
+
+    Off by default, and off reproduces a run without it to the last bit.
+    """
+
+    #: How many of the highest in-degree nodes are the hub set. Zero is off.
+    #: Selected by ``adjacency.sum(axis=0)``, the same expression that picks
+    #: ``injection_node``, so "the node with the most edges" cannot come to mean
+    #: two different nodes in two places.
+    hubs: int = 0
+
+    #: Which way the obligation points. See ``HUB_DEBT_ORIENTATIONS``.
+    orientation: str = "creditor"
+
+    #: Share of the debtor's holdings owed to the creditor set each round.
+    #: Zero is off.
+    #:
+    #: **A recurring rate rather than a principal with a term**, and the first
+    #: version was the other one. A stock that amortises is a transient: at a
+    #: principal of 0.9 and a ten-round term the whole obligation was 48 claims
+    #: against 400,000 of total flow over the run, it was gone by round ten, and
+    #: every reading came back equal to the arm with the switch off, the starved
+    #: count included. **The mechanism has to be alive for the whole run for a
+    #: departure to cost anybody anything**, and Volume One's upward leakage is
+    #: named as mortgage, rent, tax and interest, which are continuing claims
+    #: and not one-off balances. So the object is a stream, and what a creditor
+    #: loses when a debtor goes is that stream.
+    rate: float = 0.0
+
+    def __post_init__(self) -> None:
+        if self.hubs < 0:
+            raise ValueError("hubs must be non-negative")
+        if self.orientation not in HUB_DEBT_ORIENTATIONS:
+            raise ValueError(
+                f"orientation must be one of {HUB_DEBT_ORIENTATIONS}, "
+                f"got {self.orientation!r}"
+            )
+        if not 0.0 <= self.rate < 1.0:
+            raise ValueError("rate must lie in [0, 1)")
+
+    @property
+    def active(self) -> bool:
+        return self.hubs > 0 and self.rate > 0.0
+
+
 @dataclass(frozen=True)
 class WriteOffSpec:
     """Volume One section 14: the accounting chain of a write-off.
@@ -1140,6 +1248,9 @@ class NetworkConfig:
 
     #: Endogenous rewiring. Off by default.
     rewire: RewireSpec = field(default_factory=RewireSpec)
+
+    #: A bilateral obligation on the highest-degree nodes. Off by default.
+    hub_debt: HubDebtSpec = field(default_factory=HubDebtSpec)
 
     epsilon: float = DEFAULT_EPSILON
     rounds: int = 300
@@ -1394,6 +1505,23 @@ class Network:
         # the block model.
         in_degree = self.adjacency.sum(axis=0)
         self.injection_node = int(self._l1[np.argmax(in_degree[self._l1])])
+
+        # The hub set, off the same in-degree vector. Sorted so the set is an
+        # ordered object rather than whatever order the sort happened to give,
+        # which is the shape the B7 partition failed in.
+        hd = config.hub_debt
+        if hd.active:
+            order = np.argsort(in_degree, kind="stable")[::-1]
+            self._hub_nodes = np.sort(order[: hd.hubs]).astype(int)
+        else:
+            self._hub_nodes = np.zeros(0, dtype=int)
+        #: Cumulative claims moved by the obligation, and the number of rounds
+        #: in which no payment could be made because no live creditor was
+        #: reachable. Diagnostics: neither feeds a criterion, and both are here
+        #: because a switch that turns out to have moved nothing should say so
+        #: rather than being inferred from a reading that did not change.
+        self._hub_debt_paid = 0.0
+        self._hub_debt_blocked = 0
 
         # Propensities: the block model's per-stratum values, assigned by layer.
         # The intermediate takes the production side's propensity, since it is a
@@ -1765,6 +1893,77 @@ class Network:
             self._rebuild_route()
         return promoted, demoted
 
+    def _hub_sides(self) -> tuple[np.ndarray, np.ndarray]:
+        """Who owes and who is owed, as two masks, by orientation.
+
+        ``mutual`` returns the same mask twice on purpose: the hubs owe each
+        other, and a node never routes to itself because the adjacency has no
+        self-loops.
+        """
+        is_hub = np.zeros(self._n, dtype=bool)
+        is_hub[self._hub_nodes] = True
+        orientation = self.config.hub_debt.orientation
+        if orientation == "creditor":
+            return ~is_hub, is_hub
+        if orientation == "debtor":
+            return is_hub, ~is_hub
+        return is_hub, is_hub
+
+    def _hub_debt_flow(self, t: int) -> np.ndarray | None:
+        """One round's instalment on the hub obligation, as a flow matrix.
+
+        ``None`` when the switch is off, which is the default, so a run without
+        it never reaches any of this arithmetic and the reproduction is by
+        construction rather than by a no-op path.
+
+        **The creditor is named, and that is the whole point of the switch.**
+        ``asset.py``'s ``stretch_debt`` routes its instalment through the
+        payer's own row precisely so that the destination stays out of the
+        assumptions, which is right for that mechanism and wrong for this one:
+        if nobody holds the matching asset then nobody's book loses anything
+        when a payer stops paying, and there is no contagion to measure. So the
+        instalment goes to the creditor set, **restricted to the creditors the
+        payer already has an edge to**, which names a counterparty without
+        introducing an edge. A payer with no edge to any live creditor does not
+        pay, and the balance stays outstanding, in the same spirit as the wage
+        channel narrowing when its payers are illiquid.
+
+        **A creditor that has left is not a counterparty.** That line is the
+        mechanism this stage exists to measure: the instalment pointed at a
+        departed creditor does not arrive, and whoever was counting on that
+        inflow finds out this round.
+
+        Claims are conserved: the routing rows sum to one over the live
+        creditors a payer can reach, and a payer with none is excluded rather
+        than left to spend into nothing.
+        """
+        hd = self.config.hub_debt
+        if not hd.active:
+            return None
+
+        debtors, creditors = self._hub_sides()
+        live_creditors = creditors & self._alive
+        if not live_creditors.any():
+            self._hub_debt_blocked += 1
+            return None
+
+        reach = ((self.adjacency > 0) & live_creditors[None, :]).astype(float)
+        np.fill_diagonal(reach, 0.0)
+        sums = reach.sum(axis=1)
+
+        due = hd.rate * np.maximum(self.holdings, 0.0)
+        due = np.where(debtors & self._alive & (sums > 0.0), due, 0.0)
+        if not due.any():
+            self._hub_debt_blocked += 1
+            return None
+
+        route = np.divide(reach, sums[:, None],
+                          out=np.zeros_like(reach), where=sums[:, None] > 0.0)
+        matrix = due[:, None] * route
+        self.holdings = self.holdings - due + matrix.sum(axis=0)
+        self._hub_debt_paid += float(due.sum())
+        return matrix
+
     def _fiscal_flow(self, t: int) -> np.ndarray | None:
         """Claims moved by a fiscal channel, as a flow matrix. ``None`` here.
 
@@ -1848,11 +2047,20 @@ class Network:
 
             before = float(self.holdings.sum())
             wage_matrix, _ = self._wage_flow()
+            # The obligation is served before discretionary spending, so it is
+            # senior to consumption. That ordering is not neutral and it is not
+            # arbitrary: Volume One names the upward leakage as mortgage, rent,
+            # tax and interest, and those are the senior claim on a household's
+            # income rather than what is left after it has shopped. The other
+            # ordering is a different model and this switch does not offer it.
+            debt_matrix = self._hub_debt_flow(t)
             spend_matrix = self._discretionary_flow()
             fiscal_matrix = self._fiscal_flow(t)
             flow = wage_matrix + spend_matrix
             if fiscal_matrix is not None:
                 flow = flow + fiscal_matrix
+            if debt_matrix is not None:
+                flow = flow + debt_matrix
             after = float(self.holdings.sum())
             if abs(after - before) > 1e-8:
                 raise AssertionError(

@@ -1,6 +1,6 @@
 {
   "diagnostic_only": true,
-  "diagnostic_reason": "B14 stage two remains locked (design file section 7); this out-of-sample leg is registered in section 7 supplement 2 clause A and its reading is fixed in supplement 2 A1 clause 5, so the record is evidence and not a licensed reading until the station closes",
+  "diagnostic_reason": "B14 stage two remains locked (design file section 7); this out-of-sample leg is registered in section 7 supplement 2 clause A and its reading is fixed in supplement 2 B14_A1 clause 5, so the record is evidence and not a licensed reading until the station closes",
   "grp_from": "pre",
   "min_days": 10,
   "post": [

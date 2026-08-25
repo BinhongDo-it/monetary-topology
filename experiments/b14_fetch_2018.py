@@ -1,6 +1,6 @@
 """B14 leg A fetch: pull the eight 2018 Appendix B.I monthly files into data/raw/.
 
-Registered in the design file section 7 supplement 2 clause A and its expansion A1.
+Registered in the design file section 7 supplement 2 clause A and its expansion B14_A1.
 Also pulls the field specification of record, which is the unlock condition for
 both T7 (the Order_Type code table) and D3-3 (the WA weighting convention).
 
@@ -59,7 +59,7 @@ BASE_ALTS = [
 ]
 VENUES = ["NYSE", "NYSEARCA"]
 #: All five months, October included. The gate drops October (it is the phase-out
-#: month, design file A1 clause 1), but dropping a month from the WINDOWS is not a
+#: month, design file B14_A1 clause 1), but dropping a month from the WINDOWS is not a
 #: reason to leave it off DISK. Two reasons it belongs on disk, both concrete:
 #: the 2016 round has its 201610 cached and leaving 2018 without one is an
 #: asymmetry with nothing behind it; and 2016-10 is where the whole "Test_Group
