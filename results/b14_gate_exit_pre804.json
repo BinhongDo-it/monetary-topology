@@ -1,0 +1,177 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "the exit round restricted to the venue-N symbol set as it stood in 201803, the last month before that file's coverage tripled. The restriction is a coverage fact, predates both windows, and puts this round on a population comparable to the entry round's. B14 stage two is locked, so this is evidence and not a licensed reading",
+  "population_size": 618,
+  "population_source": "panel_v2_NYSE_201803.csv",
+  "stage": "B14",
+  "windows": {
+    "nov-dec": {
+      "cells": {
+        "N/G1": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.4361722267889061,
+            "bbo_shr": -0.3777139193458767,
+            "bbo_shr_adv": -0.366873578329197,
+            "bbo_shr_adv2": -0.35719757180071876
+          },
+          "sign_agrees": true
+        },
+        "N/G2": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.23209468085677243,
+            "bbo_shr": -0.1974271387477433,
+            "bbo_shr_adv": -0.19431404522566087,
+            "bbo_shr_adv2": -0.18999639378212474
+          },
+          "sign_agrees": true
+        },
+        "N/G3": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.48662978006831703,
+            "bbo_shr": -0.39978400294678806,
+            "bbo_shr_adv": -0.3998374714945512,
+            "bbo_shr_adv2": -0.38796514424007333
+          },
+          "sign_agrees": true
+        },
+        "P/G1": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.10312991831172669,
+            "bbo_shr": -0.1550328906775124,
+            "bbo_shr_adv": -0.15818662570381925,
+            "bbo_shr_adv2": -0.1232010090485981
+          },
+          "sign_agrees": true
+        },
+        "P/G2": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.051280117757386945,
+            "bbo_shr": -0.05766735838948733,
+            "bbo_shr_adv": -0.0456413915506233,
+            "bbo_shr_adv2": -0.020309523780705496
+          },
+          "sign_agrees": true
+        },
+        "P/G3": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.028722659804006345,
+            "bbo_shr": -0.20253078370318078,
+            "bbo_shr_adv": -0.1944333700892769,
+            "bbo_shr_adv2": -0.13742414297069028
+          },
+          "sign_agrees": true
+        }
+      },
+      "control_delta": {
+        "N": {
+          "delta": 0.059398377519694456,
+          "n": 295
+        },
+        "P": {
+          "delta": -0.049531404016424974,
+          "n": 293
+        }
+      },
+      "n_cells_agree_and_predicted": 6,
+      "n_cells_sign_agree": 6,
+      "post": [
+        "20181101",
+        "20181231"
+      ],
+      "pre": [
+        "20180801",
+        "20180928"
+      ]
+    },
+    "october": {
+      "cells": {
+        "N/G1": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.3718628300401925,
+            "bbo_shr": -0.315544980845994,
+            "bbo_shr_adv": -0.3169501193323395,
+            "bbo_shr_adv2": -0.309884623453072
+          },
+          "sign_agrees": true
+        },
+        "N/G2": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.2359859378255075,
+            "bbo_shr": -0.22263186530661516,
+            "bbo_shr_adv": -0.22403700379296065,
+            "bbo_shr_adv2": -0.21582759061354895
+          },
+          "sign_agrees": true
+        },
+        "N/G3": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.447590885831852,
+            "bbo_shr": -0.359918788368058,
+            "bbo_shr_adv": -0.3613239268544035,
+            "bbo_shr_adv2": -0.36461668512057854
+          },
+          "sign_agrees": true
+        },
+        "P/G1": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.10734144589442329,
+            "bbo_shr": -0.13390398316897584,
+            "bbo_shr_adv": -0.13115734187510908,
+            "bbo_shr_adv2": -0.11441568002990057
+          },
+          "sign_agrees": true
+        },
+        "P/G2": {
+          "all_predicted_direction": false,
+          "gaps": {
+            "bbo_cnt": 0.0025940703785703734,
+            "bbo_shr": -0.11322468827977655,
+            "bbo_shr_adv": -0.08656761953559938,
+            "bbo_shr_adv2": -0.05029300277039203
+          },
+          "sign_agrees": false
+        },
+        "P/G3": {
+          "all_predicted_direction": true,
+          "gaps": {
+            "bbo_cnt": -0.107798243774052,
+            "bbo_shr": -0.26941522692446035,
+            "bbo_shr_adv": -0.2081367096495696,
+            "bbo_shr_adv2": -0.15171628651617639
+          },
+          "sign_agrees": true
+        }
+      },
+      "control_delta": {
+        "N": {
+          "delta": -0.00027105588049403107,
+          "n": 298
+        },
+        "P": {
+          "delta": -0.07149297180578412,
+          "n": 294
+        }
+      },
+      "n_cells_agree_and_predicted": 5,
+      "n_cells_sign_agree": 5,
+      "post": [
+        "20181001",
+        "20181031"
+      ],
+      "pre": [
+        "20180801",
+        "20180928"
+      ]
+    }
+  }
+}

@@ -2014,6 +2014,405 @@ XNYS.PILLAR and XNAS.ITCH, 27,602,417 cross-venue aligned quote-seconds, $34.689
 | DIAG | B14-0/T1b  order type 13 alone, share 0.1203 | N/G1 +0.414677; N/G2 +0.239191; N/G3 +0.335008; P/G1 +0.096932; P/G2 +0.077592; P/G3 +0.086523 |
 | DIAG | B14-0/T1b  order type 11 alone, share 0.0772 | N/G1 +0.719268; N/G2 +0.530232; N/G3 +0.654006; P/G1 +0.165324; P/G2 +0.158829; P/G3 +0.135239 |
 
+### the placebo band, and what it does to leg A's reading
+
+`results/b14_placebo_band.json`. Eighteen five-month blocks shaped exactly like
+leg A (two months of pre, one dropped, two of post), every one wholly inside the
+pilot, where the treatment does not change and the true gap is zero by
+construction. Block nine is the calendar twin: the same months as leg A with the
+pilot running throughout. The blocks overlap, so their count is consistency and
+not a sample size; the largest non-overlapping subset has three members and its
+spread matches the eighteen.
+
+**The control group's own delta settles what leg A was reading.** On venue N the
+placebo runs from -0.1335 to +0.1097 with a median of -0.0099, and the calendar
+twin reads +0.0028. Leg A reads +0.2766, larger than all eighteen. The move is
+the fourth quarter of 2018 and not the calendar: the same months a year earlier,
+with the pilot in force, give essentially zero. On venue P leg A's -0.0316 sits
+inside the band and the twin is the band's own maximum, so the two venues' common
+drift is not synchronised.
+
+**Four of leg A's six cells sit inside the band.** Against a band of roughly
++/-0.05 on the primary measure, N/G2 (+0.0510), N/G3 (+0.0218), P/G1 (-0.0324)
+and P/G2 (+0.0022) are not readings. Two are outside it, N/G1 at -0.0994 and
+P/G3 at -0.0502, and both are on the side the exit predicts.
+
+**So the registered six-of-six criterion could not have passed.** It asks every
+cell to clear a band that four of the six true effects are smaller than. The
+reading this stage supports is not that the prediction failed; it is that on four
+cells the instrument resolves nothing, and on the two where it resolves anything
+the prediction holds. The pass/fail labels in `b14_gate_exit.json` are superseded
+by this band and should not be quoted.
+
+### the same check run on the entry round, which the audit had not touched
+
+The window contamination was found on the exit round and the entry round was not
+checked against it. That is an audit that only cuts one way, so it was run. The
+entry's post window is November-December 2016 and contains the US election.
+
+Its control delta is +0.1202 on venue N, outside the same eighteen-block band
+(-0.0851 to +0.0864) that the exit's +0.2766 was outside. So the entry window is
+not quiet either. What separates the two is size: on venue N the entry's gaps run
++0.2792 to +0.4394, three to four times the control's own move, where the exit's
+run +0.0012 to +0.0780, a fraction of it.
+
+Across six cells and the four venue conventions, all twenty-four of the entry's
+gaps carry the same sign, and no cell crosses zero. The weakest, P/G3 under the
+T6 convention at +0.0211, sits inside the placebo band; every other cell on venue
+P runs +0.0265 to +0.1058 and every cell on venue N is an order of magnitude
+clear. The entry reading stands, and it stands because the effect dwarfs the
+drift rather than because the window was clean.
+
+**One sentence elsewhere in this stage's heading needs reading narrowly.** "Under
+every weighting convention tried" is true of the entry round, where twenty-four
+of twenty-four agree in sign, and it is not true of the exit round, where five of
+six cells flip sign with the convention. The claim belongs to the entry.
+
+### the exit round on the entry round's population, and two wrong diagnoses before it
+
+`results/b14_gate_exit_pre804.json`. Population: the 618 symbols in the venue-N
+Appendix B file for 201803, the last month before that file's coverage tripled.
+The restriction is a coverage fact, it predates both of the round's windows, and
+applying it to both venues puts the exit round on a population comparable to the
+entry round's. Criterion: sign agreement across the four venue conventions, which
+is not a line on an estimate.
+
+| post window | control delta N | control delta P | sign agreement | predicted direction |
+|---|---|---|---|---|
+| October | -0.0003 | -0.0715 | 5/6 | 5 |
+| November-December | +0.0594 | -0.0495 | **6/6** | **6** |
+
+The gaps run -0.0203 to -0.4866. On the full population they ran -0.0012 to
+-0.0780, so the effect is an order of magnitude larger here, and the control
+delta that was +0.2766 is +0.0594.
+
+**So the fourth quarter of 2018 was never the cause.** The crash showed up as a
+0.2766 move in the control group only because the population contained about 1400
+names whose venue-N activity is marginal, and thin quotes blow out in a crash. On
+the population the entry round ran, the same crash moved the control by 0.0594 and
+every cell still reverses.
+
+**Two diagnoses were published in this session before this one and both were
+wrong.** The first said the November-December window was contaminated by the crash
+and moved the window to October. The second said there was no clean post window at
+all, because the post-pilot level series swings 0.62 where the preceding two years
+swing 0.24. Both were reading a symptom. The level series carried the answer
+already, in the jump from -2.34 to -1.98 across 201804 and 201805, and that jump
+was recorded as a coverage change and then not connected to the failures it was
+causing.
+
+**What this costs and what still stands.** The restriction was arrived at by
+chasing failures, and that is how it was found; its justification is separate and
+predates the looking. The October window change stands on its own reason, which is
+that the 2018 end had no phase-in. Sign agreement needs no band, but any
+statement about size does, and the bands in `b14_placebo_band.json` and
+`b14_placebo_band_1m.json` were measured on the full population. The band on these
+618 symbols is `b14_placebo_band_pre804.json` and `b14_placebo_band_1m_pre804.json`,
+and the post-event check that it transfers is `b14_placebo_post.json`; both are in
+the two subsections below.
+
+### the placebo band on the 618, which is the one the restricted readings stand on
+
+`results/b14_placebo_band_pre804.json` and `results/b14_placebo_band_1m_pre804.json`,
+from `experiments/b14_placebo_band.py --pop pre804`. The same eighteen five-month
+blocks and twenty one-month blocks as before, all of them wholly inside the pilot
+where the true gap is zero by construction, with both venues restricted to the 618
+symbols in the 201803 venue-N file. The filter goes in between load and deltas,
+the same place and the same operation as in `b14_gate_exit_pre804.py`, so the band
+and the gap stand on one population.
+
+Rule 19 was read by running rather than by reasoning. `--pop full` reproduces all
+eighteen five-month blocks on disk field for field, with one exception that is
+itself a finding: the `files` field went from 66 to 72 and every reading held.
+`X.load` lists the whole cache and filters by date, so that field counts what was
+in the cache when the block ran, not what the block read. Three more months were
+built for the October re-read, all of them ending after every block here ends. The
+field is a per-run number sitting in a checked file, which the write discipline's
+sixth clause forbids; it is left in place, and named here so that the next reader
+does not take it for a property of the block.
+
+**The five-month shape, against the November-December post window.**
+
+| cell | observed, four conventions | weakest | band, 18 blocks x 4 | blocks at least as large |
+|---|---|---|---|---|
+| `N/G1` | -0.3777 -0.4362 -0.3669 -0.3572 | 0.3572 | -0.0660 to +0.0851 | **0 / 72** |
+| `N/G2` | -0.1974 -0.2321 -0.1943 -0.1900 | 0.1900 | -0.0600 to +0.0955 | **0 / 72** |
+| `N/G3` | -0.3998 -0.4866 -0.3998 -0.3880 | 0.3880 | -0.0831 to +0.0810 | **0 / 72** |
+| `P/G1` | -0.1550 -0.1031 -0.1582 -0.1232 | 0.1031 | -0.1299 to +0.0884 | 3 / 72 |
+| `P/G2` | -0.0577 -0.0513 -0.0456 -0.0203 | 0.0203 | -0.0735 to +0.1047 | 46 / 72 |
+| `P/G3` | -0.2025 -0.0287 -0.1944 -0.1374 | 0.0287 | -0.0891 to +0.1032 | 35 / 72 |
+
+Control delta: observed N +0.0594, and seven of the eighteen in-pilot blocks move
+the control at least that far; observed P -0.0495, and nine of eighteen do. The
+common move on this population is an ordinary one. On the full population the same
+window gave +0.2766, larger than every block in the band, which is what made the
+original reading unreadable.
+
+**The one-month shape, against the October post window.**
+
+| cell | observed, four conventions | weakest | band, 20 blocks x 4 | blocks at least as large |
+|---|---|---|---|---|
+| `N/G1` | -0.3155 -0.3719 -0.3170 -0.3099 | 0.3099 | -0.0812 to +0.0496 | **0 / 80** |
+| `N/G2` | -0.2226 -0.2360 -0.2240 -0.2158 | 0.2158 | -0.0749 to +0.0405 | **0 / 80** |
+| `N/G3` | -0.3599 -0.4476 -0.3613 -0.3646 | 0.3599 | -0.0654 to +0.0502 | **0 / 80** |
+| `P/G1` | -0.1339 -0.1073 -0.1312 -0.1144 | 0.1073 | -0.1193 to +0.0929 | 2 / 80 |
+| `P/G2` | -0.1132 +0.0026 -0.0866 -0.0503 | 0.0026 | -0.0727 to +0.0900 | 77 / 80 |
+| `P/G3` | -0.2694 -0.1078 -0.2081 -0.1517 | 0.1078 | -0.0903 to +0.0741 | **0 / 80** |
+
+Control delta: observed N -0.0003, quieter than all twenty in-pilot blocks;
+observed P -0.0715, with four of twenty at least that large.
+
+**How to read the last column, and how not to.** It is a count over overlapping
+windows. The eighteen five-month blocks are eighteen views of one panel and the
+largest non-overlapping subset has three members; the twenty one-month blocks give
+seven. So the column reports consistency across the in-pilot span and is not a
+sample size, and `0 / 72` is not a p-value of 1/72. No line is drawn on it. The
+comparison point chosen for each cell is the weakest of the four conventions,
+which is the conservative end.
+
+**What the two tables say together.** Four of the six cells, the three venue-N
+groups and `P/G1`, sit outside everything the in-pilot span produced, on both post
+windows, at the weakest convention. `P/G3` sits outside on October and inside on
+November-December. `P/G2` sits inside on both.
+
+`P/G2` is the same cell whose sign disagrees across conventions in the October
+reading. Two readings taken for different reasons, sign agreement and magnitude
+against noise, single out the same cell. Nothing in the design forced that.
+
+**Restricting widened the band rather than narrowing it.** Venue N was already
+about 618 to 686 symbols throughout the in-pilot span, so its band barely moves:
+the five-month `N/G2` maximum is 0.0955 on both populations. Venue P falls from
+about 2,100 symbols to 618, fewer symbols per cell and therefore noisier, and its
+band widens accordingly: five-month `P/G1` goes from 0.0627 to 0.1299, one-month
+`P/G1` from 0.0607 to 0.1193. The gaps are read against the wider band.
+
+### the post-event placebo: does the in-pilot band transfer, and does the crash forge gaps
+
+`results/b14_placebo_post.json` and `results/b14_placebo_post_full.json`, from
+`experiments/b14_placebo_post.py`. Four one-month-shaped blocks, every window
+wholly after the close on 2018-09-28, when the quoting and trading requirements
+ended for every test group at one moment and every pilot security opened in the
+control condition on October 1. A test-versus-control gap measured entirely after
+that date has nothing generating it.
+
+The group labels cannot come from the panel file here. Its `test_group` column is
+the live condition and reads `C` for every row from 201810 on, 46,668 then 42,283
+then 38,144 rows with no other value, so reading labels from the pre window as both
+rounds do would put every security in the control group and return nothing. They
+come from the FINRA assignment file through `b14_gate0.load_authoritative`, 2,395
+tickers, the same external list `b14_gate0`'s authoritative arm already uses. That
+substitution is why this is a separate script and not a flag on the band.
+
+| | blocks | gap readings | largest \|gap\| | median \|gap\| | largest \|control delta\| |
+|---|---|---|---|---|---|
+| the 618 | 4 | 96 | **0.0593** | 0.0244 | 0.1200 |
+| full population | 4 | 96 | **0.0543** | 0.0142 | 0.1846 |
+
+Per block, largest gap anywhere among six cells and four conventions, on the 618:
+0.0593 for December, 0.0572 for January, 0.0429 for February, 0.0493 for March.
+
+**This was run to answer an objection raised against the band above, and it clears
+it.** That band is measured on blocks wholly inside the pilot and applied to
+windows that are not, which is a criterion whose scope does not meet its object's.
+The post-pilot regime turns out to be the quieter of the two: 0.0593 here against
+0.1299 and 0.1193 in the in-pilot band on the same symbols. The band is therefore
+the conservative one to read the exit round against, and reading the exit round
+against the tighter post-event numbers would only widen the margin.
+
+**The crash is inside the first block and produces nothing.** That block's post
+window is December 2018. Its largest gap anywhere is 0.0593, against the 0.19 to
+0.49 the exit round reads on the venue-N cells. Whatever the fourth quarter of 2018
+did to quotes, it does not forge a test-versus-control gap on this population.
+
+**The restriction does not manufacture gaps either, which is the check it most
+needed.** If cutting to 618 symbols inflated the statistic mechanically, these
+blocks would show it, because they run the identical machine on the identical
+population with nothing to find. Largest gap 0.0593 restricted against 0.0543 full.
+The two are the same number to within the difference between four and four blocks.
+
+**What separates the two populations is not noise in the gap, it is attenuation.**
+Post-event, where test and control sit in the same condition, a common move cancels
+in the difference and both populations read near zero; the full population's control
+does swing further in level, to 0.1846 against 0.1200. Across the event the gaps run
+-0.0012 to -0.0780 on the full population and -0.0203 to -0.4866 on the 618, six
+times larger, and the roughly 1,400 added symbols are names whose venue-N activity
+is marginal. A diluted effect, not an inflated variance.
+
+### the level on the 618, from 201604 to 201903
+
+`results/b14_level_series_pre804.json`, from
+`experiments/b14_level_series.py --pop pre804 --write`. Every other reading in this
+stage is a difference between two windows, and a difference cannot say whether one
+of its windows is unusual. This is the level: the median of log(spread ratio) by
+month, for the 618 symbols the restricted readings stand on, with group membership
+fixed by the published assignment list so that it cannot change in 201810 when
+every pilot security opens in the control condition. No threshold is drawn on it.
+`--pop full` reproduces all 288 cells of the series already on disk.
+
+**The coverage break disappears when the population is held fixed, which is the
+last thing that diagnosis needed.** Venue N's control level jumps +0.1085 across
+201803 to 201804 on the full population, where the symbol count goes 301 to 681. On
+the 618 the same step is +0.0021 and the count goes 301 to 299. Nothing happened to
+these securities in 201804.
+
+**Test group minus control, three regimes.**
+
+| cell | pre-pilot, 201604-09 | in-pilot, 201611-201809 | after, 201810-201903 | the six months after, in order |
+|---|---|---|---|---|
+| `N/G1` | -0.07 to -0.00 | +0.14 to +0.32 | -0.25 to -0.06 | -0.06 -0.11 -0.25 -0.15 -0.06 -0.10 |
+| `N/G2` | +0.07 to +0.10 | +0.23 to +0.47 | +0.13 to +0.47 | +0.29 +0.32 +0.47 +0.30 +0.30 +0.13 |
+| `N/G3` | -0.22 to -0.09 | -0.08 to +0.22 | -0.29 to -0.03 | -0.29 -0.28 -0.09 -0.03 -0.09 -0.11 |
+| `P/G1` | -0.13 to -0.03 | +0.02 to +0.34 | -0.21 to -0.08 | -0.21 -0.13 -0.08 -0.10 -0.18 -0.16 |
+| `P/G2` | -0.02 to +0.07 | +0.23 to +0.46 | +0.22 to +0.36 | +0.36 +0.31 +0.36 +0.27 +0.28 +0.22 |
+| `P/G3` | -0.07 to +0.10 | +0.00 to +0.30 | -0.15 to +0.02 | -0.13 -0.15 -0.11 +0.02 -0.08 -0.15 |
+
+The last column is the six post-pilot months in order rather than a verdict. An
+earlier draft of this table carried a two-word summary computed by comparing the
+post range against the pre range plus a constant, which is a line drawn on an
+estimate and is the shape rule 11 forbids; it labelled `N/G3` as staying up on a
+0.01 margin while the two ranges overlap across most of their width. The ranges and
+the months are the object; no summary of them is offered.
+
+Written out for venue N: `G1` runs -0.07 to -0.00 across the six months before the
+pilot, +0.14 to +0.32 across the twenty-three months of it, and -0.25 to -0.06
+after. `G3` runs -0.22 to -0.09 before, -0.08 to +0.22 during, -0.29 to -0.03
+after. Both are square waves against their own baselines, and the baselines are not
+zero, which is why each group has to be read against its own pre-pilot level rather
+than against the control line.
+
+**`G2` steps up and does not come back.** On venue N it runs +0.09 before, +0.25 to
++0.47 during, and +0.13 to +0.47 after; the lowest post-pilot month is March 2019
+at +0.13, so it may be reverting on a horizon longer than the six months of data
+that exist. On venue P it does not step at all at the switch, +0.353 in 201809
+against +0.357 in 201810.
+
+**That is the third reading to single out the same group, from a third direction.**
+`P/G2` is the cell whose sign disagrees across weighting conventions in the October
+round, and the cell whose gap sits inside the noise band on both post windows. The
+level says why: there is no step there to read. Sign agreement, magnitude against
+noise, and the level picture were taken for unrelated reasons and land on one
+object.
+
+**What this does and does not cost leg A.** The round measures the step at the
+switch, and `N/G2` does take one: its gap reads -0.19 to -0.23 against a band whose
+widest reading is 0.13. What the level adds is that the step does not carry `G2`
+back to where it began. The claim leg A can carry is that the friction half moves
+with the friction in both directions; the claim it cannot carry is that the friction
+half returns to its pre-treatment relation for every group.
+
+**The pre window is ordinary.** 201808 and 201809 read -2.280 and -2.314 on venue N
+against an in-pilot plateau of -2.185 to -2.412. An earlier reading in this stage
+proposed that the shared pre window was what both post windows were reacting to.
+On this population it is unremarkable, and the population was the cause.
+
+### the level series, and the coverage change nobody had looked at
+
+`results/b14_level_series.json`. Every other reading in this stage is a difference
+between two windows, and a difference cannot say whether one of its windows is
+unusual. This is the level, month by month, for a population fixed by the
+published group list.
+
+**Venue N's reporting scope changes in April 2018.** Distinct symbols in the
+Appendix B file: 969 in 201608 before the pilot, 687 from 201610 when it narrows
+to the pilot universe, 618 by 201803, then **2110 in 201804**, and from there on
+venue N and venue P are identical to a handful. Before that break venue N carried
+about thirty per cent of what venue P carried. The names that appear are
+Nasdaq-listed and the group proportions are preserved, so this is reporting scope
+and not the market.
+
+**The entry round and the exit round are therefore not the same instrument on the
+same securities.** The entry reads about 679 venue-N symbols, the exit about 2070,
+and roughly two thirds of the exit's population is Nasdaq-listed names whose
+venue-N activity is marginal. Thin activity gives noisy spreads, and noisy spreads
+are what make an answer turn on the weighting convention, which is exactly the
+exit round's symptom. That is a candidate explanation and is recorded as one; it
+is not established until the exit round is re-run on the pre-April-2018
+population.
+
+**The entry round's own windows straddle the 201610 change and it survives that**,
+because a symbol must appear in both windows to contribute, so the population is
+the intersection; gate0's 679 venue-N symbols is the narrower scope already.
+
+**After the pilot ends the series stops being stable.** From 201604 to 201803 the
+venue-N control level stays between -2.4406 and -2.2021, a range of 0.24 across
+two years. From 201810 to 201903 it runs -1.8161, -1.1970, -1.4564, -1.2008,
+-1.6455, -1.7590: a swing of 0.62 in six months, with November and January more
+extreme than December although December was the worse month for the market. So
+the exit round has no clean post window, and the reason is a property of this data
+after the pilot ended rather than one quarter's weather. October reads clean
+because it is the last month before the swing starts, and it has already moved
+from -1.93 to -1.82.
+
+**The pre window is not the anomaly, and an earlier reading in this session
+guessed that it was.** The guess was that two post windows a quarter apart giving
+the same control delta pointed at the window they share. The level series shows
+201808 and 201809 flat against each other and against the months before them, and
+the instability entirely after them. The guess was wrong and is recorded as wrong.
+
+### leg A re-read on October, and why the window changed
+
+`results/b14_gate_exit_oct.json`, band in `results/b14_placebo_band_1m.json`.
+
+**Why October was dropped, and why that reason does not transfer.** The 2016
+round drops October 2016 because the pilot phased in across it: the test groups
+entered in waves between October 3 and October 31, so the month is neither a pre
+nor a post observation. Leg A mirrored that drop into 2018. The 2018 end has no
+such property. Cboe's expiration notice records that the quoting and trading
+requirements ended "at the close of trading on September 28, 2018" and that "as of
+October 1, 2018, all securities in Tick Pilot Test Groups will open in the Control
+Group": one moment, every group, no waves. The mirror carried the calendar shape
+of the drop without carrying its reason.
+
+**How the window was arrived at, stated rather than implied.** This is a redesign
+after the fact. The defect was found by reading data: leg A's control delta of
++0.2766 exceeded all eighteen placebo blocks, and enumerating every post window
+anchored on 2018-09-28 showed October to be the only one whose control delta sits
+inside the band. The justification is separate from the discovery and is
+structural, and it was available before any window was run. Both belong in the
+record. The original verdict stands unwithdrawn.
+
+**The window is clean.** Control delta +0.0573 on venue N and -0.0298 on venue P,
+both inside the matching band (N -0.0674..+0.0640, P -0.0423..+0.0668) measured on
+twenty in-pilot blocks of the same shape. Those blocks overlap; the largest
+non-overlapping subset has seven members and its spread matches.
+
+**All five conventions, and what they actually say.** The raw gaps, negative
+meaning the treated group's spread narrowed relative to control, which is the
+direction the exit predicts:
+
+| cell | `bbo_shr` | `bbo_cnt` | `bbo_shr_adv` | `bbo_shr_adv2` | `nbbo_shr` |
+|---|---|---|---|---|---|
+| N/G1 | -0.0583 | -0.0780 | -0.0456 | -0.0505 | -0.0719 |
+| N/G2 | +0.0134 | -0.0015 | +0.0136 | +0.0097 | -0.0367 |
+| N/G3 | -0.0012 | +0.0102 | +0.0135 | +0.0112 | -0.0577 |
+| P/G1 | -0.0389 | +0.0046 | -0.0160 | +0.0134 | -0.1211 |
+| P/G2 | -0.0322 | +0.0262 | -0.0151 | +0.0044 | -0.0844 |
+| P/G3 | -0.0433 | +0.0227 | +0.0022 | +0.0115 | -0.1199 |
+
+**One cell is a reading and five are not, and the reason is in the numbers rather
+than in any rule.** On N/G1 the four venue conventions agree in sign and in size,
+-0.0456 to -0.0780, and the range never crosses zero; the primary puts it outside
+the band. On the other five the sign flips with the weighting: P/G3 runs from
+-0.0433 to +0.0227 depending only on whether rows are weighted by shares or by
+order count and on whether zero-spread rows are admitted. The spread across
+conventions, 0.015 to 0.066, is the same size as the effects being read. A
+quantity that changes sign when the weighting changes, by as much as the quantity
+itself, is not a measurement of anything at this precision.
+
+**The disagreement is itself informative and is recorded as a finding rather than
+as a nuisance.** Share weighting and order-count weighting come apart when large
+orders behave differently from small ones, and admitting zero-spread rows matters
+when locked and crossed quotes are common. That the sign turns on those choices
+says the effect lives in a subset of rows the weightings treat differently, and
+locating that subset is a question this stage did not ask.
+
+**The consolidated measure is negative on all six, from -0.0367 to -0.1211, and it
+is a different object.** The NBBO is not a venue-level quantity, so a venue-level
+design cannot score it without putting criterion and object in different scopes.
+That it is the one measure with no disagreement is consistent with the mechanism:
+the best quote across all venues moves as soon as any single venue improves, while
+one venue's own spread also carries that venue's share of everything else.
+
 ### leg B and candidate zero: the fourteen records that carry no criteria block
 
 These fourteen files in `results/` hold no `criteria` block, so nothing about

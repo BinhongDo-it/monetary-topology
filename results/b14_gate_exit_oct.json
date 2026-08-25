@@ -1,0 +1,525 @@
+{
+  "band_blocks": 20,
+  "band_independent": [
+    0,
+    3,
+    6,
+    9,
+    12,
+    15,
+    18
+  ],
+  "band_note": "the band blocks overlap; their count is consistency and not a sample size, and the largest non-overlapping subset has 7 members",
+  "band_source": "results/b14_placebo_band_1m.json",
+  "diagnostic_only": true,
+  "diagnostic_reason": "leg A re-read on the post window the original design dropped; the drop mirrored the 2016 phase-in month, and the 2018 end had no phase-in (all test groups ended at the close on 2018-09-28 and opened in the control group on October 1). This is a redesign after the fact: the defect was found by reading the control group's own delta, the justification for the window is structural and predates the reading, and results/b14_gate_exit.json stands unwithdrawn. B14 stage two is still locked, so this record is evidence and not a licensed reading. The population caveat on results/b14_gate_exit.json applies to this record too: it runs on venue N's post-201804 Appendix B scope, about 2070 symbols against the entry round's 679. results/b14_gate_exit_pre804.json re-reads both post windows on the 618 symbols the two rounds share",
+  "grp_from": "pre",
+  "measures": {
+    "bbo_cnt": {
+      "cells": {
+        "N/G1": {
+          "band_p10": -0.028511588669484028,
+          "band_p90": 0.03544316074394299,
+          "outside_band": true,
+          "raw_gap": -0.07796225340173563,
+          "twin": 0.011021751201975682
+        },
+        "N/G2": {
+          "band_p10": -0.028783079419659463,
+          "band_p90": 0.03115753660317432,
+          "outside_band": false,
+          "raw_gap": -0.0014985890067533703,
+          "twin": 0.029818818712661344
+        },
+        "N/G3": {
+          "band_p10": -0.04091116472391676,
+          "band_p90": 0.03135004013290156,
+          "outside_band": false,
+          "raw_gap": 0.01019868653653444,
+          "twin": 0.018696400931287216
+        },
+        "P/G1": {
+          "band_p10": -0.040730508304473355,
+          "band_p90": 0.019888737992336696,
+          "outside_band": false,
+          "raw_gap": 0.004584654813515311,
+          "twin": 0.017455653367860258
+        },
+        "P/G2": {
+          "band_p10": -0.03613926794421329,
+          "band_p90": 0.02433102106444778,
+          "outside_band": true,
+          "raw_gap": 0.026224065192777514,
+          "twin": 0.03332896506810479
+        },
+        "P/G3": {
+          "band_p10": -0.031300728833822435,
+          "band_p90": 0.028190805045454834,
+          "outside_band": false,
+          "raw_gap": 0.022703242986688556,
+          "twin": 0.05056162964646149
+        }
+      },
+      "control_delta": {
+        "N": {
+          "band_p10": -0.06442624148583272,
+          "band_p90": 0.05700873971313699,
+          "delta": 0.054489165422122454,
+          "n": 744,
+          "outside_band": false
+        },
+        "P": {
+          "band_p10": -0.07065146766494419,
+          "band_p90": 0.07487334879717422,
+          "delta": -0.020332616577965125,
+          "n": 1030,
+          "outside_band": false
+        }
+      },
+      "desc": "weighting-convention check: WA_BBO_Spd, order-count weighted",
+      "outside_band": 2,
+      "outside_band_and_predicted_sign": 1,
+      "table": {
+        "N/C": {
+          "delta": 0.054489165422122454,
+          "n": 744
+        },
+        "N/G1": {
+          "delta": -0.023473087979613172,
+          "n": 238
+        },
+        "N/G2": {
+          "delta": 0.052990576415369084,
+          "n": 231
+        },
+        "N/G3": {
+          "delta": 0.0646878519586569,
+          "n": 226
+        },
+        "P/C": {
+          "delta": -0.020332616577965125,
+          "n": 1030
+        },
+        "P/G1": {
+          "delta": -0.015747961764449814,
+          "n": 328
+        },
+        "P/G2": {
+          "delta": 0.005891448614812389,
+          "n": 304
+        },
+        "P/G3": {
+          "delta": 0.0023706264087234308,
+          "n": 310
+        }
+      }
+    },
+    "bbo_shr": {
+      "cells": {
+        "N/G1": {
+          "band_p10": -0.0334513270475859,
+          "band_p90": 0.033538796937819026,
+          "outside_band": true,
+          "raw_gap": -0.058285139023226074,
+          "twin": -0.007334021383936573
+        },
+        "N/G2": {
+          "band_p10": -0.0327078840259076,
+          "band_p90": 0.02929378564593426,
+          "outside_band": false,
+          "raw_gap": 0.013435559050749446,
+          "twin": 0.022978398442825787
+        },
+        "N/G3": {
+          "band_p10": -0.04295562398601564,
+          "band_p90": 0.0339309915917735,
+          "outside_band": false,
+          "raw_gap": -0.0012334708911637682,
+          "twin": 0.016123364719120015
+        },
+        "P/G1": {
+          "band_p10": -0.03817445612198621,
+          "band_p90": 0.03458433760696223,
+          "outside_band": true,
+          "raw_gap": -0.03891088894296951,
+          "twin": 0.037069511243881914
+        },
+        "P/G2": {
+          "band_p10": -0.04113118024329265,
+          "band_p90": 0.024679457382781708,
+          "outside_band": false,
+          "raw_gap": -0.032192322236035506,
+          "twin": 0.02207337431740783
+        },
+        "P/G3": {
+          "band_p10": -0.027180146348243162,
+          "band_p90": 0.027511801615145343,
+          "outside_band": true,
+          "raw_gap": -0.04330967381535289,
+          "twin": 0.05604639099574166
+        }
+      },
+      "control_delta": {
+        "N": {
+          "band_p10": -0.06738795333131382,
+          "band_p90": 0.06399940141158993,
+          "delta": 0.05732791049731645,
+          "n": 744,
+          "outside_band": false
+        },
+        "P": {
+          "band_p10": -0.04234733090229366,
+          "band_p90": 0.06681338915478018,
+          "delta": -0.029793452579568114,
+          "n": 1030,
+          "outside_band": false
+        }
+      },
+      "desc": "primary: WA_BBO_Spd, share weighted",
+      "outside_band": 3,
+      "outside_band_and_predicted_sign": 3,
+      "table": {
+        "N/C": {
+          "delta": 0.05732791049731645,
+          "n": 744
+        },
+        "N/G1": {
+          "delta": -0.0009572285259096258,
+          "n": 238
+        },
+        "N/G2": {
+          "delta": 0.0707634695480659,
+          "n": 231
+        },
+        "N/G3": {
+          "delta": 0.05609443960615268,
+          "n": 226
+        },
+        "P/C": {
+          "delta": -0.029793452579568114,
+          "n": 1030
+        },
+        "P/G1": {
+          "delta": -0.06870434152253763,
+          "n": 328
+        },
+        "P/G2": {
+          "delta": -0.06198577481560362,
+          "n": 304
+        },
+        "P/G3": {
+          "delta": -0.073103126394921,
+          "n": 310
+        }
+      }
+    },
+    "bbo_shr_adv": {
+      "cells": {
+        "N/G1": {
+          "band_p10": -0.03322076652540668,
+          "band_p90": 0.0293986225126471,
+          "outside_band": true,
+          "raw_gap": -0.045579390457817115,
+          "twin": -0.008581967894595088
+        },
+        "N/G2": {
+          "band_p10": -0.03492985747539398,
+          "band_p90": 0.028370162869182307,
+          "outside_band": false,
+          "raw_gap": 0.01359497372438001,
+          "twin": 0.022978398442825787
+        },
+        "N/G3": {
+          "band_p10": -0.04295562398601564,
+          "band_p90": 0.03155008471838771,
+          "outside_band": false,
+          "raw_gap": 0.013501617191718496,
+          "twin": 0.016123364719120015
+        },
+        "P/G1": {
+          "band_p10": -0.0395004166204419,
+          "band_p90": 0.03787697462607077,
+          "outside_band": false,
+          "raw_gap": -0.016019568676397644,
+          "twin": 0.03774162627001143
+        },
+        "P/G2": {
+          "band_p10": -0.035128120987319475,
+          "band_p90": 0.033524793725865615,
+          "outside_band": false,
+          "raw_gap": -0.015116280134301163,
+          "twin": 0.03329192554253241
+        },
+        "P/G3": {
+          "band_p10": -0.026404242445000566,
+          "band_p90": 0.03191828910245564,
+          "outside_band": false,
+          "raw_gap": 0.0022333752435570453,
+          "twin": 0.056782592625501116
+        }
+      },
+      "control_delta": {
+        "N": {
+          "band_p10": -0.06934125797137607,
+          "band_p90": 0.06399940141158993,
+          "delta": 0.05599490250989814,
+          "n": 744,
+          "outside_band": false
+        },
+        "P": {
+          "band_p10": -0.04288888229845776,
+          "band_p90": 0.07008766245987984,
+          "delta": -0.03266230689253147,
+          "n": 1030,
+          "outside_band": false
+        }
+      },
+      "desc": "T5 adverse convention: zero-spread rows admitted at their true share weight\n      (design file section 4 supplement 1)",
+      "outside_band": 1,
+      "outside_band_and_predicted_sign": 1,
+      "table": {
+        "N/C": {
+          "delta": 0.05599490250989814,
+          "n": 744
+        },
+        "N/G1": {
+          "delta": 0.010415512052081022,
+          "n": 238
+        },
+        "N/G2": {
+          "delta": 0.06958987623427815,
+          "n": 231
+        },
+        "N/G3": {
+          "delta": 0.06949651970161663,
+          "n": 226
+        },
+        "P/C": {
+          "delta": -0.03266230689253147,
+          "n": 1030
+        },
+        "P/G1": {
+          "delta": -0.04868187556892911,
+          "n": 328
+        },
+        "P/G2": {
+          "delta": -0.04777858702683263,
+          "n": 304
+        },
+        "P/G3": {
+          "delta": -0.030428931648974422,
+          "n": 310
+        }
+      }
+    },
+    "bbo_shr_adv2": {
+      "cells": {
+        "N/G1": {
+          "band_p10": -0.038412111724629314,
+          "band_p90": 0.03235274385320633,
+          "outside_band": true,
+          "raw_gap": -0.05053127155850928,
+          "twin": -0.005596142157308082
+        },
+        "N/G2": {
+          "band_p10": -0.04237649206807333,
+          "band_p90": 0.029356711825813314,
+          "outside_band": false,
+          "raw_gap": 0.009701550968207073,
+          "twin": 0.028862537278874778
+        },
+        "N/G3": {
+          "band_p10": -0.046147564712869404,
+          "band_p90": 0.03453804155776617,
+          "outside_band": false,
+          "raw_gap": 0.011175887230783721,
+          "twin": 0.012425307497749616
+        },
+        "P/G1": {
+          "band_p10": -0.037103298651805575,
+          "band_p90": 0.03407384525187356,
+          "outside_band": false,
+          "raw_gap": 0.0133632304758875,
+          "twin": 0.0323332304210302
+        },
+        "P/G2": {
+          "band_p10": -0.043935041092480184,
+          "band_p90": 0.04872321812932689,
+          "outside_band": false,
+          "raw_gap": 0.004384666504274881,
+          "twin": 0.04744496810890164
+        },
+        "P/G3": {
+          "band_p10": -0.02341063466940571,
+          "band_p90": 0.03825650688955262,
+          "outside_band": false,
+          "raw_gap": 0.011517362383859475,
+          "twin": 0.05817317702773589
+        }
+      },
+      "control_delta": {
+        "N": {
+          "band_p10": -0.06880883620975271,
+          "band_p90": 0.06123117679361396,
+          "delta": 0.05891745847752089,
+          "n": 744,
+          "outside_band": false
+        },
+        "P": {
+          "band_p10": -0.04696130459203446,
+          "band_p90": 0.06119591700032101,
+          "delta": -0.02401787938440636,
+          "n": 1030,
+          "outside_band": false
+        }
+      },
+      "desc": "T6 arithmetic sensitivity: blanks and zeros both admitted at their true share\n      weight (design file section 4 supplement 2)",
+      "outside_band": 1,
+      "outside_band_and_predicted_sign": 1,
+      "table": {
+        "N/C": {
+          "delta": 0.05891745847752089,
+          "n": 744
+        },
+        "N/G1": {
+          "delta": 0.008386186919011607,
+          "n": 238
+        },
+        "N/G2": {
+          "delta": 0.06861900944572796,
+          "n": 231
+        },
+        "N/G3": {
+          "delta": 0.07009334570830461,
+          "n": 226
+        },
+        "P/C": {
+          "delta": -0.02401787938440636,
+          "n": 1030
+        },
+        "P/G1": {
+          "delta": -0.01065464890851886,
+          "n": 328
+        },
+        "P/G2": {
+          "delta": -0.01963321288013148,
+          "n": 304
+        },
+        "P/G3": {
+          "delta": -0.012500517000546885,
+          "n": 310
+        }
+      }
+    },
+    "nbbo_shr": {
+      "cells": {
+        "N/G1": {
+          "band_p10": -0.04540806068706501,
+          "band_p90": 0.04893328356587042,
+          "outside_band": true,
+          "raw_gap": -0.0719336296284323,
+          "twin": 0.008947890086348664
+        },
+        "N/G2": {
+          "band_p10": -0.03582427935162295,
+          "band_p90": 0.04792946487288251,
+          "outside_band": true,
+          "raw_gap": -0.03668464116672476,
+          "twin": 0.030040529812312866
+        },
+        "N/G3": {
+          "band_p10": -0.046074452575249086,
+          "band_p90": 0.03365689756621138,
+          "outside_band": true,
+          "raw_gap": -0.057705925569982774,
+          "twin": 0.016050190093792605
+        },
+        "P/G1": {
+          "band_p10": -0.028053387857312248,
+          "band_p90": 0.03114799987283051,
+          "outside_band": true,
+          "raw_gap": -0.12106959149467411,
+          "twin": 0.0296452928992319
+        },
+        "P/G2": {
+          "band_p10": -0.052827878585069835,
+          "band_p90": 0.04456594587072676,
+          "outside_band": true,
+          "raw_gap": -0.08442748416400431,
+          "twin": 0.044353360857762425
+        },
+        "P/G3": {
+          "band_p10": -0.045664406078718286,
+          "band_p90": 0.033104170202230686,
+          "outside_band": true,
+          "raw_gap": -0.11993430213422485,
+          "twin": 0.03325021010382967
+        }
+      },
+      "control_delta": {
+        "N": {
+          "band_p10": -0.08715618714325736,
+          "band_p90": 0.06436010975874662,
+          "delta": 0.06260014104654843,
+          "n": 1057,
+          "outside_band": false
+        },
+        "P": {
+          "band_p10": -0.06384934386283388,
+          "band_p90": 0.07400567056192912,
+          "delta": 0.023126758037752104,
+          "n": 1059,
+          "outside_band": false
+        }
+      },
+      "desc": "cross-check: WA_NBBO_Spd share weighted, excluded from the verdict",
+      "outside_band": 6,
+      "outside_band_and_predicted_sign": 6,
+      "table": {
+        "N/C": {
+          "delta": 0.06260014104654843,
+          "n": 1057
+        },
+        "N/G1": {
+          "delta": -0.009333488581883875,
+          "n": 336
+        },
+        "N/G2": {
+          "delta": 0.025915499879823667,
+          "n": 316
+        },
+        "N/G3": {
+          "delta": 0.004894215476565655,
+          "n": 321
+        },
+        "P/C": {
+          "delta": 0.023126758037752104,
+          "n": 1059
+        },
+        "P/G1": {
+          "delta": -0.09794283345692201,
+          "n": 338
+        },
+        "P/G2": {
+          "delta": -0.0613007261262522,
+          "n": 320
+        },
+        "P/G3": {
+          "delta": -0.09680754409647274,
+          "n": 320
+        }
+      }
+    }
+  },
+  "post": [
+    "20181001",
+    "20181031"
+  ],
+  "pre": [
+    "20180801",
+    "20180928"
+  ],
+  "round": "2018-october",
+  "sign": -1,
+  "stage": "B14"
+}
