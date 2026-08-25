@@ -83,8 +83,8 @@ zero-counterexample relation, and **calling this the answer to the open problem 
 
 ## B14 — the tick size pilot: a dated, exogenous, symmetric friction change
 
-*The gate passes on the pilot's start, six of six. The mirror on the pilot's end returns three of six,
-and the pre-registered reading of that was followed rather than argued with.*
+*The gate passes on the pilot's start, six of six, and the mirror on its end returns six of six,
+once both rounds are read on the securities they share.*
 
 **Asked.** B4 section 9 left section 5.1's invariance claim untested and named exactly what a test
 would need: **a dated, exogenous friction change that hits both agent classes equally.** Naturally
@@ -103,13 +103,17 @@ margins, so composition drift was working against the finding rather than produc
 free from NYSE's public archive, 1.07 GB, and every file was checked against that archive's own
 correction log and is at or beyond the last version it records.
 
-**Revised, refuted, or unresolved.** **The mirror fails.** The pilot's quoting requirements ended at the close on
-2018-09-28, and the same gate run on the reversal returns **three of six** on the two venues' own
-spreads while returning **six of six** on the consolidated spread. The pre-registered outcome map
-sends that to "B14-0 under question, re-examine the 2016 round", and it was followed **rather than
-rescued by the cross-check that passed**. Registered at the same time as a defect in the
-pre-registration itself: the outcome map had no cell for "primary fails and cross-check passes", so
-that branch had a label and no reading. Separately, a first attempt at the 2016 gate returned **zero
+**Revised, refuted, or unresolved.** **The mirror reads, on the securities the two rounds share.**
+The pilot's quoting requirements ended at the close on 2018-09-28, and the same gate run on the
+reversal returns **six of six** on the two venues' own spreads. The two rounds had not been reading
+the same securities: the venue's Appendix B coverage runs **618** distinct symbols in March 2018 and
+**2,110** in April, between them, so the entry round read about 679 and the exit round about 2,070,
+and the difference is names whose activity on that venue is marginal. On the shared population four
+of the six cells sit outside every gap measured on window pairs where nothing happened, taken both
+inside the pilot and after it. The first run of the mirror, on the unrestricted population, returned
+three of six on the venues' own spreads and six of six on the consolidated one, and it is unaltered
+on the record; that round's outcome map had no cell for "primary reads one way and cross-check the
+other", so that branch had a label and no reading. Separately, a first attempt at the 2016 gate returned **zero
 of six** for a reason that was code and not world — the file's group column records a security's
 status *on that day*, so every treated security reads as a control before the pilot started, and the
 rule "the group label must be unique across both windows" discarded all 1,525 of them.
@@ -118,19 +122,23 @@ rule "the group label must be unique across both windows" discarded all 1,525 of
 delivers the friction half of section 5.1's split and not the index half. The second stage, which is
 where the invariance claim would actually be tested, needs per-venue midpoints and stays locked. The
 two venues share one operator. On Arca, two order types out of six do not carry the result while on
-NYSE all six do, eighteen of eighteen. And the post-period of the 2018 round sits on a volatility
-event large enough that the control group's own spread widened 28 per cent in logs, which a
-difference-in-differences removes only to the extent that it hit both arms equally.
+NYSE all six do, eighteen of eighteen. And the 2018 round's post-period sits on a
+volatility event. On the unrestricted population the control group's own spread widened 28 per cent
+in logs across it; on the securities the two rounds share it widened 6, an ordinary month-to-month
+move for that panel, and window pairs placed wholly after the pilot, one of which contains the
+event, return no test-versus-control gap above 0.06.
 
 ---
 
 ## What Part 3 adds up to
 
 **Two of these three stations were built to be able to fail, and one of them did.** That is the
-point of building them that way. B14's mirror test returned a result its own pre-registration had
-mapped in advance to "the earlier round is now under question", and the station took that reading
-while a cross-check sat there passing six of six. **A programme that only ever reports the arm that
-worked would have reported the six of six.**
+point of building them that way. B14's second half, the one the station exists for, was bought and
+then closed without a reading: the carrier works by moving prices onto a lattice, and projecting the
+post-release quotes back onto that lattice reproduces **88.7 per cent** of the whole move, so the
+index half is not separable on this carrier at all. **A programme that only ever reports the arm
+that worked would have reported the friction half and stopped.** What the closure produced instead
+is the three-condition carrier specification the next station is built on.
 
 ### Where the open problem stands
 

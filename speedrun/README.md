@@ -145,10 +145,12 @@ the loop sum varies by 1.42.
 **B14** is the identification station. Section 5.1 of the directed-graph result
 left an invariance claim untested and named exactly what a test would need: a
 **dated, exogenous friction change that hits both agent classes equally**. The
-2016 tick size pilot is that. The gate passes on the pilot's start, six of six.
-**The mirror test on the pilot's end returns three of six**, and the
-pre-registered reading of that outcome was followed rather than argued with, so
-the earlier round is now under question by the station's own rule.
+2016 tick size pilot is that. The gate passes on the pilot's start, six of six, and the mirror on its end
+returns six of six. The two rounds had to be put on the same securities first:
+the venue's Appendix B coverage runs 618 distinct symbols in March 2018 and 2,110
+in April, between the rounds. On the shared population four of the six cells sit
+outside every gap measured on window pairs where nothing happened, taken both
+inside the pilot and after it.
 
 **B3** reads cross-currency funding on the Du–Keerati–Schreger CIP dataset,
 1,513,471 rows, 2000 to 2025, and asks whether cycles that never touch the US

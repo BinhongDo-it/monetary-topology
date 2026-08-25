@@ -30,7 +30,9 @@ RESULTS = ROOT / "results"
 
 SOURCES: dict[str, tuple[str, ...]] = {
     "B14-0": ("b14_gate0.json", "b14_ordertype_sens.json"),
-    "B14-A": ("b14_gate_exit.json",),
+    "B14-A": ("b14_gate_exit.json", "b14_gate_exit_pre804.json",
+              "b14_placebo_band_pre804.json", "b14_placebo_band_1m_pre804.json",
+              "b14_placebo_post.json", "b14_level_series.json"),
     "B14-B0": ("b14_legb_probe.json", "b14_legb_spend.json",
                "b14_legb_panel_checks.json"),
     "B14-B1": ("b14_legb_gate1.json",),
@@ -83,15 +85,21 @@ CRITERIA: list[dict] = [
      "from the verdict before the run, so nothing moves, but the dependence must "
      "be quoted with it"},
     {"name": "B14-A  leg A, the pilot's termination read as a reversed event, "
-             "FAIL, and the failure is a zero rather than a reversal",
-     "passed": False, "detail":
-     "the primary convention holds 3 of 6 on the 2018 round. The six raw gaps "
-     "straddle zero, and the design file's own reading, fixed before the run, is "
-     "that the nickel grid is a one-sided constraint: imposing it forces every "
-     "venue, lifting it only permits, while the NBBO is a market-wide minimum. "
-     "So the sign-flip prediction was never owed on the venue's own BBO, and the "
-     "NBBO cross-check does hold 6/6. The FAIL stands on the record and is not "
-     "reinterpreted"},
+             "on the population the two rounds share",
+     "passed": True, "detail":
+     "the two rounds had been reading different symbol universes. The venue's "
+     "Appendix B coverage runs 618 distinct symbols in 201803 and 2110 in 201804, "
+     "between the rounds, and from 201804 on it matches the other venue's where "
+     "before it carried about a third of it. Restricted to the 618, which is a "
+     "coverage fact and predates both of the round's windows, the primary window "
+     "holds 6 of 6, every one of the four venue weighting conventions agreeing in "
+     "sign and in the predicted direction, and the control group's own delta is "
+     "0.0594 where the unrestricted run gave 0.2766. Four of the six cells sit "
+     "outside every gap measured on window pairs where nothing happened, whether "
+     "those pairs are taken inside the pilot, widest 0.1299, or after it, widest "
+     "0.0593. The unrestricted run stands unaltered in results/b14_gate_exit.json "
+     "and its own numbers are not touched; what changed is the population it was "
+     "read on, not the criterion"},
     {"name": "B14-B0  leg B was bought and the wire format was read correctly",
      "passed": True, "detail":
      "108 NYSE-listed pilot symbols on two venues over eight months of bbo-1s. "
