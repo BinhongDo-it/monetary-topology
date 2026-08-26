@@ -494,7 +494,7 @@ Station documents exist for [`a1_prereg.md`](../docs/a1_prereg.md),
 [`a5_reachability.md`](../docs/a5_reachability.md),
 [`a6_siphon_cost.md`](../docs/a6_siphon_cost.md) and
 [`a7_continuous_c.md`](../docs/a7_continuous_c.md). **A0, A0b, A2, A2c, A2d and
-A8 through A16 have no prose document**, and their readings are in
+A8 through A18 have no prose document**, and their readings are in
 [RESULTS.md](../RESULTS.md) alone. **What this claim does and does not license**
 is [`b0_claim_scope.md`](../docs/b0_claim_scope.md), and what it costs
 Domar-weighted aggregation is
@@ -563,17 +563,21 @@ appendix and it is the densest thing in the repository for this field.
 
 ## Networks, complex systems, and agent-based modelling
 
-**Stations: A0, A0b, A2, A2c, A2d, A3, A5, A7, A13, A14, A15, A16.**
+**Stations: A0, A0b, A2, A2c, A2d, A3, A5, A7, A13, A14, A15, A16, A17, A18.**
 
-**A16 produces a cascade with no liabilities anywhere.** The standard
-derivations come in two families: financial contagion, where A owes B and A's
-failure removes B's asset, and production networks, where A's stoppage denies B
-an input. This model has neither. There are no debts, no receivables and no input
-requirements between nodes, and the claim total is conserved through every
-departure. It collapses anyway, through inflow alone: a node whose inflow falls
-below subsistence stops spending, its counterparties' inflow falls with it, and
-they stop in turn. **So balance-sheet interconnection and real input dependence
-are each sufficient for a cascade and neither is necessary.** A16 then adds one
+**A16 produces a cascade with no balance sheet and no input dependence.** The
+usual derivations come in two families: financial contagion, where A owes B and
+A's failure removes B's asset, and production networks, where A's stoppage
+denies B an input. **This model carries neither and takes a third route.** There
+are no debts, no receivables and no input requirements between nodes, and the
+claim total is conserved through every departure. What propagates is income: a
+node whose inflow falls below subsistence stops spending, the routes that
+pointed at it are renormalised across whoever is still trading, its
+counterparties' inflow falls with it, and they stop in turn. **So balance-sheet
+interconnection and real input dependence are each sufficient for a cascade and
+neither is necessary.** The route this model takes is the income-expenditure
+spiral, given an absorbing threshold and put on a graph rather than on an
+aggregate, and the threshold is the part that makes it discrete. A16 then adds one
 liability on purpose, carried by the highest-degree nodes and pointing three ways
 in turn, and the closing count below the line moves by single digits on a base of
 76 to 154.
@@ -584,6 +588,145 @@ is at or below 0.0086 in 105 of them and at or above 0.9339 in the other 55, an
 empty band of 108 times with no run inside it. The crossing sits between floor
 multiples of 0.125 and 0.150, and at 0.150 both regimes occur at the same depth
 on different draws.
+
+**A17 asks whether the graph on its own carries the cascade, and it does not.**
+Cutting seven tenths of the edges leaves total flow at 0.99 of the control's when
+the edges go at random and 0.94 when they are aimed at the hubs, and in the
+second case the graph does not even come apart. The literature's paired result,
+robust to random link removal and fragile to targeted removal, does not
+reproduce here, and the reason is the object: that result removes nodes, taking
+every edge at once, while a hub here keeps enough edges to stay connected. **And
+removing nodes does cascade** — that is the subsistence floor, measured across
+several stations. So the graph's phase transition is not the mechanism; taking
+the nodes out is, and the income threshold is what takes them out.
+
+**Which side does the cutting changes the sign, by three orders of magnitude.**
+At the same threshold and share, a stressed node cutting its own out-edges
+leaves flow at 0.0199 of the control's; its counterparties cutting the edges
+that point at it leaves flow at **32.9 times** the control's, because the flow
+is redirected to the better-connected, who have more onward edges and spend
+more of what arrives. Withdrawal by the weak and withdrawal from the weak are
+different objects here.
+
+**A18 reads the policy switches as time paths, which no earlier station did.**
+Four switches, all already in the model, one of which the code already calls a
+political condition rather than a mechanism. **Forbearance does not defer the
+problem, it prevents it**: the arm that lets nodes go ends with a claim stock
+17.45 times its opening and the arm that keeps everyone in the market ends at
+1.0005, with a later first move and a *smaller* largest jump. And the
+accumulation turns out to belong to the issuance rule rather than to loss
+recognition: with the authority switched off, all twelve policy combinations end
+at exactly 1.0000.
+
+**A18_B puts somebody behind the forbearance and asks what they are out of
+pocket.** A node below the line is topped up by whoever already lends to it,
+along the edges already there, so nothing is created and the conservation
+assertion stays a criterion. **The rescue is a loop**: over thirty-nine cells the
+lenders end holding between 0.0016% and 0.44% of what they paid less than they
+would have, and not one cell leaves them better off. They are, however, under a
+real constraint, and this stage is the first to record it: they cover 87% of
+what the rescue asks at the shallow floor and **27%** at the deepest one.
+
+**So where the money comes from is a measurement rather than a definition.**
+Three routes over forty-five cells: the lenders' own book, new claims credited
+to the lenders a round later, or a levy per head on everyone still trading. The
+second holds the fewest below the line in twenty-three of them and ends with a
+claim stock up to **7.53 times** its opening; the two conservative routes end
+within 2% of where they started. **The route that saves the most bought them.**
+
+**And when the recapitalised nodes retain instead of passing it on, the benefit
+and the price come apart.** The framework already carries the object for this,
+since the retention rate is one minus the spending propensity and the
+propensities are per node. The count below the line is **flat from no retention
+up to 0.95** while `M/R` climbs from about 5 to about 32 over the same span. At
+total retention the stage produces a shape no earlier one did: **claims created
+that do not circulate**, with the stock at 30.9 times its opening, total flow at
+0.893 of the control's, and the only growing flow being lending to the nodes
+below the line. Decomposed, the injection is 7.7 times the opening stock and the
+issuance rule reacting to the collapse it caused is 22.2, so **the reaction is
+2.89 times the intervention**.
+
+**A18_C is the control for that, and it narrows it.** The arm above created
+claims in one place only and attributed their failure to circulate to
+retention. This one creates the same amount for the same reason and lands it
+either on the lenders or spread over everyone still trading, with nothing else
+different. **Over 135 paired cells the count below the line is identical in 105
+and differs by a single node in 23**, in both directions, which is the size of
+the discrete jitter this carrier already carries. So the reading is not that
+created claims stop where they land; it is that they stop when whoever receives
+them does not pass them on.
+
+**Where the landing point does matter is the informative part.** Five pairs
+differ by more than two nodes and they are one cell of the grid at every seed,
+at zero wage elasticity, and the effect falls monotonically as that channel
+strengthens: 14 of 45 pairs differ with a largest gap of eleven nodes at
+elasticity zero, 10 of 45 and a gap of two at 0.5, and 6 of 45 and a gap of one
+at 1.0. **Where new claims land matters only when there is nothing to
+redistribute them away from where they landed.**
+
+**A18_D makes the rescue a loan, which every earlier arm's was not.** A gift
+cannot show a debt overhang, cannot show a rescue that leaves its recipient
+worse off, and cannot tell a bridge from a trap; here the rescued node owes what
+it received to the nodes that funded it and services that before it spends
+anything of its own, which is the seniority the manuscript gives to mortgage,
+rent, tax and interest. **The ledger closes to the last bit in all 330 rows**,
+which is a different check from the round's conservation assertion: that one
+watches the holdings total and this one watches the book.
+
+**A repayable rescue does more with the same balance sheet**, because the
+lenders' stock is finite and a rescue that comes back can be made again: the
+amount delivered exceeds the gift arm's in 97 of 180 comparisons with a median
+ratio of **1.34**. **And the best repayment rate is almost never the largest
+one.** It sits strictly inside the grid in 24 of 45 cells and at the largest
+rate in 2. One cell reads `139, 111, 115, 118, 127` across repayment rates of
+zero to one: **repaying five per cent a round leaves sixteen fewer nodes below
+the line than repaying the whole balance**, and both beat never repaying.
+**Whether the balance clears is a property of the floor**: a median of 4.5 per
+cent of everything lent is still outstanding at the shallower depth against
+**19 per cent** at the deepest, at every rate on the grid.
+
+**A18_E gives the graph a boundary, and it was built because two separate
+readings asked for the same thing.** One had said that holding claims back and
+holding something outside the trading system are a single state here; the other
+had measured output per unit repaid and got a positive number, because the
+creditor who receives a payment lends it out again. **Both are the same missing
+piece.** A share of a node's holdings now leaves the accounts the flow routes
+through and is not destroyed.
+
+**It is not the earlier switch under a new name**, which is the first thing
+checked: under retention the parked stock is zero in 90 of 90 cells, because a
+retaining node's claims are still on its account and an obligation still reaches
+them; under parking it is above zero in 245 of 245. **In every cell the two move
+the circulating half in opposite directions.** Across the grid the stock rises
+**twenty-two times** while the money that circulates falls to **0.15** of its
+opening, as a continuous dial rather than a corner of a grid.
+
+**And output per unit repaid turns sign with it**: **+1.08 to +1.50** with no
+parking, **−0.58 to −0.37** at a fifth, and back to +0.24 to +0.49 at a half,
+where so little circulates that the repayment flow is itself most of what is
+left. **One switch separates a payment that recirculates from a payment that
+leaves**, with nothing else in the cell different.
+
+**A18_F asks who carries a forbearance programme.** The same forbearance and the
+same parking, funded either from the lenders' own book or from claims an
+authority creates and hands to them. **Its grid sits three orders below the arm
+above**, because that one's lowest parking rate already leaves ninety-two per
+cent of the stock parked and every cell in it reports saturation; the parked
+share passes a third at about 0.002.
+
+**The first criterion publishes a translation table and calibrates nothing**:
+the parked share against the parking rate, monotone in all four series and
+spanning a third in all four, so that an external figure for how much of a
+banking system sits outside the trading system has somewhere to land. **Landing
+it is left to whoever has the figure.**
+
+**The deeper the distress, the more the funding route decides.** At the
+shallower floor the authority route buys about thirty per cent more circulation
+than making the lenders carry it; at the deeper one it buys **four to five times
+as much**, and the count below the line differs in 48 of 60 pairs. The two
+routes are also non-monotone in different shapes: on the lenders' route the
+count drifts upward with parking, and on the authority's it flips between two
+values.
 
 **A15 finds the same shape in a rescue rule.** Letting a node return when its
 inflow recovers either halves the count that leaves and returns the economy to
@@ -666,7 +809,7 @@ nobody has a prior answer to check them against.
 [`a3b_initial_construction.md`](../docs/a3b_initial_construction.md),
 [`a5_reachability.md`](../docs/a5_reachability.md),
 [`a7_continuous_c.md`](../docs/a7_continuous_c.md). **A0, A0b, A2, A2c, A2d and A13
-through A16 have no prose document**; their readings are in
+through A18 have no prose document**; their readings are in
 [RESULTS.md](../RESULTS.md). The code is `experiments/`, one file per station,
 and every run record is a committed `results/*.json`.
 

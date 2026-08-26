@@ -3584,6 +3584,668 @@ rate settings sharing one set of seeds.
 | PASS | A16-8 where along the floor the composition effect lives | the boundary sits between 0.125 and 0.150; the frozen share is bimodal with an empty band of 108 times; four hits in twenty at every shallow depth, the same four cells |
 
 
+## A17 — edges cut out of the graph, rather than a node ceasing to trade
+
+`rounds=300` `seeds=5` `f2i=30` `e=0.5` `floor off on every arm` `315 rows`
+
+**6/6 criteria passed.** Every rule in this model reads the node's own state,
+and the exit branch does not touch the adjacency: it flips a membership flag,
+the routes that pointed at the node are masked for that round, and the potential
+graph is what it was at construction. So a trading relationship ending is not
+something the model could express. This stage adds that and asks whether a
+phase transition in the graph produces a cascade on its own.
+
+**The floor is off on every arm, and two measurements are why.** With the cut
+trigger at the floor the nodes whose edges are cut are exactly the nodes that
+have already left, 180 stranded against 180 departed, the same set, and the flow
+identical to the control's. Raising the trigger above the floor does not help
+either, because at the registered floor the cascade already takes 180 of 200.
+So the floor comes off and the cut threshold is the only one in the model.
+
+**Removing edges does not produce a cascade, either at random or aimed at the
+hubs.** Cutting seven tenths of the edges at random leaves total flow at 0.99 of
+the control's while breaking the graph into 13 to 19 components; aimed at the
+hubs it leaves flow at 0.94 and **the graph in one piece**. The literature's
+paired result, robust to random link removal and fragile to targeted removal,
+does not reproduce, and the reason is the object: that result removes *nodes*,
+taking every edge at once, and a hub here has so many edges that a seven-tenths
+cut of the hub-incident ones leaves it connected.
+
+**Removing nodes does produce one, and this repository has measured that many
+times: it is the subsistence floor.** So the three read together: taking nodes
+out cascades, taking edges out at random does not, taking edges out at the hubs
+does not. The graph's phase transition is not what does it.
+
+**The targeted arm's stranded set is fixed by the construction, and the
+artefact detector caught it.** The same node ids at all five seeds, intersection
+full, every one of them with an opening out-degree of 81 against 3 to 18 for the
+rest. Those thirty are the wage payers, whose out-degree is set when the graph is
+built rather than drawn, so a rule that ranks on degree always reaches them
+first. **That arm therefore measures cutting the payroll channel's edges first**,
+which is a named intervention its readings hold for, and not the generic
+targeting of the literature.
+
+**Who does the cutting is the mechanism, by three orders of magnitude.** At the
+same trigger and share, a stressed node cutting its own out-edges leaves flow at
+0.0199 of the control's, while its counterparties cutting the edges that point
+at it leaves flow at **32.9 times** the control's. Withdrawal by the weak and
+withdrawal from the weak are different objects here, not one object named twice.
+The second is intelligible: cutting the edges into the weakest redirects flow to
+the better-connected, who have more onward edges and a higher propensity, so
+circulation speeds up among them until the trigger rises far enough that
+everyone counts as weak, at which point the same rule leaves 0.0097.
+
+**A resemblance worth naming, and it is a pointer rather than a result.** Money
+leaving weaker institutions and concentrating in stronger ones, with the
+aggregate at the core rising while the periphery empties, is the documented
+shape of a flight to quality: deposits moved from smaller to larger institutions
+in March 2023, and the earlier leg of the same pattern is visible in the deposit
+surge at the institutions that later failed. **The mapping is not tested here
+and this stage does not claim it.** What is measured is that the sign and the
+magnitude of the effect depend on which side does the cutting, which is the part
+someone doing the empirical work would need.
+
+**Sixty-two cells run on under a twentieth of the control's flow**, and the
+support statistic there is a ratio of two small numbers rather than a reading.
+It takes the values 0.0, 0.3706 and 0.4246 on them against the control's 1.0338,
+and those numbers are not to be read in either direction.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A17-1 the control arm is A12's off arm | 5 of 5 fields identical to `a12_mechanisms.json` |
+| PASS | A17-2 one threshold, two responses, two readings | identical on 0 of 5 seeds at both settings. At the mild one the same threshold strands 25 through the edge rule against 195 departing through the floor, and the floor arm's flow is thirty times the edge arm's |
+| PASS | A17-4 what the graph does with no trigger anywhere | random and hub-targeted, nine shares each, given above. Neither collapses |
+| PASS | A17-5 the two triggered arms against each other | 0.0199 against 32.9 at the same trigger and share |
+| PASS | A17-7 is the stranded set the low-degree tail | it is not: the stranded carry a higher mean opening out-degree than the kept, and on the targeted arm they are a construction-fixed set |
+| PASS | A17-8 support readings taken on near-zero flow | 62 cells named, and their support numbers refused |
+
+## A18 — what the policy switches do to the time path
+
+`rounds=300` `seeds=5` `two floor depths` `120 rows` `no mechanism added`
+
+**6/6 criteria passed.** Every station before this one reads a closing value: a
+closing Gini, a closing count below the line, a mean over the last twenty-five
+rounds. None reads a trajectory, and a claim of the form "it looks steady and
+then releases something larger" is only falsifiable on one. Four switches are
+read here as paths, all four already in the model, and the code already calls
+one of them a political condition rather than a mechanism.
+
+**The count below the line is not one object across the two exit rules**, and
+that is the gate this stage runs first. Under `exit` it is a running total that
+never falls, monotone in 12 of 12 cells; under `drawdown` it is re-read every
+round, monotone in 6 of 12. So the readings are taken on the claim-to-resource
+ratio and on total flow, which mean the same thing under both.
+
+**Forbearance does not defer the problem here, it prevents it.** At the deeper
+floor the arm that lets nodes go ends with a claim stock **17.45 times** its
+opening; the arm that keeps everyone in the market ends at **1.0005**. The
+predicted shape, quiet for a while and then a larger release, needs both a later
+start and a larger jump; the forbearance arm starts twelve rounds later and its
+largest single-round jump is **smaller** than the control's, so it has one of the
+two. The un-forborne arm's largest jump lands at **round 5 at every seed** and
+measures `0.069` to `0.081`. The forbearance arm has **no jump to read**: two of
+its five seeds never leave their opening value by more than floating tolerance
+at all, and the three that do move by `0.0003` to `0.0005`, three orders below
+the control. **This is not an early break against a slow drift, it is a break
+against nothing happening.**
+
+**The accumulation is the issuance rule's, not the write-off's.** With the
+authority switched off, **all twelve policy combinations end at exactly
+1.0000**. With it on, recognising losses cuts the ratio from 17.45 to 4.94, and
+refilling what was destroyed barely moves it again, to 5.07. This is the other
+half of what A15 found: a permanent collapse in production-layer inflow makes
+the stabiliser issue continuously, and keeping nodes in the market is what stops
+the collapse that starts it.
+
+**At the shallow floor there is nothing to read**, and that is reported rather
+than filled in: recognising losses and not recognising them return identical
+numbers, because the write-off never fires there and the claims destroyed in the
+closing round are zero on every arm.
+
+**One correspondence was written down before the run and is answered by the B
+arm below.** Forbearance is dangerous in the world because the forborne party
+keeps receiving new credit. A node here eats its own stock until it has none and
+nobody feeds it. The readings above hold for forbearance without resupply;
+`A18_B` is the other kind.
+
+**A field in this record was measured and corrected on 2026-08-26.** The round
+at which each series makes its largest single-round move was taken as
+`argmax` of the absolute differences, with no guard on the size of that move.
+Under forbearance `M/R` is flat for all three hundred rounds, its largest change
+is one unit in the last place, and eight to eleven rounds tie at exactly that
+value, so the field indexed into a set of ties and reproduced nothing. It now
+reports no jump when the series never moves. **The reading it supported has been
+withdrawn and replaced above**; nothing else in this record changed, and
+`docs/MEASUREMENT.md` failure mode 46 carries the shape.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A18-1 the control policy is A12's floor arm | `M/R` over its opening 17.56787 against A12's 17.56787, closing count below the line 151 against 151 |
+| PASS | A18-2 the count below the line is not one object | monotone in 12 of 12 under `exit` and 6 of 12 under `drawdown`, which is why the main readings are taken elsewhere |
+| PASS | A18-6 does not recognising a loss accumulate anything | at the shallow floor the two write-off settings are identical and nothing is destroyed; at the deeper one 17.57 against 4.92 |
+| PASS | A18-3 quiet then release, a slow grind, or neither | neither, and better than neither: 1.0005 against 17.45, with a later start and no readable jump at all on two of five seeds |
+| PASS | A18-4 the paths, sampled | five sample rounds per series per cell, printed rather than summarised |
+| PASS | A18-5 every cell, and the three most extreme | 110 cells against a control at the same floor and seed |
+
+
+## A18_B — forbearance with somebody paying for it, and where that money comes from
+
+`rounds=300` `seeds=5` `three floor depths` `three funding routes` `435 rows` `150 boundary cells`
+
+**8/8 criteria passed.** The A arm above measured forbearance with nobody
+feeding the forborne party and said so before it ran. This arm supplies the
+feeder: a node below the subsistence line is topped up by whoever already lends
+to it, along the edges that are already there, in the direction they already
+point. **No edge is introduced and nothing is created by default**, so the
+conservation assertion stays a criterion rather than something to exempt.
+
+**The interesting quantity is not the node being kept alive, it is the ones
+paying.** Across the thirty-nine cells where money moved, the lenders hand over
+a gross amount and end holding between **0.0016% and 0.44%** of it less than
+they would have. **The rescue is a loop**: what they pay, the rescued node
+spends, and the graph carries it back. Not one cell has them better off.
+
+**The constraint they are under is real and this record now says so.** The model
+computed the shortfall the rescue asked for and recorded only the part it could
+fund; both are recorded from this run. The lenders cover **87%** of what is
+asked at the shallow floor and **27%** at the deepest floor with the largest
+rate. **They cannot fund three quarters of it.** That is what makes the funding
+routes below a measurement rather than an identity.
+
+**Three routes, because "where does a rescue's money come from" has three
+answers and they are not three settings of one dial.** The lender's own book,
+new claims from outside the graph credited to the lenders one round later, or a
+levy per head on everyone still trading. The last two give the money back to
+exactly the nodes it came from and differ only in where it is found.
+
+| route | holds fewest below the line | claim stock at close |
+|---|---|---|
+| `creditors` | 4 of 45 cells | **1.000 – 1.022** |
+| `issuance` | **23 of 45** | **1.002 – 7.531** |
+| `levy` | 0 of 45 | **1.000 – 1.006** |
+
+They agree on the count in the remaining 18. **The route that saves the most
+bought them**, and the claim stock is the price; the two conservative routes end
+within 2% of where they started.
+
+**What survives when the recapitalised nodes stop passing it on.** The framework
+already has the object for this: `SpendRule` states that the retention rate is
+`1 − propensity` and reads as the rate of exit from cross-layer circulation, and
+the propensities are per node. So a recapitalised node that retains is a node
+whose propensity has been scaled. **The rescue itself is untouched**, because it
+is served before discretionary spending: a retaining node goes on funding
+whatever it is asked for and stops doing everything else.
+
+The count below the line turns on **27 of 45 cells**, first turning at `0.5`,
+`0.9` or `1.0` depending on how large the rescue is relative to the need. At the
+deeper floor with a rescue that is not marginal, the count is **flat from `0.00`
+to `0.95` and moves only at total withdrawal**, while `M/R` climbs from about 5
+to about 32 over the same span. **The benefit survives almost any amount of
+retention. The price is paid throughout**, at **1.0 to 26.1 times** the claim
+stock at no retention.
+
+**At total retention the arm produces the one shape this repository had not
+produced before**: claims created that do not circulate. At the shallow floor
+with the smallest rate, the claim stock closes at **30.9 times** its opening
+while total flow closes at **0.893** of the control's, the count below the line
+does not move, and **the only flow that grows is lending to the nodes below the
+line**, from 207 to 772. Decomposed against an opening claim stock of 100: the
+injection itself is **7.7×** and the authority's own issuance rule, reacting to
+the inflow collapse the injection caused, is **22.2×**. **The reaction is 2.89
+times the intervention**, and it is A15's amplifier reached from a new direction.
+
+**One cell of 150 sits on a boundary and the record names it.** Perturbing every
+opening holding by `1e-10`, a difference of the order that separates one BLAS
+build's summation order from another's, moves the count below the line in
+exactly one cell: floor `0.50`, rate `1.0`, `creditors`, seed 1, from 153 to
+132. A single unit in the last place moves nothing, three of the five seeds hold
+to `1e-6`, and **that one cell is the one that disagreed when this record was
+re-run on a second machine.** There is no exemption list for it; the scan is
+recorded in full and `docs/MEASUREMENT.md` failure mode 48 carries the shape.
+
+**The `exit` arm is printed and carries no criterion**, because a node out of
+the market receives and does not spend, so claims sent to it are frozen by
+construction. It is worth printing anyway: at the deepest floor the same rescue
+raises the count below the line from **157.6 to 174.2**, cuts the effective
+support from **29.90 to 20.32**, and leaves the paying nodes **better off by
+26.34** rather than worse. **The same money, the same edges, and the sign turns
+on whether the recipient is still trading.**
+
+### The resemblance to Japan, stated as a resemblance
+
+**No parameter in this model comes from Japanese data.** The carrier is the
+registered one and the switches are the framework's own. What follows was found
+after the fact and is offered as a pointer for someone who wants to test the
+mapping, which this stage does not.
+
+| | Japan, 2001–06 | this stage, floor 0.20, rate 1.0, full retention |
+|---|---|---|
+| bank lending | **−10%** | total flow **−10.7%** |
+| response over intervention | recapitalisation ¥8.6tn, monetary base +¥37tn, **≈4.3×** | injection 7.7×, issuance rule 22.2×, **2.89×** |
+| lending to the weakest | sustained or rising | **+273%** |
+| created money entering circulation | base **+70%**, M2 trajectory unchanged | claims **×30.9**, flow **×0.893** |
+| the weak | failures suppressed | count below the line barely moves |
+| prices | mild deflation | **no price level exists here** |
+
+**The load-bearing part is the mechanism rather than the numbers, and the C arm
+below narrows which mechanism.** The standard account of why that episode's
+monetary expansion did not reach the money supply is that the purchases were
+made from banks rather than from non-banks, so the new claims stopped where they
+landed. **Landing them somewhere else is now an arm, and it changes almost
+nothing**: over 135 paired cells the count below the line is identical in 105
+and differs by one node in 23. What the claims stopping turns on here is
+retention, not the landing point. The accounting form of that account, which
+rests on reserves and deposits being different aggregates, has no counterpart in
+a model with one kind of claim and is not tested either way.
+
+**The landing point is not inert everywhere, and where it is not is
+informative.** It matters in one corner of the C arm's grid, at zero wage
+elasticity, and its influence falls monotonically as the wage channel
+strengthens: the count differs in 14 of 45 pairs at elasticity 0 with a largest
+gap of 11 nodes, 10 of 45 and a gap of 2 at 0.5, and 6 of 45 and a gap of 1 at
+1.0. **Where the claims land matters only when there is no redistribution
+channel to carry them away from where they landed.**
+
+**Two scope statements, and a third that A18_E closed.** The cell was selected
+from a scan and needs retention at its maximum; at `0.9` the flow is **1.084**
+of the control and the direction is the other way. There is no price level, so
+the cause of deflation is reproducible here and deflation is not.
+
+**The third was that retaining and holding something outside the trading system
+were one state, because there was no outside.** There is one now. A18_E
+separates them, and with it the signature this pointer reaches for by selecting
+an extreme retention cell is produced directly and as a continuous dial: the
+stock rises **22 times** while the circulating half falls to **0.15** of its
+opening. **A reading that needed a corner of the grid is now a reading of a
+parameter.**
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A18_B1 the A arm reproduces its record | 120 recorded rows re-run through the edited code, 0 fields differ |
+| PASS | A18_B2 what the rescue does to the count below the line | where money moved the count never rose; by route, 5 of 6 down on each |
+| PASS | A18_B3 gross paid against net cost to the payers | net over gross `0.0016%` to `0.44%`, 0 cells with the payers better off |
+| PASS | A18_B4 is more rescue always less distress | monotone in some cells and not others; the non-monotone cells are named |
+| PASS | A18_B7 where the rescue's money comes from | 45 cells with all three routes, 18 agreeing; claim stock 1.000–1.022, 1.002–7.531, 1.000–1.006 |
+| PASS | A18_B8 what survives when the money is retained | the count turns on 27 of 45 cells at levels 0.5, 0.9 or 1.0; price 1.0 to 26.1 times |
+| PASS | A18_B6 which readings sit on a boundary | 1 of 150 cells moves under a `1e-10` perturbation, named |
+| PASS | A18_B5 under exit, where the rescue money ends up | printed, not judged: the arm reports its own construction |
+
+
+## A18_C — where the created claims land, and whether that is what decides anything
+
+`rounds=300` `seeds=5` `three floor depths` `three rates` `two landing points` `wage elasticity swept` `360 rows`
+
+**5/5 criteria passed.** The B arm reported that created claims can fail to
+circulate and attributed it to retention, having created them in one place only.
+**This arm exists to find out whether the place was the operative part.** The
+same amount is created for the same reason and arrives either on the nodes that
+funded the rescue or spread evenly over every node still trading; nothing else
+differs, which is what A18_C1 checks before anything is read.
+
+**Over 135 paired cells the landing point changes the count below the line in
+30, and 23 of those by a single node in both directions.** That is the size of
+the discrete jitter this carrier already carries, measured in A18_B6. **In 105
+pairs there is no difference at all.**
+
+**The five pairs that differ by more than two nodes are one cell of the grid,
+at every seed.** Floor `0.50`, rate `4.0`, wage elasticity `0.0`: landing on the
+lenders leaves 3, 4, 5, 9 and 11 more nodes below the line than landing on
+everyone, in the same direction at all five seeds, with total flow 16 to 17 per
+cent lower.
+
+**And the effect is monotone in the wage channel's strength.**
+
+| wage elasticity | pairs whose count differs | largest gap |
+|---|---|---|
+| 0.0 | 14 of 45 | **11** |
+| 0.5 | 10 of 45 | 2 |
+| 1.0 | 6 of 45 | **1** |
+
+**So where new claims land matters only when there is nothing to redistribute
+them.** With a live wage channel the graph carries them away from wherever they
+arrived and the landing point does no work; with the channel dead it is the only
+thing moving them and the landing point becomes visible.
+
+**This narrows the B arm's reading rather than confirming it.** "The claims
+stopped where they landed" is not what the model says. What it says is that the
+claims stopped because whoever received them did not pass them on, and that
+where they arrived is second order and appears only when the redistribution
+channel is off as well.
+
+**The wage channel's own effect on the count is not monotone**, and that is
+reported rather than smoothed: it moves the count in 45 of 90 cells, and it
+moves it both ways. At floor `0.20` with rate `1.0` on the lender arm the count
+runs `75, 150, 150` across the three elasticities, so raising it doubles the
+count; at floor `0.50` with rate `2.0` it runs `103, 75, 75`, so raising it
+halves it.
+
+**The full-retention rows are printed and carry no criterion.** Under `uniform`
+every node still trading is a recipient, so retention there withdraws the whole
+economy rather than the recapitalised set, and the two are not the same
+experiment. They are worth printing: at three of five seeds the two landing
+points are identical, and at the other two the uniform arm's flow falls to
+between 1,013 and 2,249 against roughly 20,200 on the lender arm. **Another
+bimodal pair with nothing between**, which is now the fifth on this carrier.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A18_C1 the two arms differ in the landing point and nothing else | recipients 1 to 52 under lenders against 200 under uniform; 19 pairs inert because the rescue never fired, named |
+| PASS | A18_C2 does the landing point change the count | second state: 30 of 135 pairs, 23 of them by one node in both directions, and the five larger ones are one cell at every seed |
+| PASS | A18_C3 the continuous readings across the pair | median relative gap: flow 1.15%, `M/R` 1.75%, support 0.058%, Gini 0.0045%, rescue paid 9.09% |
+| PASS | A18_C4 does the wage channel's strength change the count | second state: 45 of 90 cells, and not in one direction |
+| PASS | A18_C5 full retention under each landing point | printed, not judged, and why |
+
+
+## A18_D — the rescue as a loan rather than a gift
+
+`rounds=300` `seeds=5` `three floor depths` `five repayment rates` `330 rows`
+
+**6/6 criteria passed.** Every earlier arm's rescue was a gift: the node below
+the line received and never repaid. That made three things unreachable at once
+— a debt overhang, a rescue that leaves its recipient worse off, and any
+distinction between a bridge and a trap. Here the rescued node owes what it
+received, to the nodes that funded it, and **services that debt before it
+spends anything of its own**, which is the seniority Volume One gives to
+mortgage, rent, tax and interest and the same ordering the hub obligation
+already carries.
+
+**The book closes exactly.** Lent, less repaid, less outstanding, is **zero to
+the last bit in all 330 rows**. That check is not redundant with the round's
+conservation assertion: the assertion watches the holdings total and this
+watches the ledger, and a repayment rule can be wrong in the second while the
+first is satisfied.
+
+**A repayable rescue does more with the same balance sheet.** The lenders' stock
+is finite and the rescue is capped by it, so a rescue that comes back can be
+made again: over 180 paired comparisons the amount of rescue delivered exceeds
+the gift arm's in **97**, with a median ratio of **1.34** and a maximum of
+**3.00**. The count below the line falls in 93 comparisons, holds in 77, and
+**rises in 10**.
+
+**The best repayment rate is almost never the largest one.** Of 45 cells it sits
+strictly inside the grid in **24**, at zero in 19, and at the largest rate in
+**2**. The counts show what that means:
+
+| cell, counts at repayment 0 / 0.05 / 0.20 / 0.50 / 1.00 | |
+|---|---|
+| floor 0.50, rate 1.0, seed 0 | `139, 111, 115, 118, `**`127`** |
+| floor 0.20, rate 1.0, seed 3 | `153, 120, 123, `**`117`**`, 123` |
+| floor 0.20, rate 1.0, seed 4 | `152, `**`113`**`, 117, 121, 121` |
+
+**Repaying faster is worse than repaying slowly, past a point that is inside the
+grid rather than at its edge.** The first row is the sharpest: five per cent a
+round leaves 111 below the line and repaying the whole balance leaves 127, which
+is worse by sixteen nodes and still better than never repaying at all.
+
+**Whether the balance clears depends on how deep the floor is.** The share of
+everything lent that is still outstanding at close has a median of **4.5%** at
+floor 0.20 and **19.0%** at floor 0.50, and the ranges do not overlap at their
+middles. **At the deepest floor a fifth of the rescue is structurally
+unrepayable**, and it stays that way at every repayment rate on the grid.
+
+**One branch is reported as never firing, and the reason is two different
+things.** A debtor that owes while every one of its creditors has left
+circulation pays nothing and its arrears stand. That fired in **0 of 90** exit
+rows and **0 of 240** drawdown rows. Under `drawdown` it *cannot* fire, because
+`_alive` is set false only by the exit rule and every creditor is therefore live
+forever; under `exit` it can, and does not, **because the creditors are by
+construction the solvent in-neighbours of whoever was below the line and are
+therefore the last nodes to leave.** A count of zero here is a statement about
+who lends, not about how many rows were run.
+
+**The cell A18_B named as closest to a real episode, now with the rescue
+repayable**, printed and not judged: the count below the line falls from
+**121.2** to **109.0**, the rescue delivered rises from 4,128 to 5,683, the
+outstanding balance falls from 4,128 to 1,333, and `M/R` rises from **42.1** to
+**57.6**. **More is rescued and more is created**, because more lending draws
+more recapitalisation behind it.
+
+### A second resemblance, and it is a thin one
+
+**No parameter here comes from any episode**, and this pointer is weaker than
+the one on A18_B. It is stated with its weakness because the arithmetic that
+would have made it strong came out with the wrong sign.
+
+**What matches is one direction.** Repaying faster is worse than repaying slowly
+past a point inside the grid, which is the shape of the argument that
+front-loaded consolidation costs more than gradual consolidation. The recorded
+direction on the other side is that countries expected to improve their
+structural balance performed worse than forecast, and that Greece's debt ratio
+rose from roughly 130 per cent of output at end-2009 to roughly 180 by 2016
+despite the consolidation.
+
+**What does not match is the magnitude, and it does not match in sign.** The
+comparable quantity is a multiplier: output per unit of consolidation. Measured
+here as the change in total flow per unit repaid, it runs **+0.56 to +1.50**.
+**Repaying raises flow in this model.** A consolidation multiplier is negative
+in the same units.
+
+**The reason was structural, and A18_E removed it.** This stage's creditors are
+inside the graph, so what a debtor repays is received by somebody who lends it
+again; the defining feature of the episode is that the payments left the
+economy, and there was no outside here for them to leave to. **Two independent
+correspondences had named the same missing piece**, this one and the Japan
+pointer above, which is a statement about the model rather than about either
+episode. A18_E supplies it, and **the sign turns**:
+
+| creditors parking, per round | flow per unit repaid |
+|---|---|
+| none | **+1.08 to +1.50** |
+| 0.20 | **−0.58 to −0.37** |
+| 0.50 | +0.24 to +0.49 |
+
+**The `+1.5` above is not wrong; it is the answer for a creditor who lends the
+payment out again.** With the payment leaving the trading system the same
+measurement is negative, and the estimates the argument is usually conducted
+with are of order one. **Same sign, same order, smaller here.** The return to
+positive at the highest parking rate is reported rather than smoothed: by then
+so little circulates that the repayment flow is itself a large share of what is
+left.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A18_D1 the ledger closes | largest absolute residual 0 over 330 rows |
+| PASS | A18_D2 a loan against a gift | 93 down, 77 level, 10 up; rescue delivered exceeds the gift arm's in 97 of 180, median ratio 1.34 |
+| PASS | A18_D3 where the best repayment rate sits | strictly inside in 24 of 45 cells, at zero in 19, at the largest in 2 |
+| PASS | A18_D4 does the balance clear | outstanding over lent, median 4.5% at floor 0.20 and 19.0% at floor 0.50 |
+| PASS | A18_D5 a debtor whose creditors have left | 0 of 90 exit rows and 0 of 240 drawdown rows, and the two reasons are different |
+| PASS | A18_D6 the retained-issuance cell, with the rescue repayable | printed, not judged |
+
+
+## A18_E — a claim that exists, is owned, and is not in the money that circulates
+
+`rounds=300` `seeds=5` `three floor depths` `four parking rates` `430 rows`
+
+**5/5 criteria passed.** Two separate correspondences on this station ended on
+the same limit. The first said that retaining and holding something outside the
+trading system are one state here; the second said that a repayment cannot leave
+the economy because the creditor is a node in it. **Both are the same missing
+piece: the graph had no boundary.** This arm supplies one. A share of a node's
+holdings moves out of the accounts the flow can route through, and is not
+destroyed.
+
+**The framework had the quantity and not the destination.** `SpendRule` states
+that the retention rate reads as the rate of exit from cross-layer circulation
+rather than as hoarding in the literal sense. Exit needs somewhere to go, and
+until now the only somewhere was staying put.
+
+**It is not retention under another name, and that is the first criterion.**
+Under every retention setting the parked stock is zero in **90 of 90** cells,
+because a retaining node's claims are still on its account; under parking it is
+above zero in **245 of 245**. The difference is what an obligation can reach: a
+retaining node still owes and still pays, so retention is pierced, and parked
+claims are not there to be taken.
+
+**The stock and the circulating half separate, and in every cell the two
+mechanisms move the second in opposite directions.**
+
+| parking rate | stock | circulating | parked | count below | flow |
+|---|---|---|---|---|---|
+| none | 185.1 | **185.1** | 0 | 86.7 | 36,794 |
+| 0.05 | 1,925.9 | **171.3** | 1,754.6 | 104.1 | 34,732 |
+| 0.20 | 2,725.0 | **56.9** | 2,668.1 | 112.3 | 14,856 |
+| 0.50 | 4,127.0 | **28.2** | 4,098.8 | 135.0 | 9,188 |
+
+**The stock rises twenty-two times while the money that circulates falls to
+0.15 of its opening.** That is a continuous dial rather than a corner of a grid,
+and it is the shape both pointers above were reaching for.
+
+**The recorded `M` was already the circulating half and this makes that
+visible.** `total_claims` is the row sum of `holdings`, so `M` in this
+repository has always meant claims in trading accounts. Parking splits the
+stock, `M/R` follows the circulating part, and the rest is carried beside it as
+`parked`. The conservation assertion counts both, because those claims still
+exist; destroying them is what the write-off does and this is not that.
+
+**Output per unit repaid turns sign with the parking rate.** A18_D measured
+that quantity at **+0.56 to +1.50** and that number is the answer for a creditor
+who lends the payment out again. Here:
+
+| creditors parking, per round | flow per unit repaid |
+|---|---|
+| none | **+1.08 to +1.50** |
+| 0.20 | **−0.58 to −0.37** |
+| 0.50 | +0.24 to +0.49 |
+
+**One switch separates a payment that recirculates from a payment that leaves**,
+and nothing else in the cell differs. The return to positive at the highest rate
+is reported and not smoothed: by then so little circulates that the repayment
+flow is itself a large share of what remains.
+
+**Who parks changes the size of the damage**, printed and not judged because the
+three sets are different sizes and part of any difference is that:
+
+| who parks | circulating | count below | flow |
+|---|---|---|---|
+| the recapitalised set | **234.3** | **106.2** | 47,334 |
+| the financial layer | 100.6 | 110.6 | 26,665 |
+| everyone | **55.5** | **119.8** | 17,539 |
+
+**Rule 19 for this switch was carried to a full sweep of what it can reach.**
+Twenty-two of the twenty-six stages import the module that changed, and the
+four that cannot were named and excluded rather than assumed. Of the records
+re-derived, **twenty came back identical field for field and one differed**, in
+380 places that are all the same event: a field that had not existed appearing.
+**No recorded value moved.** The one differing record also turned out to have
+been older than its own code in the baseline, which the comparison found on its
+way past.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A18_E1 a stock that does not circulate | retention parks nothing in 90 of 90; parking parks something in 245 of 245 |
+| PASS | A18_E2 the two halves under each mechanism | first state: in every cell the two move the circulating half in opposite directions |
+| PASS | A18_E3 how far the circulating half moves | stock ×22 against circulating ×0.15 across the parking grid |
+| PASS | A18_E5 output per unit repaid, at each parking rate | first state: positive throughout at 0 and 0.50, negative throughout at 0.20 |
+| PASS | A18_E4 who parks | printed, not judged |
+
+
+## A18_F — who carries a forbearance programme
+
+`rounds=300` `seeds=5` `two floor depths` `two funding routes` `six parking rates` `120 rows`
+
+**3/3 criteria passed.** The same forbearance, the same parking behaviour, and
+one thing different: whether the lending is funded from the lenders' own book or
+from claims an authority creates and hands them. **Nothing else in the pair
+differs**, so a difference in any reading belongs to that.
+
+**The grid is three orders below A18_E's, and the measurement that moved it is
+worth stating.** That arm's lowest parking rate leaves **ninety-two per cent** of
+the stock parked, so every cell in it reports saturation. The parked share
+passes a third at about `0.002`. **A grid whose first rung is past the region of
+interest can only report that it is past it.**
+
+**The first criterion publishes a translation table and calibrates nothing.**
+The parked share rises with the parking rate in all four series and all four
+span a third, so an external figure for how much of a banking system's assets
+sit outside the trading system has somewhere to land. **Landing it is not done
+here**, and no external number sets any parameter in this repository.
+
+**The table is indexed by rate and horizon together, because the share has no
+steady state.** Parking is one way, so the parked stock only accumulates and its
+share climbs towards one without settling. A table indexed by the rate alone
+would invite a reader to match a figure without matching the second index, and
+the second index moves it more than any policy switch does.
+
+| parking rate | share at round 50 | 150 | 299 |
+|---|---|---|---|
+| 0.001 | 0.033 | 0.101 | **0.187** |
+| 0.002 | 0.065 | 0.185 | **0.313** |
+| 0.005 | 0.150 | 0.356 | **0.529** |
+| 0.010 | 0.259 | 0.524 | **0.690** |
+| 0.020 | 0.412 | 0.684 | **0.814** |
+
+**What the table is portable across was measured rather than assumed.** Holding
+the parking rate at `0.002` and moving everything else one axis at a time, the
+share reads `0.3082` on the registered setting and:
+
+| axis moved | share | against the registered setting |
+|---|---|---|
+| horizon 150 rounds | 0.1821 | **0.59×** |
+| horizon 600 rounds | 0.4713 | **1.53×** |
+| the parking set is the recapitalised nodes | 0.1028 | **0.33×** |
+| the parking set is everyone | 0.3752 | 1.22× |
+| the funding route | 0.3062 | 0.99× |
+| the floor depth, either direction | 0.312 / 0.335 | 1.01× / 1.09× |
+| the rescue rate, either direction | 0.314 / 0.302 | 1.02× / 0.98× |
+| the write-off switched on | 0.3082 | **1.00×** |
+| retention at a half | 0.2719 | 0.88× |
+
+**Every policy switch moves it by under a tenth and the write-off not at all.
+The two that move it are the horizon and which set parks**, and neither is a
+policy. **So the table is portable in the sense that matters and conditional in
+two places that have to be stated with it**, which is what indexing it by
+horizon does for the first; the second is a modelling choice a reader has to
+make before the dial means anything to them.
+
+| floor | parking rate | parked share | flow under issuance ÷ flow under creditors |
+|---|---|---|---|
+| 0.20 | 0.001 | 0.183 | **1.33** |
+| 0.20 | 0.002 | 0.309 | **1.30** |
+| 0.20 | 0.020 | 0.819 | 1.37 |
+| 0.50 | 0.001 | 0.205 | **4.58** |
+| 0.50 | 0.002 | 0.336 | **4.86** |
+| 0.50 | 0.020 | 0.826 | 5.10 |
+
+**The deeper the distress, the more the funding route decides.** At the
+shallower floor an authority creating the claims buys about thirty per cent more
+circulation than making the lenders carry it; at the deeper one it buys four to
+five times as much. **The count below the line differs in 48 of 60 pairs.**
+
+**The two routes are non-monotone in the parking rate for different reasons, and
+that is the reading rather than the count of cells.** Four of ten cells on the
+lenders' route are non-monotone and six of ten on the authority's, which on its
+own says nothing; the shapes do. On the lenders' route the count **drifts
+upward** as parking rises, `113, 122, 127, 128, 126, 129` at one seed and
+`117, 129, 129, 131, 131, 130` at another. On the authority's route it **flips
+between two values**, `78, 78, 77, 78, 153, 78` at one seed and
+`76, 76, 76, 151, 76, 151` at another. **One is a trend with noise on it and the
+other is a knife-edge between two basins**, and this carrier has now shown that
+second shape six times.
+
+### The two ends of the axis, as directions only
+
+**This arm was opened because two episodes sit at its ends, and it is written
+so that neither is landed on the dial.** At one end an authority creates the
+claims and hands them to the lenders; at the other the lenders carry the
+programme on their own book while moving assets out of the trading system. **The
+axis does not depend on either**, which is why the arm asks about the funding
+route rather than about a country: a treatment variable whose value is the name
+of one episode has one value in the world, and a station built on it cannot be
+run.
+
+**What is measured is a direction**: on the same parking dial, the end where the
+lenders carry it circulates less, and the gap widens with the depth of the
+distress. **What is not measured, and is not attempted, is where any real
+banking system sits on that dial.** A18_F1 exists so that someone with the
+figure can place it; placing it is their work and not this stage's.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | A18_F1 the dial is monotone and spans the region | monotone in 4 of 4 series, and 4 of 4 bracket a parked share of one third |
+| PASS | A18_F2 does who carries it change the count | second state: 48 of 60 pairs; flow ratio 1.30–1.44 at the shallower floor and 4.42–5.21 at the deeper |
+| PASS | A18_F3 is the count monotone in the parking rate | second state: 4 of 10 and 6 of 10 cells by route, and the two shapes are different |
+
+
 ## B18 — the directional remnant: what a position's one-sidedness would leave in the book, and why this day cannot show it
 
 `295 spread contracts` `3,895,656 snapshots` `one trading day` `nothing bought`

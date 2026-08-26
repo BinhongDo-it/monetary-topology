@@ -63,6 +63,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 313.176743,
       "debt_share_of_volume": 0.015201,
+      "frozen_share_close": 0.000414,
       "gini_close": 0.87835,
       "gini_open": 0.864215,
       "hub_nodes": [
@@ -101,6 +102,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 302.221319,
       "debt_share_of_volume": 0.01468,
+      "frozen_share_close": 0.002054,
       "gini_close": 0.88474,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -139,6 +141,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 331.536016,
       "debt_share_of_volume": 0.016008,
+      "frozen_share_close": 0.000476,
       "gini_close": 0.879748,
       "gini_open": 0.867764,
       "hub_nodes": [
@@ -177,6 +180,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 383.097675,
       "debt_share_of_volume": 0.018565,
+      "frozen_share_close": 0.003182,
       "gini_close": 0.880435,
       "gini_open": 0.868389,
       "hub_nodes": [
@@ -215,6 +219,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 267.820442,
       "debt_share_of_volume": 0.013113,
+      "frozen_share_close": 0.000447,
       "gini_close": 0.888222,
       "gini_open": 0.874628,
       "hub_nodes": [
@@ -253,6 +258,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 767.593616,
       "debt_share_of_volume": 0.036535,
+      "frozen_share_close": 0.000403,
       "gini_close": 0.879875,
       "gini_open": 0.865404,
       "hub_nodes": [
@@ -291,6 +297,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 745.663009,
       "debt_share_of_volume": 0.0354,
+      "frozen_share_close": 0.001943,
       "gini_close": 0.88632,
       "gini_open": 0.867802,
       "hub_nodes": [
@@ -329,6 +336,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 819.006615,
       "debt_share_of_volume": 0.038548,
+      "frozen_share_close": 0.00046,
       "gini_close": 0.880887,
       "gini_open": 0.868677,
       "hub_nodes": [
@@ -367,6 +375,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 942.822192,
       "debt_share_of_volume": 0.044427,
+      "frozen_share_close": 0.003083,
       "gini_close": 0.881686,
       "gini_open": 0.869385,
       "hub_nodes": [
@@ -405,6 +414,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 658.048723,
       "debt_share_of_volume": 0.031745,
+      "frozen_share_close": 0.000434,
       "gini_close": 0.889674,
       "gini_open": 0.875774,
       "hub_nodes": [
@@ -443,6 +453,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 881.79194,
       "debt_share_of_volume": 0.040726,
+      "frozen_share_close": 0.0004,
       "gini_close": 0.874758,
       "gini_open": 0.862146,
       "hub_nodes": [
@@ -473,6 +484,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1695.862054,
       "debt_share_of_volume": 0.077103,
+      "frozen_share_close": 0.001815,
       "gini_close": 0.885009,
       "gini_open": 0.86731,
       "hub_nodes": [
@@ -503,6 +515,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2079.777673,
       "debt_share_of_volume": 0.092951,
+      "frozen_share_close": 0.00047,
       "gini_close": 0.884731,
       "gini_open": 0.870818,
       "hub_nodes": [
@@ -533,6 +546,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1842.429793,
       "debt_share_of_volume": 0.083355,
+      "frozen_share_close": 0.002907,
       "gini_close": 0.887119,
       "gini_open": 0.87187,
       "hub_nodes": [
@@ -563,6 +577,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1933.743212,
       "debt_share_of_volume": 0.087358,
+      "frozen_share_close": 0.00043,
       "gini_close": 0.891503,
       "gini_open": 0.875727,
       "hub_nodes": [
@@ -593,6 +608,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1488.15074,
       "debt_share_of_volume": 0.068708,
+      "frozen_share_close": 0.000384,
       "gini_close": 0.882393,
       "gini_open": 0.867415,
       "hub_nodes": [
@@ -631,6 +647,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1460.615413,
       "debt_share_of_volume": 0.066873,
+      "frozen_share_close": 0.001766,
       "gini_close": 0.88896,
       "gini_open": 0.86965,
       "hub_nodes": [
@@ -669,6 +686,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1608.32138,
       "debt_share_of_volume": 0.072685,
+      "frozen_share_close": 0.000433,
       "gini_close": 0.882832,
       "gini_open": 0.870238,
       "hub_nodes": [
@@ -707,6 +725,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1840.894931,
       "debt_share_of_volume": 0.082996,
+      "frozen_share_close": 0.002915,
       "gini_close": 0.883878,
       "gini_open": 0.871105,
       "hub_nodes": [
@@ -745,6 +764,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1279.704898,
       "debt_share_of_volume": 0.060331,
+      "frozen_share_close": 0.000412,
       "gini_close": 0.892056,
       "gini_open": 0.877713,
       "hub_nodes": [
@@ -783,6 +803,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2813.003477,
       "debt_share_of_volume": 0.123018,
+      "frozen_share_close": 0.000347,
       "gini_close": 0.887425,
       "gini_open": 0.871584,
       "hub_nodes": [
@@ -821,6 +842,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2811.93321,
       "debt_share_of_volume": 0.120497,
+      "frozen_share_close": 0.00144,
       "gini_close": 0.894123,
       "gini_open": 0.873626,
       "hub_nodes": [
@@ -859,6 +881,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3117.773169,
       "debt_share_of_volume": 0.130696,
+      "frozen_share_close": 0.00038,
       "gini_close": 0.886807,
       "gini_open": 0.873606,
       "hub_nodes": [
@@ -897,6 +920,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3546.953998,
       "debt_share_of_volume": 0.147239,
+      "frozen_share_close": 0.002564,
       "gini_close": 0.888283,
       "gini_open": 0.874718,
       "hub_nodes": [
@@ -935,6 +959,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2425.121943,
       "debt_share_of_volume": 0.109823,
+      "frozen_share_close": 0.000865,
       "gini_close": 0.896637,
       "gini_open": 0.881758,
       "hub_nodes": [
@@ -973,6 +998,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4013.962576,
       "debt_share_of_volume": 0.167397,
+      "frozen_share_close": 0.000309,
       "gini_close": 0.892239,
       "gini_open": 0.876007,
       "hub_nodes": [
@@ -1011,6 +1037,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4074.331901,
       "debt_share_of_volume": 0.164614,
+      "frozen_share_close": 0.001153,
       "gini_close": 0.89909,
       "gini_open": 0.877928,
       "hub_nodes": [
@@ -1049,6 +1076,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4562.660919,
       "debt_share_of_volume": 0.178521,
+      "frozen_share_close": 0.000328,
       "gini_close": 0.890703,
       "gini_open": 0.877346,
       "hub_nodes": [
@@ -1087,6 +1115,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5179.562391,
       "debt_share_of_volume": 0.199209,
+      "frozen_share_close": 0.002207,
       "gini_close": 0.892572,
       "gini_open": 0.87864,
       "hub_nodes": [
@@ -1125,6 +1154,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3509.014157,
       "debt_share_of_volume": 0.151596,
+      "frozen_share_close": 0.000977,
       "gini_close": 0.901046,
       "gini_open": 0.886042,
       "hub_nodes": [
@@ -1163,6 +1193,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 271.592195,
       "debt_share_of_volume": 0.013156,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.87619,
       "gini_open": 0.862896,
       "hub_nodes": [
@@ -1201,6 +1232,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 277.533887,
       "debt_share_of_volume": 0.013499,
+      "frozen_share_close": 0.002145,
       "gini_close": 0.882438,
       "gini_open": 0.865481,
       "hub_nodes": [
@@ -1239,6 +1271,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 263.120198,
       "debt_share_of_volume": 0.012763,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.878127,
       "gini_open": 0.866723,
       "hub_nodes": [
@@ -1277,6 +1310,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 205.571689,
       "debt_share_of_volume": 0.010082,
+      "frozen_share_close": 0.003264,
       "gini_close": 0.879061,
       "gini_open": 0.867412,
       "hub_nodes": [
@@ -1315,6 +1349,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 321.869284,
       "debt_share_of_volume": 0.015568,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.885682,
       "gini_open": 0.873236,
       "hub_nodes": [
@@ -1353,6 +1388,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 665.641417,
       "debt_share_of_volume": 0.031453,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.874561,
       "gini_open": 0.8621,
       "hub_nodes": [
@@ -1391,6 +1427,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 679.2286,
       "debt_share_of_volume": 0.032167,
+      "frozen_share_close": 0.002148,
       "gini_close": 0.880677,
       "gini_open": 0.864668,
       "hub_nodes": [
@@ -1429,6 +1466,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 647.732021,
       "debt_share_of_volume": 0.030701,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.876894,
       "gini_open": 0.866067,
       "hub_nodes": [
@@ -1467,6 +1505,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 506.088327,
       "debt_share_of_volume": 0.024432,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.878278,
       "gini_open": 0.866925,
       "hub_nodes": [
@@ -1505,6 +1544,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 788.213083,
       "debt_share_of_volume": 0.036938,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.88349,
       "gini_open": 0.872288,
       "hub_nodes": [
@@ -1543,6 +1583,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 103.645924,
       "debt_share_of_volume": 0.005088,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.877224,
       "gini_open": 0.863436,
       "hub_nodes": [
@@ -1573,6 +1614,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 236.518549,
       "debt_share_of_volume": 0.011558,
+      "frozen_share_close": 0.002145,
       "gini_close": 0.883396,
       "gini_open": 0.865749,
       "hub_nodes": [
@@ -1603,6 +1645,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 331.268908,
       "debt_share_of_volume": 0.016018,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.877829,
       "gini_open": 0.866467,
       "hub_nodes": [
@@ -1633,6 +1676,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 410.330594,
       "debt_share_of_volume": 0.019855,
+      "frozen_share_close": 0.003267,
       "gini_close": 0.877965,
       "gini_open": 0.866699,
       "hub_nodes": [
@@ -1663,6 +1707,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 301.91296,
       "debt_share_of_volume": 0.014679,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.886552,
       "gini_open": 0.873471,
       "hub_nodes": [
@@ -1693,6 +1738,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1289.567097,
       "debt_share_of_volume": 0.058668,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.872063,
       "gini_open": 0.860793,
       "hub_nodes": [
@@ -1731,6 +1777,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1313.023339,
       "debt_share_of_volume": 0.059717,
+      "frozen_share_close": 0.002154,
       "gini_close": 0.878048,
       "gini_open": 0.863335,
       "hub_nodes": [
@@ -1769,6 +1816,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1263.8719,
       "debt_share_of_volume": 0.057804,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.875001,
       "gini_open": 0.864989,
       "hub_nodes": [
@@ -1807,6 +1855,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 988.946662,
       "debt_share_of_volume": 0.046513,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.877088,
       "gini_open": 0.866121,
       "hub_nodes": [
@@ -1845,6 +1894,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1525.100372,
       "debt_share_of_volume": 0.068162,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.880171,
       "gini_open": 0.870727,
       "hub_nodes": [
@@ -1883,6 +1933,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2430.293853,
       "debt_share_of_volume": 0.103608,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.867756,
       "gini_open": 0.858263,
       "hub_nodes": [
@@ -1921,6 +1972,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2466.750947,
       "debt_share_of_volume": 0.104689,
+      "frozen_share_close": 0.001574,
       "gini_close": 0.873822,
       "gini_open": 0.860777,
       "hub_nodes": [
@@ -1959,6 +2011,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2414.422535,
       "debt_share_of_volume": 0.103737,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.871733,
       "gini_open": 0.862875,
       "hub_nodes": [
@@ -1997,6 +2050,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1892.548339,
       "debt_share_of_volume": 0.08495,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.875058,
       "gini_open": 0.864534,
       "hub_nodes": [
@@ -2035,6 +2089,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2868.509111,
       "debt_share_of_volume": 0.118389,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.874528,
       "gini_open": 0.867662,
       "hub_nodes": [
@@ -2073,6 +2128,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3452.02171,
       "debt_share_of_volume": 0.139462,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.864224,
       "gini_open": 0.855804,
       "hub_nodes": [
@@ -2111,6 +2167,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3494.165277,
       "debt_share_of_volume": 0.140134,
+      "frozen_share_close": 0.001298,
       "gini_close": 0.870231,
       "gini_open": 0.858461,
       "hub_nodes": [
@@ -2149,6 +2206,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3473.002635,
       "debt_share_of_volume": 0.141464,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.869053,
       "gini_open": 0.860892,
       "hub_nodes": [
@@ -2187,6 +2245,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2723.817396,
       "debt_share_of_volume": 0.11738,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.873379,
       "gini_open": 0.862978,
       "hub_nodes": [
@@ -2225,6 +2284,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4068.963412,
       "debt_share_of_volume": 0.157414,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.870023,
       "gini_open": 0.864726,
       "hub_nodes": [
@@ -2263,6 +2323,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 275.710853,
       "debt_share_of_volume": 0.013391,
+      "frozen_share_close": 0.000422,
       "gini_close": 0.877401,
       "gini_open": 0.8634,
       "hub_nodes": [
@@ -2301,6 +2362,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 283.554837,
       "debt_share_of_volume": 0.013795,
+      "frozen_share_close": 0.002128,
       "gini_close": 0.883843,
       "gini_open": 0.866033,
       "hub_nodes": [
@@ -2339,6 +2401,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 266.290815,
       "debt_share_of_volume": 0.012922,
+      "frozen_share_close": 0.000487,
       "gini_close": 0.878781,
       "gini_open": 0.866991,
       "hub_nodes": [
@@ -2377,6 +2440,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 207.391197,
       "debt_share_of_volume": 0.01017,
+      "frozen_share_close": 0.003264,
       "gini_close": 0.879482,
       "gini_open": 0.867599,
       "hub_nodes": [
@@ -2415,6 +2479,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 326.506313,
       "debt_share_of_volume": 0.015902,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.887351,
       "gini_open": 0.873843,
       "hub_nodes": [
@@ -2453,6 +2518,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 688.681675,
       "debt_share_of_volume": 0.03281,
+      "frozen_share_close": 0.000422,
       "gini_close": 0.877479,
       "gini_open": 0.863355,
       "hub_nodes": [
@@ -2491,6 +2557,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 710.782488,
       "debt_share_of_volume": 0.033869,
+      "frozen_share_close": 0.002126,
       "gini_close": 0.884051,
       "gini_open": 0.866036,
       "hub_nodes": [
@@ -2529,6 +2596,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 663.806474,
       "debt_share_of_volume": 0.031621,
+      "frozen_share_close": 0.000488,
       "gini_close": 0.878478,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -2567,6 +2635,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 517.105901,
       "debt_share_of_volume": 0.024951,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.879289,
       "gini_open": 0.867394,
       "hub_nodes": [
@@ -2605,6 +2674,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 816.495376,
       "debt_share_of_volume": 0.038857,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.887512,
       "gini_open": 0.873802,
       "hub_nodes": [
@@ -2643,6 +2713,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.000422,
       "gini_close": 0.877347,
       "gini_open": 0.863432,
       "hub_nodes": [
@@ -2673,6 +2744,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.00213,
       "gini_close": 0.883702,
       "gini_open": 0.866032,
       "hub_nodes": [
@@ -2703,6 +2775,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.000486,
       "gini_close": 0.878992,
       "gini_open": 0.867165,
       "hub_nodes": [
@@ -2733,6 +2806,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 192.474779,
       "debt_share_of_volume": 0.009406,
+      "frozen_share_close": 0.003239,
       "gini_close": 0.879855,
       "gini_open": 0.867749,
       "hub_nodes": [
@@ -2763,6 +2837,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.887243,
       "gini_open": 0.873871,
       "hub_nodes": [
@@ -2793,6 +2868,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1375.551742,
       "debt_share_of_volume": 0.063508,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.877595,
       "gini_open": 0.86328,
       "hub_nodes": [
@@ -2831,6 +2907,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1427.503935,
       "debt_share_of_volume": 0.065754,
+      "frozen_share_close": 0.002122,
       "gini_close": 0.88438,
       "gini_open": 0.866041,
       "hub_nodes": [
@@ -2869,6 +2946,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1324.389896,
       "debt_share_of_volume": 0.061098,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.878005,
       "gini_open": 0.866311,
       "hub_nodes": [
@@ -2907,6 +2985,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1031.490014,
       "debt_share_of_volume": 0.048403,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.879,
       "gini_open": 0.86706,
       "hub_nodes": [
@@ -2945,6 +3024,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1633.800646,
       "debt_share_of_volume": 0.074897,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.887777,
       "gini_open": 0.873734,
       "hub_nodes": [
@@ -2983,6 +3063,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2748.325646,
       "debt_share_of_volume": 0.119332,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.877822,
       "gini_open": 0.863138,
       "hub_nodes": [
@@ -3021,6 +3102,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2875.868266,
       "debt_share_of_volume": 0.124147,
+      "frozen_share_close": 0.002115,
       "gini_close": 0.885001,
       "gini_open": 0.866069,
       "hub_nodes": [
@@ -3059,6 +3141,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2639.093037,
       "debt_share_of_volume": 0.114484,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.877167,
       "gini_open": 0.865496,
       "hub_nodes": [
@@ -3097,6 +3180,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2051.555759,
       "debt_share_of_volume": 0.091301,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.878486,
       "gini_open": 0.866407,
       "hub_nodes": [
@@ -3135,6 +3219,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3271.088808,
       "debt_share_of_volume": 0.13968,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.888306,
       "gini_open": 0.873608,
       "hub_nodes": [
@@ -3173,6 +3258,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4119.204264,
       "debt_share_of_volume": 0.16877,
+      "frozen_share_close": 0.000423,
       "gini_close": 0.878008,
       "gini_open": 0.863007,
       "hub_nodes": [
@@ -3211,6 +3297,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4339.83322,
       "debt_share_of_volume": 0.176218,
+      "frozen_share_close": 0.00211,
       "gini_close": 0.885577,
       "gini_open": 0.866111,
       "hub_nodes": [
@@ -3249,6 +3336,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3944.868863,
       "debt_share_of_volume": 0.161588,
+      "frozen_share_close": 0.000489,
       "gini_close": 0.876443,
       "gini_open": 0.864754,
       "hub_nodes": [
@@ -3287,6 +3375,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3060.284789,
       "debt_share_of_volume": 0.129695,
+      "frozen_share_close": 0.003269,
       "gini_close": 0.877997,
       "gini_open": 0.865808,
       "hub_nodes": [
@@ -3325,6 +3414,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4912.180885,
       "debt_share_of_volume": 0.196279,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.888807,
       "gini_open": 0.87349,
       "hub_nodes": [
@@ -3363,6 +3453,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.000422,
       "gini_close": 0.877347,
       "gini_open": 0.863432,
       "hub_nodes": [],
@@ -3390,6 +3481,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.00213,
       "gini_close": 0.883702,
       "gini_open": 0.866032,
       "hub_nodes": [],
@@ -3417,6 +3509,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.000486,
       "gini_close": 0.878992,
       "gini_open": 0.867165,
       "hub_nodes": [],
@@ -3444,6 +3537,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.003247,
       "gini_close": 0.879621,
       "gini_open": 0.867736,
       "hub_nodes": [],
@@ -3471,6 +3565,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.000456,
       "gini_close": 0.887243,
       "gini_open": 0.873871,
       "hub_nodes": [],
@@ -3498,6 +3593,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 262.524433,
       "debt_share_of_volume": 0.013867,
+      "frozen_share_close": 0.942247,
       "gini_close": 0.597578,
       "gini_open": 0.864215,
       "hub_nodes": [
@@ -3536,6 +3632,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 279.435873,
       "debt_share_of_volume": 0.01424,
+      "frozen_share_close": 0.933564,
       "gini_close": 0.593207,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -3574,6 +3671,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 302.410178,
       "debt_share_of_volume": 0.015697,
+      "frozen_share_close": 0.94143,
       "gini_close": 0.597096,
       "gini_open": 0.867764,
       "hub_nodes": [
@@ -3612,6 +3710,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 348.568963,
       "debt_share_of_volume": 0.01832,
+      "frozen_share_close": 0.941831,
       "gini_close": 0.597057,
       "gini_open": 0.868389,
       "hub_nodes": [
@@ -3650,6 +3749,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 204.801155,
       "debt_share_of_volume": 0.011397,
+      "frozen_share_close": 0.941855,
       "gini_close": 0.597598,
       "gini_open": 0.874628,
       "hub_nodes": [
@@ -3688,6 +3788,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 641.213702,
       "debt_share_of_volume": 0.033255,
+      "frozen_share_close": 0.942254,
       "gini_close": 0.597634,
       "gini_open": 0.865404,
       "hub_nodes": [
@@ -3726,6 +3827,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 685.140155,
       "debt_share_of_volume": 0.034233,
+      "frozen_share_close": 0.933702,
       "gini_close": 0.593363,
       "gini_open": 0.867802,
       "hub_nodes": [
@@ -3764,6 +3866,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 745.345425,
       "debt_share_of_volume": 0.037652,
+      "frozen_share_close": 0.941508,
       "gini_close": 0.597181,
       "gini_open": 0.868677,
       "hub_nodes": [
@@ -3802,6 +3905,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 856.42876,
       "debt_share_of_volume": 0.043698,
+      "frozen_share_close": 0.942,
       "gini_close": 0.59721,
       "gini_open": 0.869385,
       "hub_nodes": [
@@ -3840,6 +3944,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 511.462512,
       "debt_share_of_volume": 0.027718,
+      "frozen_share_close": 0.940155,
       "gini_close": 0.596878,
       "gini_open": 0.875774,
       "hub_nodes": [
@@ -3878,6 +3983,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 947.107191,
       "debt_share_of_volume": 0.051709,
+      "frozen_share_close": 0.949529,
       "gini_close": 0.600823,
       "gini_open": 0.862146,
       "hub_nodes": [
@@ -3908,6 +4014,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1753.45361,
       "debt_share_of_volume": 0.082701,
+      "frozen_share_close": 0.933906,
       "gini_close": 0.593543,
       "gini_open": 0.86731,
       "hub_nodes": [
@@ -3938,6 +4045,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1954.994238,
       "debt_share_of_volume": 0.094745,
+      "frozen_share_close": 0.941506,
       "gini_close": 0.597408,
       "gini_open": 0.870818,
       "hub_nodes": [
@@ -3968,6 +4076,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1708.852155,
       "debt_share_of_volume": 0.084854,
+      "frozen_share_close": 0.941233,
       "gini_close": 0.597173,
       "gini_open": 0.87187,
       "hub_nodes": [
@@ -3998,6 +4107,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1732.106775,
       "debt_share_of_volume": 0.088314,
+      "frozen_share_close": 0.939302,
       "gini_close": 0.596582,
       "gini_open": 0.875727,
       "hub_nodes": [
@@ -4028,6 +4138,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1237.16627,
       "debt_share_of_volume": 0.062351,
+      "frozen_share_close": 0.942164,
       "gini_close": 0.597679,
       "gini_open": 0.867415,
       "hub_nodes": [
@@ -4066,6 +4177,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1329.287613,
       "debt_share_of_volume": 0.064372,
+      "frozen_share_close": 0.933858,
       "gini_close": 0.593591,
       "gini_open": 0.86965,
       "hub_nodes": [
@@ -4104,6 +4216,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1473.838821,
       "debt_share_of_volume": 0.070757,
+      "frozen_share_close": 0.940238,
       "gini_close": 0.596667,
       "gini_open": 0.870238,
       "hub_nodes": [
@@ -4142,6 +4255,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1668.437591,
       "debt_share_of_volume": 0.081244,
+      "frozen_share_close": 0.9422,
       "gini_close": 0.597425,
       "gini_open": 0.871105,
       "hub_nodes": [
@@ -4180,6 +4294,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 997.168168,
       "debt_share_of_volume": 0.052699,
+      "frozen_share_close": 0.939934,
       "gini_close": 0.596874,
       "gini_open": 0.877713,
       "hub_nodes": [
@@ -4218,6 +4333,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2352.60511,
       "debt_share_of_volume": 0.111581,
+      "frozen_share_close": 0.940562,
       "gini_close": 0.597121,
       "gini_open": 0.871584,
       "hub_nodes": [
@@ -4256,6 +4372,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2517.450991,
       "debt_share_of_volume": 0.115098,
+      "frozen_share_close": 0.933979,
       "gini_close": 0.59385,
       "gini_open": 0.873626,
       "hub_nodes": [
@@ -4294,6 +4411,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2812.468528,
       "debt_share_of_volume": 0.125496,
+      "frozen_share_close": 0.940529,
       "gini_close": 0.596921,
       "gini_open": 0.873606,
       "hub_nodes": [
@@ -4332,6 +4450,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3197.379609,
       "debt_share_of_volume": 0.142844,
+      "frozen_share_close": 0.942063,
       "gini_close": 0.597591,
       "gini_open": 0.874718,
       "hub_nodes": [
@@ -4370,6 +4489,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1931.800347,
       "debt_share_of_volume": 0.096506,
+      "frozen_share_close": 0.937869,
       "gini_close": 0.596119,
       "gini_open": 0.881758,
       "hub_nodes": [
@@ -4408,6 +4528,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3411.408274,
       "debt_share_of_volume": 0.152532,
+      "frozen_share_close": 0.937518,
       "gini_close": 0.595889,
       "gini_open": 0.876007,
       "hub_nodes": [
@@ -4446,6 +4567,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3599.409745,
       "debt_share_of_volume": 0.156264,
+      "frozen_share_close": 0.933924,
       "gini_close": 0.594127,
       "gini_open": 0.877928,
       "hub_nodes": [
@@ -4484,6 +4606,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4093.088,
       "debt_share_of_volume": 0.170055,
+      "frozen_share_close": 0.940055,
       "gini_close": 0.596804,
       "gini_open": 0.877346,
       "hub_nodes": [
@@ -4522,6 +4645,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4714.682503,
       "debt_share_of_volume": 0.192741,
+      "frozen_share_close": 0.939434,
       "gini_close": 0.596572,
       "gini_open": 0.87864,
       "hub_nodes": [
@@ -4560,6 +4684,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2792.35563,
       "debt_share_of_volume": 0.133527,
+      "frozen_share_close": 0.936774,
       "gini_close": 0.595698,
       "gini_open": 0.886042,
       "hub_nodes": [
@@ -4598,6 +4723,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 329.613765,
       "debt_share_of_volume": 0.017484,
+      "frozen_share_close": 0.943173,
       "gini_close": 0.59792,
       "gini_open": 0.862896,
       "hub_nodes": [
@@ -4636,6 +4762,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 330.551169,
       "debt_share_of_volume": 0.017116,
+      "frozen_share_close": 0.936506,
       "gini_close": 0.59452,
       "gini_open": 0.865481,
       "hub_nodes": [
@@ -4674,6 +4801,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 304.398508,
       "debt_share_of_volume": 0.015936,
+      "frozen_share_close": 0.942013,
       "gini_close": 0.597294,
       "gini_open": 0.866723,
       "hub_nodes": [
@@ -4712,6 +4840,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 252.666872,
       "debt_share_of_volume": 0.013403,
+      "frozen_share_close": 0.941869,
       "gini_close": 0.596988,
       "gini_open": 0.867412,
       "hub_nodes": [
@@ -4750,6 +4879,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 355.542768,
       "debt_share_of_volume": 0.019898,
+      "frozen_share_close": 0.943685,
       "gini_close": 0.598328,
       "gini_open": 0.873236,
       "hub_nodes": [
@@ -4788,6 +4918,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 795.03817,
       "debt_share_of_volume": 0.041629,
+      "frozen_share_close": 0.944473,
       "gini_close": 0.598452,
       "gini_open": 0.8621,
       "hub_nodes": [
@@ -4826,6 +4957,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 795.445153,
       "debt_share_of_volume": 0.040711,
+      "frozen_share_close": 0.938157,
       "gini_close": 0.595197,
       "gini_open": 0.864668,
       "hub_nodes": [
@@ -4864,6 +4996,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 740.939736,
       "debt_share_of_volume": 0.038205,
+      "frozen_share_close": 0.942897,
       "gini_close": 0.597648,
       "gini_open": 0.866067,
       "hub_nodes": [
@@ -4902,6 +5035,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 619.30646,
       "debt_share_of_volume": 0.032321,
+      "frozen_share_close": 0.942185,
       "gini_close": 0.597086,
       "gini_open": 0.866925,
       "hub_nodes": [
@@ -4940,6 +5074,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 849.818792,
       "debt_share_of_volume": 0.047061,
+      "frozen_share_close": 0.94583,
       "gini_close": 0.599216,
       "gini_open": 0.872288,
       "hub_nodes": [
@@ -4978,6 +5113,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 94.669083,
       "debt_share_of_volume": 0.005048,
+      "frozen_share_close": 0.941996,
       "gini_close": 0.597432,
       "gini_open": 0.863436,
       "hub_nodes": [
@@ -5008,6 +5144,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 504.968914,
       "debt_share_of_volume": 0.02644,
+      "frozen_share_close": 0.939276,
       "gini_close": 0.595805,
       "gini_open": 0.865749,
       "hub_nodes": [
@@ -5038,6 +5175,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 586.945945,
       "debt_share_of_volume": 0.030598,
+      "frozen_share_close": 0.942755,
       "gini_close": 0.597582,
       "gini_open": 0.866467,
       "hub_nodes": [
@@ -5068,6 +5206,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 671.067712,
       "debt_share_of_volume": 0.03527,
+      "frozen_share_close": 0.943343,
       "gini_close": 0.597584,
       "gini_open": 0.866699,
       "hub_nodes": [
@@ -5098,6 +5237,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 535.942047,
       "debt_share_of_volume": 0.029833,
+      "frozen_share_close": 0.943493,
       "gini_close": 0.598225,
       "gini_open": 0.873471,
       "hub_nodes": [
@@ -5128,6 +5268,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1493.295241,
       "debt_share_of_volume": 0.077169,
+      "frozen_share_close": 0.947543,
       "gini_close": 0.599779,
       "gini_open": 0.860793,
       "hub_nodes": [
@@ -5166,6 +5307,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1484.402952,
       "debt_share_of_volume": 0.075401,
+      "frozen_share_close": 0.942871,
       "gini_close": 0.597271,
       "gini_open": 0.863335,
       "hub_nodes": [
@@ -5204,6 +5346,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1422.596955,
       "debt_share_of_volume": 0.071535,
+      "frozen_share_close": 0.944158,
       "gini_close": 0.59815,
       "gini_open": 0.864989,
       "hub_nodes": [
@@ -5242,6 +5385,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1194.199631,
       "debt_share_of_volume": 0.061115,
+      "frozen_share_close": 0.943988,
       "gini_close": 0.597867,
       "gini_open": 0.866121,
       "hub_nodes": [
@@ -5280,6 +5424,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1592.655587,
       "debt_share_of_volume": 0.086347,
+      "frozen_share_close": 0.948694,
       "gini_close": 0.600389,
       "gini_open": 0.870727,
       "hub_nodes": [
@@ -5318,6 +5463,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2725.304091,
       "debt_share_of_volume": 0.134506,
+      "frozen_share_close": 0.950197,
       "gini_close": 0.600843,
       "gini_open": 0.858263,
       "hub_nodes": [
@@ -5356,6 +5502,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2676.520816,
       "debt_share_of_volume": 0.130929,
+      "frozen_share_close": 0.947343,
       "gini_close": 0.599261,
       "gini_open": 0.860777,
       "hub_nodes": [
@@ -5394,6 +5541,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2652.227218,
       "debt_share_of_volume": 0.12698,
+      "frozen_share_close": 0.94606,
       "gini_close": 0.598895,
       "gini_open": 0.862875,
       "hub_nodes": [
@@ -5432,6 +5580,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2257.311136,
       "debt_share_of_volume": 0.110024,
+      "frozen_share_close": 0.944815,
       "gini_close": 0.598134,
       "gini_open": 0.864534,
       "hub_nodes": [
@@ -5470,6 +5619,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2875.871274,
       "debt_share_of_volume": 0.148174,
+      "frozen_share_close": 0.952512,
       "gini_close": 0.601903,
       "gini_open": 0.867662,
       "hub_nodes": [
@@ -5508,6 +5658,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3794.141276,
       "debt_share_of_volume": 0.178789,
+      "frozen_share_close": 0.951944,
       "gini_close": 0.601528,
       "gini_open": 0.855804,
       "hub_nodes": [
@@ -5546,6 +5697,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3730.464278,
       "debt_share_of_volume": 0.173923,
+      "frozen_share_close": 0.949346,
       "gini_close": 0.600049,
       "gini_open": 0.858461,
       "hub_nodes": [
@@ -5584,6 +5736,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3753.10996,
       "debt_share_of_volume": 0.17137,
+      "frozen_share_close": 0.947318,
       "gini_close": 0.599373,
       "gini_open": 0.860892,
       "hub_nodes": [
@@ -5622,6 +5775,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3223.714542,
       "debt_share_of_volume": 0.150113,
+      "frozen_share_close": 0.945337,
       "gini_close": 0.598289,
       "gini_open": 0.862978,
       "hub_nodes": [
@@ -5660,6 +5814,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3998.215295,
       "debt_share_of_volume": 0.194638,
+      "frozen_share_close": 0.954658,
       "gini_close": 0.602693,
       "gini_open": 0.864726,
       "hub_nodes": [
@@ -5698,6 +5853,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 336.070757,
       "debt_share_of_volume": 0.017738,
+      "frozen_share_close": 0.942487,
       "gini_close": 0.597648,
       "gini_open": 0.8634,
       "hub_nodes": [
@@ -5736,6 +5892,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 339.955979,
       "debt_share_of_volume": 0.01744,
+      "frozen_share_close": 0.935294,
       "gini_close": 0.594023,
       "gini_open": 0.866033,
       "hub_nodes": [
@@ -5774,6 +5931,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 307.115029,
       "debt_share_of_volume": 0.016109,
+      "frozen_share_close": 0.941983,
       "gini_close": 0.597302,
       "gini_open": 0.866991,
       "hub_nodes": [
@@ -5812,6 +5970,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 252.575267,
       "debt_share_of_volume": 0.01351,
+      "frozen_share_close": 0.942451,
       "gini_close": 0.59729,
       "gini_open": 0.867599,
       "hub_nodes": [
@@ -5850,6 +6009,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 367.524813,
       "debt_share_of_volume": 0.020263,
+      "frozen_share_close": 0.942018,
       "gini_close": 0.597631,
       "gini_open": 0.873843,
       "hub_nodes": [
@@ -5888,6 +6048,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 832.75765,
       "debt_share_of_volume": 0.043103,
+      "frozen_share_close": 0.942912,
       "gini_close": 0.597838,
       "gini_open": 0.863355,
       "hub_nodes": [
@@ -5926,6 +6087,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 850.581685,
       "debt_share_of_volume": 0.04258,
+      "frozen_share_close": 0.935345,
       "gini_close": 0.594048,
       "gini_open": 0.866036,
       "hub_nodes": [
@@ -5964,6 +6126,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 756.912947,
       "debt_share_of_volume": 0.039212,
+      "frozen_share_close": 0.942865,
       "gini_close": 0.597685,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -6002,6 +6165,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 618.645516,
       "debt_share_of_volume": 0.032951,
+      "frozen_share_close": 0.943618,
       "gini_close": 0.597829,
       "gini_open": 0.867394,
       "hub_nodes": [
@@ -6040,6 +6204,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 919.207383,
       "debt_share_of_volume": 0.049161,
+      "frozen_share_close": 0.941995,
       "gini_close": 0.597616,
       "gini_open": 0.873802,
       "hub_nodes": [
@@ -6078,6 +6243,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.942196,
       "gini_close": 0.597519,
       "gini_open": 0.863432,
       "hub_nodes": [
@@ -6108,6 +6274,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.93526,
       "gini_close": 0.594008,
       "gini_open": 0.866032,
       "hub_nodes": [
@@ -6138,6 +6305,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.941363,
       "gini_close": 0.597032,
       "gini_open": 0.867165,
       "hub_nodes": [
@@ -6168,6 +6336,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 172.570986,
       "debt_share_of_volume": 0.009158,
+      "frozen_share_close": 0.941534,
       "gini_close": 0.59689,
       "gini_open": 0.867749,
       "hub_nodes": [
@@ -6198,6 +6367,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.942033,
       "gini_close": 0.597641,
       "gini_open": 0.873871,
       "hub_nodes": [
@@ -6228,6 +6398,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1641.767094,
       "debt_share_of_volume": 0.082366,
+      "frozen_share_close": 0.943594,
       "gini_close": 0.598143,
       "gini_open": 0.86328,
       "hub_nodes": [
@@ -6266,6 +6437,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1703.000304,
       "debt_share_of_volume": 0.081948,
+      "frozen_share_close": 0.935427,
       "gini_close": 0.594088,
       "gini_open": 0.866041,
       "hub_nodes": [
@@ -6304,6 +6476,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1480.687188,
       "debt_share_of_volume": 0.075125,
+      "frozen_share_close": 0.944216,
       "gini_close": 0.598274,
       "gini_open": 0.866311,
       "hub_nodes": [
@@ -6342,6 +6515,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1197.650203,
       "debt_share_of_volume": 0.063315,
+      "frozen_share_close": 0.945421,
       "gini_close": 0.598662,
       "gini_open": 0.86706,
       "hub_nodes": [
@@ -6380,6 +6554,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1839.83612,
       "debt_share_of_volume": 0.093709,
+      "frozen_share_close": 0.941951,
       "gini_close": 0.597593,
       "gini_open": 0.873734,
       "hub_nodes": [
@@ -6418,6 +6593,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3195.287811,
       "debt_share_of_volume": 0.151292,
+      "frozen_share_close": 0.944873,
       "gini_close": 0.598715,
       "gini_open": 0.863138,
       "hub_nodes": [
@@ -6456,6 +6632,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3410.383495,
       "debt_share_of_volume": 0.152276,
+      "frozen_share_close": 0.935582,
       "gini_close": 0.594175,
       "gini_open": 0.866069,
       "hub_nodes": [
@@ -6494,6 +6671,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2848.248043,
       "debt_share_of_volume": 0.138587,
+      "frozen_share_close": 0.946544,
       "gini_close": 0.59929,
       "gini_open": 0.865496,
       "hub_nodes": [
@@ -6532,6 +6710,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2256.381865,
       "debt_share_of_volume": 0.117345,
+      "frozen_share_close": 0.94849,
       "gini_close": 0.600077,
       "gini_open": 0.866407,
       "hub_nodes": [
@@ -6570,6 +6749,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3686.013446,
       "debt_share_of_volume": 0.171356,
+      "frozen_share_close": 0.94185,
       "gini_close": 0.597542,
       "gini_open": 0.873608,
       "hub_nodes": [
@@ -6608,6 +6788,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4672.529179,
       "debt_share_of_volume": 0.209879,
+      "frozen_share_close": 0.946052,
       "gini_close": 0.599244,
       "gini_open": 0.863007,
       "hub_nodes": [
@@ -6646,6 +6827,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5117.416648,
       "debt_share_of_volume": 0.213128,
+      "frozen_share_close": 0.935729,
       "gini_close": 0.594266,
       "gini_open": 0.866111,
       "hub_nodes": [
@@ -6684,6 +6866,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4133.283472,
       "debt_share_of_volume": 0.19291,
+      "frozen_share_close": 0.948464,
       "gini_close": 0.600132,
       "gini_open": 0.864754,
       "hub_nodes": [
@@ -6722,6 +6905,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3211.748752,
       "debt_share_of_volume": 0.163692,
+      "frozen_share_close": 0.950361,
       "gini_close": 0.600912,
       "gini_open": 0.865808,
       "hub_nodes": [
@@ -6760,6 +6944,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5539.559204,
       "debt_share_of_volume": 0.236761,
+      "frozen_share_close": 0.941733,
       "gini_close": 0.597489,
       "gini_open": 0.87349,
       "hub_nodes": [
@@ -6798,6 +6983,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.942196,
       "gini_close": 0.597519,
       "gini_open": 0.863432,
       "hub_nodes": [],
@@ -6825,6 +7011,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.93526,
       "gini_close": 0.594008,
       "gini_open": 0.866032,
       "hub_nodes": [],
@@ -6852,6 +7039,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.941363,
       "gini_close": 0.597032,
       "gini_open": 0.867165,
       "hub_nodes": [],
@@ -6879,6 +7067,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.941636,
       "gini_close": 0.596915,
       "gini_open": 0.867736,
       "hub_nodes": [],
@@ -6906,6 +7095,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.942033,
       "gini_close": 0.597641,
       "gini_open": 0.873871,
       "hub_nodes": [],
@@ -6933,6 +7123,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 290.53016,
       "debt_share_of_volume": 0.014294,
+      "frozen_share_close": 0.931121,
       "gini_close": 0.592131,
       "gini_open": 0.864215,
       "hub_nodes": [
@@ -6971,6 +7162,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 279.491986,
       "debt_share_of_volume": 0.01424,
+      "frozen_share_close": 0.93355,
       "gini_close": 0.593092,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -7009,6 +7201,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 347.860539,
       "debt_share_of_volume": 0.01613,
+      "frozen_share_close": 0.922795,
       "gini_close": 0.588216,
       "gini_open": 0.867764,
       "hub_nodes": [
@@ -7047,6 +7240,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 407.196617,
       "debt_share_of_volume": 0.019079,
+      "frozen_share_close": 0.924733,
       "gini_close": 0.588892,
       "gini_open": 0.868389,
       "hub_nodes": [
@@ -7085,6 +7279,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 227.457757,
       "debt_share_of_volume": 0.011688,
+      "frozen_share_close": 0.926565,
       "gini_close": 0.590266,
       "gini_open": 0.874628,
       "hub_nodes": [
@@ -7123,6 +7318,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 751.469791,
       "debt_share_of_volume": 0.034821,
+      "frozen_share_close": 0.923879,
       "gini_close": 0.588851,
       "gini_open": 0.865404,
       "hub_nodes": [
@@ -7161,6 +7357,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 685.243134,
       "debt_share_of_volume": 0.034234,
+      "frozen_share_close": 0.933692,
       "gini_close": 0.59325,
       "gini_open": 0.867802,
       "hub_nodes": [
@@ -7199,6 +7396,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 851.349959,
       "debt_share_of_volume": 0.038636,
+      "frozen_share_close": 0.923422,
       "gini_close": 0.588565,
       "gini_open": 0.868677,
       "hub_nodes": [
@@ -7237,6 +7435,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1060.153952,
       "debt_share_of_volume": 0.046064,
+      "frozen_share_close": 0.916323,
       "gini_close": 0.585083,
       "gini_open": 0.869385,
       "hub_nodes": [
@@ -7275,6 +7474,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 557.774463,
       "debt_share_of_volume": 0.028298,
+      "frozen_share_close": 0.926784,
       "gini_close": 0.590448,
       "gini_open": 0.875774,
       "hub_nodes": [
@@ -7313,6 +7513,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 991.63183,
       "debt_share_of_volume": 0.050665,
+      "frozen_share_close": 0.939675,
       "gini_close": 0.595944,
       "gini_open": 0.862146,
       "hub_nodes": [
@@ -7343,6 +7544,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1753.566581,
       "debt_share_of_volume": 0.082704,
+      "frozen_share_close": 0.933906,
       "gini_close": 0.593434,
       "gini_open": 0.86731,
       "hub_nodes": [
@@ -7373,6 +7575,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2191.413336,
       "debt_share_of_volume": 0.097547,
+      "frozen_share_close": 0.928723,
       "gini_close": 0.591516,
       "gini_open": 0.870818,
       "hub_nodes": [
@@ -7403,6 +7606,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2163.206076,
       "debt_share_of_volume": 0.089685,
+      "frozen_share_close": 0.911155,
       "gini_close": 0.583073,
       "gini_open": 0.87187,
       "hub_nodes": [
@@ -7433,6 +7637,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1874.194112,
       "debt_share_of_volume": 0.090413,
+      "frozen_share_close": 0.928263,
       "gini_close": 0.591259,
       "gini_open": 0.875727,
       "hub_nodes": [
@@ -7463,6 +7668,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1519.80308,
       "debt_share_of_volume": 0.065985,
+      "frozen_share_close": 0.916097,
       "gini_close": 0.585376,
       "gini_open": 0.867415,
       "hub_nodes": [
@@ -7501,6 +7707,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1329.37248,
       "debt_share_of_volume": 0.064372,
+      "frozen_share_close": 0.933855,
       "gini_close": 0.593482,
       "gini_open": 0.86965,
       "hub_nodes": [
@@ -7539,6 +7746,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1715.095004,
       "debt_share_of_volume": 0.072833,
+      "frozen_share_close": 0.919114,
       "gini_close": 0.586721,
       "gini_open": 0.870238,
       "hub_nodes": [
@@ -7577,6 +7785,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2099.799135,
       "debt_share_of_volume": 0.085858,
+      "frozen_share_close": 0.912843,
       "gini_close": 0.583621,
       "gini_open": 0.871105,
       "hub_nodes": [
@@ -7615,6 +7824,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1110.089461,
       "debt_share_of_volume": 0.054027,
+      "frozen_share_close": 0.922876,
       "gini_close": 0.588806,
       "gini_open": 0.877713,
       "hub_nodes": [
@@ -7653,6 +7863,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2749.380749,
       "debt_share_of_volume": 0.116681,
+      "frozen_share_close": 0.919553,
       "gini_close": 0.587181,
       "gini_open": 0.871584,
       "hub_nodes": [
@@ -7691,6 +7902,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2699.747535,
       "debt_share_of_volume": 0.117074,
+      "frozen_share_close": 0.923549,
       "gini_close": 0.589097,
       "gini_open": 0.873626,
       "hub_nodes": [
@@ -7729,6 +7941,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3177.506788,
       "debt_share_of_volume": 0.128204,
+      "frozen_share_close": 0.921629,
       "gini_close": 0.587957,
       "gini_open": 0.873606,
       "hub_nodes": [
@@ -7767,6 +7980,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3972.055673,
       "debt_share_of_volume": 0.150315,
+      "frozen_share_close": 0.911396,
       "gini_close": 0.583209,
       "gini_open": 0.874718,
       "hub_nodes": [
@@ -7805,6 +8019,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2260.150653,
       "debt_share_of_volume": 0.100102,
+      "frozen_share_close": 0.909133,
       "gini_close": 0.582737,
       "gini_open": 0.881758,
       "hub_nodes": [
@@ -7843,6 +8058,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3789.075215,
       "debt_share_of_volume": 0.157299,
+      "frozen_share_close": 0.922268,
       "gini_close": 0.588656,
       "gini_open": 0.876007,
       "hub_nodes": [
@@ -7881,6 +8097,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3877.583312,
       "debt_share_of_volume": 0.158673,
+      "frozen_share_close": 0.920363,
       "gini_close": 0.587812,
       "gini_open": 0.877928,
       "hub_nodes": [
@@ -7919,6 +8136,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4644.93643,
       "debt_share_of_volume": 0.174016,
+      "frozen_share_close": 0.918642,
       "gini_close": 0.586701,
       "gini_open": 0.877346,
       "hub_nodes": [
@@ -7957,6 +8175,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5688.289564,
       "debt_share_of_volume": 0.200907,
+      "frozen_share_close": 0.909255,
       "gini_close": 0.582869,
       "gini_open": 0.87864,
       "hub_nodes": [
@@ -7995,6 +8214,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3211.421414,
       "debt_share_of_volume": 0.138411,
+      "frozen_share_close": 0.910351,
       "gini_close": 0.583524,
       "gini_open": 0.886042,
       "hub_nodes": [
@@ -8033,6 +8253,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 353.966408,
       "debt_share_of_volume": 0.017435,
+      "frozen_share_close": 0.931756,
       "gini_close": 0.592329,
       "gini_open": 0.862896,
       "hub_nodes": [
@@ -8071,6 +8292,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 333.698999,
       "debt_share_of_volume": 0.017108,
+      "frozen_share_close": 0.934678,
       "gini_close": 0.593488,
       "gini_open": 0.865481,
       "hub_nodes": [
@@ -8109,6 +8331,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 323.276692,
       "debt_share_of_volume": 0.015985,
+      "frozen_share_close": 0.932134,
       "gini_close": 0.592399,
       "gini_open": 0.866723,
       "hub_nodes": [
@@ -8147,6 +8370,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 266.742729,
       "debt_share_of_volume": 0.013332,
+      "frozen_share_close": 0.933035,
       "gini_close": 0.592653,
       "gini_open": 0.867412,
       "hub_nodes": [
@@ -8185,6 +8409,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 378.186353,
       "debt_share_of_volume": 0.019947,
+      "frozen_share_close": 0.932294,
       "gini_close": 0.592744,
       "gini_open": 0.873236,
       "hub_nodes": [
@@ -8223,6 +8448,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 830.576769,
       "debt_share_of_volume": 0.041491,
+      "frozen_share_close": 0.936975,
       "gini_close": 0.594663,
       "gini_open": 0.8621,
       "hub_nodes": [
@@ -8261,6 +8487,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 803.053702,
       "debt_share_of_volume": 0.04069,
+      "frozen_share_close": 0.936324,
       "gini_close": 0.594163,
       "gini_open": 0.864668,
       "hub_nodes": [
@@ -8299,6 +8526,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 786.302828,
       "debt_share_of_volume": 0.038321,
+      "frozen_share_close": 0.933131,
       "gini_close": 0.592799,
       "gini_open": 0.866067,
       "hub_nodes": [
@@ -8337,6 +8565,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 654.343277,
       "debt_share_of_volume": 0.032164,
+      "frozen_share_close": 0.933316,
       "gini_close": 0.592735,
       "gini_open": 0.866925,
       "hub_nodes": [
@@ -8375,6 +8604,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 880.377243,
       "debt_share_of_volume": 0.047052,
+      "frozen_share_close": 0.938263,
       "gini_close": 0.595364,
       "gini_open": 0.872288,
       "hub_nodes": [
@@ -8413,6 +8643,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 103.974602,
       "debt_share_of_volume": 0.005148,
+      "frozen_share_close": 0.93038,
       "gini_close": 0.591756,
       "gini_open": 0.863436,
       "hub_nodes": [
@@ -8443,6 +8674,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 502.455178,
       "debt_share_of_volume": 0.025684,
+      "frozen_share_close": 0.934822,
       "gini_close": 0.593548,
       "gini_open": 0.865749,
       "hub_nodes": [
@@ -8473,6 +8705,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 592.823881,
       "debt_share_of_volume": 0.029177,
+      "frozen_share_close": 0.932811,
       "gini_close": 0.592658,
       "gini_open": 0.866467,
       "hub_nodes": [
@@ -8503,6 +8736,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 689.040866,
       "debt_share_of_volume": 0.034132,
+      "frozen_share_close": 0.934634,
       "gini_close": 0.593303,
       "gini_open": 0.866699,
       "hub_nodes": [
@@ -8533,6 +8767,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 536.474158,
       "debt_share_of_volume": 0.028151,
+      "frozen_share_close": 0.931984,
       "gini_close": 0.5926,
       "gini_open": 0.873471,
       "hub_nodes": [
@@ -8563,6 +8798,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1573.774469,
       "debt_share_of_volume": 0.076912,
+      "frozen_share_close": 0.938935,
       "gini_close": 0.595461,
       "gini_open": 0.860793,
       "hub_nodes": [
@@ -8601,6 +8837,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1517.622326,
       "debt_share_of_volume": 0.075287,
+      "frozen_share_close": 0.938586,
       "gini_close": 0.595085,
       "gini_open": 0.863335,
       "hub_nodes": [
@@ -8639,6 +8876,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1507.851648,
       "debt_share_of_volume": 0.071747,
+      "frozen_share_close": 0.934558,
       "gini_close": 0.593367,
       "gini_open": 0.864989,
       "hub_nodes": [
@@ -8677,6 +8915,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1270.337239,
       "debt_share_of_volume": 0.060791,
+      "frozen_share_close": 0.933698,
       "gini_close": 0.59284,
       "gini_open": 0.866121,
       "hub_nodes": [
@@ -8715,6 +8954,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1651.955926,
       "debt_share_of_volume": 0.086396,
+      "frozen_share_close": 0.941167,
       "gini_close": 0.596529,
       "gini_open": 0.870727,
       "hub_nodes": [
@@ -8753,6 +8993,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2872.97424,
       "debt_share_of_volume": 0.134206,
+      "frozen_share_close": 0.941794,
       "gini_close": 0.59668,
       "gini_open": 0.858263,
       "hub_nodes": [
@@ -8791,6 +9032,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2764.60514,
       "debt_share_of_volume": 0.131026,
+      "frozen_share_close": 0.941803,
       "gini_close": 0.596376,
       "gini_open": 0.860777,
       "hub_nodes": [
@@ -8829,6 +9071,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2703.580634,
       "debt_share_of_volume": 0.127253,
+      "frozen_share_close": 0.942508,
       "gini_close": 0.597009,
       "gini_open": 0.862875,
       "hub_nodes": [
@@ -8867,6 +9110,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2361.760968,
       "debt_share_of_volume": 0.109598,
+      "frozen_share_close": 0.937348,
       "gini_close": 0.594422,
       "gini_open": 0.864534,
       "hub_nodes": [
@@ -8905,6 +9149,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2963.477938,
       "debt_share_of_volume": 0.148494,
+      "frozen_share_close": 0.947494,
       "gini_close": 0.599282,
       "gini_open": 0.867662,
       "hub_nodes": [
@@ -8943,6 +9188,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4001.054095,
       "debt_share_of_volume": 0.178613,
+      "frozen_share_close": 0.94368,
       "gini_close": 0.597414,
       "gini_open": 0.855804,
       "hub_nodes": [
@@ -8981,6 +9227,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3851.075086,
       "debt_share_of_volume": 0.174059,
+      "frozen_share_close": 0.943848,
       "gini_close": 0.597181,
       "gini_open": 0.858461,
       "hub_nodes": [
@@ -9019,6 +9266,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3822.2751,
       "debt_share_of_volume": 0.171734,
+      "frozen_share_close": 0.943809,
       "gini_close": 0.597492,
       "gini_open": 0.860892,
       "hub_nodes": [
@@ -9057,6 +9305,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3304.29567,
       "debt_share_of_volume": 0.149543,
+      "frozen_share_close": 0.940684,
       "gini_close": 0.595889,
       "gini_open": 0.862978,
       "hub_nodes": [
@@ -9095,6 +9344,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4174.66662,
       "debt_share_of_volume": 0.195241,
+      "frozen_share_close": 0.948545,
       "gini_close": 0.599709,
       "gini_open": 0.864726,
       "hub_nodes": [
@@ -9133,6 +9383,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 360.919598,
       "debt_share_of_volume": 0.017686,
+      "frozen_share_close": 0.930984,
       "gini_close": 0.592022,
       "gini_open": 0.8634,
       "hub_nodes": [
@@ -9171,6 +9422,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 343.192753,
       "debt_share_of_volume": 0.017431,
+      "frozen_share_close": 0.933462,
       "gini_close": 0.592989,
       "gini_open": 0.866033,
       "hub_nodes": [
@@ -9209,6 +9461,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 326.603335,
       "debt_share_of_volume": 0.016163,
+      "frozen_share_close": 0.932045,
       "gini_close": 0.592386,
       "gini_open": 0.866991,
       "hub_nodes": [
@@ -9247,6 +9500,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 273.084188,
       "debt_share_of_volume": 0.013404,
+      "frozen_share_close": 0.929806,
       "gini_close": 0.591182,
       "gini_open": 0.867599,
       "hub_nodes": [
@@ -9285,6 +9539,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 390.726318,
       "debt_share_of_volume": 0.020306,
+      "frozen_share_close": 0.930474,
       "gini_close": 0.591996,
       "gini_open": 0.873843,
       "hub_nodes": [
@@ -9323,6 +9578,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 894.566894,
       "debt_share_of_volume": 0.04299,
+      "frozen_share_close": 0.931454,
       "gini_close": 0.592233,
       "gini_open": 0.863355,
       "hub_nodes": [
@@ -9361,6 +9617,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 858.715175,
       "debt_share_of_volume": 0.04256,
+      "frozen_share_close": 0.933504,
       "gini_close": 0.59301,
       "gini_open": 0.866036,
       "hub_nodes": [
@@ -9399,6 +9656,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 790.9327,
       "debt_share_of_volume": 0.039321,
+      "frozen_share_close": 0.936062,
       "gini_close": 0.594234,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -9437,6 +9695,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 668.065063,
       "debt_share_of_volume": 0.032694,
+      "frozen_share_close": 0.931231,
       "gini_close": 0.591838,
       "gini_open": 0.867394,
       "hub_nodes": [
@@ -9475,6 +9734,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 977.425115,
       "debt_share_of_volume": 0.049268,
+      "frozen_share_close": 0.930395,
       "gini_close": 0.591962,
       "gini_open": 0.873802,
       "hub_nodes": [
@@ -9513,6 +9773,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.930667,
       "gini_close": 0.591879,
       "gini_open": 0.863432,
       "hub_nodes": [
@@ -9543,6 +9804,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.933434,
       "gini_close": 0.592977,
       "gini_open": 0.866032,
       "hub_nodes": [
@@ -9573,6 +9835,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.931392,
       "gini_close": 0.592099,
       "gini_open": 0.867165,
       "hub_nodes": [
@@ -9603,6 +9866,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 199.043394,
       "debt_share_of_volume": 0.009682,
+      "frozen_share_close": 0.928712,
       "gini_close": 0.590706,
       "gini_open": 0.867749,
       "hub_nodes": [
@@ -9633,6 +9897,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.930526,
       "gini_close": 0.592019,
       "gini_open": 0.873871,
       "hub_nodes": [
@@ -9663,6 +9928,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1764.147995,
       "debt_share_of_volume": 0.08219,
+      "frozen_share_close": 0.932222,
       "gini_close": 0.59258,
       "gini_open": 0.86328,
       "hub_nodes": [
@@ -9701,6 +9967,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1719.387505,
       "debt_share_of_volume": 0.08191,
+      "frozen_share_close": 0.933573,
       "gini_close": 0.593045,
       "gini_open": 0.866041,
       "hub_nodes": [
@@ -9739,6 +10006,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1546.579502,
       "debt_share_of_volume": 0.07533,
+      "frozen_share_close": 0.937567,
       "gini_close": 0.59489,
       "gini_open": 0.866311,
       "hub_nodes": [
@@ -9777,6 +10045,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1398.755603,
       "debt_share_of_volume": 0.062327,
+      "frozen_share_close": 0.919424,
       "gini_close": 0.586348,
       "gini_open": 0.86706,
       "hub_nodes": [
@@ -9815,6 +10084,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1956.996736,
       "debt_share_of_volume": 0.093923,
+      "frozen_share_close": 0.93026,
       "gini_close": 0.591906,
       "gini_open": 0.873734,
       "hub_nodes": [
@@ -9853,6 +10123,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3434.958665,
       "debt_share_of_volume": 0.151094,
+      "frozen_share_close": 0.933676,
       "gini_close": 0.593239,
       "gini_open": 0.863138,
       "hub_nodes": [
@@ -9891,6 +10162,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3443.521634,
       "debt_share_of_volume": 0.15221,
+      "frozen_share_close": 0.933707,
       "gini_close": 0.593123,
       "gini_open": 0.866069,
       "hub_nodes": [
@@ -9929,6 +10201,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3050.822758,
       "debt_share_of_volume": 0.139182,
+      "frozen_share_close": 0.936696,
       "gini_close": 0.594414,
       "gini_open": 0.865496,
       "hub_nodes": [
@@ -9967,6 +10240,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2591.721559,
       "debt_share_of_volume": 0.115617,
+      "frozen_share_close": 0.924962,
       "gini_close": 0.588864,
       "gini_open": 0.866407,
       "hub_nodes": [
@@ -10005,6 +10279,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3923.268657,
       "debt_share_of_volume": 0.171777,
+      "frozen_share_close": 0.929982,
       "gini_close": 0.591791,
       "gini_open": 0.873608,
       "hub_nodes": [
@@ -10043,6 +10318,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5147.951049,
       "debt_share_of_volume": 0.20991,
+      "frozen_share_close": 0.931278,
       "gini_close": 0.592121,
       "gini_open": 0.863007,
       "hub_nodes": [
@@ -10081,6 +10357,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5167.478929,
       "debt_share_of_volume": 0.213041,
+      "frozen_share_close": 0.933839,
       "gini_close": 0.593209,
       "gini_open": 0.866111,
       "hub_nodes": [
@@ -10119,6 +10396,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4334.935419,
       "debt_share_of_volume": 0.193604,
+      "frozen_share_close": 0.941964,
       "gini_close": 0.596815,
       "gini_open": 0.864754,
       "hub_nodes": [
@@ -10157,6 +10435,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3637.331603,
       "debt_share_of_volume": 0.161678,
+      "frozen_share_close": 0.929448,
       "gini_close": 0.5909,
       "gini_open": 0.865808,
       "hub_nodes": [
@@ -10195,6 +10474,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5738.700212,
       "debt_share_of_volume": 0.236766,
+      "frozen_share_close": 0.933672,
       "gini_close": 0.593393,
       "gini_open": 0.87349,
       "hub_nodes": [
@@ -10233,6 +10513,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.930667,
       "gini_close": 0.591879,
       "gini_open": 0.863432,
       "hub_nodes": [],
@@ -10260,6 +10541,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.933434,
       "gini_close": 0.592977,
       "gini_open": 0.866032,
       "hub_nodes": [],
@@ -10287,6 +10569,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.931392,
       "gini_close": 0.592099,
       "gini_open": 0.867165,
       "hub_nodes": [],
@@ -10314,6 +10597,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.928811,
       "gini_close": 0.590724,
       "gini_open": 0.867736,
       "hub_nodes": [],
@@ -10341,6 +10625,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.930526,
       "gini_close": 0.592019,
       "gini_open": 0.873871,
       "hub_nodes": [],
@@ -10368,6 +10653,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 545.722901,
       "debt_share_of_volume": 0.015781,
+      "frozen_share_close": 0.800586,
       "gini_close": 0.559475,
       "gini_open": 0.864215,
       "hub_nodes": [
@@ -10406,6 +10692,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 402.341261,
       "debt_share_of_volume": 0.014949,
+      "frozen_share_close": 0.872265,
       "gini_close": 0.567163,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -10444,6 +10731,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 564.766724,
       "debt_share_of_volume": 0.01679,
+      "frozen_share_close": 0.817574,
       "gini_close": 0.561786,
       "gini_open": 0.867764,
       "hub_nodes": [
@@ -10482,6 +10770,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 974.946221,
       "debt_share_of_volume": 0.021691,
+      "frozen_share_close": 0.715503,
       "gini_close": 0.570064,
       "gini_open": 0.868389,
       "hub_nodes": [
@@ -10520,6 +10809,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 235.43203,
       "debt_share_of_volume": 0.010896,
+      "frozen_share_close": 0.892077,
       "gini_close": 0.573549,
       "gini_open": 0.874628,
       "hub_nodes": [
@@ -10558,6 +10848,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1463.753302,
       "debt_share_of_volume": 0.038581,
+      "frozen_share_close": 0.774928,
       "gini_close": 0.562047,
       "gini_open": 0.865404,
       "hub_nodes": [
@@ -10596,6 +10887,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 883.320276,
       "debt_share_of_volume": 0.034972,
+      "frozen_share_close": 0.88813,
       "gini_close": 0.571741,
       "gini_open": 0.867802,
       "hub_nodes": [
@@ -10634,6 +10926,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1269.770994,
       "debt_share_of_volume": 0.04029,
+      "frozen_share_close": 0.841821,
       "gini_close": 0.562966,
       "gini_open": 0.868677,
       "hub_nodes": [
@@ -10672,6 +10965,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2304.321782,
       "debt_share_of_volume": 0.051329,
+      "frozen_share_close": 0.724827,
       "gini_close": 0.56637,
       "gini_open": 0.869385,
       "hub_nodes": [
@@ -10710,6 +11004,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 576.353976,
       "debt_share_of_volume": 0.02644,
+      "frozen_share_close": 0.892722,
       "gini_close": 0.573961,
       "gini_open": 0.875774,
       "hub_nodes": [
@@ -10748,6 +11043,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1367.560657,
       "debt_share_of_volume": 0.045546,
+      "frozen_share_close": 0.835278,
       "gini_close": 0.559772,
       "gini_open": 0.862146,
       "hub_nodes": [
@@ -10778,6 +11074,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2245.262933,
       "debt_share_of_volume": 0.085626,
+      "frozen_share_close": 0.890755,
       "gini_close": 0.575972,
       "gini_open": 0.86731,
       "hub_nodes": [
@@ -10808,6 +11105,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4222.583146,
       "debt_share_of_volume": 0.109389,
+      "frozen_share_close": 0.788003,
       "gini_close": 0.563293,
       "gini_open": 0.870818,
       "hub_nodes": [
@@ -10838,6 +11136,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3745.724493,
       "debt_share_of_volume": 0.099842,
+      "frozen_share_close": 0.796222,
       "gini_close": 0.556698,
       "gini_open": 0.87187,
       "hub_nodes": [
@@ -10868,6 +11167,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2429.131755,
       "debt_share_of_volume": 0.098615,
+      "frozen_share_close": 0.88098,
       "gini_close": 0.573922,
       "gini_open": 0.875727,
       "hub_nodes": [
@@ -10898,6 +11198,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2637.968441,
       "debt_share_of_volume": 0.070366,
+      "frozen_share_close": 0.784763,
       "gini_close": 0.564023,
       "gini_open": 0.867415,
       "hub_nodes": [
@@ -10936,6 +11237,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1595.353433,
       "debt_share_of_volume": 0.065182,
+      "frozen_share_close": 0.899628,
       "gini_close": 0.57698,
       "gini_open": 0.86965,
       "hub_nodes": [
@@ -10974,6 +11276,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2424.702278,
       "debt_share_of_volume": 0.075203,
+      "frozen_share_close": 0.845419,
       "gini_close": 0.564911,
       "gini_open": 0.870238,
       "hub_nodes": [
@@ -11012,6 +11315,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3313.384407,
       "debt_share_of_volume": 0.091701,
+      "frozen_share_close": 0.81868,
       "gini_close": 0.556587,
       "gini_open": 0.871105,
       "hub_nodes": [
@@ -11050,6 +11354,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1145.342995,
       "debt_share_of_volume": 0.05253,
+      "frozen_share_close": 0.900159,
       "gini_close": 0.577377,
       "gini_open": 0.877713,
       "hub_nodes": [
@@ -11088,6 +11393,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3574.76892,
       "debt_share_of_volume": 0.119291,
+      "frozen_share_close": 0.861935,
       "gini_close": 0.569632,
       "gini_open": 0.871584,
       "hub_nodes": [
@@ -11126,6 +11432,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3001.546019,
       "debt_share_of_volume": 0.115185,
+      "frozen_share_close": 0.895022,
       "gini_close": 0.575526,
       "gini_open": 0.873626,
       "hub_nodes": [
@@ -11164,6 +11471,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3549.038799,
       "debt_share_of_volume": 0.128713,
+      "frozen_share_close": 0.89441,
       "gini_close": 0.577657,
       "gini_open": 0.873606,
       "hub_nodes": [
@@ -11202,6 +11510,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5199.49491,
       "debt_share_of_volume": 0.155221,
+      "frozen_share_close": 0.854373,
       "gini_close": 0.566075,
       "gini_open": 0.874718,
       "hub_nodes": [
@@ -11240,6 +11549,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2215.444867,
       "debt_share_of_volume": 0.096304,
+      "frozen_share_close": 0.894284,
       "gini_close": 0.575789,
       "gini_open": 0.881758,
       "hub_nodes": [
@@ -11278,6 +11588,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4410.351456,
       "debt_share_of_volume": 0.15828,
+      "frozen_share_close": 0.884608,
       "gini_close": 0.575289,
       "gini_open": 0.876007,
       "hub_nodes": [
@@ -11316,6 +11627,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3990.739302,
       "debt_share_of_volume": 0.156649,
+      "frozen_share_close": 0.906963,
       "gini_close": 0.580583,
       "gini_open": 0.877928,
       "hub_nodes": [
@@ -11354,6 +11666,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4983.613547,
       "debt_share_of_volume": 0.173837,
+      "frozen_share_close": 0.897801,
       "gini_close": 0.579315,
       "gini_open": 0.877346,
       "hub_nodes": [
@@ -11392,6 +11705,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 6602.898093,
       "debt_share_of_volume": 0.203902,
+      "frozen_share_close": 0.876491,
       "gini_close": 0.572067,
       "gini_open": 0.87864,
       "hub_nodes": [
@@ -11430,6 +11744,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3129.91499,
       "debt_share_of_volume": 0.133429,
+      "frozen_share_close": 0.896443,
       "gini_close": 0.577095,
       "gini_open": 0.886042,
       "hub_nodes": [
@@ -11468,6 +11783,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 709.040397,
       "debt_share_of_volume": 0.018436,
+      "frozen_share_close": 0.767837,
       "gini_close": 0.559419,
       "gini_open": 0.862896,
       "hub_nodes": [
@@ -11506,6 +11822,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 481.450384,
       "debt_share_of_volume": 0.017984,
+      "frozen_share_close": 0.873889,
       "gini_close": 0.566794,
       "gini_open": 0.865481,
       "hub_nodes": [
@@ -11544,6 +11861,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 672.908087,
       "debt_share_of_volume": 0.017872,
+      "frozen_share_close": 0.785347,
       "gini_close": 0.560948,
       "gini_open": 0.866723,
       "hub_nodes": [
@@ -11582,6 +11900,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 637.062464,
       "debt_share_of_volume": 0.013815,
+      "frozen_share_close": 0.705614,
       "gini_close": 0.574045,
       "gini_open": 0.867412,
       "hub_nodes": [
@@ -11620,6 +11939,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 429.49366,
       "debt_share_of_volume": 0.020925,
+      "frozen_share_close": 0.904566,
       "gini_close": 0.578168,
       "gini_open": 0.873236,
       "hub_nodes": [
@@ -11658,6 +11978,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1440.951893,
       "debt_share_of_volume": 0.043189,
+      "frozen_share_close": 0.823004,
       "gini_close": 0.556422,
       "gini_open": 0.8621,
       "hub_nodes": [
@@ -11696,6 +12017,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1099.65609,
       "debt_share_of_volume": 0.042423,
+      "frozen_share_close": 0.887059,
       "gini_close": 0.571118,
       "gini_open": 0.864668,
       "hub_nodes": [
@@ -11734,6 +12056,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1205.577875,
       "debt_share_of_volume": 0.040739,
+      "frozen_share_close": 0.857635,
       "gini_close": 0.562564,
       "gini_open": 0.866067,
       "hub_nodes": [
@@ -11772,6 +12095,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1589.266302,
       "debt_share_of_volume": 0.033307,
+      "frozen_share_close": 0.701291,
       "gini_close": 0.575844,
       "gini_open": 0.866925,
       "hub_nodes": [
@@ -11810,6 +12134,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1057.128153,
       "debt_share_of_volume": 0.049144,
+      "frozen_share_close": 0.903585,
       "gini_close": 0.578315,
       "gini_open": 0.872288,
       "hub_nodes": [
@@ -11848,6 +12173,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 176.169754,
       "debt_share_of_volume": 0.004702,
+      "frozen_share_close": 0.768256,
       "gini_close": 0.562075,
       "gini_open": 0.863436,
       "hub_nodes": [
@@ -11878,6 +12204,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 572.242516,
       "debt_share_of_volume": 0.021339,
+      "frozen_share_close": 0.87357,
       "gini_close": 0.566273,
       "gini_open": 0.865749,
       "hub_nodes": [
@@ -11908,6 +12235,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 799.480959,
       "debt_share_of_volume": 0.025274,
+      "frozen_share_close": 0.837518,
       "gini_close": 0.5611,
       "gini_open": 0.866467,
       "hub_nodes": [
@@ -11938,6 +12266,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1465.230901,
       "debt_share_of_volume": 0.031801,
+      "frozen_share_close": 0.712293,
       "gini_close": 0.571075,
       "gini_open": 0.866699,
       "hub_nodes": [
@@ -11968,6 +12297,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 574.140159,
       "debt_share_of_volume": 0.026441,
+      "frozen_share_close": 0.893261,
       "gini_close": 0.573205,
       "gini_open": 0.873471,
       "hub_nodes": [
@@ -11998,6 +12328,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2406.050266,
       "debt_share_of_volume": 0.079763,
+      "frozen_share_close": 0.861546,
       "gini_close": 0.563173,
       "gini_open": 0.860793,
       "hub_nodes": [
@@ -12036,6 +12367,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1925.812501,
       "debt_share_of_volume": 0.07762,
+      "frozen_share_close": 0.901963,
       "gini_close": 0.577667,
       "gini_open": 0.863335,
       "hub_nodes": [
@@ -12074,6 +12406,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2292.824113,
       "debt_share_of_volume": 0.07599,
+      "frozen_share_close": 0.86069,
       "gini_close": 0.562595,
       "gini_open": 0.864989,
       "hub_nodes": [
@@ -12112,6 +12445,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3081.626964,
       "debt_share_of_volume": 0.062322,
+      "frozen_share_close": 0.699393,
       "gini_close": 0.576881,
       "gini_open": 0.866121,
       "hub_nodes": [
@@ -12150,6 +12484,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1895.134671,
       "debt_share_of_volume": 0.08986,
+      "frozen_share_close": 0.915792,
       "gini_close": 0.583722,
       "gini_open": 0.870727,
       "hub_nodes": [
@@ -12188,6 +12523,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3737.592532,
       "debt_share_of_volume": 0.136057,
+      "frozen_share_close": 0.898989,
       "gini_close": 0.57688,
       "gini_open": 0.858263,
       "hub_nodes": [
@@ -12226,6 +12562,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3181.065578,
       "debt_share_of_volume": 0.13216,
+      "frozen_share_close": 0.920212,
       "gini_close": 0.586058,
       "gini_open": 0.860777,
       "hub_nodes": [
@@ -12264,6 +12601,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3677.132859,
       "debt_share_of_volume": 0.133109,
+      "frozen_share_close": 0.896806,
       "gini_close": 0.575569,
       "gini_open": 0.862875,
       "hub_nodes": [
@@ -12302,6 +12640,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3946.215597,
       "debt_share_of_volume": 0.110131,
+      "frozen_share_close": 0.83526,
       "gini_close": 0.550065,
       "gini_open": 0.864534,
       "hub_nodes": [
@@ -12340,6 +12679,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 3416.914876,
       "debt_share_of_volume": 0.155017,
+      "frozen_share_close": 0.921578,
       "gini_close": 0.586302,
       "gini_open": 0.867662,
       "hub_nodes": [
@@ -12378,6 +12718,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4963.14239,
       "debt_share_of_volume": 0.180909,
+      "frozen_share_close": 0.91029,
       "gini_close": 0.581932,
       "gini_open": 0.855804,
       "hub_nodes": [
@@ -12416,6 +12757,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4257.956389,
       "debt_share_of_volume": 0.175056,
+      "frozen_share_close": 0.928526,
       "gini_close": 0.58972,
       "gini_open": 0.858461,
       "hub_nodes": [
@@ -12454,6 +12796,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4996.888256,
       "debt_share_of_volume": 0.177371,
+      "frozen_share_close": 0.905079,
       "gini_close": 0.579674,
       "gini_open": 0.860892,
       "hub_nodes": [
@@ -12492,6 +12835,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5460.200984,
       "debt_share_of_volume": 0.149883,
+      "frozen_share_close": 0.840141,
       "gini_close": 0.550844,
       "gini_open": 0.862978,
       "hub_nodes": [
@@ -12530,6 +12874,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4697.100687,
       "debt_share_of_volume": 0.202727,
+      "frozen_share_close": 0.928066,
       "gini_close": 0.589445,
       "gini_open": 0.864726,
       "hub_nodes": [
@@ -12568,6 +12913,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 715.613088,
       "debt_share_of_volume": 0.01897,
+      "frozen_share_close": 0.771389,
       "gini_close": 0.561567,
       "gini_open": 0.8634,
       "hub_nodes": [
@@ -12606,6 +12952,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 542.145736,
       "debt_share_of_volume": 0.018317,
+      "frozen_share_close": 0.846007,
       "gini_close": 0.56097,
       "gini_open": 0.866033,
       "hub_nodes": [
@@ -12644,6 +12991,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 496.38087,
       "debt_share_of_volume": 0.017383,
+      "frozen_share_close": 0.858904,
       "gini_close": 0.564373,
       "gini_open": 0.866991,
       "hub_nodes": [
@@ -12682,6 +13030,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 613.962495,
       "debt_share_of_volume": 0.01392,
+      "frozen_share_close": 0.716263,
       "gini_close": 0.569427,
       "gini_open": 0.867599,
       "hub_nodes": [
@@ -12720,6 +13069,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 476.07834,
       "debt_share_of_volume": 0.021662,
+      "frozen_share_close": 0.891347,
       "gini_close": 0.573138,
       "gini_open": 0.873843,
       "hub_nodes": [
@@ -12758,6 +13108,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1637.137577,
       "debt_share_of_volume": 0.045668,
+      "frozen_share_close": 0.798701,
       "gini_close": 0.559128,
       "gini_open": 0.863355,
       "hub_nodes": [
@@ -12796,6 +13147,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1354.033523,
       "debt_share_of_volume": 0.044639,
+      "frozen_share_close": 0.846208,
       "gini_close": 0.561038,
       "gini_open": 0.866036,
       "hub_nodes": [
@@ -12834,6 +13186,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1312.566644,
       "debt_share_of_volume": 0.042774,
+      "frozen_share_close": 0.844782,
       "gini_close": 0.562055,
       "gini_open": 0.866731,
       "hub_nodes": [
@@ -12872,6 +13225,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1453.835216,
       "debt_share_of_volume": 0.033923,
+      "frozen_share_close": 0.727031,
       "gini_close": 0.564694,
       "gini_open": 0.867394,
       "hub_nodes": [
@@ -12910,6 +13264,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 1192.960346,
       "debt_share_of_volume": 0.052487,
+      "frozen_share_close": 0.890944,
       "gini_close": 0.572957,
       "gini_open": 0.873802,
       "hub_nodes": [
@@ -12948,6 +13303,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.76988,
       "gini_close": 0.561784,
       "gini_open": 0.863432,
       "hub_nodes": [
@@ -12978,6 +13334,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.845875,
       "gini_close": 0.560925,
       "gini_open": 0.866032,
       "hub_nodes": [
@@ -13008,6 +13365,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.841301,
       "gini_close": 0.561657,
       "gini_open": 0.867165,
       "hub_nodes": [
@@ -13038,6 +13396,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 678.679288,
       "debt_share_of_volume": 0.013614,
+      "frozen_share_close": 0.667052,
       "gini_close": 0.590518,
       "gini_open": 0.867749,
       "hub_nodes": [
@@ -13068,6 +13427,7 @@
       "debt_blocked_rounds": 300,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.891618,
       "gini_close": 0.573261,
       "gini_open": 0.873871,
       "hub_nodes": [
@@ -13098,6 +13458,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2943.215498,
       "debt_share_of_volume": 0.086085,
+      "frozen_share_close": 0.824642,
       "gini_close": 0.559839,
       "gini_open": 0.86328,
       "hub_nodes": [
@@ -13136,6 +13497,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2711.81487,
       "debt_share_of_volume": 0.085826,
+      "frozen_share_close": 0.846264,
       "gini_close": 0.561439,
       "gini_open": 0.866041,
       "hub_nodes": [
@@ -13174,6 +13536,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2385.274025,
       "debt_share_of_volume": 0.080854,
+      "frozen_share_close": 0.863447,
       "gini_close": 0.565731,
       "gini_open": 0.866311,
       "hub_nodes": [
@@ -13212,6 +13575,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2566.451257,
       "debt_share_of_volume": 0.065013,
+      "frozen_share_close": 0.766696,
       "gini_close": 0.5518,
       "gini_open": 0.86706,
       "hub_nodes": [
@@ -13250,6 +13614,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 2394.907426,
       "debt_share_of_volume": 0.099846,
+      "frozen_share_close": 0.890287,
       "gini_close": 0.572667,
       "gini_open": 0.873734,
       "hub_nodes": [
@@ -13288,6 +13653,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5629.330011,
       "debt_share_of_volume": 0.157611,
+      "frozen_share_close": 0.829997,
       "gini_close": 0.560526,
       "gini_open": 0.863138,
       "hub_nodes": [
@@ -13326,6 +13692,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5367.874791,
       "debt_share_of_volume": 0.158495,
+      "frozen_share_close": 0.847596,
       "gini_close": 0.561579,
       "gini_open": 0.866069,
       "hub_nodes": [
@@ -13364,6 +13731,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4292.750177,
       "debt_share_of_volume": 0.146925,
+      "frozen_share_close": 0.880496,
       "gini_close": 0.570206,
       "gini_open": 0.865496,
       "hub_nodes": [
@@ -13402,6 +13770,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4080.563758,
       "debt_share_of_volume": 0.119207,
+      "frozen_share_close": 0.817289,
       "gini_close": 0.55064,
       "gini_open": 0.866407,
       "hub_nodes": [
@@ -13440,6 +13809,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 4824.071581,
       "debt_share_of_volume": 0.181912,
+      "frozen_share_close": 0.889024,
       "gini_close": 0.572269,
       "gini_open": 0.873608,
       "hub_nodes": [
@@ -13478,6 +13848,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 8095.263894,
       "debt_share_of_volume": 0.218025,
+      "frozen_share_close": 0.834969,
       "gini_close": 0.561376,
       "gini_open": 0.863007,
       "hub_nodes": [
@@ -13516,6 +13887,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 7789.425791,
       "debt_share_of_volume": 0.221848,
+      "frozen_share_close": 0.853306,
       "gini_close": 0.562096,
       "gini_open": 0.866111,
       "hub_nodes": [
@@ -13554,6 +13926,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 6168.705095,
       "debt_share_of_volume": 0.203826,
+      "frozen_share_close": 0.884695,
       "gini_close": 0.571379,
       "gini_open": 0.864754,
       "hub_nodes": [
@@ -13592,6 +13965,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 5495.907183,
       "debt_share_of_volume": 0.16635,
+      "frozen_share_close": 0.832305,
       "gini_close": 0.553305,
       "gini_open": 0.865808,
       "hub_nodes": [
@@ -13630,6 +14004,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 7438.22774,
       "debt_share_of_volume": 0.248798,
+      "frozen_share_close": 0.883947,
       "gini_close": 0.571099,
       "gini_open": 0.87349,
       "hub_nodes": [
@@ -13668,6 +14043,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.76988,
       "gini_close": 0.561784,
       "gini_open": 0.863432,
       "hub_nodes": [],
@@ -13695,6 +14071,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.845875,
       "gini_close": 0.560925,
       "gini_open": 0.866032,
       "hub_nodes": [],
@@ -13722,6 +14099,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.841301,
       "gini_close": 0.561657,
       "gini_open": 0.867165,
       "hub_nodes": [],
@@ -13749,6 +14127,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.708521,
       "gini_close": 0.572837,
       "gini_open": 0.867736,
       "hub_nodes": [],
@@ -13776,6 +14155,7 @@
       "debt_blocked_rounds": 0,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
+      "frozen_share_close": 0.891618,
       "gini_close": 0.573261,
       "gini_open": 0.873871,
       "hub_nodes": [],

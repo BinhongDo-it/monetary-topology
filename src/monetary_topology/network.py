@@ -217,6 +217,12 @@ _PREFERENTIAL_OFFSET = 31_337
 #: placebo's targets (``seed + 31337``).
 _REWIRE_OFFSET = 51_413
 
+#: A stream of its own for edge cutting, for the reason the rewire stream has
+#: one: a switch that consumes another switch's draws changes results it has
+#: nothing to do with, and the bitwise reproduction would then be a claim about
+#: draw order rather than about the mechanism.
+_EDGE_CUT_OFFSET = 90_311
+
 #: Where newly issued claims are credited. ``PROJECT_PLAN.md`` §16.2 registers
 #: both arms as the two readings of the source's own claim that money is
 #: non-neutral because the path and the injection point decide everything. Only
@@ -1103,6 +1109,330 @@ class RewireSpec:
 HUB_DEBT_ORIENTATIONS: tuple[str, ...] = ("creditor", "debtor", "mutual")
 
 
+#: How an edge comes to be cut. Each has a shape in the world and none of them
+#: is what this model already does, because every rule here reads the node's own
+#: state and the exit branch does not touch the adjacency at all: it flips a
+#: membership flag and lets the routing renormalise.
+#:
+#: ``shock``     a share of the edges is cut once, at a named round, with the
+#:               subsistence floor off. **No propagation rule at all.** This arm
+#:               asks whether the graph on its own carries a cascade, and it can
+#:               produce a discrete event without a floor because a node whose
+#:               out-edges are all gone has ``_has_out`` false and spends
+#:               nothing, which is an exit arrived at through the graph.
+#: ``self_cut``  a node whose inflow falls below a threshold cuts its own
+#:               out-edges. Withdrawing from the market rather than being unable
+#:               to afford it. **This is the arm closest to the existing exit
+#:               rule**, which is why the stage gates it: if the two read the
+#:               same numbers then it is the exit rule under another name.
+#: ``run``       nodes cut the edges pointing **at** a node whose inflow has
+#:               fallen below the threshold. The trigger is read on one node and
+#:               the action taken on another, and **no rule in this model does
+#:               that today**. It is the shape a run has: a counterparty that
+#:               looks weak stops being sent to, which makes it weaker.
+EDGE_CUT_MODES: tuple[str, ...] = ("shock", "self_cut", "run")
+
+#: How the shock arm picks its edges. See ``EdgeCutSpec.targeting``.
+EDGE_CUT_TARGETING: tuple[str, ...] = ("random", "degree")
+
+
+#: Where the money for a resupply comes from. See ``ResupplySpec.funding``.
+#:
+#: ``"creditors"``
+#:               The node's existing in-neighbours pay, out of their own
+#:               holdings. Nothing is created and nothing is levied, so the
+#:               whole cost falls on whoever already lent. **This is a
+#:               relationship-lending system with nobody standing behind the
+#:               lender**, and it is the only value the switch had when it was
+#:               added.
+#: ``"issuance"``
+#:               New claims are created and credited to the nodes that paid,
+#:               one round later, through the same issuance step the authority
+#:               already uses. The lenders are made whole and the claim stock
+#:               rises. **The lag is not a convenience**: an authority
+#:               recapitalises against losses it has seen, so the money arrives
+#:               after the lending, never in the same instant.
+#: ``"levy"``
+#:               The cost is taken per head from every node still trading and
+#:               handed to the nodes that paid. Conservative, and the burden is
+#:               spread over everyone rather than falling on the existing
+#:               creditors.
+#:
+#: **The three are the three answers to one question**, which is where a
+#: rescue's money comes from: the lender's own book, outside the graph, or
+#: everybody. They are not three degrees of one thing and no ordering is
+#: implied between them.
+RESUPPLY_FUNDING: tuple[str, ...] = ("creditors", "issuance", "levy")
+
+#: Where new claims land under ``funding="issuance"``. See
+#: ``ResupplySpec.recap_target``.
+#:
+#: ``"lenders"``
+#:               On the nodes that funded the rescue. This is the only
+#:               behaviour the switch had when it was added, and it is the one
+#:               that says an injection reaches the economy through whoever
+#:               already holds the claims on it.
+#: ``"uniform"``
+#:               Spread evenly over every node still trading. The same claims
+#:               created, arriving in a different place.
+#:
+#: **This exists as a control and not as a second scenario.** A reading of the
+#: form "the claims stopped where they landed" is a description of one arm
+#: until an arm exists that lands them elsewhere. Whether the landing point
+#: changes anything is the question; that it might not is a real branch.
+RECAP_TARGETS: tuple[str, ...] = ("lenders", "uniform")
+
+
+@dataclass(frozen=True)
+class ResupplySpec:
+    """A node held below the floor is kept going by whoever already lends to it.
+
+    **This closes a gap A18 wrote down before it ran.** Forbearance is dangerous
+    in the world because the forborne party keeps receiving new credit, and a
+    node here eats its own stock until it has none with nobody feeding it. So
+    the readings that stage took hold for forbearance without resupply, and this
+    switch is the other kind.
+
+    **The resuppliers are the node's existing in-neighbours**, and that choice
+    is the whole design. Nothing is created: what the node below the floor
+    receives, the nodes that already send to it lose. So the conservation
+    assertion stays a criterion, and the interesting quantity is not what
+    happens to the node being kept alive, it is what happens to the ones paying
+    for it. A relationship-lending system is exactly a graph where the existing
+    creditors are the ones who cannot walk away.
+
+    **No edge is introduced.** The resupply travels the edges that are already
+    there, in the direction they already point, which is why the potential
+    support set is untouched and why a node with no in-edges is simply not
+    resupplied.
+
+    Off by default, and off reproduces a run without it to the last bit.
+    """
+
+    #: Share of the subsistence need topped up each round for a node that is
+    #: below the floor. Zero is off. One means the node is held exactly at
+    #: subsistence and never runs down; above one it is refloated.
+    rate: float = 0.0
+
+    #: Who ends up out of pocket. See ``RESUPPLY_FUNDING``. The default is the
+    #: only behaviour this switch had when it was added, so a run that does not
+    #: name it is the run it was before this field existed.
+    funding: str = "creditors"
+
+    #: What a recapitalised node withdraws from circulation, as a share of its
+    #: spending propensity. Only reachable under ``funding="issuance"``, since
+    #: it is the recapitalised set that retains and the other two routes create
+    #: no such set.
+    #:
+    #: **This is the framework's own object and not a new one.** ``SpendRule``
+    #: already says that the retention rate is ``1 - propensity`` and that it
+    #: reads as the rate of exit from cross-layer circulation rather than as
+    #: hoarding in the literal sense. So a recapitalised node that retains is a
+    #: node whose propensity has been scaled, which is the same operation the
+    #: top layer already carries. Nothing is earmarked: a particular tranche of
+    #: claims being frozen is not an object this framework has.
+    #:
+    #: **The rescue itself is untouched by it.** The resupply is served before
+    #: discretionary spending, so a retaining node goes on funding whatever it
+    #: is asked for and simply stops doing anything else. That ordering is what
+    #: makes this arm a decomposition rather than an on/off switch: it turns
+    #: off the circulation channel and leaves the balance-sheet channel on.
+    retain: float = 0.0
+
+    #: Where the created claims land. See ``RECAP_TARGETS``. Reachable only
+    #: under ``funding="issuance"``, and the default is the behaviour the
+    #: switch had before this field existed.
+    recap_target: str = "lenders"
+
+    #: Share of the outstanding balance a rescued node repays each round.
+    #: Zero, the default, is the behaviour this switch had until now: **the
+    #: rescue is a gift and is never repaid.**
+    #:
+    #: **This is the half every real case has and this model did not.** A
+    #: rescue that is never repaid cannot show a debt overhang, cannot show a
+    #: rescue that makes its recipient worse off, and cannot distinguish a
+    #: bridge from a trap. With it, the rescued node owes what it received to
+    #: the nodes that funded it, and services that debt **before** it spends
+    #: anything of its own.
+    #:
+    #: **The seniority is the mechanism and it is Volume One's.** Mortgage,
+    #: rent, tax and interest are named there as the senior claim on income
+    #: rather than what is left after shopping, which is the same ordering
+    #: ``_hub_debt_flow`` already carries. So repayment is served first, and a
+    #: node that repays itself back below the subsistence line and is topped up
+    #: again is not an artefact of the ordering: **it is the ordering's
+    #: content.**
+    #:
+    #: Unpaid amounts stay on the ledger rather than being forgiven, so the
+    #: balance is readable and arrears are visible.
+    repay: float = 0.0
+
+    def __post_init__(self) -> None:
+        if self.rate < 0.0:
+            raise ValueError("rate must be non-negative")
+        if self.funding not in RESUPPLY_FUNDING:
+            raise ValueError(
+                f"funding must be one of {RESUPPLY_FUNDING}, "
+                f"got {self.funding!r}"
+            )
+        if not 0.0 <= self.retain <= 1.0:
+            raise ValueError("retain must lie in [0, 1]")
+        if self.recap_target not in RECAP_TARGETS:
+            raise ValueError(
+                f"recap_target must be one of {RECAP_TARGETS}, "
+                f"got {self.recap_target!r}"
+            )
+        if not 0.0 <= self.repay <= 1.0:
+            raise ValueError("repay must lie in [0, 1]")
+
+    @property
+    def active(self) -> bool:
+        return self.rate > 0.0
+
+
+#: Who moves claims out of reach. See ``ParkSpec.target``.
+PARK_TARGETS: tuple[str, ...] = ("financial", "all", "recapitalised")
+
+
+@dataclass(frozen=True)
+class ParkSpec:
+    """Claims moved out of circulation and out of reach, and not destroyed.
+
+    **This is the piece two separate correspondences named as missing.** A node
+    that retains holds its claims and does not spend them, but they are still
+    on its account, so an obligation senior to spending can still take them and
+    the retention is pierced. A node that has bought something outside the graph
+    has done a different thing: the claims are gone from the trading system and
+    no obligation reaches them, and yet they have not been destroyed.
+
+    **The framework already has the quantity and not the destination.**
+    ``SpendRule`` states that the retention rate reads as the rate of exit from
+    cross-layer circulation rather than as hoarding. Exit needs somewhere to go,
+    and until now the only somewhere was staying put.
+
+    **Nothing is created or destroyed, so the conservation assertion stays a
+    criterion** -- it counts the parked stock, because those claims still exist.
+    Destroying them is what ``WriteOffSpec`` does and this is not that.
+
+    **But the recorded ``M`` does not count them, and that is the point rather
+    than an oversight.** ``NetworkHistory.total_claims`` is the row sum of
+    ``holdings``, so ``M`` here has always meant claims in trading accounts.
+    Parking therefore splits the stock in two and the recorded ``M/R`` follows
+    the circulating half, with the other half carried beside it as ``parked``.
+    **That split is exactly what could not be expressed before**: a stock of
+    claims that exists, is owned, and is not in the money that circulates.
+
+    **One way.** A parked claim does not come back. That is the limiting case
+    and it is deliberately the first one: an instrument that matures is a second
+    mechanism and would make this one impossible to read on its own.
+
+    Off by default, and off reproduces a run without it to the last bit.
+    """
+
+    #: Share of what a node holds that is moved out of reach each round, after
+    #: obligations are served and before discretionary spending. Zero is off.
+    #:
+    #: **The placement is the content.** Parking before obligations would let a
+    #: node dodge them, which is a different claim about the world and one this
+    #: framework does not make: Volume One's senior claims are senior.
+    rate: float = 0.0
+
+    #: Which nodes do it. See ``PARK_TARGETS``. The default is the financial
+    #: layer, because that is the set every episode this was built for points
+    #: at, and because a rule applied to every node is a rule about the economy
+    #: rather than about a position in it.
+    target: str = "financial"
+
+    def __post_init__(self) -> None:
+        if not 0.0 <= self.rate <= 1.0:
+            raise ValueError("rate must lie in [0, 1]")
+        if self.target not in PARK_TARGETS:
+            raise ValueError(
+                f"target must be one of {PARK_TARGETS}, got {self.target!r}")
+
+    @property
+    def active(self) -> bool:
+        return self.rate > 0.0
+
+
+@dataclass(frozen=True)
+class EdgeCutSpec:
+    """Edges removed from the graph itself, rather than a node ceasing to trade.
+
+    **The distinction this switch exists for.** When a node crosses the
+    subsistence floor the adjacency is untouched: ``_alive`` flips, the routes
+    that pointed at it are masked out for that round and the rest renormalised,
+    and the potential graph is exactly what it was at construction. So the model
+    has no way for a trading relationship to end. That is a real gap, because
+    the relationship ending is the mechanism in a run: the depositor cuts the
+    edge to the bank before the bank has failed anything.
+
+    **Cutting creates and destroys no claims.** It changes who can pay whom, and
+    the round's flow renormalises over whatever edges remain, so the
+    conservation assertion stays a criterion rather than something to exempt.
+
+    Off by default, and off reproduces a run without it to the last bit.
+    """
+
+    #: What triggers a cut and who does the cutting. See ``EDGE_CUT_MODES``.
+    mode: str = "shock"
+
+    #: Share of edges cut. Zero is off. **What the share is taken over depends
+    #: on the mode**, and that is not a defect: under ``shock`` it is a share of
+    #: every edge in the graph, cut once, and under the two triggered modes it
+    #: is a share of the edges the event concerns. One number with a scope named
+    #: by the mode beats two numbers where only one is ever live.
+    share: float = 0.0
+
+    #: ``shock`` only: the round the cut happens. Zero means the opening round.
+    at_round: int = 0
+
+    #: ``shock`` only: how the edges to cut are chosen. ``random`` is uniform
+    #: over every edge present and is the default, so a run that does not ask
+    #: for targeting takes the path this arm always took.
+    #:
+    #: ``degree`` cuts the edges whose **target** has the highest in-degree
+    #: first. In-degree rather than out-degree, and the target rather than the
+    #: source, because that is already this file's definition of a hub: it is
+    #: the vector ``injection_node`` is chosen off and the one ``HubDebtSpec``
+    #: selects with. **A second definition of "the well-connected node" would be
+    #: the thing to avoid here**, since two of them in one file is how a word
+    #: comes to mean two objects.
+    #:
+    #: The pair exists because the network literature's result is a pair: graphs
+    #: of this kind are robust to random link removal and fragile to targeted
+    #: removal at the hubs. An arm that only cuts at random measures one half of
+    #: a known result and reports it as if it were the whole.
+    targeting: str = "random"
+
+    #: The two triggered modes only: the inflow below which a node counts as
+    #: stressed, in the units inflow is measured in. Zero with a triggered mode
+    #: means nothing ever fires, which is a coherent configuration and is left
+    #: to the caller rather than raised on.
+    trigger: float = 0.0
+
+    def __post_init__(self) -> None:
+        if self.mode not in EDGE_CUT_MODES:
+            raise ValueError(
+                f"mode must be one of {EDGE_CUT_MODES}, got {self.mode!r}"
+            )
+        if not 0.0 <= self.share <= 1.0:
+            raise ValueError("share must lie in [0, 1]")
+        if self.at_round < 0:
+            raise ValueError("at_round must be non-negative")
+        if self.targeting not in EDGE_CUT_TARGETING:
+            raise ValueError(
+                f"targeting must be one of {EDGE_CUT_TARGETING}, "
+                f"got {self.targeting!r}"
+            )
+        if self.trigger < 0.0:
+            raise ValueError("trigger must be non-negative")
+
+    @property
+    def active(self) -> bool:
+        return self.share > 0.0
+
+
 @dataclass(frozen=True)
 class HubDebtSpec:
     """A bilateral obligation carried by the highest-degree nodes. Off by default.
@@ -1252,6 +1582,16 @@ class NetworkConfig:
     #: A bilateral obligation on the highest-degree nodes. Off by default.
     hub_debt: HubDebtSpec = field(default_factory=HubDebtSpec)
 
+    #: Edges removed from the graph itself. Off by default.
+    edge_cut: EdgeCutSpec = field(default_factory=EdgeCutSpec)
+
+    #: Whoever already lends to a node below the floor keeps it going. Off by
+    #: default.
+    resupply: ResupplySpec = field(default_factory=ResupplySpec)
+
+    #: Claims moved out of circulation without being destroyed. Off by default.
+    park: ParkSpec = field(default_factory=ParkSpec)
+
     epsilon: float = DEFAULT_EPSILON
     rounds: int = 300
     seed: int = 0
@@ -1324,6 +1664,7 @@ class NetworkHistory:
     promoted: np.ndarray  # (rounds,) nodes that bought into the core this round
     demoted: np.ndarray  # (rounds,) nodes that lost the core this round
     frozen_holdings: np.ndarray  # (rounds,) claims held by nodes that have left
+    parked: np.ndarray  # (rounds,) claims out of circulation and not destroyed
     potential_support: int  # constant: nodes reachable in the potential graph
     node_count: int  # constant: nodes in the graph
     adjacency: np.ndarray  # the potential graph, fixed for the whole run
@@ -1515,6 +1856,47 @@ class Network:
             self._hub_nodes = np.sort(order[: hd.hubs]).astype(int)
         else:
             self._hub_nodes = np.zeros(0, dtype=int)
+        #: Edge cutting: its own stream, so that turning it on does not shift
+        #: any other draw, and two counters. ``_shock_fired`` makes the one-shot
+        #: arm one-shot even if the round is revisited.
+        self._cut_rng = np.random.default_rng(config.seed + _EDGE_CUT_OFFSET)
+        self._shock_fired = False
+        self._edges_cut = 0
+        #: Cumulative claims the existing creditors have sent to keep
+        #: nodes below the floor going. A diagnostic: no criterion reads
+        #: it, and a switch that turns out to have moved nothing should
+        #: say so rather than being inferred from an unchanged reading.
+        self._resupplied = 0.0
+        #: What each node paid out as a resupplier this round, and what the
+        #: authority still owes them under ``funding="issuance"``. Two arrays
+        #: rather than one because the first is cleared every round and the
+        #: second is carried one round forward on purpose.
+        self._resupply_owed = np.zeros(n)
+        self._pending_recap = np.zeros(n)
+        self._recapitalised = 0.0
+        self._levied = 0.0
+        #: What the rescue was asked for, against what it could fund. Recorded
+        #: because the model computes the shortfall either way and reporting
+        #: only the paid half hides the quantity the whole arm turns on: at the
+        #: deepest floor and the largest rate the lenders fund a quarter of
+        #: what is asked.
+        self._resupply_asked = 0.0
+        #: Nodes that have received a recapitalisation, ever. Membership is
+        #: monotone: an injection is not undone by a later round.
+        self._recap_recipients = np.zeros(n, dtype=bool)
+        #: Who owes what to whom from the rescue. ``[i, j]`` is what ``j`` owes
+        #: ``i``. Bilateral rather than a per-node total because the money has
+        #: to go back to the nodes it came from, and those are not
+        #: interchangeable: the whole point of a relationship-lending graph is
+        #: that the creditor is a particular node.
+        self._resupply_ledger = np.zeros((n, n))
+        #: Claims that have left circulation without being destroyed. Held as a
+        #: per-node figure so that who parked can be read, and added back into
+        #: the conservation check, because they still exist.
+        self._parked = np.zeros(n)
+        self._repaid = 0.0
+        self._repay_blocked = 0
+
         #: Cumulative claims moved by the obligation, and the number of rounds
         #: in which no payment could be made because no live creditor was
         #: reachable. Diagnostics: neither feeds a criterion, and both are here
@@ -1700,6 +2082,14 @@ class Network:
 
     def _discretionary_flow(self) -> np.ndarray:
         propensity = self.rng.uniform(self._p_low, self._p_high)
+        rsp = self.config.resupply
+        if rsp.retain > 0.0 and self._recap_recipients.any():
+            # The recapitalised set retains. Guarded so that a run without the
+            # switch never reaches this line and the draw above is the only
+            # thing that touched the propensity, which is what makes the
+            # default reproduce to the bit.
+            propensity = np.where(self._recap_recipients,
+                                  propensity * (1.0 - rsp.retain), propensity)
         spent = propensity * np.maximum(self.holdings, 0.0) * self._has_out
         if self._below.any():
             # ``drawdown``: below the floor, spending comes off subsistence
@@ -1893,6 +2283,318 @@ class Network:
             self._rebuild_route()
         return promoted, demoted
 
+    def _resupply_flow(self, t: int) -> np.ndarray | None:
+        """What the existing creditors send to keep a node below the floor going.
+
+        ``None`` when the switch is off, which is the default, so a run without
+        it never reaches this arithmetic.
+
+        The shortfall is topped up to ``rate`` times the need, out of the
+        holdings of whoever already has an edge into the node, split evenly over
+        those of them still trading. A resupplier that cannot fund its share
+        sends what it has, which is the same rule the wage channel uses when its
+        payers are illiquid rather than driving holdings negative.
+        """
+        spec = self.config.resupply
+        if not spec.active:
+            return None
+        below = self._below if self.config.subsistence.mode == "drawdown" \
+            else ~self._alive
+        if not below.any():
+            return None
+
+        need = self.config.subsistence.need
+        target = spec.rate * need
+        shortfall = np.maximum(target - np.maximum(self.holdings, 0.0), 0.0)
+        shortfall = np.where(below, shortfall, 0.0)
+        if not shortfall.any():
+            return None
+
+        matrix = np.zeros((self._n, self._n))
+        self._resupply_owed[:] = 0.0
+        for j in np.flatnonzero(shortfall > 0.0):
+            senders = np.flatnonzero((self.adjacency[:, j] > 0) & self._alive)
+            senders = senders[senders != j]
+            if senders.size == 0:
+                continue
+            # Asked for, and only where there is somebody to ask. A shortfall
+            # at a node with no live creditor is not an unmet request, it is a
+            # node outside this mechanism's reach.
+            self._resupply_asked += float(shortfall[j])
+            per = shortfall[j] / senders.size
+            paid = np.minimum(per, np.maximum(self.holdings[senders], 0.0))
+            if not paid.any():
+                continue
+            matrix[senders, j] += paid
+            self.holdings[senders] -= paid
+            self.holdings[j] += float(paid.sum())
+            self._resupplied += float(paid.sum())
+            # Who paid, kept per node, because the two funding routes both need
+            # to give it back to exactly the nodes it came from.
+            self._resupply_owed[senders] += paid
+            # And what is now owed, kept bilaterally. A no-op when `repay` is
+            # zero: the ledger is written either way and read only by
+            # `_repay_flow`, so a run without that switch carries an array it
+            # never consults, which costs one addition per rescued node and
+            # keeps the two paths from diverging.
+            self._resupply_ledger[senders, j] += paid
+        return matrix if matrix.any() else None
+
+    def _repay_flow(self) -> np.ndarray | None:
+        """What a rescued node hands back, before it spends anything of its own.
+
+        ``None`` when ``repay`` is zero, which is the default and the behaviour
+        this model had until now: **the rescue is a gift.**
+
+        **Senior to discretionary spending, and that ordering is the content.**
+        Volume One names mortgage, rent, tax and interest as the senior claim on
+        income rather than what is left after shopping, and ``_hub_debt_flow``
+        already carries the same ordering. So a node repays, and if repaying
+        puts it back under the subsistence line it is topped up again and owes
+        more. **That is a debt trap and it is a result rather than an artefact**:
+        the other ordering is a different model.
+
+        **A debtor with no live creditor pays nothing and the balance stands.**
+        Paying a node that has left circulation would freeze the claims rather
+        than return them, and the arrears that build instead are the reading.
+
+        Conservative: the ledger moves, the claim total does not.
+        """
+        spec = self.config.resupply
+        if spec.repay <= 0.0:
+            return None
+        ledger = self._resupply_ledger
+        owed_by = ledger.sum(axis=0)
+        if not owed_by.any():
+            return None
+
+        due = spec.repay * owed_by
+        cash = np.maximum(self.holdings, 0.0)
+        pay = np.minimum(due, cash)
+        pay = np.where(self._alive, pay, 0.0)
+        matrix = np.zeros((self._n, self._n))
+        for j in np.flatnonzero(pay > 0.0):
+            claims = ledger[:, j] * self._alive
+            total = float(claims.sum())
+            if total <= 0.0:
+                # Owes something, but to nobody still trading.
+                self._repay_blocked += 1
+                continue
+            amounts = pay[j] * (claims / total)
+            matrix[j, :] += amounts
+            ledger[:, j] -= amounts
+            self.holdings[j] -= pay[j]
+            self.holdings += amounts
+            self._repaid += float(pay[j])
+        np.clip(ledger, 0.0, None, out=ledger)
+        return matrix if matrix.any() else None
+
+    def _park_claims(self) -> None:
+        """Move a share of what a node holds out of the trading system.
+
+        A no-op when the switch is off, which is the default.
+
+        **After the obligations and before the spending**, so a node cannot use
+        this to dodge what it owes. Volume One's senior claims are senior, and
+        a rule that let a node park ahead of them would be asserting the
+        opposite.
+
+        **The claim total is untouched.** ``_total_claims`` counts parked claims
+        and so does ``M``; what changes is that they are in no account the flow
+        can route through, so they are outside ``M`` as a circulating quantity
+        while remaining inside it as a stock. **That gap is the object this
+        switch exists to create**, and it is the one thing retention could not
+        produce: a retaining node's claims are still on its account and an
+        obligation still reaches them.
+        """
+        spec = self.config.park
+        if not spec.active:
+            return
+        if spec.target == "all":
+            who = np.ones(self._n, dtype=bool)
+        elif spec.target == "recapitalised":
+            who = self._recap_recipients.copy()
+        else:
+            who = np.zeros(self._n, dtype=bool)
+            who[self._l1] = True
+        who &= self._alive
+        if not who.any():
+            return
+        amount = spec.rate * np.maximum(self.holdings, 0.0) * who
+        if not amount.any():
+            return
+        self.holdings -= amount
+        self._parked += amount
+
+    def _settle_levy(self) -> None:
+        """``funding="levy"``: everybody still trading refunds the lenders.
+
+        **Conservative and deliberately not routed through the flow.** A levy
+        is not a trade, so putting it in the flow matrix would credit it as
+        inflow and let a tax raise the measured support. ``_fiscal_flow``
+        already draws that line for A6's transfer channel and this follows it:
+        money applied outside the matrix is money that arrives without an edge.
+
+        A node that cannot fund its share pays what it has, and the refund is
+        pro rata to what was actually collected, so the claim stock is
+        unchanged to the last bit and the conservation assertion stays a
+        criterion rather than something to exempt.
+        """
+        owed = self._resupply_owed
+        total = float(owed.sum())
+        if total <= 0.0:
+            return
+        payers = self._alive.copy()
+        n_live = int(payers.sum())
+        if n_live == 0:
+            return
+        share = total / n_live
+        take = np.where(payers,
+                        np.minimum(share, np.maximum(self.holdings, 0.0)), 0.0)
+        collected = float(take.sum())
+        if collected <= 0.0:
+            return
+        self.holdings -= take
+        self.holdings += owed * (collected / total)
+        self._levied += collected
+
+    def _recapitalise(self) -> float:
+        """``funding="issuance"``: new claims make last round's lenders whole.
+
+        **One round late, and that is the mechanism rather than a convenience.**
+        An authority recapitalises against losses it has already seen, so the
+        money cannot arrive in the same instant as the lending it is answering.
+
+        It is credited to the nodes that paid, not to the nodes that were
+        rescued, because those are two different interventions: this one puts
+        the claims on the lender's book and leaves it to the lender to keep
+        lending. Sending them straight to the node below the floor would be a
+        different model and this switch does not offer it.
+
+        Called from the round loop beside the authority's own issuance and
+        therefore outside the conservation guard, which is where claims are
+        allowed to be created.
+        """
+        amount = float(self._pending_recap.sum())
+        if amount <= 0.0:
+            self._pending_recap[:] = 0.0
+            return 0.0
+        if self.config.resupply.recap_target == "uniform":
+            # The same claims, created for the same reason and in the same
+            # amount, arriving somewhere else. **Only the landing point
+            # differs**, which is what makes this a control rather than a
+            # second scenario: any difference in the readings is attributable
+            # to where the money went and to nothing else.
+            live = self._alive
+            n_live = int(live.sum())
+            if n_live == 0:
+                self._pending_recap[:] = 0.0
+                return 0.0
+            self.holdings += np.where(live, amount / n_live, 0.0)
+            self._recap_recipients |= live
+        else:
+            self._recap_recipients |= self._pending_recap > 0.0
+            self.holdings += self._pending_recap
+        self._total_claims += amount
+        self._recapitalised += amount
+        self._pending_recap[:] = 0.0
+        return amount
+
+    def _cut_edges(self, t: int, inflow: np.ndarray | None) -> None:
+        """Remove edges from the graph. A no-op when the switch is off.
+
+        ``inflow`` is this round's per-node inflow where a floor is active and
+        ``None`` where it is not, because the ``shock`` arm runs with the floor
+        off and does not need it while the two triggered arms do.
+
+        **Stage one carries the plumbing and not the mechanism.** The guard is
+        here so the bitwise reproduction can be checked before any arithmetic
+        exists to break it.
+        """
+        ec = self.config.edge_cut
+        if not ec.active:
+            return
+
+        cut = np.zeros_like(self.adjacency, dtype=bool)
+
+        if ec.mode == "shock":
+            # One cut, at one round, over every edge in the graph. Nothing
+            # triggers it and nothing propagates it: this arm asks what the
+            # graph does on its own, so a rule that made the cut depend on any
+            # node's state would be answering a different question.
+            if t != ec.at_round or self._shock_fired:
+                return
+            self._shock_fired = True
+            present = np.flatnonzero(self.adjacency.ravel() > 0)
+            if present.size == 0:
+                return
+            k = int(round(ec.share * present.size))
+            if k <= 0:
+                return
+            if ec.targeting == "random":
+                pick = self._cut_rng.choice(present, size=k, replace=False)
+            else:
+                # Targeted at the hubs. **An edge counts as hub-incident if
+                # either end is one**, and the first version ranked on the
+                # target's in-degree alone. That measured something else and
+                # said so: it takes in-edges away from nodes that have many, so
+                # nobody is stranded, because being stranded means losing every
+                # out-edge, and the reading saturated at a share of 0.20 and
+                # then did not move again up to 0.70.
+                #
+                # The literature's result is about removing nodes, so the
+                # faithful analogue removes edges on both of a hub's sides. The
+                # two degree vectors are the file's own: ``sum(axis=0)`` is the
+                # one ``injection_node`` and ``HubDebtSpec`` use.
+                in_degree = self.adjacency.sum(axis=0)
+                out_degree = self.adjacency.sum(axis=1)
+                rows, cols = present // self._n, present % self._n
+                weight = np.maximum(out_degree[rows], in_degree[cols])
+                order = np.argsort(-weight, kind="stable")
+                pick = present[order[:k]]
+            cut.ravel()[pick] = True
+
+        else:
+            if inflow is None:
+                return
+            stressed = inflow < ec.trigger
+            if not stressed.any():
+                return
+            if ec.mode == "self_cut":
+                # The stressed node withdraws: a share of its own out-edges
+                # goes. Rows, because a row is who this node can pay.
+                rows = np.flatnonzero(stressed)
+                for i in rows:
+                    out = np.flatnonzero(self.adjacency[i] > 0)
+                    k = int(round(ec.share * out.size))
+                    if k <= 0:
+                        continue
+                    cut[i, self._cut_rng.choice(out, size=k, replace=False)] = True
+            else:
+                # ``run``: the edges pointing **at** the stressed node go, and
+                # the decision is taken by whoever holds them. Columns, because
+                # a column is who can pay this node. **The trigger is read on
+                # one node and the action taken on another**, which is the one
+                # thing no other rule in this model does.
+                cols = np.flatnonzero(stressed)
+                for j in cols:
+                    senders = np.flatnonzero(self.adjacency[:, j] > 0)
+                    k = int(round(ec.share * senders.size))
+                    if k <= 0:
+                        continue
+                    cut[self._cut_rng.choice(senders, size=k, replace=False), j] = True
+
+        if not cut.any():
+            return
+        self.adjacency[cut] = 0.0
+        self._edges_cut += int(cut.sum())
+        # The routing has to be rebuilt or the next round pays along edges that
+        # are gone. ``_rebuild_route`` also refreshes ``_has_out``, which is
+        # what turns a node whose out-edges are all cut into one that spends
+        # nothing, and that is how this arm produces a discrete event with no
+        # floor anywhere.
+        self._rebuild_route()
+
     def _hub_sides(self) -> tuple[np.ndarray, np.ndarray]:
         """Who owes and who is owed, as two masks, by orientation.
 
@@ -2020,6 +2722,7 @@ class Network:
             "promoted": np.zeros(rounds),
             "demoted": np.zeros(rounds),
             "frozen_holdings": np.zeros(rounds),
+            "parked": np.zeros(rounds),
         }
 
         # The real side. Constant every round, exactly as in ``economy.py``:
@@ -2045,8 +2748,38 @@ class Network:
                 self._total_claims += issued
             self._pending_issuance = 0.0
 
-            before = float(self.holdings.sum())
+            # Beside the authority's own issuance, and for the same reason it
+            # sits here: this is the one place in the round where claims are
+            # allowed to come into existence, so it is outside the guard below.
+            # A no-op unless `resupply.funding` is "issuance".
+            self._recapitalise()
+
+            # The conservation check counts parked claims, because parking
+            # moves them out of the trading accounts and not out of existence.
+            # With the switch off this is the same expression it always was.
+            before = float(self.holdings.sum()) + float(self._parked.sum())
             wage_matrix, _ = self._wage_flow()
+            # Income arrives, then the rescue tops up whoever was seen to be in
+            # trouble, then obligations are served, then what is left is spent.
+            # The below-the-floor set this reads was written at the end of last
+            # round, which is the right causal order: a node is rescued after it
+            # has been seen to be in trouble, not in the same instant.
+            # Income arrives, then last round's debt is served, then whoever
+            # is still short is topped up. Repaying first is what lets a rescue
+            # push its own recipient back under the line, which is the state
+            # this switch exists to make reachable.
+            repay_matrix = self._repay_flow()
+            resupply_matrix = self._resupply_flow(t)
+            # Who carries the cost of that rescue. Both routes give it back to
+            # exactly the nodes it came from and differ only in where the money
+            # to do that comes from: "levy" takes it from everybody still
+            # trading, here and now and conservatively; "issuance" creates it
+            # and lands it next round, through the block above. "creditors",
+            # the default, does neither, and the lenders simply carry it.
+            if self.config.resupply.funding == "levy":
+                self._settle_levy()
+            elif self.config.resupply.funding == "issuance":
+                self._pending_recap += self._resupply_owed
             # The obligation is served before discretionary spending, so it is
             # senior to consumption. That ordering is not neutral and it is not
             # arbitrary: Volume One names the upward leakage as mortgage, rent,
@@ -2054,6 +2787,10 @@ class Network:
             # income rather than what is left after it has shopped. The other
             # ordering is a different model and this switch does not offer it.
             debt_matrix = self._hub_debt_flow(t)
+            # Out of reach before the discretionary spending is computed, so
+            # what is parked is out of the spending base as well as out of the
+            # obligations that were already served above.
+            self._park_claims()
             spend_matrix = self._discretionary_flow()
             fiscal_matrix = self._fiscal_flow(t)
             flow = wage_matrix + spend_matrix
@@ -2061,7 +2798,11 @@ class Network:
                 flow = flow + fiscal_matrix
             if debt_matrix is not None:
                 flow = flow + debt_matrix
-            after = float(self.holdings.sum())
+            if resupply_matrix is not None:
+                flow = flow + resupply_matrix
+            if repay_matrix is not None:
+                flow = flow + repay_matrix
+            after = float(self.holdings.sum()) + float(self._parked.sum())
             if abs(after - before) > 1e-8:
                 raise AssertionError(
                     f"stock-flow inconsistency at round {t}: {before!r} -> {after!r}"
@@ -2152,6 +2893,18 @@ class Network:
             # with this guard absent the ``C = 0`` null read a closing Gini of
             # 0.13065 against A4-1's registered ceiling of 0.02, an eighteenfold
             # rise over the 0.00711 that arm is supposed to produce.
+            # Edges cut out of the graph, before rewiring, so that a stage
+            # running both sees the cut graph rather than a rewired copy of the
+            # old one. Guarded, so a run without it never reaches the
+            # arithmetic.
+            # ``inflow`` unconditionally, and that is the fix for a bug this
+            # line had on its first version: it passed the floor's own inflow
+            # vector, which only exists when the floor is active, so with the
+            # floor off the two triggered arms never fired and cut zero edges
+            # at every setting. **The arms exist precisely to run without the
+            # floor**, so their trigger cannot borrow the floor's state.
+            self._cut_edges(t, inflow)
+
             rw = cfg.rewire
             if rw.active and not cfg.spec.uniform_access and t % rw.interval == 0:
                 got, lost = self._rewire(t)
@@ -2166,6 +2919,7 @@ class Network:
             out_of_market = self._below if cfg.subsistence.mode == "drawdown" else ~self._alive
             out["starved"][t] = int(out_of_market.sum())
             out["frozen_holdings"][t] = float(self.holdings[out_of_market].sum())
+            out["parked"][t] = float(self._parked.sum())
 
             out["holdings"][t] = self.holdings
             out["active_resources"][t] = resources_offered

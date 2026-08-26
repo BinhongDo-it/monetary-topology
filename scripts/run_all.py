@@ -110,6 +110,65 @@ EXPERIMENTS = [
         "experiments/a14_scale.py",
         "a14_scale.json",
     ),
+    # A15 to A18 were added to this table on 2026-08-26, and they were added
+    # because they were missing. Each was written on the day it ran and none of
+    # them was ever put here, so `run_all.py` reported a clean sweep of a set
+    # that did not contain them. The same gap let fifty-one drifted fields sit
+    # in A18's record for a day. See docs/MEASUREMENT.md failure mode 47.
+    (
+        "A15  what the manuscript says against what the model implies",
+        "experiments/a15_transcribed_vs_implied.py",
+        "a15_transcribed_vs_implied.json",
+    ),
+    # About seven minutes at nineteen configurations by four floor depths by
+    # five seeds. The record carries `diagnostic_only`: the stage is not closed.
+    (
+        "A16  an obligation on the highest-degree nodes",
+        "experiments/a16_hub_debt.py",
+        "a16_hub_debt.json",
+    ),
+    (
+        "A17  edges removed from the graph itself",
+        "experiments/a17_edge_cut.py",
+        "a17_edge_cut.json",
+    ),
+    (
+        "A18  what the policy switches do to the time path",
+        "experiments/a18_policy_paths.py",
+        "a18_policy_paths.json",
+    ),
+    # A18's B arm, in the same file behind a flag. It is a separate job rather
+    # than a flag on the one above because it writes its own record and carries
+    # its own criteria, and a job whose record is not the one this table names
+    # is a job `--skip-done` cannot reason about.
+    (
+        "A18_B forbearance with somebody paying for it",
+        "experiments/a18_policy_paths.py --resupply",
+        "a18_resupply.json",
+    ),
+    # A18's C arm, added the same round it was written, which is the whole
+    # point of failure mode 47: a record written after the sweep ran is a
+    # record the sweep never saw.
+    (
+        "A18_C where the created claims land",
+        "experiments/a18_policy_paths.py --landing",
+        "a18_landing.json",
+    ),
+    (
+        "A18_D the rescue as a loan rather than a gift",
+        "experiments/a18_policy_paths.py --repay",
+        "a18_repay.json",
+    ),
+    (
+        "A18_E claims that exist and do not circulate",
+        "experiments/a18_policy_paths.py --park",
+        "a18_park.json",
+    ),
+    (
+        "A18_F who carries a forbearance programme",
+        "experiments/a18_policy_paths.py --carry",
+        "a18_carry.json",
+    ),
     (
         "A6   the siphon in tax points",
         "experiments/a6_siphon_cost.py",
@@ -171,8 +230,8 @@ EXPERIMENTS = [
 #: cells at sixty thousand with one carrying a registered multiple of three,
 #: and since A6-20 to A6-23 it also runs a four-cell rebate factorial at twenty
 #: thousand, a ratio scan whose horizon scales as 10/lambda, and a five-column
-#: re-measurement of the curve. That is about twenty-five minutes on the
-#: author's machine against seconds for everything above.
+#: re-measurement of the curve. That is about twenty-five minutes on a
+#: Windows build against seconds for everything above.
 #:
 #: **It prints nothing while it runs**, because every job here is run with its
 #: output captured. `announce` exists so that silence is legible: a stage this
@@ -352,7 +411,14 @@ DATA_STAGES = [
 #: says which one it is, so adding an entry now requires stating the reason it
 #: is not being repaired rather than the reason it fails.
 EXPECTED_FAILURES = {
-    "A4-5": (
+    # **Keyed by the criterion's full name**, because that is what a record
+    # carries and what the lookup compares against. Some stages name their
+    # criteria with the label alone (`A6-1`) and others with the label and a
+    # sentence, and an entry written in the wrong form is not an error, it is
+    # silently inert: the failure it was meant to explain prints as unexpected
+    # and nothing says the entry never matched. `_report_unmatched` below is
+    # there so that cannot happen again.
+    "A4-5 the update order does not decide A4-4c's disjointness": (
         "a real negative result that has been read and left alone. The "
         "registered form was void, because A4-4 had no result for an ordering "
         "to preserve; the reshaped form reads A4-4c's two sets and finds them "
@@ -499,6 +565,22 @@ def run(cmd: list[str]) -> tuple[int, str]:
     return proc.returncode, f"{time.time() - started:.1f}s"
 
 
+def _all_criteria(block) -> list:
+    """Every criterion dict in a record, whatever shape the record has."""
+    out = []
+    if isinstance(block, dict):
+        c = block.get("criteria")
+        if isinstance(c, list):
+            out += [x for x in c if isinstance(x, dict)]
+        for v in block.values():
+            if isinstance(v, (dict, list)) and v is not c:
+                out += _all_criteria(v)
+    elif isinstance(block, list):
+        for v in block:
+            out += _all_criteria(v)
+    return out
+
+
 def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
     """Pass count, total, the names that failed, and every name seen.
 
@@ -557,10 +639,24 @@ def main() -> int:
         "--only", nargs="+", metavar="NAME", default=None,
         help="run only the stages whose label starts with one of these"
     )
+    ap.add_argument(
+        "--touched", metavar="PATH", default=None,
+        help="a source file that changed. Runs only the stages whose script "
+             "reaches it, and names the ones it drops. This is the scope "
+             "marker the discipline already asks for, computed instead of "
+             "remembered: a change to src/ reaches every stage that imports "
+             "the changed symbol and no others"
+    )
     args = ap.parse_args()
 
     lines: list[str] = []
     ok = True
+    #: Every criterion name any stage reported this run, so that an entry in
+    #: EXPECTED_FAILURES which matched nothing can be named. A lookup table
+    #: keyed by a string somebody else writes goes stale silently, and this
+    #: file has already paid for one: `A4-5` sat here in a form no record uses
+    #: and its failure printed as unexpected for as long as it was there.
+    seen_names: set[str] = set()
 
     # No lint step. Engineering rule 10, ruled 2026-08-17: ruff is not run, not
     # guessed at, and no code is changed for it. A step that runs it on every
@@ -573,6 +669,34 @@ def main() -> int:
     if not args.quick:
         jobs = list(EXPERIMENTS) + (DATA_STAGES if args.b2 else [B1_SYNTHETIC])
         jobs += SLOW_STAGES if args.slow else []
+        if args.touched:
+            # Which stages can a change to this file reach. A stage whose
+            # script never mentions it cannot be affected by it, and re-running
+            # that stage answers a question nobody asked. The repository's own
+            # discipline already says this -- a change to `src/` reaches every
+            # stage importing the changed symbol and a change to
+            # `experiments/` reaches one -- and this makes the script work it
+            # out instead of somebody remembering to.
+            stem = Path(args.touched).stem
+            keep, dropped = [], []
+            for job in jobs:
+                script = Path(job[1].split()[0])
+                try:
+                    body = script.read_text(encoding="utf-8")
+                except OSError:
+                    keep.append(job)   # unreadable: keep it rather than drop it
+                    continue
+                (keep if stem in body else dropped).append(
+                    job if stem in body else job[0].split()[0])
+            print(f"  --touched {args.touched}: {len(keep)} of {len(jobs)} "
+                  f"stage(s) reach it")
+            if dropped:
+                # Named, not counted. A filter that hides what it removed reads
+                # as "everything passed", which is the thing this file exists to
+                # argue against.
+                print(f"  --touched: out of that file's reach, so not run: "
+                      f"{sorted(set(dropped))}")
+            jobs = keep
         if args.only:
             want = tuple(args.only)
             dropped = [lb for lb, _, _ in jobs if not lb.startswith(want)]
@@ -624,6 +748,19 @@ def main() -> int:
                     f"That is a finding, not a fix: read it before touching "
                     f"anything"
                 )
+            # **Every name the record carries, not the filtered set.**
+            # `criteria_from` drops voids and diagnostics on purpose, so an
+            # entry covering a criterion that has since gone void would
+            # otherwise be reported as explaining nothing. That is this
+            # guard's own version of the mistake it exists to catch.
+            try:
+                seen_names.update(
+                    c.get("name", "")
+                    for c in _all_criteria(
+                        json.loads(record.read_text(encoding="utf-8")))
+                )
+            except (OSError, ValueError):
+                pass
             # A non-zero exit is what an experiment returns when any criterion
             # fails, so it cannot be read on its own once some failures are
             # expected. It still matters when nothing failed, which is what a
@@ -643,6 +780,25 @@ def main() -> int:
             )
         if not args.slow:
             names = ", ".join(label.split()[0] for label, _, _ in SLOW_STAGES)
+            # **Only on a run that had every stage in scope.** An entry for a
+            # stage behind --slow or --b2, or filtered out by --only or
+            # --touched, has not gone stale; it was not asked. And the stage a
+            # criterion belongs to cannot be read off its name: `A6-10` lives
+            # in A6r and `A6-1` in A6, and both start `A6`. So rather than
+            # guess the scope, the check declines to speak unless the scope was
+            # everything. **A warning that fires when it cannot be trusted
+            # teaches the reader to skip it, which is how a check stops
+            # working.**
+            full_scope = (not args.only and not args.touched
+                          and args.slow and args.b2 and not args.quick)
+            unmatched = ([k for k in EXPECTED_FAILURES if k not in seen_names]
+                         if full_scope else [])
+            if unmatched and seen_names:
+                lines.append(
+                    "  ** these EXPECTED_FAILURES entries matched no "
+                    "criterion any stage reported, so they explain "
+                    f"nothing: {sorted(unmatched)}"
+                )
             lines.append(f"  NOT RUN: {names}. Add --slow to include them")
         if not args.b2:
             lines.append(
