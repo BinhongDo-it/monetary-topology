@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: >-
   If you use this repository, cite the software entry below. Individual
-  criteria, their pre-registrations and their failures are recorded in
+  criteria, their pre-registrations and their readings are recorded in
   RESULTS.md and in docs/; cite those by stage and criterion identifier
   (for example B8-3, A5-6) rather than by section number, because section
   numbers move and identifiers do not.
@@ -14,8 +14,9 @@ abstract: >-
   mechanism, exposes fewer than a dozen parameters, and reports a criterion
   that can fail. Seven carriers, each a separate regulatory environment, have
   produced measured non-zero readings on real transaction data, each against a
-  floor that is measured rather than asserted. Failed and withdrawn criteria are kept in the record
-  alongside the passing ones.
+  floor that is measured rather than asserted. Every criterion is in the record
+  at the same resolution, whichever way it came out, including the ones this
+  programme superseded on its own evidence.
 type: software
 authors:
   - family-names: Dong

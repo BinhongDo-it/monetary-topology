@@ -422,9 +422,14 @@ The readings that matter to this field:
   0.715 as the floor rises**, and what falls with it is 182 nodes leaving
   circulation while holding **39.5 per cent of the claims outstanding**. An
   economy that has moved most of its population out of circulation reports a
-  better Gini. How much of that fall is the leaving and how much is the holding
-  is a question A12 opens and A11's own arm does not settle, because a node
-  frozen under this arm goes on drawing wages and never spends them.
+  better Gini. **All of that fall is the holding and none of it is the leaving**,
+  which the arm separates by running the same grid under a second exit rule,
+  where a node below the floor stays in the graph and spends itself down instead
+  of freezing. The floor starves a comparable population either way, 182 against
+  172, and the closing Gini moves **−0.2229 ± 0.0023** under the first rule
+  against **+0.00024 ± 0.00001** under the second, paired across five seeds. On
+  the complete graph the first rule moves the same statistic **+0.98**, so the
+  sign of that number belongs to the carrier.
 - **A15 settles it, and the answer is about this literature's own signature.**
   Three inequality measures moving three ways at once, the top percentile falling
   while the top decile and the Gini rise, is the pattern decomposition work reads
@@ -439,10 +444,12 @@ The readings that matter to this field:
   which moves the closing Gini far enough to bury it. The separation is available
   because the all-switches-off arm exists, which is the cheapest configuration in
   the design and the only one that can tell a mechanism's effect from the graph's
-  own drift. **A15 also answers A11's question directly**: at the registered floor
-  the departed hold 94 per cent of the closing stock and every concentration
-  measure moves with that accumulation, while at a shallower one they hold 0.3 per
-  cent and the measures separate, with nothing in between across 160 runs.
+  own drift. **A15 reads the same separation from the other side**: at the
+  registered floor the departed hold 94 per cent of the closing stock and every
+  concentration measure moves with that accumulation, while at a shallower one
+  they hold 0.3 per cent and the measures separate, with nothing in between
+  across 160 runs. A11 varies the exit rule at fixed depth, A15 varies the depth
+  at fixed rule, and the two land on the same object.
 - **A1** is the A-track stage attached to real household data. The stages built
   after it are closed-world by construction: a run there is a derivation of what
   a mechanism implies, not an estimate of anything.

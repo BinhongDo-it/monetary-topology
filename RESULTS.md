@@ -1246,18 +1246,62 @@ zero at a floor of zero. An economy that has moved most of its population out of
 circulation reports a better Gini, which is this framework's own thesis about
 aggregates appearing inside its own model.
 
-**The accumulation is a property of this arm's exit rule and A12-6 measured it.**
-A frozen node here stops trading and goes on drawing wages, because
-`cut_payroll` is false in the registered arm, and it never spends what arrives.
-That is the same construction A12-6 isolated on A8's carrier, where the frozen
-set ends holding 85.6 per cent of every claim outstanding, and A12 answers it
-with a second exit rule, `drawdown`, under which a node below the floor stays in
-the graph and spends `min(need, holdings)` instead of leaving. **What this stage
-reports is therefore the Gini under the exit rule, and how much of the fall is
-the accumulation rather than the exit is not yet separated**; running these arms
-again under `drawdown` is what separates it. A11's four criteria are unaffected:
-they read starvation rates by layer and the complete-graph comparison, and
-neither passes through the frozen set's holdings. **Production-side exit drives issuance up**, M/R from 34 to 60, because
+**The accumulation is a property of this arm's exit rule, and the two rules now
+separate it.** A frozen node here stops trading and goes on drawing wages,
+because `cut_payroll` is false in the registered arm, and it never spends what
+arrives. That is the same construction A12-6 isolated on A8's carrier, where the
+frozen set ends holding 85.6 per cent of every claim outstanding, and A12
+answers it with a second exit rule, `drawdown`, under which a node below the
+floor stays in the graph and spends `min(need, holdings)` instead of leaving.
+**Both rules have now been run across this grid** with two fields added to every
+run, the closing frozen share and the closing Gini among nodes still trading.
+The fields are additive: 180 places appear in each record and not one value the
+records already carried moves. Paired by seed against each graph's own
+zero-floor control:
+
+| graph | floor | rule | ΔGini, all nodes | frozen share | starved |
+|---|---|---|---|---|---|
+| stratified | 0.5 | `exit` | **−0.2229 ± 0.0023**, 5/5 negative | 39.7% | 182.4 |
+| stratified | 0.5 | `drawdown` | **+0.00024 ± 0.00001**, 5/5 positive | 0.21% | 172.0 |
+| complete | 1.0 | `exit` | **+0.9822 ± 0.0003** | 100% | 200 |
+| complete | 1.0 | `drawdown` | **−0.0027 ± 0.0002** | 0% | 0 |
+
+**All of the fall is the freeze and none of it is the exit.** The same floor
+starves a comparable population under both rules, 182 against 172 on the
+stratified graph, so the two rules agree on who leaves. They differ on what
+happens to the claims those nodes were holding when they left. Under `drawdown` those claims are spent
+down, the frozen share closes at two tenths of one per cent, and the Gini does
+not move: **+0.00024 against a control of 0.9367**, a thousandth of the
+magnitude `exit` reports and pointing the other way. **What the exit itself does
+to the distribution is raise the Gini very slightly**, which is the direction the
+construction implies, since a node that spends its way to nothing and then stops
+leaves the survivors marginally more concentrated than before.
+
+**The sign of the `exit` number is a property of the graph rather than of the
+mechanism.** The same switch at the same depth reads −0.22 on the stratified
+graph and **+0.98 on the complete one**, where the whole population freezes and
+the statistic has no trading object left at all. A statistic that moves most of
+its range in either direction depending on the carrier is reporting when the
+snapshot was taken. `docs/MEASUREMENT.md` failure mode 55 records the shape.
+
+**All four criteria hold under `drawdown` as well**, which is measured rather
+than argued, and it is why they were written the way they were: they read
+starvation rates by layer and the complete-graph comparison, and none of them
+passes through the frozen set's holdings. The layer asymmetry is the same object
+under both rules, median production rate 1.000 against a financial rate of 0.150
+under `exit` and 0.950 against 0.100 under `drawdown`. A11-4 passes for a
+stronger reason on the second rule: on the complete graph `drawdown` puts nobody
+below the floor at any depth on this grid, so erasing the topology removes the
+question rather than narrowing a gap.
+
+**The Gini among nodes still trading is recorded and is not judged.** It falls
+steeply as the floor rises, 0.9367 to 0.303 under `exit` and to 0.555 under
+`drawdown` at a floor of 0.5, and both are computed over a set that is
+shrinking, 200 nodes down to 18 and 28. What that column measures is how alike
+the survivors are, and the survivors are the top of the distribution by
+construction. It is here because the frozen share is only half of the
+decomposition, and it is left unjudged for the same reason the all-node column
+could not be read on its own. **Production-side exit drives issuance up**, M/R from 34 to 60, because
 the issuance rule watches the shortfall in Layer 2 inflow and exit is what opens
 that shortfall. And the complete-graph control reads M/R 1.00 with a Gini of
 0.0072: an economy with no stratification concentrates nothing and issues nothing,
@@ -2857,12 +2901,12 @@ Record with no criteria block, kept as evidence and named here so it is findable
 | PASS | B4-8  section 5.1: a common spread moves the friction and not the index | index unchanged to machine precision, below `1e-10`; friction moved by at least 2.223e-01 |
 | PASS | B4-9  Theorem 6(4): the index part is bounded by the friction part | `S <= 0 and S' <= 0` and `\|S-S'\| <= -(S+S')` agree on all 226 squares, 52 of which have both cycles non-positive; the bound is what Theorem 4 buys once it is applied to each cycle rather than to their sum |
 
-## B5 source audit — the friction column has no source (REJECT)
+## B5 source audit — the friction column, screened out on paper before anything was bought
 
 The verdict is in the heading, which is where it belongs: this is a source audit and not a set of pre-registered criteria, so there is no table under it and there never was one.
 
 
-## B5 source audit — the P2P control class has no usable source (REJECT)
+## B5 source audit — the P2P control class, screened out on paper before anything was bought
 
 The verdict is in the heading, which is where it belongs: this is a source audit and not a set of pre-registered criteria, so there is no table under it and there never was one.
 
