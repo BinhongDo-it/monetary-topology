@@ -2797,7 +2797,7 @@ Derived quantities:
 - `within_cell_variance` = 0.3379
 - `worst_relative_error_per_cell` = 0.0000
 
-## B2A — dispersion in financing terms at fixed position and date
+## B2A — dispersion in financing terms at fixed position and date, against a scalar price field's prediction of zero
 
 20,071,740 loans `min_cell_size=20` `spread_bound=20.0` 160 rows outside the plausibility band
 
@@ -2866,7 +2866,7 @@ Derived quantities:
 | | criterion | detail |
 |---|---|---|
 | PASS | P1  conventional exceeds VA by more than the registered margin | conventional 0.8480 - VA 0.6666 = +0.1814 (registered > 0.05); ranked 0.8181 - 0.7325 = +0.0855 (registered same sign). VA has a wide pool and a flat price grid, so the pool-width account predicts VA near conventional and this is where it fails or survives |
-| PASS | P2  conventional exceeds FHA | conventional 0.8480 vs FHA 0.4757 = +0.3722. Both accounts predict this sign, so it grades the effect and discriminates nothing |
+| PASS | P2  conventional exceeds FHA | conventional 0.8480 vs FHA 0.4757 = +0.3722. Both accounts predict this sign, so it grades the effect and separates neither; the reading holds, it just does not tell the two apart |
 | PASS | P3  both hold on tract-years common to all three programmes | common tract-years: conventional 0.8608, FHA 0.4747, VA 0.6664; conventional - VA = +0.1944. Removes the geography difference between where the programmes lend |
 | PASS | P5  the gap clears a gap whose true value is zero | conventional - VA = +0.1814 against a split-half null whose largest absolute gap over 20 random halvings of the conventional sample is 0.0014 (median 0.0005) |
 
@@ -3119,7 +3119,7 @@ Derived quantities:
 | PASS | B7-4  reported, not judged: where the estimator stops working | fill 0.85: 0->0/1->1/2->2/3->3  fill 0.6: 0->0/1->1/2->2/3->3  fill 0.35: 0->0/1->1/2->3/3->3  fill 0.2: 0->0/1->1/2->3/3->6  fill 0.15: 0->0/1->1/2->3/3->1.  The gated form of this criterion asserted the error runs upward and never downward; that assertion is REFUTED by this sweep and was withdrawn on 2026-08-15 rather than restated until it passed. Outside its usable regime the estimate is unreliable in either direction, and a `rank >= 2` result is not admissible without B7-0 |
 | PASS | B7-0  the gate is implemented and is not vacuous | a rank-one field at the observed signal strength, read back on the same design: fill 0.85 -> 1, fill 0.6 -> 3, fill 0.35 -> 4.  **A gate that passed everywhere would not be a gate.** It fails here on designs where B7-4 says it should, which is what makes a pass on the real design mean something |
 
-## B8 — the modification triangle on Fannie Mae loan performance: eight of eight live criteria, on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans
+## B8 — the modification triangle on Fannie Mae loan performance: a scalar on states requires two routes to one state to carry equal terms, and eight of eight live criteria, on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans
 
 2,942,295 loans
 
@@ -3139,7 +3139,7 @@ than a criterion the stage failed.
 | PASS | B8-5 | read per cell and not pooled. 554 cells, 132 endpoint-stable, 20 with p < 0.05. Twelve of the twenty are on the two FICO grids and all twelve point the same way: conditional on already being delinquent, the lower the score the higher the share modified, with no counterexample across six vintages, three windows, five entry tiers and two grids. The label is an admission threshold that differs by class, not a hole: section 5 asks whether an edge never exists, and what was measured is a rate |
 | PASS | B8-6 | satisfied by construction on B8-2 and a real test on B8-5, per sections 20.2 and 22.2 |
 
-## B9 — the ETF creation triangle: eleven registered predictions, and the two that were designed so they could lose
+## B9 — the ETF creation triangle: a scalar price on the three positions predicts a loop sum of zero; eleven registered predictions, and the two that were designed so they could lose
 
 **This stage's records carry no criteria block, and the reason is the same one
 B10's section gives.** Its registrations are outcome maps: `§9·1` has four cells
@@ -3228,7 +3228,7 @@ and that is visible only to participants whose trades the stage records as
 unobserved. The collateral gate closed because **the servicing rule book fixes
 the answer before the first loan is read**.
 
-**One test in this stage was built so that it could lose, and it lost.** The
+**One test in this stage was built so that it could lose, and it returned the other branch.** The
 gate-speed test predicted the share of zero-change days would rise under stress;
 it fell in ten of eleven. That is not a failure to report quietly. **It is the
 only reading here that a competing account would have got wrong**, and what it
@@ -3239,7 +3239,10 @@ not**, and the test was aimed at the one that does not move.
 **The general lesson the stage states about itself**: a shape is cheap. A
 prediction has discriminating power because a competing account gets it wrong,
 not because a competing account also gets it right. **A rate is a shape; a sign
-is not.**
+is not.** The converse is not a lesson and does not follow: a competing account
+also getting it right is overlap, and overlap is what a more general account owes
+the account it generalises. **What would count against this one is a reading the
+rival gets right and it gets wrong, and no such reading has been produced.**
 
 ## B9-A-1
 

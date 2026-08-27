@@ -14,9 +14,15 @@ They are built for checkability rather than scale: every structural claim is
 packaged so that someone who did not write the code can test it and see what
 would have counted as the other answer.
 
-**Status, 2026-08-25.** Both tracks have run. **Seven carriers have produced
-measured non-zero readings on real transaction data**, each against a floor that
-is measured rather than asserted: mortgage origination terms; **mortgage
+**Status, 2026-08-27.** Both tracks have run. **Seven carriers have produced
+measured non-zero readings on real transaction data**, and each stands against two
+different zeros. One is a floor that is measured rather than asserted, which says
+the reading can be seen. The other is **a point prediction of exactly zero, made by
+the account this repository tests**: if a single scalar price vector on positions
+exists, every closed loop sums to zero **however much the contract changes along the
+way**. **Seven carriers return non-zero against that prediction**, the largest at
+`4.18e+06` times its own floor with a within-cell permutation null of 0 of 999 in
+every cohort. The carriers are mortgage origination terms; **mortgage
 modification, the strongest of them**, on one design and two GSE datasets;
 cross-currency funding; the ETF creation triangle; Argentina's legally distinct
 conversion tracks; Cuba's central-bank table; and CME calendar spreads. Each is a
@@ -678,17 +684,17 @@ simulating instances.
 | B0b | which standard constructs need the object Theorem 1 characterises | **complete**, and it runs no measurement of its own: every empirical assertion in it is a pointer to a criterion already in [RESULTS.md](RESULTS.md). Domar-weighted aggregation is the load-bearing one, because it needs a frontier whose gradient is the price vector, [`docs/b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md) |
 | B1 setup | fixing the field so the claim is not vacuous | **complete**, [`docs/b1_setup.md`](docs/b1_setup.md) |
 | B2 design | pre-registration, filters, falsifications | **complete**, [`docs/b2_measurement.md`](docs/b2_measurement.md) |
-| B2 loop A | dispersion at fixed position and date | **complete, 7/7** on 20,071,900 loans |
+| B2 loop A | dispersion at fixed position and date, where a single scalar price on positions predicts zero | **complete, 7/7** on 20,071,900 loans |
 | B2 placebo | conventional against FHA and VA | **complete, 4/4** on a further 8,066,085 |
 | B1 theorem | is the partition result a case of the cohomological claim? | **complete, 7/7**, [`docs/b1_theorem.md`](docs/b1_theorem.md) |
 | B2 loop B | same dwelling, different entry vintages | **complete, 4/4**, [`docs/b2_loop_b.md`](docs/b2_loop_b.md) |
 | B2 placebo validation | is the VA pool actually wide? | **6/9**, the premise survives, [`docs/b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
-| B3 | CIP deviations: the other summand of the cycle space | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md); what was checked before retrieval, [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
+| B3 | CIP deviations: cycles that never touch the US Treasury, which vanish if one common convenience yield explains them | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md); what was checked before retrieval, [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
 | B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
 | B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void rather than negative**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band it was first judged against was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A; what was checked before retrieval, [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
 | B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md); what was checked before retrieval, [`b6_cuba_availability.md`](docs/b6_cuba_availability.md) |
 | B7 | matrix rank of the cell-by-class interaction on 16m loans | **the class index carries 0.3036 of stage B2's within-term dispersion** over 16,035,398 loans in 326,872 cells, and **there is no single ladder in it**: the 19-class and 6-class cuts read alike. **The stage then measured what its own carrier can support, and withdrew its rank-2 headline on that measurement.** With two classes at 1.18 and 1.37 loans per entry, a constructed field carrying **no interaction at all** reads back exactly 2 in 20 of 20 repetitions, and the second-moment matrix is near-diagonal (off-diagonal correlations max `0.1417`), so per-class noise lands on the diagonal and there is nothing off it for a rank to count. **That bound governs any future rank claim on this data**, which is why no number is quoted, [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
-| B8 | the slice summand on a household carrier, from loan modification | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the seven carriers. B8-4b waits on C9, and section 15.3 puts that outside the stage's scope, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md). Instrument conclusions the published criteria lean on: [`b8_instrument_notes.md`](docs/b8_instrument_notes.md) |
+| B8 | the slice summand on a household carrier: two realisable routes to one state, which a scalar on states requires to carry equal terms | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the seven carriers. B8-4b waits on C9, and section 15.3 puts that outside the stage's scope, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md). Instrument conclusions the published criteria lean on: [`b8_instrument_notes.md`](docs/b8_instrument_notes.md) |
 | B9 | the measured zero, and the path share | ran; the ETF creation triangle carries a non-zero holonomy of 1.2 to 1.7 bp and its quantization explanation is falsified. The stage is under re-audit, [`docs/b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
 | B10 | Freddie as a carrier, and the shape of the state graph | **closed.** The holonomy machinery was rebuilt on a second GSE: 1,362,490 loans, 74,937,616 monthly rows, 28 vintages. The structural reading is the cheap one and it bounds every path design on this data: **of 10,816 possible ordered state pairs only 1,496 ever occur, 13.83 per cent**. The stage also names what its carrier stops recording in mid-2019 |
 | B11 | corporate credit as the second domain | **open, and the readings taken before the gate are now in [RESULTS.md](RESULTS.md).** The branch table in B8 section 15.6 sends the second domain here; the domain was not chosen. The ceiling is counted rather than assumed: the distressed-exchange marker appears on **422 rows over 227 issuers**, 2012-06-15 to 2025-07-01, against a gate of 200, so the investment-grade filter has to retain 88 per cent to clear it. **Registered and sequenced: C11-0 is the next run** |

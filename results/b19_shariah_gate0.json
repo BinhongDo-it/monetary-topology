@@ -1,0 +1,97 @@
+{
+  "cells": {
+    "(+0.00,+0.25]": {
+      "compliant_both": 1966,
+      "n": 3296,
+      "pushed_out_by_breathing_gate": 476
+    },
+    "(+0.25,+10.00]": {
+      "compliant_both": 2277,
+      "n": 3451,
+      "pushed_out_by_breathing_gate": 377
+    },
+    "(-0.15,+0.00]": {
+      "compliant_both": 1334,
+      "n": 2468,
+      "pushed_out_by_breathing_gate": 413
+    },
+    "(-0.30,-0.15]": {
+      "compliant_both": 1014,
+      "n": 1835,
+      "pushed_out_by_breathing_gate": 362
+    },
+    "(-0.50,-0.30]": {
+      "compliant_both": 895,
+      "n": 1616,
+      "pushed_out_by_breathing_gate": 268
+    },
+    "(-1.01,-0.50]": {
+      "compliant_both": 1409,
+      "n": 2414,
+      "pushed_out_by_breathing_gate": 272
+    }
+  },
+  "debt_fallback": [
+    "LongTermDebt",
+    "NotesPayable"
+  ],
+  "debt_groups": [
+    [
+      "LongTermDebtNoncurrent",
+      "OtherLongTermDebtNoncurrent"
+    ],
+    [
+      "LongTermDebtCurrent"
+    ],
+    [
+      "ShortTermBorrowings",
+      "DebtCurrent"
+    ],
+    [
+      "NotesPayableCurrent",
+      "LoansPayableCurrent"
+    ],
+    [
+      "LinesOfCreditCurrent",
+      "LineOfCredit"
+    ],
+    [
+      "CommercialPaper"
+    ]
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "gate zero passed with room (worst cell 268 treated, 895 control); the stage was then closed at gate two, where the readable-threshold ratio is 6.1 with the lower bound on the larger side. No number here is a licensed reading of anything. See the stage's no-open record.",
+  "funnel": {
+    "filings": 47672,
+    "has_assets": 47077,
+    "has_debt": 24837,
+    "has_shares": 20337
+  },
+  "gamma_assets": 0.333333,
+  "gamma_mcap": 0.3,
+  "gate0": "passed",
+  "gate2": "not passed, ratio 6.1, stage not opened",
+  "n_disagree": 3607,
+  "n_firm_periods": 20335,
+  "n_firms": 3516,
+  "n_priced": 15482,
+  "n_with_return": 15099,
+  "quarters": [
+    "2023q1",
+    "2023q2",
+    "2023q3",
+    "2023q4",
+    "2024q1",
+    "2024q2",
+    "2024q3",
+    "2024q4"
+  ],
+  "shares_tags": [
+    "CommonStockSharesOutstanding",
+    "CommonStockSharesIssued",
+    "EntityCommonStockSharesOutstanding",
+    "WeightedAverageNumberOfSharesOutstandingBasic",
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+  ],
+  "stage": "B19"
+}

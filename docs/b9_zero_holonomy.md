@@ -1980,7 +1980,7 @@ opposed alternative, which is the thing B9 did not have.**
 
 ---
 
-# 27. The gate-speed reading: the flow account wins, and the carrier's hole is the wrong kind
+# 27. The gate-speed reading: the carrier's hole is the wrong kind for the test
 
 **Run 2026-08-16. Record `results/b9_gate_speed.json`. §26 registered all five
 outcomes before this.**
@@ -2042,7 +2042,9 @@ floors.
 
 **Touched:** any claim that B9 demonstrates A3's gate dynamics on real data.
 **There is no such claim and there was never a registered one**; §26 was the first
-attempt and it failed on sign.
+attempt, and §27.3 is why it could not be one: the carrier does not hold the object
+the test interrogates. **The sign it returned is a reading about that gate, not a
+verdict on A3.**
 
 **§26.2's substitution is not the first suspect here.** It would be if nothing had
 moved. Something moved, decisively, in the direction the competing account
@@ -2051,8 +2053,12 @@ pressure variable is used.
 
 ## 27.5 What a carrier would need to test A3 §6.4d
 
-**A gate whose threshold moves with the price.** Registered as the requirement,
-not adopted as a plan:
+**A gate whose threshold moves with the price, and that is not itself a capital
+constraint.** The second half was added 2026-08-26 by the derivation in §53.6:
+a gate that rations by capital cannot separate this account from
+limits-to-arbitrage, because on such a gate the two are the same object. Both
+entries below satisfy the first half and **fail the second**, which is why they
+are a requirement and not a plan:
 
 - repo haircuts and margin requirements, which rise with volatility and with
   collateral price moves;
@@ -2077,13 +2083,29 @@ economic state dependence`.
 | **economic state dependence** | **not yet carried by anything framework-specific** |
 
 `λ` does move with stress (§19, §25) and the movement is not dispersion scaling
-(§20, §21). **But every one of those readings is a direction that an ordinary
-microstructure or capacity account predicts equally well.** §26 was the first test
-with an opposed sign, and it came back on the other side.
+(§20, §21). **Each of those readings is a direction an ordinary microstructure or
+capacity account predicts as well**, so on the economic layer the two accounts
+overlap rather than separate. §26 was the first test registered with an opposed
+sign, and what it returned is a reading about the gate it chose (§27.3) rather
+than a verdict on the prediction.
 
-> **So the fourth link is open, and B9 has now measured two distinct reasons why
-> this carrier struggles to close it**: its gate does not breathe (§27.3), and its
-> path space is one-dimensional (§22.3).
+**Where each of this stage's readings sits, stated in one place, because reporting
+only the overlap reports half the stage:**
+
+| | a rival is right | **a rival is wrong** | a rival is silent |
+|---|---|---|---|
+| **the framework is right** | the stress gradient, `rho_c`, D1 and D2: an impaired-capacity account gives the same direction, and such an account is not a rival to the central claim, it explains where the non-zero comes from | **`lambda` itself: a scalar price on positions predicts a loop sum of exactly zero and this carrier returns 1.2 to 1.7 bp at 1.05 to 5.08 times a measured floor. Quantisation (§4.2): tick spans `15.83x` while `\|lambda\|` spans `1.42x`. The noise null: a point prediction of zero autocorrelation, measured positive before any stress comparison. Stale NAV: predicts negative autocorrelation, ten of eleven main-arm funds positive** | **`tau = 50,000` earned from a gcd; the `H^0` obstruction shown to be contractual** |
+| **the framework is wrong** | **empty** | | |
+
+**Only the bottom-left cell counts against a framework, and it is empty here.**
+Three rival accounts have been refuted on this carrier; they are instrument
+accounts rather than economic ones, and that is a statement about which rivals
+were reachable, not about the readings.
+
+> **So what remains open is a rival on the economic layer that this carrier can
+> refute, and B9 has measured two reasons this carrier is not where that will
+> happen**: its gate does not breathe (§27.3), and its path space is
+> one-dimensional (§22.3).
 
 **Two registered routes remain**, neither adopted here:
 
@@ -4116,7 +4138,7 @@ the stage would have been built on.
 | **B9-B's size gradient** | **closed by derivation.** Does not discriminate |
 | **a carrier whose gate breathes (LTV)** | **open**, handed to B8 in §28.4, native ground there |
 
-**B9's own remaining path to the fourth link is empty.** That is a result about
+**B9 has no remaining registered route to the fourth link.** That is a result about
 the carrier and it is the same result §22.3, §26 and §29 kept arriving at from
 different directions: **`b₁ = 1` with a contractual hole gives readings that no
 competing account fails to predict.**
@@ -4614,7 +4636,7 @@ Against §28.2·2's registered disposition table, copied there from B9 §26.6:
 | extensive collapses, intensive flat | A3's wall reproduced |
 | both collapse equally | gradual, not a wall |
 | **intensive collapses, extensive flat** | **auction, exactly what A3 §6.4d says it is not** |
-| **extensive does not collapse** | **A3's mapping falsified here too** |
+| **extensive does not collapse** | **A3's mapping does not reach this carrier either** |
 
 > **The Servicing Guide fixes rows three and four before a single loan is read.**
 
@@ -4644,7 +4666,7 @@ reference an LTV target. A design could use the rule change as the variation.
 > **Rejected: that tests the rule change.** It measures when a written rule took
 > effect, which is dated in the Guide and needs no data.
 
-## 52.5 §7's fourth link now has no registered route
+## 52.5 Where §7's fourth link stands: no registered route left on this carrier
 
 | route | status |
 |---|---|
@@ -4679,7 +4701,7 @@ nothing, and not begun here.**
 
 ---
 
-# 53. The refinance candidate, one better candidate it turned up, and why the fourth link's prediction is the wrong kind
+# 53. The refinance candidate, the better candidate it turned up, and what kind of prediction the fourth link needs
 
 **Derived 2026-08-17. No data touched. §45.3's rule applied at the earliest
 point, which §52 showed is where it pays.**
@@ -4758,7 +4780,13 @@ data cannot say which produced it.
 **A prediction discriminates when a competing account gets it *wrong*, not when
 a competing account also gets it right.** A rate is a shape; **a sign is not.**
 
-## 53.5 The stage has built exactly one test of the right kind, and it lost
+**The converse does not follow and is not a lesson.** A competing account also
+getting it right is overlap, and overlap is what a more general account owes the
+account it generalises. **What would count against this framework is a reading a
+rival gets right and it gets wrong; this stage has produced none, and neither has
+any other.**
+
+## 53.5 The stage has built exactly one test of the right kind, and it was aimed at a gate that does not breathe
 
 **§26 is the only prediction anywhere in B9 registered with opposed signs**: A3's
 mapping said the extensive margin falls, the flow account said it rises, and the
@@ -4769,23 +4797,41 @@ eleven, and §27 filed it there. **The structural reason was that AP status does
 not breathe** — which §53.2 now shows was a property of the gate §26 chose, not
 of the carrier.
 
-> **So the honest position is not that the fourth link is untested. It is that
-> the one properly discriminating test built for it was aimed at the wrong gate
-> and lost, and every route since has failed at the design stage for predicting
-> a shape.**
+> **So the position is not that the fourth link is untested, and it is not that the test
+> was lost either. The one properly discriminating test built for it was aimed at AP
+> eligibility, which §53.2 shows is a gate that does not breathe, so what it returned is a
+> measurement of that gate rather than a verdict on the prediction. Every route since has
+> closed at the design stage for predicting a shape, and the gate that could carry the
+> design, the AP's decision threshold, has not been built.**
 
 ## 53.6 Disposition, and the one thing §53 leaves open
 
 **Closed**: refinancing (§53.1, the intensive margin is not in the record) and
 the arbitrage threshold (§53.3, indivisibility gives the shape for free).
 
-**Open, and it is the only thing §53 leaves open**: **redo §26's opposed-sign
-design against the AP's decision threshold rather than AP eligibility.** The
-sign, not the rate, is what would have to be registered, and what the two
-accounts disagree about on that gate has not been derived here.
+**Closed by derivation, 2026-08-26, and §53 now leaves nothing open.** The last
+candidate was to redo §26's opposed-sign design against the **AP's decision
+threshold** rather than AP eligibility. Two things settle it.
 
-**Not started.** §45.3's rule applies to it as to everything else: **derive the
-opposed signs first, and if they cannot be derived, do not build it.**
+**First, a naming collision in this section's own two lists.** §53.2 calls that
+gate `the arbitrage threshold` and §53.3 closes it on indivisibility; the entry
+above called the same object `the AP's decision threshold` and left it open.
+**They are one gate under two names.** What §53.3 strictly closes is reading it
+through the extensive/intensive pair, so the question that survived was whether
+some *other* quantity on that gate separates the two accounts.
+
+**Second, the derivation asked for by §45.3, and it comes out negative for a
+structural reason.** A3 §3's gate is `claims_i >= gamma^gate * P_q(0)`: a holding
+against a threshold that moves with the price, which is **a capital constraint**.
+Mapped to the AP, it becomes the AP's usable capital against a threshold that
+moves with the premium. **Limits-to-arbitrage is a capital constraint too.** They
+are not two mechanisms that happen to predict alike; **they are one object under
+two names**, and no quantity on it can separate a thing from itself.
+
+> **So the requirement in §27.5 is one condition short as written.** A carrier for
+> this test needs a gate that **moves with the price** *and* **is not a capital
+> constraint**. On financial carriers those two conditions pull against each
+> other, because access there is mostly priced in capital.
 
 ---
 
