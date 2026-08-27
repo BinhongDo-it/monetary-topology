@@ -13,7 +13,7 @@ written and are not adjusted by it.
 
 ## 0. Summary
 
-Three results.
+The results.
 
 **Theorem 1** gives an exact criterion for when a single scalar price vector on
 positions exists, on a graph built from positions *and* agent classes together. It
@@ -33,6 +33,14 @@ That closes the open question recorded in the README: whether the partition
 result was a special case of the cohomological claim or a weaker relative. It is
 a special case, and under the assumptions of §8 it carries almost the whole
 obstruction.
+
+**Theorem 5**, added 2026-08-27, turns Theorem 1's equivalence into a
+measurement. It computes the distance from the field to the nearest single scalar
+potential in closed form from the two graphs' spectra, and splits it, with no
+cross term, into the common field's own non-integrability plus a quadratic form
+in the disagreement between agent classes. **Standard price theory is the zero
+set of that second summand rather than a refuted rival**, and the deviation from
+it is exactly quadratic rather than order two in a limit. §14.
 
 **Added 2026-08-15.** §13 restates Theorem 1 as the vanishing of a two-way
 interaction term. It proves nothing new about the field. What it fixes is which
@@ -222,6 +230,41 @@ This is what makes the claim falsifiable in the direction that matters. A defend
 of the one-index representation cannot retreat to "the deviations are small" or
 "they wash out in equilibrium" without conceding that `φ` does not exist and that
 what remains is an approximation whose error is the thing being measured.
+
+### Condition (4) read as a reduction
+
+Condition (4) is two conditions, and they do not cost the same.
+
+The first, that each `w_a` is exact on `G`, says that within one class the terms
+have a potential. The second, that all the `w_a` coincide, says that the potential
+does not depend on who is transacting. **Standard price theory assumes both, and
+assumes the second one silently**: writing down one price vector for a market is
+already the assertion that no index for the transacting party is needed. A
+Walrasian price vector, a state price, a stochastic discount factor and a table of
+relative prices differ in what they are indexed by and agree in this, so the
+condition is not one school's commitment but the shared representational one.
+
+**So (4) is not a rival hypothesis that Theorem 1 refutes. It is the locus on
+which the enlarged object coincides with the older one**, and the implication
+(4) ⟹ (1) says the coincidence is an identity: where (4) holds the framework does
+not merely agree with the single price vector, it returns that vector. That
+direction of the proof is one line and was there from the start.
+
+What Theorem 1 does not supply is what happens just off that locus, which is why
+§10 records the gap as "it says nothing about magnitude." §14 closes it. In short:
+the distance to the nearest single potential splits, with no cross term, into the
+common field's own non-integrability plus a quadratic form in the disagreement
+between classes, and the second summand vanishes exactly when the disagreement
+does rather than merely becoming small. **Condition (4) is that quantity's zero
+set, and the quantity is a modulus for it.**
+
+This is worth stating as containment rather than as refutation, and the choice is
+not cosmetic. **A containment claim is the stronger of the two**, because it
+obliges the enlarged account to be right everywhere the older one is right, by
+identity and not by coincidence. It also carries a cost the refutation framing
+does not: it can be broken by a single case in which the single price vector is
+right and the framework is not. Corollary 5.4 is what rules that case out, and it
+rules it out as algebra rather than as luck.
 
 ---
 
@@ -513,7 +556,11 @@ could have gone the other way.
 **It says nothing about magnitude.** `b₁(Γ)` is large, but a large cycle space is
 room for an obstruction, not an obstruction. How much of the field is non-exact is
 the empirical question, and the answer is stage B2's within share, not anything in
-this document.
+this document. **Superseded in part on 2026-08-27**: §14 computes the distance
+from the field to the nearest single potential in closed form. It still says
+nothing about how large that distance is on any actual market, which remains
+stage B2's answer to give, but the sentence above no longer means the framework
+has no quantity here.
 
 **It carries no welfare content.** That no scalar on positions reproduces the terms
 different agents face is a statement about representations. It does not by itself
@@ -642,9 +689,8 @@ constructed.
 **So a curl-versus-harmonic decomposition on `Γ` would report curl `100%`,
 harmonic `0%`, always.** It is an identity dressed as a measurement — the same
 error this project caught in stage A3's criterion A3-3 — and it is not worth
-building. `PROJECT_PLAN.md` §13.2's entry, "Γ 上的方块复形 … 解锁 curl 与
-harmonic 的细分" (*a cube complex on Γ … unlocking the curl-versus-harmonic
-refinement*), is withdrawn on those grounds.
+building. A queued proposal to build the cube complex on `Γ` in order to unlock a
+curl-versus-harmonic refinement is withdrawn on those grounds.
 
 **The substantive decomposition is not curl against harmonic. It is §5's slice
 against square**, and that split is not a refinement waiting on a complex: it is
@@ -866,3 +912,241 @@ and the square sum survives only as what §3 already defines it to be: the sum o
 agent class reproduces it, is a separate question with a separate answer set, and
 it is registered in [`b7_interaction_rank.md`](b7_interaction_rank.md) rather than
 here.
+
+---
+
+## 14. Theorem 5: the reduction, and its error term in closed form
+
+**Added 2026-08-27.** §10 records that Theorem 1 "says nothing about magnitude."
+This section says the magnitude.
+
+### 14.1 The gap this closes
+
+Corollary 1 decides existence with one inequality on one edge. A reader can grant
+it entirely and still answer: `φ` does not exist, the deviations are small, the
+one-index picture is a good approximation, and the enlarged graph is a footnote to
+it. Theorem 1 has nothing to say back. It is an equivalence, and equivalences do
+not carry rates.
+
+The relation to establish instead is **containment**: the older account is
+recovered exactly on a locus of the parameter space, and the deviation off that
+locus is a quantity the enlarged object computes rather than an unmodelled
+residual. That is the sense in which Newtonian mechanics sits inside relativity,
+and it is a stronger claim than refutation, because it obliges the enlarged
+account to be right everywhere the older one is right, by identity and not by
+coincidence.
+
+Everything below is on the 1-skeleton of `Γ` and uses no 2-cells, so §10's
+objection about which complex `topology.py` builds, and §12's correction to it,
+leave this section alone.
+
+### 14.2 Statement
+
+Write `ρ(ω)² := dist(ω, im d⁰)² = min_ψ ‖ω − d⁰ψ‖²`, the squared distance from
+the field to the nearest single scalar potential on `Γ`. Theorem 1 says
+`ρ(ω) = 0` iff condition (4) holds. This section computes `ρ(ω)²` when it does
+not.
+
+Let `L_G`, `L_H` be the graph Laplacians, with spectra
+`0 = λ_0 < λ_1 ≤ … ≤ λ_{n−1}` and `0 = μ_0 < μ_1 ≤ … ≤ μ_{m−1}` (both zeros
+simple, since both graphs are connected by §8's A2). Let `v_λ` be an orthonormal
+eigenbasis for `L_G` and `χ_k` one for `L_H`, with `χ_0 = m^{−1/2}·1`. Define the
+**mode transform** of the family `{w_a}`,
+
+```
+ŵ_k  :=  Σ_a χ_k(a) · w_a        ∈ C¹(G),        so  ŵ_0 = √m · w̄
+```
+
+where `w̄` is the mean field. Write `δ_G` for the adjoint of `d⁰` on `G`.
+
+**Theorem 5.**
+
+```
+ρ(ω)²  =  Σ_a ‖w_a‖²  −  Σ_{k=0}^{m−1}  Σ_{λ>0}  ⟨v_λ, δ_G ŵ_k⟩² / (λ + μ_k)
+```
+
+**Proof.** Three facts, none of them deep, and the whole content is that they
+combine in one basis.
+
+*The divergence never sees an agent edge.* `ω` is zero on agent edges by A1, so
+the divergence of `ω` at `(a, i)` is the position-divergence of `w_a` at `i`
+alone. Transforming in the `χ` basis, `(δ_Γ ω)_k = δ_G ŵ_k`.
+
+*The normal operator factors.* `Γ = G □ H` is a Cartesian product, so
+`L_Γ = L_G ⊗ I_m + I_n ⊗ L_H`. Its eigenvectors are `v_λ ⊗ χ_k` with eigenvalues
+`λ + μ_k`.
+
+*Least squares.* `ρ(ω)² = ‖ω‖² − ⟨δ_Γ ω, L_Γ⁺ δ_Γ ω⟩`. Expand both arguments in
+the product basis. `‖ω‖² = Σ_a ‖w_a‖²` because the agent edges contribute nothing.
+The terms with `λ = 0` are dropped without loss: their numerator is
+`⟨1_n, δ_G ŵ_k⟩ = 0`, since the image of a divergence is orthogonal to constants.
+∎
+
+### Corollary 5.1: the split has no cross term
+
+For `k ≠ 0`, `Σ_a χ_k(a) = 0`, so `ŵ_k = Σ_a χ_k(a) · u_a` with `u_a := w_a − w̄`.
+The `k = 0` term involves `w̄` and nothing else. Hence
+
+```
+ρ(ω)²  =  m · dist(w̄, im d_G)²  +  R,        R := Σ_{k≠0} term_k
+```
+
+where the first summand is a function of the common field alone and `R` is a
+positive semidefinite quadratic form in the deviations alone.
+
+**So the reduction is not asymptotic.** There is no first-order term to bound and
+no limit to take. Homogeneity is a locus, not a limit point, and the error
+incurred on leaving it is *exactly* quadratic in the heterogeneity rather than
+order two in some `ε → 0`.
+
+### Corollary 5.2: what damps each mode
+
+Splitting `ŵ_k` on `G` into its exact and co-closed parts,
+
+```
+term_k  =  ‖ŵ_k^⊥‖²  +  Σ_{λ>0} c_λ(k) · μ_k / (λ + μ_k),
+c_λ(k)  :=  ⟨v_λ, δ_G ŵ_k⟩² / λ
+```
+
+Read the fraction. The exact part of every non-constant agent mode is absorbed
+into a potential only up to `λ / (λ + μ_k)`; the remainder stands in the residual.
+The two ends are the two economies:
+
+- **`μ_k → 0`** — the agent graph falls apart, classes cannot be compared. Every
+  mode is absorbed as freely as the common one and `ρ² → Σ_a dist(w_a, im d_G)²`:
+  `m` independent one-index theories, one per class, with nothing between them to
+  violate. This is the correct answer, and it is a check on the formula rather
+  than an assumption fed into it.
+- **`μ_k → ∞`** — classes are perfectly comparable. Nothing is absorbed and
+  `R → D² := Σ_a ‖u_a‖²`. The whole disagreement stands.
+
+**The damping parameter is the agent graph's spectrum and the damped quantity is
+the price theory's own potential.** That is the sentence this section exists to
+produce.
+
+### Corollary 5.3: both ends of `R` are spectral
+
+```
+ρ_H · D²  ≤  R  ≤  D²,        ρ_H := μ_1 / (λ_max(L_G) + μ_1)
+```
+
+Neither bound involves a price. The two graphs fix the exchange rate between
+measured non-integrability and class heterogeneity before any field is chosen.
+
+### Corollary 5.4: standard price theory is the zero set, and nothing hides in it
+
+`H` connected gives `μ_1 > 0`, hence `ρ_H > 0`, hence `R = 0` iff `D = 0`. There
+is no configuration in which the classes disagree and the residual fails to see
+it. With Corollary 5.1,
+
+```
+ρ(ω)² = 0   ⟺   all w_a equal, and that common field exact   ( = Theorem 1 (4) )
+```
+
+so `ρ` is a modulus for Theorem 1's condition (4): it vanishes exactly there, and
+off it, it is bounded away from zero by two graph spectra.
+
+**This is the containment statement.** The single-price account is the locus
+`D = 0` with the common field's `H¹(G)` component zero. On that locus the enlarged
+object does not merely agree with it, it *is* it, by (4) ⟹ (1) of Theorem 1. Off
+it, the enlarged object returns a number and the single-price account returns
+zero, and Corollary 5.3 says how far apart those are.
+
+### 14.3 What this licenses, and what it does not
+
+**Licensed.**
+
+1. The containment claim itself, in the reduction sense: wherever a single scalar
+   price vector is the right description, the framework's own prediction is that
+   vector. It is not a rival account that happens to agree there.
+2. A measured residual is a **lower bound on class heterogeneity**:
+   `D² ≥ R = ρ(ω)² − m · dist(w̄, im d_G)²`, and both terms on the right are
+   computable from the same data a carrier already supplies. No competing account
+   produces this quantity, because none of them has an object for it to be a norm
+   on.
+3. "The deviations are small" now has a scale attached. Small compared to what,
+   and the answer is `D²` weighed against `ρ_H`, which the two graphs decide.
+4. **The zero set is not hypothetical and has been measured.** Stage B13, recorded
+   in `RESULTS.md`, reads this quantity on live exchange quotes for eight position
+   edges of one instrument family on one day. After removing the states where the
+   tick lattice makes zero arithmetically unavailable, one edge returns exactly
+   zero in **716 states of 716**, while two others return zero in **4.5 and 8.2
+   per cent** of their states with residuals that are **97.5 and 98.9 per cent
+   one-signed**. Corollary 5.4 is what entitles the framework to the exactness:
+   `R = 0` iff `D = 0`, with no tolerance band anywhere in the statement. An
+   account in which prices are scalar up to small frictions predicts a small
+   number and cannot produce 716 of 716 bit for bit; an account in which the gap
+   is queueing noise cannot produce a residual that is one-signed 98.9 per cent
+   of the time.
+
+**Not licensed.**
+
+- Nothing here says `D` is large in any actual market. That is measurement.
+- Nothing here converts `ρ²` into an economic magnitude. Its units are squared log
+  rates, and the translation into anything else is a separate question.
+- Nothing here needs a 2-complex, so nothing here inherits §12's problem, and
+  equally nothing here resolves it.
+- `H`'s connectivity is load-bearing twice, not decorative: it makes `μ_1 > 0` in
+  Corollary 5.4 and makes `χ_0` the only kernel direction in Corollary 5.1. With
+  `H` disconnected the theorem survives with `L_H⁺`, but "the mean" becomes the
+  per-component mean and the split is by component.
+- **B13 describes the zero set rather than predicting it, and the distinction is
+  worth keeping.** In §5.1's construction "the two classes face the same
+  antisymmetric term" and "`S − S' = 0`" are the same sentence, so a per-edge
+  classification read off the measured gap is definitional and not an independent
+  assignment. What B13 establishes is that the zero set is non-empty, that it is
+  reached exactly rather than approximately, and that it is not everything. What
+  would make it a prediction is a class assignment fixed before the reading, and
+  Corollary 5.2 names the observable that would supply one: `μ`, the ease with
+  which a position moves between the two classes, which is measurable without
+  reference to any price. On B13's carrier `μ` is fixed by construction and does
+  not vary across edges, which is exactly why it cannot do that work there.
+
+### 14.4 What is checked in code
+
+`experiments/b1_reduction.py`. As in §11, this checks the implementation and not
+the mathematics: a proof is not evidence about the code that claims to implement
+it. Eleven criteria at `--seed 20260827 --trials 10`.
+
+**Four routes to the same number, sharing as little code as could be arranged.**
+Brute force solves least squares against the incidence operator of `Γ` and uses no
+result from this section. The mode-by-mode route solves one Tikhonov problem per
+agent mode on `G` alone. The closed form evaluates the double sum. The projector
+route builds `L_Γ` from the product graph, inverts it on its own eigenbasis, and
+touches neither the mode transform nor the Kronecker structure nor `lstsq`. If the
+product structure were being assumed rather than used, the fourth route is the one
+that would disagree.
+
+| | what it checks | reading |
+| --- | --- | --- |
+| **R-1** | all four routes, ten shapes | agree to `1.42e-14` worst case |
+| **R-2** | scaling the deviations by `t` with `w̄` held fixed | `R/t² = 17.11315731` unchanged for `t = 1, 0.5, 0.25, 0.1, 0.01`; the common summand does not move. Corollary 5.1, four decades of it |
+| **R-3** | the sandwich of Corollary 5.3 | inside the band ten out of ten |
+| **R-4** | the two degenerate ends | all classes equal reproduces `m · dist(w, im d_G)²` to `1e-9`; equal and exact returns `2.13e-14` |
+| **R-5** | one `G` and one field, four choices of `H` | `R/D²` rises with `μ_1`: path `0.581` at `μ_1 = 0.5858`, star `0.597` at `1.0`, cycle `0.655` at `2.0`, complete `0.751` at `4.0`, with `λ_max(L_G) = 4.618034` |
+| **R-6** | `L_Γ = L_G ⊗ I + I ⊗ L_H` against the Laplacian of `box_product` | difference `0.00e+00`, exactly, on five shapes |
+| **R-7** | both ends of Corollary 5.2, reached by weighting agent edges by `t` | `t = 1e−6` gives `15.72801745` against the target `15.72799829`; `t = 1e6` gives `33.11672785` against `33.11674803`; monotone in `t` at all seven values, brute force and closed form agreeing throughout |
+| **R-8** | parallelogram law, `ρ²(w̄+u) + ρ²(w̄−u) − 2ρ²(w̄) = 2R(u)` | five trials, worst gap `5.68e-14`. Confirms Corollary 5.1 by a route independent of R-2 |
+| **R-9** | fields whose answer is known without the formula | each class exact and all different: `common = 0.00e+00`, everything in `R`. All equal and co-closed: `ρ² = m‖w‖²` to `1e-9`. One class carrying the whole field: matches brute force |
+| **R-10** | `m = 1` | collapses to `dist(w, im d_G)²` to `1e-9`, the one-index problem on `G` alone |
+| **R-11** | 300 random shapes up to `n = 12`, `m = 8`, all four routes | worst relative spread `5.11e-15`; Corollary 5.3's bounds held on all 300 |
+
+R-6 and R-7 are the two that would catch a wrong theorem rather than a wrong
+implementation. R-6 is the only step of the proof that is not one line of linear
+algebra, and R-7 exercises the formula at the two limits where its interpretation
+is claimed, six orders of magnitude apart in each direction, against targets
+computed without it.
+
+### 14.5 Precedent, and what is actually new here
+
+The derivation is a resolvent of a Cartesian-product Laplacian, which is to say
+each agent mode solves a Tikhonov problem whose regularisation parameter is that
+mode's eigenvalue. None of that is new mathematics and it should not be presented
+as such.
+
+What is new is the identification. The regularisation parameter is the agent
+graph's spectrum, the object being damped is the price theory's own potential, and
+the residual left over is the quantity §13.4 shows standard practice already
+estimates under another name. Standard practice never writes this down because it
+never puts positions and agent classes into one graph, and without that there is
+no product Laplacian to diagonalise.
