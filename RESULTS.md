@@ -5442,3 +5442,55 @@ independence was the claim. Fifteen provinces of thirty-one, one year; the
 finding is an existence claim, so coverage bounds its generality and not its
 validity. First-round filing only, with supplementary rounds excluded by name
 and the exclusion printed by the parser.
+
+
+## E1 — seats and candidates, and nine ways one public compilation bites
+
+`2022` `11 provinces past both gates` `no framework claim in it`
+
+**E1 is not a reading of this repository's framework.** The framework is about
+whether the terms of exchange in a system compose, and it says nothing about
+how a quota should be allocated or to whom. E1 shares C3's carrier, its parser
+and its measurement discipline, and it is kept apart so that neither is read as
+the other. It draws no conclusion from its own numbers. Full station document
+at `docs/e1_seat_allocation.md`.
+
+**The half of it worth reading first is the trap list**, because the source is
+1.4 GB across 861 files and it is messy in ways that do not announce
+themselves. Nine defects, every one of which produced a number that looked like
+a finding, and none of which was caught by a criterion: a 2 MB file whose two
+load-bearing columns are entirely empty; a fill rate that is province-level
+all-or-nothing with exactly one cell in between, which a count-based gate lets
+through; two columns that are present and empty; institution code blocks frozen
+at the administrative divisions of the year they were issued, so Chongqing's
+universities sit inside Sichuan's range; one bad code-and-name pair that leaves
+six well-known universities unassigned under a nearest-neighbour rule; a join
+key repeated across 324 names with 49 disagreeing, which halves Beijing's count
+when a map is inverted by assignment; a segment table published twice under
+different category labels, which doubles Anhui's pool; no batch labels at all
+before 2022, which makes the pool unestablishable in five years; and one
+two-sided bound that catches three of the rest without being told.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | E1-1 one brand, two campuses, read from the province hosting one | 6 brand-and-track readings with Beijing as host, 1 positive; 2 with another host, 1 positive. A filing line, and the sign is opposite to a local allocation advantage |
+| PASS | E1-2 whether a filing line can answer the question at all | the readings on ten or more comparison provinces are all negative. A line is an equilibrium quantity and seats and local preference move it opposite ways, so it returns the net. **The question needs seats** |
+| PASS | E1-3 the same question under three scalings | Beijing's table is the shortest in the panel and E1-1 divides by that length; the normalised z exceeds the raw-rank z in 5 of 5 readings, and under raw positions 1 of 5 reaches two standard deviations |
+| PASS | E1-4 whether the host province was in a regime change | 2015 is the first year Beijing filed after scores and the first year its top batch used a large parallel structure, while the comparison provinces had both for years |
+| PASS | E1-5 what the compilation covers and what it repeats | 28 provinces carry an enrolment plan for 2022 and 29 a score-to-rank table; 12 of those reach a 专科 batch; 1 publishes its segment table twice under different category labels |
+| PASS | E1-6 seats over pool, which has to lie between two numbers | 68 province-year cells: 5 below 0.0086, nothing until 0.3495, 62 cells to 0.9401, nothing until 1.1601. Cuts at 0.1 and 1.0 sit in the empty stretches; 6 cells fall outside and are not compared |
+| PASS | E1-7 elite seats per candidate, on one pool definition | over 11 provinces, 985 seats per ten thousand run 690.9 in 北京 to 96.6 in 河南, a factor of 7.2; undergraduate seats of every kind over the same pools run a factor of 2.0 |
+| PASS | E1-7b how much of the elite count rests on an ambiguous name | 324 names carried by more than one code, 49 with inconsistent flags; 72,195 of 174,438 elite seats, 41.4 per cent, sit on such a name, and the narrower reading is not computable from plans that carry no code |
+| PASS | E1-8 local favour or the count of institutions hosted | home share 0.1129 in 北京 to 0.5544 in 广东; administering units 25 in 北京 against 1 in each of twelve provinces. Either number alone reads backwards |
+| PASS | E1-9 the same rate in the other years this source can carry | no batch label before 2022, so the pool is unestablishable in five years. Comparable sets 11, 7, 8, 13. The headline pair exists in one year; the ordering replicates, 北京 first of 11, first of 7, first of 8 |
+
+**The pool is candidates with a published score segment, not the registration
+count.** The gap between registering and sitting the common papers differs most
+between exactly the provinces being compared, so the two denominators are not
+interchangeable and nothing here should be read against a figure computed the
+other way.
+
+**Held open.** One year past both gates, eleven provinces, and 41.4 per cent of
+the elite seat count resting on names the source flags inconsistently. The
+records carry `diagnostic_only` and say which readings are not the station's
+own.

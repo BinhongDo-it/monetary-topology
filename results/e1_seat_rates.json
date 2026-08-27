@@ -1,0 +1,1556 @@
+{
+  "carrier": "provincial enrolment plans and score-to-rank tables, 2022",
+  "criteria": [
+    {
+      "compared": [
+        "北京",
+        "天津",
+        "宁夏",
+        "广东",
+        "江苏",
+        "江西",
+        "河南",
+        "湖南",
+        "贵州",
+        "辽宁",
+        "重庆"
+      ],
+      "depth": {
+        "上海": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "云南": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "内蒙古": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "北京": {
+          "batches": {
+            "专科批": 342,
+            "本科批": 276
+          },
+          "categories_summed": [
+            "综合"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "吉林": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "四川": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "天津": {
+          "batches": {
+            "专科批": 463,
+            "本科批": 219
+          },
+          "categories_summed": [
+            "综合"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "宁夏": {
+          "batches": {
+            "专科批": 475,
+            "本科一批": 283,
+            "本科二批": 124
+          },
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "安徽": {
+          "batches": {},
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": [
+            "",
+            "<NA>"
+          ]
+        },
+        "山东": {
+          "batches": {},
+          "categories_summed": [],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "山西": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "广东": {
+          "batches": {
+            "专科批": 682,
+            "本科批": 480
+          },
+          "categories_summed": [
+            "历史类",
+            "物理类"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "广西": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "新疆": {
+          "batches": {},
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "江苏": {
+          "batches": {
+            "专科批": 409,
+            "本科批": 398
+          },
+          "categories_summed": [
+            "历史类",
+            "物理类"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "江西": {
+          "batches": {
+            "专科批": 712,
+            "本科一批": 277,
+            "本科二批": 126
+          },
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "河北": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "河南": {
+          "batches": {
+            "专科批": 650,
+            "本科一批": 316,
+            "本科二批": 186
+          },
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "浙江": {
+          "batches": {
+            "平行录取一段": 191,
+            "平行录取二段": 217
+          },
+          "categories_summed": [
+            "综合"
+          ],
+          "reaches": "本科 only",
+          "unlabelled_copies_dropped": []
+        },
+        "湖北": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "湖南": {
+          "batches": {
+            "专科批": 666,
+            "本科批": 451
+          },
+          "categories_summed": [
+            "历史类",
+            "物理类"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "甘肃": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "福建": {
+          "batches": {},
+          "categories_summed": [
+            "历史类",
+            "物理类"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "贵州": {
+          "batches": {
+            "专科批": 831,
+            "本科一批": 333,
+            "本科二批": 169
+          },
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "辽宁": {
+          "batches": {
+            "专科批": 465,
+            "本科批": 594
+          },
+          "categories_summed": [
+            "历史类",
+            "物理类"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "重庆": {
+          "batches": {
+            "专科批": 466,
+            "本科批": 489
+          },
+          "categories_summed": [
+            "历史类",
+            "物理类"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "陕西": {
+          "batches": {
+            "专科批": 644,
+            "本科一批": 420,
+            "本科二批": 189
+          },
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "专科",
+          "unlabelled_copies_dropped": []
+        },
+        "青海": {
+          "batches": {},
+          "categories_summed": [
+            "文科",
+            "理科"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        },
+        "黑龙江": {
+          "batches": {},
+          "categories_summed": [
+            "",
+            "<NA>"
+          ],
+          "reaches": "no batch labels",
+          "unlabelled_copies_dropped": []
+        }
+      },
+      "detail": "28 provinces carry an enrolment plan for 2022 and 29 carry a score-to-rank table. **12 of those tables reach a 专科 batch**, which is the condition for the pool to mean the same thing in two provinces, and the seats-over-pool band of E1-6 decides which of those are usable. 1 province(s) carry the same segment table twice, once labelled by stream and once unlabelled, and summing over labels would double the pool: ['安徽']",
+      "name": "E1-5 what the compilation covers and what it repeats",
+      "outside_reading_on_zhejiang": {
+        "浙江": "t"
+      },
+      "passed": true,
+      "provinces_with_a_plan": [
+        "上海",
+        "云南",
+        "内蒙古",
+        "北京",
+        "吉林",
+        "四川",
+        "天津",
+        "宁夏",
+        "安徽",
+        "山西",
+        "广东",
+        "广西",
+        "新疆",
+        "江苏",
+        "江西",
+        "河北",
+        "河南",
+        "浙江",
+        "海南",
+        "湖北",
+        "湖南",
+        "甘肃",
+        "西藏",
+        "贵州",
+        "辽宁",
+        "重庆",
+        "青海",
+        "黑龙江"
+      ]
+    },
+    {
+      "band": [
+        0.1,
+        1.0
+      ],
+      "detail": "**Above one a province seats more undergraduates than it has candidates, and near zero its plan is empty**, so the ratio bounds both tables at once. Over 68 province-year cells it reads [0.0001, 0.0002, 0.0007, 0.0015, 0.0086] for the lowest five and then nothing until 0.3495, after which 62 cells run to 0.9401, then nothing until 1.1601. **The cuts at 0.1 and 1.0 sit in those empty stretches**, so no other choice inside them would select a different set. Outside: [('浙江', '2023', 0.0001), ('浙江', '2022', 0.0002), ('浙江', '2024', 0.0007), ('浙江', '2025', 0.0015), ('北京', '2025', 0.0086)] below and [('新疆', '2025', 1.1601)] above",
+      "name": "E1-6 seats over pool, which has to lie between two numbers",
+      "passed": true,
+      "ratios": [
+        {
+          "pool": 277524,
+          "province": "浙江",
+          "seats_per_candidate": 0.0001,
+          "undergraduate_seats": 41,
+          "year": "2023"
+        },
+        {
+          "pool": 268996,
+          "province": "浙江",
+          "seats_per_candidate": 0.0002,
+          "undergraduate_seats": 50,
+          "year": "2022"
+        },
+        {
+          "pool": 281057,
+          "province": "浙江",
+          "seats_per_candidate": 0.0007,
+          "undergraduate_seats": 195,
+          "year": "2024"
+        },
+        {
+          "pool": 290790,
+          "province": "浙江",
+          "seats_per_candidate": 0.0015,
+          "undergraduate_seats": 447,
+          "year": "2025"
+        },
+        {
+          "pool": 65434,
+          "province": "北京",
+          "seats_per_candidate": 0.0086,
+          "undergraduate_seats": 560,
+          "year": "2025"
+        },
+        {
+          "pool": 465722,
+          "province": "江西",
+          "seats_per_candidate": 0.3495,
+          "undergraduate_seats": 162771,
+          "year": "2022"
+        },
+        {
+          "pool": 842585,
+          "province": "河南",
+          "seats_per_candidate": 0.3785,
+          "undergraduate_seats": 318937,
+          "year": "2022"
+        },
+        {
+          "pool": 311667,
+          "province": "云南",
+          "seats_per_candidate": 0.4003,
+          "undergraduate_seats": 124756,
+          "year": "2022"
+        },
+        {
+          "pool": 699289,
+          "province": "广东",
+          "seats_per_candidate": 0.4022,
+          "undergraduate_seats": 281258,
+          "year": "2023"
+        },
+        {
+          "pool": 907215,
+          "province": "河南",
+          "seats_per_candidate": 0.4087,
+          "undergraduate_seats": 370770,
+          "year": "2025"
+        },
+        {
+          "pool": 467355,
+          "province": "江西",
+          "seats_per_candidate": 0.4111,
+          "undergraduate_seats": 192140,
+          "year": "2024"
+        },
+        {
+          "pool": 468873,
+          "province": "安徽",
+          "seats_per_candidate": 0.4127,
+          "undergraduate_seats": 193496,
+          "year": "2022"
+        },
+        {
+          "pool": 47210,
+          "province": "青海",
+          "seats_per_candidate": 0.4175,
+          "undergraduate_seats": 19712,
+          "year": "2022"
+        },
+        {
+          "pool": 671412,
+          "province": "广东",
+          "seats_per_candidate": 0.419,
+          "undergraduate_seats": 281307,
+          "year": "2022"
+        },
+        {
+          "pool": 436799,
+          "province": "湖南",
+          "seats_per_candidate": 0.4211,
+          "undergraduate_seats": 183947,
+          "year": "2023"
+        },
+        {
+          "pool": 374616,
+          "province": "广西",
+          "seats_per_candidate": 0.4221,
+          "undergraduate_seats": 158116,
+          "year": "2022"
+        },
+        {
+          "pool": 732408,
+          "province": "广东",
+          "seats_per_candidate": 0.4305,
+          "undergraduate_seats": 315309,
+          "year": "2025"
+        },
+        {
+          "pool": 341181,
+          "province": "贵州",
+          "seats_per_candidate": 0.4311,
+          "undergraduate_seats": 147096,
+          "year": "2022"
+        },
+        {
+          "pool": 500955,
+          "province": "四川",
+          "seats_per_candidate": 0.4325,
+          "undergraduate_seats": 216650,
+          "year": "2022"
+        },
+        {
+          "pool": 492091,
+          "province": "河北",
+          "seats_per_candidate": 0.4343,
+          "undergraduate_seats": 213697,
+          "year": "2022"
+        },
+        {
+          "pool": 341306,
+          "province": "贵州",
+          "seats_per_candidate": 0.4356,
+          "undergraduate_seats": 148657,
+          "year": "2023"
+        },
+        {
+          "pool": 195627,
+          "province": "甘肃",
+          "seats_per_candidate": 0.4465,
+          "undergraduate_seats": 87344,
+          "year": "2022"
+        },
+        {
+          "pool": 332406,
+          "province": "湖北",
+          "seats_per_candidate": 0.4494,
+          "undergraduate_seats": 149367,
+          "year": "2022"
+        },
+        {
+          "pool": 391238,
+          "province": "湖北",
+          "seats_per_candidate": 0.4494,
+          "undergraduate_seats": 175805,
+          "year": "2025"
+        },
+        {
+          "pool": 429734,
+          "province": "湖南",
+          "seats_per_candidate": 0.453,
+          "undergraduate_seats": 194682,
+          "year": "2022"
+        },
+        {
+          "pool": 70736,
+          "province": "宁夏",
+          "seats_per_candidate": 0.46,
+          "undergraduate_seats": 32538,
+          "year": "2023"
+        },
+        {
+          "pool": 72269,
+          "province": "宁夏",
+          "seats_per_candidate": 0.4663,
+          "undergraduate_seats": 33696,
+          "year": "2024"
+        },
+        {
+          "pool": 462115,
+          "province": "湖南",
+          "seats_per_candidate": 0.4736,
+          "undergraduate_seats": 218861,
+          "year": "2024"
+        },
+        {
+          "pool": 65062,
+          "province": "宁夏",
+          "seats_per_candidate": 0.4772,
+          "undergraduate_seats": 31047,
+          "year": "2022"
+        },
+        {
+          "pool": 462767,
+          "province": "四川",
+          "seats_per_candidate": 0.5009,
+          "undergraduate_seats": 231778,
+          "year": "2025"
+        },
+        {
+          "pool": 462739,
+          "province": "湖南",
+          "seats_per_candidate": 0.5089,
+          "undergraduate_seats": 235493,
+          "year": "2025"
+        },
+        {
+          "pool": 313864,
+          "province": "贵州",
+          "seats_per_candidate": 0.5288,
+          "undergraduate_seats": 165965,
+          "year": "2024"
+        },
+        {
+          "pool": 67408,
+          "province": "海南",
+          "seats_per_candidate": 0.5389,
+          "undergraduate_seats": 36329,
+          "year": "2025"
+        },
+        {
+          "pool": 65897,
+          "province": "宁夏",
+          "seats_per_candidate": 0.5423,
+          "undergraduate_seats": 35735,
+          "year": "2025"
+        },
+        {
+          "pool": 252348,
+          "province": "福建",
+          "seats_per_candidate": 0.5426,
+          "undergraduate_seats": 136922,
+          "year": "2025"
+        },
+        {
+          "pool": 176539,
+          "province": "黑龙江",
+          "seats_per_candidate": 0.5437,
+          "undergraduate_seats": 95985,
+          "year": "2022"
+        },
+        {
+          "pool": 297258,
+          "province": "贵州",
+          "seats_per_candidate": 0.5555,
+          "undergraduate_seats": 165139,
+          "year": "2025"
+        },
+        {
+          "pool": 76432,
+          "province": "新疆",
+          "seats_per_candidate": 0.5585,
+          "undergraduate_seats": 42691,
+          "year": "2022"
+        },
+        {
+          "pool": 192093,
+          "province": "重庆",
+          "seats_per_candidate": 0.5614,
+          "undergraduate_seats": 107832,
+          "year": "2023"
+        },
+        {
+          "pool": 200395,
+          "province": "重庆",
+          "seats_per_candidate": 0.5636,
+          "undergraduate_seats": 112933,
+          "year": "2024"
+        },
+        {
+          "pool": 182326,
+          "province": "重庆",
+          "seats_per_candidate": 0.5731,
+          "undergraduate_seats": 104494,
+          "year": "2022"
+        },
+        {
+          "pool": 212851,
+          "province": "重庆",
+          "seats_per_candidate": 0.574,
+          "undergraduate_seats": 122180,
+          "year": "2025"
+        },
+        {
+          "pool": 49783,
+          "province": "上海",
+          "seats_per_candidate": 0.5811,
+          "undergraduate_seats": 28929,
+          "year": "2022"
+        },
+        {
+          "pool": 199692,
+          "province": "辽宁",
+          "seats_per_candidate": 0.5853,
+          "undergraduate_seats": 116883,
+          "year": "2025"
+        },
+        {
+          "pool": 179817,
+          "province": "甘肃",
+          "seats_per_candidate": 0.5865,
+          "undergraduate_seats": 105460,
+          "year": "2025"
+        },
+        {
+          "pool": 185433,
+          "province": "辽宁",
+          "seats_per_candidate": 0.6039,
+          "undergraduate_seats": 111979,
+          "year": "2022"
+        },
+        {
+          "pool": 248109,
+          "province": "陕西",
+          "seats_per_candidate": 0.6092,
+          "undergraduate_seats": 151155,
+          "year": "2025"
+        },
+        {
+          "pool": 70717,
+          "province": "新疆",
+          "seats_per_candidate": 0.6172,
+          "undergraduate_seats": 43644,
+          "year": "2023"
+        },
+        {
+          "pool": 338138,
+          "province": "江苏",
+          "seats_per_candidate": 0.6428,
+          "undergraduate_seats": 217355,
+          "year": "2024"
+        },
+        {
+          "pool": 178600,
+          "province": "黑龙江",
+          "seats_per_candidate": 0.6482,
+          "undergraduate_seats": 115768,
+          "year": "2024"
+        },
+        {
+          "pool": 319114,
+          "province": "江苏",
+          "seats_per_candidate": 0.6505,
+          "undergraduate_seats": 207570,
+          "year": "2023"
+        },
+        {
+          "pool": 57563,
+          "province": "上海",
+          "seats_per_candidate": 0.6554,
+          "undergraduate_seats": 37725,
+          "year": "2023"
+        },
+        {
+          "pool": 297761,
+          "province": "江苏",
+          "seats_per_candidate": 0.6731,
+          "undergraduate_seats": 200419,
+          "year": "2022"
+        },
+        {
+          "pool": 110289,
+          "province": "吉林",
+          "seats_per_candidate": 0.6862,
+          "undergraduate_seats": 75682,
+          "year": "2022"
+        },
+        {
+          "pool": 67117,
+          "province": "新疆",
+          "seats_per_candidate": 0.6868,
+          "undergraduate_seats": 46097,
+          "year": "2024"
+        },
+        {
+          "pool": 116360,
+          "province": "内蒙古",
+          "seats_per_candidate": 0.6952,
+          "undergraduate_seats": 80894,
+          "year": "2025"
+        },
+        {
+          "pool": 111492,
+          "province": "吉林",
+          "seats_per_candidate": 0.7081,
+          "undergraduate_seats": 78944,
+          "year": "2025"
+        },
+        {
+          "pool": 55201,
+          "province": "北京",
+          "seats_per_candidate": 0.7131,
+          "undergraduate_seats": 39363,
+          "year": "2023"
+        },
+        {
+          "pool": 56764,
+          "province": "天津",
+          "seats_per_candidate": 0.7195,
+          "undergraduate_seats": 40839,
+          "year": "2022"
+        },
+        {
+          "pool": 55936,
+          "province": "北京",
+          "seats_per_candidate": 0.7506,
+          "undergraduate_seats": 41984,
+          "year": "2024"
+        },
+        {
+          "pool": 103267,
+          "province": "内蒙古",
+          "seats_per_candidate": 0.7523,
+          "undergraduate_seats": 77690,
+          "year": "2022"
+        },
+        {
+          "pool": 44958,
+          "province": "北京",
+          "seats_per_candidate": 0.7622,
+          "undergraduate_seats": 34268,
+          "year": "2022"
+        },
+        {
+          "pool": 257114,
+          "province": "陕西",
+          "seats_per_candidate": 0.8379,
+          "undergraduate_seats": 215425,
+          "year": "2024"
+        },
+        {
+          "pool": 49276,
+          "province": "上海",
+          "seats_per_candidate": 0.8912,
+          "undergraduate_seats": 43915,
+          "year": "2025"
+        },
+        {
+          "pool": 262373,
+          "province": "江苏",
+          "seats_per_candidate": 0.8916,
+          "undergraduate_seats": 233940,
+          "year": "2025"
+        },
+        {
+          "pool": 156162,
+          "province": "山西",
+          "seats_per_candidate": 0.9159,
+          "undergraduate_seats": 143028,
+          "year": "2025"
+        },
+        {
+          "pool": 119236,
+          "province": "山西",
+          "seats_per_candidate": 0.9401,
+          "undergraduate_seats": 112091,
+          "year": "2022"
+        },
+        {
+          "pool": 76548,
+          "province": "新疆",
+          "seats_per_candidate": 1.1601,
+          "undergraduate_seats": 88805,
+          "year": "2025"
+        }
+      ],
+      "reading": "6 cell(s) fall outside and are not compared"
+    },
+    {
+      "ambiguous_names": [
+        "上海交通大学",
+        "上海外国语大学",
+        "上海大学",
+        "上海财经大学",
+        "中国石油大学(北京)克拉玛依校区",
+        "兰州大学",
+        "内蒙古大学",
+        "北京交通大学",
+        "北京体育大学",
+        "北京外国语大学",
+        "北京师范大学",
+        "北京理工大学",
+        "北京航空航天大学",
+        "北京邮电大学",
+        "华南理工大学",
+        "南京农业大学",
+        "南京大学",
+        "南京师范大学",
+        "南京理工大学",
+        "南京航空航天大学",
+        "厦门大学",
+        "合肥工业大学",
+        "吉林大学",
+        "哈尔滨工业大学",
+        "哈尔滨工业大学(威海)",
+        "哈尔滨工程大学",
+        "四川大学",
+        "大连海事大学",
+        "大连理工大学",
+        "天津医科大学",
+        "天津大学",
+        "太原理工大学",
+        "山东大学",
+        "山东大学威海分校",
+        "广西大学",
+        "延边大学",
+        "武汉大学",
+        "武汉理工大学",
+        "河北工业大学",
+        "浙江大学",
+        "浙江大学医学院",
+        "湖南大学",
+        "苏州大学",
+        "西安交通大学",
+        "西安电子科技大学",
+        "贵州大学",
+        "辽宁大学",
+        "重庆大学",
+        "陕西师范大学"
+      ],
+      "detail": "**324 institution names are carried by more than one code and 49 of those carry inconsistent tier flags**, because a university's cooperative, directed and targeted channels admit under its name on codes with the flag off. A name-keyed table built by assignment keeps whichever code came last, which reads `北京航空航天大学` as unflagged and halves Beijing's count; the strongest flag over the codes sharing a name is taken instead. **The narrower reading, counting only the flagged code, is not computable from these plans**, which carry no code before 2022 and carry one on about a quarter of rows in it. What is computable is the exposure: **72195 of 174438 elite seats in the compared provinces, 41.4 per cent, sit on a name that is flagged on one code and not on another**, and that is the upper bound on what the wider reading adds",
+      "exposure": {
+        "counted": 174438,
+        "on an ambiguous name": 72195
+      },
+      "name": "E1-7b how much of the elite count rests on an ambiguous name",
+      "passed": true,
+      "reading": "41.4 per cent of the elite seats sit on an ambiguous name"
+    },
+    {
+      "detail": "over the 11 provinces whose pool reaches the same depth: 985 seats per ten thousand candidates run 690.9 in 北京 to 96.6 in 河南, **a factor of 7.2**. Undergraduate seats of every kind over the same pools run a factor of 2.0 between the same two. **The advantage is not in reaching an undergraduate place, it is concentrated in the top tier**",
+      "name": "E1-7 elite seats per candidate, on one pool definition",
+      "passed": true,
+      "rates": [
+        {
+          "per_10k_211": 1185.1,
+          "per_10k_985": 690.9,
+          "pool": 44958,
+          "province": "北京",
+          "seats_211": 5328,
+          "seats_985": 3106,
+          "undergraduate_per_candidate": 0.7622,
+          "undergraduate_seats": 34268
+        },
+        {
+          "per_10k_211": 760.7,
+          "per_10k_985": 569.7,
+          "pool": 56764,
+          "province": "天津",
+          "seats_211": 4318,
+          "seats_985": 3234,
+          "undergraduate_per_candidate": 0.7195,
+          "undergraduate_seats": 40839
+        },
+        {
+          "per_10k_211": 490.4,
+          "per_10k_985": 320.1,
+          "pool": 182326,
+          "province": "重庆",
+          "seats_211": 8941,
+          "seats_985": 5836,
+          "undergraduate_per_candidate": 0.5731,
+          "undergraduate_seats": 104494
+        },
+        {
+          "per_10k_211": 471.1,
+          "per_10k_985": 285.1,
+          "pool": 185433,
+          "province": "辽宁",
+          "seats_211": 8736,
+          "seats_985": 5286,
+          "undergraduate_per_candidate": 0.6039,
+          "undergraduate_seats": 111979
+        },
+        {
+          "per_10k_211": 777.6,
+          "per_10k_985": 234.1,
+          "pool": 65062,
+          "province": "宁夏",
+          "seats_211": 5059,
+          "seats_985": 1523,
+          "undergraduate_per_candidate": 0.4772,
+          "undergraduate_seats": 31047
+        },
+        {
+          "per_10k_211": 549.9,
+          "per_10k_985": 226.6,
+          "pool": 297761,
+          "province": "江苏",
+          "seats_211": 16373,
+          "seats_985": 6747,
+          "undergraduate_per_candidate": 0.6731,
+          "undergraduate_seats": 200419
+        },
+        {
+          "per_10k_211": 202.5,
+          "per_10k_985": 174.3,
+          "pool": 671412,
+          "province": "广东",
+          "seats_211": 13596,
+          "seats_985": 11703,
+          "undergraduate_per_candidate": 0.419,
+          "undergraduate_seats": 281307
+        },
+        {
+          "per_10k_211": 285.2,
+          "per_10k_985": 165.8,
+          "pool": 429734,
+          "province": "湖南",
+          "seats_211": 12257,
+          "seats_985": 7127,
+          "undergraduate_per_candidate": 0.453,
+          "undergraduate_seats": 194682
+        },
+        {
+          "per_10k_211": 237.4,
+          "per_10k_985": 106.5,
+          "pool": 465722,
+          "province": "江西",
+          "seats_211": 11056,
+          "seats_985": 4960,
+          "undergraduate_per_candidate": 0.3495,
+          "undergraduate_seats": 162771
+        },
+        {
+          "per_10k_211": 311.6,
+          "per_10k_985": 99.7,
+          "pool": 341181,
+          "province": "贵州",
+          "seats_211": 10631,
+          "seats_985": 3403,
+          "undergraduate_per_candidate": 0.4311,
+          "undergraduate_seats": 147096
+        },
+        {
+          "per_10k_211": 202.7,
+          "per_10k_985": 96.6,
+          "pool": 842585,
+          "province": "河南",
+          "seats_211": 17075,
+          "seats_985": 8143,
+          "undergraduate_per_candidate": 0.3785,
+          "undergraduate_seats": 318937
+        }
+      ],
+      "reading": "7.2 times on the top tier against 2.0 overall"
+    },
+    {
+      "detail": "the administering province of every 985 and 211 admitting unit, and the share of that unit's seats it sends home. **北京 administers 25 units and 青海 administers 1**, while the home share among the provinces that can be measured runs [(0.1129, '北京'), (0.1383, '天津'), (0.159, '湖南'), (0.2543, '辽宁'), (0.3397, '重庆'), (0.3458, '江苏'), (0.5544, '广东')]. The ministry capped local intake at 30 per cent in 2008 and ordered further reduction in 2015, and the provinces with the most units sit furthest under it. **Read either number alone and it reads backwards**: the low home share alone says the host takes no advantage, and the seat rate alone says its universities favour it",
+      "hosted_units": [
+        {
+          "home_share_211": 0.1469,
+          "home_share_985": 0.1129,
+          "province": "北京",
+          "seats_211": 28052,
+          "seats_985": 14048,
+          "units": 25,
+          "units_211": 17,
+          "units_985": 8
+        },
+        {
+          "home_share_211": 0.3565,
+          "home_share_985": 0.3458,
+          "province": "江苏",
+          "seats_211": 31772,
+          "seats_985": 5393,
+          "units": 11,
+          "units_211": 9,
+          "units_985": 2
+        },
+        {
+          "home_share_211": 0.2707,
+          "home_share_985": 0.0827,
+          "province": "上海",
+          "seats_211": 9736,
+          "seats_985": 5778,
+          "units": 8,
+          "units_211": 5,
+          "units_985": 3
+        },
+        {
+          "home_share_211": 0.3101,
+          "home_share_985": 0.2837,
+          "province": "湖北",
+          "seats_211": 19342,
+          "seats_985": 10551,
+          "units": 7,
+          "units_211": 5,
+          "units_985": 2
+        },
+        {
+          "home_share_211": 0.0,
+          "home_share_985": 0.0,
+          "province": "陕西",
+          "seats_211": 9125,
+          "seats_985": 8510,
+          "units": 7,
+          "units_211": 4,
+          "units_985": 3
+        },
+        {
+          "home_share_211": 0.4208,
+          "home_share_985": 0.2137,
+          "province": "黑龙江",
+          "seats_211": 12261,
+          "seats_985": 3837,
+          "units": 7,
+          "units_211": 3,
+          "units_985": 4
+        },
+        {
+          "home_share_211": 0.3479,
+          "home_share_985": 0.2838,
+          "province": "四川",
+          "seats_211": 21552,
+          "seats_985": 10466,
+          "units": 6,
+          "units_211": 4,
+          "units_985": 2
+        },
+        {
+          "home_share_211": 0.1176,
+          "home_share_985": 0.1383,
+          "province": "天津",
+          "seats_211": 4040,
+          "seats_985": 8993,
+          "units": 6,
+          "units_211": 3,
+          "units_985": 3
+        },
+        {
+          "home_share_211": 0.0,
+          "home_share_985": 0.0,
+          "province": "山东",
+          "seats_211": 2758,
+          "seats_985": 7032,
+          "units": 5,
+          "units_211": 1,
+          "units_985": 4
+        },
+        {
+          "home_share_211": 0.63,
+          "home_share_985": 0.1699,
+          "province": "安徽",
+          "seats_211": 11540,
+          "seats_985": 942,
+          "units": 4,
+          "units_211": 3,
+          "units_985": 1
+        },
+        {
+          "home_share_211": 0.7527,
+          "home_share_985": 0.5544,
+          "province": "广东",
+          "seats_211": 10453,
+          "seats_985": 11021,
+          "units": 4,
+          "units_211": 2,
+          "units_985": 2
+        },
+        {
+          "home_share_211": 0.4597,
+          "home_share_985": 0.2543,
+          "province": "辽宁",
+          "seats_211": 6800,
+          "seats_985": 7003,
+          "units": 4,
+          "units_211": 2,
+          "units_985": 2
+        },
+        {
+          "home_share_211": 0.5456,
+          "home_share_985": 0.2605,
+          "province": "吉林",
+          "seats_211": 6116,
+          "seats_985": 7838,
+          "units": 3,
+          "units_211": 2,
+          "units_985": 1
+        },
+        {
+          "home_share_211": 0.6578,
+          "home_share_985": 0.159,
+          "province": "湖南",
+          "seats_211": 5152,
+          "seats_985": 9660,
+          "units": 3,
+          "units_211": 1,
+          "units_985": 2
+        },
+        {
+          "home_share_211": 0.3281,
+          "home_share_985": null,
+          "province": "新疆",
+          "seats_211": 7780,
+          "seats_985": 0,
+          "units": 2,
+          "units_211": 2,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.732,
+          "home_share_985": null,
+          "province": "河北",
+          "seats_211": 5463,
+          "seats_985": 0,
+          "units": 2,
+          "units_211": 2,
+          "units_985": 0
+        },
+        {
+          "home_share_211": null,
+          "home_share_985": 0.0,
+          "province": "浙江",
+          "seats_211": 0,
+          "seats_985": 1589,
+          "units": 2,
+          "units_211": 0,
+          "units_985": 2
+        },
+        {
+          "home_share_211": 0.0,
+          "home_share_985": 0.0,
+          "province": "福建",
+          "seats_211": 1402,
+          "seats_985": 2635,
+          "units": 2,
+          "units_211": 1,
+          "units_985": 1
+        },
+        {
+          "home_share_211": 0.3739,
+          "home_share_985": null,
+          "province": "云南",
+          "seats_211": 2661,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.7097,
+          "home_share_985": null,
+          "province": "内蒙古",
+          "seats_211": 3166,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.7442,
+          "home_share_985": null,
+          "province": "宁夏",
+          "seats_211": 3796,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.5941,
+          "home_share_985": null,
+          "province": "山西",
+          "seats_211": 6011,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.6079,
+          "home_share_985": null,
+          "province": "广西",
+          "seats_211": 4162,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.6289,
+          "home_share_985": null,
+          "province": "江西",
+          "seats_211": 7838,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.6348,
+          "home_share_985": null,
+          "province": "河南",
+          "seats_211": 7877,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.2086,
+          "home_share_985": null,
+          "province": "海南",
+          "seats_211": 6050,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": null,
+          "home_share_985": 0.2581,
+          "province": "甘肃",
+          "seats_211": 0,
+          "seats_985": 3320,
+          "units": 1,
+          "units_211": 0,
+          "units_985": 1
+        },
+        {
+          "home_share_211": 0.6127,
+          "home_share_985": null,
+          "province": "西藏",
+          "seats_211": 2058,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": 0.7177,
+          "home_share_985": null,
+          "province": "贵州",
+          "seats_211": 5788,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        },
+        {
+          "home_share_211": null,
+          "home_share_985": 0.3397,
+          "province": "重庆",
+          "seats_211": 0,
+          "seats_985": 4563,
+          "units": 1,
+          "units_211": 0,
+          "units_985": 1
+        },
+        {
+          "home_share_211": 0.6442,
+          "home_share_985": null,
+          "province": "青海",
+          "seats_211": 3463,
+          "seats_985": 0,
+          "units": 1,
+          "units_211": 1,
+          "units_985": 0
+        }
+      ],
+      "name": "E1-8 whether the advantage is local favour or the count of institutions hosted",
+      "passed": true
+    },
+    {
+      "by_province": {
+        "内蒙古": {
+          "2025": 283.5
+        },
+        "北京": {
+          "2022": 690.9,
+          "2023": 573.4,
+          "2024": 570.7
+        },
+        "吉林": {
+          "2025": 0.0
+        },
+        "四川": {
+          "2025": 213.3
+        },
+        "天津": {
+          "2022": 569.7
+        },
+        "宁夏": {
+          "2022": 234.1,
+          "2023": 248.8,
+          "2024": 239.0,
+          "2025": 278.8
+        },
+        "广东": {
+          "2022": 174.3,
+          "2023": 162.4,
+          "2025": 159.9
+        },
+        "江苏": {
+          "2022": 226.6,
+          "2023": 213.9,
+          "2024": 200.6
+        },
+        "江西": {
+          "2022": 106.5,
+          "2024": 117.1
+        },
+        "河南": {
+          "2022": 96.6,
+          "2025": 107.4
+        },
+        "湖北": {
+          "2025": 222.4
+        },
+        "湖南": {
+          "2022": 165.8,
+          "2023": 146.4,
+          "2024": 161.3,
+          "2025": 182.8
+        },
+        "甘肃": {
+          "2025": 305.4
+        },
+        "贵州": {
+          "2022": 99.7,
+          "2023": 98.2,
+          "2024": 153.3,
+          "2025": 161.4
+        },
+        "辽宁": {
+          "2022": 285.1,
+          "2025": 293.1
+        },
+        "重庆": {
+          "2022": 320.1,
+          "2023": 306.9,
+          "2024": 293.6,
+          "2025": 286.5
+        },
+        "陕西": {
+          "2024": 477.9,
+          "2025": 306.6
+        }
+      },
+      "comparable_sets": {
+        "2022": [
+          "北京",
+          "天津",
+          "宁夏",
+          "广东",
+          "江苏",
+          "江西",
+          "河南",
+          "湖南",
+          "贵州",
+          "辽宁",
+          "重庆"
+        ],
+        "2023": [
+          "北京",
+          "宁夏",
+          "广东",
+          "江苏",
+          "湖南",
+          "贵州",
+          "重庆"
+        ],
+        "2024": [
+          "北京",
+          "宁夏",
+          "江苏",
+          "江西",
+          "湖南",
+          "贵州",
+          "重庆",
+          "陕西"
+        ],
+        "2025": [
+          "内蒙古",
+          "吉林",
+          "四川",
+          "宁夏",
+          "广东",
+          "河南",
+          "湖北",
+          "湖南",
+          "甘肃",
+          "贵州",
+          "辽宁",
+          "重庆",
+          "陕西"
+        ]
+      },
+      "detail": "**No province's score-to-rank table carries a batch label before 2022**, so no pool in 2017 to 2021 can be shown to reach the same depth as another and the rate has nothing to divide by. That is structural and more retrieval from this source does not fix it. Of the years that do carry one, the comparable sets are {'2022': 11, '2023': 7, '2024': 8, '2025': 13}. **2022 and none hold both ends of the headline and ['2023', '2024', '2025'] do not**, so the pair itself is a one-year reading: the 北京-to-河南 ratio is {'2022': 7.15}. **What replicates instead is the ordering.** The host of most of the elite units places {'2022': [1, 11], '2023': [1, 7], '2024': [1, 8]} among the provinces each year can compare, and the top of each year's set sits {'2022': 7.15, '2023': 5.84, '2024': 4.87, '2025': 2.85} times its bottom",
+      "headline_ratio_by_year": {
+        "2022": 7.15
+      },
+      "host_place_each_year": {
+        "2022": [
+          1,
+          11
+        ],
+        "2023": [
+          1,
+          7
+        ],
+        "2024": [
+          1,
+          8
+        ]
+      },
+      "name": "E1-9 the same rate in the other years this source can carry",
+      "passed": true,
+      "per_10k_985_by_year": {
+        "2022": {
+          "北京": 690.9,
+          "天津": 569.7,
+          "宁夏": 234.1,
+          "广东": 174.3,
+          "江苏": 226.6,
+          "江西": 106.5,
+          "河南": 96.6,
+          "湖南": 165.8,
+          "贵州": 99.7,
+          "辽宁": 285.1,
+          "重庆": 320.1
+        },
+        "2023": {
+          "北京": 573.4,
+          "宁夏": 248.8,
+          "广东": 162.4,
+          "江苏": 213.9,
+          "湖南": 146.4,
+          "贵州": 98.2,
+          "重庆": 306.9
+        },
+        "2024": {
+          "北京": 570.7,
+          "宁夏": 239.0,
+          "江苏": 200.6,
+          "江西": 117.1,
+          "湖南": 161.3,
+          "贵州": 153.3,
+          "重庆": 293.6,
+          "陕西": 477.9
+        },
+        "2025": {
+          "内蒙古": 283.5,
+          "吉林": 0.0,
+          "四川": 213.3,
+          "宁夏": 278.8,
+          "广东": 159.9,
+          "河南": 107.4,
+          "湖北": 222.4,
+          "湖南": 182.8,
+          "甘肃": 305.4,
+          "贵州": 161.4,
+          "辽宁": 293.1,
+          "重庆": 286.5,
+          "陕西": 306.6
+        }
+      },
+      "provinces_with_no_985_seat": {
+        "2025": [
+          "吉林"
+        ]
+      },
+      "reading": "the pair survives in 1 year(s); the ordering survives in 3",
+      "top_over_bottom_each_year": {
+        "2022": 7.15,
+        "2023": 5.84,
+        "2024": 4.87,
+        "2025": 2.85
+      }
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "One year, eleven provinces on one pool definition. Three of the thirty-one provinces have no enrolment plan in this compilation for this year and one more is excluded for a source defect an outside reading confirms; the rest fail the depth condition, so their pools do not mean the same thing. The station is held open until the earlier years have a pool definition of their own, since their score-to-rank coverage runs nine to twenty-one provinces against twenty-nine here.",
+  "not_a_framework_reading": "E1 asks how a quota system allocates, which the framework does not speak to. It is kept apart from C3 so that neither is read as the other.",
+  "source": "data/cache/e1/seats_2022.csv, data/e1_home_province.json",
+  "stage": "E1"
+}

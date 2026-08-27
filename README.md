@@ -750,6 +750,22 @@ explain a product away from 1. Full account in
 | C3 | **the same claim with the declared number taken away** | **closed, 9/9.** Fifteen provinces ordering the same universities by 2015 filing line. No conversion between provincial scales is ever formed, so the objection that a point costs different effort in each province is answered by construction, and the reversing set is checked identical under five per-province recodings. **105 of 105 province pairs contain a reversal, in both tracks**, and 16,341 of 17,351 majority edges lie on a three-cycle. The defence that a national scalar is read with cohort error predicts a direction match near one half across the two disjoint applicant pools; **it is 0.9024** against a calibration of 0.9611. [`docs/c3_admission_reversals.md`](docs/c3_admission_reversals.md) |
 
 
+**One station here is not part of any of the three tracks, and is marked so it
+is not read as one.** E1 counts first-degree places allocated to each province
+against the number of candidates there, from a public compilation of Chinese
+enrolment plans. **The framework says nothing about how a quota should be
+allocated or to whom**, and E1 draws no conclusion from its own numbers. It
+sits in this repository because it shares C3's carrier, its parser and its
+measurement discipline, and because **half of it is a list of nine ways that
+source misleads a reader who does not check**. Every one of them produced a
+number that looked like a finding, and none of them was caught by a criterion.
+Anyone using that compilation by any method will meet the same nine.
+
+| stage | subject | status |
+|---|---|---|
+| E1 | **seats and candidates, and the traps in one public compilation** | **measured, not concluded.** Eleven provinces pass both coverage gates in 2022; the pool is unestablishable before it because no score-to-rank table carries a batch label. Reported: 985 places per ten thousand candidates, the share of its seats each elite unit sends to the province administering it, and the count of units each province administers. **The three have to be read together and any one alone reads backwards.** [`docs/e1_seat_allocation.md`](docs/e1_seat_allocation.md) |
+
+
 **Three rows of the B table above are newer than the narrative that follows
 them**, which was written when loop B was the next thing. B3 has since reached the slice summand
 that Corollary 2 says no volume of mortgage data can touch; B4 removes the

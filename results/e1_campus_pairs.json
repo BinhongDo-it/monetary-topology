@@ -1,0 +1,1734 @@
+{
+  "carrier": "provincial first-tier filing lines, China, 2015",
+  "criteria": [
+    {
+      "detail": "6 brand-and-track readings for Beijing as host, 1 of them positive, premium [-0.120695, -0.068717, 0.051594, -0.26227, -0.246661, -0.350541]. 2 readings where the host is not Beijing, 1 positive, premium [-0.018838, 0.055093]. A positive premium says the campus a province hosts sits lower in that province's own ordering than the same brand's other campus does, by more than it does in the provinces that host neither. **Brand is differenced out because both campuses carry one name, and province is differenced out because both face one candidate pool**",
+      "name": "E1-1 one brand, two campuses, read from the province that hosts one of them",
+      "passed": true,
+      "reading": "the premium is negative in most readings, which is the opposite sign to a local allocation advantage",
+      "readings": [
+        {
+          "brand": "华北电力大学",
+          "elsewhere_gaps": [
+            -0.347305,
+            -0.308989,
+            -0.303867,
+            -0.289308,
+            -0.275862,
+            -0.236994,
+            -0.234043,
+            -0.192547,
+            -0.189516,
+            -0.17931,
+            -0.171598,
+            -0.160804,
+            0.348066
+          ],
+          "gap_at_host": -0.316239,
+          "gap_elsewhere_mean": -0.195544,
+          "host": "北京",
+          "host_campus": "华北电力大学(北京)",
+          "other_campus": "华北电力大学(保定)",
+          "other_home": "河北",
+          "premium": -0.120695,
+          "provinces_elsewhere": 13,
+          "table": [
+            {
+              "gap": -0.316239,
+              "n_listed": 118,
+              "province": "北京",
+              "rank_a": 44,
+              "rank_b": 81,
+              "score_a": 624,
+              "score_b": 590
+            },
+            {
+              "gap": -0.160804,
+              "n_listed": 200,
+              "province": "山东",
+              "rank_a": 51,
+              "rank_b": 83,
+              "score_a": 610,
+              "score_b": 601
+            },
+            {
+              "gap": -0.275862,
+              "n_listed": 117,
+              "province": "山西",
+              "rank_a": 44,
+              "rank_b": 76,
+              "score_a": 552,
+              "score_b": 540
+            },
+            {
+              "gap": -0.17931,
+              "n_listed": 146,
+              "province": "广西",
+              "rank_a": 47,
+              "rank_b": 73,
+              "score_a": 575,
+              "score_b": 561
+            },
+            {
+              "gap": -0.289308,
+              "n_listed": 160,
+              "province": "江苏",
+              "rank_a": 71,
+              "rank_b": 117,
+              "score_a": 351,
+              "score_b": 344
+            },
+            {
+              "gap": -0.234043,
+              "n_listed": 189,
+              "province": "江西",
+              "rank_a": 57,
+              "rank_b": 101,
+              "score_a": 560,
+              "score_b": 543
+            },
+            {
+              "gap": -0.189516,
+              "n_listed": 249,
+              "province": "河南",
+              "rank_a": 56,
+              "rank_b": 103,
+              "score_a": 557,
+              "score_b": 543
+            },
+            {
+              "gap": -0.171598,
+              "n_listed": 170,
+              "province": "浙江",
+              "rank_a": 91,
+              "rank_b": 120,
+              "score_a": 652,
+              "score_b": 640
+            },
+            {
+              "gap": -0.303867,
+              "n_listed": 182,
+              "province": "湖南",
+              "rank_a": 55,
+              "rank_b": 110,
+              "score_a": 580,
+              "score_b": 562
+            },
+            {
+              "gap": 0.348066,
+              "n_listed": 182,
+              "province": "福建",
+              "rank_a": 164,
+              "rank_b": 101,
+              "score_a": 558,
+              "score_b": 582
+            },
+            {
+              "gap": -0.308989,
+              "n_listed": 179,
+              "province": "贵州",
+              "rank_a": 54,
+              "rank_b": 109,
+              "score_a": 591,
+              "score_b": 564
+            },
+            {
+              "gap": -0.347305,
+              "n_listed": 168,
+              "province": "重庆",
+              "rank_a": 48,
+              "rank_b": 106,
+              "score_a": 625,
+              "score_b": 592
+            },
+            {
+              "gap": -0.236994,
+              "n_listed": 174,
+              "province": "陕西",
+              "rank_a": 57,
+              "rank_b": 98,
+              "score_a": 560,
+              "score_b": 538
+            },
+            {
+              "gap": -0.192547,
+              "n_listed": 162,
+              "province": "黑龙江",
+              "rank_a": 50,
+              "rank_b": 81,
+              "score_a": 573,
+              "score_b": 559
+            }
+          ],
+          "track": "arts"
+        },
+        {
+          "brand": "华北电力大学",
+          "elsewhere_gaps": [
+            -0.286957,
+            -0.202703,
+            -0.14346,
+            -0.140496,
+            -0.129707,
+            -0.098712,
+            -0.097276,
+            -0.079208,
+            -0.074627,
+            -0.052632,
+            -0.047009,
+            -0.044643,
+            0.025862,
+            0.042705
+          ],
+          "gap_at_host": -0.163636,
+          "gap_elsewhere_mean": -0.094919,
+          "host": "北京",
+          "host_campus": "华北电力大学(北京)",
+          "other_campus": "华北电力大学(保定)",
+          "other_home": "河北",
+          "premium": -0.068717,
+          "provinces_elsewhere": 14,
+          "table": [
+            {
+              "gap": -0.140496,
+              "n_listed": 122,
+              "province": "上海",
+              "rank_a": 86,
+              "rank_b": 103,
+              "score_a": 418,
+              "score_b": 414
+            },
+            {
+              "gap": -0.163636,
+              "n_listed": 166,
+              "province": "北京",
+              "rank_a": 46,
+              "rank_b": 73,
+              "score_a": 644,
+              "score_b": 618
+            },
+            {
+              "gap": -0.079208,
+              "n_listed": 304,
+              "province": "山东",
+              "rank_a": 50,
+              "rank_b": 74,
+              "score_a": 638,
+              "score_b": 628
+            },
+            {
+              "gap": -0.202703,
+              "n_listed": 149,
+              "province": "山西",
+              "rank_a": 41,
+              "rank_b": 71,
+              "score_a": 583,
+              "score_b": 567
+            },
+            {
+              "gap": -0.286957,
+              "n_listed": 116,
+              "province": "广东",
+              "rank_a": 57,
+              "rank_b": 90,
+              "score_a": 589,
+              "score_b": 575
+            },
+            {
+              "gap": -0.044643,
+              "n_listed": 225,
+              "province": "广西",
+              "rank_a": 55,
+              "rank_b": 65,
+              "score_a": 560,
+              "score_b": 553
+            },
+            {
+              "gap": -0.052632,
+              "n_listed": 229,
+              "province": "江苏",
+              "rank_a": 67,
+              "rank_b": 79,
+              "score_a": 362,
+              "score_b": 358
+            },
+            {
+              "gap": 0.042705,
+              "n_listed": 282,
+              "province": "江西",
+              "rank_a": 90,
+              "rank_b": 78,
+              "score_a": 585,
+              "score_b": 588
+            },
+            {
+              "gap": -0.047009,
+              "n_listed": 235,
+              "province": "浙江",
+              "rank_a": 71,
+              "rank_b": 82,
+              "score_a": 655,
+              "score_b": 651
+            },
+            {
+              "gap": -0.129707,
+              "n_listed": 240,
+              "province": "湖南",
+              "rank_a": 53,
+              "rank_b": 84,
+              "score_a": 599,
+              "score_b": 588
+            },
+            {
+              "gap": -0.097276,
+              "n_listed": 258,
+              "province": "福建",
+              "rank_a": 50,
+              "rank_b": 75,
+              "score_a": 618,
+              "score_b": 605
+            },
+            {
+              "gap": -0.074627,
+              "n_listed": 269,
+              "province": "贵州",
+              "rank_a": 75,
+              "rank_b": 95,
+              "score_a": 539,
+              "score_b": 523
+            },
+            {
+              "gap": 0.025862,
+              "n_listed": 233,
+              "province": "重庆",
+              "rank_a": 62,
+              "rank_b": 56,
+              "score_a": 622,
+              "score_b": 624
+            },
+            {
+              "gap": -0.098712,
+              "n_listed": 234,
+              "province": "陕西",
+              "rank_a": 65,
+              "rank_b": 88,
+              "score_a": 572,
+              "score_b": 559
+            },
+            {
+              "gap": -0.14346,
+              "n_listed": 238,
+              "province": "黑龙江",
+              "rank_a": 47,
+              "rank_b": 81,
+              "score_a": 604,
+              "score_b": 582
+            }
+          ],
+          "track": "science"
+        },
+        {
+          "brand": "中国石油大学",
+          "elsewhere_gaps": [
+            -0.21371,
+            -0.138728,
+            -0.135678
+          ],
+          "gap_at_host": -0.111111,
+          "gap_elsewhere_mean": -0.162705,
+          "host": "北京",
+          "host_campus": "中国石油大学(北京)",
+          "other_campus": "中国石油大学(华东)",
+          "other_home": "山东",
+          "premium": 0.051594,
+          "provinces_elsewhere": 3,
+          "table": [
+            {
+              "gap": -0.111111,
+              "n_listed": 118,
+              "province": "北京",
+              "rank_a": 42,
+              "rank_b": 55,
+              "score_a": 625,
+              "score_b": 613
+            },
+            {
+              "gap": -0.135678,
+              "n_listed": 200,
+              "province": "山东",
+              "rank_a": 36,
+              "rank_b": 63,
+              "score_a": 616,
+              "score_b": 607
+            },
+            {
+              "gap": -0.21371,
+              "n_listed": 249,
+              "province": "河南",
+              "rank_a": 60,
+              "rank_b": 113,
+              "score_a": 556,
+              "score_b": 540
+            },
+            {
+              "gap": -0.138728,
+              "n_listed": 174,
+              "province": "陕西",
+              "rank_a": 54,
+              "rank_b": 78,
+              "score_a": 565,
+              "score_b": 548
+            }
+          ],
+          "track": "arts"
+        },
+        {
+          "brand": "中国石油大学",
+          "elsewhere_gaps": [
+            0.111111,
+            0.138728,
+            0.21371
+          ],
+          "gap_at_host": 0.135678,
+          "gap_elsewhere_mean": 0.154516,
+          "host": "山东",
+          "host_campus": "中国石油大学(华东)",
+          "other_campus": "中国石油大学(北京)",
+          "other_home": "北京",
+          "premium": -0.018838,
+          "provinces_elsewhere": 3,
+          "table": [
+            {
+              "gap": -0.111111,
+              "n_listed": 118,
+              "province": "北京",
+              "rank_a": 42,
+              "rank_b": 55,
+              "score_a": 625,
+              "score_b": 613
+            },
+            {
+              "gap": -0.135678,
+              "n_listed": 200,
+              "province": "山东",
+              "rank_a": 36,
+              "rank_b": 63,
+              "score_a": 616,
+              "score_b": 607
+            },
+            {
+              "gap": -0.21371,
+              "n_listed": 249,
+              "province": "河南",
+              "rank_a": 60,
+              "rank_b": 113,
+              "score_a": 556,
+              "score_b": 540
+            },
+            {
+              "gap": -0.138728,
+              "n_listed": 174,
+              "province": "陕西",
+              "rank_a": 54,
+              "rank_b": 78,
+              "score_a": 565,
+              "score_b": 548
+            }
+          ],
+          "track": "arts"
+        },
+        {
+          "brand": "中国石油大学",
+          "elsewhere_gaps": [
+            -0.160338,
+            -0.108108,
+            -0.107759,
+            -0.106762,
+            -0.099174,
+            -0.056106,
+            -0.004386,
+            0.026786,
+            0.035019,
+            0.038627,
+            0.119403,
+            0.225941,
+            0.376068
+          ],
+          "gap_at_host": -0.248485,
+          "gap_elsewhere_mean": 0.013785,
+          "host": "北京",
+          "host_campus": "中国石油大学(北京)",
+          "other_campus": "中国石油大学(华东)",
+          "other_home": "山东",
+          "premium": -0.26227,
+          "provinces_elsewhere": 13,
+          "table": [
+            {
+              "gap": -0.099174,
+              "n_listed": 122,
+              "province": "上海",
+              "rank_a": 95,
+              "rank_b": 107,
+              "score_a": 415,
+              "score_b": 409
+            },
+            {
+              "gap": -0.248485,
+              "n_listed": 166,
+              "province": "北京",
+              "rank_a": 67,
+              "rank_b": 108,
+              "score_a": 622,
+              "score_b": 589
+            },
+            {
+              "gap": -0.056106,
+              "n_listed": 304,
+              "province": "山东",
+              "rank_a": 79,
+              "rank_b": 96,
+              "score_a": 624,
+              "score_b": 619
+            },
+            {
+              "gap": -0.108108,
+              "n_listed": 149,
+              "province": "山西",
+              "rank_a": 92,
+              "rank_b": 108,
+              "score_a": 560,
+              "score_b": 555
+            },
+            {
+              "gap": 0.026786,
+              "n_listed": 225,
+              "province": "广西",
+              "rank_a": 140,
+              "rank_b": 134,
+              "score_a": 508,
+              "score_b": 512
+            },
+            {
+              "gap": -0.004386,
+              "n_listed": 229,
+              "province": "江苏",
+              "rank_a": 175,
+              "rank_b": 176,
+              "score_a": 344,
+              "score_b": 344
+            },
+            {
+              "gap": -0.106762,
+              "n_listed": 282,
+              "province": "江西",
+              "rank_a": 101,
+              "rank_b": 131,
+              "score_a": 581,
+              "score_b": 571
+            },
+            {
+              "gap": 0.376068,
+              "n_listed": 235,
+              "province": "浙江",
+              "rank_a": 229,
+              "rank_b": 141,
+              "score_a": 606,
+              "score_b": 632
+            },
+            {
+              "gap": 0.225941,
+              "n_listed": 240,
+              "province": "湖南",
+              "rank_a": 205,
+              "rank_b": 151,
+              "score_a": 543,
+              "score_b": 565
+            },
+            {
+              "gap": 0.035019,
+              "n_listed": 258,
+              "province": "福建",
+              "rank_a": 134,
+              "rank_b": 125,
+              "score_a": 581,
+              "score_b": 584
+            },
+            {
+              "gap": 0.119403,
+              "n_listed": 269,
+              "province": "贵州",
+              "rank_a": 170,
+              "rank_b": 138,
+              "score_a": 489,
+              "score_b": 501
+            },
+            {
+              "gap": -0.107759,
+              "n_listed": 233,
+              "province": "重庆",
+              "rank_a": 93,
+              "rank_b": 118,
+              "score_a": 614,
+              "score_b": 608
+            },
+            {
+              "gap": 0.038627,
+              "n_listed": 234,
+              "province": "陕西",
+              "rank_a": 118,
+              "rank_b": 109,
+              "score_a": 545,
+              "score_b": 549
+            },
+            {
+              "gap": -0.160338,
+              "n_listed": 238,
+              "province": "黑龙江",
+              "rank_a": 77,
+              "rank_b": 115,
+              "score_a": 584,
+              "score_b": 566
+            }
+          ],
+          "track": "science"
+        },
+        {
+          "brand": "中国石油大学",
+          "elsewhere_gaps": [
+            -0.376068,
+            -0.225941,
+            -0.119403,
+            -0.038627,
+            -0.035019,
+            -0.026786,
+            0.004386,
+            0.099174,
+            0.106762,
+            0.107759,
+            0.108108,
+            0.160338,
+            0.248485
+          ],
+          "gap_at_host": 0.056106,
+          "gap_elsewhere_mean": 0.001013,
+          "host": "山东",
+          "host_campus": "中国石油大学(华东)",
+          "other_campus": "中国石油大学(北京)",
+          "other_home": "北京",
+          "premium": 0.055093,
+          "provinces_elsewhere": 13,
+          "table": [
+            {
+              "gap": -0.099174,
+              "n_listed": 122,
+              "province": "上海",
+              "rank_a": 95,
+              "rank_b": 107,
+              "score_a": 415,
+              "score_b": 409
+            },
+            {
+              "gap": -0.248485,
+              "n_listed": 166,
+              "province": "北京",
+              "rank_a": 67,
+              "rank_b": 108,
+              "score_a": 622,
+              "score_b": 589
+            },
+            {
+              "gap": -0.056106,
+              "n_listed": 304,
+              "province": "山东",
+              "rank_a": 79,
+              "rank_b": 96,
+              "score_a": 624,
+              "score_b": 619
+            },
+            {
+              "gap": -0.108108,
+              "n_listed": 149,
+              "province": "山西",
+              "rank_a": 92,
+              "rank_b": 108,
+              "score_a": 560,
+              "score_b": 555
+            },
+            {
+              "gap": 0.026786,
+              "n_listed": 225,
+              "province": "广西",
+              "rank_a": 140,
+              "rank_b": 134,
+              "score_a": 508,
+              "score_b": 512
+            },
+            {
+              "gap": -0.004386,
+              "n_listed": 229,
+              "province": "江苏",
+              "rank_a": 175,
+              "rank_b": 176,
+              "score_a": 344,
+              "score_b": 344
+            },
+            {
+              "gap": -0.106762,
+              "n_listed": 282,
+              "province": "江西",
+              "rank_a": 101,
+              "rank_b": 131,
+              "score_a": 581,
+              "score_b": 571
+            },
+            {
+              "gap": 0.376068,
+              "n_listed": 235,
+              "province": "浙江",
+              "rank_a": 229,
+              "rank_b": 141,
+              "score_a": 606,
+              "score_b": 632
+            },
+            {
+              "gap": 0.225941,
+              "n_listed": 240,
+              "province": "湖南",
+              "rank_a": 205,
+              "rank_b": 151,
+              "score_a": 543,
+              "score_b": 565
+            },
+            {
+              "gap": 0.035019,
+              "n_listed": 258,
+              "province": "福建",
+              "rank_a": 134,
+              "rank_b": 125,
+              "score_a": 581,
+              "score_b": 584
+            },
+            {
+              "gap": 0.119403,
+              "n_listed": 269,
+              "province": "贵州",
+              "rank_a": 170,
+              "rank_b": 138,
+              "score_a": 489,
+              "score_b": 501
+            },
+            {
+              "gap": -0.107759,
+              "n_listed": 233,
+              "province": "重庆",
+              "rank_a": 93,
+              "rank_b": 118,
+              "score_a": 614,
+              "score_b": 608
+            },
+            {
+              "gap": 0.038627,
+              "n_listed": 234,
+              "province": "陕西",
+              "rank_a": 118,
+              "rank_b": 109,
+              "score_a": 545,
+              "score_b": 549
+            },
+            {
+              "gap": -0.160338,
+              "n_listed": 238,
+              "province": "黑龙江",
+              "rank_a": 77,
+              "rank_b": 115,
+              "score_a": 584,
+              "score_b": 566
+            }
+          ],
+          "track": "science"
+        },
+        {
+          "brand": "中国地质大学",
+          "elsewhere_gaps": [
+            -0.094675,
+            -0.085427,
+            -0.072581,
+            -0.006211,
+            0.034483,
+            0.115607,
+            0.160221
+          ],
+          "gap_at_host": -0.239316,
+          "gap_elsewhere_mean": 0.007345,
+          "host": "北京",
+          "host_campus": "中国地质大学(北京)",
+          "other_campus": "中国地质大学(武汉)",
+          "other_home": "湖北",
+          "premium": -0.246661,
+          "provinces_elsewhere": 7,
+          "table": [
+            {
+              "gap": -0.239316,
+              "n_listed": 118,
+              "province": "北京",
+              "rank_a": 66,
+              "rank_b": 94,
+              "score_a": 604,
+              "score_b": 584
+            },
+            {
+              "gap": -0.085427,
+              "n_listed": 200,
+              "province": "山东",
+              "rank_a": 62,
+              "rank_b": 79,
+              "score_a": 607,
+              "score_b": 602
+            },
+            {
+              "gap": 0.034483,
+              "n_listed": 117,
+              "province": "山西",
+              "rank_a": 75,
+              "rank_b": 71,
+              "score_a": 540,
+              "score_b": 542
+            },
+            {
+              "gap": -0.072581,
+              "n_listed": 249,
+              "province": "河南",
+              "rank_a": 69,
+              "rank_b": 87,
+              "score_a": 553,
+              "score_b": 548
+            },
+            {
+              "gap": -0.094675,
+              "n_listed": 170,
+              "province": "浙江",
+              "rank_a": 73,
+              "rank_b": 89,
+              "score_a": 659,
+              "score_b": 652
+            },
+            {
+              "gap": 0.160221,
+              "n_listed": 182,
+              "province": "湖南",
+              "rank_a": 96,
+              "rank_b": 67,
+              "score_a": 565,
+              "score_b": 576
+            },
+            {
+              "gap": 0.115607,
+              "n_listed": 174,
+              "province": "陕西",
+              "rank_a": 97,
+              "rank_b": 77,
+              "score_a": 538,
+              "score_b": 548
+            },
+            {
+              "gap": -0.006211,
+              "n_listed": 162,
+              "province": "黑龙江",
+              "rank_a": 102,
+              "rank_b": 103,
+              "score_a": 551,
+              "score_b": 550
+            }
+          ],
+          "track": "arts"
+        },
+        {
+          "brand": "中国地质大学",
+          "elsewhere_gaps": [
+            -0.173554,
+            -0.145215,
+            -0.135135,
+            -0.042735,
+            -0.037975,
+            0.015564,
+            0.046263,
+            0.048507,
+            0.066946,
+            0.071429,
+            0.073276,
+            0.081545,
+            0.118421
+          ],
+          "gap_at_host": -0.351515,
+          "gap_elsewhere_mean": -0.000974,
+          "host": "北京",
+          "host_campus": "中国地质大学(北京)",
+          "other_campus": "中国地质大学(武汉)",
+          "other_home": "湖北",
+          "premium": -0.350541,
+          "provinces_elsewhere": 13,
+          "table": [
+            {
+              "gap": -0.173554,
+              "n_listed": 122,
+              "province": "上海",
+              "rank_a": 94,
+              "rank_b": 115,
+              "score_a": 415,
+              "score_b": 399
+            },
+            {
+              "gap": -0.351515,
+              "n_listed": 166,
+              "province": "北京",
+              "rank_a": 65,
+              "rank_b": 123,
+              "score_a": 624,
+              "score_b": 575
+            },
+            {
+              "gap": -0.145215,
+              "n_listed": 304,
+              "province": "山东",
+              "rank_a": 85,
+              "rank_b": 129,
+              "score_a": 622,
+              "score_b": 612
+            },
+            {
+              "gap": -0.135135,
+              "n_listed": 149,
+              "province": "山西",
+              "rank_a": 91,
+              "rank_b": 111,
+              "score_a": 560,
+              "score_b": 554
+            },
+            {
+              "gap": 0.071429,
+              "n_listed": 225,
+              "province": "广西",
+              "rank_a": 116,
+              "rank_b": 100,
+              "score_a": 519,
+              "score_b": 530
+            },
+            {
+              "gap": 0.118421,
+              "n_listed": 229,
+              "province": "江苏",
+              "rank_a": 134,
+              "rank_b": 107,
+              "score_a": 348,
+              "score_b": 352
+            },
+            {
+              "gap": 0.046263,
+              "n_listed": 282,
+              "province": "江西",
+              "rank_a": 121,
+              "rank_b": 108,
+              "score_a": 575,
+              "score_b": 579
+            },
+            {
+              "gap": -0.042735,
+              "n_listed": 235,
+              "province": "浙江",
+              "rank_a": 109,
+              "rank_b": 119,
+              "score_a": 643,
+              "score_b": 640
+            },
+            {
+              "gap": 0.066946,
+              "n_listed": 240,
+              "province": "湖南",
+              "rank_a": 110,
+              "rank_b": 94,
+              "score_a": 577,
+              "score_b": 583
+            },
+            {
+              "gap": 0.015564,
+              "n_listed": 258,
+              "province": "福建",
+              "rank_a": 114,
+              "rank_b": 110,
+              "score_a": 586,
+              "score_b": 587
+            },
+            {
+              "gap": 0.048507,
+              "n_listed": 269,
+              "province": "贵州",
+              "rank_a": 134,
+              "rank_b": 121,
+              "score_a": 504,
+              "score_b": 509
+            },
+            {
+              "gap": 0.073276,
+              "n_listed": 233,
+              "province": "重庆",
+              "rank_a": 116,
+              "rank_b": 99,
+              "score_a": 609,
+              "score_b": 613
+            },
+            {
+              "gap": 0.081545,
+              "n_listed": 234,
+              "province": "陕西",
+              "rank_a": 122,
+              "rank_b": 103,
+              "score_a": 544,
+              "score_b": 551
+            },
+            {
+              "gap": -0.037975,
+              "n_listed": 238,
+              "province": "黑龙江",
+              "rank_a": 101,
+              "rank_b": 110,
+              "score_a": 574,
+              "score_b": 569
+            }
+          ],
+          "track": "science"
+        }
+      ]
+    },
+    {
+      "detail": "the readings resting on ten or more comparison provinces are [-0.350541, -0.26227, -0.120695, -0.068717], all negative. **A filing line is an equilibrium quantity and the two channels move it opposite ways**: seats set aside for local candidates push it down, and local candidates preferring a campus in their own city push it up. In Beijing the second dominates by a wide margin, so this measure returns the net and cannot separate the part that is policy. **The question needs seats rather than lines**, which is a count of the allocation itself and is not an equilibrium object",
+      "name": "E1-2 whether a filing line can answer the question at all",
+      "passed": true,
+      "reading": "this instrument does not identify the allocation channel",
+      "thick_readings": [
+        {
+          "brand": "中国地质大学",
+          "elsewhere_gaps": [
+            -0.173554,
+            -0.145215,
+            -0.135135,
+            -0.042735,
+            -0.037975,
+            0.015564,
+            0.046263,
+            0.048507,
+            0.066946,
+            0.071429,
+            0.073276,
+            0.081545,
+            0.118421
+          ],
+          "gap_at_host": -0.351515,
+          "gap_elsewhere_mean": -0.000974,
+          "host": "北京",
+          "host_campus": "中国地质大学(北京)",
+          "other_campus": "中国地质大学(武汉)",
+          "other_home": "湖北",
+          "premium": -0.350541,
+          "provinces_elsewhere": 13,
+          "table": [
+            {
+              "gap": -0.173554,
+              "n_listed": 122,
+              "province": "上海",
+              "rank_a": 94,
+              "rank_b": 115,
+              "score_a": 415,
+              "score_b": 399
+            },
+            {
+              "gap": -0.351515,
+              "n_listed": 166,
+              "province": "北京",
+              "rank_a": 65,
+              "rank_b": 123,
+              "score_a": 624,
+              "score_b": 575
+            },
+            {
+              "gap": -0.145215,
+              "n_listed": 304,
+              "province": "山东",
+              "rank_a": 85,
+              "rank_b": 129,
+              "score_a": 622,
+              "score_b": 612
+            },
+            {
+              "gap": -0.135135,
+              "n_listed": 149,
+              "province": "山西",
+              "rank_a": 91,
+              "rank_b": 111,
+              "score_a": 560,
+              "score_b": 554
+            },
+            {
+              "gap": 0.071429,
+              "n_listed": 225,
+              "province": "广西",
+              "rank_a": 116,
+              "rank_b": 100,
+              "score_a": 519,
+              "score_b": 530
+            },
+            {
+              "gap": 0.118421,
+              "n_listed": 229,
+              "province": "江苏",
+              "rank_a": 134,
+              "rank_b": 107,
+              "score_a": 348,
+              "score_b": 352
+            },
+            {
+              "gap": 0.046263,
+              "n_listed": 282,
+              "province": "江西",
+              "rank_a": 121,
+              "rank_b": 108,
+              "score_a": 575,
+              "score_b": 579
+            },
+            {
+              "gap": -0.042735,
+              "n_listed": 235,
+              "province": "浙江",
+              "rank_a": 109,
+              "rank_b": 119,
+              "score_a": 643,
+              "score_b": 640
+            },
+            {
+              "gap": 0.066946,
+              "n_listed": 240,
+              "province": "湖南",
+              "rank_a": 110,
+              "rank_b": 94,
+              "score_a": 577,
+              "score_b": 583
+            },
+            {
+              "gap": 0.015564,
+              "n_listed": 258,
+              "province": "福建",
+              "rank_a": 114,
+              "rank_b": 110,
+              "score_a": 586,
+              "score_b": 587
+            },
+            {
+              "gap": 0.048507,
+              "n_listed": 269,
+              "province": "贵州",
+              "rank_a": 134,
+              "rank_b": 121,
+              "score_a": 504,
+              "score_b": 509
+            },
+            {
+              "gap": 0.073276,
+              "n_listed": 233,
+              "province": "重庆",
+              "rank_a": 116,
+              "rank_b": 99,
+              "score_a": 609,
+              "score_b": 613
+            },
+            {
+              "gap": 0.081545,
+              "n_listed": 234,
+              "province": "陕西",
+              "rank_a": 122,
+              "rank_b": 103,
+              "score_a": 544,
+              "score_b": 551
+            },
+            {
+              "gap": -0.037975,
+              "n_listed": 238,
+              "province": "黑龙江",
+              "rank_a": 101,
+              "rank_b": 110,
+              "score_a": 574,
+              "score_b": 569
+            }
+          ],
+          "track": "science"
+        },
+        {
+          "brand": "中国石油大学",
+          "elsewhere_gaps": [
+            -0.160338,
+            -0.108108,
+            -0.107759,
+            -0.106762,
+            -0.099174,
+            -0.056106,
+            -0.004386,
+            0.026786,
+            0.035019,
+            0.038627,
+            0.119403,
+            0.225941,
+            0.376068
+          ],
+          "gap_at_host": -0.248485,
+          "gap_elsewhere_mean": 0.013785,
+          "host": "北京",
+          "host_campus": "中国石油大学(北京)",
+          "other_campus": "中国石油大学(华东)",
+          "other_home": "山东",
+          "premium": -0.26227,
+          "provinces_elsewhere": 13,
+          "table": [
+            {
+              "gap": -0.099174,
+              "n_listed": 122,
+              "province": "上海",
+              "rank_a": 95,
+              "rank_b": 107,
+              "score_a": 415,
+              "score_b": 409
+            },
+            {
+              "gap": -0.248485,
+              "n_listed": 166,
+              "province": "北京",
+              "rank_a": 67,
+              "rank_b": 108,
+              "score_a": 622,
+              "score_b": 589
+            },
+            {
+              "gap": -0.056106,
+              "n_listed": 304,
+              "province": "山东",
+              "rank_a": 79,
+              "rank_b": 96,
+              "score_a": 624,
+              "score_b": 619
+            },
+            {
+              "gap": -0.108108,
+              "n_listed": 149,
+              "province": "山西",
+              "rank_a": 92,
+              "rank_b": 108,
+              "score_a": 560,
+              "score_b": 555
+            },
+            {
+              "gap": 0.026786,
+              "n_listed": 225,
+              "province": "广西",
+              "rank_a": 140,
+              "rank_b": 134,
+              "score_a": 508,
+              "score_b": 512
+            },
+            {
+              "gap": -0.004386,
+              "n_listed": 229,
+              "province": "江苏",
+              "rank_a": 175,
+              "rank_b": 176,
+              "score_a": 344,
+              "score_b": 344
+            },
+            {
+              "gap": -0.106762,
+              "n_listed": 282,
+              "province": "江西",
+              "rank_a": 101,
+              "rank_b": 131,
+              "score_a": 581,
+              "score_b": 571
+            },
+            {
+              "gap": 0.376068,
+              "n_listed": 235,
+              "province": "浙江",
+              "rank_a": 229,
+              "rank_b": 141,
+              "score_a": 606,
+              "score_b": 632
+            },
+            {
+              "gap": 0.225941,
+              "n_listed": 240,
+              "province": "湖南",
+              "rank_a": 205,
+              "rank_b": 151,
+              "score_a": 543,
+              "score_b": 565
+            },
+            {
+              "gap": 0.035019,
+              "n_listed": 258,
+              "province": "福建",
+              "rank_a": 134,
+              "rank_b": 125,
+              "score_a": 581,
+              "score_b": 584
+            },
+            {
+              "gap": 0.119403,
+              "n_listed": 269,
+              "province": "贵州",
+              "rank_a": 170,
+              "rank_b": 138,
+              "score_a": 489,
+              "score_b": 501
+            },
+            {
+              "gap": -0.107759,
+              "n_listed": 233,
+              "province": "重庆",
+              "rank_a": 93,
+              "rank_b": 118,
+              "score_a": 614,
+              "score_b": 608
+            },
+            {
+              "gap": 0.038627,
+              "n_listed": 234,
+              "province": "陕西",
+              "rank_a": 118,
+              "rank_b": 109,
+              "score_a": 545,
+              "score_b": 549
+            },
+            {
+              "gap": -0.160338,
+              "n_listed": 238,
+              "province": "黑龙江",
+              "rank_a": 77,
+              "rank_b": 115,
+              "score_a": 584,
+              "score_b": 566
+            }
+          ],
+          "track": "science"
+        },
+        {
+          "brand": "华北电力大学",
+          "elsewhere_gaps": [
+            -0.347305,
+            -0.308989,
+            -0.303867,
+            -0.289308,
+            -0.275862,
+            -0.236994,
+            -0.234043,
+            -0.192547,
+            -0.189516,
+            -0.17931,
+            -0.171598,
+            -0.160804,
+            0.348066
+          ],
+          "gap_at_host": -0.316239,
+          "gap_elsewhere_mean": -0.195544,
+          "host": "北京",
+          "host_campus": "华北电力大学(北京)",
+          "other_campus": "华北电力大学(保定)",
+          "other_home": "河北",
+          "premium": -0.120695,
+          "provinces_elsewhere": 13,
+          "table": [
+            {
+              "gap": -0.316239,
+              "n_listed": 118,
+              "province": "北京",
+              "rank_a": 44,
+              "rank_b": 81,
+              "score_a": 624,
+              "score_b": 590
+            },
+            {
+              "gap": -0.160804,
+              "n_listed": 200,
+              "province": "山东",
+              "rank_a": 51,
+              "rank_b": 83,
+              "score_a": 610,
+              "score_b": 601
+            },
+            {
+              "gap": -0.275862,
+              "n_listed": 117,
+              "province": "山西",
+              "rank_a": 44,
+              "rank_b": 76,
+              "score_a": 552,
+              "score_b": 540
+            },
+            {
+              "gap": -0.17931,
+              "n_listed": 146,
+              "province": "广西",
+              "rank_a": 47,
+              "rank_b": 73,
+              "score_a": 575,
+              "score_b": 561
+            },
+            {
+              "gap": -0.289308,
+              "n_listed": 160,
+              "province": "江苏",
+              "rank_a": 71,
+              "rank_b": 117,
+              "score_a": 351,
+              "score_b": 344
+            },
+            {
+              "gap": -0.234043,
+              "n_listed": 189,
+              "province": "江西",
+              "rank_a": 57,
+              "rank_b": 101,
+              "score_a": 560,
+              "score_b": 543
+            },
+            {
+              "gap": -0.189516,
+              "n_listed": 249,
+              "province": "河南",
+              "rank_a": 56,
+              "rank_b": 103,
+              "score_a": 557,
+              "score_b": 543
+            },
+            {
+              "gap": -0.171598,
+              "n_listed": 170,
+              "province": "浙江",
+              "rank_a": 91,
+              "rank_b": 120,
+              "score_a": 652,
+              "score_b": 640
+            },
+            {
+              "gap": -0.303867,
+              "n_listed": 182,
+              "province": "湖南",
+              "rank_a": 55,
+              "rank_b": 110,
+              "score_a": 580,
+              "score_b": 562
+            },
+            {
+              "gap": 0.348066,
+              "n_listed": 182,
+              "province": "福建",
+              "rank_a": 164,
+              "rank_b": 101,
+              "score_a": 558,
+              "score_b": 582
+            },
+            {
+              "gap": -0.308989,
+              "n_listed": 179,
+              "province": "贵州",
+              "rank_a": 54,
+              "rank_b": 109,
+              "score_a": 591,
+              "score_b": 564
+            },
+            {
+              "gap": -0.347305,
+              "n_listed": 168,
+              "province": "重庆",
+              "rank_a": 48,
+              "rank_b": 106,
+              "score_a": 625,
+              "score_b": 592
+            },
+            {
+              "gap": -0.236994,
+              "n_listed": 174,
+              "province": "陕西",
+              "rank_a": 57,
+              "rank_b": 98,
+              "score_a": 560,
+              "score_b": 538
+            },
+            {
+              "gap": -0.192547,
+              "n_listed": 162,
+              "province": "黑龙江",
+              "rank_a": 50,
+              "rank_b": 81,
+              "score_a": 573,
+              "score_b": 559
+            }
+          ],
+          "track": "arts"
+        },
+        {
+          "brand": "华北电力大学",
+          "elsewhere_gaps": [
+            -0.286957,
+            -0.202703,
+            -0.14346,
+            -0.140496,
+            -0.129707,
+            -0.098712,
+            -0.097276,
+            -0.079208,
+            -0.074627,
+            -0.052632,
+            -0.047009,
+            -0.044643,
+            0.025862,
+            0.042705
+          ],
+          "gap_at_host": -0.163636,
+          "gap_elsewhere_mean": -0.094919,
+          "host": "北京",
+          "host_campus": "华北电力大学(北京)",
+          "other_campus": "华北电力大学(保定)",
+          "other_home": "河北",
+          "premium": -0.068717,
+          "provinces_elsewhere": 14,
+          "table": [
+            {
+              "gap": -0.140496,
+              "n_listed": 122,
+              "province": "上海",
+              "rank_a": 86,
+              "rank_b": 103,
+              "score_a": 418,
+              "score_b": 414
+            },
+            {
+              "gap": -0.163636,
+              "n_listed": 166,
+              "province": "北京",
+              "rank_a": 46,
+              "rank_b": 73,
+              "score_a": 644,
+              "score_b": 618
+            },
+            {
+              "gap": -0.079208,
+              "n_listed": 304,
+              "province": "山东",
+              "rank_a": 50,
+              "rank_b": 74,
+              "score_a": 638,
+              "score_b": 628
+            },
+            {
+              "gap": -0.202703,
+              "n_listed": 149,
+              "province": "山西",
+              "rank_a": 41,
+              "rank_b": 71,
+              "score_a": 583,
+              "score_b": 567
+            },
+            {
+              "gap": -0.286957,
+              "n_listed": 116,
+              "province": "广东",
+              "rank_a": 57,
+              "rank_b": 90,
+              "score_a": 589,
+              "score_b": 575
+            },
+            {
+              "gap": -0.044643,
+              "n_listed": 225,
+              "province": "广西",
+              "rank_a": 55,
+              "rank_b": 65,
+              "score_a": 560,
+              "score_b": 553
+            },
+            {
+              "gap": -0.052632,
+              "n_listed": 229,
+              "province": "江苏",
+              "rank_a": 67,
+              "rank_b": 79,
+              "score_a": 362,
+              "score_b": 358
+            },
+            {
+              "gap": 0.042705,
+              "n_listed": 282,
+              "province": "江西",
+              "rank_a": 90,
+              "rank_b": 78,
+              "score_a": 585,
+              "score_b": 588
+            },
+            {
+              "gap": -0.047009,
+              "n_listed": 235,
+              "province": "浙江",
+              "rank_a": 71,
+              "rank_b": 82,
+              "score_a": 655,
+              "score_b": 651
+            },
+            {
+              "gap": -0.129707,
+              "n_listed": 240,
+              "province": "湖南",
+              "rank_a": 53,
+              "rank_b": 84,
+              "score_a": 599,
+              "score_b": 588
+            },
+            {
+              "gap": -0.097276,
+              "n_listed": 258,
+              "province": "福建",
+              "rank_a": 50,
+              "rank_b": 75,
+              "score_a": 618,
+              "score_b": 605
+            },
+            {
+              "gap": -0.074627,
+              "n_listed": 269,
+              "province": "贵州",
+              "rank_a": 75,
+              "rank_b": 95,
+              "score_a": 539,
+              "score_b": 523
+            },
+            {
+              "gap": 0.025862,
+              "n_listed": 233,
+              "province": "重庆",
+              "rank_a": 62,
+              "rank_b": 56,
+              "score_a": 622,
+              "score_b": 624
+            },
+            {
+              "gap": -0.098712,
+              "n_listed": 234,
+              "province": "陕西",
+              "rank_a": 65,
+              "rank_b": 88,
+              "score_a": 572,
+              "score_b": 559
+            },
+            {
+              "gap": -0.14346,
+              "n_listed": 238,
+              "province": "黑龙江",
+              "rank_a": 47,
+              "rank_b": 81,
+              "score_a": 604,
+              "score_b": 582
+            }
+          ],
+          "track": "science"
+        }
+      ]
+    },
+    {
+      "detail": "**Beijing's table is the shortest in the panel**, [118] rows against a median of [174] elsewhere, and E1-1 divides the gap between the campuses by that length. Dividing by the smallest number where the reading is largest inflates it, and it does: the normalised z is larger in absolute value than the raw-rank z in 5 of 5 readings. **Under raw positions 1 of 5 readings reach two standard deviations and the rest do not**, one of them landing at z=-0.1245, which is the middle of the comparison provinces. Under the province's own points every reading is positive and 4 reach two. **The three scalings do not agree, and that disagreement is the reading here**: the comparison runs across provinces, so cross-province comparability re-enters through the scaling, which is what C3 avoids by never comparing across a province line",
+      "name": "E1-3 the same question under three scalings",
+      "passed": true,
+      "reading": "E1-1's magnitudes are overstated and its sign rests on fewer brands than it appeared to",
+      "scalings": [
+        {
+          "brand": "华北电力大学",
+          "n_comparison_provinces": 13,
+          "points_gap_elsewhere_median": 14,
+          "points_gap_here": 34,
+          "raw_rank_gap_elsewhere_median": -41,
+          "raw_rank_gap_here": -37,
+          "table_length_elsewhere_median": 174,
+          "table_length_here": 118,
+          "track": "arts",
+          "z_normalised_rank": -0.7216,
+          "z_points": 1.6003,
+          "z_raw_rank": -0.1245
+        },
+        {
+          "brand": "华北电力大学",
+          "n_comparison_provinces": 14,
+          "points_gap_elsewhere_median": 10.5,
+          "points_gap_here": 26,
+          "raw_rank_gap_elsewhere_median": -21.5,
+          "raw_rank_gap_here": -27,
+          "table_length_elsewhere_median": 234.5,
+          "table_length_here": 166,
+          "track": "science",
+          "z_normalised_rank": -0.8344,
+          "z_points": 2.4222,
+          "z_raw_rank": -0.669
+        },
+        {
+          "brand": "中国石油大学",
+          "n_comparison_provinces": 13,
+          "points_gap_elsewhere_median": 0,
+          "points_gap_here": 33,
+          "raw_rank_gap_elsewhere_median": -1,
+          "raw_rank_gap_here": -41,
+          "table_length_elsewhere_median": 235,
+          "table_length_here": 166,
+          "track": "science",
+          "z_normalised_rank": -1.7835,
+          "z_points": 2.8962,
+          "z_raw_rank": -1.3286
+        },
+        {
+          "brand": "中国地质大学",
+          "n_comparison_provinces": 7,
+          "points_gap_elsewhere_median": 1,
+          "points_gap_here": 20,
+          "raw_rank_gap_elsewhere_median": -1,
+          "raw_rank_gap_here": -28,
+          "table_length_elsewhere_median": 174,
+          "table_length_here": 118,
+          "track": "arts",
+          "z_normalised_rank": -2.6334,
+          "z_points": 3.0569,
+          "z_raw_rank": -1.6145
+        },
+        {
+          "brand": "中国地质大学",
+          "n_comparison_provinces": 13,
+          "points_gap_elsewhere_median": -4,
+          "points_gap_here": 49,
+          "raw_rank_gap_elsewhere_median": 13,
+          "raw_rank_gap_here": -58,
+          "table_length_elsewhere_median": 235,
+          "table_length_here": 166,
+          "track": "science",
+          "z_normalised_rank": -3.7584,
+          "z_points": 6.6715,
+          "z_raw_rank": -2.9897
+        }
+      ]
+    },
+    {
+      "detail": "**2015 is the first year Beijing candidates filed their choices after their scores were published**, replacing an estimate-first system, **and the first year its first undergraduate batch used 大平行志愿** in place of the earlier grouped structure. The comparison provinces had both for years. Both changes let a candidate aim exactly for the first time, and aiming exactly is how a preference for the campus in one's own city reaches the filing line. **So the channel this station cannot separate from the allocation is the one that changed, in the host province, in the measured year.** The panel holds one year, so nothing here separates a standing feature from a transition. Beijing also publishes 录取最低分 where most of the panel publishes 投档线, which is a different quantity, and it is one of three provinces here that do",
+      "name": "E1-4 whether the host province was in a regime change",
+      "passed": true,
+      "reading": "the measured year is a transition year in the host province",
+      "sources": [
+        "http://edu.sina.com.cn/gaokao/2014-11-14/1454443522.shtml",
+        "https://gaokao.eol.cn/zhiyuan/tianbao/201506/t20150614_1274151_1.shtml"
+      ]
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "First reading on the sample in hand, and **E1-3 and E1-4 mark it down rather than confirm it**. Its magnitudes are inflated by a normalisation that divides by the host province's table length, and the host province's table is the shortest in the panel; under raw positions the effect rests on one brand of three. The measured year is also the first year the host province filed after scores and the first year its top batch used a large parallel structure, so a transition and a standing feature are not separable on one year. The province-wide difference in differences was not run at all, because counting its cells first showed it would condition on the treatment, two provinces returning zero usable local institutions. **What survives is E1-2: a filing line is an equilibrium quantity and does not identify the allocation.**",
+  "not_a_framework_reading": "E1 reuses C3's carrier to ask how a quota system allocates, which is a question the framework does not speak to. It is kept apart from C3 so that neither is read as the other.",
+  "source": "data/gaokao_provincial.csv",
+  "stage": "E1"
+}
