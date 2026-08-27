@@ -1,0 +1,38 @@
+{
+  "bytes": 6744,
+  "columns": [
+    "Species",
+    "SARGWP100",
+    "TARGWP100",
+    "AR4GWP100",
+    "AR5GWP100",
+    "AR5CCFGWP100",
+    "AR6GWP100",
+    "TARGWP20",
+    "AR6GWP20",
+    "TARGWP500",
+    "AR6GWP500",
+    "AR6GTP100"
+  ],
+  "commit": "d3cb48938de7ec35d2f6a0d8072237e6a0db6ce7",
+  "file": "globalwarmingpotentials.csv",
+  "license": "CC0-1.0",
+  "repo": "openclimatedata/globalwarmingpotentials",
+  "retrieved": "2026-08-27",
+  "sha256": "9b80412cb5aeeb91038ef84145a10cdab0ab202cbb623cb14d2ec35ec2454f36",
+  "species": 105,
+  "standards": [
+    "SARGWP100",
+    "TARGWP100",
+    "AR4GWP100",
+    "AR5GWP100",
+    "AR5CCFGWP100",
+    "AR6GWP100",
+    "TARGWP20",
+    "AR6GWP20",
+    "TARGWP500",
+    "AR6GWP500",
+    "AR6GTP100"
+  ],
+  "url": "https://raw.githubusercontent.com/openclimatedata/globalwarmingpotentials/d3cb48938de7ec35d2f6a0d8072237e6a0db6ce7/globalwarmingpotentials.csv"
+}

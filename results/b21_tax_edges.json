@@ -1,0 +1,161 @@
+{
+ "capital_gains": {
+  "bands": [
+   {
+    "band": "0% to 1%",
+    "median_ratio": 1.0009596240650338,
+    "n": 27
+   },
+   {
+    "band": "1% to 2%",
+    "median_ratio": 1.002536559843911,
+    "n": 27
+   },
+   {
+    "band": "2% to 4%",
+    "median_ratio": 1.0051140544367707,
+    "n": 55
+   },
+   {
+    "band": "4% to 7%",
+    "median_ratio": 1.0092272456222324,
+    "n": 82
+   },
+   {
+    "band": "7% to 12%",
+    "median_ratio": 1.0157403423354676,
+    "n": 127
+   },
+   {
+    "band": "over 12%",
+    "median_ratio": 1.0563267680976713,
+    "n": 858
+   }
+  ],
+  "coefficient": -0.03125,
+  "index_bp": {
+   "max": 2424.701855368063,
+   "median": 622.8397672763932,
+   "min": 2.6943284549353583,
+   "p10": 106.13557496100697,
+   "p90": 1498.9217105194557
+  },
+  "leg_years": 1176,
+  "leg_years_with_loss": 1121,
+  "min_ratio": 1.0001796323239693
+ },
+ "capital_gains_loss_branch": {
+  "all_negative": true,
+  "bands": [
+   {
+    "band": "0% to 1%",
+    "median_ratio": 0.9989351789030538,
+    "n": 30
+   },
+   {
+    "band": "1% to 2%",
+    "median_ratio": 0.997636634299629,
+    "n": 27
+   },
+   {
+    "band": "2% to 4%",
+    "median_ratio": 0.995072870206072,
+    "n": 62
+   },
+   {
+    "band": "4% to 7%",
+    "median_ratio": 0.9912147350532295,
+    "n": 90
+   },
+   {
+    "band": "7% to 12%",
+    "median_ratio": 0.9844958083547366,
+    "n": 135
+   },
+   {
+    "band": "over 12%",
+    "median_ratio": 0.9495280732542326,
+    "n": 774
+   }
+  ],
+  "index_bp": {
+   "max": -0.9952729221766285,
+   "median": -528.1090813234895,
+   "min": -9291.526761747351,
+   "p10": -1809.2702246139293,
+   "p90": -91.96876595968727
+  },
+  "leg_years": 1118,
+  "max_ratio": 0.9999336483164597
+ },
+ "criteria": [
+  {
+   "detail": "coefficient 0.21875; band medians 0.996 0.987 0.976 0.957 0.932 0.886; max ratio 0.9999",
+   "name": "B21-13  the twelve-month edge reproduces the first arm's shape at a statutory gap of 0.25: below one and monotone down in the yield",
+   "passed": true
+  },
+  {
+   "detail": "coefficient -0.03125; band medians 1.001 1.003 1.005 1.009 1.016 1.056; min ratio 1.0002",
+   "name": "B21-14  the capital-gains edge takes the opposite shape the same algebra predicts: above one and monotone up in the gain",
+   "passed": true
+  },
+  {
+   "detail": "1118 loss leg-years, all negative, median -528.1 bp; band medians 0.999 0.998 0.995 0.991 0.984 0.950; max ratio 0.9999",
+   "name": "B21-16  on the loss branch the statute reverses the index's sign, and the shape mirrors: below one and monotone down in the size",
+   "passed": true
+  },
+  {
+   "detail": "smallest twelve-month index 0.3052 bp over 4226 leg-years; smallest capital-gains index 2.6943 bp over 1176; largest on the loss branch -0.9953 bp over 1118",
+   "name": "B21-15  neither statutory index is zero anywhere",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "Two further statutory edges found by enumerating the square term by term. The capital-gains edge carries a netting caveat stated in the module docstring.",
+ "stage": "B21",
+ "step": "tax_edges",
+ "twelve_month": {
+  "bands": [
+   {
+    "band": "0% to 1%",
+    "median_ratio": 0.9955943761945807,
+    "n": 1056
+   },
+   {
+    "band": "1% to 2%",
+    "median_ratio": 0.9873837413436539,
+    "n": 938
+   },
+   {
+    "band": "2% to 4%",
+    "median_ratio": 0.9756950491151785,
+    "n": 1119
+   },
+   {
+    "band": "4% to 7%",
+    "median_ratio": 0.9570501449885768,
+    "n": 836
+   },
+   {
+    "band": "7% to 12%",
+    "median_ratio": 0.9319822378382819,
+    "n": 246
+   },
+   {
+    "band": "over 12%",
+    "median_ratio": 0.8862304200497373,
+    "n": 31
+   }
+  ],
+  "coefficient": 0.21875,
+  "index_bp": {
+   "max": 749.8956835008266,
+   "median": 52.65523069421719,
+   "min": 0.3052152644555274,
+   "p10": 10.075567602997706,
+   "p90": 145.03959726294946
+  },
+  "leg_years": 4226,
+  "max_ratio": 0.9998924393478181
+ }
+}

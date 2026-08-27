@@ -1,0 +1,82 @@
+{
+ "between_date_variance": 0.020898596676169005,
+ "criteria": [
+  {
+   "detail": "largest change in dispersion under a constant shift: 1.110e-16",
+   "name": "B21-3  a common shift leaves the cross section unchanged",
+   "passed": true
+  },
+  {
+   "detail": "smallest cross-sectional sd over 4846 dates: 0.249538",
+   "name": "B21-4  the individual term is not degenerate",
+   "passed": true
+  },
+  {
+   "detail": "thinnest three cross sections: [28, 28, 28]",
+   "name": "B21-5  every date carries a usable cross section",
+   "passed": true
+  },
+  {
+   "detail": "the 2015 fixing reform: common p39% vs dispersion p91%; the CFETS basket, announced: common p25% vs dispersion p3%; outbound investment tightened: common p38% vs dispersion p61%; the reserve on forward sales restored: common p25% vs dispersion p25%; seven to the dollar: common p14% vs dispersion p47%",
+   "name": "B21-6  PLACEBO, and it fails: currency events do not move the common term, so the common term is not the currency wedge",
+   "passed": false
+  }
+ ],
+ "dates": 4846,
+ "diagnostic_only": true,
+ "diagnostic_reason": "Layer one of the attribution. It separates the common term from the individual one and does not say what the individual one is; that is layer two, which has its own gate and has not been opened.",
+ "first": "2006-01-04",
+ "last": "2026-08-27",
+ "pairs_per_date": {
+  "max": 198,
+  "median": 84,
+  "min": 28
+ },
+ "placebo_events": [
+  {
+   "common_jump": -0.017588685406576432,
+   "common_pctile": 0.39076154806491886,
+   "date": "2015-08-11",
+   "disp_jump": 0.027254525457146128,
+   "disp_pctile": 0.9148980441115273,
+   "label": "the 2015 fixing reform"
+  },
+  {
+   "common_jump": 0.010672014041743338,
+   "common_pctile": 0.2526009155222638,
+   "date": "2015-12-11",
+   "disp_jump": -0.000526168792420012,
+   "disp_pctile": 0.029130253849354974,
+   "label": "the CFETS basket, announced"
+  },
+  {
+   "common_jump": -0.017074880690482463,
+   "common_pctile": 0.38160632542655015,
+   "date": "2016-11-28",
+   "disp_jump": -0.011100981012301392,
+   "disp_pctile": 0.6106949646275489,
+   "label": "outbound investment tightened"
+  },
+  {
+   "common_jump": -0.010651065524485637,
+   "common_pctile": 0.25218476903870163,
+   "date": "2018-08-06",
+   "disp_jump": -0.00412356931899549,
+   "disp_pctile": 0.25176862255513943,
+   "label": "the reserve on forward sales restored"
+  },
+  {
+   "common_jump": 0.005904679566492432,
+   "common_pctile": 0.1441947565543071,
+   "date": "2019-08-05",
+   "disp_jump": -0.008069803236376683,
+   "disp_pctile": 0.4721181856013317,
+   "label": "seven to the dollar"
+  }
+ ],
+ "shift_identity_residual": 1.1102230246251565e-16,
+ "stage": "B21",
+ "step": "cross_section",
+ "wedge_over_common_sd": 0.03133488343331556,
+ "within_date_variance": 0.16371972033309432
+}

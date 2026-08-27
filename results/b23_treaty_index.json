@@ -1,0 +1,302 @@
+{
+ "binding": 16,
+ "class_pair": "non-treaty foreign holder against US treaty holder, same ordinary share, both flat and withheld at source",
+ "countries": [
+  {
+   "binding": true,
+   "country": "Australia",
+   "gap": 0.15,
+   "index_bp": {
+    "1%": 14.88464675704186,
+    "2%": 29.542118974313826,
+    "3%": 43.977593477699045,
+    "5%": 72.20247973487098,
+    "8%": 112.99555253933465
+   },
+   "statutory": 30.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Austria",
+   "gap": 0.125,
+   "index_bp": {
+    "1%": 12.402333228096964,
+    "2%": 24.61236782690441,
+    "3%": 36.63455068048771,
+    "5%": 60.13247223451843,
+    "8%": 94.07407101895546
+   },
+   "statutory": 27.5,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Belgium",
+   "gap": 0.25,
+   "index_bp": {
+    "1%": 24.795450343301425,
+    "2%": 49.18849071596255,
+    "3%": 73.18890928346272,
+    "5%": 120.0494609682362,
+    "8%": 187.62276455523033
+   },
+   "statutory": 30.0,
+   "treaty": 5.0
+  },
+  {
+   "binding": true,
+   "country": "Canada",
+   "gap": 0.1,
+   "index_bp": {
+    "1%": 9.920635734282477,
+    "2%": 19.685045726721533,
+    "3%": 29.296895954785263,
+    "5%": 48.07701568103078,
+    "8%": 75.1883241402732
+   },
+   "statutory": 25.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": false,
+   "country": "China",
+   "gap": 0.0,
+   "index_bp": {
+    "1%": 0.0,
+    "2%": 0.0,
+    "3%": 0.0,
+    "5%": 0.0,
+    "8%": 0.0
+   },
+   "statutory": 10.0,
+   "treaty": 10.0
+  },
+  {
+   "binding": true,
+   "country": "Denmark",
+   "gap": 0.12,
+   "index_bp": {
+    "1%": 11.905944456308665,
+    "2%": 23.626709159703186,
+    "3%": 35.16658894271904,
+    "5%": 57.720217971221906,
+    "8%": 90.29406719394376
+   },
+   "statutory": 27.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "France",
+   "gap": 0.15,
+   "index_bp": {
+    "1%": 14.88464675704186,
+    "2%": 29.542118974313826,
+    "3%": 43.977593477699045,
+    "5%": 72.20247973487098,
+    "8%": 112.99555253933465
+   },
+   "statutory": 30.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Germany",
+   "gap": 0.11375,
+   "index_bp": {
+    "1%": 11.28549313982358,
+    "2%": 22.394772430413596,
+    "3%": 33.331939753075346,
+    "5%": 54.705718204626905,
+    "8%": 85.57107083731559
+   },
+   "statutory": 26.375,
+   "treaty": 15.0
+  },
+  {
+   "binding": false,
+   "country": "India",
+   "gap": 0.0,
+   "index_bp": {
+    "1%": 0.0,
+    "2%": 0.0,
+    "3%": 0.0,
+    "5%": 0.0,
+    "8%": 0.0
+   },
+   "statutory": 20.0,
+   "treaty": 25.0
+  },
+  {
+   "binding": true,
+   "country": "Ireland",
+   "gap": 0.1,
+   "index_bp": {
+    "1%": 9.920635734282477,
+    "2%": 19.685045726721533,
+    "3%": 29.296895954785263,
+    "5%": 48.07701568103078,
+    "8%": 75.1883241402732
+   },
+   "statutory": 25.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Italy",
+   "gap": 0.11,
+   "index_bp": {
+    "1%": 10.913240827161731,
+    "2%": 21.655683234330336,
+    "3%": 32.23131178256199,
+    "5%": 52.897454434291845,
+    "8%": 82.73834337396619
+   },
+   "statutory": 26.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Japan",
+   "gap": 0.1042,
+   "index_bp": {
+    "1%": 10.33239257041403,
+    "2%": 20.49249555340284,
+    "3%": 30.484587749929386,
+    "5%": 49.98115729625225,
+    "8%": 78.06511074837509
+   },
+   "statutory": 20.42,
+   "treaty": 10.0
+  },
+  {
+   "binding": false,
+   "country": "Netherlands",
+   "gap": 0.0,
+   "index_bp": {
+    "1%": 0.0,
+    "2%": 0.0,
+    "3%": 0.0,
+    "5%": 0.0,
+    "8%": 0.0
+   },
+   "statutory": 15.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "New Zealand",
+   "gap": 0.15,
+   "index_bp": {
+    "1%": 14.88464675704186,
+    "2%": 29.542118974313826,
+    "3%": 43.977593477699045,
+    "5%": 72.20247973487098,
+    "8%": 112.99555253933465
+   },
+   "statutory": 30.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Norway",
+   "gap": 0.1,
+   "index_bp": {
+    "1%": 9.920635734282477,
+    "2%": 19.685045726721533,
+    "3%": 29.296895954785263,
+    "5%": 48.07701568103078,
+    "8%": 75.1883241402732
+   },
+   "statutory": 25.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "South Korea",
+   "gap": 0.05,
+   "index_bp": {
+    "1%": 4.959087629524246,
+    "2%": 9.837679101327483,
+    "3%": 14.637719129822074,
+    "5%": 24.009615375380463,
+    "8%": 37.52349618550372
+   },
+   "statutory": 20.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Spain",
+   "gap": 0.04,
+   "index_bp": {
+    "1%": 3.9670733437051586,
+    "2%": 7.869368889283753,
+    "3%": 11.708460699465167,
+    "5%": 19.203078392672932,
+    "8%": 30.007524392384635
+   },
+   "statutory": 19.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Sweden",
+   "gap": 0.15,
+   "index_bp": {
+    "1%": 14.88464675704186,
+    "2%": 29.542118974313826,
+    "3%": 43.977593477699045,
+    "5%": 72.20247973487098,
+    "8%": 112.99555253933465
+   },
+   "statutory": 30.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": true,
+   "country": "Switzerland",
+   "gap": 0.2,
+   "index_bp": {
+    "1%": 19.8511231442025,
+    "2%": 39.40891799876627,
+    "3%": 58.67987497925448,
+    "5%": 96.38628837768793,
+    "8%": 150.94626222484888
+   },
+   "statutory": 35.0,
+   "treaty": 15.0
+  },
+  {
+   "binding": false,
+   "country": "United Kingdom",
+   "gap": 0.0,
+   "index_bp": {
+    "1%": 0.0,
+    "2%": 0.0,
+    "3%": 0.0,
+    "5%": 0.0,
+    "8%": 0.0
+   },
+   "statutory": 0.0,
+   "treaty": 15.0
+  }
+ ],
+ "criteria": [
+  {
+   "detail": "16 of 20 binding; at a 3% yield the index runs 11.7 to 73.2 bp, median 34.2",
+   "name": "B23-1  the statutory class index is nonzero wherever the two published rates differ, and zero where they do not",
+   "passed": true
+  },
+  {
+   "detail": "11 distinct gaps over 16 countries, against one value on the A+H carrier",
+   "name": "B23-2  the treatment takes many values, which is what this carrier was opened for",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "Arithmetic on published rates, not a measurement. The arm that measures whether a market prices the wedge needs two lines with different marginal holders, which an ordinary convertible ADR does not provide.",
+ "stage": "B23",
+ "step": "treaty_index"
+}

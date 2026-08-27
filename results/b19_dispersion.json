@@ -1,0 +1,380 @@
+{
+  "criteria": [
+    {
+      "detail": "51 quarters cached, 2013q3 to 2026q1, 50 quarter pairs read, 0 dropped for fewer than 100 securities in common",
+      "name": "B19-D-1  every cached quarter is read and every quarter pair with enough overlap is printed",
+      "passed": true
+    },
+    {
+      "detail": "median across quarters: sd 1.1253, iqr 0.1752; in points of a holding 112.53 and 17.52",
+      "name": "B19-D-2  print the dispersion for every quarter pair, and the median across them, with no line drawn on either",
+      "passed": true
+    },
+    {
+      "detail": "gate two took 5 points of a source that said 2 to 5, in points of ownership; this measures 112.53 points as the standard deviation of the relative change in shares held. **Different units.** Converting needs an ownership level this file does not have and does not assume",
+      "name": "B19-D-3  the measured quantity and the one gate two used are named in their own units, and the ratio is not recomputed across them",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "B19 is closed at gate two and this does not reopen it. It measures the one input to that gate that was written down rather than read, and it stops short of recomputing the ratio because the two quantities are in different units.",
+  "median_iqr_dlog": 0.17517844,
+  "median_sd_dlog": 1.12533726,
+  "per_quarter": [
+    {
+      "iqr_dlog": 0.25423072,
+      "quarter": "2013q4",
+      "sd_dlog": 1.08836779,
+      "securities": 17487
+    },
+    {
+      "iqr_dlog": 0.2433272,
+      "quarter": "2014q1",
+      "sd_dlog": 1.04168948,
+      "securities": 18375
+    },
+    {
+      "iqr_dlog": 0.21355567,
+      "quarter": "2014q2",
+      "sd_dlog": 1.02161916,
+      "securities": 17751
+    },
+    {
+      "iqr_dlog": 0.17744782,
+      "quarter": "2014q3",
+      "sd_dlog": 0.9155833,
+      "securities": 17904
+    },
+    {
+      "iqr_dlog": 0.1528053,
+      "quarter": "2014q4",
+      "sd_dlog": 0.89932286,
+      "securities": 18198
+    },
+    {
+      "iqr_dlog": 0.19989711,
+      "quarter": "2015q1",
+      "sd_dlog": 1.16863429,
+      "securities": 17291
+    },
+    {
+      "iqr_dlog": 0.24119017,
+      "quarter": "2015q2",
+      "sd_dlog": 1.03098957,
+      "securities": 17535
+    },
+    {
+      "iqr_dlog": 0.22253394,
+      "quarter": "2015q3",
+      "sd_dlog": 1.12505744,
+      "securities": 17677
+    },
+    {
+      "iqr_dlog": 0.2444661,
+      "quarter": "2015q4",
+      "sd_dlog": 1.16346798,
+      "securities": 17823
+    },
+    {
+      "iqr_dlog": 0.28049054,
+      "quarter": "2016q1",
+      "sd_dlog": 1.26781041,
+      "securities": 16804
+    },
+    {
+      "iqr_dlog": 0.17902729,
+      "quarter": "2016q2",
+      "sd_dlog": 1.0117293,
+      "securities": 16877
+    },
+    {
+      "iqr_dlog": 0.17594613,
+      "quarter": "2016q3",
+      "sd_dlog": 1.12204169,
+      "securities": 16535
+    },
+    {
+      "iqr_dlog": 0.1367942,
+      "quarter": "2016q4",
+      "sd_dlog": 1.04134923,
+      "securities": 16407
+    },
+    {
+      "iqr_dlog": 0.16989768,
+      "quarter": "2017q1",
+      "sd_dlog": 0.97364722,
+      "securities": 14199
+    },
+    {
+      "iqr_dlog": 0.149089,
+      "quarter": "2017q2",
+      "sd_dlog": 0.95238472,
+      "securities": 13912
+    },
+    {
+      "iqr_dlog": 0.17206733,
+      "quarter": "2017q3",
+      "sd_dlog": 0.92263067,
+      "securities": 14074
+    },
+    {
+      "iqr_dlog": 0.20292588,
+      "quarter": "2017q4",
+      "sd_dlog": 1.0424103,
+      "securities": 14291
+    },
+    {
+      "iqr_dlog": 0.13703835,
+      "quarter": "2018q1",
+      "sd_dlog": 1.04724251,
+      "securities": 14219
+    },
+    {
+      "iqr_dlog": 0.12081617,
+      "quarter": "2018q2",
+      "sd_dlog": 1.0613406,
+      "securities": 14517
+    },
+    {
+      "iqr_dlog": 0.12417379,
+      "quarter": "2018q3",
+      "sd_dlog": 1.06960261,
+      "securities": 14239
+    },
+    {
+      "iqr_dlog": 0.20297518,
+      "quarter": "2018q4",
+      "sd_dlog": 0.9976879,
+      "securities": 14385
+    },
+    {
+      "iqr_dlog": 0.18505666,
+      "quarter": "2019q1",
+      "sd_dlog": 1.12561708,
+      "securities": 15290
+    },
+    {
+      "iqr_dlog": 0.21298895,
+      "quarter": "2019q2",
+      "sd_dlog": 1.41605012,
+      "securities": 14807
+    },
+    {
+      "iqr_dlog": 0.18468083,
+      "quarter": "2019q3",
+      "sd_dlog": 1.41236436,
+      "securities": 15043
+    },
+    {
+      "iqr_dlog": 0.11638021,
+      "quarter": "2019q4",
+      "sd_dlog": 1.1123113,
+      "securities": 15899
+    },
+    {
+      "iqr_dlog": 0.10184837,
+      "quarter": "2020q1",
+      "sd_dlog": 1.29495585,
+      "securities": 15475
+    },
+    {
+      "iqr_dlog": 0.11550438,
+      "quarter": "2020q2",
+      "sd_dlog": 1.19187308,
+      "securities": 15767
+    },
+    {
+      "iqr_dlog": 0.13892636,
+      "quarter": "2020q3",
+      "sd_dlog": 1.17427426,
+      "securities": 15557
+    },
+    {
+      "iqr_dlog": 0.09592596,
+      "quarter": "2020q4",
+      "sd_dlog": 1.02507705,
+      "securities": 15464
+    },
+    {
+      "iqr_dlog": 0.14185427,
+      "quarter": "2021q1",
+      "sd_dlog": 1.15314132,
+      "securities": 15555
+    },
+    {
+      "iqr_dlog": 0.1582149,
+      "quarter": "2021q2",
+      "sd_dlog": 1.11292322,
+      "securities": 16333
+    },
+    {
+      "iqr_dlog": 0.15430932,
+      "quarter": "2021q3",
+      "sd_dlog": 1.12453243,
+      "securities": 16956
+    },
+    {
+      "iqr_dlog": 0.17441075,
+      "quarter": "2021q4",
+      "sd_dlog": 1.52905024,
+      "securities": 17528
+    },
+    {
+      "iqr_dlog": 0.15993904,
+      "quarter": "2022q1",
+      "sd_dlog": 1.35042896,
+      "securities": 17788
+    },
+    {
+      "iqr_dlog": 0.1590958,
+      "quarter": "2022q2",
+      "sd_dlog": 1.11788277,
+      "securities": 18420
+    },
+    {
+      "iqr_dlog": 0.13826144,
+      "quarter": "2022q3",
+      "sd_dlog": 1.05639235,
+      "securities": 18497
+    },
+    {
+      "iqr_dlog": 0.13671558,
+      "quarter": "2022q4",
+      "sd_dlog": 1.1102792,
+      "securities": 18321
+    },
+    {
+      "iqr_dlog": 0.18303659,
+      "quarter": "2023q1",
+      "sd_dlog": 1.49803784,
+      "securities": 17807
+    },
+    {
+      "iqr_dlog": 0.17811789,
+      "quarter": "2023q2",
+      "sd_dlog": 1.34356002,
+      "securities": 18377
+    },
+    {
+      "iqr_dlog": 0.1603461,
+      "quarter": "2023q3",
+      "sd_dlog": 1.29739259,
+      "securities": 18469
+    },
+    {
+      "iqr_dlog": 0.15462386,
+      "quarter": "2023q4",
+      "sd_dlog": 1.54849676,
+      "securities": 17481
+    },
+    {
+      "iqr_dlog": 0.189501,
+      "quarter": "2024q1",
+      "sd_dlog": 1.4761829,
+      "securities": 17023
+    },
+    {
+      "iqr_dlog": 0.2276298,
+      "quarter": "2024q2",
+      "sd_dlog": 1.66167194,
+      "securities": 17973
+    },
+    {
+      "iqr_dlog": 0.25941733,
+      "quarter": "2024q3",
+      "sd_dlog": 1.76766196,
+      "securities": 18784
+    },
+    {
+      "iqr_dlog": 0.13440724,
+      "quarter": "2024q4",
+      "sd_dlog": 1.4623026,
+      "securities": 18434
+    },
+    {
+      "iqr_dlog": 0.1882138,
+      "quarter": "2025q1",
+      "sd_dlog": 1.57199783,
+      "securities": 18055
+    },
+    {
+      "iqr_dlog": 0.20933593,
+      "quarter": "2025q2",
+      "sd_dlog": 1.48086064,
+      "securities": 19590
+    },
+    {
+      "iqr_dlog": 0.20771039,
+      "quarter": "2025q3",
+      "sd_dlog": 1.5197042,
+      "securities": 18773
+    },
+    {
+      "iqr_dlog": 0.14603217,
+      "quarter": "2025q4",
+      "sd_dlog": 1.49233551,
+      "securities": 18948
+    },
+    {
+      "iqr_dlog": 0.21071272,
+      "quarter": "2026q1",
+      "sd_dlog": 1.77424017,
+      "securities": 19274
+    }
+  ],
+  "quarters": [
+    "2013q3",
+    "2013q4",
+    "2014q1",
+    "2014q2",
+    "2014q3",
+    "2014q4",
+    "2015q1",
+    "2015q2",
+    "2015q3",
+    "2015q4",
+    "2016q1",
+    "2016q2",
+    "2016q3",
+    "2016q4",
+    "2017q1",
+    "2017q2",
+    "2017q3",
+    "2017q4",
+    "2018q1",
+    "2018q2",
+    "2018q3",
+    "2018q4",
+    "2019q1",
+    "2019q2",
+    "2019q3",
+    "2019q4",
+    "2020q1",
+    "2020q2",
+    "2020q3",
+    "2020q4",
+    "2021q1",
+    "2021q2",
+    "2021q3",
+    "2021q4",
+    "2022q1",
+    "2022q2",
+    "2022q3",
+    "2022q4",
+    "2023q1",
+    "2023q2",
+    "2023q3",
+    "2023q4",
+    "2024q1",
+    "2024q2",
+    "2024q3",
+    "2024q4",
+    "2025q1",
+    "2025q2",
+    "2025q3",
+    "2025q4",
+    "2026q1"
+  ],
+  "stage": "B19-dispersion",
+  "step": "13f_quarterly_dispersion"
+}

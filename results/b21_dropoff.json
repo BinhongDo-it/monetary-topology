@@ -1,0 +1,65 @@
+{
+ "a_leg": {
+  "centre": 0.9882995956832952,
+  "n": 2608,
+  "se": 0.0193789401780399
+ },
+ "band": [
+  0.1,
+  0.2
+ ],
+ "criteria": [
+  {
+   "detail": "Z90 x se 0.0380 against band width 0.10, ratio 0.380",
+   "name": "B21-17  gate two, first stage: the instrument separates the statutory band without borrowing anything",
+   "passed": true
+  },
+  {
+   "detail": "A leg +0.9883, H leg +0.8581, difference +0.1302 against [0.1, 0.2]; 5.6 standard errors from zero",
+   "name": "B21-18  the pooled difference falls inside the band the statute declares",
+   "passed": true
+  },
+  {
+   "detail": "implied withholding before 0.1799, after 0.1289, move -0.0510; within the 82 companies carrying ex-days on both sides the move is -0.0701 with robust se 0.0366, **so it is not composition. The reading stands and the criterion that read it as a direction does not.**",
+   "name": "B21-20  VOID  the direction this asked for was never implied by the statute, which admits 0, 10 and 20 per cent holders at once",
+   "passed": null,
+   "void": true
+  },
+  {
+   "detail": "before 0.1799; after 0.1289. The statute fixes the endpoints and not the movement between them.",
+   "name": "B21-25  the implied rate stays inside the mixture the statute allows, 0 to 25 per cent, on both sides of the date",
+   "passed": true
+  },
+  {
+   "detail": "133 companies, centre +0.1790, robust se 0.0311, 96 of 133 positive",
+   "name": "B21-19  the within-company difference falls in the same band, with the company cancelled",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "The first measured rather than computed reading on this carrier. The drop-off ratio's level is a fifty-year argument; what is used here is the difference between two legs of one company.",
+ "difference": 0.13017888366562325,
+ "gate_two_ratio": 0.3799782547520879,
+ "h_leg": {
+  "centre": 0.8581207120176719,
+  "n": 2242,
+  "se": 0.012570586677051616
+ },
+ "se_difference": 0.02309898205179866,
+ "sigma": 5.635697857754149,
+ "southbound_split": {
+  "after_implied": 0.12886197111202113,
+  "before_implied": 0.1798785150451252,
+  "drift": -0.051016543933104064
+ },
+ "stage": "B21",
+ "step": "dropoff",
+ "within_company": {
+  "centre": 0.17897565396778836,
+  "n": 133,
+  "p10": -0.2678451017209713,
+  "p90": 0.7977737315562546,
+  "positive": 96,
+  "se": 0.031084110547798513
+ }
+}

@@ -1,0 +1,300 @@
+{
+  "criteria": [
+    {
+      "detail": "largest departure from one half over 24 combinations: 1.110e-16",
+      "name": "D-1  power is one half exactly at the critical value, for every alpha and se",
+      "passed": true
+    },
+    {
+      "detail": "11 of 11 bands agree, se = 0.012672, z = 1.644854",
+      "name": "D-2  gate two and the power floor agree at every band on the grid",
+      "passed": true
+    },
+    {
+      "detail": "likelihood ratio for the null given a non-rejection is 1.90 at alpha 0.05 and 1.80 at alpha 0.10, both below one bit; the one-bit line is power 0.525 and 0.550 respectively",
+      "name": "D-3  print what a failure at the floor is worth",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "This is arithmetic about two of the repository's own gates and not a reading about the world. It supplies the source D5 asks for.",
+  "gate_grid_agreement": {
+    "agree": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "bands": [
+      0.0005,
+      0.001,
+      0.002,
+      0.005,
+      0.01,
+      0.0126,
+      0.02,
+      0.05,
+      0.1,
+      0.15,
+      0.25
+    ],
+    "se": 0.01267166,
+    "z": 1.64485363
+  },
+  "identity_worst_departure_from_one_half": 0.0,
+  "likelihood_ratios": [
+    {
+      "alpha": 0.05,
+      "likelihood_ratio": 0.95,
+      "power": 0.0
+    },
+    {
+      "alpha": 0.1,
+      "likelihood_ratio": 0.9,
+      "power": 0.0
+    },
+    {
+      "alpha": 0.05,
+      "likelihood_ratio": 1.26666667,
+      "power": 0.25
+    },
+    {
+      "alpha": 0.1,
+      "likelihood_ratio": 1.2,
+      "power": 0.25
+    },
+    {
+      "alpha": 0.05,
+      "likelihood_ratio": 1.9,
+      "power": 0.5
+    },
+    {
+      "alpha": 0.1,
+      "likelihood_ratio": 1.8,
+      "power": 0.5
+    },
+    {
+      "alpha": 0.05,
+      "likelihood_ratio": 2.0,
+      "power": 0.525
+    },
+    {
+      "alpha": 0.1,
+      "likelihood_ratio": 1.89473684,
+      "power": 0.525
+    },
+    {
+      "alpha": 0.05,
+      "likelihood_ratio": 2.11111111,
+      "power": 0.55
+    },
+    {
+      "alpha": 0.1,
+      "likelihood_ratio": 2.0,
+      "power": 0.55
+    },
+    {
+      "alpha": 0.05,
+      "likelihood_ratio": 4.75,
+      "power": 0.8
+    },
+    {
+      "alpha": 0.1,
+      "likelihood_ratio": 4.5,
+      "power": 0.8
+    },
+    {
+      "alpha": 0.05,
+      "likelihood_ratio": 19.0,
+      "power": 0.95
+    },
+    {
+      "alpha": 0.1,
+      "likelihood_ratio": 18.0,
+      "power": 0.95
+    }
+  ],
+  "one_bit_power": {
+    "0.05": 0.525,
+    "0.1": 0.55
+  },
+  "rows": [
+    {
+      "alpha": "0.01",
+      "power_there": 0.5,
+      "se": 0.001,
+      "theta_at_critical_value": 0.00232635,
+      "z": 2.32634787
+    },
+    {
+      "alpha": "0.01",
+      "power_there": 0.5,
+      "se": 0.01,
+      "theta_at_critical_value": 0.02326348,
+      "z": 2.32634787
+    },
+    {
+      "alpha": "0.01",
+      "power_there": 0.5,
+      "se": 0.1,
+      "theta_at_critical_value": 0.23263479,
+      "z": 2.32634787
+    },
+    {
+      "alpha": "0.01",
+      "power_there": 0.5,
+      "se": 1.0,
+      "theta_at_critical_value": 2.32634787,
+      "z": 2.32634787
+    },
+    {
+      "alpha": "0.01",
+      "power_there": 0.5,
+      "se": 10.0,
+      "theta_at_critical_value": 23.26347874,
+      "z": 2.32634787
+    },
+    {
+      "alpha": "0.01",
+      "power_there": 0.5,
+      "se": 1000.0,
+      "theta_at_critical_value": 2326.34787404,
+      "z": 2.32634787
+    },
+    {
+      "alpha": "0.025",
+      "power_there": 0.5,
+      "se": 0.001,
+      "theta_at_critical_value": 0.00195996,
+      "z": 1.95996398
+    },
+    {
+      "alpha": "0.025",
+      "power_there": 0.5,
+      "se": 0.01,
+      "theta_at_critical_value": 0.01959964,
+      "z": 1.95996398
+    },
+    {
+      "alpha": "0.025",
+      "power_there": 0.5,
+      "se": 0.1,
+      "theta_at_critical_value": 0.1959964,
+      "z": 1.95996398
+    },
+    {
+      "alpha": "0.025",
+      "power_there": 0.5,
+      "se": 1.0,
+      "theta_at_critical_value": 1.95996398,
+      "z": 1.95996398
+    },
+    {
+      "alpha": "0.025",
+      "power_there": 0.5,
+      "se": 10.0,
+      "theta_at_critical_value": 19.59963985,
+      "z": 1.95996398
+    },
+    {
+      "alpha": "0.025",
+      "power_there": 0.5,
+      "se": 1000.0,
+      "theta_at_critical_value": 1959.96398454,
+      "z": 1.95996398
+    },
+    {
+      "alpha": "0.05",
+      "power_there": 0.5,
+      "se": 0.001,
+      "theta_at_critical_value": 0.00164485,
+      "z": 1.64485363
+    },
+    {
+      "alpha": "0.05",
+      "power_there": 0.5,
+      "se": 0.01,
+      "theta_at_critical_value": 0.01644854,
+      "z": 1.64485363
+    },
+    {
+      "alpha": "0.05",
+      "power_there": 0.5,
+      "se": 0.1,
+      "theta_at_critical_value": 0.16448536,
+      "z": 1.64485363
+    },
+    {
+      "alpha": "0.05",
+      "power_there": 0.5,
+      "se": 1.0,
+      "theta_at_critical_value": 1.64485363,
+      "z": 1.64485363
+    },
+    {
+      "alpha": "0.05",
+      "power_there": 0.5,
+      "se": 10.0,
+      "theta_at_critical_value": 16.44853627,
+      "z": 1.64485363
+    },
+    {
+      "alpha": "0.05",
+      "power_there": 0.5,
+      "se": 1000.0,
+      "theta_at_critical_value": 1644.85362695,
+      "z": 1.64485363
+    },
+    {
+      "alpha": "0.10",
+      "power_there": 0.5,
+      "se": 0.001,
+      "theta_at_critical_value": 0.00128155,
+      "z": 1.28155157
+    },
+    {
+      "alpha": "0.10",
+      "power_there": 0.5,
+      "se": 0.01,
+      "theta_at_critical_value": 0.01281552,
+      "z": 1.28155157
+    },
+    {
+      "alpha": "0.10",
+      "power_there": 0.5,
+      "se": 0.1,
+      "theta_at_critical_value": 0.12815516,
+      "z": 1.28155157
+    },
+    {
+      "alpha": "0.10",
+      "power_there": 0.5,
+      "se": 1.0,
+      "theta_at_critical_value": 1.28155157,
+      "z": 1.28155157
+    },
+    {
+      "alpha": "0.10",
+      "power_there": 0.5,
+      "se": 10.0,
+      "theta_at_critical_value": 12.81551566,
+      "z": 1.28155157
+    },
+    {
+      "alpha": "0.10",
+      "power_there": 0.5,
+      "se": 1000.0,
+      "theta_at_critical_value": 1281.55156554,
+      "z": 1.28155157
+    }
+  ],
+  "stage": "D14/D17 equivalence",
+  "step": "power_floor_source"
+}

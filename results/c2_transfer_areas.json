@@ -1,0 +1,701 @@
+{
+  "carrier": "ASSIST transfer-area placements, California, 2024-2025",
+  "criteria": [
+    {
+      "absent": [
+        "Compton College, HTTP 500 on all six list types"
+      ],
+      "colleges_complete": 115,
+      "colleges_expected": 116,
+      "colleges_with_data": 115,
+      "course_records": 122787,
+      "detail": "115 of 116 colleges returned data, 115 of those carry all 6 list types; 1 college(s) returned HTTP 500 for every list type and hold no record here",
+      "name": "C2-1 coverage of the sweep",
+      "passed": true
+    },
+    {
+      "by_area_type": {
+        "1": {
+          "single_list": 55531
+        },
+        "2": {
+          "agree": 22761,
+          "comparable": 22761
+        },
+        "3": {
+          "agree": 23461,
+          "comparable": 24706,
+          "nested": 1245,
+          "single_list": 9843
+        },
+        "4": {
+          "agree": 33448,
+          "comparable": 35398,
+          "conflict": 28,
+          "nested": 1922,
+          "single_list": 24564
+        },
+        "5": {
+          "agree": 1146,
+          "comparable": 1153,
+          "nested": 7,
+          "single_list": 163
+        }
+      },
+      "comparable": 84018,
+      "conflicts": 28,
+      "detail": "84018 comparable placements over 115 colleges; areaType 1 0 comparable 0 conflict, areaType 2 22761 comparable 0 conflict, areaType 3 24706 comparable 0 conflict, areaType 4 35398 comparable 28 conflict, areaType 5 1153 comparable 0 conflict; 3174 nested, where one list records a finer sub-area than another; 28 mutually non-containing",
+      "name": "C2-2 do the lists place a course in the same areas",
+      "nested_examples": [
+        {
+          "areaType": "4",
+          "college": "Columbia College",
+          "course": "ETHS 15",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D1",
+              "D3",
+              "F"
+            ],
+            "CSUTC": [
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "3",
+          "college": "Columbia College",
+          "course": "ETHS 15",
+          "placements": {
+            "CSUTC": [
+              "4",
+              "7"
+            ],
+            "IGETC": [
+              "4",
+              "4A",
+              "4C",
+              "7"
+            ],
+            "UCTCA": [
+              "4",
+              "7"
+            ],
+            "UCTEL": [
+              "4",
+              "7"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Columbia College",
+          "course": "HIST 13",
+          "placements": {
+            "CSUGE": [
+              "D6"
+            ],
+            "CSUTC": [
+              "D",
+              "D6"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Columbia College",
+          "course": "GEOGR 12",
+          "placements": {
+            "CSUGE": [
+              "D5"
+            ],
+            "CSUTC": [
+              "D",
+              "D5"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Columbia College",
+          "course": "SOCIO 12",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "E"
+            ],
+            "CSUTC": [
+              "D"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Columbia College",
+          "course": "CHILD 1",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D9",
+              "E"
+            ],
+            "CSUTC": [
+              "D",
+              "E"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Columbia College",
+          "course": "POLSC 10",
+          "placements": {
+            "CSUGE": [
+              "D8"
+            ],
+            "CSUTC": [
+              "D",
+              "D8"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Columbia College",
+          "course": "POLSC 14",
+          "placements": {
+            "CSUGE": [
+              "D8"
+            ],
+            "CSUTC": [
+              "D",
+              "D8"
+            ]
+          }
+        }
+      ],
+      "passed": true,
+      "reading": "conflicts present"
+    },
+    {
+      "all_conflicts": [
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "ETHN B20A",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "ETHN B20B",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "ETHN B30A",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "ETHN B30B",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "ETHN B36H",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "HIST B20A",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "HIST B20B",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "HIST B30A",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "HIST B30B",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Bakersfield College",
+          "course": "HIST B36",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D3",
+              "D6",
+              "F"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "College of the Redwoods",
+          "course": "ANTH 2",
+          "placements": {
+            "CSUGE": [
+              "B1",
+              "D1"
+            ],
+            "CSUTC": [
+              "B1",
+              "B3",
+              "D"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "College of the Redwoods",
+          "course": "NAS 21",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D6"
+            ],
+            "CSUTC": [
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Cypress College",
+          "course": "ETHS 151 C",
+          "placements": {
+            "CSUGE": [
+              "C2",
+              "D",
+              "D3",
+              "D6"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Cypress College",
+          "course": "ETHS 152 C",
+          "placements": {
+            "CSUGE": [
+              "C2",
+              "D",
+              "D3",
+              "D6"
+            ],
+            "CSUTC": [
+              "C2",
+              "D",
+              "F"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Fresno City College",
+          "course": "SOC 1B",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D0"
+            ],
+            "CSUTC": [
+              "A3",
+              "D"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Imperial Valley College",
+          "course": "HIST 140",
+          "placements": {
+            "CSUGE": [
+              "C2",
+              "D6"
+            ],
+            "CSUTC": [
+              "D"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Los Angeles Harbor College",
+          "course": "HISTORY 001",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D6"
+            ],
+            "CSUTC": [
+              "C2",
+              "D"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Los Angeles Harbor College",
+          "course": "HISTORY 002",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D6"
+            ],
+            "CSUTC": [
+              "C2",
+              "D"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Mendocino College",
+          "course": "PSY 220",
+          "placements": {
+            "CSUGE": [
+              "D",
+              "D9"
+            ],
+            "CSUTC": [
+              "D",
+              "E"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Monterey Peninsula College",
+          "course": "ECON 2",
+          "placements": {
+            "CSUGE": [
+              "D2",
+              "D3",
+              "D4",
+              "D5",
+              "D6"
+            ],
+            "CSUTC": [
+              "D",
+              "D2"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Monterey Peninsula College",
+          "course": "ECON 4",
+          "placements": {
+            "CSUGE": [
+              "D2",
+              "D3",
+              "D4",
+              "D5",
+              "D6"
+            ],
+            "CSUTC": [
+              "D",
+              "D2"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Monterey Peninsula College",
+          "course": "POLS 5",
+          "placements": {
+            "CSUGE": [
+              "D2",
+              "D7",
+              "D8"
+            ],
+            "CSUTC": [
+              "D",
+              "D8"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Monterey Peninsula College",
+          "course": "PSYC 6",
+          "placements": {
+            "CSUGE": [
+              "D1",
+              "D4",
+              "D9",
+              "E"
+            ],
+            "CSUTC": [
+              "D",
+              "D4",
+              "D9",
+              "E"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Monterey Peninsula College",
+          "course": "SOCI 1",
+          "placements": {
+            "CSUGE": [
+              "D0",
+              "D1",
+              "D4",
+              "E"
+            ],
+            "CSUTC": [
+              "D",
+              "D0",
+              "E"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Napa Valley College",
+          "course": "ADMJ 120",
+          "placements": {
+            "CSUGE": [
+              "D0",
+              "D4"
+            ],
+            "CSUTC": [
+              "D",
+              "D0"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Palomar College",
+          "course": "AIS 121",
+          "placements": {
+            "CSUGE": [
+              "C2",
+              "D5"
+            ],
+            "CSUTC": [
+              "D"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Reedley College",
+          "course": "COMM 2",
+          "placements": {
+            "CSUGE": [
+              "A1",
+              "E"
+            ],
+            "CSUTC": [
+              "D",
+              "E"
+            ]
+          }
+        },
+        {
+          "areaType": "4",
+          "college": "Victor Valley College",
+          "course": "HIST 157",
+          "placements": {
+            "CSUGE": [
+              "C2",
+              "D3",
+              "D6"
+            ],
+            "CSUTC": [
+              "C2",
+              "D"
+            ]
+          }
+        }
+      ],
+      "by_college": {
+        "Bakersfield College": 10,
+        "College of the Redwoods": 2,
+        "Cypress College": 2,
+        "Fresno City College": 1,
+        "Imperial Valley College": 1,
+        "Los Angeles Harbor College": 2,
+        "Mendocino College": 1,
+        "Monterey Peninsula College": 5,
+        "Napa Valley College": 1,
+        "Palomar College": 1,
+        "Reedley College": 1,
+        "Victor Valley College": 1
+      },
+      "by_list_pair": {
+        "CSUGE vs CSUTC": 28
+      },
+      "detail": "28 conflicts over 12 colleges of 115; the three heaviest hold 17 of them; every one is between CSUGE vs CSUTC; the heaviest college contributes 10 courses carrying one identical discrepancy",
+      "name": "C2-3 where the conflicts sit",
+      "passed": true
+    },
+    {
+      "detail": "nesting holds at 113 of 115 colleges; 2 college(s) list a course as UC transferable and not CSU transferable, 3 course(s) in total. Strict nesting is what a scalar with two thresholds produces, so this arm can read either way and reads one of them",
+      "name": "C2-4 UC transferability against CSU transferability",
+      "passed": true,
+      "reading": "nested with exceptions",
+      "violations": [
+        {
+          "college": "Citrus College",
+          "csu": 994,
+          "uc": 596,
+          "uc_only": 2
+        },
+        {
+          "college": "Saddleback College",
+          "csu": 1137,
+          "uc": 658,
+          "uc_only": 1
+        }
+      ]
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "C2 is the control arm for C1 and its reading is a null, so it is held open until the coverage hole is closed or shown not to matter: Compton College returned HTTP 500 for all six list types and holds no record here. A null needs coverage in a way a positive does not, since one witness settles an existence claim and no number of them settles an absence.",
+  "source": "data/raw/assist/transferability_2024/",
+  "stage": "C2"
+}

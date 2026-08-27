@@ -1,0 +1,72 @@
+{
+ "ar_nonpositive_share_median_leg": 0.5254237288135594,
+ "clustering_median": 0.2219020172910663,
+ "clustering_vs_floor": -0.5009153651162432,
+ "clustering_vs_logprice": 0.6881534545250575,
+ "criteria": [
+  {
+   "detail": "tick floor 0.01/P runs 0.46 to 58.82 bp over 202 legs, cross-stock sd 0.00099, 0.234 of the wedge",
+   "name": "B21-11  the stock-level term is bounded below exactly, with no estimator in the chain",
+   "passed": true
+  },
+  {
+   "detail": "last-digit clustering median 0.2219 against 0.200 for a stock using every tick, 89 legs within 0.02 of uniform; clustering against log price +0.6882 and against the floor -0.5009",
+   "name": "B21-12  the tick binds where the floor is large, so the floor's dispersion is a reading and not only a bound",
+   "passed": true
+  },
+  {
+   "detail": "Abdi-Ranaldo vs Amihud -0.168; Abdi-Ranaldo vs zero-return share -0.116; Amihud vs zero-return share +0.011; Abdi-Ranaldo vs turnover +0.100; Amihud vs turnover -0.958; zero-return share vs turnover -0.174",
+   "name": "B21-9  four instruments, three of which cannot return a negative, agree on the ordering of the legs",
+   "passed": false
+  },
+  {
+   "detail": "Abdi-Ranaldo spread runs 0.0 to 83.3 bp, median 0.0, over 202 legs",
+   "name": "B21-10  the stock-level term is not degenerate",
+   "passed": true
+  }
+ ],
+ "cross_stock_sd": 0.0019518691504520084,
+ "diagnostic_only": true,
+ "diagnostic_reason": "The precondition for layer two, re-asked with instruments that do not floor. It sizes the stock-level term; it does not read the station.",
+ "iqr": 0.002908716934422288,
+ "legs": 202,
+ "legs_near_uniform": 89,
+ "rank_correlations": {
+  "amihud|amihud": 1.0,
+  "amihud|ar": -0.16794950847468434,
+  "amihud|turnover": -0.9580083293234846,
+  "amihud|zero": 0.0112783035882369,
+  "ar|amihud": -0.16794950847468434,
+  "ar|ar": 1.0,
+  "ar|turnover": 0.10016162070739774,
+  "ar|zero": -0.11599700322797148,
+  "turnover|amihud": -0.9580083293234846,
+  "turnover|ar": 0.10016162070739774,
+  "turnover|turnover": 1.0,
+  "turnover|zero": -0.1740016648474739,
+  "zero|amihud": 0.0112783035882369,
+  "zero|ar": -0.11599700322797148,
+  "zero|turnover": -0.1740016648474739,
+  "zero|zero": 1.0
+ },
+ "ratio": 0.4614347873409003,
+ "spread_bp": {
+  "max": 83.27633120520697,
+  "median": 0.0,
+  "min": 0.0,
+  "p10": 0.0,
+  "p90": 41.129322277070074
+ },
+ "stage": "B21",
+ "step": "liquidity",
+ "tick_floor_bp": {
+  "max": 58.8235294117647,
+  "median": 7.840063925256623,
+  "min": 0.4614201342493575,
+  "p10": 1.806358348873585,
+  "p90": 23.696682464454977
+ },
+ "tick_floor_ratio": 0.2340070788025208,
+ "tick_floor_sd": 0.000989849943334663,
+ "wedge_sd": 0.00423
+}

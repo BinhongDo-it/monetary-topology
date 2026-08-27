@@ -1,0 +1,720 @@
+{
+  "criteria": [
+    {
+      "detail": "57 points pooled from 6 records, 5 duplicate rows dropped by exact value match",
+      "name": "A3i-1  every pooled record loads and yields both cells",
+      "passed": true
+    },
+    {
+      "detail": "sign-stable at 0 of 57 points; largest |gate cell| anywhere is 2.9375",
+      "name": "A3i-2  print every point at which the gate cell is sign-stable across seeds",
+      "passed": true
+    },
+    {
+      "detail": "D_reach s=0.99 loop -0.7836 gate 0.0000 gate exactly zero True; D_reach s=0.95 loop -0.3810 gate 0.0000 gate exactly zero True; D_reach s=1.0 loop 0.0000 gate 0.0000 gate exactly zero True",
+      "name": "A3i-3  print every point at which the loop cell does not exceed the gate cell",
+      "passed": true
+    },
+    {
+      "detail": "ordering 54/57, stability 9/57",
+      "name": "A3i-4  the two clauses of A3-8' are tallied separately",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "A3-8 stays void. This runs no model: it re-reads records already on disk and tallies the two clauses of A3-8' separately, because Theorem 2 licenses the ordering and not the stability.",
+  "duplicates_dropped": [
+    {
+      "dropped": "a7_continuous_c.offparam_grid_preferential_20x300.json s=0.0",
+      "same_as": "a7_continuous_c.json s=0.0"
+    },
+    {
+      "dropped": "a7_continuous_c.offparam_grid_preferential_20x300.json s=1.0",
+      "same_as": "a7_continuous_c.json s=1.0"
+    },
+    {
+      "dropped": "a7_continuous_c.offparam_dfixed_uniform_20x300.json s=0.0",
+      "same_as": "a7_continuous_c.offparam_dfixed_uniform_20x300.json s=0.0"
+    },
+    {
+      "dropped": "a7_continuous_c.offparam_dfixed_preferential_20x300.json s=0.0",
+      "same_as": "a7_continuous_c.offparam_dfixed_preferential_20x300.json s=0.0"
+    },
+    {
+      "dropped": "a3h_gate_acts.json seeds 0-4",
+      "same_as": "a3g_widened_population.json stretch=3.0"
+    }
+  ],
+  "gate_sign_stable": 0,
+  "loop_sign_stable": 9,
+  "max_abs_gate_cell": 2.93747611,
+  "max_abs_loop_cell": 24.83472465,
+  "ordering_failures": [
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": -0.78357209,
+      "loop_same_sign": false,
+      "point": "s=0.99",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": -0.38098768,
+      "loop_same_sign": false,
+      "point": "s=0.95",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": 0.0,
+      "loop_same_sign": false,
+      "point": "s=1.0",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    }
+  ],
+  "ordering_holds": 54,
+  "points": 57,
+  "rows": [
+    {
+      "arm": "seed block",
+      "carrier": "A3 default",
+      "gate_only": -1.22636769,
+      "gate_same_sign": false,
+      "loop_only": 18.36829902,
+      "loop_same_sign": true,
+      "point": "seeds 5-9",
+      "seeds": 5,
+      "source": "a3h_gate_acts.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": -0.55459963,
+      "gate_same_sign": false,
+      "loop_only": 2.80896627,
+      "loop_same_sign": false,
+      "point": "stretch=1.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": -0.00201545,
+      "gate_same_sign": false,
+      "loop_only": 0.0180209,
+      "loop_same_sign": false,
+      "point": "stretch=12.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": -2.47593585,
+      "gate_same_sign": false,
+      "loop_only": 19.72759904,
+      "loop_same_sign": false,
+      "point": "stretch=2.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": 0.07605729,
+      "loop_same_sign": true,
+      "point": "stretch=20.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": 1.4091482,
+      "gate_same_sign": false,
+      "loop_only": 21.67138846,
+      "loop_same_sign": true,
+      "point": "stretch=3.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": 1.30035161,
+      "gate_same_sign": false,
+      "loop_only": 11.50261481,
+      "loop_same_sign": true,
+      "point": "stretch=4.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": 0.03763164,
+      "gate_same_sign": false,
+      "loop_only": 0.082122,
+      "loop_same_sign": false,
+      "point": "stretch=40.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": 1.47481862,
+      "gate_same_sign": false,
+      "loop_only": 4.42830791,
+      "loop_same_sign": true,
+      "point": "stretch=5.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": 0.02479221,
+      "gate_same_sign": false,
+      "loop_only": 0.77048755,
+      "loop_same_sign": true,
+      "point": "stretch=6.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "stretch sweep",
+      "carrier": "A3 default",
+      "gate_only": -0.00323166,
+      "gate_same_sign": false,
+      "loop_only": 0.08029273,
+      "loop_same_sign": false,
+      "point": "stretch=8.0",
+      "seeds": 5,
+      "source": "a3g_widened_population.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": -0.58068872,
+      "gate_same_sign": false,
+      "loop_only": 24.83472465,
+      "loop_same_sign": false,
+      "point": "s=0.0",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": 0.31423406,
+      "gate_same_sign": false,
+      "loop_only": 0.42239216,
+      "loop_same_sign": false,
+      "point": "s=0.01",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": 0.04780385,
+      "gate_same_sign": false,
+      "loop_only": 0.29595005,
+      "loop_same_sign": false,
+      "point": "s=0.02",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": 0.02390043,
+      "gate_same_sign": false,
+      "loop_only": 0.23754883,
+      "loop_same_sign": false,
+      "point": "s=0.05",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_preferential_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": 2.93747611,
+      "gate_same_sign": false,
+      "loop_only": 23.32061006,
+      "loop_same_sign": false,
+      "point": "s=0.0",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_uniform_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": -0.40920477,
+      "gate_same_sign": false,
+      "loop_only": 0.36038824,
+      "loop_same_sign": false,
+      "point": "s=0.01",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_uniform_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": -0.22451181,
+      "gate_same_sign": false,
+      "loop_only": -0.08008994,
+      "loop_same_sign": false,
+      "point": "s=0.02",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_uniform_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_fixed/split_at_s",
+      "gate_only": -0.23557549,
+      "gate_same_sign": false,
+      "loop_only": 0.27606192,
+      "loop_same_sign": false,
+      "point": "s=0.05",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_uniform_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_fixed/split_at_zero",
+      "gate_only": 0.25838933,
+      "gate_same_sign": false,
+      "loop_only": 0.37567,
+      "loop_same_sign": false,
+      "point": "s=0.01",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_fixed/split_at_zero",
+      "gate_only": 0.02716293,
+      "gate_same_sign": false,
+      "loop_only": 0.18137642,
+      "loop_same_sign": false,
+      "point": "s=0.02",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_fixed/split_at_zero",
+      "gate_only": 0.13655647,
+      "gate_same_sign": false,
+      "loop_only": 0.31043715,
+      "loop_same_sign": false,
+      "point": "s=0.05",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_preferential_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_fixed/split_at_zero",
+      "gate_only": -0.44570016,
+      "gate_same_sign": false,
+      "loop_only": 0.45456413,
+      "loop_same_sign": false,
+      "point": "s=0.01",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_uniform_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_fixed/split_at_zero",
+      "gate_only": -0.18227486,
+      "gate_same_sign": false,
+      "loop_only": 0.06168095,
+      "loop_same_sign": false,
+      "point": "s=0.02",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_uniform_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_fixed/split_at_zero",
+      "gate_only": -0.21517568,
+      "gate_same_sign": false,
+      "loop_only": 0.25308293,
+      "loop_same_sign": false,
+      "point": "s=0.05",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_dfixed_uniform_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.25860632,
+      "gate_same_sign": false,
+      "loop_only": 0.45112861,
+      "loop_same_sign": false,
+      "point": "s=0.01",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.04106477,
+      "gate_same_sign": false,
+      "loop_only": 0.41459361,
+      "loop_same_sign": false,
+      "point": "s=0.02",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.06386513,
+      "gate_same_sign": false,
+      "loop_only": 0.29218646,
+      "loop_same_sign": false,
+      "point": "s=0.05",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.01138812,
+      "gate_same_sign": false,
+      "loop_only": 0.10810336,
+      "loop_same_sign": false,
+      "point": "s=0.1",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.00437243,
+      "gate_same_sign": false,
+      "loop_only": 0.24903239,
+      "loop_same_sign": false,
+      "point": "s=0.15",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": -0.08962709,
+      "gate_same_sign": false,
+      "loop_only": 0.23656573,
+      "loop_same_sign": false,
+      "point": "s=0.2",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": -0.0913912,
+      "gate_same_sign": false,
+      "loop_only": 0.18984907,
+      "loop_same_sign": false,
+      "point": "s=0.3",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": -0.35656774,
+      "gate_same_sign": false,
+      "loop_only": 0.17908367,
+      "loop_same_sign": false,
+      "point": "s=0.4",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.0721724,
+      "gate_same_sign": false,
+      "loop_only": 0.19529629,
+      "loop_same_sign": false,
+      "point": "s=0.5",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.19016401,
+      "gate_same_sign": false,
+      "loop_only": 1.37732454,
+      "loop_same_sign": false,
+      "point": "s=0.6",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.05326979,
+      "gate_same_sign": false,
+      "loop_only": 1.56007066,
+      "loop_same_sign": true,
+      "point": "s=0.7",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.00236166,
+      "gate_same_sign": false,
+      "loop_only": 1.96562508,
+      "loop_same_sign": false,
+      "point": "s=0.8",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": -0.00089273,
+      "gate_same_sign": false,
+      "loop_only": 0.74397128,
+      "loop_same_sign": false,
+      "point": "s=0.9",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": -0.00418952,
+      "gate_same_sign": false,
+      "loop_only": 0.39236122,
+      "loop_same_sign": false,
+      "point": "s=0.95",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "preferential",
+      "carrier": "D_reach",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": -0.78357209,
+      "loop_same_sign": false,
+      "point": "s=0.99",
+      "seeds": 20,
+      "source": "a7_continuous_c.offparam_grid_preferential_20x300.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.29966896,
+      "gate_same_sign": false,
+      "loop_only": 22.21194709,
+      "loop_same_sign": true,
+      "point": "s=0.0",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.42549751,
+      "gate_same_sign": false,
+      "loop_only": 0.3525175,
+      "loop_same_sign": false,
+      "point": "s=0.01",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.26408721,
+      "gate_same_sign": false,
+      "loop_only": -0.07407907,
+      "loop_same_sign": false,
+      "point": "s=0.02",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.32773259,
+      "gate_same_sign": false,
+      "loop_only": 0.22986272,
+      "loop_same_sign": false,
+      "point": "s=0.05",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.25415317,
+      "gate_same_sign": false,
+      "loop_only": 0.13403816,
+      "loop_same_sign": false,
+      "point": "s=0.1",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.11302107,
+      "gate_same_sign": false,
+      "loop_only": 0.54683882,
+      "loop_same_sign": false,
+      "point": "s=0.15",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.06136951,
+      "gate_same_sign": false,
+      "loop_only": 1.00105724,
+      "loop_same_sign": false,
+      "point": "s=0.2",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.01896904,
+      "gate_same_sign": false,
+      "loop_only": 0.86062675,
+      "loop_same_sign": false,
+      "point": "s=0.3",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": -0.16106534,
+      "gate_same_sign": false,
+      "loop_only": 1.21523751,
+      "loop_same_sign": false,
+      "point": "s=0.4",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.28216337,
+      "gate_same_sign": false,
+      "loop_only": 1.3592094,
+      "loop_same_sign": true,
+      "point": "s=0.5",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.11094411,
+      "gate_same_sign": false,
+      "loop_only": 0.82138683,
+      "loop_same_sign": false,
+      "point": "s=0.6",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.24935555,
+      "gate_same_sign": false,
+      "loop_only": 0.57629862,
+      "loop_same_sign": false,
+      "point": "s=0.7",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.06949347,
+      "gate_same_sign": false,
+      "loop_only": 0.44911795,
+      "loop_same_sign": false,
+      "point": "s=0.8",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.05222258,
+      "gate_same_sign": false,
+      "loop_only": 0.21477106,
+      "loop_same_sign": false,
+      "point": "s=0.9",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": -0.38098768,
+      "loop_same_sign": false,
+      "point": "s=0.95",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": 0.34537635,
+      "loop_same_sign": false,
+      "point": "s=0.99",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    },
+    {
+      "arm": "uniform",
+      "carrier": "D_reach",
+      "gate_only": 0.0,
+      "gate_same_sign": false,
+      "loop_only": 0.0,
+      "loop_same_sign": false,
+      "point": "s=1.0",
+      "seeds": 20,
+      "source": "a7_continuous_c.json"
+    }
+  ],
+  "stage": "A3i",
+  "step": "pooled_ordering"
+}

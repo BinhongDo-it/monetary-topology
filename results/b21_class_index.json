@@ -1,0 +1,131 @@
+{
+ "by_leg": {
+  "A leg": {
+   "band_medians": [
+    {
+     "band": "0%-1%",
+     "median_ratio": 0.9954637706611396,
+     "n": 827
+    },
+    {
+     "band": "1%-2%",
+     "median_ratio": 0.9865118442737915,
+     "n": 563
+    },
+    {
+     "band": "2%-4%",
+     "median_ratio": 0.974241850007237,
+     "n": 539
+    },
+    {
+     "band": "4%-7%",
+     "median_ratio": 0.9558823562143469,
+     "n": 328
+    },
+    {
+     "band": "7%-12%",
+     "median_ratio": 0.9290055297585925,
+     "n": 33
+    },
+    {
+     "band": ">12%",
+     "median_ratio": 0.8782298128353274,
+     "n": 7
+    }
+   ],
+   "coefficient": 0.095,
+   "index_bp": {
+    "max": 221.1052763049058,
+    "median": 14.813865339533876,
+    "min": 0.1220849879071793,
+    "p10": 2.7638306359755576,
+    "p90": 45.043717639413565
+   },
+   "n_leg_years": 2297,
+   "ratio_to_prediction": {
+    "max": 0.9998839757507093,
+    "median": 0.9859141990528859,
+    "p01": 0.9287822009177031,
+    "p10": 0.9571723377157552,
+    "p90": 0.9973719492922583,
+    "p99": 0.9994648297736286
+   }
+  },
+  "H leg": {
+   "band_medians": [
+    {
+     "band": "0%-1%",
+     "median_ratio": 0.9950900452259029,
+     "n": 229
+    },
+    {
+     "band": "1%-2%",
+     "median_ratio": 0.9877029975211963,
+     "n": 375
+    },
+    {
+     "band": "2%-4%",
+     "median_ratio": 0.9760536346193367,
+     "n": 580
+    },
+    {
+     "band": "4%-7%",
+     "median_ratio": 0.9570234267653321,
+     "n": 508
+    },
+    {
+     "band": "7%-12%",
+     "median_ratio": 0.9334862609600387,
+     "n": 213
+    },
+    {
+     "band": ">12%",
+     "median_ratio": 0.8897975816545947,
+     "n": 24
+    }
+   ],
+   "coefficient": 0.085,
+   "index_bp": {
+    "max": 302.1050000309868,
+    "median": 30.483286460096515,
+    "min": 0.2828931244657114,
+    "p10": 8.608529645290117,
+    "p90": 70.06701268108206
+   },
+   "n_leg_years": 1929,
+   "ratio_to_prediction": {
+    "max": 0.9997592464806506,
+    "median": 0.9740608696336198,
+    "p01": 0.905829912257311,
+    "p10": 0.940382528150399,
+    "p90": 0.9926744336070396,
+    "p99": 0.9983755595430752
+   }
+  }
+ },
+ "companies": 193,
+ "criteria": [
+  {
+   "detail": "4226 leg-years, 0 at or below zero, smallest 0.1221 bp",
+   "name": "B21-1  the class index is nonzero on every leg-year",
+   "passed": true
+  },
+  {
+   "detail": "band medians 0.995 0.987 0.974 0.956 0.929 0.878, max ratio 0.9999",
+   "name": "B21-2 A leg  the gap sits under the second order term and falls monotonically in the yield",
+   "passed": true
+  },
+  {
+   "detail": "band medians 0.995 0.988 0.976 0.957 0.933 0.890, max ratio 0.9998",
+   "name": "B21-2 H leg  the gap sits under the second order term and falls monotonically in the yield",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "B21 is open. The known-answer arm has passed at three levels and the levels are quotable; the station's own reading is not yet closed.",
+ "leg_years": 4226,
+ "legs": 356,
+ "rebuilt_h_amounts": 308,
+ "stage": "B21",
+ "step": "class_index"
+}

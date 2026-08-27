@@ -1,0 +1,120 @@
+{
+  "_comment": [
+    "Which GWP basis each reporting regime puts in force, and when. Compiled by",
+    "hand from the instruments cited in each entry, 2026-08-27. This is the",
+    "second half of stage C1: the first half measures that the declared",
+    "conversions disagree, and this decides whether that disagreement is",
+    "operative or historical.",
+    "",
+    "`ch4_gwp` is the methane value the regime puts in force. `csv_column` names",
+    "the column of data/raw/gwp/globalwarmingpotentials.csv that value should",
+    "equal, so the table is checked against an independent dataset rather than",
+    "trusted; null means the dataset does not carry that column, which is",
+    "recorded rather than worked around.",
+    "",
+    "Not surveyed: the European Union, and a New Jersey statute reported to",
+    "mandate a twenty-year horizon. The sources found for both were commercial",
+    "reference sites or commentary rather than the instruments, and a row with a",
+    "weak citation is worse here than an absent one."
+  ],
+  "regimes": [
+    {
+      "regime": "UNFCCC, Annex I national inventories",
+      "instrument": "Decision 18/CP.8 (2002); Decision 2/CP.3 for the Kyoto Protocol first commitment period",
+      "basis": "SAR GWP-100",
+      "ch4_gwp": 21,
+      "csv_column": "SARGWP100",
+      "in_force": "2002 to the second commitment period",
+      "current": false
+    },
+    {
+      "regime": "Kyoto Protocol, second commitment period",
+      "instrument": "Decision 4/CMP.7 (2011), table 2.14 of the errata to AR4",
+      "basis": "AR4 GWP-100",
+      "ch4_gwp": 25,
+      "csv_column": "AR4GWP100",
+      "in_force": "2013 to 2020",
+      "current": false
+    },
+    {
+      "regime": "Paris Agreement, Enhanced Transparency Framework",
+      "instrument": "Decision 18/CMA.1 (2018); Decision 7/CP.27 (2022), AR5 table 8.A.1, excluding the fossil-methane values, in force by 31 December 2024",
+      "basis": "AR5 GWP-100",
+      "ch4_gwp": 28,
+      "csv_column": "AR5GWP100",
+      "in_force": "from 31 December 2024",
+      "current": true,
+      "note": "The decision adopts AR5 and then excludes the fossil against non-fossil methane distinction that AR5 itself draws, so the treaty collapses a split its own source publishes."
+    },
+    {
+      "regime": "US EPA Greenhouse Gas Reporting Program, 40 CFR part 98",
+      "instrument": "Final rule 78 FR 71904, effective 1 January 2014",
+      "basis": "AR4 GWP-100",
+      "ch4_gwp": 25,
+      "csv_column": "AR4GWP100",
+      "in_force": "reporting years 2013 to 2023",
+      "current": false
+    },
+    {
+      "regime": "US EPA Greenhouse Gas Reporting Program, 40 CFR part 98",
+      "instrument": "Final rule published 25 April 2024, effective 1 January 2025; table A-1 gives CH4 28, N2O 265, SF6 23,500, NF3 16,100",
+      "basis": "AR5 GWP-100, with AR6 values for gases AR5 does not cover",
+      "ch4_gwp": 28,
+      "csv_column": "AR5GWP100",
+      "in_force": "from reporting year 2024",
+      "current": true,
+      "note": "One regulatory table drawing its rows from two assessment reports."
+    },
+    {
+      "regime": "New York State, statewide emissions accounting",
+      "instrument": "ECL 75-0101(2) as enacted 2019, implemented by 6 NYCRR part 496; methane GWP20 of 84",
+      "basis": "AR5 GWP-20",
+      "ch4_gwp": 84,
+      "csv_column": null,
+      "csv_column_absent_because": "the dataset carries TARGWP20 and AR6GWP20 but no AR5 20-year column, so this value cannot be cross-checked against it",
+      "in_force": "2019 to 26 May 2026",
+      "current": false
+    },
+    {
+      "regime": "New York State, statewide emissions accounting",
+      "instrument": "Fiscal year 2026-27 budget, enacted 26 May 2026, replacing the statutory 20-year basis with a 100-year one",
+      "basis": "AR6 GWP-100",
+      "ch4_gwp": 27.9,
+      "csv_column": "AR6GWP100",
+      "in_force": "from 26 May 2026",
+      "current": true,
+      "note": "Same jurisdiction, same physical record. Reported reduction over 1990 to 2023 moves from 14.8 percent to 24 percent on the change of basis alone."
+    },
+    {
+      "regime": "AR6 as applied by corporate and crediting programmes, biogenic and combustion methane",
+      "instrument": "IPCC AR6 chapter 7 supplementary table 7.SM.7, as read by the GHG Protocol; characterised in Greenhouse Gas Management Institute, 'Which methane GWP value do I use?', 17 October 2024",
+      "basis": "AR6 GWP-100, non-fossil",
+      "ch4_gwp": 27.9,
+      "csv_column": "AR6GWP100",
+      "in_force": "current",
+      "current": true
+    },
+    {
+      "regime": "AR6 as applied by corporate and crediting programmes, fossil fugitive methane",
+      "instrument": "Same source. AR6 gives a separate, higher value for fossil-origin methane, applied to fugitive emissions and some industrial processes",
+      "basis": "AR6 GWP-100, fossil",
+      "ch4_gwp": 29.8,
+      "csv_column": null,
+      "csv_column_absent_because": "the dataset carries one AR6 100-year column and not the fossil against non-fossil pair, so this value cannot be cross-checked against it",
+      "in_force": "current",
+      "current": true,
+      "note": "The Paris Agreement framework requires AR5 and excludes exactly this distinction, so one tonne of fugitive fossil methane is 28 under the treaty and 29.8 under the corporate standard, in the same year."
+    },
+    {
+      "regime": "Programmes listing the third AR6 methane value",
+      "instrument": "Same source, which reports that many reporting and crediting programmes list this value and describes its assumptions as unsuitable for greenhouse gas accounting",
+      "basis": "AR6 GWP-100, third variant",
+      "ch4_gwp": 27.0,
+      "csv_column": null,
+      "csv_column_absent_because": "not one of the columns the dataset carries",
+      "in_force": "current",
+      "current": true,
+      "note": "One assessment report, three methane values, all three in circulation."
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "criteria": [
+    {
+      "detail": "10 stretch values imported from a3g_widened_population, all 10 joined to its record by stretch value",
+      "name": "A3j-1  the grid and the join are the same design as A3g's",
+      "passed": true
+    },
+    {
+      "detail": "1.0: 0.748; 2.0: 1.069; 3.0: 0.864; 4.0: 0.926; 5.0: 0.943; 6.0: 0.805; 8.0: 0.492; 12.0: 0.678; 20.0: 0.000; 40.0: 0.000",
+      "name": "A3j-2  print the mechanical ratio at every stretch value",
+      "passed": true
+    },
+    {
+      "detail": "1.0: gate cell -0.5546 same-sign False, ratio 0.748; 2.0: gate cell -2.4759 same-sign False, ratio 1.069; 3.0: gate cell 1.4091 same-sign False, ratio 0.864; 4.0: gate cell 1.3004 same-sign False, ratio 0.926; 5.0: gate cell 1.4748 same-sign False, ratio 0.943; 6.0: gate cell 0.0248 same-sign False, ratio 0.805; 8.0: gate cell -0.0032 same-sign False, ratio 0.492; 12.0: gate cell -0.0020 same-sign False, ratio 0.678; 20.0: gate cell 0.0000 same-sign False, ratio 0.000; 40.0: gate cell 0.0376 same-sign False, ratio 0.000",
+      "name": "A3j-3  print the gate cell's gap and sign stability beside the ratio",
+      "passed": true
+    },
+    {
+      "detail": "gate 74.0 against 74.0, terms 85.6 against 85.6",
+      "name": "A3j-4  stretch 3.0 reproduces A3h's registered block to the digit it prints",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "A3-8 stays void. This extends A3h's inertness measurement from one carrier to A3g's declared stretch grid and joins A3g's gap column rather than recomputing it.",
+  "largest_ratio": 1.06875,
+  "largest_ratio_at_stretch": 2.0,
+  "rounds": 300,
+  "rows": [
+    {
+      "gate_cell_gap": -0.55459963,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.4,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 16.6,
+      "gate_total_abs_cycle_change": 68.8,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 2.80896627,
+      "mechanical_ratio": 0.74782609,
+      "stretch": 1.0,
+      "terms_nodes_moved": 16.6,
+      "terms_total_abs_cycle_change": 92.0
+    },
+    {
+      "gate_cell_gap": -2.47593585,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 1.4,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 18.6,
+      "gate_total_abs_cycle_change": 68.4,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 19.72759904,
+      "mechanical_ratio": 1.06875,
+      "stretch": 2.0,
+      "terms_nodes_moved": 15.4,
+      "terms_total_abs_cycle_change": 64.0
+    },
+    {
+      "gate_cell_gap": 1.4091482,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 2.2,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 19.4,
+      "gate_total_abs_cycle_change": 74.0,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 21.67138846,
+      "mechanical_ratio": 0.86448598,
+      "stretch": 3.0,
+      "terms_nodes_moved": 16.8,
+      "terms_total_abs_cycle_change": 85.6
+    },
+    {
+      "gate_cell_gap": 1.30035161,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.0,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 16.4,
+      "gate_total_abs_cycle_change": 67.2,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 11.50261481,
+      "mechanical_ratio": 0.92561983,
+      "stretch": 4.0,
+      "terms_nodes_moved": 17.4,
+      "terms_total_abs_cycle_change": 72.6
+    },
+    {
+      "gate_cell_gap": 1.47481862,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.0,
+      "gate_extensive_out": 3.6,
+      "gate_nodes_moved": 21.8,
+      "gate_total_abs_cycle_change": 76.6,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 4.42830791,
+      "mechanical_ratio": 0.94334975,
+      "stretch": 5.0,
+      "terms_nodes_moved": 18.2,
+      "terms_total_abs_cycle_change": 81.2
+    },
+    {
+      "gate_cell_gap": 0.02479221,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.0,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 17.2,
+      "gate_total_abs_cycle_change": 69.2,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 0.77048755,
+      "mechanical_ratio": 0.80465116,
+      "stretch": 6.0,
+      "terms_nodes_moved": 19.6,
+      "terms_total_abs_cycle_change": 86.0
+    },
+    {
+      "gate_cell_gap": -0.00323166,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.0,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 8.8,
+      "gate_total_abs_cycle_change": 44.2,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 0.08029273,
+      "mechanical_ratio": 0.4922049,
+      "stretch": 8.0,
+      "terms_nodes_moved": 19.8,
+      "terms_total_abs_cycle_change": 89.8
+    },
+    {
+      "gate_cell_gap": -0.00201545,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.0,
+      "gate_extensive_out": 8.4,
+      "gate_nodes_moved": 21.8,
+      "gate_total_abs_cycle_change": 64.0,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 0.0180209,
+      "mechanical_ratio": 0.6779661,
+      "stretch": 12.0,
+      "terms_nodes_moved": 24.0,
+      "terms_total_abs_cycle_change": 94.4
+    },
+    {
+      "gate_cell_gap": 0.0,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.0,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 0.0,
+      "gate_total_abs_cycle_change": 0.0,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 0.07605729,
+      "mechanical_ratio": 0.0,
+      "stretch": 20.0,
+      "terms_nodes_moved": 24.2,
+      "terms_total_abs_cycle_change": 98.0
+    },
+    {
+      "gate_cell_gap": 0.03763164,
+      "gate_cell_same_sign": false,
+      "gate_extensive_in": 0.0,
+      "gate_extensive_out": 0.0,
+      "gate_nodes_moved": 0.0,
+      "gate_total_abs_cycle_change": 0.0,
+      "joined_to_a3g": true,
+      "loop_cell_gap": 0.082122,
+      "mechanical_ratio": 0.0,
+      "stretch": 40.0,
+      "terms_nodes_moved": 25.6,
+      "terms_total_abs_cycle_change": 93.0
+    }
+  ],
+  "seeds": 5,
+  "smallest_ratio": 0.0,
+  "smallest_ratio_at_stretch": 20.0,
+  "stage": "A3j",
+  "step": "gate_acts_grid",
+  "stretch_grid": [
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    8.0,
+    12.0,
+    20.0,
+    40.0
+  ]
+}

@@ -1,0 +1,614 @@
+{
+ "criteria": [
+  {
+   "detail": "both 23.2667 against 23.2667 (delta 4.6e-05); H1_only 21.6714 against 21.6714 (delta 1.2e-05); H0_only 1.4091 against 1.4091 (delta 4.8e-05)",
+   "name": "A3g-0  the default value on the grid reproduces the registered run to the digit it prints",
+   "passed": true
+  },
+  {
+   "detail": "stretch 1.0: peripheral in population 0.0, centrality p10 100.0; stretch 2.0: peripheral in population 0.0, centrality p10 97.8; stretch 3.0: peripheral in population 0.0, centrality p10 89.4; stretch 4.0: peripheral in population 0.0, centrality p10 77.1; stretch 5.0: peripheral in population 0.0, centrality p10 59.2; stretch 6.0: peripheral in population 0.0, centrality p10 45.8; stretch 8.0: peripheral in population 0.8, centrality p10 40.8; stretch 12.0: peripheral in population 13.2, centrality p10 33.5; stretch 20.0: peripheral in population 38.4, centrality p10 20.7; stretch 40.0: peripheral in population 60.0, centrality p10 10.1",
+   "name": "A3g-1  at least one value on the grid admits the production layer's peripheral third, so the treatment can vary on the measured set",
+   "passed": true
+  },
+  {
+   "detail": "stretch 8.0: False, range [-0.0014489002917738858, 0.2250748973868483]; stretch 12.0: False, range [-0.0803951267740716, 0.11661240978958101]; stretch 20.0: True, range [0.007177215063713174, 0.2026170348368154]; stretch 40.0: False, range [-0.1658585343449377, 0.35617482094324515]",
+   "name": "A3g-2  A3-8' first half: the loop-sum-only cell is same-signed across every seed, at every qualifying value",
+   "passed": false,
+   "undecidable": false
+  },
+  {
+   "detail": "the peripheral third first enters the population at stretch 8.0, by which point the both-cell gap has fallen from 25.8305 to 0.0932. **Widening the population to where the treatment can vary removes the effect the criterion reads.** Measured here rather than suspected, and it is why A3-8 stays void.",
+   "name": "A3g-5  the two things A3-8' needs sit at opposite ends of this knob, which is why the criterion cannot be read on this carrier",
+   "passed": null,
+   "undecidable": true
+  },
+  {
+   "detail": "stretch 8.0: 0.0803 against -0.0032; stretch 12.0: 0.0180 against -0.0020; stretch 20.0: 0.0761 against 0.0000; stretch 40.0: 0.0821 against 0.0376",
+   "name": "A3g-3  A3-8' second half: the loop-sum-only gap exceeds the gate-only gap, at every qualifying value",
+   "passed": true,
+   "undecidable": false
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "A3-8 stays void. This runs the forward-registered A3-8' on a swept population and reports every value of the declared grid; it does not restate A3-8's verdict.",
+ "dose_response": [
+  {
+   "both_gap": 14.011824906201525,
+   "population": 18.4,
+   "stretch": 1.0
+  },
+  {
+   "both_gap": 25.83050619249287,
+   "population": 24.2,
+   "stretch": 2.0
+  },
+  {
+   "both_gap": 23.26665390846545,
+   "population": 41.6,
+   "stretch": 3.0
+  },
+  {
+   "both_gap": 12.200473092035839,
+   "population": 66.4,
+   "stretch": 4.0
+  },
+  {
+   "both_gap": 6.202147915742097,
+   "population": 98.8,
+   "stretch": 5.0
+  },
+  {
+   "both_gap": 0.6671656070633639,
+   "population": 128.8,
+   "stretch": 6.0
+  },
+  {
+   "both_gap": 0.09324643230169763,
+   "population": 138.8,
+   "stretch": 8.0
+  },
+  {
+   "both_gap": -0.005713413053858705,
+   "population": 153.2,
+   "stretch": 12.0
+  },
+  {
+   "both_gap": 0.0760572903794178,
+   "population": 178.4,
+   "stretch": 20.0
+  },
+  {
+   "both_gap": 0.08212199605427689,
+   "population": 200.0,
+   "stretch": 40.0
+  }
+ ],
+ "grid": [
+  1.0,
+  2.0,
+  3.0,
+  4.0,
+  5.0,
+  6.0,
+  8.0,
+  12.0,
+  20.0,
+  40.0
+ ],
+ "rounds": 300,
+ "rows": [
+  {
+   "a3_8_prime": {
+    "gate_gap": -0.5545996333103205,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 2.808966270100993,
+    "loop_sum_same_signed": false
+   },
+   "gaps": {
+    "H0_only": -0.5545996333103205,
+    "H1_only": 2.808966270100993,
+    "both": 14.011824906201525,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -82.93906277689423,
+     75.74684036107175
+    ],
+    "H1_only": [
+     -67.43578991129466,
+     77.53141455741667
+    ],
+    "both": [
+     -38.156723280251974,
+     106.84709558469197
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": false,
+    "both": false,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 100.0,
+     "min": 100.0,
+     "p10": 100.0,
+     "p90": 100.0
+    },
+    "peripheral_third_in_population": 0.0,
+    "population": 18.4,
+    "production_layer": 180.0,
+    "qualifies": false
+   },
+   "stretch": 1.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": -2.475935845640968,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 19.727599040409284,
+    "loop_sum_same_signed": false
+   },
+   "gaps": {
+    "H0_only": -2.475935845640968,
+    "H1_only": 19.727599040409284,
+    "both": 25.83050619249287,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -38.39766905195029,
+     24.464209809072717
+    ],
+    "H1_only": [
+     -6.061730560057256,
+     52.27998255143302
+    ],
+    "both": [
+     -46.50274639693058,
+     62.4276047079728
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": false,
+    "both": false,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 98.88268156424581,
+     "min": 96.64804469273743,
+     "p10": 97.76536312849161,
+     "p90": 100.0
+    },
+    "peripheral_third_in_population": 0.0,
+    "population": 24.2,
+    "production_layer": 180.0,
+    "qualifies": false
+   },
+   "stretch": 2.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": 1.4091481961594803,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 21.67138846088038,
+    "loop_sum_same_signed": true
+   },
+   "gaps": {
+    "H0_only": 1.4091481961594803,
+    "H1_only": 21.67138846088038,
+    "both": 23.26665390846545,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -16.256578157894822,
+     10.621195986082995
+    ],
+    "H1_only": [
+     8.4348990418884,
+     27.17354988596543
+    ],
+    "both": [
+     10.96002126702766,
+     38.31080373592391
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": true,
+    "both": true,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 94.41340782122904,
+     "min": 87.15083798882682,
+     "p10": 89.3854748603352,
+     "p90": 98.88268156424581
+    },
+    "peripheral_third_in_population": 0.0,
+    "population": 41.6,
+    "production_layer": 180.0,
+    "qualifies": false
+   },
+   "stretch": 3.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": 1.300351606324201,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 11.502614812177258,
+    "loop_sum_same_signed": true
+   },
+   "gaps": {
+    "H0_only": 1.300351606324201,
+    "H1_only": 11.502614812177258,
+    "both": 12.200473092035839,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -3.70370423468244,
+     6.131184885624649
+    ],
+    "H1_only": [
+     5.227384060967755,
+     16.258779951502934
+    ],
+    "both": [
+     7.908591221058189,
+     15.014270445142484
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": true,
+    "both": true,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 87.15083798882682,
+     "min": 73.18435754189944,
+     "p10": 77.09497206703911,
+     "p90": 97.76536312849161
+    },
+    "peripheral_third_in_population": 0.0,
+    "population": 66.4,
+    "production_layer": 180.0,
+    "qualifies": false
+   },
+   "stretch": 4.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": 1.4748186240381154,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 4.428307910383149,
+    "loop_sum_same_signed": true
+   },
+   "gaps": {
+    "H0_only": 1.4748186240381154,
+    "H1_only": 4.428307910383149,
+    "both": 6.202147915742097,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -1.0910222884347123,
+     8.326223248019598
+    ],
+    "H1_only": [
+     2.9334942837372,
+     5.37460889582394
+    ],
+    "both": [
+     3.637530297467629,
+     11.015944819365071
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": true,
+    "both": true,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 78.2122905027933,
+     "min": 51.39664804469274,
+     "p10": 59.21787709497207,
+     "p90": 96.08938547486034
+    },
+    "peripheral_third_in_population": 0.0,
+    "population": 98.8,
+    "production_layer": 180.0,
+    "qualifies": false
+   },
+   "stretch": 5.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": 0.024792213981957953,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 0.7704875457142242,
+    "loop_sum_same_signed": true
+   },
+   "gaps": {
+    "H0_only": 0.024792213981957953,
+    "H1_only": 0.7704875457142242,
+    "both": 0.6671656070633639,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -0.023490311101858077,
+     0.13466512697095906
+    ],
+    "H1_only": [
+     0.03246853375761652,
+     2.5967828741349677
+    ],
+    "both": [
+     -0.07151309467352833,
+     2.354428949257542
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": true,
+    "both": false,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 69.83240223463687,
+     "min": 37.43016759776536,
+     "p10": 45.81005586592179,
+     "p90": 94.41340782122904
+    },
+    "peripheral_third_in_population": 0.0,
+    "population": 128.8,
+    "production_layer": 180.0,
+    "qualifies": false
+   },
+   "stretch": 6.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": -0.0032316567744468338,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 0.08029272929578528,
+    "loop_sum_same_signed": false
+   },
+   "gaps": {
+    "H0_only": -0.0032316567744468338,
+    "H1_only": 0.08029272929578528,
+    "both": 0.09324643230169763,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -0.16495444924071623,
+     0.220477085785303
+    ],
+    "H1_only": [
+     -0.0014489002917738858,
+     0.2250748973868483
+    ],
+    "both": [
+     -0.0014489002917738858,
+     0.23123023013757277
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": false,
+    "both": false,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 67.0391061452514,
+     "min": 32.402234636871505,
+     "p10": 40.78212290502793,
+     "p90": 93.85474860335195
+    },
+    "peripheral_third_in_population": 0.8,
+    "population": 138.8,
+    "production_layer": 180.0,
+    "qualifies": true
+   },
+   "stretch": 8.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": -0.002015445548375134,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 0.018020903969802927,
+    "loop_sum_same_signed": false
+   },
+   "gaps": {
+    "H0_only": -0.002015445548375134,
+    "H1_only": 0.018020903969802927,
+    "both": -0.005713413053858705,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     -0.2321372244745133,
+     0.2302174671356537
+    ],
+    "H1_only": [
+     -0.0803951267740716,
+     0.11661240978958101
+    ],
+    "both": [
+     -0.2009322805704758,
+     0.15863568897850033
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": false,
+    "both": false,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 63.12849162011173,
+     "min": 21.787709497206706,
+     "p10": 33.5195530726257,
+     "p90": 92.73743016759776
+    },
+    "peripheral_third_in_population": 13.2,
+    "population": 153.2,
+    "production_layer": 180.0,
+    "qualifies": true
+   },
+   "stretch": 12.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": 0.0,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 0.0760572903794178,
+    "loop_sum_same_signed": true
+   },
+   "gaps": {
+    "H0_only": 0.0,
+    "H1_only": 0.0760572903794178,
+    "both": 0.0760572903794178,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     0.0,
+     0.0
+    ],
+    "H1_only": [
+     0.007177215063713174,
+     0.2026170348368154
+    ],
+    "both": [
+     0.007177215063713174,
+     0.2026170348368154
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": true,
+    "both": true,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 55.865921787709496,
+     "min": 8.379888268156424,
+     "p10": 20.670391061452513,
+     "p90": 91.62011173184358
+    },
+    "peripheral_third_in_population": 38.4,
+    "population": 178.4,
+    "production_layer": 180.0,
+    "qualifies": true
+   },
+   "stretch": 20.0
+  },
+  {
+   "a3_8_prime": {
+    "gate_gap": 0.037631635157984664,
+    "loop_sum_exceeds_gate": true,
+    "loop_sum_gap": 0.08212199605427689,
+    "loop_sum_same_signed": false
+   },
+   "gaps": {
+    "H0_only": 0.037631635157984664,
+    "H1_only": 0.08212199605427689,
+    "both": 0.08212199605427689,
+    "null": 0.0
+   },
+   "ranges": {
+    "H0_only": [
+     0.0,
+     0.18815817578992333
+    ],
+    "H1_only": [
+     -0.1658585343449377,
+     0.35617482094324515
+    ],
+    "both": [
+     -0.1658585343449377,
+     0.35617482094324515
+    ],
+    "null": [
+     0.0,
+     0.0
+    ]
+   },
+   "same_sign": {
+    "H0_only": false,
+    "H1_only": false,
+    "both": false,
+    "null": false
+   },
+   "scope": {
+    "centrality_pct": {
+     "median": 50.279329608938546,
+     "min": 0.0,
+     "p10": 10.05586592178771,
+     "p90": 90.50279329608938
+    },
+    "peripheral_third_in_population": 60.0,
+    "population": 200.0,
+    "production_layer": 180.0,
+    "qualifies": true
+   },
+   "stretch": 40.0
+  }
+ ],
+ "seeds": 5,
+ "stage": "A3g",
+ "step": "widened_population"
+}

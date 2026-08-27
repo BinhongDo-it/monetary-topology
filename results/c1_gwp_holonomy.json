@@ -1,0 +1,394 @@
+{
+  "carrier": "IPCC global warming potentials, all assessment reports",
+  "closed_note": "Both halves have run. C1-5 settles what the earlier sections could not: the disagreement is operative, four methane values being in force at once. Two regimes were not surveyed and are named in C1-5, which is a limit on the survey's breadth and not on its reading, because more than one basis in force is an existence claim that one pair settles. Readings here are about declarations and about which of them an obligation can be discharged against; they are not readings about carbon market prices or volumes.",
+  "criteria": [
+    {
+      "b1": 339,
+      "b1_from_cycle_rank": 339,
+      "detail": "E=444 edges over V=106 nodes; closed form sum(S_a-1)=339; cycle_rank on the subdivided graph=339; species quoted by exactly one standard=17 contribute no loop",
+      "name": "C1-1 cycle rank of the declaration star, two ways",
+      "passed": true
+    },
+    {
+      "decidable": 88,
+      "detail": "88 species decidable, 17 undecidable (one quote only); holonomy exactly 1: 0; median 1.4150, quartiles 1.2568/1.8483, max 60.640 (HFE374pc2)",
+      "holonomy_exactly_one": 0,
+      "largest_loops": [
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 758.0,
+          "holonomy": 60.64,
+          "low": "AR6GWP100",
+          "low_value": 12.5,
+          "species": "HFE374pc2",
+          "standards": 4
+        },
+        {
+          "high": "TARGWP100",
+          "high_value": 11.0,
+          "holonomy": 11.0,
+          "low": "AR5GWP100",
+          "low_value": 1.0,
+          "species": "HFE263fb2",
+          "standards": 3
+        },
+        {
+          "high": "TARGWP100",
+          "high_value": 11.0,
+          "holonomy": 11.0,
+          "low": "AR5CCFGWP100",
+          "low_value": 1.0,
+          "species": "HFE365mcf3",
+          "standards": 3
+        },
+        {
+          "high": "TARGWP100",
+          "high_value": 30.0,
+          "holonomy": 7.5,
+          "low": "SARGWP100",
+          "low_value": 4.0,
+          "species": "CHCl3",
+          "standards": 5
+        },
+        {
+          "high": "AR6GWP100",
+          "high_value": 7520.0,
+          "holonomy": 5.0133,
+          "low": "TARGWP100",
+          "low_value": 1500.0,
+          "species": "HFE227ea",
+          "standards": 4
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 468.0,
+          "holonomy": 4.7755,
+          "low": "TARGWP100",
+          "low_value": 98.0,
+          "species": "HFE356mec3",
+          "standards": 4
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 500.0,
+          "holonomy": 4.5455,
+          "low": "TARGWP100",
+          "low_value": 110.0,
+          "species": "HFE356pcc3",
+          "standards": 5
+        },
+        {
+          "high": "AR6GWP100",
+          "high_value": 3770.0,
+          "holonomy": 4.236,
+          "low": "TARGWP100",
+          "low_value": 890.0,
+          "species": "HFE329mcc2",
+          "standards": 4
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 997.0,
+          "holonomy": 3.5607,
+          "low": "TARGWP100",
+          "low_value": 280.0,
+          "species": "HFE245fa1",
+          "standards": 4
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 867.0,
+          "holonomy": 3.3346,
+          "low": "TARGWP100",
+          "low_value": 260.0,
+          "species": "HFE356pcf2",
+          "standards": 4
+        }
+      ],
+      "median": 1.415,
+      "name": "C1-2 holonomy of the vintage loops, GWP-100 only",
+      "passed": true,
+      "reading": "non-integrable",
+      "single_quote_species": [
+        "(CF3)2CFOCH3",
+        "(CF3)2CHOCH3",
+        "(CF3)2CHOCHF2",
+        "(CF3)2CHOH",
+        "-(CF2)4CH(OH)-",
+        "CF3CF2CH2OH",
+        "CF3CH2OH",
+        "CF3I",
+        "CH2Br2",
+        "CH3OCH3",
+        "CHBrF2",
+        "HFE254cb2",
+        "HFE7100",
+        "HFE7200",
+        "HG01",
+        "HG10",
+        "HGalden1040x"
+      ],
+      "smallest_loops": [
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 10789.0,
+          "holonomy": 1.1111,
+          "low": "AR5GWP100",
+          "low_value": 9710.0,
+          "species": "PFPMIE",
+          "standards": 4
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 8681.0,
+          "holonomy": 1.1101,
+          "low": "AR5GWP100",
+          "low_value": 7820.0,
+          "species": "C7F16",
+          "standards": 3
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 8456.0,
+          "holonomy": 1.1097,
+          "low": "AR5GWP100",
+          "low_value": 7620.0,
+          "species": "C8F18",
+          "standards": 3
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 10208.0,
+          "holonomy": 1.1096,
+          "low": "AR5GWP100",
+          "low_value": 9200.0,
+          "species": "cC3F6",
+          "standards": 2
+        },
+        {
+          "high": "AR5CCFGWP100",
+          "high_value": 7977.0,
+          "holonomy": 1.1095,
+          "low": "AR5GWP100",
+          "low_value": 7190.0,
+          "species": "C10F18",
+          "standards": 3
+        }
+      ],
+      "undecidable": 17
+    },
+    {
+      "comparable": 86,
+      "detail": "one report, one gas, one horizon, two published numbers: 86 species comparable, ratio exactly 1 for 1 of them, median 1.1913, range 1.0000 to 2.0000; CH4 is 28 against 34",
+      "median_ratio": 1.1913,
+      "name": "C1-3 AR5 against AR5 with climate-carbon feedback",
+      "passed": true,
+      "ratio_exactly_one": 1,
+      "reading": "multivalued",
+      "widest": [
+        {
+          "ar5": 1.0,
+          "ar5ccf": 2.0,
+          "ratio": 2.0,
+          "species": "HFE263fb2"
+        },
+        {
+          "ar5": 2.0,
+          "ar5ccf": 3.0,
+          "ratio": 1.5,
+          "species": "CH3Br"
+        },
+        {
+          "ar5": 16.0,
+          "ar5ccf": 20.0,
+          "ratio": 1.25,
+          "species": "HFC152"
+        },
+        {
+          "ar5": 16.0,
+          "ar5ccf": 20.0,
+          "ratio": 1.25,
+          "species": "CHCl3"
+        },
+        {
+          "ar5": 12.0,
+          "ar5ccf": 15.0,
+          "ratio": 1.25,
+          "species": "CH3Cl"
+        }
+      ]
+    },
+    {
+      "detail": "54 of 79 species non-monotone in vintage order, including CH4 N2O CFC11 CFC12; median relative revision SAR->TAR 19.68% TAR->AR4 3.68% AR4->AR5 9.05% AR5->AR6 12.63%; steps shrinking: False",
+      "monotone": 25,
+      "name": "C1-4 do the vintages converge",
+      "non_monotone": 54,
+      "non_monotone_examples": [
+        {
+          "sequence": [
+            [
+              "SARGWP100",
+              3800.0
+            ],
+            [
+              "TARGWP100",
+              4600.0
+            ],
+            [
+              "AR4GWP100",
+              4750.0
+            ],
+            [
+              "AR5GWP100",
+              4660.0
+            ],
+            [
+              "AR6GWP100",
+              6230.0
+            ]
+          ],
+          "species": "CFC11"
+        },
+        {
+          "sequence": [
+            [
+              "SARGWP100",
+              8100.0
+            ],
+            [
+              "TARGWP100",
+              10600.0
+            ],
+            [
+              "AR4GWP100",
+              10900.0
+            ],
+            [
+              "AR5GWP100",
+              10200.0
+            ],
+            [
+              "AR6GWP100",
+              12500.0
+            ]
+          ],
+          "species": "CFC12"
+        },
+        {
+          "sequence": [
+            [
+              "SARGWP100",
+              21.0
+            ],
+            [
+              "TARGWP100",
+              23.0
+            ],
+            [
+              "AR4GWP100",
+              25.0
+            ],
+            [
+              "AR5GWP100",
+              28.0
+            ],
+            [
+              "AR6GWP100",
+              27.9
+            ]
+          ],
+          "species": "CH4"
+        },
+        {
+          "sequence": [
+            [
+              "SARGWP100",
+              310.0
+            ],
+            [
+              "TARGWP100",
+              296.0
+            ],
+            [
+              "AR4GWP100",
+              298.0
+            ],
+            [
+              "AR5GWP100",
+              265.0
+            ],
+            [
+              "AR6GWP100",
+              273.0
+            ]
+          ],
+          "species": "N2O"
+        }
+      ],
+      "passed": true,
+      "reading": "not converging",
+      "steps": [
+        {
+          "from": "SARGWP100",
+          "median_relative_change": 0.1968,
+          "n": 36,
+          "to": "TARGWP100"
+        },
+        {
+          "from": "TARGWP100",
+          "median_relative_change": 0.0368,
+          "n": 50,
+          "to": "AR4GWP100"
+        },
+        {
+          "from": "AR4GWP100",
+          "median_relative_change": 0.0905,
+          "n": 58,
+          "to": "AR5GWP100"
+        },
+        {
+          "from": "AR5GWP100",
+          "median_relative_change": 0.1263,
+          "n": 84,
+          "to": "AR6GWP100"
+        }
+      ]
+    },
+    {
+      "across_record": [
+        21,
+        25,
+        27.0,
+        27.9,
+        28,
+        29.8,
+        84
+      ],
+      "cross_checked": 7,
+      "detail": "10 regimes surveyed, 6 of them in force now; 7 of their methane values cross-check against the dataset and 0 disagree; values in force now [27.0, 27.9, 28, 29.8], spanning 1.104; values across the whole record [21, 25, 27.0, 27.9, 28, 29.8, 84], spanning 4.000",
+      "in_force_now": [
+        27.0,
+        27.9,
+        28,
+        29.8
+      ],
+      "mismatches": [],
+      "name": "C1-5 is the disagreement operative or historical",
+      "not_cross_checkable": [
+        "New York State, statewide emissions accounting",
+        "AR6 as applied by corporate and crediting programmes, fossil fugitive methane",
+        "Programmes listing the third AR6 methane value"
+      ],
+      "not_surveyed": [
+        "European Union",
+        "a New Jersey statute reported to mandate a twenty-year horizon"
+      ],
+      "passed": true,
+      "reading": "operative"
+    }
+  ],
+  "diagnostic_only": false,
+  "scoped_and_not_opened": "A second half in a different shape was scoped and did not open. It would have measured the holonomy of loops through the registry acceptance graph. The CORSIA eligibility table gives 15 programmes over 3 phases, 23 edges on 18 nodes in 3 components, so the relation graph has cycle rank 8. None of those cycles can be walked, because retirement against a compliance obligation is terminal and a unit does not come back out. That is a property of a consumable, not evidence about a value scalar, so the branch where walkable loops carry holonomy away from 1 is unreachable by construction and the arm would have returned its answer from its own setup. Scoped and closed on paper before any document was read. A carrier where that branch is reachable needs conversion that is bidirectional in principle, so that one-way-ness is a choice rather than the nature of the good.",
+  "source": "data/raw/gwp/globalwarmingpotentials.csv",
+  "stage": "C1"
+}

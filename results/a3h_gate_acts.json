@@ -1,0 +1,183 @@
+{
+ "criteria": [
+  {
+   "detail": "total |d cycles| gate 74.0 against terms 85.6, ratio 86%; nodes with a changed cycle count 19.4; max net worth move 6.271e+02",
+   "name": "A3h-1  the gate is not an inert treatment: it moves the mechanism by an amount of the same order as the other channel",
+   "passed": true
+  },
+  {
+   "detail": "fresh seeds 5-9: gap 18.3683, range [7.107332377970337, 30.671760414968208]. Registered block for calibration: 21.6714, range [8.4348990418884, 27.17354988596543]",
+   "name": "A3h-2  A3-8' first half on seeds never drawn when it was written: the loop-sum-only cell is same-signed across every one",
+   "passed": true
+  },
+  {
+   "detail": "fresh 18.3683 against -1.2264; registered 21.6714 against 1.4091",
+   "name": "A3h-3  A3-8' second half on the same fresh seeds: the loop-sum-only gap exceeds the gate-only gap",
+   "passed": true
+  },
+  {
+   "detail": "registered 0.000e+00, fresh 0.000e+00",
+   "name": "A3h-4  the null cell is exactly zero, which is the calibration and not a finding",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "A3-8 stays void; this reads A3-8', registered forward on 2026-08-13, and answers the scope objection by measuring what the treatment does to the mechanism rather than where the population sits.",
+ "fresh_seeds": {
+  "gaps": {
+   "H0_only": -1.2263676871354867,
+   "H1_only": 18.368299022055755,
+   "both": 15.557481970693027,
+   "null": 0.0
+  },
+  "range": [
+   5,
+   9
+  ],
+  "ranges": {
+   "H0_only": [
+    -14.28508247525484,
+    8.695701745777386
+   ],
+   "H1_only": [
+    7.107332377970337,
+    30.671760414968208
+   ],
+   "both": [
+    2.7904013696142282,
+    23.907731645714094
+   ],
+   "null": [
+    0.0,
+    0.0
+   ]
+  },
+  "same_sign": {
+   "H0_only": false,
+   "H1_only": true,
+   "both": true,
+   "null": false
+  }
+ },
+ "gate_acts": [
+  {
+   "centrality_median_of_movers": 0.4716981132075472,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 296.8226133394286,
+   "nodes_with_a_different_cycle_count": 19,
+   "total_absolute_cycle_change": 64
+  },
+  {
+   "centrality_median_of_movers": 0.4042553191489362,
+   "extensive_in": 6,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 714.7084489159573,
+   "nodes_with_a_different_cycle_count": 22,
+   "total_absolute_cycle_change": 81
+  },
+  {
+   "centrality_median_of_movers": 0.3055555555555556,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 799.8033439713499,
+   "nodes_with_a_different_cycle_count": 17,
+   "total_absolute_cycle_change": 74
+  },
+  {
+   "centrality_median_of_movers": 0.49019607843137253,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 489.46887001721564,
+   "nodes_with_a_different_cycle_count": 17,
+   "total_absolute_cycle_change": 80
+  },
+  {
+   "centrality_median_of_movers": 0.4387755102040817,
+   "extensive_in": 5,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 834.6320821490365,
+   "nodes_with_a_different_cycle_count": 22,
+   "total_absolute_cycle_change": 71
+  }
+ ],
+ "mechanical_ratio": 0.8644859813084113,
+ "registered_seeds": {
+  "gaps": {
+   "H0_only": 1.4091481961594803,
+   "H1_only": 21.67138846088038,
+   "both": 23.26665390846545,
+   "null": 0.0
+  },
+  "ranges": {
+   "H0_only": [
+    -16.256578157894822,
+    10.621195986082995
+   ],
+   "H1_only": [
+    8.4348990418884,
+    27.17354988596543
+   ],
+   "both": [
+    10.96002126702766,
+    38.31080373592391
+   ],
+   "null": [
+    0.0,
+    0.0
+   ]
+  },
+  "same_sign": {
+   "H0_only": false,
+   "H1_only": true,
+   "both": true,
+   "null": false
+  }
+ },
+ "rounds": 300,
+ "seeds": 5,
+ "stage": "A3h",
+ "step": "gate_acts",
+ "terms_acts": [
+  {
+   "centrality_median_of_movers": 0.4716981132075472,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 342.50023928375083,
+   "nodes_with_a_different_cycle_count": 17,
+   "total_absolute_cycle_change": 92
+  },
+  {
+   "centrality_median_of_movers": 0.5106382978723404,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 441.70165746891405,
+   "nodes_with_a_different_cycle_count": 16,
+   "total_absolute_cycle_change": 82
+  },
+  {
+   "centrality_median_of_movers": 0.3055555555555556,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 867.0448633904208,
+   "nodes_with_a_different_cycle_count": 19,
+   "total_absolute_cycle_change": 98
+  },
+  {
+   "centrality_median_of_movers": 0.49019607843137253,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 549.3478275734046,
+   "nodes_with_a_different_cycle_count": 17,
+   "total_absolute_cycle_change": 87
+  },
+  {
+   "centrality_median_of_movers": 0.5714285714285714,
+   "extensive_in": 0,
+   "extensive_out": 0,
+   "max_absolute_net_worth_change": 681.4988762734231,
+   "nodes_with_a_different_cycle_count": 15,
+   "total_absolute_cycle_change": 69
+  }
+ ]
+}

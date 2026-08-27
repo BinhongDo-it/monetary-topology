@@ -1,0 +1,63 @@
+{
+ "a_change": 0.03513731977751114,
+ "cells": {
+  "a_after": {
+   "centre": -0.004507430528774652,
+   "n": 2104,
+   "se": 0.00911976892214886
+  },
+  "a_before": {
+   "centre": -0.039644750306285795,
+   "n": 462,
+   "se": 0.021389950523700806
+  },
+  "h_after": {
+   "centre": 0.07450382004458608,
+   "n": 1730,
+   "se": 0.010303561448047786
+  },
+  "h_before": {
+   "centre": 0.10736578356150642,
+   "n": 478,
+   "se": 0.01827141303498977
+  }
+ },
+ "criteria": [
+  {
+   "detail": "largest pre-ex median log volume over the two-sided baseline, Abefore +0.004; Aafter +0.068; Hbefore +0.149; Hafter +0.185. Nothing resembling a spike appears before 2013 on either leg; a peak at day minus one appears after 2013 on **both**, and the larger of the two sits on the H leg, which this statute does not reach. **So the pattern is a market-wide change and not a tax effect, and the trade the statute penalises is not visible on this instrument. Third state.**",
+   "name": "B21-24  the trade the statute penalises leaves no volume signature to remove: no cell's pre-ex window stands above its own baseline by more than the H leg does in both eras alike",
+   "passed": null,
+   "undecidable": true
+  },
+  {
+   "detail": "Abefore n=462; Aafter n=2104; Hbefore n=478; Hafter n=1730",
+   "name": "B21-21  every cell of the two-by-two carries a centre",
+   "passed": true
+  },
+  {
+   "detail": "A leg +0.0351 at +1.5 standard errors across 2013-01-01. **The first version of this criterion was `change < 0`, a zero-width strict inequality on an estimator**, which discipline 11 forbids whichever way it comes out; a reading a standard error and a half from zero is the middle state and not a refutation. The reading is unchanged by the correction.",
+   "name": "B21-22  the taxed leg's move across the date, read in three states because a sign test on an estimator has no zero width",
+   "passed": null,
+   "undecidable": true
+  },
+  {
+   "detail": "H leg -0.0329 (-1.6 se) against the A leg's +0.0351; difference in differences +0.0680 (+2.2 se)",
+   "name": "B21-23  the untaxed leg of the same companies does not move with it, which is the placebo",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "A declared sign on a volume ratio, with the H leg of the same companies as the control. Not an effect size against a band, so gates two and three do not bind it; the standard errors are printed regardless.",
+ "did": 0.06799928329443147,
+ "did_se": 0.03131625905833344,
+ "event": "2013-01-01",
+ "h_change": -0.032861963516920334,
+ "pre_ex_peak": {
+  "a_after": 0.06815386758814672,
+  "a_before": 0.004032141079406234,
+  "h_after": 0.18483628216240214,
+  "h_before": 0.1488295433997176
+ },
+ "stage": "B21",
+ "step": "capture"
+}

@@ -1,0 +1,34 @@
+{
+ "criteria": [
+  {
+   "detail": "estimated spread runs 0.0 to 114.5 bp across 202 legs, median 35.1",
+   "name": "B21-7  the estimated stock-level term is not degenerate",
+   "passed": true
+  },
+  {
+   "detail": "ratio of the two dispersions 0.41, but the estimator floors 40.7% of windows at the median leg and a leg's estimate correlates -0.3907 with its own floored share. No threshold is applied to this number and none should be.",
+   "name": "B21-8  the stock-level term against the common one: UNDECIDABLE on daily bars, which is the third state and neither a pass nor a fail",
+   "passed": null,
+   "undecidable": true
+  }
+ ],
+ "cross_stock_sd": 0.0017225123346378088,
+ "diagnostic_only": true,
+ "diagnostic_reason": "A precondition check for layer two, not a reading of the station. It asks whether the stock-level part of the transfer cost is large enough to be worth acquiring the Connect eligibility list for.",
+ "estimate_vs_floor_correlation": -0.39066656639645225,
+ "estimator": "Corwin and Schultz (2012, JF)",
+ "iqr": 0.0016030948218469683,
+ "legs": 202,
+ "negative_share_median_leg": 0.4072154674108033,
+ "ratio": 0.4072133178812787,
+ "spread_bp": {
+  "max": 114.47948612569996,
+  "median": 35.12353580164657,
+  "min": 0.0,
+  "p10": 21.403820301727894,
+  "p90": 58.559130729585654
+ },
+ "stage": "B21",
+ "step": "spread",
+ "wedge_sd": 0.00423
+}
