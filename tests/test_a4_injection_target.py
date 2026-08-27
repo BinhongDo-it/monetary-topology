@@ -1,8 +1,8 @@
 """`NetworkConfig.injection_target`: the default reproduces, and it is the fix.
 
-`PROJECT_PLAN.md` §16.2 registers two injection modes, topological and uniform,
-and says explicitly that the contrast between them is the source's own volume 1
-section 2 claim rather than an auxiliary assumption added to make A4 runnable.
+Two injection modes are registered, topological and uniform, and the contrast
+between them is the source's own volume 1 section 2 claim rather than an
+auxiliary assumption added to make A4 runnable.
 Only the topological one was ever implemented, and `NetworkConfig.authority`
 already defaults to `MonetaryAuthority(rule="endogenous")`, so the switch §16.2
 proposed opening was already open and pointed at one node.

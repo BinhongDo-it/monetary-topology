@@ -6,7 +6,7 @@ left the repair undone. Section 8.3 is the repair. These tests are what make it
 a repair rather than a rewrite.
 
 **The configuration must have one call site.** `run` and `build` need the same
-`A3Config`, and `PROJECT_PLAN.md` section 11.12 is the case where a parameter
+`A3Config`, and this repository has already paid for the case where a parameter
 reached one of two call sites: the default path was the correct one, so the
 guard on the default path never fired and only a sweep took the wrong branch.
 `_config` exists so that the two cannot drift, and `test_build_then_run_matches_run`

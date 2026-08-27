@@ -8,7 +8,7 @@ in [`b5_orphan_availability.md`](b5_orphan_availability.md). That document also
 carries the two things a reader should see before this one: the blue, MEP, CCL
 and P2P legs come from **a newspaper and community APIs, not a central bank**,
 and the `H⁰` half of the original orphan-currency concept **is not in this
-stage** (§9.1 below, and `PROJECT_PLAN.md` §14.3.1).
+stage** (§9.1 below).
 
 The directed theorems in [`b4_directed_edges.md`](b4_directed_edges.md) are
 load-bearing here in a way they are not in B2 or B3. §2.3 states what they
@@ -31,12 +31,12 @@ exactly that. The replication half is worth little on its own: a second
 non-zero number is a second non-zero number. The intervention half is the
 reason the stage exists.
 
-**`PROJECT_PLAN.md` §9.4 ruled that the orphan currency measures squares and not
-slices.** §2.2 confirms that ruling from the shape of the data rather than
+**This carrier was ruled to measure squares and not slices before it was
+opened.** §2.2 confirms that ruling from the shape of the data rather than
 asserting it. **Do not run any slice-against-square decomposition on this
 carrier**: Theorem 2 does not extend to directed graphs, directed cycles form a
-cone and cones have no direct-sum decomposition (`PROJECT_PLAN.md` §12.10,
-`b4` §6).
+cone and cones have no direct-sum decomposition
+([`b4_directed_edges.md`](b4_directed_edges.md) §6).
 
 ---
 
@@ -80,8 +80,8 @@ because the sample is small but because the graph has no second edge to walk to.
 Corollary 2's shape argument runs in the opposite direction from B3's: B3's
 carrier could not reach squares, this carrier cannot reach slices.
 
-So every number this stage produces is a square sum, and `PROJECT_PLAN.md`
-§9.4's ruling is confirmed by construction.
+So every number this stage produces is a square sum, and the ruling above is
+confirmed by construction.
 
 ### 2.3 What B4 removed from the design, and it made the stage cheaper
 
@@ -206,7 +206,7 @@ plausible and unargued. The control-pair version needs no such assumption: it
 compares premia to premia, in the same units, from the same quotes.
 
 **And it is weaker in one respect**, which the write-up states: MEP and CCL are
-not untouched by everything. §14.5 of `PROJECT_PLAN.md` records that the
+not untouched by everything. The
 cross-restriction between the official and financial markets was removed on the
 intervention date and **reimposed in September 2025**, inside the post-window. So
 the control group is clean with respect to the *deleted cap* and not with respect
@@ -278,8 +278,8 @@ spread.
 **Median rather than mean.** On 21 August 2024 `dolar/oficial` returns
 `954.12 / 300.76 / 953.17` for one date; the middle value is a level the peso
 last saw in mid-2023. The mean is `736` and belongs to no market. This project's
-standing lesson on non-robust statistics under contamination is
-`PROJECT_PLAN.md` §11.2, and it cost a headline number.
+standing lesson is that a non-robust statistic under contamination
+cost it a headline number once.
 
 **Median rather than first-or-last.** "The closing quote" is the conventional
 choice and it is **not identifiable here**: the endpoint publishes no timestamps,
@@ -344,9 +344,8 @@ aggregator reporting "Banco Nación" plausibly does so by reading BNA's own page
 If it does, the two series will be byte-identical and the arm will pass
 trivially.
 
-**A trivially passing arm is a failure, not a pass.** `PROJECT_PLAN.md` §11.11
-rule 1: a criterion whose comparison has an empty or degenerate side must fail
-and print `vacuous`. This is registered as **B5-4** and it runs **before** B5-3
+**A trivially passing arm is a failure, not a pass.** A criterion whose
+comparison has an empty or degenerate side must fail and print `vacuous`. This is registered as **B5-4** and it runs **before** B5-3
 is read.
 
 ### 4.3 The fallback was wrong, and the reason is worth more than the fallback
@@ -681,7 +680,7 @@ Two checks. The payloads must not be identical after normalising whitespace; and
 collection paths exercise different code. A pair passing the first and failing
 the second would be two formats read by one lenient reader, and the arm would be
 testing that reader against itself. Failure prints `vacuous` and **fails**
-(`PROJECT_PLAN.md` §11.11 rule 1).
+(an empty comparison side fails and says so).
 
 **Corrected 2026-08-11.** The first version tested agreement of *values* and
 failed the arm when they agreed on more than `0.80` of days. That rule would
@@ -718,8 +717,8 @@ Z / N  >  4
 
 the same factor B3-3 used. **`Z` and `N` are computed on the same set of dates
 and with the same aggregation.** A6's noise floor was once computed on
-2012–2025 while its signal was computed on 2000–2025; `PROJECT_PLAN.md` §11.11
-rule 3 exists because of it.
+2012–2025 while its signal was computed on 2000–2025, **and a noise floor
+computed on a different population from the signal is a defect of its own**.
 
 **B5-7 — the squares do not vanish before the intervention.** On the pre-window
 (§7), the oficial–blue index part clears the same factor of four over the noise
@@ -977,7 +976,7 @@ interpretation chosen after the sign is known.
 
 **B5-14 refuses to start if B5-8 did not pass.** The denominator is B5-8's
 collapse, and a criterion whose comparison side is empty must fail and print
-`vacuous` rather than return a number (`PROJECT_PLAN.md` §11.11 rule 1). This is
+`vacuous` rather than return a number. This is
 expressed as a read of `results/b5_squares.json`, the same way `b5_squares.py`
 reads the calibration arm rather than recomputing it.
 
@@ -1110,8 +1109,8 @@ What follows from that, and what does not:
 
 **Vacuous** if the final pre-window bucket did not survive §6A.3's date filter, or
 if fewer than `MIN_BUCKET_SHARE` of the post buckets did, for any pair the
-comparison needs. `PROJECT_PLAN.md` §11.11 rule 1: it then fails and prints
-`vacuous` rather than returning a number.
+comparison needs. It then fails and prints `vacuous` rather than returning a
+number.
 
 **If leg (a) fails**, the premium was already inside its post-intervention range
 before the intervention, and B5-8's collapse is a window artefact. That would be
@@ -1347,17 +1346,17 @@ quantity in dispute.
 rather than a property of Argentina. The only form in which the claim becomes
 testable is a directed edge that **appears or disappears on a known date**;
 Argentina's export surrender requirement is a standing regulation with no such
-event inside this window. The disposition and the candidate carrier are in
-`PROJECT_PLAN.md` §14.3.1 and §14.4.
+event inside this window. **The disposition is recorded and the candidate
+carrier is named, and neither is on this carrier.**
 
 **Consequence for how this stage is written up**: every reading it produces lives
 in the **bidirectional** half of the world, and the paper says so rather than
-implying coverage it does not have (`PROJECT_PLAN.md` §12.11).
+implying coverage it does not have.
 
 ### 9.2 The connectivity index `C` is dropped rather than faked
 
 The original orphan-currency concept had a `C → D` half, with `C` a connectivity
-index that `PROJECT_PLAN.md` §9.6 requires to come from **outside price data**.
+index required to come from **outside price data**.
 
 On one country there is no `C` worth reporting. AREAER's FARI is annual, which
 gives a handful of points, and the obvious alternative — Ilzetzki–Reinhart–Rogoff's
@@ -1408,14 +1407,13 @@ fetcher writes a sentinel and a manifest, and a file missing the sentinel is
 classified `legacy` rather than `bad`: a missing marker is the script's own
 fault and is not evidence about the file. `fetch_hmda.py` once classified every
 already-downloaded file as truncated because it checked a sentinel it never
-wrote, which would have renamed 408 files and re-downloaded for hours
-(`PROJECT_PLAN.md` §11.3).
+wrote, which would have renamed 408 files and re-downloaded for hours.
 
 **Two hashes, not one.** The manifest records **both** the hash of the source
 bytes and the hash of the written file, because the written file carries a
 sentinel line the source does not. `fetch_cip.py`'s first version compared the
-source hash against the written file and therefore warned on every run
-(`PROJECT_PLAN.md` §11.11) — a guard that cries every time is exactly as useless
+source hash against the written file and therefore warned on every run — a
+guard that cries every time is exactly as useless
 as one that never cries, because the reader's response to both is to stop
 looking.
 
@@ -1438,7 +1436,7 @@ that B5-10 computes both ways.
 **No deletion, ever.** Superseded files are renamed with an `.expired` suffix and
 left in place. When the loader must ignore something, the loader is changed, not
 the filesystem — the pattern `b2_loop_a.py`'s `VALID_NAME` established after the
-incident recorded in `PROJECT_PLAN.md` §11.1.
+incident that cost this project several hours of downloaded data.
 
 ---
 
@@ -1566,8 +1564,8 @@ written rather than after.
 "(same shape)". It 404s on every half-year. The working path is
 **`dolarrava/cl`**, verified 2026-08-11 against a ten-day range. The
 parenthetical was the tell: that row was reasoned from `dolarrava/mep` rather
-than requested. §13.5 of `PROJECT_PLAN.md` requires an availability check before
-opening a stage; this is the narrower version of the same rule — **an endpoint
+than requested. An availability check is required before a stage is opened;
+this is the narrower version of the same rule — **an endpoint
 that was inferred is not a verified endpoint**, and the availability document's
 table should have said so.
 
@@ -1620,8 +1618,8 @@ smaller date set for pairs involving MEP or CCL, reported per arm under §7, and
 **Two guard bugs were fixed at the same time, and both are the same bug.** The
 anomaly scan ran on uncollapsed rows and reported "one-day changes" whose
 previous date equalled their own date; it also compared across a year-long hole
-and called that a one-day change. Both are `PROJECT_PLAN.md` §11.11 rule 2 — a
-guard must compare the quantity that is actually reported — and both were
+and called that a one-day change. Both break one rule — a guard must compare
+the quantity that is actually reported — and both were
 invisible until real data arrived. Recorded here rather than only in the code,
 because a guard that was wrong once is a fact about this stage.
 

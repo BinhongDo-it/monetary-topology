@@ -1,7 +1,7 @@
 # B6 availability check: Cuba as the carrier for `H⁰`, and what the central bank turns out to publish
 
 **Not a pre-registration. A check, run before deciding whether to open a stage**,
-as `PROJECT_PLAN.md` §13.5 requires, and the third of its kind after
+as this project requires before a stage is opened, and the third of its kind after
 `b3_slice_availability.md` and `b5_orphan_availability.md`. Both of those changed
 the design of their stage rather than its budget. This one changes the
 identification strategy.
@@ -17,7 +17,7 @@ the pre-registration.
 
 ## 1. What B6 is for, and why B5 could not do it
 
-`PROJECT_PLAN.md` §12.11 states the gap this stage exists to close:
+The gap this stage exists to close:
 
 > `H⁰` has never had a positive empirical reading in this project, and this is
 > harder than it looks. Theorem 5 gives the orphan currency a precise statement
@@ -138,8 +138,8 @@ first is a prohibition.
 channels `a` and `b` of the same segment, `S − S' = 2 log(k_b/k_a)`, the same
 constant on every date, zero variance, no information. That is
 `a3_asset_channel.md`'s construction identity appearing in a data source instead
-of in a simulation, and `HANDOFF.md` §3.2 item 6 already records what happens
-when such a quantity is written up as a confirmation. **The headline needs one
+of in a simulation, and **this project has already had such a quantity written
+up as a confirmation once.** **The headline needs one
 leg outside the table**, which is the informal market.
 
 **Ruled: the same fact is a known-answer arm, and a stronger one than B5's.**
@@ -188,9 +188,8 @@ admission still applies in form, and it is a smaller admission here.
 **One property remains unverified and it is load-bearing**: whether a requested
 date range may lie in the past, or only in the trailing twenty-four hours. The
 published FAQ says a custom range is permitted and may not span more than
-twenty-four hours, which reads as the former, but `PROJECT_PLAN.md` §14.6's rule
-applies without exception: **an endpoint that was inferred does not count as
-verified.** It can only be settled with a token in hand. If the answer is the
+twenty-four hours, which reads as the former, but one rule applies without
+exception: **an endpoint that was inferred does not count as verified.** It can only be settled with a token in hand. If the answer is the
 latter, the informal leg has no history, the stage collapses to prospective
 collection, and B6 does not open on the window that matters. **This is the one
 remaining gate.**
@@ -199,8 +198,8 @@ remaining gate.**
 
 ## 4. What this check found, and why it changes the identification
 
-`PROJECT_PLAN.md` §14.4 planned B6 as an event study around a single switch on
-2025-12-18, and flagged its own weakest point: the 2021 to 2025 queue was
+B6 was planned as an event study around a single switch on 2025-12-18, and that
+plan flagged its own weakest point: the 2021 to 2025 queue was
 **rationing rather than prohibition**, and a criterion for when a rationed,
 posted-but-unavailable rate counts as an edge would have to be argued **outside
 the data**, before looking at it, or the stage would not open.
@@ -255,8 +254,8 @@ longer the identification.
 
 ## 5. The registered prediction this check recommends, and the disclosure it owes
 
-`PROJECT_PLAN.md` §14.4 requires that B6's prediction be about **the existence
-or responsiveness of an edge** and explicitly not about a premium collapsing,
+B6's prediction is required to be about **the existence or responsiveness of an
+edge** and explicitly not about a premium collapsing,
 because a premium is a magnitude and an edge is topology. Theorem 5 supplies a
 form that meets this and carries no free parameter.
 
@@ -420,7 +419,7 @@ scope statement, not as a to-do.
 ## 9. Verdict
 
 **Open the stage, conditional on the single gate in §3.4**, and with the
-identification changed from what `PROJECT_PLAN.md` §14.4 envisaged.
+identification changed from what the stage was first planned as.
 
 Dropped: the event study on 2025-12-18 as the identifying variation, because no
 criterion separates a rationed edge before from a rationed edge after without

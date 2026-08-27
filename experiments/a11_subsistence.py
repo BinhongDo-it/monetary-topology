@@ -76,12 +76,12 @@ def base_config(seed: int, rounds: int, uniform: bool) -> NetworkConfig:
 
 
 def one_run(need_mult: float, grace: int, seed: int, rounds: int,
-            uniform: bool, asset: bool = False) -> dict:
+            uniform: bool, asset: bool = False, mode: str = "exit") -> dict:
     base = base_config(seed, rounds, uniform)
     n = base.spec.size
     scale = base.total_resources / n
     spec = (
-        SubsistenceSpec(need=need_mult * scale, grace=grace)
+        SubsistenceSpec(need=need_mult * scale, grace=grace, mode=mode)
         if need_mult > 0
         else SubsistenceSpec()
     )
@@ -89,8 +89,13 @@ def one_run(need_mult: float, grace: int, seed: int, rounds: int,
     net = carrier_model(cfg, asset=asset)
     h = net.run()
 
-    alive = net._alive
-    dead = ~alive
+    # The set that is out of the market, read from whichever object this exit
+    # rule populates. `exit` moves a membership flag and `drawdown` moves none,
+    # so reading `_alive` under `drawdown` returns the empty set for every arm
+    # and every rate comes back nan. That is not a reading, it is the criterion
+    # looking at an object the arm never touches. `network.py` already carries
+    # this same expression where it records the per-round count.
+    dead = net._below if spec.mode == "drawdown" else ~net._alive
     # The two node sets, by index rather than by name: on the complete graph the
     # layers no longer mean anything behaviourally, and that is the point. The
     # same index ranges are compared on both graphs.
@@ -109,6 +114,8 @@ def one_run(need_mult: float, grace: int, seed: int, rounds: int,
         "graph": "complete" if uniform else "stratified",
         "need": r(spec.need),
         "starved": int(dead.sum()),
+        "below_floor_close": int(dead.sum()),
+        "below_floor_peak": int(np.asarray(h.starved, dtype=float).max()),
         "starved_financial": int(dead[fin].sum()),
         "starved_production": int(dead[prod].sum()),
         "financial_nodes": int(fin.size),
@@ -116,6 +123,24 @@ def one_run(need_mult: float, grace: int, seed: int, rounds: int,
         "starved_rate_financial": r(dead[fin].mean()),
         "starved_rate_production": r(dead[prod].mean()),
         "frozen_holdings": r(float(net.holdings[dead].sum())),
+        # **The decomposition this stage said it needed and could not do.**
+        # Its own text records that the closing Gini falls as the floor rises
+        # and that the fall is not the economy levelling: under `exit` with
+        # `cut_payroll` false a node that has left goes on drawing a wage and
+        # never spends, so the set that left accumulates, and a large pile in
+        # the hands of the many reads as a *better* Gini. How much of the fall
+        # is that rather than the exit was left open.
+        #
+        # These two separate it, and both come off state the run already has:
+        # the share of every claim sitting with nodes that have left, and the
+        # Gini computed over the nodes still in circulation. **A Gini read on
+        # the traders only cannot be moved by the frozen pile at all**, so the
+        # gap between the two columns is the artefact and what is left is the
+        # exit.
+        "frozen_share_close": (
+            r(float(net.holdings[dead].sum() / m[-1])) if m[-1] > 0 else 0.0),
+        "gini_close_trading": (
+            r(gini(h.holdings[-1][~dead])) if (~dead).any() else 0.0),
         "mr_close": r(h.total_ratio[-1]),
         "mara_close": r(float(np.asarray(h.active_ratio, dtype=float)[-TAIL:].mean())),
         "gini_close": r(gini(h.holdings[-1])),
@@ -180,30 +205,55 @@ def evaluate(rows: list[dict], shared: tuple[bool, str]) -> list[Criterion]:
         if abs(c["starved_rate_production"] - c["starved_rate_financial"])
         < abs(s["starved_rate_production"] - s["starved_rate_financial"])
     ]
-    out.append(
-        Criterion(
-            "A11-4  erasing the topology closes the gap",
-            bool(paired) and len(closed) == len(paired),
-            f"paired by seed, floor and grace: the gap between the two sets' "
-            f"starvation rates is narrower on the complete graph in "
-            f"{len(closed)}/{len(paired)} pairs. Median gap "
-            f"{med(comp, 'starved_rate_production') - med(comp, 'starved_rate_financial'):+.3f} "
-            f"complete against "
-            f"{med(strat, 'starved_rate_production') - med(strat, 'starved_rate_financial'):+.3f} "
-            f"stratified",
+    # Three readings, because "narrower" cannot express the case where the
+    # complete graph never fires at all. That case is not an empty comparison,
+    # it is this criterion's own claim in its strongest form: erasing the
+    # topology does not narrow the gap, it removes the question. Both exit
+    # rules reach it, the registered one on four of five rates and `drawdown`
+    # on all five, so the shape has to carry it rather than divide by zero.
+    strat_gap = (med(strat, "starved_rate_production")
+                 - med(strat, "starved_rate_financial")) if strat else float("nan")
+    if not comp:
+        out.append(
+            Criterion(
+                "A11-4  erasing the topology closes the gap",
+                bool(strat),
+                f"the complete graph puts nobody below the floor at any rate on "
+                f"this grid, so there is no gap there to narrow. Erasing the "
+                f"topology removes the question rather than closing it, which is "
+                f"this criterion's claim in its strongest form. On the stratified "
+                f"graph the same parameters put {len(strat)} runs below the floor "
+                f"with a median gap of {strat_gap:+.3f}. Read: a pass here is the "
+                f"absence of the phenomenon on the control, not an absence of data",
+            )
         )
-    )
+    else:
+        out.append(
+            Criterion(
+                "A11-4  erasing the topology closes the gap",
+                bool(paired) and len(closed) == len(paired),
+                f"paired by seed, floor and grace: the gap between the two sets' "
+                f"starvation rates is narrower on the complete graph in "
+                f"{len(closed)}/{len(paired)} pairs. Median gap "
+                f"{med(comp, 'starved_rate_production') - med(comp, 'starved_rate_financial'):+.3f} "
+                f"complete against {strat_gap:+.3f} stratified. The complete graph "
+                f"fires on {len(comp)} of the runs on this grid; where it fires on "
+                f"none the reading is the other branch of this criterion",
+            )
+        )
     return out
 
 
-def structure_is_shared(seed: int, rounds: int) -> tuple[bool, str]:
+def structure_is_shared(seed: int, rounds: int, mode: str = "exit") -> tuple[bool, str]:
     base = base_config(seed, rounds, False)
     scale = base.total_resources / base.spec.size
     differing: set[str] = set()
     for mult in NEED_MULTIPLES:
         for grace in GRACES:
             a = dataclasses.replace(
-                base, subsistence=SubsistenceSpec(need=mult * scale, grace=grace)
+                base,
+                subsistence=SubsistenceSpec(
+                    need=mult * scale, grace=grace, mode=mode),
             )
             for f in dataclasses.fields(NetworkConfig):
                 if getattr(a, f.name) != getattr(base, f.name):
@@ -215,6 +265,16 @@ def structure_is_shared(seed: int, rounds: int) -> tuple[bool, str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--drawdown", action="store_true",
+        help="run the floor under the drawdown exit rule instead of the "
+             "registered one. Under the registered rule a node below the "
+             "floor leaves the graph and, with the payroll left on, goes "
+             "on receiving wages it never spends, so the frozen set "
+             "accumulates; A12-6 measured that. Under drawdown the node "
+             "stays and spends min(need, holdings). Off is the registered "
+             "arm and reproduces the record key for key.",
+    )
     parser.add_argument("--rounds", type=int, default=300)
     parser.add_argument("--seeds", type=int, default=5)
     parser.add_argument(
@@ -225,6 +285,7 @@ def main() -> int:
              "empirical decomposition puts the weight on the second.",
     )
     args = parser.parse_args()
+    mode = "drawdown" if args.drawdown else "exit"
 
     print("stage A11: the subsistence floor")
     print(f"  rounds={args.rounds} seeds={args.seeds}\n")
@@ -232,12 +293,14 @@ def main() -> int:
     rows = []
     for uniform in (False, True):
         for seed in range(args.seeds):
-            rows.append(one_run(0.0, 1, seed, args.rounds, uniform, args.asset))
+            rows.append(one_run(0.0, 1, seed, args.rounds, uniform,
+                                args.asset, mode))
         for mult in NEED_MULTIPLES:
             for grace in GRACES:
                 for seed in range(args.seeds):
                     rows.append(
-                        one_run(mult, grace, seed, args.rounds, uniform, args.asset))
+                        one_run(mult, grace, seed, args.rounds, uniform,
+                                args.asset, mode))
 
     print(f"{'graph':>11s} {'need':>6s} {'grace':>5s} | {'starved':>7s} {'fin':>5s} {'prod':>5s} "
           f"| {'M/R':>7s} {'gini':>7s} {'M_a/R_a':>8s} {'frozen':>9s}")
@@ -261,7 +324,7 @@ def main() -> int:
                     f"{med('frozen_holdings'):9.1f}"
                 )
 
-    criteria = evaluate(rows, structure_is_shared(0, args.rounds))
+    criteria = evaluate(rows, structure_is_shared(0, args.rounds, mode))
     print("\ncriteria")
     for c in criteria:
         print(c.line())
@@ -271,13 +334,22 @@ def main() -> int:
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     path = RESULTS / (
-        "a11_subsistence.json" if not args.asset
-        else "a11_subsistence_asset.json"
+        "a11_subsistence.json" if not (args.asset or args.drawdown)
+        else "a11_subsistence_asset.json" if args.asset and not args.drawdown
+        else "a11_subsistence_drawdown.json" if not args.asset
+        else "a11_subsistence_drawdown_asset.json"
     )
     path.write_text(
         json.dumps(
             {
                 "stage": "A11",
+                "exit_rule": mode,
+                **({"diagnostic_only": True,
+                    "diagnostic_reason": (
+                        "run under the drawdown exit rule, which is not "
+                        "this station's registered one; the registered "
+                        "reading is results/a11_subsistence.json"
+                    )} if args.drawdown else {}),
                 **({"diagnostic_only": True,
                     "diagnostic_reason": (
                         "read on A3's asset layer, which is not this station's "

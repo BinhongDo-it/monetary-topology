@@ -1,7 +1,7 @@
 # A1 availability check: the default cascade, and which of its six targets survive contact with their sources
 
 **Not a pre\-registration. A check, run before deciding whether to open a stage**,
-as `PROJECT_PLAN.md` §13.5 requires, and the fourth of its kind after
+as this project requires before a stage is opened, and the fourth of its kind after
 `b3_slice_availability.md`, `b5_orphan_availability.md` and
 `b6_cuba_availability.md`. Each of the previous three changed the design of its
 stage rather than its budget. This one changes the scoring rule.
@@ -19,7 +19,7 @@ Items that could not be verified from a page actually retrieved are marked
 
 ## 1\. Why this stage needs a check more than the others did
 
-`PROJECT_PLAN.md` §A1 states the property that makes A1 attractive:
+The property that makes A1 attractive:
 
 > **This is the only stage attached to real data and therefore the most citable.**
 
@@ -101,7 +101,7 @@ first time the New York Fed reorders a page.
 
 ## 4\. The stratification the shopping list assumed does not exist in public form
 
-`PROJECT_PLAN.md` §12's source table registers:
+The registered source table gives:
 
 > **NY Fed HHDC**，by product **and by income quantile / credit tier** | A1 calibration. **The stratification is the point: the evidence for the K shape is in the split, not in the total**
 

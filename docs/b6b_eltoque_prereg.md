@@ -4,8 +4,7 @@
 was fetched.** Thirteen windows had been queried as instrument probes by the time
 this was written; §11 lists every one of them and every number they returned.
 
-**Authority.** `PROJECT_PLAN.md` §14.4 for the stage, `b6_cuba_prereg.md` for
-B6-A, whose §9 deferred every criterion touching the informal leg to this
+**Authority.** The stage's own registration, and `b6_cuba_prereg.md` for B6-A, whose §9 deferred every criterion touching the informal leg to this
 document and made that deferral a registered commitment. Criteria continue
 B6-A's numbering at **B6-9** rather than opening a second namespace inside one
 stage.
@@ -929,7 +928,7 @@ place of it.
 | B6-16 | the published median sitting outside the book's own bid-ask interval on more than 5% of days, which reverses §3.4's bound |
 | ~~B6-17~~ | **void, not falsifiable as written.** The two sides describe periods that do not overlap and cannot be made to, so the verdict is a statement about the sample's years. See §5 |
 
-**A failed criterion stays failed.** `A6-1` and `HANDOFF.md` §3.2 item 9. B6-A's
+**A failed criterion stays failed**, as `A6-1` records. B6-A's
 B6-4 is the live example: it failed on 3 of 147 days, the withdrawal of its
 envelope clause did not save it, and it is still recorded as failed.
 

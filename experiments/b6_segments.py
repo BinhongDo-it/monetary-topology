@@ -865,8 +865,7 @@ def main() -> int:
     # disagrees with its own closed form, nothing below it means anything and
     # the run is void. A registered criterion failing is a result, and it
     # travels in ``criteria`` where ``scripts/run_all.py`` prints it and
-    # ``RESULTS.md`` records it. `HANDOFF.md` §3.2 item 9: a criterion that
-    # fails stays failed, and it does not get an exit code that invites someone
+    # ``RESULTS.md`` records it. **A criterion that fails stays failed**, and it does not get an exit code that invites someone
     # to make it green.
     gates = ("B6-1", "B6-2")
     return 0 if all(out["verdicts"][g] for g in gates) else 1

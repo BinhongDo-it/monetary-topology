@@ -53,7 +53,7 @@ What is deliberately not here
 
 **No slice-against-square decomposition.** Theorem 2 does not extend to directed
 graphs: directed cycles form a cone and a cone has no direct-sum decomposition
-(``PROJECT_PLAN.md`` §12.10, ``b4`` §6). There is also no second position edge to
+(``b4_directed_edges.md`` §6). There is also no second position edge to
 build one from.
 
 **No agent-edge weights invented.** The agent legs are written into the field as

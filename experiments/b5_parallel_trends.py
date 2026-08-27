@@ -107,9 +107,9 @@ HORIZON_BUCKETS = 12
 MIN_DATES_PER_BUCKET = 10
 
 #: How many of a rung's nominal buckets must survive that filter for the rung to
-#: return a slope. Below it the rung is ``vacuous`` rather than small, per
-#: ``PROJECT_PLAN.md`` §11.11 rule 1: a criterion with an empty comparison side
-#: must fail and say so rather than return a number.
+#: return a slope. Below it the rung is ``vacuous`` rather than small: **a
+#: criterion with an empty comparison side must fail and say so rather than
+#: return a number.**
 MIN_BUCKET_SHARE = 2.0 / 3.0
 
 #: §6A.3. The headline treated pair, and the three control pairs that exist.

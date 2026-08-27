@@ -4,8 +4,8 @@
 silent.** A wrong cycle sum fails against its closed form and criterion B5-1
 catches it. A misread decimal separator, or a panel that counts every date
 twice, produces something internally consistent that passes every downstream
-check and answers a different question. `PROJECT_PLAN.md` §11.2 is the instance
-that already cost this project a headline number.
+check and answers a different question. **This has already cost this project a
+headline number once.**
 
 The groups are:
 
@@ -117,7 +117,7 @@ def test_a_renamed_column_raises_instead_of_shifting_values():
 
     Located positionally, a renamed or reordered column moves every value one
     place and the series still parses, is still monotone, and is still wrong.
-    ``PROJECT_PLAN.md`` §11.4 records the underscore-for-hyphen version: a column
+    The underscore-for-hyphen version of this has happened here: a column
     name that silently dropped.
     """
     payload = [["Fecha", "Compra", "Vta"], ["22/04/2025", "1,0", "2,0"]]
@@ -147,8 +147,7 @@ def test_a_header_with_no_rows_is_empty_rather_than_an_error():
     MEP begins in March 2020, so the 2019 half of the window is legitimately
     empty. Raising here made the fetcher retry forever something that will never
     arrive -- the same shape as ``fetch_hmda.py`` judging every complete file
-    truncated (``PROJECT_PLAN.md`` §11.3): the script's own convention mistaken
-    for evidence about the data.
+    truncated: the script's own convention mistaken for evidence about the data.
     """
     assert parse_rows([["Fecha", "Referencia"]], ONE_SIDED) == []
 
@@ -257,8 +256,8 @@ def test_within_day_dispersion_is_not_reported_as_a_day_over_day_jump():
     """**A guard bug the first real run exposed.**
 
     Run on uncollapsed rows, the scan produced findings whose ``previous_date``
-    equalled their own ``date``. ``PROJECT_PLAN.md`` §11.11 rule 2: a guard must
-    compare the quantity that is actually reported, and here that is daily.
+    equalled their own ``date``. **A guard must compare the quantity that is
+    actually reported**, and here that is daily.
     """
     rows = _rows([
         ("2024-08-20", 953.00),
@@ -354,8 +353,8 @@ def test_the_three_naming_schemes_are_distinguishable():
 def test_a_non_conforming_name_is_not_recognised(name):
     """``VALID_NAME`` is why nothing ever has to be deleted.
 
-    ``PROJECT_PLAN.md`` §11.1: the loader recognises what it should read, so a
-    stray file is left in place rather than removed.
+    The loader recognises what it should read, so a stray file is left in place
+    rather than removed.
     """
     assert not VALID_NAME.match(name)
 

@@ -79,7 +79,7 @@ answer because the objection will be raised again.
 
 The objection is that a modification re-contracts the loan by definition, so of
 course the terms differ afterwards, so of course the loop sum is non-zero, so the
-stage reads a tautology in the manner `PROJECT_PLAN.md` §11 records for A3-3.
+stage reads a tautology in the manner already recorded for A3-3.
 
 **The identity runs the other way.** `b1_setup.md` §3: *a gradient field returns
 zero on every loop, in every metro, in every year, by identity.* If `ω` were the
@@ -153,8 +153,8 @@ UPB, remaining months to maturity)`, discounted on a common curve, plus fees pai
 in the transition, less any principal forgiven.
 
 **Fixed here, before any row is read.** Each is a number that would otherwise be a
-free parameter, and `PROJECT_PLAN.md` §1's rule is that a number without a source
-is a calibration and cannot support a rejection.
+free parameter, and **a number without a source is a calibration and cannot
+support a rejection.**
 
 | choice | fixed value | source |
 |---|---|---|

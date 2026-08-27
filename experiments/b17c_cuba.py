@@ -240,8 +240,7 @@ def run():
                "null_eigenvalues": [float(x) for x in nul],
                "diagnostic_only": True,
                "diagnostic_reason": "B17c second-country replication; the "
-               "station is not closed until the reading is written into "
-               "B17_结果_v1.md"},
+               "station is not closed until the reading is written up"},
               open(OUT, "w", encoding="utf-8", newline="\n"),
               indent=2, sort_keys=True, default=float)
     print("\n  wrote %s" % os.path.relpath(OUT, ROOT))

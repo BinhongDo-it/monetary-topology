@@ -349,8 +349,8 @@ criterion B5-10 computes the headline with and without.
 **No completion marker, unlike `fetch_cip.py`.** A truncated CSV still parses as
 a CSV, which is why that script appends a sentinel. A truncated JSON array does
 not parse, and the write goes through a temporary file and a rename, so a chunk
-on disk is either wholly there or absent. Both hashes are still recorded, for the
-reason `PROJECT_PLAN.md` §11.11 gives.
+on disk is either wholly there or absent. Both hashes are still recorded, because a guard that cries on every run is as
+useless as one that never cries.
 
 ### Background only, and the line between the two categories
 
@@ -642,3 +642,621 @@ fetching tool that returns a summary rather than the page, which is sound about
 what exists and unsound about numbers: one such read reported a value for
 31 August 2026, a date that has not happened. **No Bolivian number is recorded in
 this project.**
+
+---
+
+## B21: A+H dual listings
+
+### The pair list
+
+`data/raw/b21/aastocks_ah.html`, fetched by `experiments/b21_probe.py` from
+`https://www.aastocks.com/en/stocks/market/ah.aspx`. One page, no pagination.
+Download date is the file's own mtime; the page is a live snapshot and carries no
+date of its own, which is why the probe prints the prices it read rather than
+only the counts.
+
+Columns present: company name, Hong Kong code as `NNNNN.HK`, last in HKD, Hong
+Kong percent change, mainland code as `NNNNNN.SH` or `NNNNNN.SZ`, last in CNY,
+mainland percent change, and a premium column.
+
+**The premium column is not used and must not be.** It is signed the other way
+round from this project's convention -- it reads the Hong Kong price against the
+mainland one, so it prints negative where the A share is dearer -- and it applies
+an exchange rate this file does not disclose. Two different definitions of the
+same word in one column is what discipline 18c forbids. **The premium is
+recomputed from the two price columns and an exchange rate named here.**
+
+**Two exchange rates are needed and they are different objects.** The onshore
+rate and the offshore rate are what the two agent classes respectively face, and
+the whole measurement is the difference between the classes. **They may not
+share a column.** The probe uses a single constant for the FX leg only because
+that leg contributes under 3 basis points to the resolution floor; **the panel
+may not.**
+
+### Ticker suffixes, since the mapping is not the obvious one
+
+The page writes Shanghai as `.SH`. Most price sources write it `.SS`. Shenzhen
+is `.SZ` in both. A mapping written from the page's own suffix will silently miss
+every Shanghai name, and Shanghai is the larger half.
+
+### The Hong Kong tick, which changed twice and is not in any price file
+
+Read from the exchange rulebook, not from data:
+
+| effective | band | tick before | tick after |
+|---|---|---|---|
+| 2025-08-04 | HKD 10 to 20 | 0.020 | 0.010 |
+| 2025-08-04 | HKD 20 to 50 | 0.050 | 0.020 |
+| 2026-08-03 | HKD 0.50 to 10 | 0.010 | 0.005 |
+
+Source: HKEX consultation conclusions of December 2024 and the Reduction of
+Minimum Spreads page. **The mainland tick did not change and is a flat 0.01 yuan
+at every price.** So both dates are a step in the instrument on one leg only.
+**A window that spans either date reads that step, and it looks like a structural
+change.**
+
+### Files on disk that are not data
+
+`_synth.html.synthtest` and `_synth_bad.html.partial` are the synthetic pages the
+parser was unit-tested on before anything was fetched. They are kept rather than
+removed, under the rule that nothing under `data/` is deleted. The loader ignores
+them: it reads one named path and nothing else.
+
+### What the price column carries, settled by 373 split events
+
+**The saved `Close` is split-adjusted and dividend-unadjusted.** That is exactly
+the treatment this stage needs, and it is what the files carry.
+
+The evidence is `--splits`, which prints the one-day price step beside every
+split event on disk. **The step sits at one at every event, while the reported
+split factor runs from 0.1 to 5.0:**
+
+| split factor | events | observed step |
+|---|---|---|
+| 0.100 (a one-for-ten consolidation) | 4 | 1.000 to 1.002 |
+| 1.100 to 1.300 | many | around 1.00 |
+| 2.000 | several | 0.944 to 1.012 |
+| 3.000 | 7 | 0.835 to 1.008 |
+| 3.800 | 1 | 1.091 |
+| 5.000 | 1 | 0.847 |
+
+A price that does not move on a five-for-one split has already had the split
+taken out of it. **373 events, no step at any of them.**
+
+`--adjcheck` gives the other half: on `0168.HK` at the start of 2015,
+`auto_adjust=False` returns `Close = 52.4500` against `Adj Close = 39.9224`, and
+`auto_adjust=True` returns `39.9224`. The gap between the two is dividends, and
+`Close` is on the near side of it.
+
+**So the columns are already right for the two opposite requirements.**
+
+- A **split** is simultaneous on the two legs by charter. It has to be out of the
+  price, or the ratio of the two legs jumps by the whole factor on one day. **It
+  is out.**
+- A **dividend** is not simultaneous: the legs go ex on different dates and are
+  taxed differently. Taking it out would **invent** a premium move on each leg's
+  own ex-date. **It is still in.**
+
+The `Stock Splits` and `Dividends` columns are kept anyway, and a file saved
+without `Stock Splits` is refused and refetched, because without them nothing on
+disk can be used to check this again.
+
+### Two statements this file carried for an hour, and what overturned them
+
+Written here rather than left as a strikethrough, because a machine reading this
+file cannot see a line through text and would take both versions as live.
+
+**Withdrawn: "the saved `Close` is the raw close".** It is raw of dividends and
+not of splits. `--adjcheck` alone cannot tell the two apart, because the ticker
+it sampled had a dividend and no split in the window.
+
+**Withdrawn: "with a raw close, splits are not adjusted away, and the ratios just
+under the threshold are the size an ordinary bonus issue has".** The run of
+`2.89, 2.17, 2.17, 2.02, 2.01, 1.96, 1.94` is not a population of unadjusted
+splits. Every split on disk shows a step of one, so those steps are something
+else and remain unexplained; they are under the cut and stay in.
+
+**What overturned both was printing the object.** The step scan compared a number
+against a threshold and produced a plausible story either way. The split report
+put the reported factor and the observed step side by side, and one look settled
+it. **The first version of that report also carried a threshold, and it was
+broken in a way worth recording**: it tested `|step / factor - 1| < 0.25`, which
+at a step of one passes for factors of 1.1, 1.2 and 1.3 and fails for 1.5, 2.0
+and 3.0. It reported 122 matches against 251 mismatches where there was a single
+population, sorted in two by the size of the split rather than by anything about
+the data. That threshold is gone.
+
+### The offshore exchange rate, and why the panel starts in 2013
+
+`data/fetch_ah_panel.py --fx` tried five candidates. **Only one returns a
+series:**
+
+| candidate | rows | range |
+|---|---|---|
+| `CNH=X` | 1 | one day |
+| `USDCNH=X` | 1 | one day |
+| **`CNH=F`** | **3,293** | **2013-02-11 onward** |
+| `CNHUSD=X` | 1 | one day |
+| `USDCNH` | - | not found |
+
+Three things about `CNH=F` that have to travel with it.
+
+1. **It is a futures series, not a spot rate.** It carries basis. That is
+   immaterial to the resolution floor, where the exchange-rate leg contributes
+   under three basis points, and it is **not** immaterial to a premium computed
+   from it. It may not be described as spot.
+2. **Coverage begins 2013-02-11, and the missing years are not a gap.** The
+   offshore market itself dates from 2010, so there is no offshore rate to be
+   missing before then. **Every dated event in this stage falls inside the
+   coverage**: both Connect launches, 2014-11-17 and 2016-12-05, and both tick
+   reductions, 2025-08-04 and 2026-08-03.
+3. **The onshore rate may never stand in for it.** The difference between the two
+   rates is the difference between the two classes, and that difference is the
+   measurement. A run that cannot obtain the offshore leg has not obtained a
+   worse version of the panel; it has not obtained the index half at all.
+
+**The panel therefore starts 2013-02-11** for anything that needs the offshore
+leg, which is everything with a class index in it. The price files themselves
+reach back to 2006 and are kept whole.
+
+### The H-leg dividend column carries two conventions, and where they part
+
+**Before 2014 the vendor's H-leg dividend is the A-leg dividend times a fixed
+1.166**, whatever the exchange rate was doing. Over the same span the measured
+HKD-per-CNY rate ran from 0.973 to 1.267, so the constant is not a rate. From
+2014 it stops: the share of matched pairs sitting on it exactly falls from 78.1%
+in 2013 to 5.6% in 2014, and stays in low single figures after.
+
+This is discipline 18c's case exactly, two conventions in one column, and the
+column had been read as one. The older convention is rebuilt from the A-leg
+amount and the rate on the A-leg ex-date, both already on disk, by
+`experiments/b21_div_align.py --write`.
+
+**The residual pins after 2014 are not survivals of the old convention.** They
+cluster in the years the true rate crossed 1.166 (2016 at 17.1%, 2022 at 6.3%),
+where a real conversion and the stale constant are the same number. Those are
+false positives and they cost nothing by construction: the flag can only fire at
+1.166, so where the conversion was real the rate was 1.166 and the rebuilt amount
+is the amount. Measured, the rebuild moves the amount by 0.4% in 2016 and 0.5% in
+2022, against 16.6% in 2006 and 8.7% in 2013. **The error the flag can introduce
+is bounded by the same distance that makes it detectable.**
+
+**Effect on the class index: one tenth of a basis point on the H-leg median**
+(30.4 to 30.5) and no change to any coefficient of the known-answer arm. That the
+arm does not move is not luck. Its ratio carries the same yield above and below
+and they cancel to first order, which is why the arm was chosen to sit on a
+statutory rate rather than an estimated one.
+
+#### Matching the two legs, and why there is no tolerance band in it
+
+Pairing a payment on one leg with its partner on the other cannot be done by
+calendar year. Anhui Expressway pays H holders two to three months before A
+holders, and in 2006 the A leg carries two payments to the H leg's one.
+
+Nearest-date is also wrong, and its failure is not a mislabelled row. It hands
+the single 2006 H payment to the March A payment at an implied 0.901, and the H
+payment's real partner is the July one at exactly 1.166. **The wrong match steals
+the payment from the pair that needed rebuilding**, so the cost is a dropped
+correction rather than a bad ratio.
+
+Three tolerance bands were tried before the matching rule was looked at: a fixed
+0.90 to 1.40, then eight per cent against the measured rate, then a percentile of
+the drift the rate itself shows over the gap. **The third one is what settled the
+question, by failing usefully.** Sorted, the excess of the implied ratio beyond
+the range the rate actually took runs
+
+    0.013  0.015  0.020  0.027  0.035  0.046  0.059  0.082  0.110  0.124  0.187
+
+and on up to 9.14 without a break. A continuous tail has no place to cut, so
+every cut would have been the analyst's rather than the data's, which is what
+discipline 11 forbids.
+
+What replaced all three is an ordering, not a threshold. Candidates are scored by
+how near the implied ratio comes to something a ratio between these legs can be,
+either the constant or the range the rate took over the span, and the
+best-scoring pair in the company is settled first. Anhui's July pair scores zero
+and leaves the pool before the March candidate at 0.901 is considered at all.
+**No pair is dropped for its score**; the score is a column in
+`data/cache/b21_dividends_paired.csv` and a reading that needs a clean subset
+cuts it itself. The one flag that decides anything, the rebuild, is an exact
+match on a constant.
+
+Yield: 1,843 pairs over 164 companies, 68.9% scoring exactly zero, 765 A-leg and
+399 H-leg payments left unpartnered and reported rather than folded into a year.
+
+#### One direction error inside this, worth its own line
+
+`fx_daily` first returned CNY per HKD and left each caller to invert it. Of the
+two callers one did and one did not, so the test compared a HKD-per-CNY ratio
+against a CNY-per-HKD rate and rejected 1,515 correct pairs out of 1,840. Both
+spellings are defensible and that is the whole problem: nothing in a program can
+tell which way a bare float points. **The direction now lives in one function
+with a name in it and is inverted nowhere else.** Same shape as discipline 22.
+
+#### The two legs do not carry the same splits, and the dividend column is adjusted for them
+
+The saved dividend is divided by every split that came after it. **The two legs
+of a dual listing do not always carry the same splits**, so the ratio of the two
+saved amounts is the ratio the company declared times the ratio of the two
+adjustment factors, and nothing in either file says so.
+
+18 of 1,843 pairs have legs whose factors differ. Multiplying each amount back by
+its own factor, so that the comparison is between declared amounts, moves 17 of
+the 18 nearer the constant and one further. **Eight land on 1.166 exactly**, and
+an exact landing on a sharp target is not something a wrong correction does by
+luck: Shanghai Petrochemical reads 1.749 uncorrected across six years, which is
+1.166 times the 1.5 its A leg carries and its H leg does not.
+
+**Within one leg this cancels and cannot matter.** The class index divides a
+dividend by a price and the saved price carries the same factor, so it is
+invariant by algebra rather than by measurement. The correction is only ever
+about comparing the two legs.
+
+**A split on the payment's own day is counted, and this was settled against the
+published record rather than assumed.** 307 payments fall on the day of a split,
+because a Chinese capitalisation and its cash dividend go ex together, so this is
+the ordinary case rather than a boundary one.
+
+The ruler is the declaration itself. A Chinese cash dividend is announced per ten
+shares to two or three decimals, so undoing the adjustment correctly lands on
+that grid and undoing it wrongly does not. Of the 238 A-leg payments that fall on
+a split date, counting the same-day split puts **209 on the grid against 134**.
+
+**An earlier attempt to settle the same question against the 1.166 constant
+separated the two conventions by one pair and settled nothing.** A constant that
+300 pairs already sit on is not sensitive to a factor of 1.2 in twenty of them;
+the declaration grid is, because it is a property of every payment rather than of
+a subset. **The weaker test was not wrong, it was blunt**, and the tell was that
+it returned 309 against 308 where a real effect was worth eighty.
+
+#### The A-leg dividend column is not always on one adjustment basis
+
+Undoing the adjustment leaves **180 of 2,608 A-leg payments (6.9%) off the
+declaration grid, touching 52 of 191 legs**. Those payments are not on a
+consistent basis, and the factor required to put them back varies year to year
+within one company, so no single missing or spurious split explains them.
+
+**Neither load-bearing reading moves.** Splitting the class index by whether a
+leg-year contains an off-grid payment:
+
+| | n | index median | index min | arm ratio median | arm ratio max |
+|---|---|---|---|---|---|
+| A leg, on the grid | 2,129 | 14.8 bp | 0.1221 | 0.9859 | 0.9999 |
+| A leg, off the grid | 168 | 14.4 bp | 0.4081 | 0.9863 | 0.9996 |
+
+**The arm is immune and it is worth saying why**, because the reason was
+predicted before the split was run. A wrong factor on the dividend scales the
+yield, and the arm reports the observed gap over a prediction that is itself a
+function of that same yield. A scaled yield moves a point **along** the curve
+rather than off it. This is the second time the arm has been insensitive to a
+defect in its own inputs, after the pre-2014 rebuild, and both times the
+insensitivity followed from the algebra rather than from luck.
+
+#### ZTE, and what the published record says about which leg is wrong
+
+ZTE's uncorrected ratio reads 2.099 in 2006, 2007 and 2008 alike. Its declared
+cash dividends per ten shares are on the public record: **2.5, 1.5, 2.5, 3, 3, 3,
+2** for 2006 through 2012, with capitalisations of 4, 3, 5 and 2 per ten shares in
+2008, 2009, 2010 and 2011. Testing each leg against those:
+
+| ex-date | declared | factor the A column needs | A leftover | factor the H column needs | H leftover |
+|---|---|---|---|---|---|
+| 2006-07-14 | 2.50 | 7.0761 | **1.5000** | 3.9315 | 1.0001 |
+| 2007-07-27 | 1.50 | 7.0761 | **1.5000** | 3.9316 | 1.0001 |
+| 2008-07-10 | 2.50 | 5.0544 | **1.0714** | 2.8083 | 1.0001 |
+| 2009-06-05 | 3.00 | 3.3696 | 1.0000 | 2.1602 | 1.0001 |
+| 2010-06-24 | 3.00 | 3.8880 | **1.5000** | 1.2623 | **0.8766** |
+| 2011-07-07 | 3.00 | 1.4400 | 1.0000 | 1.4047 | 0.9755 |
+| 2012-07-18 | 2.00 | 1.2000 | 1.0000 | 1.2001 | 1.0001 |
+
+**The H column reproduces the declarations to one part in ten thousand in five of
+the seven years**, using the splits already in its own file and the 1.166
+convention. 2011 reads 0.9755 because that is the year the constant gives way to
+a real conversion, and 1.166 over the 1.203 the rate stood at is 0.969.
+
+**The A column reproduces them in none of the seven** without an extra factor
+that changes from year to year: 1.5, 1.5, 15/14, 1, 1.5, 1, 1. A single missing
+split would give one factor in every year before its date and one after. **This
+is not that, so the A column for this company is not on one basis.**
+
+**This inverts the assumption the section was written under.** The stale 1.166
+column looked like the fabricated one and the native A column like the reliable
+one, and the published record says the reverse for this company: the fabricated
+column is arithmetically faithful to what was declared, and the native one is
+not. **A column being computed rather than reported says nothing about whether it
+is right.**
+
+2010 is the one year neither leg reproduces, at 1.5 on the A side and 0.8766 on
+the H side, and no product of any split in either file gives either number. It
+stays named.
+
+## Stage C1: IPCC global warming potentials, every assessment report
+
+`https://raw.githubusercontent.com/openclimatedata/globalwarmingpotentials/d3cb48938de7ec35d2f6a0d8072237e6a0db6ce7/globalwarmingpotentials.csv`,
+retrieved 2026-08-27, CC0-1.0, 6,744 bytes, sha256 `9b80412c...2454f36`, 105
+species. Pulled by `data/fetch_gwp.py`, which pins the commit rather than
+`main` and refuses to write a file that disagrees with the recorded hash. The
+manifest is committed at `data/raw/gwp/gwp_manifest.json`; the CSV itself is
+not, on the same footing as every other raw file here, and the fetcher rebuilds
+it in a second.
+
+Primary sources are named in the CSV's own comment header rather than
+paraphrased here: GHG Protocol calculation tools for SAR, AR4 and AR5; IPCC TAR
+chapter 6 table 6.7; AR5 chapter 8 supplementary table 8.SM.16 for the
+climate-carbon-feedback variant; AR6 chapter 7 supplementary table 7.SM.7.
+
+### What a GWP is, in this stage's terms
+
+A GWP is not a measurement of a gas. It is a **declared conversion**: under
+standard `s`, one tonne of species `a` is to be counted as `GWP_s(a)` tonnes of
+CO2-equivalent. The declaration is executable, because compliance schemes offset
+against it, so it is an exchange rate in the operative sense and not only in the
+metaphorical one. That is why this table is a carrier at all.
+
+### Eleven columns are eleven definitional bases, and they never share one
+
+The recording convention above says numbers on different bases must not sit in
+one column. This table is the case where that rule is the object under study
+rather than a precaution around it, so the bases are enumerated:
+
+| column | horizon | assessment report | what distinguishes it |
+|---|---|---|---|
+| `SARGWP100` | 100 yr | SAR, 1995 | still the basis under some national inventories |
+| `TARGWP100` | 100 yr | TAR, 2001 | |
+| `AR4GWP100` | 100 yr | AR4, 2007 | |
+| `AR5GWP100` | 100 yr | AR5, 2013 | **without** climate-carbon feedback |
+| `AR5CCFGWP100` | 100 yr | AR5, 2013 | **with** climate-carbon feedback |
+| `AR6GWP100` | 100 yr | AR6, 2021 | |
+| `TARGWP20` | 20 yr | TAR | |
+| `AR6GWP20` | 20 yr | AR6 | the basis New York and Maryland legislate on |
+| `TARGWP500` | 500 yr | TAR | |
+| `AR6GWP500` | 500 yr | AR6 | |
+| `AR6GTP100` | 100 yr | AR6 | a **temperature** potential, not a warming one |
+
+The last row is a different quantity and not a variant reading of the same one.
+It is kept in the file because it is in the upstream table, and C1 excludes it
+from the vintage comparison for that reason.
+
+The first six are the ones that matter for the stage's main reading: same gas,
+same 100-year horizon, six published numbers. `AR5GWP100` and `AR5CCFGWP100` are
+the sharpest pair, because they are the same report.
+
+### What this file does not supply
+
+Which declarations are mutually redeemable. Registry acceptance lists,
+compliance-scheme eligibility, linkage agreements and transfer haircuts decide
+whether a loop between two standards can be walked, and they are policy
+documents rather than a dataset. C1's second half reads them separately, and
+nothing here is evidence about them.
+
+## Stage C3: provincial admission cutoffs
+
+**The stage opened on 2026-08-27 from a third route, and the account below of
+the two that did not work stays as written.** What follows immediately is what
+was collected and how; the search that preceded it, and the two routes it ruled
+out, begin at *The quantity* and are unchanged. The line in the earlier account
+that says what is missing is a source and not a method is superseded by this
+one, and only by this one: the parser, the criteria and the exclusions it
+describes are the ones that ran.
+
+### The route that worked: the tables as published, not as archived
+
+The provincial authorities publish a filing table once and then let it age off.
+The aggregate archives begin around 2020. **What sits between the two is the
+press**: the education channel of a general news site carried each province's
+table at publication time in July 2015 and kept the article, with the numbers as
+markup rather than as an image. One hub page per admission batch links a page
+per province, and the hub pages are themselves still served.
+
+**Thirty-four pages are on disk**, listed in `data/gaokao_sources.json` with the
+province, year, track and a verification of each. They reduce to a panel by
+`data/parse_gaokao_provincial.py`, which writes `data/gaokao_provincial.csv`:
+6,386 rows over fifteen provinces in the arts track and fifteen in science,
+fourteen in both, one year.
+
+| | |
+|---|---|
+| pages held | 34, of which 24 more are byte-identical duplicates the loader passes over by content hash |
+| provinces yielding a table | 16 for 2015, plus Shanxi and Henan for 2014 |
+| pages holding no article body | 5 provinces: Anhui, Hebei, Hubei, Liaoning, and Guangdong in one track |
+| pages excluded by their own title | 3: Jiangsu and Hainan supplementary rounds |
+| cross-source agreement | Shandong is published by two outlets and they agree on all 80 entries they share, in both tracks |
+
+**Supplementary rounds are excluded by name and the exclusion is printed.** A
+supplementary round refills the seats the first round left empty, so a school
+that filled in round one is absent from it and a school that did not files at or
+near the tier control line. Jiangsu's two arts pages disagree on 26 of the 43
+schools they share and the supplementary one puts 15 of them at 342, which was
+the control line that year. **They are not two readings of one quantity.** The
+test is applied to the clause of the headline that carries the score noun rather
+than to the whole string, because a main table's headline can end with a line
+announcing that supplementary filing opens on the 21st.
+
+**A machine-supplied list of candidate pages was mostly fabricated and is
+recorded as such.** Of 79 candidate addresses obtained that way, none verified;
+30 were removed as 404 and the rest failed the content check. Two more were
+correctly addressed and mislabelled, being supplementary tables presented as
+main ones, which the page titles settled. **The working division is that a
+language model supplies names and the fetcher verifies them**, and the names
+were useful while the addresses were not.
+
+**Four pipeline faults sat between the pages and the panel, every one silent**,
+and they are recorded together as failure mode 87 in `docs/MEASUREMENT.md`: the
+same fact was written twice on the object and the weaker statement was read.
+The duplicate pages, a two-level table header read as one level, a file name
+contradicting its own page title, and a keyword tested against a whole headline
+instead of its governing clause. **Each produced output in a plausible range**,
+and one of them would have made the two-track replication criterion pass at one
+hundred percent by construction.
+
+**The per-university route recorded below is kept and is not needed.** Its
+output, `data/gaokao_cutoffs.csv`, holds Tsinghua's 181 rows over 31 provinces
+for 2014 to 2016 and is an independent reading of the same quantity for one
+institution, so it remains available as a cross-check on any province whose
+provincial table is later disputed.
+
+---
+
+### The search, and the two routes that did not open it
+
+
+**The quantity.** One admission cutoff per university per province per year, in
+the era when a university had exactly one: subject-divided tracks and separate
+undergraduate batches, roughly through 2016 depending on province. **No rank and
+no normalisation are needed.** The criterion compares the ordering of two
+universities inside one province against their ordering inside another, so any
+order-preserving per-province transformation cancels, and that is what makes
+"a point costs more effort in one province" cancel with it.
+
+**Why the pre-reform era rather than the recent one.** After the reform a
+university does not have one cutoff per province, it has one per subject group.
+Representing it by the minimum across its groups is biased in a way that
+manufactures the finding: an institution offering twelve groups has more
+chances at a low minimum than one offering two, so reversals would appear
+between institutions of different sizes for a reason that has nothing to do
+with the question. The earlier regime has no such degree of freedom, and it has
+every province on one footing in the same year.
+
+**What was found, 2026-08-27.**
+
+| source | reachable | what it carries |
+|---|---|---|
+| `eol.cn` rank-table channel | yes, 200 to a plain request | 2026 only; tables published as CMS images, no numeric markup |
+| `eol.cn` score-line channel | yes | 2020 to 2026; nothing earlier |
+| `gaokao.eol.cn` provincial channels | yes | nine links dated before 2018, all editorial prose, no tables and no attachments |
+| `gaokao.cn` and its static bucket | no | 403 to a scripted request, which is a bot control and is left alone |
+| `gaokao.chsi.com.cn` | no | 412 |
+| provincial authorities, five sampled | three of five | Jiangsu and Henan serve cutoff tables as PDF attachments; Hebei resets the connection; Hunan fails the TLS handshake |
+
+**Why this is not opened.** The aggregate archive begins around 2020, which is
+after the era the quantity is defined in, so the remaining route is one
+authority at a time for material roughly a decade old. **Coverage loss on that
+route is quadratic in effect, not linear**: the criterion is a comparison of one
+pair of universities across one pair of provinces, so a province that cannot be
+retrieved removes every pair involving it rather than one observation. Two of
+five authorities already refuse a plain connection on their current pages, and
+the gaps would concentrate in those provinces rather than spread.
+
+**A source was then found, by inverting who is asked.** The panel was being
+sought from the thirty-one provincial authorities, one table per province per
+year. The other holder of the same numbers is each **university**, which
+publishes its own cutoffs by province and year on its admissions site and has a
+standing reason to keep that archive. That turns thirty-one large sources, two
+of five refusing a plain connection, into a hundred small independent ones.
+
+**Verified 2026-08-27, three sampled.** Tsinghua serves it: the index at
+`join-tsinghua.edu.cn/xxgk/lnlqfsx.htm` links a page per year back to **2009**,
+and the 2016 page carries **31 provinces, science and arts split, batch
+identified, as selectable text** (Anhui 682/644, Beijing 680/679, Fujian
+668/630, Gansu 671/618, Guangdong 671/631). **Every field the design needs is
+there and 2009 to 2016 is entirely inside the window where a university has one
+cutoff per province.** Peking University's index at
+`bkzs.pku.edu.cn/xxgk/lqfsx/index.htm` returns metadata only, its content being
+rendered client-side. Shanghai Jiao Tong serves its archive from a query-string
+column view of another shape.
+
+**So the route works and is not uniform: one of three sampled is a plain fetch.**
+That is the honest ratio to plan against, and it does not decide the stage,
+because the criterion needs enough universities to form pairs rather than a
+particular list. Tsinghua alone supplies 31 provinces across 8 pre-reform years,
+and a few dozen institutions on the same footing give several hundred university
+pairs. **The collection rule is therefore to take the ones that serve text and
+stop when the count of reversals stops moving**, not to complete a roster.
+
+**Pilot run on Tsinghua, 2026-08-27, and the pipeline closes end to end.**
+The index links eight pre-reform years. Three of them, 2014 to 2016, carry the
+figures as text in the page: a bracketed section per admission channel, and
+inside the general first-batch one a line per province reading
+`province: science NNN; arts NNN`. Parsed, they give **181 rows across 31
+provinces and both tracks**, and the 2016 values agree character for character
+with an independent reading of the live page. The table ships as
+`data/gaokao_cutoffs.csv`.
+
+**Three things the pages do that a parser written from a description would miss,
+each found by reading the saved file rather than the site.** The section title
+is `一批录取分数线` in 2014 and 2015 and `一批统招录取分数线` in 2016, so it is
+matched on two substrings and not on a string. On the 2015 page that title also
+appears inside a `meta` description, so the head is dropped before the scan or
+the first hit carries no data. And a province line carries other channels
+inline, `安徽：理科689分；文科675分；理科定向683分`, so the score pattern requires
+the digits to follow the track label immediately, which keeps directed and
+military places out.
+
+**The earlier years are a different quantity and are excluded rather than
+folded in.** 2009 to 2013 hang their figures off a workbook, and that workbook
+is by major, giving highest, lowest and mean per major per province. A minimum
+over majors approximates an institution's lowest admitted score, which is not
+the cutoff at which files are released. Two quantities, so not one column.
+
+**Extending the roster is where this stops, and the sample says why.** Six
+institutions of the same tier were checked, and one of them serves what this
+needs.
+
+| institution | outcome |
+|---|---|
+| Tsinghua | **serves it**: eight pre-reform years indexed, three of them as text in the page |
+| Peking | index renders client-side; the fetched document carries metadata only |
+| Shanghai Jiao Tong | archive served from a query-string column view of another shape |
+| Zhejiang | archive holds three years, 2023 to 2025, all after the reform |
+| Science and Technology of China | index redirects to a second application that loads its figures by script |
+| Nanjing | archive served from a single-page application path |
+
+**The failures are structural rather than incidental**: a script-rendered
+archive and a three-year retention window are both properties of how a site is
+built and kept, so sampling further institutions would not be expected to
+improve the ratio much. **Tsinghua is the exception here and not the template**,
+and the plan of one page per university does not hold at the scale the criterion
+needs.
+
+**One institution yields no pairs at all.** The criterion compares the ordering
+of two universities inside one province against their ordering inside another,
+so a single institution produces a table and no reading. **The stage needs a
+second source before it produces anything, and that is the binding constraint,
+not the volume of rows.**
+
+**Third-party compilations carry the same panel and one of them was checked.**
+A per-school, per-province historical view exists on a consumer site, and
+Tsinghua's own three parsed years would have served as a calibration key: a
+compilation that reproduces them character for character could then be trusted
+for institutions whose own sites do not serve their archives. That check was not
+completed, because the page is behind a puzzle verification, and **access
+controls of that kind are not worked around here**.
+
+**So the hold is unchanged in kind and better specified.** What opens the stage
+is a second and third institution whose own site serves pre-reform per-province
+cutoffs as text, or a compilation obtained without circumventing an access
+control, which Tsinghua's 181 parsed rows can then verify before anything is
+built on it. **The parser, the criteria and the exclusions are written and
+tested**, so what is missing is a source and not a method.
+
+**Superseded 2026-08-27 by the route recorded at the head of this section.** The
+panel came from the contemporaneous press rather than from a second institution
+or a compilation, and no access control was circumvented to get it. The sentence
+above about what was missing was right about the method and wrong about where
+the source would be found: it was looking at who holds the numbers now, and the
+numbers were published once, in public, and kept by whoever reported them.
+
+## Depositary receipts and their home lines: an availability probe, nothing bought
+
+`data/fetch_adr_availability.py`, written 2026-08-27, **not yet run**: the two
+machines this session had reach the price source through a tunnel that returns
+`403`, so the probe has to run where the rest of the panel was fetched.
+
+**The question it answers is one question.** Does the price source already in use
+for the A and H panel carry both legs of a depositary-receipt pair, over what
+span, with dividends exposed. Thirty-two pairs are declared in the file, one or
+two per treaty country, each an ordinary receipt against its home line at
+London, Zurich, Copenhagen, Frankfurt, Paris, Amsterdam, Tokyo, Madrid, Milan,
+Sao Paulo, Mumbai, Sydney, Toronto, Oslo and Seoul.
+
+**Why the pair is chosen this way.** Both holders in the class pair are of the
+same country, so they face one treaty rate and **the statutory term is exactly
+zero by construction rather than by subtracting two numbers**. What is left in
+the square is the return difference between two listings of one claim, which
+arbitrage bounds by the published conversion cost on an interconvertible pair
+and does not bound at all on A against H.
+
+**Resumable and non-destructive.** Each ticker caches under
+`data/raw/adr_probe/` and a cached file is not refetched. An unparseable payload
+is renamed with a `.partial` suffix and left in place, so a rerun sees it.
+Five years of daily bars for sixty-four tickers, and it buys nothing.

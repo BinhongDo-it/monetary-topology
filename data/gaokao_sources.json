@@ -1,0 +1,1170 @@
+{
+ "_comment": [
+  "One row per (province, year, track) page carrying a provincial parallel-",
+  "volunteer filing table for the first undergraduate batch. Compiled by hand.",
+  "",
+  "`verified` is set only for a URL that was fetched and seen to carry the",
+  "table; every other row is a candidate. The parser refuses to sweep an",
+  "unverified row, because a page that answers with something else would be",
+  "recorded as a province with a short list rather than as a wrong page.",
+  "",
+  "`track` is `science`, `arts`, or `both` when one page carries both.",
+  "",
+  "Cross-check that licences this source: Sina's Henan 2016 science table gives",
+  "Tsinghua 685, and Tsinghua's own admissions site gives 685 for Henan 2016",
+  "science. Two independent publications, one number, exact agreement.",
+  "",
+  "43 candidates added 2026-08-27 from a search pass run elsewhere. Every one carries verified:false until it has been fetched and seen. A candidate list is a list of things to check, and an article id is exactly the kind of string that reads as real whether or not it is.",
+  "",
+  "The 2015 rows come from one Sina hub page listing every province's tables, which is a far better object than a list of individual urls: if such a hub exists for 2015 it very likely exists for 2014 and 2016.",
+  "",
+  "`quantity` separates three things that must not share a column: `filing` is the score at which files are released, `filing_rank` is that plus a published rank, and `admitted_min` is the lowest score actually admitted, which some provinces publish instead. Within one province either supports an ordering, but one province must not be read on one basis in one year and the other in the next.",
+  "",
+  "`tier` records a subdivision inside the first batch, since several provinces split it into lettered tiers or volunteer groups and only the main one is taken.",
+  "",
+  "Excluded from the same hub and named so the exclusions are auditable: every supplementary round, every arts, sports, music and fine-art table, the early batch, the simulated filing runs, and a page covering six institutions.",
+  "",
+  "31 candidate urls answered 404 and were removed. They came from a search pass run elsewhere and an article identifier is exactly the kind of string that reads as real whether or not it is; the count is kept here because it is the finding, and the urls are not because they point at nothing.",
+  "",
+  "Reconciled 2026-08-27 against the directory and against the panel, by",
+  "`data/gaokao_sources.json`'s own reconciliation step. Two fields are",
+  "derived and are rewritten on each run rather than maintained by hand:",
+  "`on_disk` is the file stem holding this page or false, and `in_panel` is",
+  "whether any row in `data/gaokao_provincial.csv` came from it.",
+  "",
+  "A row can be on disk and out of the panel for two stated reasons, and",
+  "both are printed by the parser rather than assumed. The page carries no",
+  "article body, which is five provinces here; or its own title says it is a",
+  "supplementary round, which is three pages.",
+  "",
+  "The fetcher wrote every page twice, once under `<province>_<year>_<track>`",
+  "and once under `<province>_<year>`, so the directory holds more files than",
+  "there are pages. The loader passes over the duplicates by content hash and",
+  "names the ones it skipped. Nothing was removed from disk.",
+  "",
+  "Reconciled 2026-08-27 against the directory and against the panel, by",
+  "`data/gaokao_sources.json`'s own reconciliation step. Two fields are",
+  "derived and are rewritten on each run rather than maintained by hand:",
+  "`on_disk` is the file stem holding this page or false, and `in_panel` is",
+  "whether any row in `data/gaokao_provincial.csv` came from it.",
+  "",
+  "A row can be on disk and out of the panel for two stated reasons, and",
+  "both are printed by the parser rather than assumed. The page carries no",
+  "article body, which is five provinces here; or its own title says it is a",
+  "supplementary round, which is three pages.",
+  "",
+  "`title_track` appears only where the page's own title states a track other",
+  "than the one in the file name, and the title is the authority. Guangdong",
+  "is the case: the file named for arts is titled for science and supplies",
+  "the science column, while the file named for science holds no table. A",
+  "reader of `in_panel` alone would conclude Guangdong's science table is",
+  "missing when it is present under the other name.",
+  "",
+  "The fetcher wrote every page twice, once under `<province>_<year>_<track>`",
+  "and once under `<province>_<year>`, so the directory holds more files than",
+  "there are pages. The loader passes over the duplicates by content hash and",
+  "names the ones it skipped. Nothing was removed from disk.",
+  "",
+  "Reconciled 2026-08-27 against the directory and against the panel, by",
+  "`data/gaokao_sources.json`'s own reconciliation step. Two fields are",
+  "derived and are rewritten on each run rather than maintained by hand:",
+  "`on_disk` is the file stem holding this page or false, and `in_panel` is",
+  "whether any row in `data/gaokao_provincial.csv` came from it.",
+  "",
+  "A row can be on disk and out of the panel for two stated reasons, and",
+  "both are printed by the parser rather than assumed. The page carries no",
+  "article body, which is five provinces here; or its own title says it is a",
+  "supplementary round, which is three pages.",
+  "",
+  "`title_track` appears only where the page's own title states a track other",
+  "than the one in the file name, and the title is the authority. Guangdong",
+  "is the case: the file named for arts is titled for science and supplies",
+  "the science column, while the file named for science holds no table. A",
+  "reader of `in_panel` alone would conclude Guangdong's science table is",
+  "missing when it is present under the other name.",
+  "",
+  "The fetcher wrote every page twice, once under `<province>_<year>_<track>`",
+  "and once under `<province>_<year>`, so the directory holds more files than",
+  "there are pages. The loader passes over the duplicates by content hash and",
+  "names the ones it skipped. Nothing was removed from disk.",
+  "",
+  "Reconciled 2026-08-27 against the directory and against the panel, by",
+  "`data/gaokao_sources.json`'s own reconciliation step. Two fields are",
+  "derived and are rewritten on each run rather than maintained by hand:",
+  "`on_disk` is the file stem holding this page or false, and `in_panel` is",
+  "whether any row in `data/gaokao_provincial.csv` came from it.",
+  "",
+  "A row can be on disk and out of the panel for two stated reasons, and",
+  "both are printed by the parser rather than assumed. The page carries no",
+  "article body, which is five provinces here; or its own title says it is a",
+  "supplementary round, which is three pages.",
+  "",
+  "`title_track` appears only where the page's own title states a track other",
+  "than the one in the file name, and the title is the authority. Guangdong",
+  "is the case: the file named for arts is titled for science and supplies",
+  "the science column, while the file named for science holds no table. A",
+  "reader of `in_panel` alone would conclude Guangdong's science table is",
+  "missing when it is present under the other name.",
+  "",
+  "The fetcher wrote every page twice, once under `<province>_<year>_<track>`",
+  "and once under `<province>_<year>`, so the directory holds more files than",
+  "there are pages. The loader passes over the duplicates by content hash and",
+  "names the ones it skipped. Nothing was removed from disk."
+ ],
+ "pages": [
+  {
+   "check": {
+    "bytes": 148101,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 83,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 351
+   },
+   "headline": "2015上海高考一本批次各校投档分数线(文科)",
+   "in_panel": true,
+   "on_disk": "上海_2015_arts_sina",
+   "province": "上海",
+   "quantity": "filing",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-17/1653478318.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 157103,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 136,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 530
+   },
+   "headline": "2015上海高考一本批次各校投档分数线(理科)",
+   "in_panel": true,
+   "on_disk": "上海_2015_science_sina",
+   "province": "上海",
+   "track": "science",
+   "url": "https://edu.sina.com.cn/gaokao/2015-07-17/1700478320.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 157103,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 136,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 530
+   },
+   "headline": "2015上海高考一本批次各校投档分数线(理科)",
+   "in_panel": true,
+   "on_disk": "上海_2015_science_sina",
+   "province": "上海",
+   "quantity": "filing",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-17/1700478320.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 177612,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 119,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 605
+   },
+   "headline": "2015北京高招本科一批高校录取最低分数(文)",
+   "in_panel": true,
+   "note": "录取最低分，非投档线",
+   "on_disk": "北京_2015_arts_sina",
+   "province": "北京",
+   "quantity": "admitted_min",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-22/0936478779.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 195654,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 167,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 867
+   },
+   "headline": "2015北京高招本科一批高校录取最低分数(理)",
+   "in_panel": true,
+   "note": "录取最低分，非投档线",
+   "on_disk": "北京_2015_science_sina",
+   "province": "北京",
+   "quantity": "admitted_min",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-22/0938478781.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 131143,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本"
+    ],
+    "province_named": true,
+    "rows": 0,
+    "says_first_batch": true,
+    "tables": 0,
+    "three_digit_cells": 0
+   },
+   "headline": "2015安徽本科第一批院校投档分数及名次(文)",
+   "in_panel": false,
+   "note": "投档分数及名次",
+   "on_disk": "安徽_2015_arts_sina",
+   "out_of_panel_because": "the saved page holds no table of five rows or more; the article body is not in it",
+   "province": "安徽",
+   "quantity": "filing",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-08-04/1649480131.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 131216,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本"
+    ],
+    "province_named": true,
+    "rows": 0,
+    "says_first_batch": true,
+    "tables": 0,
+    "three_digit_cells": 0
+   },
+   "headline": "2015安徽本科第一批院校投档分数及名次(理)",
+   "in_panel": false,
+   "note": "投档分数及名次",
+   "on_disk": "安徽_2015_science_sina",
+   "out_of_panel_because": "the saved page holds no table of five rows or more; the article body is not in it",
+   "province": "安徽",
+   "quantity": "filing",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-08-04/1645480130.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 257407,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿",
+     "专项"
+    ],
+    "province_named": true,
+    "rows": 386,
+    "says_first_batch": true,
+    "tables": 8,
+    "three_digit_cells": 1362
+   },
+   "headline": "2015山东高考本科一批文理科投档分统计表",
+   "in_panel": true,
+   "note": "文理科投档分统计表",
+   "on_disk": "山东_2015_both_sina",
+   "province": "山东",
+   "quantity": "filing",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1109478469.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 159738,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "第二批"
+    ],
+    "province_named": true,
+    "rows": 207,
+    "says_first_batch": true,
+    "tables": 2,
+    "three_digit_cells": 0
+   },
+   "headline": "山西2014年高招本科一批B类院校投档分数线",
+   "in_panel": true,
+   "on_disk": "山西_2014_both_sina",
+   "province": "山西",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2014-07-29/1353428826.shtml",
+   "verified": true,
+   "year": 2014
+  },
+  {
+   "check": {
+    "bytes": 212646,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 268,
+    "says_first_batch": true,
+    "tables": 2,
+    "three_digit_cells": 0
+   },
+   "headline": "山西2015年高招本科第一批A类院校投档线",
+   "in_panel": true,
+   "on_disk": "山西_2015_both_sina",
+   "province": "山西",
+   "quantity": "filing",
+   "tier": "第一批A类",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1105478466.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 155274,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "第二批",
+     "征集志愿",
+     "专项"
+    ],
+    "province_named": true,
+    "rows": 128,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 142
+   },
+   "headline": "2015广东一本理第一志愿组投档人数及投档分",
+   "in_panel": true,
+   "on_disk": "广东_2015_arts_sina",
+   "province": "广东",
+   "quantity": "filing",
+   "tier": "第一志愿组",
+   "title_track": "science",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-13/1509477626.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 133801,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 0,
+    "says_first_batch": true,
+    "tables": 0,
+    "three_digit_cells": 0
+   },
+   "headline": "2015广东一本文第一志愿组投档人数及投档分",
+   "in_panel": false,
+   "on_disk": "广东_2015_science_sina",
+   "out_of_panel_because": "the saved page holds no table of five rows or more; the article body is not in it",
+   "province": "广东",
+   "quantity": "filing",
+   "tier": "第一志愿组",
+   "title_track": "arts",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-13/1502477621.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 166855,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "第二批"
+    ],
+    "province_named": true,
+    "rows": 230,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 371
+   },
+   "headline": "广西2015高招本科第一批投档分数线",
+   "in_panel": true,
+   "on_disk": "广西_2015_both_sina",
+   "province": "广西",
+   "quantity": "filing",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-14/1608477818.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "in_panel": false,
+   "note": "two tables; columns 院校代码/院校名称/选科等级/投档线分数/辅助录取线; 480-point scale",
+   "on_disk": false,
+   "province": "江苏",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2014-07-15/1006427273.shtml",
+   "verified": true,
+   "year": 2014
+  },
+  {
+   "check": {
+    "bytes": 158499,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿",
+     "专项"
+    ],
+    "province_named": true,
+    "rows": 166,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 302
+   },
+   "headline": "江苏2015高招文科第一批投档线",
+   "in_panel": true,
+   "on_disk": "江苏_2015_arts_sina",
+   "province": "江苏",
+   "quantity": "filing",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-14/1520477795.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "headline": "江苏2015本科一批征求平行志愿文科投档线",
+   "in_panel": false,
+   "note": "征求平行志愿, the supplementary round. Fetched and held. It disagrees with the main arts page on 26 of the 43 schools they share and puts 15 of them at 342, the tier control line, so the two are not two readings of one quantity. The parser excludes it by its own title and prints the exclusion",
+   "on_disk": "江苏_2015_both_sina",
+   "out_of_panel_because": "the page's own title says 征求, a supplementary round",
+   "province": "江苏",
+   "quantity": "supplementary_round",
+   "title_track": "arts",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-24/1030479174.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 170889,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 249,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 432
+   },
+   "headline": "江苏2015高招理科第一批投档线",
+   "in_panel": true,
+   "on_disk": "江苏_2015_science_sina",
+   "province": "江苏",
+   "quantity": "filing",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-14/1525477800.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 248869,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线",
+     "平行投档"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "第二批",
+     "征集志愿",
+     "专项",
+     "定向"
+    ],
+    "province_named": true,
+    "rows": 486,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 908
+   },
+   "headline": "2015江西一本院校投档线公布 21日征集志愿",
+   "in_panel": true,
+   "on_disk": "江西_2015_both_sina",
+   "province": "江西",
+   "quantity": "filing",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1409478521.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 134903,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 0,
+    "says_first_batch": true,
+    "tables": 0,
+    "three_digit_cells": 0
+   },
+   "headline": "2015河北高考一本批次各校投档最低分(文科)",
+   "in_panel": false,
+   "on_disk": "河北_2015_arts_sina",
+   "out_of_panel_because": "the saved page holds no table of five rows or more; the article body is not in it",
+   "province": "河北",
+   "quantity": "filing",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-17/1716478324.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 135297,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 0,
+    "says_first_batch": true,
+    "tables": 0,
+    "three_digit_cells": 0
+   },
+   "headline": "2015河北高考一本批次各校投档最低分(理科)",
+   "in_panel": false,
+   "on_disk": "河北_2015_science_sina",
+   "out_of_panel_because": "the saved page holds no table of five rows or more; the article body is not in it",
+   "province": "河北",
+   "quantity": "filing",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-17/1726478330.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 251066,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分",
+     "投档分数线",
+     "平行投档"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批"
+    ],
+    "province_named": true,
+    "rows": 568,
+    "says_first_batch": true,
+    "tables": 2,
+    "three_digit_cells": 2515
+   },
+   "headline": "河南2014年高招本科一批院校平行投档分数线",
+   "in_panel": true,
+   "on_disk": "河南_2014_science_sina",
+   "province": "河南",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2014-07-29/1521428854.shtml",
+   "verified": true,
+   "year": 2014
+  },
+  {
+   "check": {
+    "bytes": 186445,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线",
+     "平行投档"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 251,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 1017
+   },
+   "headline": "河南2015年高招本科一批院校平行投档线(文科)",
+   "in_panel": true,
+   "note": "文科，补上理科那条的另一半",
+   "on_disk": "河南_2015_arts_sina",
+   "province": "河南",
+   "quantity": "filing",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1817478617.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "in_panel": false,
+   "note": "~390 rows; columns 院校代码/院校名称/计划/实际招生人数/投档分数线",
+   "on_disk": false,
+   "province": "河南",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1757478615.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "in_panel": false,
+   "note": "300+ rows per track; columns 院校名称/投档最低分/语文/数学/外语听力; published 2017-03-09 for 2016 data",
+   "on_disk": false,
+   "province": "河南",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2017-03-09/doc-ifychhuq3464050.shtml",
+   "verified": true,
+   "year": 2016
+  },
+  {
+   "check": {
+    "bytes": 176266,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿",
+     "专项"
+    ],
+    "province_named": true,
+    "rows": 236,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 405
+   },
+   "headline": "浙江2015高招文理科第一批平行志愿投档线",
+   "in_panel": true,
+   "note": "文理科第一批平行志愿",
+   "on_disk": "浙江_2015_both_sina",
+   "province": "浙江",
+   "quantity": "filing",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-15/0925477860.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 146790,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分",
+     "投档分数线",
+     "平行投档"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 83,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 82
+   },
+   "headline": "海南高考本科一批征集志愿平行投档分数线",
+   "in_panel": false,
+   "on_disk": "海南_2015_both_sina",
+   "out_of_panel_because": "the page's own title says 征集, a supplementary round",
+   "province": "海南",
+   "quantity": "filing",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-16/1401478110.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 135134,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 0,
+    "says_first_batch": true,
+    "tables": 0,
+    "three_digit_cells": 0
+   },
+   "headline": "湖北2015第一批本科文理平行志愿投档分",
+   "in_panel": false,
+   "on_disk": "湖北_2015_both_sina",
+   "out_of_panel_because": "the saved page holds no table of five rows or more; the article body is not in it",
+   "province": "湖北",
+   "quantity": "filing",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1716478603.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 254017,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 458,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 1663
+   },
+   "headline": "湖南2015高招本科一批平行一志愿投档分数线",
+   "in_panel": true,
+   "note": "平行一志愿",
+   "on_disk": "湖南_2015_both_sina",
+   "province": "湖南",
+   "quantity": "filing",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-16/0946478022.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 160698,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿",
+     "国防"
+    ],
+    "province_named": true,
+    "rows": 183,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 182
+   },
+   "headline": "福建2015一本文史类常规志愿投档最低分",
+   "in_panel": true,
+   "on_disk": "福建_2015_arts_sina",
+   "province": "福建",
+   "quantity": "filing",
+   "tier": "常规志愿",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-16/1126478086.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 172255,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿",
+     "国防"
+    ],
+    "province_named": true,
+    "rows": 259,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 258
+   },
+   "headline": "福建2015一本理工类常规志愿投档最低分",
+   "in_panel": true,
+   "on_disk": "福建_2015_science_sina",
+   "province": "福建",
+   "quantity": "filing",
+   "tier": "常规志愿",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-16/1123478083.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 220885,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "第二批",
+     "定向"
+    ],
+    "province_named": true,
+    "rows": 190,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 677
+   },
+   "headline": "贵州2015第一批本科平行志愿投档情况(文)",
+   "in_panel": true,
+   "on_disk": "贵州_2015_arts_sina",
+   "province": "贵州",
+   "quantity": "filing",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-08-04/1838480153.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 206077,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "第二批",
+     "定向"
+    ],
+    "province_named": true,
+    "rows": 295,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 1161
+   },
+   "headline": "贵州2015第一批本科平行志愿投档情况(理)",
+   "in_panel": true,
+   "on_disk": "贵州_2015_science_sina",
+   "province": "贵州",
+   "quantity": "filing",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-08-04/1841480154.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 133906,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "征集志愿",
+     "定向"
+    ],
+    "province_named": true,
+    "rows": 0,
+    "says_first_batch": true,
+    "tables": 0,
+    "three_digit_cells": 0
+   },
+   "headline": "辽宁2015本科一批A段院校录取最低分数",
+   "in_panel": false,
+   "note": "录取最低分，非投档线",
+   "on_disk": "辽宁_2015_both_sina",
+   "out_of_panel_because": "the saved page holds no table of five rows or more; the article body is not in it",
+   "province": "辽宁",
+   "quantity": "admitted_min",
+   "tier": "一本A段",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-31/1322479788.shtml",
+   "verified": false,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 182193,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "征集志愿",
+     "专项"
+    ],
+    "province_named": true,
+    "rows": 207,
+    "says_first_batch": true,
+    "tables": 3,
+    "three_digit_cells": 18
+   },
+   "headline": "重庆本科一批高校招生录取最低分(文)",
+   "in_panel": true,
+   "note": "录取最低分，非投档线",
+   "on_disk": "重庆_2015_arts_sina",
+   "province": "重庆",
+   "quantity": "admitted_min",
+   "track": "arts",
+   "url": "http://edu.sina.com.cn/gaokao/2015-08-05/1030480224.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 216163,
+    "filing_words": [
+     "投档",
+     "投档线"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "二本",
+     "征集志愿",
+     "专项",
+     "定向"
+    ],
+    "province_named": true,
+    "rows": 342,
+    "says_first_batch": true,
+    "tables": 3,
+    "three_digit_cells": 46
+   },
+   "headline": "重庆本科一批高校招生录取最低分(理)",
+   "in_panel": true,
+   "note": "录取最低分，非投档线",
+   "on_disk": "重庆_2015_science_sina",
+   "province": "重庆",
+   "quantity": "admitted_min",
+   "track": "science",
+   "url": "http://edu.sina.com.cn/gaokao/2015-08-05/1024480223.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 212015,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档最低分"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 410,
+    "says_first_batch": true,
+    "tables": 2,
+    "three_digit_cells": 753
+   },
+   "headline": "陕西2015本科一批正式投档各院校最低位次",
+   "in_panel": true,
+   "note": "正式投档，带最低位次",
+   "on_disk": "陕西_2015_both_sina",
+   "province": "陕西",
+   "quantity": "filing_rank",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1607478583.shtml",
+   "verified": true,
+   "year": 2015
+  },
+  {
+   "check": {
+    "bytes": 191192,
+    "filing_words": [
+     "投档",
+     "投档线",
+     "投档分数线",
+     "平行投档"
+    ],
+    "other_batches": [
+     "提前批",
+     "本科二批",
+     "第二批",
+     "征集志愿"
+    ],
+    "province_named": true,
+    "rows": 405,
+    "says_first_batch": true,
+    "tables": 1,
+    "three_digit_cells": 0
+   },
+   "headline": "黑龙江2015一本A段录取院校投档分数线汇总",
+   "in_panel": true,
+   "on_disk": "黑龙江_2015_both_sina",
+   "province": "黑龙江",
+   "quantity": "filing",
+   "tier": "一本A段",
+   "track": "both",
+   "url": "http://edu.sina.com.cn/gaokao/2015-07-20/1423478530.shtml",
+   "verified": true,
+   "year": 2015
+  }
+ ]
+}

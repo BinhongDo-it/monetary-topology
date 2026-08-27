@@ -1,7 +1,7 @@
 # B3 availability check: can the slice summand be reached on free data?
 
 **Not a pre-registration. A check, run before deciding whether to open a stage**,
-as `PROJECT_PLAN.md` §13.5 requires: "项目到目前为止全部跑在免费政府数据上。FX 会打破
+as this project requires before a stage is opened: "项目到目前为止全部跑在免费政府数据上。FX 会打破
 这一点 … 开工前先做可得性核查，不要假设." (*Everything so far has run on free
 government data. FX would break that. Run an availability check before opening
 the stage; do not assume.*)
@@ -198,8 +198,8 @@ constraint rather than as money left on the table. The title of BIS Working Pape
 590 states it — *The failure of covered interest parity: FX hedging demand and
 costly balance sheets*.
 
-**Why this matters more than a wording quibble.** `PROJECT_PLAN.md` §10.2 records
-this project getting the neighbouring case wrong once already: "carry trade 不是
+**Why this matters more than a wording quibble.** This project got the
+neighbouring case wrong once already: "carry trade 不是
 非零环路和（那是风险补偿），只有 CIP 偏离是" (*the carry trade is not a non-zero
 loop sum, since that is risk compensation; only the CIP deviation is*). Calling
 the CIP deviation a profit re-imports that same category error one level up, and

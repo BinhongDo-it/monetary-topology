@@ -89,9 +89,8 @@ def noise_floor() -> tuple[float, str]:
     """The calibration arm's disagreement, in the units the headline is in.
 
     **Taken from the arm's own output rather than recomputed**, so the floor and
-    the signal cannot drift apart. ``PROJECT_PLAN.md`` §11.11 rule 3: a noise
-    floor computed on a different population from the signal is how A6's guard
-    went wrong.
+    the signal cannot drift apart. **A noise floor computed on a different
+    population from the signal is how A6's guard went wrong.**
     """
     if not CALIBRATION.exists():
         raise SystemExit(

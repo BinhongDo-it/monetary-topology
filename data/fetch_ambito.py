@@ -72,14 +72,13 @@ Median rather than mean, and rather than first-or-last: on 21 August 2024
 ``dolar/oficial`` returns ``954.12 / 300.76 / 953.17`` for one date. The mean is
 736 and belongs to no market; the median is 953.17. First-or-last would depend
 on a within-day ordering this endpoint does not document -- there are no
-timestamps. ``PROJECT_PLAN.md`` §11.2 is this project's standing lesson about
-non-robust statistics under contamination.
+timestamps. **A non-robust statistic under contamination is this project's
+standing lesson, and it cost a headline number once.**
 
 **The anomaly scan was reading the wrong object.** Run on uncollapsed rows it
 reported two "one-day changes" whose previous date equalled their own date --
-within-day dispersion mistaken for a day-over-day jump. ``PROJECT_PLAN.md``
-§11.11 rule 2: a guard must compare the quantity that is actually reported. It
-now runs on the collapsed series.
+within-day dispersion mistaken for a day-over-day jump. **A guard must compare
+the quantity that is actually reported.** It now runs on the collapsed series.
 
 **The CCL path in the availability check was inferred, not verified.**
 ``b5_orphan_availability.md`` §7.1 lists ``dolarrava/ccl`` with the parenthetical

@@ -69,7 +69,7 @@ part of it.
 The reason for a ruling rather than a note: every sentence of the form
 "connectivity rises" is ambiguous under two coordinates that run opposite ways,
 and this project has already lost a round to a variable that moved without a
-name of its own (`SESSION_INIT.md` lesson three, A6-9's `R* = λ`).
+name of its own (A6-9's `R* = λ`).
 
 ### 2.2 `uniform_access` is five collapses, and only one of them is the mechanism
 
@@ -107,9 +107,8 @@ switched on anywhere in this stage.
 set and the opening vector are whatever the rule returns at that `s`.
 
 The alternative, freezing the payer and receiver sets at their `s = 0` values,
-is the exact defect `SESSION_INIT.md` lesson one names: a quantity that reality
-assigns by a measured property gets written in code as a fixed list of node
-indices. That defect has already been found four times in this repository (A6's
+is an exact defect this repository names: **a quantity that reality assigns by a
+measured property written in code as a fixed list of node indices.** That defect has already been found four times in this repository (A6's
 tax base, A6's rebate side, A3's rent liability, A3-6's two points).
 
 **Registered diagnostic, reported and never scored.** At every grid point,
@@ -264,9 +263,9 @@ criteria are section 4, unwritten at filing.
 
 Implementation note carried forward: `A3Model` takes its adjacency from
 `Network.__init__`, which calls `build_graph(spec)`, so `s` enters through a new
-`NetworkSpec` field rather than through a subclass. Per `SESSION_INIT.md` lesson
-four, that field defaults to `0.0` and the default must reproduce every existing
-A3 number bitwise, verified by running rather than by argument.
+`NetworkSpec` field rather than through a subclass. **That field defaults to
+`0.0` and the default must reproduce every existing A3 number bitwise, verified
+by running rather than by argument.**
 
 ### 3.2 A7-B, on the A4 carrier: four competitors, slope in place of the ratio
 
@@ -360,8 +359,8 @@ separate question and it is A7-A-1's.
 
 **G1. The default reproduces A3 bitwise.** The new `NetworkSpec` field defaults
 to `0.0` and every existing A3 number must come back bit for bit, verified by
-running and comparing rather than by argument (`SESSION_INIT.md` lesson four,
-which has already held four times: the ratchet's `λ = 0`, the tax base's
+running and comparing rather than by argument (a rule that has already held four
+times: the ratchet's `λ = 0`, the tax base's
 `layer`, the rebate side's `layer`, `centrality_bins = 3`).
 
 **G2. The obstruction stays all squares, asserted in code at every grid point.**
@@ -375,14 +374,14 @@ assumed because it is the hinge the whole leg hangs from.
 **G3. Inert-cell detection, reusing the sweep's own.** `a3c_load_bearing.sweep`
 already flags a grid cell whose four gaps are bit-identical to the registered
 point and names it in the summary. A7-A inherits it unchanged
-(`SESSION_INIT.md` lesson two: `centrality_bins` had a field, validation and
+(`centrality_bins` had a field, validation and
 documentation and no line of code reading it, and the grid swept it twice and
 reported clean).
 
 **G4. Every grid row carries its control variables in its own units.** Realised
 edge count, mean degree, centrality standard deviation, layer gap, participating
 count, and the §2.3 churn diagnostics, all on the same row as the gap
-(`SESSION_INIT.md` lesson three: A6-9 swept `λ` at fixed `R` while `R* = λ`, and
+(A6-9 swept `λ` at fixed `R` while `R* = λ`, and
 the second thing moving had no variable name until A6-21).
 
 **A1. The placebo arm, which is what separates density from dispersion.** Edge
@@ -1039,6 +1038,17 @@ about forty per cent of the population by intersecting across grid points.
 > intersects across cells, the other across cells and grid points. The criterion
 > passes on the first and fails on the second.
 
+**Added 2026-08-27.** A3-8′ is a conjunction of two clauses and only one of them
+is what Theorem 2 licenses. Stage A3i (`experiments/a3i_pooled_ordering.py`)
+pools every point on record at which both cells were computed, this section's
+grids among them, and tallies the clauses separately: **the ordering clause holds
+at 54 of 57 points, the sign-stability clause at 9, and the gate-only cell is
+sign-stable at none of them.** The three points where the ordering does not hold
+are `s = 0.95` and `s = 0.99` and the complete graph, and the gate cell reads
+exactly `0.0000` at all three. The failure recorded here stands as recorded: the
+conjunction fails, and the clause that fails it is stability. Nothing in this
+section's numbers changes.
+
 This is recorded against A3-8′ and not against A3-8, whose state stays `void` for
 the reason already on record.
 
@@ -1461,7 +1471,7 @@ against the uniform arm at every rate and seed.
 in `build()` that could never fire, since `seed` is a named parameter and binds
 before the body runs, replaced by a comment and a test. And `--arm` not threaded
 into the probe path, so the probe reported the uniform arm while claiming to run
-the placebo. `SESSION_INIT.md` lesson two, twice in one afternoon.
+the placebo. **A knob wired to nothing, twice in one afternoon.**
 
 Sections 6, 7 and 8 written: the run record, the economic reading as an explicit
 hypothesis, and A7-A-6 registered before the round-count ladder that decides it.

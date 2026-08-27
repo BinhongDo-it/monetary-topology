@@ -115,8 +115,7 @@ JUMP_THRESHOLD = 0.10
 #: five or six days; beyond a week the neighbours are not neighbours.
 MAX_GAP_DAYS = 7
 
-#: Three naming schemes, all recognised so that none has to be deleted
-#: (``PROJECT_PLAN.md`` §11.1):
+#: Three naming schemes, all recognised so that none has to be deleted:
 #:
 #: - ``ambito_ccl_2019.json`` -- whole-year, the first run, **superseded**
 #: - ``ambito_ccl_2019H2.json`` -- half-year, the normal unit
@@ -174,8 +173,8 @@ def parse_rows(payload: object, fields: tuple[str, ...]) -> list[dict]:
     """Turn one endpoint response into dated rows, asserting the schema.
 
     The header is asserted rather than trusted: a renamed column would otherwise
-    shift every value one position to the left and still parse
-    (``PROJECT_PLAN.md`` §11.4 is the version of this that already happened).
+    shift every value one position to the left and still parse. **This one has
+    already happened here, with an underscore read for a hyphen.**
 
     **A header with no rows returns an empty list rather than raising.** The MEP
     series begins in March 2020, so the 2019 range is legitimately empty.
@@ -235,7 +234,7 @@ def collapse_to_daily(rows: list[dict], fields: tuple[str, ...]) -> list[dict]:
 
     **Median rather than mean**: on 21 August 2024 ``dolar/oficial`` returns
     ``954.12 / 300.76 / 953.17`` for one date. The mean is 736 and belongs to no
-    market (``PROJECT_PLAN.md`` §11.2). **Median rather than first-or-last**: the
+    market. **Median rather than first-or-last**: the
     endpoint publishes no timestamps, so a close is not identifiable.
 
     Ties and even counts take the **lower** median, fixed so the rule does not
@@ -285,8 +284,8 @@ def scan_anomalies(rows: list[dict], fields: tuple[str, ...]) -> list[dict]:
     **Runs on the collapsed series**, because the quantity the stage reports is
     the daily one. A gap longer than ``MAX_GAP_DAYS`` is recorded as a gap and
     resets the comparison chain rather than being reported as a one-day change.
-    Both of those are ``PROJECT_PLAN.md`` §11.11 rule 2 -- a guard must compare
-    the quantity that is actually reported -- and both were bugs here first.
+    Both of those follow one rule -- a guard must compare the quantity that is
+    actually reported -- and both were bugs here first.
 
     **Returns a list. Changes nothing.**
     """
@@ -677,7 +676,7 @@ TREATED_CLASS = "oficial"
 #: **And weaker in one respect**, which the write-up states: MEP and CCL are not
 #: untouched by everything. The cross-restriction between the official and
 #: financial markets was removed on the intervention date and **reimposed in
-#: September 2025**, inside the post-window (`PROJECT_PLAN.md` §14.5). So the
+#: September 2025**, inside the post-window. So the
 #: control group is clean with respect to the deleted cap and not with respect to
 #: every rule. ``informal`` is the only class whose access was never rule-bound,
 #: which is why ``oficial-informal`` stays the headline pair.

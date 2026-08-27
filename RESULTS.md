@@ -184,9 +184,11 @@ Derived quantities:
 
 </details>
 
-## A1 — the default cascade on crossed marginals (superseded by A1b; no level from this construction is a measurement)
+## A1 — the default cascade on crossed marginals
 
 **2/2 live criteria passed, 1 void**
+
+**Scope.** A1b carries the current construction for this station. What A1 establishes is the calibration identity below; **a level read off this construction is not a measurement of anything in the world**, and the criteria are written so that none is claimed.
 
 | | criterion | detail |
 |---|---|---|
@@ -295,7 +297,9 @@ sequence inside the household is what the manuscript describes, with 2 inversion
 | PASS | A1c-1 the sequence holds inside a household | card_before_auto: 607 in order, 533 tied, 2 inverted, of 1,142 in scope; auto_before_rent: 449 in order, 526 tied, 2 inverted, of 977 in scope; card_before_rent: 523 in order, 1,080 tied, 9 inverted, of 1,612 in scope. 17,499 of 20,000 households are in scope for no pair at all, which is the population A1-2 quantified over and the size of the mismatch between the claim and its cross-sectional form |
 | PASS | A1c-2 every inversion is attributed | 13 inversions: 13 attributed to the release clause, the later class unsavable in the period it was first missed while the earlier one was savable; 0 unattributed |
 
-## A1d — the cascade on a measured cushion (liquid assets, no floor, and a matched twelve-month window; the top pair is below both sides' resolution and is reported rather than scored)
+## A1d — the cascade on a measured cushion
+
+**Scope.** Liquid assets, no floor, and a matched twelve-month window. The top pair sits below both sides' resolution and is reported rather than scored.
 
 **7/9 live criteria passed**
 
@@ -1707,7 +1711,9 @@ data and no randomness, and reports to the console.
 reading.** None of it carries a criterion, and this section is where it is said
 so rather than left to be inferred from an absence.
 
-## B12 — whether a holonomy reading is an artefact of how the states were cut. Enumerated whole over every three-bin threshold cut of the delinquency ladder, so nothing is ranked and no null is needed. The between-class spread of median |omega| moves by 4 to 17 times across cuts: on the modification arm that exceeds the registered line on all six vintages, on the deferral arm on three of six with the other three within 12 per cent of it. **Per-loop `omega` is untouched, and that half is structural rather than measured**: coarsening changes which loops are the same loop and not what any one of them sums to. So what this binds is every quantity aggregated over cycle classes, and the 30/60-day convention is not neutral: it sits at opposite ends of the range on the two arms
+## B12 — how much of a holonomy reading depends on how the states were cut
+
+Enumerated whole over every three-bin threshold cut of the delinquency ladder, so nothing is ranked and no null is needed. The between-class spread of median `|omega|` moves by 4 to 17 times across cuts: on the modification arm that exceeds the registered line on all six vintages, on the deferral arm on three of six with the other three within 12 per cent of it. **Per-loop `omega` is untouched, and that half is structural rather than measured**: coarsening changes which loops are the same loop and not what any one of them sums to. So what this binds is every quantity aggregated over cycle classes, and the 30/60-day convention is not neutral: it sits at opposite ends of the range on the two arms.
 
 6 vintages, 1,891 to 4,753 enumerated 3-bin cuts of the delinquency ladder, `min_cycles=20` `line=4.0`
 
@@ -1756,11 +1762,478 @@ Derived quantities:
 - `spread_max_over_min_2019Q1_defer` = 13.4485
 - `spread_max_over_min_2019Q1_mod` = 11.9647
 
-## B13 — the zero domain: the framework names where its own quantity must be zero, and then measures it on a venue where the order can actually be placed. Never worse than the two-leg derivation in 81,968 states over nine products, and exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states. **Why those six and not all nine is not established**: the explanation the station first gave is withdrawn in B13-2
+## A3h — a channel that moves the mechanism and carries no holonomy
 
-81,968 states over 9 products and 3 channels, one ten-minute window of 2023-07-17, from the vendor's free public sample
+`5 registered seeds` `5 seeds never drawn` `300 rounds` `nothing bought`
+
+**The framework names where its own quantity must vanish, and this goes and
+measures it there.** ``tier_positions`` is a star, so `b_1(G) = 0`, so the
+product graph carries no slice cycle, so by section 5 of `docs/b1_theorem.md`
+every obstruction is a square, so ``terms_spread`` is the only source of a square
+sum and **``gate_spread`` cannot enter the holonomy at all**. The theorem gives
+an ordering and no level, so the shares are reported and not scored.
+
+**A zero from a treatment that does nothing proves nothing, and that objection
+is answered by measurement rather than by argument.** Taking the two cells that
+differ only in the gate, and then the two that differ only in the terms:
+
+| mean over five seeds | gate | terms |
+|---|---|---|
+| nodes with a changed cycle count | 19.4 | 16.8 |
+| total absolute cycle change | **74.0** | 85.6 |
+| largest absolute move in net worth | 6.271e+02 | 5.764e+02 |
+| trades only with the channel on | 2.2 | 0.0 |
+
+**The gate's mechanical effect is 86 per cent of the other channel's**, so it is
+not inert. It also moves 19.4 nodes' cycle counts while moving 2.2 in and none
+out, **so it acts on the intensive margin**, which is not where an earlier
+diagnostic assigned it.
+
+**The criterion is scored on seeds that did not exist when it was written.** It
+was registered on 2026-08-13 after the ordering had been seen at the registered
+point, and its own note forbids retroactive use, so seeds 0 to 4 are printed as
+calibration and seeds 5 to 9 carry the verdict. Five is this repository's
+reference count and is not raised.
+
+| cell | seeds 0-4, calibration | **seeds 5-9, the test** | same sign |
+|---|---|---|---|
+| both | 23.2667 | 15.5575 | yes |
+| **loop sum only** | 21.6714 | **+18.3683** | **yes**, range [+7.11, +30.67] |
+| **gate only** | +1.4091 | **−1.2264** | **no**, range [−14.29, +8.70] |
+| null | 0.0000 | 0.0000 | exact, the calibration |
+
+**Both halves hold on the fresh seeds**, and the gate cell reverses sign between
+the two blocks as well as within them, which is a second reading that it sits at
+zero rather than at a small positive value.
+
+**What this does not do.** It does not thaw A3-8, which stays void for its own
+reason, that no threshold was registered for its two shares before it ran. It
+does not score the shares, which the registration reserves for report. And an
+earlier attempt to answer the same objection by widening the population instead
+found that the knob which widens it also removes the effect; **the population
+was never the problem, and measuring what the treatment does to the mechanism
+took two subtractions where widening took a ten-point grid.**
+
+**Where this sits, from A3i.** Stage A7 scored the same criterion as `A7-A-4` on
+2026-08-15 and recorded a failure against the conjunction, so the seeds above are
+one more point on it rather than its first. A3i counts the two clauses apart.
+
+
+## A3i — the two clauses of one criterion, counted apart
+
+`57 points` `4 carriers` `2 arms` `2 population conventions` `no model run`
+
+**4/4 criteria passed**
+
+**A3-8′ is a conjunction, and only one of its clauses is what the theorem
+licenses.** It asks that the loop-sum-only cell be same-sign across seeds
+(stability) **and** that its gap exceed the gate-only cell's (ordering).
+`b_1(G) = 0` gives an ordering and no level, so the second clause is the
+theorem's and the first is a stability requirement added beside it.
+
+This station runs no model. It reads every record on disk at which both cells
+were computed, de-duplicates rows that are one run read twice by exact value
+match and prints what it dropped, and counts the clauses apart.
+
+| over 57 points | |
+|---|---|
+| **ordering: the loop cell exceeds the gate cell** | **54** |
+| stability: the loop cell is same-sign across seeds | 9 |
+| **the gate cell is same-sign across seeds** | **0** |
+| largest absolute gate cell anywhere | **2.9375** |
+| largest absolute loop cell anywhere | 24.8347 |
+
+**The gate cell is sign-stable at none of the fifty-seven points**, across four
+carriers, two attachment arms, two population conventions, two density axes and
+three seed blocks, and it never reaches three in absolute value while the loop
+cell reaches twenty-four. **The prediction that the gate carries no holonomy has
+no counterexample on record.**
+
+**The three points where the ordering does not hold are printed with the gate
+value beside them**, and the gate cell reads exactly `0.0000` at all three:
+`s = 0.95` and `s = 1.0` on one arm and `s = 0.99` on the other, all of them
+within five per cent of the complete graph, whose endpoint section 4.1 of
+`docs/a7_continuous_c.md` had already excluded from criteria as an attractor
+with an over-determined zero.
+
+**What this does not do.** It does not thaw A3-8, which stays void for its own
+reason. It does not withdraw A7's failure: the conjunction did fail, and this
+adds which half failed it and how often the other half did not. It does not
+touch A7's density limit on the level of the loop cell, which is about a level
+and not about an ordering. And it changes no criterion's text.
+
+
+## B23 — the same statutory wedge, priced by treaty in sixteen countries
+
+`20 countries` `no price data` `2/2 criteria passed`
+
+**B21's wedge is set by Chinese tax law, and the obvious question is whether the
+object is Chinese.** This asks it with arithmetic and no prices. The class pair
+is two foreign holders of one ordinary share, one covered by a treaty with the
+United States and one not, **both withheld at source and both flat**, so the two
+rates come from published instruments and nothing is estimated.
+
+**Sixteen of twenty countries carry a binding wedge**, and the treatment takes
+**eleven distinct values** against the single value the A and H carrier offers.
+At a three per cent yield the index runs **11.7 to 73.2 basis points, median
+34.2**; Belgium is the widest at 25 points of rate, and China, the Netherlands,
+India and the United Kingdom read exactly zero because their treaty rate does not
+sit below their statutory one.
+
+**That range brackets B21's own measured edges** of 14.8 and 30.5 basis points on
+the two withholding legs and 52.7 on the twelve-month threshold. **The wedge is
+not a Chinese artefact.**
+
+**What this does not do.** It does not ask whether any market prices the wedge.
+That needs two lines with different marginal holders, and an ordinary
+convertible receipt does not provide them: a holder who can move between the
+legs at the published cancellation fee cannot be a different marginal holder on
+each. **Two of the station's four arms were closed on that reading rather than
+on a measurement**, and the successor carrier with restricted convertibility was
+closed on a depth count of twenty programmes against the ninety-seven dividend
+events its own gate needs.
+
+
+## B19 — closed at gate two, and the ratio that closed it was not measured
+
+`20,335 firm-quarters` `3,516 firms` `51 quarters of filings` `stage not opened`
+
+**Gate zero passed with room.** The thinnest cell carries 268 treated against 895
+control across the compliance boundary, over eight quarters of 2023 and 2024
+built from structured filings: 47,672 filings down to 20,337 with a share count,
+15,482 priced, 15,099 with a return.
+
+**Gate two did not pass**, at a readable-threshold ratio of 6.1 with the lower
+bound on the larger side, and **the stage was not opened**. Nothing in the record
+is a licensed reading of anything and the record says so.
+
+**The ratio that closed it deserves its own line, because three numbers went into
+it and none came from a document.** The compliant money was reached by taking
+5.98 trillion at five per cent, halving it, then taking three tenths; the
+denominator was the whole market rather than the compliant subset that money can
+hold; and the quarterly dispersion of institutional ownership was written as
+"typically 2 to 5 points" with 5 taken. **Moving the two checkable inputs to
+defensible values takes the ratio from 6.1 to about 1.0, and nothing between
+those two ends had been measured.**
+
+**The third input has now been measured, and it does not slot into the ratio.**
+`experiments/b19_dispersion.py` reads fifty-one quarters of structured filings,
+2013Q3 to 2026Q1, sums share holdings by security over all filers, drops options
+and anything not reported in shares, and takes the cross-sectional dispersion of
+the quarter-on-quarter change over securities present in both quarters. Fourteen
+to nineteen thousand securities a quarter, fifty quarter pairs, every one
+printed.
+
+| across the fifty quarter pairs | |
+|---|---|
+| median standard deviation of `dlog(shares held)` | **1.1253** |
+| median interquartile range | 0.1752 |
+| in points of a holding | 112.53 and 17.52 |
+
+**Gate two took five points of a source that said two to five, in points of
+ownership. This measures 112.53 points as the standard deviation of a relative
+change. They are not the same quantity**, and converting between them needs an
+ownership level this file does not have and does not assume, so **the ratio is
+not recomputed here**. The interquartile range is printed beside the standard
+deviation because holdings changes are heavy-tailed and gate two takes the noise
+as its numerator, where a standard deviation on a heavy tail overstates what a
+median security carries.
+
+**The finding is that the number was measurable all along and was written down
+instead.** What it does not do is reopen B19: the gate has to be restated in one
+unit first, and that restatement is the next step rather than this one.
+
+**One archive is packed differently and it stopped the first pass after
+forty-eight quarters had been cached.** `form13f_2025q3.zip` puts its tables under
+a dated directory while the other fifty put them at the archive root, so a lookup
+by exact name found nothing. The member is now located by its base name and
+**which spelling was found is printed**, because a layout that changed once can
+change again.
+
+
+## B17 x B7 — a comparator computed from a committed record
+
+`no data retrieved` `withdraws nothing`
+
+A cross-arm comparator built from `results/b7_crossfold.json` and reported beside
+it. **It revises no coefficient and no criterion in either stage rests on it.**
+
+On the balanced nineteen-class arm, the observed second eigenvalue is **twice**
+the comparator's, `0.0676` against `0.0337`, while the first is only `1.15` times
+it. The comparator's largest eigenvalue is carried `0.917` by a single class, the
+one above sixty per cent, whose diagonal entry is `0.445`. Against a permutation
+null the recorded second eigenvalue sits at `z = 3.19`. The all-ones component of
+the recorded object is `-5.7e-18`, which is the calibration.
+
+
+## B24 — the square lands inside the published cost band where a path exists
+
+`62 pairs` `465 same-bell pairings` `197 A and H pairs` `one window` `one function`
+
+**6/6 criteria passed**
+
+**Availability was checked before anything was built** and the check is its own
+record, `results/adr_availability.json`: thirty-two pairs attempted, **thirty-one
+with both legs**, five years of daily bars each and 366 dividend events counted
+on the thinner leg. The one pair missing a leg, `WBK`, is named there rather than
+dropped.
+
+**The framework says a square vanishes where a path between the two positions
+exists.** A sponsored receipt can be cancelled into its home line, so the path is
+there and its price is published in the depositary agreement. A and H shares
+cannot be exchanged for one another at any price, so the restriction is a hole
+rather than a term. **The class pair is two holders of a country whose treaty
+rate equals its statutory rate, so the statutory term is exactly zero rather than
+a difference of two numbers, and the index is not forced non-zero before the data
+is read.** The receipt ratio never enters: every statistic here is translation
+invariant, which is why none was looked up.
+
+Both carriers, the same function, the same window of 2021-08-30 to 2026-08-27:
+
+| carrier | pairs | p10-p90 | range | daily sd |
+|---|---|---|---|---|
+| convertible, statutory term zero | 11 | 237 | 1,044 | 111 |
+| **A and H, statutory term zero** | **197** | **3,223** | 5,859 | 202 |
+
+basis points on the log parity deviation. **The ordering holds at 13.6 times, and
+the convertible side is still two orders above the published cost band.** That
+distance is in the instrument, and this station measures it rather than arguing
+about it.
+
+**One series in the construction is not a price of either leg.** The daily
+exchange rate is cut at its own hour and neither closing bell is that hour. **Two
+pairs at one venue share that series exactly, so the difference of their
+deviations carries no exchange rate at all** — nothing modelled, one term removed
+by subtraction.
+
+| venue | clock gap | pairings | min | median | p90 | max |
+|---|---|---|---|---|---|---|
+| **Toronto** | **0.0 h, one bell all year** | **465** | **12.1** | **16.4** | 38.7 | **54.9** |
+| Sao Paulo | 0 h or 1 h | 1 | | 103.9 | | |
+| London | 4.5 h | 21 | 166.3 | 223.8 | | 536.7 |
+| Tokyo | 15.0 h | 6 | 131.8 | 244.1 | | 317.6 |
+
+**The same-bell cell is thirty-two interlisted names rather than two**, and its
+465 pairings run from 12.1 to 54.9 with no tail.
+
+**Sao Paulo is not a clean zero.** Its bell is 17:00 local and Brazil has kept no
+summer time since 2019, so the gap against New York is zero from March to
+November and one hour for the rest of the year. **Toronto is the only venue here
+that keeps one bell all year**, because it moves its clocks on New York's dates.
+
+> **At a zero clock gap with the exchange rate removed, the dispersion between
+> two listings of one claim has a median of 16.4 basis points over 465 pairings
+> of thirty-one companies.**
+
+**The ruler for that cell is not the depositary fee, and an earlier draft of this
+section said it was.** `TD` and `BNS` are interlisted common shares on the New
+York exchange rather than receipts: no depositary, no ratio, **no fee**, the same
+shares on one register trading in two places. The published band of 0.01 to 0.05
+per receipt does not apply to them at all, and their theoretical bound is
+exchange-transfer and settlement friction, which is smaller and is not published
+as a single number.
+
+**That splits the registered comparison in half and each half is missing
+something.** The venue with no clock gap charges no fee; every pair the fee band
+applies to sits at least four and a half hours away from the New York bell, where
+the bell alone contributes 150 to 320 basis points and covers a 4 to 20 point
+band completely. **So "inside the published band" has no cell to be read in this
+round, and it is recorded as undecidable at daily-close resolution rather than as
+a failure.** The ordering does not depend on which band applies and it stands.
+
+**The shared term is measured and the caveat it carried is now half answered.**
+With the rate left in, thirty-one of the thirty-two read between 56.6 and 69.1,
+median 59.5, and `sqrt(59.5^2 - 16.4^2)` is **57.2** — the same shared term the
+first two names gave at 57.5. **Thirty-one companies across banking, pipelines,
+rail, mining, telecoms and utilities agree on it to within 12.5 basis points, and
+the one object all of them literally share is the exchange-rate series.** A
+dislocation common to all of them is still not excluded by this design; it would
+have to be uniform across six industries to that precision.
+
+**The pooled median hid this and the per-pair rows showed it.** With the rate
+removed the pool's median is 244 against 219 with it in, which reads as "the rate
+is not the main term" and is wrong: at a zero clock gap removing the rate takes
+59 down to 12.8, while at a large clock gap the bell dominates and differencing
+two pairs only adds two helpings of it. **Both readings are right and the
+aggregate cancelled them.**
+
+**The instrument's floor, measured in three layers rather than asserted**: about
+13 bp between two listings, about 57 bp from the exchange rate's cut, and 150 to
+320 bp from the closing bells, rising with the gap. The clock gradient is printed
+and not scored, and the zero-gap venue was named before the run rather than
+picked after it.
+
+**Named and not explained away**: `PHG` at 860, `NVS` at 610 and `UL` at 527 each
+had a corporate action inside the window and this station did not check whether
+both legs handled it on the same day and in the same ratio.
+
+**One pair was wrong and correcting it exposed a second defect.** `PBR` is the
+receipt on the ordinary share and it had been paired with the preferred line;
+with the right line it reads 155.2 against the preferred line's 797.6, and 155.2
+sits beside the other Sao Paulo pair's 147.4. **The wrong pair stays in the list
+and keeps printing**, which is what this repository's no-deletion rule asks for,
+**and that is what broke the next table**: the dictionary behind the
+rate-cancelled figures was keyed on the receipt alone, so the second row
+overwrote the first and printed `PBR − PBR` at exactly `0.0` beside a real
+reading of `12.8`. **A perfect zero in the one table where a small number is the
+finding.** The key now carries both legs, a receipt against two home lines is
+named and not run, and every row is labelled with both tickers.
+
+**What may be quoted**: one square formula reads a median 16.4 basis points where
+the two listings are freely transferable into one another, over 465 pairings of
+thirty-one companies spanning 12.1 to 54.9, and **196 times that** where they
+cannot be exchanged at any price. **What may not**: that the square is zero on
+the convertible side; that 12.8 sits inside a depositary agreement's published
+band, since that pair pays no depositary fee; or the 237 pooled median as the
+convertible reading, since that number has the bells in it.
+
+**One more name behaves like the corporate actions above.** `TRP` reads 953.7
+against the other thirty-one's 56.6 to 69.1; TC Energy spun off South Bow in
+October 2024 and this station did not check whether both legs took it on the same
+date and in the same ratio. Dropping it takes the pairwise maximum from 950.8 to
+54.9, and it stays in the list and keeps printing.
+
+**The thin part that remains is the venue dimension.** Toronto is the only venue
+here that keeps one bell all year, so the replication is across companies rather
+than across venues, and adding another venue would add a clock gap rather than
+information. **Two rechecks are registered and both want the same thing**: an
+intraday snapshot with both legs and the rate taken at one instant, which is what
+reading the depositary band needs and what B21's second layer needs.
+
+
+## B21 census — what a criterion has to look like to reach Corollary 1
+
+`26 criteria` `7 records` `no model run` `no price read`
+
+**4/4 criteria passed**
+
+The station closed with a note beside it that none of its criteria's failures
+would reach the framework. **That was a judgement, and this turns it into a
+count.** Every criterion in every `b21_*` record is classified, and the file
+refuses to run if one of them is unclassified.
+
+| class | n | what it means |
+|---|---|---|
+| arithmetic | 7 | a closed form evaluated at prices; with `D > 0` and `P > 0` the sign and shape follow from algebra |
+| **world** | **9** | a measurement whose failure would say something beyond this pipeline |
+| instrument | 5 | failure impugns the pipeline, the tax story, or two estimators' agreement |
+| structural | 4 | an identity to machine precision, a cell that must carry a centre, coverage |
+| void | 1 | withdrawn |
+
+**Two criteria reach Corollary 1, and both of them are arithmetic.** B21-1 says
+the class index is non-zero on every leg-year and B21-15 says neither statutory
+index is zero anywhere; both are `log((P1 + D) / (P1 + 0.9 D))` and neither can
+come out zero while a dividend is positive. **The nine that measure the world all
+speak to the instrument or to the tax story.**
+
+> **The framework-bearing criteria and the world-measuring criteria are disjoint
+> sets on this carrier.** That is the finding, and it is a design requirement
+> rather than a defect in any one criterion: a criterion that reaches Corollary 1
+> **and** can be answered by the data has to have a class pair whose statutory
+> term is zero, so that the index is not forced non-zero before the data is read,
+> while the measured square is still free to be either.
+
+**One weak entry is named rather than counted quietly.** B21-25 asks that the
+implied withholding rate sit between zero and twenty-five per cent, which is the
+whole statutory support, so almost any reading sits inside it. It is classed as
+world and flagged in the record.
+
+
+## D14 and D17 — the two gates are one inequality written twice
+
+`no model run` `24 combinations of alpha and se` `11 bands`
+
+**3/3 criteria passed**
+
+`D17` records a failure as undecidable when the test's power is below `0.50`, and
+`D5` requires every number in a criterion to have a source. **The `0.50` is not a
+convention.** For a one-sided test that rejects when `theta_hat / se > z`, power
+is `Phi(theta / se - z)`, so **power is exactly one half at `theta = z * se`,
+which is the critical value itself.** Power below the floor therefore says one
+thing: the effect being tested is smaller than the value the instrument needs
+before it will call anything non-zero.
+
+**And that is gate two.** `D14` asks whether `z * se` fits inside the band the
+criterion must resolve. Substituting the band for the effect, **gate two passes
+if and only if the power at the band exceeds one half.** No other floor makes the
+two the same line.
+
+Measured: the departure from one half at `theta = z * se` is at most `1.110e-16`
+over twenty-four combinations of `alpha` and `se`, and at B21's measured
+`se = 0.012672` the two gates return the same verdict at all eleven bands.
+
+**What a failure is worth is printed beside it.** A non-rejection carries
+likelihood ratio `(1 - alpha) / (1 - power)` for the null, which is its entire
+evidential content. At the floor that is `1.90`, and one bit arrives at power
+`0.525`. **The floor sits just below the one-bit line**, so a failure between
+`0.50` and `0.55` is recorded as a failure while being worth less than one bit;
+the ratio is reported next to the verdict rather than the line being moved.
+
+At zero power the ratio is `0.95`, **below one**: a test that can never reject
+gives, when it does not reject, weak evidence against the null rather than none,
+because the null would have rejected `alpha` of the time.
+
+
+## A3j — where the gate is inert, and it is the opposite end of the knob
+
+`10 stretch values` `5 seeds` `300 rounds` `gap column read from A3g's record`
+
+**4/4 criteria passed**
+
+**A3h answered the inertness objection at one point and A3i counted the readings
+at fifty-seven, and the join between them was one point wide.** Everywhere else,
+"the gate cell is noise" and "the gate does nothing there" were not yet
+separated. This takes A3h's two subtractions along A3g's declared stretch grid
+and prints the gate cell beside them. Every value is printed and none is
+selected.
+
+| stretch | population | gate total abs Δ cycles | terms | **ratio** | gate cell |
+|---|---|---|---|---|---|
+| 1.0 | 18.4 | 68.8 | 92.0 | **0.748** | −0.5546 |
+| 2.0 | 24.2 | 68.4 | 64.0 | **1.069** | −2.4759 |
+| 3.0 | 41.6 | 74.0 | 85.6 | **0.864** | 1.4091 |
+| 4.0 | 66.4 | 67.2 | 72.6 | **0.926** | 1.3004 |
+| 5.0 | 98.8 | 76.6 | 81.2 | **0.943** | 1.4748 |
+| 6.0 | 128.8 | 69.2 | 86.0 | **0.805** | 0.0248 |
+| 8.0 | 138.8 | 44.2 | 89.8 | **0.492** | −0.0032 |
+| 12.0 | 153.2 | 64.0 | 94.4 | **0.678** | −0.0020 |
+| **20.0** | 178.4 | **0.0** | 98.0 | **0.000** | 0.0000 |
+| **40.0** | 200.0 | **0.0** | 93.0 | **0.000** | 0.0376 |
+
+**The objection said a narrow population leaves the treatment nothing to act on.
+At the narrowest end, 18.4 nodes, the ratio is 0.748 and the gate is acting. At
+the two widest, 178.4 and 200.0 of 200, it is exactly zero and the gate changes
+not one cycle.** The inertness is at the wide end, and the reason is in A3g's own
+population column: an admission rule that disperses entry has nothing left to
+ration once nearly everyone is already in. **A rule needs somebody it keeps out.**
+
+**So A3g's reading that the two requirements sit at opposite ends of one knob
+holds, and the reason it recorded for it does not.** Turning that knob up first
+removes the effect being read, the gap falling from 25.83 to 0.09, and then
+removes the treatment itself.
+
+**What it does to A3i.** Two of the fifty-seven pooled points are now known to
+carry an inert treatment. Dropping them leaves both counts saying the same
+thing: the ordering holds at 52 of 55 and the gate cell is sign-stable at none
+of them. A3i's record is unchanged, since its pool is defined as the points at
+which both cells were computed.
+
+**Stretch 3.0 reproduces A3h's registered block to the digit**, 74.0 against
+74.0 and 85.6 against 85.6.
+
+**No threshold is placed on the ratio.** The eight interior values are reported
+and not scored; the two zeros are a printed object and not a line crossed.
+
+
+## B13 — the zero domain, measured where the order can actually be placed
+
+`81,968 states` `9 products` `3 channels` `one ten-minute window of 2023-07-17` `the vendor's free public sample`
 
 **7/7 live criteria passed**
+
+**The framework names where its own quantity must be zero and this station goes and measures it there.** Never worse than the two-leg derivation in 81,968 states over nine products, exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states.
+
+**Why six and not all nine is open.** The explanation the station first gave is superseded in B13-2, and the six are not distinguished from the other three by anything established here.
 
 | | criterion | detail |
 |---|---|---|
@@ -1772,7 +2245,11 @@ Derived quantities:
 | PASS | B13-5  B4's section 5.1 split, both halves computed on live quotes for the first time in this repository | the split is available in 49116 of 50055 states, 0.981; Theorem 6(1)'s sign constraint has 0 counterexamples in those 49116; the index part is exactly zero in 12637 of them. B5 could report the index half and never the friction half, and this is the first carrier that quotes all four legs natively |
 | PASS | B13-6  Theorem 6(4)'s bound, and section 5.1's own criterion for two agent classes, adjudicated per position edge | 0 violations of \|S - S'\| <= -(S + S') in 49116 states; rho median 0.2000 with 0 states at rho = 1. Under the parity control the index is zero in 0.5649 of the states where zero was available: CLU3-CLV3 takes it 716 times out of 716 and is one class, RBU3-RBX3 takes it 88 times out of 1978 and RBU3-RBV3 155 out of 1895, and those two are two classes |
 
-## B14 — a dated, exogenous, symmetric friction change (the SEC tick size pilot), both halves. The friction half moves in both directions: the 5-cent grid widens the treated spread against the control in 2016, six inequalities of six, and lifting it narrows them again in 2018, six of six, once both rounds are read on the population they share. It holds on both venues under every weighting convention tried, and after dropping the order types that carry most of the share weight without participating in the spread. **The index half was bought and cannot be adjudicated on this carrier, and the reason is structural**: `S - S'` is a difference of price levels and a tick-size change works by moving those levels onto a lattice, so projecting the post-release quotes back onto the nickel grid reproduces 88.7 per cent of the whole move and the residual sits inside a placebo band. Closed rather than paused. What the stage produced instead is a carrier specification: `docs/b4_directed_edges.md` section 9 now carries three conditions where it carried one, and Theorem 6(5) is new
+## B14 — a dated, exogenous, symmetric friction change: the SEC tick size pilot
+
+**The friction half moves in both directions.** The 5-cent grid widens the treated spread against the control in 2016, six inequalities of six, and lifting it narrows them again in 2018, six of six, once both rounds are read on the population they share. It holds on both venues under every weighting convention tried, and after dropping the order types that carry most of the share weight without participating in the spread.
+
+**The index half is beyond this carrier's reach, and the reason is structural rather than a matter of power.** `S - S'` is a difference of price levels and a tick-size change works by moving those levels onto a lattice, so projecting the post-release quotes back onto the nickel grid reproduces 88.7 per cent of the whole move and the residual sits inside a placebo band. Closed rather than paused. **What the stage produced instead is a carrier specification**: `docs/b4_directed_edges.md` section 9 now carries three conditions where it carried one, and Theorem 6(5) is new.
 
 ### b14_gate0.authoritative
 
@@ -4293,7 +4770,7 @@ figure can place it; placing it is their work and not this stage's.
 | PASS | A18_F3 is the count monotone in the parking rate | second state: 4 of 10 and 6 of 10 cells by route, and the two shapes are different |
 
 
-## B18 — the directional remnant: what a position's one-sidedness would leave in the book, and why this day cannot show it
+## B18 — the directional remnant: what a position's one-sidedness leaves in the book
 
 `295 spread contracts` `3,895,656 snapshots` `one trading day` `nothing bought`
 
@@ -4343,3 +4820,625 @@ count qualifying cells on what is already on disk before buying more.
 The step from those theorems to "a position's one-sidedness travels into every
 contract containing it" was the design's own and was never derived, and the
 reading side does not stand either, so the station carries neither.
+
+## B21 — the class index on A+H dual listings, and an arm whose target is set by statute
+
+`203 pairs` `4,226 leg-years` `193 companies` `2006 to 2026` `nothing bought`
+
+**The carrier.** One company, two shares, one profit. An A+H dual listing pays
+the same declared dividend to both lines and the two lines are held under
+different tax law, so the same claim delivers a different amount to different
+holders **by an amount the state publishes**. Dividend withholding on the
+Connect legs is 0%, 10% or 20% by 财税〔2014〕81号, 财税〔2016〕127号 and the 2023
+extension, which makes this the one station in the repository whose target is
+known before the measurement rather than estimated from it.
+
+**The reading.** The class index, computed from realised prices and dividends
+over one-year holding periods:
+
+| leg | n | p10 | median | p90 | max | min |
+|---|---|---|---|---|---|---|
+| A | 2,297 | 2.8 | **14.8** | 45.0 | 221.1 | 0.1221 |
+| H | 1,929 | 8.6 | **30.5** | 70.1 | 302.1 | 0.2829 |
+
+basis points per year. **Zero is in neither distribution and not one leg-year of
+4,226 reaches it.** A single scalar price field on positions requires the terms
+not to depend on who holds, and Corollary 1 needs one edge and one pair of
+classes to break it.
+
+**The arm, and why it is an arm rather than a tolerance.** The gap between the
+closed form and the exact index has a predicted shape: expanding the log in the
+yield `y = D / P1` gives `gap ≈ ½ Δτ (2 − τ_a − τ_b) y²`, with the coefficient
+fixed by the statutory rates and nothing fitted. What is reported is the observed
+gap over that prediction, which must sit at one and fall below it monotonically
+as the third-order term turns on.
+
+| leg | second-order coefficient | ratio to prediction, by yield band |
+|---|---|---|
+| A | 0.0950 | 0.995 · 0.987 · 0.974 · 0.956 · 0.929 · 0.878 |
+| H | 0.0850 | 0.995 · 0.988 · 0.976 · 0.957 · 0.933 · 0.890 |
+
+Monotone on both legs, and the ratio reaches 0.9999 and 0.9998 without exceeding
+one. **The third-order coefficients 0.9509 and 0.8510 match to three decimals in
+the five low yield bands and the fourth-order sign reverses**, all three levels
+given by statute and algebra with zero fitted parameters.
+
+**The arm has now been insensitive to two separate defects in its own inputs,
+both times for a reason stated before the defect was found.** Its ratio carries
+the same yield above and below the line, so a scaled dividend moves a point along
+the curve rather than off it. Neither the pre-2014 rebuild nor the adjustment
+problem below moved any coefficient.
+
+### What the cross section adds, and what its own placebo took away
+
+Taking the loop sum across pairs on a fixed date removes any term without a pair
+index, **identically rather than by controlling for it**. Adding a constant to
+every pair on a date moves the dispersion by at most `1.110e-16` over 4,846
+dates. That licenses one sentence and no more: **dispersion across pairs on a
+fixed day is not the capital-account wedge.**
+
+| | reading |
+|---|---|
+| panel | 4,846 dates, pairs per date min 28, median 84, max 198 |
+| variance between dates | 0.020899 (11.3%) |
+| variance within a date | 0.163720 (88.7%) |
+| external anchor, 2024-06-28 | ICBC 0.2777, Ping An 0.2275, CM Bank 0.0357 |
+
+**The placebo attached to this decomposition refutes the other half of it, and is
+recorded as failing.** A currency event moves the wedge and nothing with a pair
+index, so it should move the common term. Across five events the common term's
+jump sits at the 14th to 39th percentile of its own history and never above the
+median, while the onshore-offshore spread itself jumps at the 99.8th, 95.8th and
+90.2nd. **One number says why: the wedge's standard deviation is 0.00423 against
+the common term's 0.13512, so it is 3.1% of the thing it was taken for.** The
+identity is untouched, because it needs the wedge to be common and not to be all
+that is common. **What is withdrawn is the identification of the common term with
+anything**, and with it the external cross-check that was to be run against it.
+
+### Attribution beyond that exclusion: registered, with the order of purchase reversed
+
+Separating the position-transfer term from the price term needs the Connect
+eligibility list, which is published. **The list is not the binding input.** After
+inclusion the loop sum is the transfer cost minus the cash wedge, the cash wedge
+has no pair index, and the transfer cost is a published fee schedule set per
+trade plus that stock's own bid-ask spread. **So the whole stock-level content is
+the spread**, and whether its cross-stock dispersion is large enough to find is
+the precondition. It is, and settling it needed no quotes.
+
+**No estimator answers it and the way they fail names what does.** Four were
+tried on daily bars. Corwin and Schultz (2012) floors two windows in five on
+every leg; Abdi and Ranaldo (2017) comes back non-positive on 52.5% of months;
+Amihud (2002) cannot floor but ranks the legs −0.958 against turnover, which is
+the same measurement twice; the zero-return share of Lesmond et al (1999) ranks
++0.011 against Amihud, no relationship at all. **They fail together because they
+share one assumption**: that a daily range carries information about the spread.
+An A-share's range runs two to four hundred basis points against a spread in
+single digits.
+
+**What settles it is a published rule and a division.** The mainland tick is a
+flat 0.01 yuan on both boards, so a stock at price `P` cannot quote a relative
+spread below `0.01 / P`. Exact, stock-level, and free.
+
+| | |
+|---|---|
+| tick floor `0.01/P` | p10 1.81, median 7.84, p90 23.70 bp |
+| extremes | 0.46 bp at 216.72 yuan, 58.82 bp at 1.70 yuan |
+| **cross-stock sd** | **0.00099, which is 0.234 of the wedge's 0.00423** |
+
+**A floor is only a floor unless the tick binds, and whether it binds is also
+measurable from closes alone.** By Harris's last-digit clustering a stock using
+every tick puts 0.200 of its closes on a final digit of 0 or 5. The median leg
+reads 0.2219 and 89 of 202 sit within 0.02 of uniform; clustering runs +0.6882
+against log price and **−0.5009 against the floor itself**. **The tick binds
+where the floor is large and loosens where it is small**, which is the direction
+that refuses the objection a floor invites.
+
+**So the stock-level term exists, is bounded below exactly at 0.234 of the common
+term, and the two estimators that survive at all put it near 0.41 and 0.46.**
+
+**Reading the eligibility rule then removes the cross-sectional route entirely,
+for the third and cheapest time.** The Shanghai exchange lists "SSE-SEHK A+H
+shares" as an eligibility category in its own right, so an A share is Northbound
+eligible for having an H line at all, whatever its size. All 203 pairs qualify,
+none carries a risk-alert marker, and 201 of 203 would clear the index route's
+turnover floor regardless. **The treatment takes one value on this unit of
+observation.** Two earlier readings had reached the same place more expensively:
+the intended control group was a stock index's constituents rather than the
+eligibility list, and turnover correlates −0.5613 with the premium across stocks,
+running the median from 2.28× in the least liquid quartile to 1.30× in the most.
+
+**On a different unit of observation the treatment does vary, and the dates are
+published.** Northbound opened for Shanghai on 2014-11-17 and for Shenzhen on
+2016-12-05, 749 days apart, so for those 749 days a Shenzhen A+H pair was out of
+reach for a Hong Kong holder without a quota while a Shanghai one was not. Of the
+203 pairs, 143 are Shanghai and 60 Shenzhen; 81 and 32 respectively were already
+trading before the first launch.
+
+**The two events exchange the roles of the two groups**, which is what carries
+the identification: a fixed Shanghai-Shenzhen difference predicts the same sign
+at both events and the treatment predicts opposite signs, so the groups do not
+have to be argued comparable.
+
+**The design turns out to have nothing to identify, and working out why closes
+the question rather than parking it.**
+
+**The premium cancels.** Both classes meet on one order book, so the price
+component of a move from an A position to an H position is identical for them and
+drops out of the difference:
+
+    w_a(A->H) = [price] - f_a,   w_b(A->H) = [price] - f_b,   so  w_a - w_b = f_b - f_a
+
+**A premium of 30 to 130 per cent therefore contributes nothing whatever to the
+index part of the square.** It sits entirely in the friction part, which section
+5.1 of `docs/b4_directed_edges.md` shows says nothing about who the agents are.
+This is algebra, not a judgement about what the premium deserves to be used for.
+
+**Then the published fee schedule empties `f_b - f_a` as well.** A Northbound
+investor pays a handling fee of 0.00341%, a securities management fee of 0.002%
+and a transfer fee of 0.001% on both sides, and stamp duty of 0.05% on the sell
+side. **A domestic investor pays exactly the same four**: they are levied per
+trade by the exchange, the regulator, the clearing house and the tax authority,
+and none of them looks at who is trading.
+
+**So the square is enumerable term by term, and the enumeration is short:**
+
+| term | class-dependent | |
+|---|---|---|
+| price | no | one order book |
+| the four statutory charges | no | published schedule, levied per trade |
+| currency conversion | yes, but carries no pair index | the common term, measured above |
+| **dividend withholding** | **yes, and it carries the index** | **the arm reported above** |
+| capital gains | yes, unmeasured | exempt for Northbound under 财税〔2014〕81号, 25% for domestic corporates |
+
+**The separation layer two was to perform is therefore derived rather than
+estimated, and its answer is the arm this station already ran.** What the
+enumeration adds is two further statutory edges, both read out of the same
+notice, both larger than the withholding, and both run on the data already in
+hand.
+
+### Two more edges the enumeration found, and an algebra that predicts opposite shapes
+
+Caishui [2014] 81 exempts a Hong Kong investor, enterprise or individual, from
+tax on A-share transfer gains, while a mainland enterprise carries them into
+taxable income at 25 per cent. **The same notice also sets a threshold rather
+than a rate**: a mainland enterprise pays no enterprise income tax on an H-share
+dividend once it has held continuously for twelve months, and 25 per cent
+otherwise. **A location given by statute and a size given by statute, with
+nothing fitted.**
+
+**The two edges are predicted to take opposite shapes and they do.** Both indices
+are a difference of two logs, and the third-order term subtracts from a positive
+second-order term in the dividend case and adds to a negative one in the gains
+case:
+
+**The twelve-month threshold reaches both legs, and by one statute rather than
+two.** Article 26 of the Enterprise Income Tax Law with article 83 of its
+implementing regulations excludes from exemption any dividend on a listed share
+held continuously for under twelve months, and Caishui [2014] 81 carries the same
+threshold onto the H line. So the edge runs on all 4,226 leg-years.
+
+**The capital-gains edge then splits itself, and the statute says which way.** A
+loss is deductible where a gain is taxable, so the index reverses sign; in the
+expansion the second-order term does not care about the sign of the running
+variable and the third-order term does, so the loss branch is predicted to mirror
+the gain branch.
+
+| edge | statutory gap | 2nd-order coefficient | leg-years | index median | ratio across bands | extreme |
+|---|---|---|---|---|---|---|
+| dividend withholding, A | 0.10 | 0.0950 | 2,297 | 14.8 bp | 0.995 → 0.878 | max 0.9999 |
+| dividend withholding, H | 0.10 | 0.0850 | 1,929 | 30.5 bp | 0.995 → 0.890 | max 0.9998 |
+| **twelve-month threshold, both legs** | **0.25** | **0.21875** | **4,226** | **52.7 bp** | 0.996 → 0.886 | **max 0.9999** |
+| **capital gains, A, on a gain** | **0.25** | **−0.03125** | 1,176 | **+622.8 bp** | 1.001 → 1.056 | **min 1.0002** |
+| **capital gains, A, on a loss** | **0.25** | **−0.03125** | 1,118 | **−528.1 bp** | 0.999 → 0.950 | **max 0.9999** |
+
+**Five readings, three statutory gaps, every shape fixed by the algebra before
+the run, and every one of them observed.** The three predicted to sit below one
+never exceed it, the one predicted to sit above never falls below, and **all
+1,118 loss leg-years carry a negative index without a single exception**.
+**A pipeline that is wrong cannot be wrong in two opposite directions at once,
+and this one is asked to be right in both on the same edge with the sign of one
+variable flipped.**
+
+**The class index on this carrier now spans four orders of magnitude, from 0.12
+to 2,425 basis points, and is nowhere zero.**
+
+Three limits travel with the capital-gains edge. It bites on realisation rather
+than accrual, so it is computed on the same close-of-period construction the
+first arm uses. **Enterprise income tax is an annual entity-level computation
+rather than a deduction at source**, so 25 per cent is the rate at the margin for
+an entity with taxable income, and that is the class the edge names; this bears
+on the class definition and not only on the construction. And the loss branch reads
+the same class as the gain branch, an entity with taxable income to deduct
+against, so the two are one edge read at two signs rather than two populations.
+
+### The first thing this station measures rather than computes, and it agrees
+
+Every edge above is arithmetic: a statutory rate carried through the algebra of
+after-tax returns. **None of them asks whether the market prices the wedge.**
+
+Elton and Gruber (1970) is the instrument. On the ex-dividend day the price gives
+up some fraction of the dividend, and the fraction depends on what the marginal
+holder pays on a dividend against a capital gain. **The level of a drop-off ratio
+has been argued over for fifty years**, because transaction costs, ex-day risk and
+price discreteness all move it. **A+H removes the argument**: one company declares
+one dividend, the two lines are held by holders the tax code treats differently,
+and differencing the two legs cancels everything that belongs to the company.
+
+**The band is declared from statute before the run.** A resident holding an A
+share past twelve months pays nothing, so the A leg should surrender the whole
+dividend and read 1.00; an H-share dividend is withheld at 10 per cent for a
+non-resident and 20 for a mainland individual through Southbound, so the H leg
+should read 0.90 to 0.80 and **the difference should fall in [0.10, 0.20]**.
+
+**This is the one criterion shape on this station that gates two and three bind,
+so both are run first.** The standard deviation of the per-event ratio is 10.4
+times its interquartile range on the A leg and 8.4 on the H, so the centre and its
+error are taken robustly. Gate two's first stage, borrowing nothing: `1.645 × se`
+of the difference is 0.0380 against a band 0.10 wide, a ratio of **0.380**. The
+difference then sits 5.6 standard errors from zero, so power is not the binding
+constraint.
+
+| | n | centre | robust se | |
+|---|---|---|---|---|
+| A leg | 2,608 | **+0.9883** | 0.0194 | an untaxed holder reads 1.00 |
+| H leg | 2,242 | **+0.8581** | 0.0126 | implied withholding **14.19%** |
+| difference | | **+0.1302** | 0.0231 | statute says [0.10, 0.20] |
+| within company | 133 | **+0.1790** | 0.0311 | 96 of 133 companies positive |
+
+**Both the pooled and the within-company reading fall inside the band the statute
+declares, and the implied 14.19 per cent sits between the 10 the non-resident pays
+and the 20 the Southbound individual pays**, which is where a mixed margin
+belongs. Dispersion across companies is wide, p10 −0.268 to p90 +0.798, so no
+single company carries anything; only the centre does.
+
+**One prediction was declared with a direction, and the direction had no
+statutory source.** Southbound opened on 2014-11-17; the reading is an implied
+0.1799 before and 0.1289 after, and differencing within the 82 companies carrying
+ex-days on both sides gives −0.0701 with a robust standard error of 0.0366, **so
+it is not a change in which companies are in the sample**.
+
+**What the notice actually admits is a mixture.** Caishui [2014] 81 lets mainland
+individuals into the H line at 20 per cent **and mainland enterprises at zero once
+they have held twelve months**, 25 below it, alongside the non-resident's 10. A
+mixture of 0, 10, 20 and 25 fixes endpoints and not a direction. **The rising sign
+was the analyst's and not the statute's**, so that criterion is recorded void with
+its reading preserved, and what the statute does support is registered in its
+place: the implied rate stays inside 0 to 25 per cent on both sides, which it
+does. **The reading is unchanged by the correction; only what may be concluded
+from it is.**
+
+### A statute that taxes one trade, and a trade that leaves no trace to tax
+
+Caishui [2012] 85, in force 2013-01-01, made an individual's tax on a listed
+dividend depend on the holding period: the whole dividend into taxable income
+under a month, half from a month to a year, a quarter beyond, all at 20 per cent.
+What it replaced taxed every holder at 10 per cent regardless. **So on one dated
+day the cost of the dividend-capture trade doubled**, and nothing else about the
+trade changed. Caishui [2015] 101 is not the event: it moved the over-one-year
+tier to zero and left the under-a-month tier where it was, and the capture trade
+sits in that tier.
+
+**The direction and the control were declared before the run.** Volume in the
+five days before an A-leg ex-date should thin after 2013-01-01; the H leg of the
+same company is outside this statute and should not move.
+
+| | n | median log ratio | robust se |
+|---|---|---|---|
+| A before | 462 | −0.0396 | 0.0214 |
+| A after | 2,104 | −0.0045 | 0.0091 |
+| H before | 478 | +0.1074 | 0.0183 |
+| H after | 1,730 | +0.0745 | 0.0103 |
+
+**The declared sign is not observed, and is recorded in the middle state rather
+than as a refutation.** The A leg moves +0.0351 where minus was declared, the H
+control does sit still at −0.0329, and the difference in differences is +0.0680.
+At a standard error of 0.0233 the A leg's move is 1.5 standard errors from zero.
+**The criterion was first written as `change < 0`, a zero-width strict inequality
+on an estimator**, which the repository forbids whichever way such a test comes
+out; a reading a standard error and a half from zero is undecidable.
+
+**A defect of this station's own was found mid-way, and printing the profile is
+what found it.** The first baseline was one-sided, taken from the sixty to eleven
+trading days *before* the ex-date, so it sits earlier in calendar time than the
+window it normalises and any trend in volume enters the ratio. A-share volume grew
+by orders of magnitude over twenty years and the two eras compared have different
+trends. **The one-sided reading sat 12 to 24 per cent below baseline at every lag
+from minus ten to plus ten**, and no ex-date effect can be present ten days
+before the ex-date. With the baseline taken on both sides, the main effect falls
+from +0.1270 at 5.0 standard errors to +0.0351 at 1.5, **so two thirds of it was
+the trend**, and the difference in differences falls from 4.5 to 2.2.
+
+**What the corrected profile says matters more than the failed sign.**
+
+```
+   day    A before     A after    H before     H after
+    -1       0.004       0.068       0.149       0.185
+     0      -0.119       0.040       0.136       0.169
+     1      -0.099       0.027       0.110       0.055
+```
+
+Before 2013 neither leg carries anything resembling a spike. After 2013 a peak at
+day minus one appears on **both** legs, and the larger of the two, +0.185, is on
+the H leg, **which this statute does not reach**. So the pattern is a market-wide
+change rather than a tax effect, and **the trade the statute penalises leaves no
+signature on this instrument to be removed**. That reading is recorded in the
+third state rather than as a result.
+
+**The +2.2 standard errors may not be read as the tax increasing the trade.**
+That reading requires the trade to be visible first, and the profile says it is
+not.
+
+### What each criterion would refute if it failed
+
+Twenty-six criteria have been recorded on this station. **Sorting them by what
+their failure would cost is worth doing once, because the answer bears on how the
+station may be quoted.**
+
+| a failure would mean | criteria | count |
+|---|---|---|
+| the code is wrong | B21-1, 2A, 2H, 3, 13, 14, 15, 16, 21 | 9 |
+| this carrier does not carry the quantity | B21-4, 5, 11, 12, 24 | 5 |
+| the estimator does not work on this data | B21-7, 8, 9, 10, 17 | 5 |
+| an assumption added on top of the theory is wrong | B21-6, 23 | 2 |
+| **the world is other than the statute implies** | **B21-18, 19**, and weakly 25 | 3 |
+| **the framework is wrong** | **none** | **0** |
+
+**That last row is a property of the construction and not an oversight.** This
+station's core content is computed from tax law: the statute says two classes of
+holder receive different amounts from one claim, and a statute is a fact rather
+than a hypothesis. **That is exactly what makes the existence result hard to
+argue with, and exactly what makes it unfalsifiable by measurement.**
+
+**The two criteria that are two-sided against the world are the drop-off arm.**
+Had the market priced no class difference at all, the reading would have been that
+the statutory wedge exists on paper and not in prices, which is a meaningful
+negative. It reads +0.1302 pooled and +0.1790 within company, both inside the band.
+
+**So the station's shape is: existence given by statute, and whether the market
+prices it tested by measurement.** The content that could refute the framework
+rather than this station lives in the zero-domain family, where the framework
+names where its own quantity must vanish and the measurement is then taken there.
+
+**The two criteria still recorded as failing are in the third and fourth rows.**
+The four-instrument disagreement is a fact about Corwin-Schultz, Abdi-Ranaldo,
+Amihud and the zero-return share, on which the framework says nothing, and it is
+the disagreement that led to the tick floor. The currency placebo refutes the
+sentence "the common term is the wedge", which was added on top of the identity;
+**the identity itself holds to 1.11e-16 and the placebo returned a number, the
+wedge being 3.1 per cent of the common term's dispersion.** Neither is a null
+result: both are measurements whose answer was that an assumption was wrong.
+
+### The dividend column, which carried two conventions
+
+Before 2014 the vendor's H-leg dividend is the A-leg figure times a fixed 1.166
+whatever the rate did, while the measured rate ran 0.973 to 1.267. The share of
+matched pairs sitting on that constant falls from 78.1% in 2013 to 5.6% in 2014.
+**Two conventions in one column**, rebuilt from the A-leg amount and the rate on
+its ex-date, 308 payments over 74 legs. Effect on the H-leg median: one tenth of
+a basis point.
+
+Pairing the two legs is by best agreement rather than by nearest date, and by
+declared rather than saved amounts, since the dividend column is adjusted for
+later splits and the two legs do not always carry the same ones. **Three
+tolerance bands were tried and all three discarded**: sorted, the excess of an
+implied ratio beyond the range the rate actually took runs 0.013, 0.015, 0.020,
+0.027, 0.035, 0.046, 0.059, 0.082, 0.110, 0.124, 0.187 and on to 9.14 without a
+break, and a continuous tail has no place to cut. 1,843 pairs over 164 companies,
+69.0% scoring exactly zero, every unpartnered payment reported.
+
+**Which leg is faithful is not what it looks like.** ZTE's declared cash
+dividends per ten shares are on the public record as 2.5, 1.5, 2.5, 3, 3, 3, 2
+for 2006 to 2012. The computed H column reproduces them to one part in ten
+thousand in five of seven years using its own splits and the constant; the native
+A column reproduces them in none, needing an extra factor of 1.5, 1.5, 15/14, 1,
+1.5, 1, 1. **A column being computed rather than reported says nothing about
+whether it is right.** Across all A legs, 180 of 2,608 payments (6.9%) sit off
+the declaration grid; splitting the index by that flag moves the median from 14.8
+to 14.4 bp and the arm's ratio from 0.9859 to 0.9863.
+
+## C1 — an administratively declared exchange rate, and the exact count of its loops
+
+`105 species` `11 published standards` `b1 = 339` `no market anywhere in it`
+
+**This is the first carrier in the project that is not money.** A global warming
+potential is an administrative declaration: under standard `s`, one tonne of
+species `a` counts as `GWP_s(a)` tonnes of CO2-equivalent, and compliance
+schemes offset against that number, so it is an exchange rate in the operative
+sense. There is no trading, no spread, no liquidity and no latency, which is
+what makes the carrier worth having: whatever this measures cannot be answered
+with friction.
+
+**The cycle count has a closed form and it was checked against the machinery.**
+Put every species opposite CO2-equivalent and draw one edge per standard that
+quotes it. A species quoted under `S_a` standards contributes `S_a - 1`
+independent loops, so `b1 = sum_a (S_a - 1)`, and each basis loop is the same
+gas read twice under two standards. One standard alone gives `b1 = 0`: the field
+is integrable by construction and there is nothing for it to disagree with. The
+count is therefore a direct measure of how much room the institutional
+arrangement leaves for disagreement, before any value is read.
+
+**The sharpest reading holds the report fixed as well as the gas and the
+horizon.** AR5 published a 100-year value with and without climate-carbon
+feedback, both authoritative, and institutions choose between them. Across 86
+comparable species the two agree exactly once.
+
+**Both halves have run, and the second one settles what the first could not.**
+The reading was fixed before the survey: one basis in force anywhere and this
+stage measures a transition; more than one at the same time and an obligation
+can be discharged two different ways in the same year. **Four methane values are
+in force at once.** The treaty layer did converge on AR5 by the end of 2024, and
+the disagreement moved rather than closing: AR6 publishes three methane values
+and all three circulate, while the treaty adopts AR5 and excludes the fossil
+methane distinction its own source draws, so one tonne of fugitive fossil
+methane is 28 under the treaty and 29.8 under the corporate standard in the same
+year.
+
+**One jurisdiction priced the choice this year.** New York legislated a
+twenty-year horizon in 2019, methane at 84, and replaced it with a hundred-year
+basis on 26 May 2026, methane at 27.9. On the same physical record for 1990 to
+2023 the reported reduction moves from 14.8 percent to 24 percent, with nothing
+emitted or abated to produce those 9.2 points.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | C1-1 cycle rank of the declaration star, two ways | E=444 edges over V=106 nodes; closed form sum(S_a-1)=339; cycle_rank on the subdivided graph=339; species quoted by exactly one standard=17 contribute no loop |
+| PASS | C1-2 holonomy of the vintage loops, GWP-100 only | 88 species decidable, 17 undecidable (one quote only); holonomy exactly 1: 0; median 1.4150, quartiles 1.2568/1.8483, max 60.640 (HFE374pc2) |
+| PASS | C1-3 AR5 against AR5 with climate-carbon feedback | one report, one gas, one horizon, two published numbers: 86 species comparable, ratio exactly 1 for 1 of them, median 1.1913, range 1.0000 to 2.0000; CH4 is 28 against 34 |
+| PASS | C1-4 do the vintages converge | 54 of 79 species non-monotone in vintage order, including CH4 N2O CFC11 CFC12; median relative revision SAR->TAR 19.68% TAR->AR4 3.68% AR4->AR5 9.05% AR5->AR6 12.63%; steps shrinking: False |
+
+**C1-4 was reachable both ways.** A monotone sequence with shrinking steps would
+have said the vintages are converging, that the earlier ones are superseded
+rather than concurrent, and that this stage measures a transition. The steps do
+not shrink and the most recent revision is the second largest of the four.
+
+## C2 — the control arm: a system of the same kind, asked the same question, that agrees with itself
+
+`115 colleges` `84,018 comparable placements` `six parallel classification schemes` `no market here either`
+
+**C1 has one cheap objection and this stage is built to answer it.** That a
+state-scale administrative system carries inconsistent conversion factors could
+be a fact about bureaucracies rather than about whether a value scalar exists.
+Settling that needs a second system of the same kind: comparable in scale and
+age, carrying several parallel classification schemes at once, publishing its
+declarations the same way, and equally free of prices, trading and friction.
+California's course articulation system is that.
+
+**It agrees with itself.** Across 84,018 placements that two or more published
+lists both record, in a vocabulary the lists share, 28 disagree. They
+sit in 12 colleges of 115, every one of them falls between the same two
+documents of the same system, and the heaviest college contributes ten courses
+carrying one identical discrepancy. A further 3174 are containment, where
+one list records a finer sub-area than another and neither contradicts the
+other. **So the multivaluedness C1 measured does not follow from the size of an
+institution.**
+
+**One arm could have read either way and read the other one.** If a scalar with
+two thresholds governs transferability, then the stricter system's list is
+contained in the looser one's. It is, at 113 colleges of 115, with three
+courses in total on the other side. That is what agreement looks like when it
+is measured rather than assumed, and it is the reason this stage's null is
+worth something.
+
+**Comparing whole area sets across lists returns disagreement for every course,
+and that number is manufactured.** Each list annotates with several schemes at
+once: the CSU-transferable list carries IGETC, CSU GE-Breadth and CSU
+American-Ideals areas together, while the IGETC list carries IGETC areas only.
+The comparison is therefore made one scheme at a time, between the lists that
+actually carry that scheme. **Which lists annotate with which schemes is a
+property of the documents, and reading it as disagreement about a course would
+have reported a rate of 100%.**
+
+**Three arms were scoped and did not open, all closed on paper.** Unit counts
+telescope to 1 around any loop, because units are a scalar attached to a course.
+"Two courses satisfying the same receiving course are equivalent" does not
+follow, because articulation declares an inequality. The Ferrers 2x2, which
+would show the relation admits no scalar representation at all, is confounded
+at college level by curriculum coverage. Their common cause is one measured
+fact: `courseIdentifierParentId` is institution-local, with none of 972 sending
+identifiers shared between colleges and none of 633 receiving identifiers shared
+between universities, so "the same course" is not sayable and every proxy for it
+also encodes "these two institutions are different".
+
+| | criterion | detail |
+|---|---|---|
+| PASS | C2-1 coverage of the sweep | 115 of 116 colleges returned data, 115 of those carry all 6 list types; 1 college(s) returned HTTP 500 for every list type and hold no record here |
+| PASS | C2-2 do the lists place a course in the same areas | 84018 comparable placements over 115 colleges; areaType 1 0 comparable 0 conflict, areaType 2 22761 comparable 0 conflict, areaType 3 24706 comparable 0 conflict, areaType 4 35398 comparable 28 conflict, areaType 5 1153 comparable 0 conflict; 3174 nested, where one list records a finer sub-area than another; 28 mutually non-containing |
+| PASS | C2-3 where the conflicts sit | 28 conflicts over 12 colleges of 115; the three heaviest hold 17 of them; every one is between CSUGE vs CSUTC; the heaviest college contributes 10 courses carrying one identical discrepancy |
+| PASS | C2-4 UC transferability against CSU transferability | nesting holds at 113 of 115 colleges; 2 college(s) list a course as UC transferable and not CSU transferable, 3 course(s) in total. Strict nesting is what a scalar with two thresholds produces, so this arm can read either way and reads one of them |
+
+**One college is absent and is named rather than left as a gap between two
+counts.** Compton College returned HTTP 500 for all six list types and holds no
+record here. It is the one California community college whose institutional
+identity changed inside the record window, having operated for roughly a decade
+under another college's accreditation before regaining its own; whether that is
+why is a lead and not a finding. **The stage's records carry `diagnostic_only`
+until that hole is closed or shown not to matter**, because one witness settles
+an existence claim and no number of them settles an absence.
+
+
+## C3 — fifteen provinces ordering the same universities, and no order they share
+
+`15 provinces` `5,771 institution entries` `2,077,374 determined comparisons` `no number declared anywhere in it`
+
+**9/9 criteria passed.**
+
+**Carrier.** The first-tier parallel-choice filing lines published by each
+Chinese province after the 2015 national college entrance examination. Fifteen
+provinces in the arts track, fifteen in science, fourteen in both, 5,771
+institution entries. Smallest cell 75 entries, largest 304. Full station
+document at `docs/c3_admission_reversals.md`.
+
+**What is under test.** Nobody publishes a national difficulty score for
+universities, and the apparatus around the examination nonetheless speaks as
+though one existed. That way of speaking has a content: if a scalar `v` over
+universities existed and each province's line were a reading of it, every
+province would place any two universities the same way round. `v` need not be
+observable, need not be in shared units, need not be the score. The commitment
+is that each province's order is the restriction of one common order.
+
+**The objection is answered by construction.** A point is not worth the same in
+two provinces, and nothing here compares a score in one province with a score in
+another. Only the order inside a province is used. The objection says the two
+provinces' scores are related by an unknown strictly increasing map, and every
+such map leaves the reading where it was; C3-2 rebuilds the reversing tuple set
+under five per-province recodings and gets the same set as an object.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | C3-0 panel | 15 provinces arts, 15 science, 14 both, 5771 entries; smallest cell 75, largest 304; 0 names dropped as ambiguous inside a cell |
+| PASS | C3-1 whether one order fits every province | arts 105 province pairs, 681773 determined comparisons, 77933 reverse, 22123 tie, 105 of 105 pairs contain a reversal; science 105 pairs, 1395601 determined, 160280 reverse, 42506 tie, 105 of 105 |
+| PASS | C3-2 invariance under a per-province recoding | the reversing (institution pair, province pair) set is identical under exponential, logarithmic, cubic, mixed and piecewise-irregular recodings applied province by province, both tracks |
+| PASS | C3-3 the pairs whose order is not a property of the pair | arts 7883 institution pairs reverse in at least one province pair of 28935 compared; science 13293 of 45294 |
+| PASS | C3-4 replication on the other track | 27708 institution pairs compared in both tracks; 4843 reverse in both, 6864 in exactly one, 16001 in neither |
+| PASS | C3-5 whether counting the provinces resolves it | arts 17351 majority edges, 16341 lie on a three-cycle; science 28879 edges, 28256 on a cycle. Raw cycle counts 63905 and 156937 are reported and are not read as independent findings |
+| PASS | C3-6 whether the reversal keeps its direction in the other track | 521134 comparisons determined in both tracks; 59672 reverse in arts, 20213 of those also reverse in science, 18240 of those keep the same province on top, 0.9024. Agreeing comparisons keep their direction 0.9611 of the time |
+| PASS | C3-7 the same numbers from a publisher with no common upstream | Tsinghua publishes its own filing lines by province and year; 29 cells comparable, 25 agree to the digit, the 4 that differ are named: three by one point in inconsistent directions and one by 19 points in the province whose table is a sub-round |
+| PASS | C3-8 how far apart in rank the reversing pairs sit | weaker of the two within-province rank separations; arts reversing deciles 1 2 4 6 8 10 13 16 22 32 max 155 against agreeing 1 8 16 24 32 41 52 65 80 102 max 191; science reversing 1 3 5 7 9 12 16 20 27 39 max 155 against agreeing 1 11 21 32 43 56 70 88 109 140 max 275 |
+
+**C3-6 is the criterion that carries the finding.** C3-1 alone is compatible
+with a national scalar read by each province with error, under which a reversal
+is a small true gap flipped by noise. That defence predicts something it cannot
+escape: the arts and science tracks are disjoint applicant pools sitting
+different papers in the same provinces in the same summer, so if a reversal is
+cohort error, which province ends up on top is decided afresh and the direction
+match sits near one half. It is 0.9024. The remaining escape, that one province
+of the pair is simply noisier and is the flipped one both times, would show as a
+degenerate lean; over the 91 province pairs measured in both tracks the lean
+runs from 0.3208 to 0.7624. Which province is on top depends on which two
+universities are being compared.
+
+**One pair, printed rather than summarised.** `东北财经大学` against
+`中国海洋大学`, filing line, 2015. Shanghai, Beijing, Shanxi, Jiangxi, Hunan,
+Guizhou, Chongqing and Heilongjiang put the first above the second in both
+tracks. Shandong, Jiangsu, Zhejiang and Fujian put the second above the first in
+both tracks. Guangxi and Shaanxi split between the tracks. The margins are not
+rounding: Heilongjiang science is 20 points one way, Jiangsu arts 13 the other
+on a 480-point scale.
+
+**C3-8 cuts both ways and is reported that way.** Reversals do concentrate
+among schools that sit close together: the median reversing comparison in arts
+has them 8 places apart in the province that separates them less, against 41 for
+a comparison the provinces agree on, which is what a scalar read with error
+predicts. The same table says the tail is neither small nor close. The printed
+separation is the weaker of the two provinces' rank distances, so the ninth
+decile of 32 in arts and 39 in science means 7,793 arts and 16,028 science
+comparisons in which both provinces separate the two schools decisively and
+separate them opposite ways. The widest is `中央财经大学` against
+`对外经济贸易大学`: Jiangxi ranks them 10 and 173 of 189 at 585 and 528, Hunan
+ranks them 163 and 8 of 182 at 544 and 614. Neither province is undecided about
+this pair.
+
+**Guangdong is a sub-round and is marked.** Its table is 第一志愿组, the first
+of two choice groups inside the first tier, and it is present in one track only,
+so it is not among the fourteen provinces C3-6 uses. On the science side it does
+enter, removing it leaves 91 province pairs of which 91 contain a reversal.
+
+**Scope.** What is refuted is a scalar over institutions whose restriction gives
+every province's order. What is not touched is a scalar over
+institution-and-programme pairs, since a university offers a different programme
+mix in different provinces and the panel carries institution-level lines. Note
+what that rescue costs: it indexes the quantity by the very thing whose
+independence was the claim. Fifteen provinces of thirty-one, one year; the
+finding is an existence claim, so coverage bounds its generality and not its
+validity. First-round filing only, with supplementary rounds excluded by name
+and the exclusion printed by the parser.

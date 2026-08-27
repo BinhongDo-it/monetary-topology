@@ -1,0 +1,3487 @@
+{
+  "carrier": "provincial first-tier filing lines, China, 2015",
+  "criteria": [
+    {
+      "cell_sizes": {
+        "上海/arts": 75,
+        "上海/science": 122,
+        "北京/arts": 118,
+        "北京/science": 166,
+        "山东/arts": 200,
+        "山东/science": 304,
+        "山西/arts": 117,
+        "山西/science": 149,
+        "广东/science": 116,
+        "广西/arts": 146,
+        "广西/science": 225,
+        "江苏/arts": 160,
+        "江苏/science": 229,
+        "江西/arts": 189,
+        "江西/science": 282,
+        "河南/arts": 249,
+        "浙江/arts": 170,
+        "浙江/science": 235,
+        "湖南/arts": 182,
+        "湖南/science": 240,
+        "福建/arts": 182,
+        "福建/science": 258,
+        "贵州/arts": 179,
+        "贵州/science": 269,
+        "重庆/arts": 168,
+        "重庆/science": 233,
+        "陕西/arts": 174,
+        "陕西/science": 234,
+        "黑龙江/arts": 162,
+        "黑龙江/science": 238
+      },
+      "detail": "2015 first-tier parallel-choice filing lines: 15 provinces in arts and 15 in science, 14 with both, 5771 institution entries in all. Smallest cell 75 entries, largest 304. 0 normalised name(s) dropped as ambiguous inside a cell",
+      "dropped_ambiguous": {},
+      "name": "C3-0 panel",
+      "passed": true,
+      "provinces_arts": [
+        "上海",
+        "北京",
+        "山东",
+        "山西",
+        "广西",
+        "江苏",
+        "江西",
+        "河南",
+        "浙江",
+        "湖南",
+        "福建",
+        "贵州",
+        "重庆",
+        "陕西",
+        "黑龙江"
+      ],
+      "provinces_science": [
+        "上海",
+        "北京",
+        "山东",
+        "山西",
+        "广东",
+        "广西",
+        "江苏",
+        "江西",
+        "浙江",
+        "湖南",
+        "福建",
+        "贵州",
+        "重庆",
+        "陕西",
+        "黑龙江"
+      ],
+      "sub_round_note": "Guangdong's table is 第一志愿组, the first of two choice groups inside the first tier rather than the whole tier, and it is present in one track only. It is not among the fourteen provinces C3-6 uses. C3-1's science side is reported with and without it.",
+      "sub_round_province": "广东"
+    },
+    {
+      "detail": "arts: 105 province pairs, 681773 determined comparisons, 77933 reverse, 22123 tie; 105 of 105 province pairs contain at least one reversal; science: 105 province pairs, 1395601 determined comparisons, 160280 reverse, 42506 tie; 105 of 105 province pairs contain at least one reversal",
+      "most_disagreeing_province_pairs": {
+        "arts": [
+          {
+            "agree": 1770,
+            "provinces": [
+              "上海",
+              "福建"
+            ],
+            "reversal_share": 0.1752,
+            "reverse": 376,
+            "shared": 67,
+            "tie": 65
+          },
+          {
+            "agree": 1929,
+            "provinces": [
+              "上海",
+              "河南"
+            ],
+            "reversal_share": 0.1714,
+            "reverse": 399,
+            "shared": 70,
+            "tie": 87
+          },
+          {
+            "agree": 4782,
+            "provinces": [
+              "广西",
+              "江苏"
+            ],
+            "reversal_share": 0.1679,
+            "reverse": 965,
+            "shared": 111,
+            "tie": 358
+          },
+          {
+            "agree": 1283,
+            "provinces": [
+              "上海",
+              "山西"
+            ],
+            "reversal_share": 0.1663,
+            "reverse": 256,
+            "shared": 57,
+            "tie": 57
+          },
+          {
+            "agree": 1342,
+            "provinces": [
+              "上海",
+              "陕西"
+            ],
+            "reversal_share": 0.1659,
+            "reverse": 267,
+            "shared": 58,
+            "tie": 44
+          },
+          {
+            "agree": 3781,
+            "provinces": [
+              "北京",
+              "福建"
+            ],
+            "reversal_share": 0.165,
+            "reverse": 747,
+            "shared": 97,
+            "tie": 128
+          },
+          {
+            "agree": 1576,
+            "provinces": [
+              "上海",
+              "江西"
+            ],
+            "reversal_share": 0.1639,
+            "reverse": 309,
+            "shared": 63,
+            "tie": 68
+          },
+          {
+            "agree": 1635,
+            "provinces": [
+              "上海",
+              "湖南"
+            ],
+            "reversal_share": 0.1633,
+            "reverse": 319,
+            "shared": 64,
+            "tie": 62
+          },
+          {
+            "agree": 1163,
+            "provinces": [
+              "上海",
+              "山东"
+            ],
+            "reversal_share": 0.1615,
+            "reverse": 224,
+            "shared": 54,
+            "tie": 44
+          },
+          {
+            "agree": 6146,
+            "provinces": [
+              "江苏",
+              "陕西"
+            ],
+            "reversal_share": 0.1608,
+            "reverse": 1178,
+            "shared": 126,
+            "tie": 551
+          },
+          {
+            "agree": 4284,
+            "provinces": [
+              "北京",
+              "江苏"
+            ],
+            "reversal_share": 0.16,
+            "reverse": 816,
+            "shared": 104,
+            "tie": 256
+          },
+          {
+            "agree": 7206,
+            "provinces": [
+              "江苏",
+              "湖南"
+            ],
+            "reversal_share": 0.1593,
+            "reverse": 1365,
+            "shared": 136,
+            "tie": 609
+          }
+        ],
+        "science": [
+          {
+            "agree": 2453,
+            "provinces": [
+              "上海",
+              "广东"
+            ],
+            "reversal_share": 0.1771,
+            "reverse": 528,
+            "shared": 79,
+            "tie": 100
+          },
+          {
+            "agree": 7950,
+            "provinces": [
+              "山西",
+              "江苏"
+            ],
+            "reversal_share": 0.1763,
+            "reverse": 1702,
+            "shared": 143,
+            "tie": 501
+          },
+          {
+            "agree": 5643,
+            "provinces": [
+              "上海",
+              "江苏"
+            ],
+            "reversal_share": 0.1756,
+            "reverse": 1202,
+            "shared": 120,
+            "tie": 295
+          },
+          {
+            "agree": 8348,
+            "provinces": [
+              "北京",
+              "江苏"
+            ],
+            "reversal_share": 0.1745,
+            "reverse": 1765,
+            "shared": 146,
+            "tie": 472
+          },
+          {
+            "agree": 4010,
+            "provinces": [
+              "上海",
+              "山东"
+            ],
+            "reversal_share": 0.168,
+            "reverse": 810,
+            "shared": 100,
+            "tie": 130
+          },
+          {
+            "agree": 14470,
+            "provinces": [
+              "江苏",
+              "重庆"
+            ],
+            "reversal_share": 0.1665,
+            "reverse": 2891,
+            "shared": 196,
+            "tie": 1749
+          },
+          {
+            "agree": 2964,
+            "provinces": [
+              "山西",
+              "广东"
+            ],
+            "reversal_share": 0.1665,
+            "reverse": 592,
+            "shared": 86,
+            "tie": 99
+          },
+          {
+            "agree": 13465,
+            "provinces": [
+              "广西",
+              "江苏"
+            ],
+            "reversal_share": 0.166,
+            "reverse": 2681,
+            "shared": 188,
+            "tie": 1432
+          },
+          {
+            "agree": 5668,
+            "provinces": [
+              "上海",
+              "贵州"
+            ],
+            "reversal_share": 0.1635,
+            "reverse": 1108,
+            "shared": 118,
+            "tie": 127
+          },
+          {
+            "agree": 4485,
+            "provinces": [
+              "上海",
+              "山西"
+            ],
+            "reversal_share": 0.16,
+            "reverse": 854,
+            "shared": 105,
+            "tie": 121
+          },
+          {
+            "agree": 3801,
+            "provinces": [
+              "广东",
+              "重庆"
+            ],
+            "reversal_share": 0.1587,
+            "reverse": 717,
+            "shared": 98,
+            "tie": 235
+          },
+          {
+            "agree": 15802,
+            "provinces": [
+              "江苏",
+              "贵州"
+            ],
+            "reversal_share": 0.1584,
+            "reverse": 2974,
+            "shared": 204,
+            "tie": 1930
+          }
+        ]
+      },
+      "name": "C3-1 whether one order fits every province",
+      "passed": true,
+      "reading": "no common order",
+      "science_without_the_sub_round_province": {
+        "determined": 1333115,
+        "pairs_with_a_reversal": 91,
+        "province_pairs": 91,
+        "reverse": 151900
+      }
+    },
+    {
+      "detail": "the reversing (institution pair, province pair) set is identical under five recodings applied province by province, including one that gives each province a different map and one that is piecewise linear with irregular knots: all identical. **This is what answers the objection that a point is worth something different in each province.** That objection says the scores are related by an unknown strictly increasing map per province, and every such map leaves this station's reading where it was",
+      "invariance": {
+        "cubic": {
+          "arts": true,
+          "science": true
+        },
+        "exponential": {
+          "arts": true,
+          "science": true
+        },
+        "logarithmic": {
+          "arts": true,
+          "science": true
+        },
+        "mixed": {
+          "arts": true,
+          "science": true
+        },
+        "wobble": {
+          "arts": true,
+          "science": true
+        }
+      },
+      "name": "C3-2 invariance under a per-province recoding",
+      "passed": true,
+      "reversals_arts": 77933,
+      "reversals_science": 160280
+    },
+    {
+      "detail": "arts: 7883 institution pairs reverse in at least one province pair, of 28935 compared; science: 13293 of 45294. The twenty-five with the most reversing province pairs are named in each track",
+      "most_reversed_pairs": {
+        "arts": [
+          {
+            "a": "东北财经大学",
+            "agree": 49,
+            "b": "中国海洋大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "东北财经大学",
+            "agree": 49,
+            "b": "北京第二外国语学院",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中央财经大学",
+            "agree": 49,
+            "b": "南开大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "华北电力大学(北京)",
+            "agree": 49,
+            "b": "山东大学威海分校",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "河海大学",
+            "agree": 49,
+            "b": "西北大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "上海外国语大学",
+            "agree": 55,
+            "b": "对外经济贸易大学",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "东北财经大学",
+            "agree": 55,
+            "b": "山东大学威海分校",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "东北财经大学",
+            "agree": 55,
+            "b": "苏州大学",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "中国海洋大学",
+            "agree": 55,
+            "b": "苏州大学",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "北京林业大学",
+            "agree": 55,
+            "b": "河海大学",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "北京第二外国语学院",
+            "agree": 55,
+            "b": "华北电力大学(北京)",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "北京第二外国语学院",
+            "agree": 55,
+            "b": "山东大学威海分校",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "厦门大学",
+            "agree": 55,
+            "b": "对外经济贸易大学",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "山东大学威海分校",
+            "agree": 55,
+            "b": "河海大学",
+            "reverse": 50,
+            "tie": 0
+          },
+          {
+            "a": "东北财经大学",
+            "agree": 42,
+            "b": "西南政法大学",
+            "reverse": 49,
+            "tie": 0
+          },
+          {
+            "a": "中南财经政法大学",
+            "agree": 42,
+            "b": "北京理工大学",
+            "reverse": 49,
+            "tie": 14
+          },
+          {
+            "a": "中央财经大学",
+            "agree": 42,
+            "b": "对外经济贸易大学",
+            "reverse": 49,
+            "tie": 14
+          },
+          {
+            "a": "北京林业大学",
+            "agree": 42,
+            "b": "天津财经大学",
+            "reverse": 49,
+            "tie": 0
+          },
+          {
+            "a": "华北电力大学(保定)",
+            "agree": 42,
+            "b": "辽宁大学",
+            "reverse": 49,
+            "tie": 0
+          },
+          {
+            "a": "南开大学",
+            "agree": 42,
+            "b": "对外经济贸易大学",
+            "reverse": 49,
+            "tie": 14
+          },
+          {
+            "a": "西北大学",
+            "agree": 42,
+            "b": "西南交通大学",
+            "reverse": 49,
+            "tie": 0
+          },
+          {
+            "a": "上海交通大学",
+            "agree": 43,
+            "b": "复旦大学",
+            "reverse": 48,
+            "tie": 14
+          },
+          {
+            "a": "中南财经政法大学",
+            "agree": 43,
+            "b": "湖南大学",
+            "reverse": 48,
+            "tie": 0
+          },
+          {
+            "a": "中国海洋大学",
+            "agree": 43,
+            "b": "北京第二外国语学院",
+            "reverse": 48,
+            "tie": 14
+          },
+          {
+            "a": "中国矿业大学",
+            "agree": 43,
+            "b": "辽宁大学",
+            "reverse": 48,
+            "tie": 0
+          }
+        ],
+        "science": [
+          {
+            "a": "东北财经大学",
+            "agree": 49,
+            "b": "中央民族大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "东北财经大学",
+            "agree": 49,
+            "b": "华北电力大学(北京)",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中南财经政法大学",
+            "agree": 49,
+            "b": "中国传媒大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中南财经政法大学",
+            "agree": 49,
+            "b": "西北工业大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国农业大学",
+            "agree": 49,
+            "b": "北京科技大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国地质大学(武汉)",
+            "agree": 49,
+            "b": "中国石油大学(北京)",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国石油大学(北京)",
+            "agree": 49,
+            "b": "华中农业大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国石油大学(北京)",
+            "agree": 49,
+            "b": "南昌大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国石油大学(北京)",
+            "agree": 49,
+            "b": "西北农林科技大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国石油大学(北京)",
+            "agree": 49,
+            "b": "西北大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国药科大学",
+            "agree": 49,
+            "b": "华北电力大学(保定)",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "中国药科大学",
+            "agree": 49,
+            "b": "河海大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "兰州大学",
+            "agree": 49,
+            "b": "北京第二外国语学院",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "兰州大学",
+            "agree": 49,
+            "b": "南方医科大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "北京化工大学",
+            "agree": 49,
+            "b": "河海大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "北京理工大学",
+            "agree": 49,
+            "b": "华中科技大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "北京第二外国语学院",
+            "agree": 49,
+            "b": "南方医科大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "华北电力大学(保定)",
+            "agree": 49,
+            "b": "南方医科大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "厦门大学",
+            "agree": 49,
+            "b": "西安交通大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "吉林大学",
+            "agree": 49,
+            "b": "苏州大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "武汉大学",
+            "agree": 49,
+            "b": "西安交通大学",
+            "reverse": 56,
+            "tie": 0
+          },
+          {
+            "a": "东北财经大学",
+            "agree": 51,
+            "b": "北京科技大学",
+            "reverse": 54,
+            "tie": 0
+          },
+          {
+            "a": "东北财经大学",
+            "agree": 51,
+            "b": "苏州大学",
+            "reverse": 54,
+            "tie": 0
+          },
+          {
+            "a": "中国海洋大学",
+            "agree": 51,
+            "b": "吉林大学",
+            "reverse": 54,
+            "tie": 0
+          },
+          {
+            "a": "中国石油大学(北京)",
+            "agree": 51,
+            "b": "中国矿业大学",
+            "reverse": 54,
+            "tie": 0
+          }
+        ]
+      },
+      "name": "C3-3 the institution pairs whose order is not a property of the pair",
+      "passed": true
+    },
+    {
+      "detail": "27708 institution pairs are compared in both tracks. 4843 reverse in both, 6864 in exactly one, 16001 in neither. The two tracks are disjoint applicant pools sitting different papers in the same provinces in the same summer, so a pair reversing in both is not a property of one cohort",
+      "name": "C3-4 replication on the other track",
+      "passed": true,
+      "replicating_pairs": [
+        {
+          "a": "东北财经大学",
+          "arts": {
+            "agree": 49,
+            "reverse": 56
+          },
+          "b": "中国海洋大学",
+          "science": {
+            "agree": 55,
+            "reverse": 50
+          }
+        },
+        {
+          "a": "东北财经大学",
+          "arts": {
+            "agree": 55,
+            "reverse": 50
+          },
+          "b": "苏州大学",
+          "science": {
+            "agree": 51,
+            "reverse": 54
+          }
+        },
+        {
+          "a": "中央财经大学",
+          "arts": {
+            "agree": 49,
+            "reverse": 56
+          },
+          "b": "南开大学",
+          "science": {
+            "agree": 46,
+            "reverse": 45
+          }
+        },
+        {
+          "a": "东北财经大学",
+          "arts": {
+            "agree": 61,
+            "reverse": 44
+          },
+          "b": "中央民族大学",
+          "science": {
+            "agree": 49,
+            "reverse": 56
+          }
+        },
+        {
+          "a": "东北财经大学",
+          "arts": {
+            "agree": 49,
+            "reverse": 56
+          },
+          "b": "北京第二外国语学院",
+          "science": {
+            "agree": 61,
+            "reverse": 44
+          }
+        },
+        {
+          "a": "山东大学威海分校",
+          "arts": {
+            "agree": 55,
+            "reverse": 50
+          },
+          "b": "河海大学",
+          "science": {
+            "agree": 43,
+            "reverse": 48
+          }
+        },
+        {
+          "a": "中国海洋大学",
+          "arts": {
+            "agree": 43,
+            "reverse": 48
+          },
+          "b": "北京第二外国语学院",
+          "science": {
+            "agree": 42,
+            "reverse": 49
+          }
+        },
+        {
+          "a": "中国药科大学",
+          "arts": {
+            "agree": 51,
+            "reverse": 40
+          },
+          "b": "河海大学",
+          "science": {
+            "agree": 49,
+            "reverse": 56
+          }
+        },
+        {
+          "a": "吉林大学",
+          "arts": {
+            "agree": 38,
+            "reverse": 40
+          },
+          "b": "苏州大学",
+          "science": {
+            "agree": 49,
+            "reverse": 56
+          }
+        },
+        {
+          "a": "中央民族大学",
+          "arts": {
+            "agree": 46,
+            "reverse": 45
+          },
+          "b": "吉林大学",
+          "science": {
+            "agree": 42,
+            "reverse": 49
+          }
+        },
+        {
+          "a": "中央财经大学",
+          "arts": {
+            "agree": 42,
+            "reverse": 49
+          },
+          "b": "对外经济贸易大学",
+          "science": {
+            "agree": 46,
+            "reverse": 45
+          }
+        },
+        {
+          "a": "北京第二外国语学院",
+          "arts": {
+            "agree": 55,
+            "reverse": 50
+          },
+          "b": "山东大学威海分校",
+          "science": {
+            "agree": 61,
+            "reverse": 44
+          }
+        },
+        {
+          "a": "南开大学",
+          "arts": {
+            "agree": 42,
+            "reverse": 49
+          },
+          "b": "对外经济贸易大学",
+          "science": {
+            "agree": 46,
+            "reverse": 45
+          }
+        },
+        {
+          "a": "山东大学",
+          "arts": {
+            "agree": 46,
+            "reverse": 45
+          },
+          "b": "湖南大学",
+          "science": {
+            "agree": 42,
+            "reverse": 49
+          }
+        },
+        {
+          "a": "上海交通大学",
+          "arts": {
+            "agree": 43,
+            "reverse": 48
+          },
+          "b": "复旦大学",
+          "science": {
+            "agree": 46,
+            "reverse": 45
+          }
+        },
+        {
+          "a": "兰州大学",
+          "arts": {
+            "agree": 61,
+            "reverse": 44
+          },
+          "b": "山东大学威海分校",
+          "science": {
+            "agree": 42,
+            "reverse": 49
+          }
+        },
+        {
+          "a": "华东政法大学",
+          "arts": {
+            "agree": 46,
+            "reverse": 45
+          },
+          "b": "吉林大学",
+          "science": {
+            "agree": 43,
+            "reverse": 48
+          }
+        },
+        {
+          "a": "厦门大学",
+          "arts": {
+            "agree": 43,
+            "reverse": 48
+          },
+          "b": "武汉大学",
+          "science": {
+            "agree": 46,
+            "reverse": 45
+          }
+        },
+        {
+          "a": "西北大学",
+          "arts": {
+            "agree": 46,
+            "reverse": 45
+          },
+          "b": "西南大学",
+          "science": {
+            "agree": 43,
+            "reverse": 48
+          }
+        },
+        {
+          "a": "兰州大学",
+          "arts": {
+            "agree": 43,
+            "reverse": 48
+          },
+          "b": "河海大学",
+          "science": {
+            "agree": 61,
+            "reverse": 44
+          }
+        },
+        {
+          "a": "南昌大学",
+          "arts": {
+            "agree": 61,
+            "reverse": 44
+          },
+          "b": "西北大学",
+          "science": {
+            "agree": 43,
+            "reverse": 48
+          }
+        },
+        {
+          "a": "北京化工大学",
+          "arts": {
+            "agree": 31,
+            "reverse": 35
+          },
+          "b": "河海大学",
+          "science": {
+            "agree": 49,
+            "reverse": 56
+          }
+        },
+        {
+          "a": "中国海洋大学",
+          "arts": {
+            "agree": 55,
+            "reverse": 50
+          },
+          "b": "苏州大学",
+          "science": {
+            "agree": 38,
+            "reverse": 40
+          }
+        },
+        {
+          "a": "中国石油大学(北京)",
+          "arts": {
+            "agree": 36,
+            "reverse": 42
+          },
+          "b": "北京林业大学",
+          "science": {
+            "agree": 43,
+            "reverse": 48
+          }
+        },
+        {
+          "a": "中国石油大学(北京)",
+          "arts": {
+            "agree": 38,
+            "reverse": 40
+          },
+          "b": "河海大学",
+          "science": {
+            "agree": 55,
+            "reverse": 50
+          }
+        }
+      ],
+      "table": {
+        "arts_only": 2852,
+        "both": 4843,
+        "neither": 16001,
+        "science_only": 4012
+      }
+    },
+    {
+      "detail": "arts: 17351 majority edges over pairs compared in at least 7 province pairs, 16341 of those edges lie on a three-cycle. science: 28879 edges, 28256 on a cycle. A three-cycle says the disagreement does not resolve by counting provinces either: no ranking agrees with all the pairwise majorities, which is a loop that does not close. **The raw three-cycle counts, 63905 and 156937, are reported and are not read as independent findings**, since a single contested edge carries a cycle for every vertex between its ends",
+      "name": "C3-5 whether counting the provinces resolves it",
+      "passed": true,
+      "reading": "cycles present",
+      "tournament": {
+        "arts": {
+          "contested_edges": [
+            {
+              "above": "西南政法大学",
+              "against": 27,
+              "below": "上海对外经贸大学",
+              "cycles": 151,
+              "provinces_for": 28,
+              "tie": 11
+            },
+            {
+              "above": "西安交通大学",
+              "against": 31,
+              "below": "中南财经政法大学",
+              "cycles": 149,
+              "provinces_for": 35,
+              "tie": 12
+            },
+            {
+              "above": "长沙理工大学",
+              "against": 20,
+              "below": "东北农业大学",
+              "cycles": 147,
+              "provinces_for": 25,
+              "tie": 10
+            },
+            {
+              "above": "西南财经大学",
+              "against": 36,
+              "below": "中南财经政法大学",
+              "cycles": 144,
+              "provinces_for": 42,
+              "tie": 13
+            },
+            {
+              "above": "郑州大学",
+              "against": 30,
+              "below": "东北师范大学",
+              "cycles": 144,
+              "provinces_for": 36,
+              "tie": 0
+            },
+            {
+              "above": "西南政法大学",
+              "against": 42,
+              "below": "东北财经大学",
+              "cycles": 143,
+              "provinces_for": 49,
+              "tie": 0
+            },
+            {
+              "above": "西南财经大学",
+              "against": 16,
+              "below": "东南大学",
+              "cycles": 137,
+              "provinces_for": 20,
+              "tie": 0
+            },
+            {
+              "above": "辽宁大学",
+              "against": 43,
+              "below": "中国矿业大学",
+              "cycles": 136,
+              "provinces_for": 48,
+              "tie": 0
+            },
+            {
+              "above": "黑龙江大学",
+              "against": 4,
+              "below": "中北大学",
+              "cycles": 136,
+              "provinces_for": 6,
+              "tie": 5
+            },
+            {
+              "above": "西交利物浦大学",
+              "against": 30,
+              "below": "东北农业大学",
+              "cycles": 135,
+              "provinces_for": 36,
+              "tie": 12
+            },
+            {
+              "above": "首都师范大学",
+              "against": 16,
+              "below": "上海海事大学",
+              "cycles": 134,
+              "provinces_for": 20,
+              "tie": 9
+            },
+            {
+              "above": "西北农林科技大学",
+              "against": 27,
+              "below": "上海海事大学",
+              "cycles": 132,
+              "provinces_for": 28,
+              "tie": 0
+            },
+            {
+              "above": "首都经济贸易大学",
+              "against": 20,
+              "below": "中国石油大学(北京)",
+              "cycles": 132,
+              "provinces_for": 25,
+              "tie": 10
+            },
+            {
+              "above": "西北农林科技大学",
+              "against": 21,
+              "below": "东北师范大学",
+              "cycles": 130,
+              "provinces_for": 24,
+              "tie": 21
+            },
+            {
+              "above": "首都经济贸易大学",
+              "against": 31,
+              "below": "北京第二外国语学院",
+              "cycles": 130,
+              "provinces_for": 35,
+              "tie": 0
+            },
+            {
+              "above": "石家庄铁道大学",
+              "against": 7,
+              "below": "中北大学",
+              "cycles": 129,
+              "provinces_for": 8,
+              "tie": 6
+            },
+            {
+              "above": "西南政法大学",
+              "against": 38,
+              "below": "中国海洋大学",
+              "cycles": 129,
+              "provinces_for": 40,
+              "tie": 13
+            },
+            {
+              "above": "重庆大学",
+              "against": 21,
+              "below": "北京交通大学",
+              "cycles": 129,
+              "provinces_for": 24,
+              "tie": 10
+            },
+            {
+              "above": "西交利物浦大学",
+              "against": 31,
+              "below": "东北林业大学",
+              "cycles": 128,
+              "provinces_for": 35,
+              "tie": 12
+            },
+            {
+              "above": "福州大学",
+              "against": 27,
+              "below": "东北师范大学",
+              "cycles": 127,
+              "provinces_for": 28,
+              "tie": 0
+            }
+          ],
+          "cycles": 63905,
+          "edges": 17351,
+          "edges_on_a_cycle": 16341,
+          "examples": [
+            [
+              "上海交通大学",
+              "上海外国语大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海对外经贸大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海师范大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海政法学院",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海海事大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海海洋大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海理工大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海立信会计学院",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海财经大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "上海金融学院",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "东北农业大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "东北大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "东北大学秦皇岛分校",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "东北师范大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "东北林业大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "东北财经大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "东南大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "中北大学",
+              "复旦大学"
+            ],
+            [
+              "上海交通大学",
+              "中华女子学院",
+              "复旦大学"
+            ]
+          ],
+          "floor_province_pairs": 7
+        },
+        "science": {
+          "contested_edges": [
+            {
+              "above": "首都经济贸易大学",
+              "against": 21,
+              "below": "上海对外经贸大学",
+              "cycles": 208,
+              "provinces_for": 24,
+              "tie": 0
+            },
+            {
+              "above": "首都经济贸易大学",
+              "against": 27,
+              "below": "东北大学",
+              "cycles": 205,
+              "provinces_for": 28,
+              "tie": 0
+            },
+            {
+              "above": "长春理工大学",
+              "against": 12,
+              "below": "三峡大学",
+              "cycles": 203,
+              "provinces_for": 16,
+              "tie": 17
+            },
+            {
+              "above": "西南财经大学",
+              "against": 30,
+              "below": "上海外国语大学",
+              "cycles": 201,
+              "provinces_for": 36,
+              "tie": 25
+            },
+            {
+              "above": "西安电子科技大学",
+              "against": 38,
+              "below": "上海大学",
+              "cycles": 201,
+              "provinces_for": 40,
+              "tie": 0
+            },
+            {
+              "above": "陕西科技大学",
+              "against": 30,
+              "below": "东北农业大学",
+              "cycles": 201,
+              "provinces_for": 36,
+              "tie": 12
+            },
+            {
+              "above": "青岛科技大学",
+              "against": 16,
+              "below": "三峡大学",
+              "cycles": 201,
+              "provinces_for": 20,
+              "tie": 9
+            },
+            {
+              "above": "首都医科大学",
+              "against": 31,
+              "below": "中南财经政法大学",
+              "cycles": 200,
+              "provinces_for": 35,
+              "tie": 0
+            },
+            {
+              "above": "首都医科大学",
+              "against": 21,
+              "below": "中南大学",
+              "cycles": 199,
+              "provinces_for": 24,
+              "tie": 10
+            },
+            {
+              "above": "青海大学",
+              "against": 25,
+              "below": "东北农业大学",
+              "cycles": 198,
+              "provinces_for": 30,
+              "tie": 23
+            },
+            {
+              "above": "西安电子科技大学",
+              "against": 38,
+              "below": "东北财经大学",
+              "cycles": 196,
+              "provinces_for": 40,
+              "tie": 13
+            },
+            {
+              "above": "长春理工大学",
+              "against": 13,
+              "below": "东北农业大学",
+              "cycles": 196,
+              "provinces_for": 15,
+              "tie": 27
+            },
+            {
+              "above": "黑龙江大学",
+              "against": 4,
+              "below": "东北石油大学",
+              "cycles": 193,
+              "provinces_for": 6,
+              "tie": 11
+            },
+            {
+              "above": "重庆大学",
+              "against": 38,
+              "below": "中国传媒大学",
+              "cycles": 191,
+              "provinces_for": 40,
+              "tie": 13
+            },
+            {
+              "above": "西安电子科技大学",
+              "against": 31,
+              "below": "上海对外经贸大学",
+              "cycles": 190,
+              "provinces_for": 35,
+              "tie": 0
+            },
+            {
+              "above": "长安大学",
+              "against": 30,
+              "below": "上海理工大学",
+              "cycles": 188,
+              "provinces_for": 36,
+              "tie": 0
+            },
+            {
+              "above": "青海大学",
+              "against": 21,
+              "below": "中北大学",
+              "cycles": 187,
+              "provinces_for": 24,
+              "tie": 21
+            },
+            {
+              "above": "青海大学",
+              "against": 31,
+              "below": "东北林业大学",
+              "cycles": 186,
+              "provinces_for": 35,
+              "tie": 12
+            },
+            {
+              "above": "首都经济贸易大学",
+              "against": 21,
+              "below": "中央民族大学",
+              "cycles": 186,
+              "provinces_for": 24,
+              "tie": 10
+            },
+            {
+              "above": "郑州大学",
+              "against": 36,
+              "below": "东北大学秦皇岛分校",
+              "cycles": 185,
+              "provinces_for": 42,
+              "tie": 13
+            }
+          ],
+          "cycles": 156937,
+          "edges": 28879,
+          "edges_on_a_cycle": 28256,
+          "examples": [
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "内蒙古大学"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "北京师范大学-香港浸会大学联合国际学院"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "南华大学"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "山西大学"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "湖南科技大学"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "石家庄铁道大学"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "西安建筑科技大学"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "长春理工大学"
+            ],
+            [
+              "三峡大学",
+              "上海中医药大学",
+              "青岛科技大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "内蒙古大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "北京师范大学-香港浸会大学联合国际学院"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "南华大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "南昌航空大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "哈尔滨商业大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "哈尔滨理工大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "安徽理工大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "山西大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "常州大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "沈阳工业大学"
+            ],
+            [
+              "三峡大学",
+              "上海交通大学",
+              "济南大学"
+            ]
+          ],
+          "floor_province_pairs": 7
+        }
+      }
+    },
+    {
+      "agreeing_in_both": 427929,
+      "agreement_direction_matched": 411277,
+      "detail": "521134 (institution pair, province pair) comparisons are determined in both tracks. 59672 reverse in arts, 20213 of those also reverse in science, and **18240 of those 20213 keep the same province on top, a share of 0.9024**. The comparison that agrees in both tracks keeps its direction 411277 of 427929 times, 0.9611, which is the calibration. A national difficulty scalar read with independent cohort error puts the first share near one half, because it says the two tracks are two draws that flip the same small gap. The reading is not near one half",
+      "determined_in_both": 521134,
+      "direction_match_share": 0.9024,
+      "direction_matched": 18240,
+      "name": "C3-6 whether the reversal keeps its direction in the other track",
+      "passed": true,
+      "province_pair_lean": [
+        {
+          "first_on_top": 34,
+          "provinces": [
+            "山西",
+            "重庆"
+          ],
+          "second_on_top": 72,
+          "share_first": 0.3208
+        },
+        {
+          "first_on_top": 82,
+          "provinces": [
+            "广西",
+            "黑龙江"
+          ],
+          "second_on_top": 162,
+          "share_first": 0.3361
+        },
+        {
+          "first_on_top": 65,
+          "provinces": [
+            "陕西",
+            "黑龙江"
+          ],
+          "second_on_top": 127,
+          "share_first": 0.3385
+        },
+        {
+          "first_on_top": 146,
+          "provinces": [
+            "贵州",
+            "重庆"
+          ],
+          "second_on_top": 284,
+          "share_first": 0.3395
+        },
+        {
+          "first_on_top": 63,
+          "provinces": [
+            "广西",
+            "湖南"
+          ],
+          "second_on_top": 111,
+          "share_first": 0.3621
+        },
+        {
+          "first_on_top": 42,
+          "provinces": [
+            "上海",
+            "北京"
+          ],
+          "second_on_top": 65,
+          "share_first": 0.3925
+        },
+        {
+          "first_on_top": 158,
+          "provinces": [
+            "江苏",
+            "黑龙江"
+          ],
+          "second_on_top": 239,
+          "share_first": 0.398
+        },
+        {
+          "first_on_top": 102,
+          "provinces": [
+            "广西",
+            "重庆"
+          ],
+          "second_on_top": 154,
+          "share_first": 0.3984
+        },
+        {
+          "first_on_top": 86,
+          "provinces": [
+            "浙江",
+            "黑龙江"
+          ],
+          "second_on_top": 120,
+          "share_first": 0.4175
+        },
+        {
+          "first_on_top": 122,
+          "provinces": [
+            "浙江",
+            "重庆"
+          ],
+          "second_on_top": 169,
+          "share_first": 0.4192
+        },
+        {
+          "first_on_top": 104,
+          "provinces": [
+            "浙江",
+            "湖南"
+          ],
+          "second_on_top": 143,
+          "share_first": 0.4211
+        },
+        {
+          "first_on_top": 103,
+          "provinces": [
+            "山东",
+            "江西"
+          ],
+          "second_on_top": 137,
+          "share_first": 0.4292
+        },
+        {
+          "first_on_top": 48,
+          "provinces": [
+            "山西",
+            "湖南"
+          ],
+          "second_on_top": 63,
+          "share_first": 0.4324
+        },
+        {
+          "first_on_top": 71,
+          "provinces": [
+            "江西",
+            "湖南"
+          ],
+          "second_on_top": 93,
+          "share_first": 0.4329
+        },
+        {
+          "first_on_top": 107,
+          "provinces": [
+            "贵州",
+            "黑龙江"
+          ],
+          "second_on_top": 140,
+          "share_first": 0.4332
+        },
+        {
+          "first_on_top": 66,
+          "provinces": [
+            "山东",
+            "湖南"
+          ],
+          "second_on_top": 86,
+          "share_first": 0.4342
+        },
+        {
+          "first_on_top": 106,
+          "provinces": [
+            "山东",
+            "福建"
+          ],
+          "second_on_top": 137,
+          "share_first": 0.4362
+        },
+        {
+          "first_on_top": 72,
+          "provinces": [
+            "湖南",
+            "黑龙江"
+          ],
+          "second_on_top": 92,
+          "share_first": 0.439
+        },
+        {
+          "first_on_top": 131,
+          "provinces": [
+            "福建",
+            "黑龙江"
+          ],
+          "second_on_top": 166,
+          "share_first": 0.4411
+        },
+        {
+          "first_on_top": 35,
+          "provinces": [
+            "山西",
+            "黑龙江"
+          ],
+          "second_on_top": 44,
+          "share_first": 0.443
+        },
+        {
+          "first_on_top": 46,
+          "provinces": [
+            "山西",
+            "江西"
+          ],
+          "second_on_top": 57,
+          "share_first": 0.4466
+        },
+        {
+          "first_on_top": 77,
+          "provinces": [
+            "山东",
+            "黑龙江"
+          ],
+          "second_on_top": 92,
+          "share_first": 0.4556
+        },
+        {
+          "first_on_top": 108,
+          "provinces": [
+            "广西",
+            "浙江"
+          ],
+          "second_on_top": 129,
+          "share_first": 0.4557
+        },
+        {
+          "first_on_top": 182,
+          "provinces": [
+            "广西",
+            "江苏"
+          ],
+          "second_on_top": 216,
+          "share_first": 0.4573
+        },
+        {
+          "first_on_top": 86,
+          "provinces": [
+            "广西",
+            "江西"
+          ],
+          "second_on_top": 102,
+          "share_first": 0.4574
+        },
+        {
+          "first_on_top": 115,
+          "provinces": [
+            "广西",
+            "福建"
+          ],
+          "second_on_top": 134,
+          "share_first": 0.4618
+        },
+        {
+          "first_on_top": 179,
+          "provinces": [
+            "江苏",
+            "湖南"
+          ],
+          "second_on_top": 207,
+          "share_first": 0.4637
+        },
+        {
+          "first_on_top": 92,
+          "provinces": [
+            "山东",
+            "重庆"
+          ],
+          "second_on_top": 105,
+          "share_first": 0.467
+        },
+        {
+          "first_on_top": 89,
+          "provinces": [
+            "山西",
+            "浙江"
+          ],
+          "second_on_top": 99,
+          "share_first": 0.4734
+        },
+        {
+          "first_on_top": 149,
+          "provinces": [
+            "湖南",
+            "重庆"
+          ],
+          "second_on_top": 164,
+          "share_first": 0.476
+        },
+        {
+          "first_on_top": 175,
+          "provinces": [
+            "江西",
+            "重庆"
+          ],
+          "second_on_top": 191,
+          "share_first": 0.4781
+        },
+        {
+          "first_on_top": 116,
+          "provinces": [
+            "江苏",
+            "浙江"
+          ],
+          "second_on_top": 124,
+          "share_first": 0.4833
+        },
+        {
+          "first_on_top": 184,
+          "provinces": [
+            "福建",
+            "重庆"
+          ],
+          "second_on_top": 196,
+          "share_first": 0.4842
+        },
+        {
+          "first_on_top": 231,
+          "provinces": [
+            "江苏",
+            "重庆"
+          ],
+          "second_on_top": 243,
+          "share_first": 0.4873
+        },
+        {
+          "first_on_top": 44,
+          "provinces": [
+            "山西",
+            "陕西"
+          ],
+          "second_on_top": 46,
+          "share_first": 0.4889
+        },
+        {
+          "first_on_top": 187,
+          "provinces": [
+            "江苏",
+            "江西"
+          ],
+          "second_on_top": 192,
+          "share_first": 0.4934
+        },
+        {
+          "first_on_top": 96,
+          "provinces": [
+            "江西",
+            "黑龙江"
+          ],
+          "second_on_top": 97,
+          "share_first": 0.4974
+        },
+        {
+          "first_on_top": 49,
+          "provinces": [
+            "上海",
+            "黑龙江"
+          ],
+          "second_on_top": 49,
+          "share_first": 0.5
+        },
+        {
+          "first_on_top": 46,
+          "provinces": [
+            "山西",
+            "贵州"
+          ],
+          "second_on_top": 46,
+          "share_first": 0.5
+        },
+        {
+          "first_on_top": 127,
+          "provinces": [
+            "山西",
+            "江苏"
+          ],
+          "second_on_top": 126,
+          "share_first": 0.502
+        },
+        {
+          "first_on_top": 68,
+          "provinces": [
+            "山西",
+            "福建"
+          ],
+          "second_on_top": 66,
+          "share_first": 0.5075
+        },
+        {
+          "first_on_top": 222,
+          "provinces": [
+            "贵州",
+            "陕西"
+          ],
+          "second_on_top": 212,
+          "share_first": 0.5115
+        },
+        {
+          "first_on_top": 115,
+          "provinces": [
+            "重庆",
+            "黑龙江"
+          ],
+          "second_on_top": 108,
+          "share_first": 0.5157
+        },
+        {
+          "first_on_top": 146,
+          "provinces": [
+            "江西",
+            "福建"
+          ],
+          "second_on_top": 135,
+          "share_first": 0.5196
+        },
+        {
+          "first_on_top": 112,
+          "provinces": [
+            "北京",
+            "重庆"
+          ],
+          "second_on_top": 103,
+          "share_first": 0.5209
+        },
+        {
+          "first_on_top": 48,
+          "provinces": [
+            "北京",
+            "山东"
+          ],
+          "second_on_top": 44,
+          "share_first": 0.5217
+        },
+        {
+          "first_on_top": 122,
+          "provinces": [
+            "福建",
+            "陕西"
+          ],
+          "second_on_top": 111,
+          "share_first": 0.5236
+        },
+        {
+          "first_on_top": 99,
+          "provinces": [
+            "湖南",
+            "陕西"
+          ],
+          "second_on_top": 87,
+          "share_first": 0.5323
+        },
+        {
+          "first_on_top": 116,
+          "provinces": [
+            "山东",
+            "陕西"
+          ],
+          "second_on_top": 100,
+          "share_first": 0.537
+        },
+        {
+          "first_on_top": 71,
+          "provinces": [
+            "山西",
+            "广西"
+          ],
+          "second_on_top": 61,
+          "share_first": 0.5379
+        },
+        {
+          "first_on_top": 104,
+          "provinces": [
+            "广西",
+            "贵州"
+          ],
+          "second_on_top": 89,
+          "share_first": 0.5389
+        },
+        {
+          "first_on_top": 137,
+          "provinces": [
+            "北京",
+            "黑龙江"
+          ],
+          "second_on_top": 117,
+          "share_first": 0.5394
+        },
+        {
+          "first_on_top": 119,
+          "provinces": [
+            "江西",
+            "浙江"
+          ],
+          "second_on_top": 100,
+          "share_first": 0.5434
+        },
+        {
+          "first_on_top": 222,
+          "provinces": [
+            "江苏",
+            "福建"
+          ],
+          "second_on_top": 185,
+          "share_first": 0.5455
+        },
+        {
+          "first_on_top": 47,
+          "provinces": [
+            "上海",
+            "山西"
+          ],
+          "second_on_top": 37,
+          "share_first": 0.5595
+        },
+        {
+          "first_on_top": 132,
+          "provinces": [
+            "山东",
+            "江苏"
+          ],
+          "second_on_top": 103,
+          "share_first": 0.5617
+        },
+        {
+          "first_on_top": 120,
+          "provinces": [
+            "广西",
+            "陕西"
+          ],
+          "second_on_top": 92,
+          "share_first": 0.566
+        },
+        {
+          "first_on_top": 68,
+          "provinces": [
+            "上海",
+            "江苏"
+          ],
+          "second_on_top": 51,
+          "share_first": 0.5714
+        },
+        {
+          "first_on_top": 103,
+          "provinces": [
+            "山东",
+            "广西"
+          ],
+          "second_on_top": 77,
+          "share_first": 0.5722
+        },
+        {
+          "first_on_top": 215,
+          "provinces": [
+            "江苏",
+            "陕西"
+          ],
+          "second_on_top": 160,
+          "share_first": 0.5733
+        },
+        {
+          "first_on_top": 143,
+          "provinces": [
+            "北京",
+            "福建"
+          ],
+          "second_on_top": 104,
+          "share_first": 0.5789
+        },
+        {
+          "first_on_top": 129,
+          "provinces": [
+            "北京",
+            "广西"
+          ],
+          "second_on_top": 92,
+          "share_first": 0.5837
+        },
+        {
+          "first_on_top": 102,
+          "provinces": [
+            "山东",
+            "浙江"
+          ],
+          "second_on_top": 72,
+          "share_first": 0.5862
+        },
+        {
+          "first_on_top": 220,
+          "provinces": [
+            "福建",
+            "贵州"
+          ],
+          "second_on_top": 155,
+          "share_first": 0.5867
+        },
+        {
+          "first_on_top": 135,
+          "provinces": [
+            "江西",
+            "陕西"
+          ],
+          "second_on_top": 95,
+          "share_first": 0.587
+        },
+        {
+          "first_on_top": 74,
+          "provinces": [
+            "上海",
+            "湖南"
+          ],
+          "second_on_top": 49,
+          "share_first": 0.6016
+        },
+        {
+          "first_on_top": 70,
+          "provinces": [
+            "上海",
+            "山东"
+          ],
+          "second_on_top": 46,
+          "share_first": 0.6034
+        },
+        {
+          "first_on_top": 145,
+          "provinces": [
+            "浙江",
+            "陕西"
+          ],
+          "second_on_top": 95,
+          "share_first": 0.6042
+        },
+        {
+          "first_on_top": 229,
+          "provinces": [
+            "江苏",
+            "贵州"
+          ],
+          "second_on_top": 148,
+          "share_first": 0.6074
+        },
+        {
+          "first_on_top": 160,
+          "provinces": [
+            "北京",
+            "湖南"
+          ],
+          "second_on_top": 101,
+          "share_first": 0.613
+        },
+        {
+          "first_on_top": 236,
+          "provinces": [
+            "山东",
+            "贵州"
+          ],
+          "second_on_top": 148,
+          "share_first": 0.6146
+        },
+        {
+          "first_on_top": 83,
+          "provinces": [
+            "上海",
+            "浙江"
+          ],
+          "second_on_top": 52,
+          "share_first": 0.6148
+        },
+        {
+          "first_on_top": 64,
+          "provinces": [
+            "上海",
+            "江西"
+          ],
+          "second_on_top": 40,
+          "share_first": 0.6154
+        },
+        {
+          "first_on_top": 136,
+          "provinces": [
+            "北京",
+            "江西"
+          ],
+          "second_on_top": 85,
+          "share_first": 0.6154
+        },
+        {
+          "first_on_top": 157,
+          "provinces": [
+            "湖南",
+            "贵州"
+          ],
+          "second_on_top": 96,
+          "share_first": 0.6206
+        },
+        {
+          "first_on_top": 72,
+          "provinces": [
+            "上海",
+            "广西"
+          ],
+          "second_on_top": 44,
+          "share_first": 0.6207
+        },
+        {
+          "first_on_top": 144,
+          "provinces": [
+            "湖南",
+            "福建"
+          ],
+          "second_on_top": 88,
+          "share_first": 0.6207
+        },
+        {
+          "first_on_top": 48,
+          "provinces": [
+            "上海",
+            "陕西"
+          ],
+          "second_on_top": 28,
+          "share_first": 0.6316
+        },
+        {
+          "first_on_top": 258,
+          "provinces": [
+            "江西",
+            "贵州"
+          ],
+          "second_on_top": 147,
+          "share_first": 0.637
+        },
+        {
+          "first_on_top": 136,
+          "provinces": [
+            "重庆",
+            "陕西"
+          ],
+          "second_on_top": 77,
+          "share_first": 0.6385
+        },
+        {
+          "first_on_top": 69,
+          "provinces": [
+            "上海",
+            "重庆"
+          ],
+          "second_on_top": 39,
+          "share_first": 0.6389
+        },
+        {
+          "first_on_top": 211,
+          "provinces": [
+            "北京",
+            "浙江"
+          ],
+          "second_on_top": 118,
+          "share_first": 0.6413
+        },
+        {
+          "first_on_top": 123,
+          "provinces": [
+            "北京",
+            "贵州"
+          ],
+          "second_on_top": 68,
+          "share_first": 0.644
+        },
+        {
+          "first_on_top": 38,
+          "provinces": [
+            "山东",
+            "山西"
+          ],
+          "second_on_top": 21,
+          "share_first": 0.6441
+        },
+        {
+          "first_on_top": 196,
+          "provinces": [
+            "北京",
+            "江苏"
+          ],
+          "second_on_top": 107,
+          "share_first": 0.6469
+        },
+        {
+          "first_on_top": 100,
+          "provinces": [
+            "浙江",
+            "贵州"
+          ],
+          "second_on_top": 54,
+          "share_first": 0.6494
+        },
+        {
+          "first_on_top": 143,
+          "provinces": [
+            "浙江",
+            "福建"
+          ],
+          "second_on_top": 73,
+          "share_first": 0.662
+        },
+        {
+          "first_on_top": 148,
+          "provinces": [
+            "北京",
+            "陕西"
+          ],
+          "second_on_top": 71,
+          "share_first": 0.6758
+        },
+        {
+          "first_on_top": 78,
+          "provinces": [
+            "北京",
+            "山西"
+          ],
+          "second_on_top": 34,
+          "share_first": 0.6964
+        },
+        {
+          "first_on_top": 111,
+          "provinces": [
+            "上海",
+            "福建"
+          ],
+          "second_on_top": 43,
+          "share_first": 0.7208
+        },
+        {
+          "first_on_top": 77,
+          "provinces": [
+            "上海",
+            "贵州"
+          ],
+          "second_on_top": 24,
+          "share_first": 0.7624
+        }
+      ],
+      "reading": "direction survives the cohort change",
+      "reversing_in_arts": 59672,
+      "reversing_in_both": 20213
+    },
+    {
+      "crosscheck": {
+        "available": true,
+        "comparable_cells": 29,
+        "differences": [
+          {
+            "gap": 19,
+            "own_publication": 687,
+            "province": "广东",
+            "provincial_table": 668,
+            "track": "science",
+            "year": "2015"
+          },
+          {
+            "gap": -1,
+            "own_publication": 622,
+            "province": "江西",
+            "provincial_table": 623,
+            "track": "arts",
+            "year": "2015"
+          },
+          {
+            "gap": -1,
+            "own_publication": 685,
+            "province": "江西",
+            "provincial_table": 686,
+            "track": "science",
+            "year": "2015"
+          },
+          {
+            "gap": 1,
+            "own_publication": 682,
+            "province": "黑龙江",
+            "provincial_table": 681,
+            "track": "science",
+            "year": "2015"
+          }
+        ],
+        "differing": 4,
+        "identical": 25,
+        "institution": "清华大学"
+      },
+      "detail": "清华大学 is in the panel and also publishes its own filing lines by province and year on its admissions site. 29 cells are comparable and **25 agree to the digit**. The 4 that differ are named: three by one point in inconsistent directions, which is a tie-break or a definitional edge, and one by 19 points in the province whose table is a sub-round",
+      "name": "C3-7 the same numbers from a publisher with no common upstream",
+      "passed": true,
+      "reading": "two publishers agree"
+    },
+    {
+      "detail": "the weaker of a pair's two within-province rank separations, over reversing comparisons against agreeing ones. arts reversing deciles [1, 2, 4, 6, 8, 10], agreeing [1, 8, 16, 24, 32, 41]. science reversing [1, 3, 5, 7, 9, 12], agreeing [1, 11, 21, 32, 43, 56]. **Rank distance is the scale-free way to ask whether the reversals are adjacent-rank hairsplitting**, and it survives the same per-province recoding C3-2 checks. The widest twenty are named with both provinces' ranks and scores",
+      "name": "C3-8 how far apart in rank the reversing pairs sit",
+      "passed": true,
+      "separations": {
+        "arts": {
+          "agreeing": 603840,
+          "agreeing_deciles": [
+            1,
+            8,
+            16,
+            24,
+            32,
+            41,
+            52,
+            65,
+            80,
+            102,
+            191
+          ],
+          "reversing": 77933,
+          "reversing_deciles": [
+            1,
+            2,
+            4,
+            6,
+            8,
+            10,
+            13,
+            16,
+            22,
+            32,
+            155
+          ],
+          "widest": [
+            {
+              "a": "中央财经大学",
+              "b": "对外经济贸易大学",
+              "province_1": "江西",
+              "province_2": "湖南",
+              "ranks_1": [
+                10,
+                173
+              ],
+              "ranks_2": [
+                163,
+                8
+              ],
+              "scores_1": [
+                585,
+                528
+              ],
+              "scores_2": [
+                544,
+                614
+              ],
+              "separation": 155
+            },
+            {
+              "a": "中南财经政法大学",
+              "b": "对外经济贸易大学",
+              "province_1": "江西",
+              "province_2": "陕西",
+              "ranks_1": [
+                20,
+                173
+              ],
+              "ranks_2": [
+                140,
+                9
+              ],
+              "scores_1": [
+                576,
+                528
+              ],
+              "scores_2": [
+                517,
+                617
+              ],
+              "separation": 131
+            },
+            {
+              "a": "中南财经政法大学",
+              "b": "中央财经大学",
+              "province_1": "湖南",
+              "province_2": "陕西",
+              "ranks_1": [
+                24,
+                163
+              ],
+              "ranks_2": [
+                140,
+                10
+              ],
+              "scores_1": [
+                594,
+                544
+              ],
+              "scores_2": [
+                517,
+                615
+              ],
+              "separation": 130
+            },
+            {
+              "a": "中央财经大学",
+              "b": "暨南大学",
+              "province_1": "江苏",
+              "province_2": "湖南",
+              "ranks_1": [
+                14,
+                144
+              ],
+              "ranks_2": [
+                163,
+                30
+              ],
+              "scores_1": [
+                375,
+                342
+              ],
+              "scores_2": [
+                544,
+                593
+              ],
+              "separation": 130
+            },
+            {
+              "a": "中央财经大学",
+              "b": "山东大学",
+              "province_1": "江苏",
+              "province_2": "湖南",
+              "ranks_1": [
+                14,
+                139
+              ],
+              "ranks_2": [
+                163,
+                31
+              ],
+              "scores_1": [
+                375,
+                342
+              ],
+              "scores_2": [
+                544,
+                592
+              ],
+              "separation": 125
+            },
+            {
+              "a": "对外经济贸易大学",
+              "b": "暨南大学",
+              "province_1": "江苏",
+              "province_2": "江西",
+              "ranks_1": [
+                19,
+                144
+              ],
+              "ranks_2": [
+                173,
+                16
+              ],
+              "scores_1": [
+                374,
+                342
+              ],
+              "scores_2": [
+                528,
+                580
+              ],
+              "separation": 125
+            },
+            {
+              "a": "北京第二外国语学院",
+              "b": "对外经济贸易大学",
+              "province_1": "江西",
+              "province_2": "陕西",
+              "ranks_1": [
+                49,
+                173
+              ],
+              "ranks_2": [
+                144,
+                9
+              ],
+              "scores_1": [
+                563,
+                528
+              ],
+              "scores_2": [
+                516,
+                617
+              ],
+              "separation": 124
+            },
+            {
+              "a": "中央财经大学",
+              "b": "北京第二外国语学院",
+              "province_1": "湖南",
+              "province_2": "陕西",
+              "ranks_1": [
+                163,
+                43
+              ],
+              "ranks_2": [
+                10,
+                144
+              ],
+              "scores_1": [
+                544,
+                586
+              ],
+              "scores_2": [
+                615,
+                516
+              ],
+              "separation": 120
+            },
+            {
+              "a": "对外经济贸易大学",
+              "b": "山东大学威海分校",
+              "province_1": "江西",
+              "province_2": "浙江",
+              "ranks_1": [
+                173,
+                54
+              ],
+              "ranks_2": [
+                26,
+                155
+              ],
+              "scores_1": [
+                528,
+                562
+              ],
+              "scores_2": [
+                674,
+                632
+              ],
+              "separation": 119
+            },
+            {
+              "a": "对外经济贸易大学",
+              "b": "山东大学",
+              "province_1": "江苏",
+              "province_2": "江西",
+              "ranks_1": [
+                19,
+                139
+              ],
+              "ranks_2": [
+                173,
+                56
+              ],
+              "scores_1": [
+                374,
+                342
+              ],
+              "scores_2": [
+                528,
+                561
+              ],
+              "separation": 117
+            },
+            {
+              "a": "华北电力大学(北京)",
+              "b": "对外经济贸易大学",
+              "province_1": "江西",
+              "province_2": "福建",
+              "ranks_1": [
+                57,
+                173
+              ],
+              "ranks_2": [
+                164,
+                11
+              ],
+              "scores_1": [
+                560,
+                528
+              ],
+              "scores_2": [
+                558,
+                620
+              ],
+              "separation": 116
+            },
+            {
+              "a": "对外经济贸易大学",
+              "b": "浙江工商大学",
+              "province_1": "江西",
+              "province_2": "河南",
+              "ranks_1": [
+                173,
+                58
+              ],
+              "ranks_2": [
+                13,
+                151
+              ],
+              "scores_1": [
+                528,
+                560
+              ],
+              "scores_2": [
+                583,
+                531
+              ],
+              "separation": 115
+            },
+            {
+              "a": "北京工商大学",
+              "b": "对外经济贸易大学",
+              "province_1": "江苏",
+              "province_2": "江西",
+              "ranks_1": [
+                132,
+                19
+              ],
+              "ranks_2": [
+                47,
+                173
+              ],
+              "scores_1": [
+                342,
+                374
+              ],
+              "scores_2": [
+                564,
+                528
+              ],
+              "separation": 113
+            },
+            {
+              "a": "北京林业大学",
+              "b": "对外经济贸易大学",
+              "province_1": "江西",
+              "province_2": "福建",
+              "ranks_1": [
+                60,
+                173
+              ],
+              "ranks_2": [
+                146,
+                11
+              ],
+              "scores_1": [
+                558,
+                528
+              ],
+              "scores_2": [
+                567,
+                620
+              ],
+              "separation": 113
+            },
+            {
+              "a": "中南财经政法大学",
+              "b": "暨南大学",
+              "province_1": "江苏",
+              "province_2": "陕西",
+              "ranks_1": [
+                32,
+                144
+              ],
+              "ranks_2": [
+                140,
+                30
+              ],
+              "scores_1": [
+                366,
+                342
+              ],
+              "scores_2": [
+                517,
+                585
+              ],
+              "separation": 110
+            },
+            {
+              "a": "中央财经大学",
+              "b": "华北电力大学(北京)",
+              "province_1": "湖南",
+              "province_2": "福建",
+              "ranks_1": [
+                163,
+                55
+              ],
+              "ranks_2": [
+                19,
+                164
+              ],
+              "scores_1": [
+                544,
+                580
+              ],
+              "scores_2": [
+                613,
+                558
+              ],
+              "separation": 108
+            },
+            {
+              "a": "中南财经政法大学",
+              "b": "山东大学",
+              "province_1": "江苏",
+              "province_2": "陕西",
+              "ranks_1": [
+                32,
+                139
+              ],
+              "ranks_2": [
+                140,
+                25
+              ],
+              "scores_1": [
+                366,
+                342
+              ],
+              "scores_2": [
+                517,
+                592
+              ],
+              "separation": 107
+            },
+            {
+              "a": "中央财经大学",
+              "b": "西南大学",
+              "province_1": "湖南",
+              "province_2": "重庆",
+              "ranks_1": [
+                163,
+                56
+              ],
+              "ranks_2": [
+                13,
+                124
+              ],
+              "scores_1": [
+                544,
+                580
+              ],
+              "scores_2": [
+                651,
+                585
+              ],
+              "separation": 107
+            },
+            {
+              "a": "中国农业大学",
+              "b": "山东大学威海分校",
+              "province_1": "浙江",
+              "province_2": "福建",
+              "ranks_1": [
+                38,
+                155
+              ],
+              "ranks_2": [
+                157,
+                51
+              ],
+              "scores_1": [
+                670,
+                632
+              ],
+              "scores_2": [
+                561,
+                598
+              ],
+              "separation": 106
+            },
+            {
+              "a": "中国石油大学(北京)",
+              "b": "中央财经大学",
+              "province_1": "江苏",
+              "province_2": "湖南",
+              "ranks_1": [
+                123,
+                14
+              ],
+              "ranks_2": [
+                57,
+                163
+              ],
+              "scores_1": [
+                343,
+                375
+              ],
+              "scores_2": [
+                579,
+                544
+              ],
+              "separation": 106
+            }
+          ]
+        },
+        "science": {
+          "agreeing": 1235321,
+          "agreeing_deciles": [
+            1,
+            11,
+            21,
+            32,
+            43,
+            56,
+            70,
+            88,
+            109,
+            140,
+            275
+          ],
+          "reversing": 160280,
+          "reversing_deciles": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            12,
+            16,
+            20,
+            27,
+            39,
+            155
+          ],
+          "widest": [
+            {
+              "a": "海南大学",
+              "b": "首都医科大学",
+              "province_1": "广西",
+              "province_2": "江苏",
+              "ranks_1": [
+                190,
+                21
+              ],
+              "ranks_2": [
+                72,
+                227
+              ],
+              "scores_1": [
+                486,
+                599
+              ],
+              "scores_2": [
+                360,
+                344
+              ],
+              "separation": 155
+            },
+            {
+              "a": "海南大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "贵州",
+              "ranks_1": [
+                72,
+                227
+              ],
+              "ranks_2": [
+                192,
+                34
+              ],
+              "scores_1": [
+                360,
+                344
+              ],
+              "scores_2": [
+                479,
+                578
+              ],
+              "separation": 155
+            },
+            {
+              "a": "海南大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "江西",
+              "ranks_1": [
+                72,
+                227
+              ],
+              "ranks_2": [
+                189,
+                38
+              ],
+              "scores_1": [
+                360,
+                344
+              ],
+              "scores_2": [
+                554,
+                606
+              ],
+              "separation": 151
+            },
+            {
+              "a": "南方医科大学",
+              "b": "首都医科大学",
+              "province_1": "山东",
+              "province_2": "江苏",
+              "ranks_1": [
+                196,
+                46
+              ],
+              "ranks_2": [
+                62,
+                227
+              ],
+              "scores_1": [
+                595,
+                642
+              ],
+              "scores_2": [
+                363,
+                344
+              ],
+              "separation": 150
+            },
+            {
+              "a": "北京交通大学",
+              "b": "南方医科大学",
+              "province_1": "山东",
+              "province_2": "重庆",
+              "ranks_1": [
+                35,
+                196
+              ],
+              "ranks_2": [
+                210,
+                63
+              ],
+              "scores_1": [
+                652,
+                595
+              ],
+              "scores_2": [
+                578,
+                622
+              ],
+              "separation": 147
+            },
+            {
+              "a": "北京交通大学",
+              "b": "南方医科大学",
+              "province_1": "福建",
+              "province_2": "重庆",
+              "ranks_1": [
+                43,
+                191
+              ],
+              "ranks_2": [
+                210,
+                63
+              ],
+              "scores_1": [
+                620,
+                560
+              ],
+              "scores_2": [
+                578,
+                622
+              ],
+              "separation": 147
+            },
+            {
+              "a": "海南大学",
+              "b": "重庆医科大学",
+              "province_1": "江苏",
+              "province_2": "贵州",
+              "ranks_1": [
+                72,
+                219
+              ],
+              "ranks_2": [
+                192,
+                38
+              ],
+              "scores_1": [
+                360,
+                344
+              ],
+              "scores_2": [
+                479,
+                573
+              ],
+              "separation": 147
+            },
+            {
+              "a": "延边大学",
+              "b": "首都医科大学",
+              "province_1": "广西",
+              "province_2": "江苏",
+              "ranks_1": [
+                175,
+                21
+              ],
+              "ranks_2": [
+                83,
+                227
+              ],
+              "scores_1": [
+                492,
+                599
+              ],
+              "scores_2": [
+                357,
+                344
+              ],
+              "separation": 144
+            },
+            {
+              "a": "延边大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "江西",
+              "ranks_1": [
+                83,
+                227
+              ],
+              "ranks_2": [
+                211,
+                38
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                548,
+                606
+              ],
+              "separation": 144
+            },
+            {
+              "a": "延边大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "湖南",
+              "ranks_1": [
+                83,
+                227
+              ],
+              "ranks_2": [
+                211,
+                36
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                540,
+                614
+              ],
+              "separation": 144
+            },
+            {
+              "a": "延边大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "福建",
+              "ranks_1": [
+                83,
+                227
+              ],
+              "ranks_2": [
+                243,
+                97
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                534,
+                592
+              ],
+              "separation": 144
+            },
+            {
+              "a": "延边大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "贵州",
+              "ranks_1": [
+                83,
+                227
+              ],
+              "ranks_2": [
+                194,
+                34
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                478,
+                578
+              ],
+              "separation": 144
+            },
+            {
+              "a": "西安建筑科技大学",
+              "b": "首都医科大学",
+              "province_1": "山东",
+              "province_2": "江苏",
+              "ranks_1": [
+                239,
+                46
+              ],
+              "ranks_2": [
+                84,
+                227
+              ],
+              "scores_1": [
+                583,
+                642
+              ],
+              "scores_2": [
+                357,
+                344
+              ],
+              "separation": 143
+            },
+            {
+              "a": "西安建筑科技大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "湖南",
+              "ranks_1": [
+                84,
+                227
+              ],
+              "ranks_2": [
+                180,
+                36
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                552,
+                614
+              ],
+              "separation": 143
+            },
+            {
+              "a": "西安建筑科技大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "贵州",
+              "ranks_1": [
+                84,
+                227
+              ],
+              "ranks_2": [
+                177,
+                34
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                487,
+                578
+              ],
+              "separation": 143
+            },
+            {
+              "a": "西安建筑科技大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "陕西",
+              "ranks_1": [
+                84,
+                227
+              ],
+              "ranks_2": [
+                193,
+                38
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                506,
+                595
+              ],
+              "separation": 143
+            },
+            {
+              "a": "西安建筑科技大学",
+              "b": "首都医科大学",
+              "province_1": "江苏",
+              "province_2": "黑龙江",
+              "ranks_1": [
+                84,
+                227
+              ],
+              "ranks_2": [
+                212,
+                51
+              ],
+              "scores_1": [
+                357,
+                344
+              ],
+              "scores_2": [
+                516,
+                603
+              ],
+              "separation": 143
+            },
+            {
+              "a": "北京交通大学",
+              "b": "复旦大学医学院",
+              "province_1": "江苏",
+              "province_2": "重庆",
+              "ranks_1": [
+                47,
+                188
+              ],
+              "ranks_2": [
+                210,
+                4
+              ],
+              "scores_1": [
+                369,
+                344
+              ],
+              "scores_2": [
+                578,
+                689
+              ],
+              "separation": 141
+            },
+            {
+              "a": "北京交通大学",
+              "b": "武汉理工大学",
+              "province_1": "江苏",
+              "province_2": "重庆",
+              "ranks_1": [
+                47,
+                200
+              ],
+              "ranks_2": [
+                210,
+                69
+              ],
+              "scores_1": [
+                369,
+                344
+              ],
+              "scores_2": [
+                578,
+                621
+              ],
+              "separation": 141
+            },
+            {
+              "a": "四川外国语大学",
+              "b": "重庆医科大学",
+              "province_1": "江苏",
+              "province_2": "重庆",
+              "ranks_1": [
+                63,
+                219
+              ],
+              "ranks_2": [
+                211,
+                70
+              ],
+              "scores_1": [
+                363,
+                344
+              ],
+              "scores_2": [
+                578,
+                621
+              ],
+              "separation": 141
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "diagnostic_only": false,
+  "source": "data/gaokao_provincial.csv",
+  "stage": "C3"
+}

@@ -250,8 +250,7 @@ def test_the_two_stacks_are_computed_on_the_same_dates():
 def test_an_empty_arm_is_nan_and_not_zero():
     """An arm with no observations must not read as a quiet one.
 
-    ``PROJECT_PLAN.md`` §11.11 rule 1: a comparison with an empty side fails and
-    says ``vacuous``; it does not pass for lack of a counterexample. A zero here
+    **A comparison with an empty side fails and says ``vacuous``**; it does not pass for lack of a counterexample. A zero here
     would sail through any "did it collapse" threshold.
     """
     assert math.isnan(rms(np.empty(0)))

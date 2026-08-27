@@ -100,8 +100,8 @@ _ASSET_FIELDS = frozenset(f.name for f in dataclasses.fields(AssetSpec))
 
 #: The split below is only well defined while the two names are disjoint, and a
 #: name in both would reach one constructor and silently not reach the other.
-#: That is `PROJECT_PLAN.md` section 11.12's defect, a parameter that reached one
-#: of two call sites, where the default path was the correct one so nothing fired
+#: That is the call-site defect this repository has already paid for once: a
+#: parameter that reached one of two call sites, where the default path was the correct one so nothing fired
 #: until a sweep took the other branch. Checked at import so a field added to
 #: either dataclass fails here rather than in a grid cell six hours in.
 _COLLIDING_FIELDS = _NETWORK_FIELDS & _ASSET_FIELDS
@@ -128,7 +128,7 @@ def build(seed: int, rounds: int, **kw) -> A3Model:
     measured. It is a named parameter, so ``seed`` in a cell binds to it and
     never reaches ``kw``, and Python raises before this body runs. A hand-written
     check on ``kw`` would therefore be a condition that can never be true, which
-    is what `SESSION_INIT.md` lesson two is about. The behaviour is asserted in
+    is a guard that cannot speak. The behaviour is asserted in
     ``tests/test_a7_kwarg_routing.py`` instead, where it can fail if a later
     signature change makes it reachable.
     """

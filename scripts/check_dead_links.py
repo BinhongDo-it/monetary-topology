@@ -31,17 +31,24 @@ project's rule on counting Chinese with Python rather than shell grep: the tool
 works on pure ASCII and fails exactly when there is something Chinese to report,
 so it fails at the moment the self-check looks cleanest.
 
-**Known residual, so nobody re-derives it.** On the first run, 2026-08-22, this
-reported 68 references of which **64 are real**: 47 to ``PROJECT_PLAN.md``, 6
-each to ``SESSION_INIT.md`` and ``HANDOFF.md``, 4 to ``HANDOFF_B8.md``, 1 to
-``OBJECTIONS.md``. The other four are noise and are left alone deliberately:
-two are the tails of references wrapped across a line in a way the repair below
-does not catch, and two name products a runner declares but has not written yet
-(``b8_triangles.md``, ``b9a_availability.md``), which is a true statement about
-the tree rather than a defect in the reference. **Four false alarms against
-sixty-four findings is a working ratio, and tightening past it would start
-suppressing real ones**, which is the trade this project has already paid for
-once by setting a check at its strictest reading rather than at a useful one.
+**The residual it was written to measure has been paid off.** On the first run,
+2026-08-22, it reported 68 references of which **64 were real**, all of them
+pointing at working documents that are not published with this repository, and
+concentrated on five such documents. **All sixty-four were cleared on
+2026-08-27**, and the way each was cleared is the same: the sentence already
+stated the lesson, so the unfollowable file-and-section token was removed and
+the lesson stayed. **A reference to a document a reader cannot open was never
+carrying the content; the sentence around it was.**
+
+**What remains is the noise, five of it, left alone deliberately.** Two are the
+tails of references wrapped across a line in a way the repair below does not
+catch, one is a glob naming a family of files rather than a file, and two are
+output paths a runner declares for products it writes at run time
+(``results/b8_triangles.md``, ``results/b9a_availability.md``). **Five false
+alarms against sixty-four findings is a working ratio, and tightening past it
+would start suppressing real ones**, which is the trade this project has already
+paid for once by setting a check at its strictest reading rather than a useful
+one.
 
 Usage::
 

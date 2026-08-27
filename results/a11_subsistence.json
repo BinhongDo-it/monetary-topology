@@ -19,12 +19,13 @@
       "void": false
     },
     {
-      "detail": "paired by seed, floor and grace: the gap between the two sets' starvation rates is narrower on the complete graph in 10/10 pairs. Median gap +0.000 complete against +0.936 stratified",
+      "detail": "paired by seed, floor and grace: the gap between the two sets' starvation rates is narrower on the complete graph in 10/10 pairs. Median gap +0.000 complete against +0.936 stratified. The complete graph fires on 10 of the runs on this grid; where it fires on none the reading is the other branch of this criterion",
       "name": "A11-4  erasing the topology closes the gap",
       "passed": true,
       "void": false
     }
   ],
+  "exit_rule": "exit",
   "graces": [
     1,
     5
@@ -38,10 +39,14 @@
   "rounds": 300,
   "runs": [
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.933965,
+      "gini_close_trading": 0.933965,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.174268,
@@ -58,10 +63,14 @@
       "support_ratio": 0.406428
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.940219,
+      "gini_close_trading": 0.940219,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.17045,
@@ -78,10 +87,14 @@
       "support_ratio": 0.393712
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.93612,
+      "gini_close_trading": 0.93612,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.176869,
@@ -98,10 +111,14 @@
       "support_ratio": 0.420399
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.929983,
+      "gini_close_trading": 0.929983,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.171665,
@@ -118,10 +135,14 @@
       "support_ratio": 0.441847
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.943365,
+      "gini_close_trading": 0.943365,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.165667,
@@ -138,10 +159,14 @@
       "support_ratio": 0.402672
     },
     {
+      "below_floor_close": 40,
+      "below_floor_peak": 40,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.340329,
+      "frozen_share_close": 9.8e-05,
       "gini_close": 0.933921,
+      "gini_close_trading": 0.917579,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.172764,
@@ -158,10 +183,14 @@
       "support_ratio": 0.40625
     },
     {
+      "below_floor_close": 42,
+      "below_floor_peak": 42,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.374198,
+      "frozen_share_close": 0.000112,
       "gini_close": 0.940185,
+      "gini_close_trading": 0.924482,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.168617,
@@ -178,10 +207,14 @@
       "support_ratio": 0.393471
     },
     {
+      "below_floor_close": 41,
+      "below_floor_peak": 41,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.447849,
+      "frozen_share_close": 0.000131,
       "gini_close": 0.936066,
+      "gini_close_trading": 0.919812,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.175292,
@@ -198,10 +231,14 @@
       "support_ratio": 0.420207
     },
     {
+      "below_floor_close": 50,
+      "below_floor_peak": 50,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.541596,
+      "frozen_share_close": 0.000167,
       "gini_close": 0.929896,
+      "gini_close_trading": 0.906837,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.169844,
@@ -218,10 +255,14 @@
       "support_ratio": 0.441583
     },
     {
+      "below_floor_close": 46,
+      "below_floor_peak": 46,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.631824,
+      "frozen_share_close": 0.000186,
       "gini_close": 0.943288,
+      "gini_close_trading": 0.926681,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.162704,
@@ -238,10 +279,14 @@
       "support_ratio": 0.402304
     },
     {
+      "below_floor_close": 39,
+      "below_floor_peak": 39,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.179399,
+      "frozen_share_close": 5.2e-05,
       "gini_close": 0.933975,
+      "gini_close_trading": 0.918073,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.173048,
@@ -258,10 +303,14 @@
       "support_ratio": 0.406285
     },
     {
+      "below_floor_close": 39,
+      "below_floor_peak": 39,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.16029,
+      "frozen_share_close": 4.8e-05,
       "gini_close": 0.940233,
+      "gini_close_trading": 0.92584,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.169214,
@@ -278,10 +327,14 @@
       "support_ratio": 0.393546
     },
     {
+      "below_floor_close": 39,
+      "below_floor_peak": 39,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.242402,
+      "frozen_share_close": 7.1e-05,
       "gini_close": 0.936121,
+      "gini_close_trading": 0.920773,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.175726,
@@ -298,10 +351,14 @@
       "support_ratio": 0.420265
     },
     {
+      "below_floor_close": 50,
+      "below_floor_peak": 50,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.320675,
+      "frozen_share_close": 9.9e-05,
       "gini_close": 0.929992,
+      "gini_close_trading": 0.906836,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.169844,
@@ -318,10 +375,14 @@
       "support_ratio": 0.441586
     },
     {
+      "below_floor_close": 46,
+      "below_floor_peak": 46,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.325268,
+      "frozen_share_close": 9.6e-05,
       "gini_close": 0.943412,
+      "gini_close_trading": 0.92668,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.162704,
@@ -338,10 +399,14 @@
       "support_ratio": 0.402309
     },
     {
+      "below_floor_close": 133,
+      "below_floor_peak": 133,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1206.465303,
+      "frozen_share_close": 0.226954,
       "gini_close": 0.852655,
+      "gini_close_trading": 0.80718,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.109573,
@@ -358,10 +423,14 @@
       "support_ratio": 0.402213
     },
     {
+      "below_floor_close": 132,
+      "below_floor_peak": 132,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1144.856648,
+      "frozen_share_close": 0.227913,
       "gini_close": 0.8655,
+      "gini_close_trading": 0.82834,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.112065,
@@ -378,10 +447,14 @@
       "support_ratio": 0.389771
     },
     {
+      "below_floor_close": 176,
+      "below_floor_peak": 176,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2229.302358,
+      "frozen_share_close": 0.361448,
       "gini_close": 0.739076,
+      "gini_close_trading": 0.483433,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.081644,
@@ -398,10 +471,14 @@
       "support_ratio": 0.413987
     },
     {
+      "below_floor_close": 128,
+      "below_floor_peak": 128,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1036.708183,
+      "frozen_share_close": 0.215859,
       "gini_close": 0.866393,
+      "gini_close_trading": 0.80919,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.117153,
@@ -418,10 +495,14 @@
       "support_ratio": 0.437845
     },
     {
+      "below_floor_close": 142,
+      "below_floor_peak": 142,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1404.279441,
+      "frozen_share_close": 0.271787,
       "gini_close": 0.841734,
+      "gini_close_trading": 0.809471,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.103176,
@@ -438,10 +519,14 @@
       "support_ratio": 0.398412
     },
     {
+      "below_floor_close": 129,
+      "below_floor_peak": 129,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1120.201219,
+      "frozen_share_close": 0.215523,
       "gini_close": 0.859755,
+      "gini_close_trading": 0.817925,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.112816,
@@ -458,10 +543,14 @@
       "support_ratio": 0.40238
     },
     {
+      "below_floor_close": 132,
+      "below_floor_peak": 132,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1123.126155,
+      "frozen_share_close": 0.225096,
       "gini_close": 0.866798,
+      "gini_close_trading": 0.828338,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.112065,
@@ -478,10 +567,14 @@
       "support_ratio": 0.389788
     },
     {
+      "below_floor_close": 175,
+      "below_floor_peak": 175,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2105.85953,
+      "frozen_share_close": 0.347417,
       "gini_close": 0.750489,
+      "gini_close_trading": 0.502319,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.081644,
@@ -498,10 +591,14 @@
       "support_ratio": 0.415456
     },
     {
+      "below_floor_close": 127,
+      "below_floor_peak": 127,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1012.25014,
+      "frozen_share_close": 0.212936,
       "gini_close": 0.867714,
+      "gini_close_trading": 0.811779,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.117719,
@@ -518,10 +615,14 @@
       "support_ratio": 0.437902
     },
     {
+      "below_floor_close": 135,
+      "below_floor_peak": 135,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 1246.424641,
+      "frozen_share_close": 0.247646,
       "gini_close": 0.857361,
+      "gini_close_trading": 0.829839,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.10599,
@@ -538,10 +639,14 @@
       "support_ratio": 0.398567
     },
     {
+      "below_floor_close": 181,
+      "below_floor_peak": 181,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2402.579807,
+      "frozen_share_close": 0.385736,
       "gini_close": 0.713525,
+      "gini_close_trading": 0.330988,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -558,10 +663,14 @@
       "support_ratio": 0.396907
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2405.731283,
+      "frozen_share_close": 0.40147,
       "gini_close": 0.715782,
+      "gini_close_trading": 0.320984,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -578,10 +687,14 @@
       "support_ratio": 0.386563
     },
     {
+      "below_floor_close": 181,
+      "below_floor_peak": 181,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2403.397739,
+      "frozen_share_close": 0.384231,
       "gini_close": 0.715269,
+      "gini_close_trading": 0.347608,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -598,10 +711,14 @@
       "support_ratio": 0.414051
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2404.168121,
+      "frozen_share_close": 0.405531,
       "gini_close": 0.707334,
+      "gini_close_trading": 0.195987,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -618,10 +735,14 @@
       "support_ratio": 0.436478
     },
     {
+      "below_floor_close": 184,
+      "below_floor_peak": 184,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2404.064702,
+      "frozen_share_close": 0.409199,
       "gini_close": 0.717451,
+      "gini_close_trading": 0.319097,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -638,10 +759,14 @@
       "support_ratio": 0.393741
     },
     {
+      "below_floor_close": 180,
+      "below_floor_peak": 180,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2358.510066,
+      "frozen_share_close": 0.381752,
       "gini_close": 0.713112,
+      "gini_close_trading": 0.357565,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -658,10 +783,14 @@
       "support_ratio": 0.400992
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2362.165782,
+      "frozen_share_close": 0.397388,
       "gini_close": 0.718753,
+      "gini_close_trading": 0.320985,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -678,10 +807,14 @@
       "support_ratio": 0.386569
     },
     {
+      "below_floor_close": 181,
+      "below_floor_peak": 181,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2358.371717,
+      "frozen_share_close": 0.38022,
       "gini_close": 0.718304,
+      "gini_close_trading": 0.34761,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -698,10 +831,14 @@
       "support_ratio": 0.414061
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2360.119053,
+      "frozen_share_close": 0.401585,
       "gini_close": 0.710178,
+      "gini_close_trading": 0.19599,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -718,10 +855,14 @@
       "support_ratio": 0.436488
     },
     {
+      "below_floor_close": 184,
+      "below_floor_peak": 184,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2360.626579,
+      "frozen_share_close": 0.404979,
       "gini_close": 0.720514,
+      "gini_close_trading": 0.319098,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -738,10 +879,14 @@
       "support_ratio": 0.393743
     },
     {
+      "below_floor_close": 184,
+      "below_floor_peak": 184,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2416.863952,
+      "frozen_share_close": 0.387599,
       "gini_close": 0.727793,
+      "gini_close_trading": 0.288579,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -758,10 +903,14 @@
       "support_ratio": 0.354798
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2413.348572,
+      "frozen_share_close": 0.402385,
       "gini_close": 0.71516,
+      "gini_close_trading": 0.320984,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -778,10 +927,14 @@
       "support_ratio": 0.386566
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2413.256719,
+      "frozen_share_close": 0.385429,
       "gini_close": 0.723977,
+      "gini_close_trading": 0.307154,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -798,10 +951,14 @@
       "support_ratio": 0.394514
     },
     {
+      "below_floor_close": 184,
+      "below_floor_peak": 184,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2412.23956,
+      "frozen_share_close": 0.406475,
       "gini_close": 0.712011,
+      "gini_close_trading": 0.171071,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -818,10 +975,14 @@
       "support_ratio": 0.421459
     },
     {
+      "below_floor_close": 187,
+      "below_floor_peak": 187,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2417.997118,
+      "frozen_share_close": 0.411091,
       "gini_close": 0.731174,
+      "gini_close_trading": 0.237998,
       "grace": 1,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -838,10 +999,14 @@
       "support_ratio": 0.356893
     },
     {
+      "below_floor_close": 181,
+      "below_floor_peak": 181,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2370.212881,
+      "frozen_share_close": 0.38323,
       "gini_close": 0.715253,
+      "gini_close_trading": 0.330999,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -858,10 +1023,14 @@
       "support_ratio": 0.396916
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2369.191059,
+      "frozen_share_close": 0.398232,
       "gini_close": 0.718013,
+      "gini_close_trading": 0.320985,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -878,10 +1047,14 @@
       "support_ratio": 0.386571
     },
     {
+      "below_floor_close": 181,
+      "below_floor_peak": 181,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2368.649775,
+      "frozen_share_close": 0.381432,
       "gini_close": 0.717226,
+      "gini_close_trading": 0.347611,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -898,10 +1071,14 @@
       "support_ratio": 0.414065
     },
     {
+      "below_floor_close": 183,
+      "below_floor_peak": 183,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2369.060462,
+      "frozen_share_close": 0.402546,
       "gini_close": 0.709362,
+      "gini_close_trading": 0.19599,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -918,10 +1095,14 @@
       "support_ratio": 0.436489
     },
     {
+      "below_floor_close": 184,
+      "below_floor_peak": 184,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 2371.060281,
+      "frozen_share_close": 0.406291,
       "gini_close": 0.719406,
+      "gini_close_trading": 0.3191,
       "grace": 5,
       "graph": "stratified",
       "mara_close": 0.08,
@@ -938,10 +1119,14 @@
       "support_ratio": 0.393746
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007482,
+      "gini_close_trading": 0.007482,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.651818,
@@ -958,10 +1143,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007053,
+      "gini_close_trading": 0.007053,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.65053,
@@ -978,10 +1167,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007202,
+      "gini_close_trading": 0.007202,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650422,
@@ -998,10 +1191,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.006673,
+      "gini_close_trading": 0.006673,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650486,
@@ -1018,10 +1215,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.00715,
+      "gini_close_trading": 0.00715,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.652229,
@@ -1038,10 +1239,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007482,
+      "gini_close_trading": 0.007482,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.651818,
@@ -1058,10 +1263,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007053,
+      "gini_close_trading": 0.007053,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.65053,
@@ -1078,10 +1287,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007202,
+      "gini_close_trading": 0.007202,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650422,
@@ -1098,10 +1311,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.006673,
+      "gini_close_trading": 0.006673,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650486,
@@ -1118,10 +1335,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.00715,
+      "gini_close_trading": 0.00715,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.652229,
@@ -1138,10 +1359,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007482,
+      "gini_close_trading": 0.007482,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.651818,
@@ -1158,10 +1383,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007053,
+      "gini_close_trading": 0.007053,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.65053,
@@ -1178,10 +1407,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007202,
+      "gini_close_trading": 0.007202,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.650422,
@@ -1198,10 +1431,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.006673,
+      "gini_close_trading": 0.006673,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.650486,
@@ -1218,10 +1455,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.00715,
+      "gini_close_trading": 0.00715,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.652229,
@@ -1238,10 +1479,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007482,
+      "gini_close_trading": 0.007482,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.651818,
@@ -1258,10 +1503,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007053,
+      "gini_close_trading": 0.007053,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.65053,
@@ -1278,10 +1527,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007202,
+      "gini_close_trading": 0.007202,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650422,
@@ -1298,10 +1551,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.006673,
+      "gini_close_trading": 0.006673,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650486,
@@ -1318,10 +1575,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.00715,
+      "gini_close_trading": 0.00715,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.652229,
@@ -1338,10 +1599,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007482,
+      "gini_close_trading": 0.007482,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.651818,
@@ -1358,10 +1623,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007053,
+      "gini_close_trading": 0.007053,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.65053,
@@ -1378,10 +1647,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007202,
+      "gini_close_trading": 0.007202,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.650422,
@@ -1398,10 +1671,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.006673,
+      "gini_close_trading": 0.006673,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.650486,
@@ -1418,10 +1695,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.00715,
+      "gini_close_trading": 0.00715,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.652229,
@@ -1438,10 +1719,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007482,
+      "gini_close_trading": 0.007482,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.651818,
@@ -1458,10 +1743,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007053,
+      "gini_close_trading": 0.007053,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.65053,
@@ -1478,10 +1767,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007202,
+      "gini_close_trading": 0.007202,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650422,
@@ -1498,10 +1791,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.006673,
+      "gini_close_trading": 0.006673,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.650486,
@@ -1518,10 +1815,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.00715,
+      "gini_close_trading": 0.00715,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.652229,
@@ -1538,10 +1839,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007482,
+      "gini_close_trading": 0.007482,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.651818,
@@ -1558,10 +1863,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007053,
+      "gini_close_trading": 0.007053,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.65053,
@@ -1578,10 +1887,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.007202,
+      "gini_close_trading": 0.007202,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.650422,
@@ -1598,10 +1911,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.006673,
+      "gini_close_trading": 0.006673,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.650486,
@@ -1618,10 +1935,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 0,
+      "below_floor_peak": 0,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 0.0,
+      "frozen_share_close": 0.0,
       "gini_close": 0.00715,
+      "gini_close_trading": 0.00715,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.652229,
@@ -1638,10 +1959,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17319.164928,
+      "frozen_share_close": 1.0,
       "gini_close": 0.989295,
+      "gini_close_trading": 0.0,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1658,10 +1983,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17285.23654,
+      "frozen_share_close": 1.0,
       "gini_close": 0.989281,
+      "gini_close_trading": 0.0,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1678,10 +2007,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17279.079262,
+      "frozen_share_close": 1.0,
       "gini_close": 0.989281,
+      "gini_close_trading": 0.0,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1698,10 +2031,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17284.303507,
+      "frozen_share_close": 1.0,
       "gini_close": 0.989279,
+      "gini_close_trading": 0.0,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1718,10 +2055,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17325.77753,
+      "frozen_share_close": 1.0,
       "gini_close": 0.989294,
+      "gini_close_trading": 0.0,
       "grace": 1,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1738,10 +2079,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17088.254623,
+      "frozen_share_close": 1.0,
       "gini_close": 0.989207,
+      "gini_close_trading": 0.0,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1758,10 +2103,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17054.717364,
+      "frozen_share_close": 1.0,
       "gini_close": 0.9892,
+      "gini_close_trading": 0.0,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1778,10 +2127,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17048.538577,
+      "frozen_share_close": 1.0,
       "gini_close": 0.9892,
+      "gini_close_trading": 0.0,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1798,10 +2151,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17053.808563,
+      "frozen_share_close": 1.0,
       "gini_close": 0.9892,
+      "gini_close_trading": 0.0,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.072,
@@ -1818,10 +2175,14 @@
       "support_ratio": 1.0
     },
     {
+      "below_floor_close": 200,
+      "below_floor_peak": 200,
       "claims_conserved": true,
       "financial_nodes": 20,
       "frozen_holdings": 17094.816291,
+      "frozen_share_close": 1.0,
       "gini_close": 0.989208,
+      "gini_close_trading": 0.0,
       "grace": 5,
       "graph": "complete",
       "mara_close": 0.072,

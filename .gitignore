@@ -114,3 +114,10 @@ data/cache/
 # B8 打包器的逐步日志。它们是一次运行的痕迹，不是产物：
 # 重跑即覆盖，且内容里带机器与时长。产物是 results/b8_*.md 与 b8_verdicts.json。
 results/_b8_package_log/
+
+# Rule 19's baseline: a copy of the records taken before a shared module
+# is touched, so that a later diff has something to diff against. Working
+# state, not an artefact.
+results/_baseline/
+results/_baseline.expired_*/
+

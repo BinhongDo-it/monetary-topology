@@ -3,7 +3,7 @@
 **Status: pre-registration. No data retrieved.** Registered 2026-08-16.
 
 Sibling of [`b3_cip_slice.md`](b3_cip_slice.md) and [`b8_fannie_slice.md`](b8_fannie_slice.md).
-Defines `π`, the statistic `PROJECT_PLAN.md` §22.4 registers as the cross-domain
+Defines `π`, the statistic registered as this project's cross-domain
 currency, and calibrates it on real data rather than on a construction.
 
 ---
@@ -87,7 +87,7 @@ is an institutional fact and it is reported, not estimated.**
 - **B9-A, the loop.** Daily `P`, `NAV`, shares outstanding, median bid-ask spread
   and the creation fee are public. Rule 6c-11 requires the premium/discount and the
   median bid-ask spread on the fund website. **Runnable now.**
-- **B9-B, the size gradient.** `PROJECT_PLAN.md` §22.12's within-instrument scan of
+- **B9-B, the size gradient.** The registered within-instrument scan of
   `π` against order size over ADV. It needs trade-level data with size. TAQ is
   behind WRDS; TRACE disseminates with a **size cap**, and that cap is itself a
   ninth-form risk that would have to be diagnosed first. **Availability-gated. If it
@@ -222,7 +222,7 @@ identity.
 | **B9-A-3** | the closing leg is AP-only, so the non-AP faces `λ` as an unrecoverable wedge | **reported, not estimated.** An institutional fact, `H⁰` |
 | **B9-A-4** | `π` computed over fund-days is non-zero on the stress subsample and indistinguishable from zero on the calm one, **on both grids** | the `π` calibration proper |
 | **B9-B-1** | availability: trade-level data with size, without a dissemination cap that is correlated with size | **gate for B9-B.** Fails → B9-B does not run and B9 reports A only |
-| **B9-B-2** | `π` rises monotonically in order size over ADV, within instrument | `PROJECT_PLAN.md` §22.12 |
+| **B9-B-2** | `π` rises monotonically in order size over ADV, within instrument | the registered size-graded scan |
 
 **The stress measure is fixed here, before retrieval**, so that it is not chosen to
 make B9-A-2 work: the fund's own trailing 60-day realised volatility of its NAV
@@ -266,8 +266,8 @@ after seeing them.
   from it is quotable, including numbers already computed.
 - **B9-A-1 fails, that is `\|λ\|/√N ≥ 1` even on calm days with all three guards
   cleared** → `π` has no measured zero on this carrier. **Report it.** The stage does
-  not move to a calmer subsample to find one. `PROJECT_PLAN.md` §22.9's first killing
-  condition is then live and the cross-domain programme is in question, not just this
+  not move to a calmer subsample to find one. **The cross-domain programme's first
+  killing condition is then live**, and the programme is in question, not just this
   stage.
 - **B9-A-1 passes but only because F1, F2 or F3 is unclear** → filed as
   **uninformative**, not as a pass. Same class as A3-3.
@@ -427,7 +427,7 @@ ones decided by one comparison.
 
 **B9-A-4 and B9-B-2 are the `π` statistics** and they move behind it, with 12.2's
 requirements attached. This does not weaken the cross-domain programme:
-`PROJECT_PLAN.md` §22.4 makes `π` the currency, and a currency that has never been
+`π` is registered as the currency, and a currency that has never been
 computed anywhere needs its first reading to be **defensible** more than it needs it
 to be large.
 
@@ -1014,7 +1014,7 @@ floor's resolution to be one basis point against a signal of one to two basis
 points. The correct file is §8's third line, `filed as uninformative`, the same
 class as A3-3's machine-precision identity.
 
-**`PROJECT_PLAN.md` §22.9's first killing condition is therefore not live.** The
+**The cross-domain programme's first killing condition is therefore not live.** The
 cross-domain programme is not in question on this evidence.
 
 **And §1.1's job one is not done.** The repository still has no real-data zero, and
@@ -1492,7 +1492,7 @@ prediction is about the estimator rather than about the world.
 floor. **That reasoning survives; what fails is the assumption that B9-A could
 supply `π`'s first reading.**
 
-- **`π` remains `PROJECT_PLAN.md` §22.4's cross-domain currency.** Nothing here
+- **`π` remains the cross-domain currency.** Nothing here
   touches its definition or its role.
 - **B9-A cannot calibrate it.** A carrier whose path space is one-dimensional
   cannot separate the within-cell and between-cell terms.
@@ -1501,11 +1501,12 @@ supply `π`'s first reading.**
   materially different realised routes to the same servicing state, with many
   loans per cell, which is the setting §3's decomposition was written for.
 
-**This is worth stating in `PROJECT_PLAN.md` §22 as well**, because it is a
-condition on which carriers can carry the currency at all: **`π`'s magnitude is
+**This is a condition on which carriers can carry the currency at all**, and it
+belongs beside `π`'s definition: **`π`'s magnitude is
 informative only where the between-cell variation is driven by something other
 than the quantity that drives the within-cell variation.** On a two-route carrier
-they are the same quantity. That condition was not in §22.4 and it belongs there.
+they are the same quantity. That condition was not in the original definition
+and it belongs there.
 
 ## 22.6 The one alternative, registered and not adopted
 
@@ -1565,9 +1566,9 @@ Reading the ordering `π(SPAB) > π(XLF)` as a statement about holonomy would be
 the eighth failure mode again: the statistic's name is not its content on this
 carrier.
 
-## 23.3 The condition this puts on `PROJECT_PLAN.md` §22.4
+## 23.3 The condition this puts on `π`'s own definition
 
-`PROJECT_PLAN.md` §22.4 gives `π` three properties: a hard zero under exactness,
+`π` was registered with three properties: a hard zero under exactness,
 dimensionlessness, and existing machinery. **All three hold and they are not
 sufficient.** A fourth is now measured:
 
@@ -1578,14 +1579,14 @@ sufficient.** A fourth is now measured:
 > supplies.
 
 On `b₁(G) = 1` with two routes they are the same quantity, and `π` collapses to
-§23.2. **This condition belongs in §22.4 beside the other three**, and is written
-into `PROJECT_PLAN.md` §26.
+§23.2. **This condition belongs beside the other three**, and has been recorded
+with them.
 
 ## 23.4 The cross-domain ordering loses its first term
 
-`PROJECT_PLAN.md` §22.7 pinned `π(B9) < π(B3) < π(B8) ≤ π(B10)` before any of it
-ran, and §22.13 replaced B9's entry with the size-graded scan, which is B9-B and
-availability-gated.
+The ordering `π(B9) < π(B3) < π(B8) ≤ π(B10)` was pinned before any of it
+ran, and B9's entry was later replaced with the size-graded scan, which is B9-B
+and availability-gated.
 
 > **`π(B9-A)` is not a measurement of holonomy, so it cannot occupy the low end
 > of that ordering.** The prediction is not falsified; **its first term is
@@ -1742,8 +1743,8 @@ against their own floors, and neither is quoted as the other.
 ## 24.6 Why §8's killing line is not triggered, ruled here
 
 §8 reads: `|λ|/√N ≥ 1` on calm days with all guards cleared means `π` has no
-measured zero on this carrier and `PROJECT_PLAN.md` §22.9's first killing
-condition is live.
+measured zero on this carrier and the programme's first killing condition is
+live.
 
 **It does not apply, and the reason predates this run.** §22.11 withdrew the
 premise: the zero domain was mis-specified, because order size makes terms
@@ -1882,7 +1883,7 @@ degeneracy (§22, §23)**, which is arithmetic and floor-free.
 | **B9-A-4** | not constructible on a two-route carrier (§22, §23) |
 | **B9-B** | availability-gated, and now the only place `π` could be constructed on this carrier family, since order size would add the second axis the path space lacks |
 
-**The one thing worth carrying to `PROJECT_PLAN.md`**: §24's distinction. A
+**The one thing worth carrying beyond this stage** is §24's distinction. A
 published quantity that looks like a noise floor may be a cost pinned at an
 institutional minimum, and the test is whether it would fall if the measurement
 improved. **That mistake cost this stage six sections and would have cost it the

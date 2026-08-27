@@ -34,8 +34,8 @@ which default probability is a function of income alone predicts a gradient in
 income but the same product mix at every income. Both are ruled out by A1-2 and
 A1-3 if those pass, and neither is ruled out by matching a level.
 
-**This stage carries a termination right.** `PROJECT_PLAN.md` §5.3: if A0 and A1
-are both substantively refuted, the A track stops and Volume One is rewritten.
+**This stage carries a termination right**: if A0 and A1 are both substantively
+refuted, the A track stops and Volume One is rewritten.
 A1 is therefore not a completion task and its failure criteria are not
 formalities.
 
@@ -149,8 +149,8 @@ basis most defaulting households in this model are solvent.
 
 **Stratified arm (main).** The population of 2.1.
 
-**Representative arm (control).** The single representative household of
-`PROJECT_PLAN.md` §A1's original setting.
+**Representative arm (control).** The single representative household of A1's
+original setting.
 
 The representative household is an arm rather than the setting because this
 project has already ruled that it does not exist. `b1_theorem.md` **Corollary 1**
@@ -295,7 +295,7 @@ scored cells. A5-6 is the precedent for why this is not optional.
 
 ### 4.2 An inert-cell detector
 
-Every swept parameter gets the check `HANDOFF.md` lesson two requires: if a
+Every swept parameter gets one check: if a
 cell's results are bit-identical to the registered point, it is reported as
 `inert` and named, and it does not count as evidence. `centrality_bins` was a
 field with documentation, validation and no reader, and the grid scanned it twice
@@ -342,8 +342,8 @@ not the code being wrong, and it is recorded as such.
 obligation classes and the rule that produced them. If the mortgage pair is
 produced by a different rule, or carries a multiplier no other class carries, the
 criterion **fails even if the inequality holds**, and the stage records "the K
-shape requires an exogenous homeowner-protection assumption", which
-`PROJECT_PLAN.md` §A1 already names as a finding with content.
+shape requires an exogenous homeowner-protection assumption", which A1 already
+names as a finding with content.
 
 ### A1-4 and A1-5. Card and auto levels: reported, not gated
 
@@ -439,10 +439,10 @@ cannot be explained away afterwards.
 
 ### A1-10. One parameter set across every rung
 
-`PROJECT_PLAN.md` §A1's own failure criterion, promoted to a gate: **every scored
-rung comes from one behavioural parameter vector.** The experiment prints the
+A1's own failure criterion, promoted to a gate: **every scored rung comes from
+one behavioural parameter vector.** The experiment prints the
 vector once and asserts a single vector produced every rung. Any per-rung
-adjustment fails the stage, and by §A1 that failure is the coverage test failing,
+adjustment fails the stage, and that failure is the coverage test failing,
 which requires stopping and redesigning rather than reporting a partial pass.
 
 **Behavioural and estimation settings are distinguished, registered 2026-08-15.**
@@ -458,8 +458,8 @@ runs at one size.
 
 ### A1-11. The free-parameter count
 
-**Free** means not taken from a cited published source. `PROJECT_PLAN.md` §A1
-registers `a total parameter count of ≤ 12`, counted when the setting was one household. The count
+**Free** means not taken from a cited published source. A1 registers
+`a total parameter count of ≤ 12`, counted when the setting was one household. The count
 is re-taken here for the stratified arm and the bound is kept: **at most twelve
 free parameters**, printed by the experiment with a provenance line each. Values
 from DFA, from Fagereng, Holm & Natvik, from the HHDC workbook and from the
@@ -507,8 +507,7 @@ and are recomputed by the experiment from the workbook rather than typed in.
 | A1-1 nonzero | the instrument. Nothing else in the stage is readable |
 | A1-2 fails in **both** arms | the ordering rule, localized by A1-9 |
 
-**Termination.** `PROJECT_PLAN.md` §5.3: A0 and A1 both substantively refuted
-stops the A track. A1-2 reversing plus A1-10 failing is that condition on this
+**Termination.** A0 and A1 both substantively refuted stops the A track. A1-2 reversing plus A1-10 failing is that condition on this
 stage's side.
 
 ---

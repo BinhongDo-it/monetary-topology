@@ -298,7 +298,7 @@ independently rather than take A4-3's threshold on trust.
 
 | observation | consequence |
 |---|---|
-| `A(X) ≈ 1` for all four competitors | Connectivity is **parallel**, not upstream. The claim in `PROJECT_PLAN.md` §8.3 is withdrawn and rewritten, and the upstream diagram is removed from the plan rather than qualified. |
+| `A(X) ≈ 1` for all four competitors | Connectivity is **parallel**, not upstream. The upstream claim is withdrawn and rewritten, and the upstream diagram is removed rather than qualified. |
 | `A(X) < 1` for any competitor | Connectivity *dampens* that mechanism. Reported prominently; the upstream reading survives only for the mechanisms where it holds, and must be restated per mechanism. |
 | A4-3 fails for any competitor | The comparison against that competitor is **void**, not favourable. Reported as void. |
 | A4-2 fails | Connectivity alone is not sufficient, and stages A0 and A2 do not say what this project has said they say. That would be the most serious failure available here. |
@@ -324,9 +324,8 @@ relative sizes in A4 are properties of the parameterisation.
 **It is a simulation.** Its status is the same as A0's and A2's: it establishes
 that a mechanism *can* work this way, which is a claim about possibility. The
 empirical counterpart, whether the connectivity channel is present in real terms
-at all, is stage B2, and the two have not been linked in code. That gap is
-recorded in `PROJECT_PLAN.md` §12.1 as the largest open seam in the project and A4 does
-not close it.
+at all, is stage B2, and the two have not been linked in code. **That gap is
+the largest open seam in the project and A4 does not close it.**
 
 ---
 
@@ -402,7 +401,7 @@ ranks them in index order, the matching key becomes the index, adjacent slots
 pair, and the cross-layer rate falls to roughly one over the financial layer's
 size — about `0.05` against a random baseline of `0.181`. That number is a
 property of the sort routine presented as a property of assortative mating, in
-the same family as the `0.975` incident recorded in `PROJECT_PLAN.md` §11.2, and it
+the same family as the `0.975` incident this project has already recorded, and it
 lands in exactly the arm prediction A4-6 uses as its reference. Guarded by
 `test_ties_in_holdings_are_broken_at_random_not_by_index`.
 
@@ -442,8 +441,8 @@ defensible strength.
 
 This is not a coding fault and it is not a weak implementation, which matters
 because A4-3's falsification row assumes those are the only two ways a
-competitor can come out flat. It is a missing layer. `PROJECT_PLAN.md` already
-recorded the same absence from the other side, before A4 was written: stages A0
+competitor can come out flat. It is a missing layer. **The same absence was
+already recorded from the other side, before A4 was written**: stages A0
 to A2c report *levels* and cannot produce a widening gap, because no asset holds
 a value that responds to where claims accumulate, and compounding lives in the
 stage A3 asset-price channel.
@@ -559,7 +558,7 @@ secondary reading, for three reasons already on the record and one new one.
 
 **Why the Gini ratio is the wrong instrument.** The Gini is bounded and the
 control cell already sits at `0.935`, so the numerator has `0.065` of headroom
-against a denominator of `0.99` (`PROJECT_PLAN.md` §12.7). `A(X)` is a ratio of
+against a denominator of `0.99`. `A(X)` is a ratio of
 differences reported as a point with no sampling distribution behind it, and on
 five seeds a ratio of small differences can straddle `1` without anyone seeing
 it. And §9.3's defect — `uniform_access` also flattens the opening holdings —

@@ -234,7 +234,7 @@ pricing the siphon. It is not an argument that issuance should stop.
 | rounds | run length for the search | `300` |
 | long run | A6-5 only | `2000` |
 | issuance | in every cell | **off** |
-| everything else | stage A2's registered values | see `PROJECT_PLAN.md` §2 |
+| everything else | stage A2's registered values | as registered |
 
 ---
 
@@ -405,7 +405,7 @@ control this channel" rather than as "this channel is twelve times cheaper".
 
 ## 12. The frontier ratchet, ruled 2026-08-11, designed and not yet built
 
-`PROJECT_PLAN.md` §16.3 carries the same ruling in the plan's own terms. This
+The same ruling is carried elsewhere in this project's own terms. This
 section is the version a reader of *this* stage needs.
 
 **On the number.** An earlier draft of this heading called the ratchet A6-6,
@@ -736,7 +736,7 @@ a check and not a tie-breaker.
 
 | observation | consequence |
 |---|---|
-| **A6-7 fails** | The generalisation cannot reproduce its own special case. `λ`, `g` and `δ` do not enter, and nothing below is run. This is §10.1's rule in `PROJECT_PLAN.md`, applied as a gate rather than as a remark. |
+| **A6-7 fails** | The generalisation cannot reproduce its own special case. `λ`, `g` and `δ` do not enter, and nothing below is run. This is §10.1's rule, applied as a gate rather than as a remark. |
 | A6-8 fails | The implemented recursion is not the one §12.2 describes. A coding defect, fixed, not a finding. |
 | **A6-9 fails: no `λ` on the grid holds all five seeds open** | The ratchet is not what A6-5 was missing. Recorded, and the infrastructure arm keeps §9.2's verdict: it has no steady state and `R*` is a speed. It would also mean the fixed point in `K − B` does not translate into a fixed point in the economy, which is worth more than the criterion, because the two state equations are only half the loop and the other half is the levy responding to how starved the financial layer is. |
 | A6-9 fails only at the ends | Not a failure. That is §13.4's predicted shape and the band is the deliverable. |
@@ -751,10 +751,9 @@ chase what this economy itself built, so there is no observable outside the mode
 to calibrate against. **Report the whole curve, name both endpoints of the band,
 nominate no preferred `λ`.**
 
-This is the same guard `PROJECT_PLAN.md` §16.2 puts on A4's injection quantity,
-against the same failure: a parameter fixed after seeing where the criterion
-turns is a fit, and it is the failure mode §13.4 of the plan names when it says
-that letting `σ` take a value per era lets the model fit anything and takes the
+This is the same guard that sits on A4's injection quantity, against the same
+failure: **a parameter fixed after seeing where the criterion turns is a fit**,
+and letting `σ` take a value per era lets the model fit anything and takes the
 predictive power to zero.
 
 ### 13.7 The run, and where its cost is bounded before it starts
@@ -832,8 +831,8 @@ what `λ` turned out to be doing instead.
 
 ### 14.2 The registered sentence that this run makes false
 
-§12.4 and `PROJECT_PLAN.md` §16.3 both say of the smooth saturation: **"On its
-own it does not fix A6-5."** It does.
+§12.4 says of the smooth saturation: **"On its own it does not fix A6-5."** It
+does.
 
 The `λ = 0` point of the curve is the ratchet turned off with the wall replaced
 and nothing else changed. Its setting matches A6-5 item for item: `access / fair
@@ -1376,8 +1375,8 @@ reason accumulated provision does not run away and sever the economy.**
 **A note on units that section 16 will have to settle.** `R*(transfer) = 0.060`
 is six tax points per round against real net wealth taxes of 0.15% to 1.1% per
 year. Section 7 already says `R*` is not a tax rate for any real economy, so
-this is not a contradiction. It is a reminder that `PROJECT_PLAN.md` §16.1's
-rule applies here too: **without a mapping from rounds to time, there is no
+this is not a contradiction. It is a reminder that one rule applies here too:
+**without a mapping from rounds to time, there is no
 saying whether the model's `R` is above or below the return on capital, and that
 is the single parameter deciding whether a base drains.**
 

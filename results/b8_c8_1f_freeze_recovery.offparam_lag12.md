@@ -112,7 +112,7 @@ A freeze whose compensator cannot be seen is not evidence that there is none.
 
 ## 5. Field 102, repaired
 
-C8-1e counted this field as set whenever it was non-blank. `HANDOFF_B8.md` §3 records that **`7` means none of the above and is not data**, so that column measured whether the field was populated. The three states are separated here.
+C8-1e counted this field as set whenever it was non-blank. **`7` means none of the above and is not data**, so that column measured whether the field was populated. The three states are separated here.
 
 | archive | side | n | code `7` | rate | a real plan | rate | blank |
 |---|---|---|---|---|---|---|---|

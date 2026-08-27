@@ -236,7 +236,7 @@ appreciation is a consequence of the gate plus issuance, not an input.
 
 **"A rise slower than the price level is a fall" has an in-model form that is
 not a deflator.** There is no consumption price level here and inventing a
-conversion rate is the operation `PROJECT_PLAN.md` §11.7 prohibits. But the
+conversion rate is prohibited here. But the
 total claim stock is a second quantity the model already carries, so the ratio
 of one to the other invents nothing:
 
@@ -428,8 +428,8 @@ opening topology and nothing else.**
 Given the scope statement, connecting the model's behaviour to the observed
 ownership and concentration series is admissible as **conjecture about what to
 look for**, not as explanation of what happened. Stated in the distinguishing
-form `PROJECT_PLAN.md` §1.4 requires — what this mechanism predicts that a rival
-does not:
+form this project requires — what this mechanism predicts that a rival does
+not:
 
 **One. The observable is concentration, not the ownership rate.** In the model
 the terminal state is reached by units moving to holders who already hold, and

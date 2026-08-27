@@ -46,7 +46,8 @@ that will supply one from another class, from a lag, or from a model
 (``b4_directed_edges.md`` §5.2).
 
 **No slice-against-square decomposition.** Theorem 2 does not extend to directed
-graphs (``PROJECT_PLAN.md`` §12.10), and segments I and II are directed.
+graphs, since directed cycles form a cone and a cone has no direct-sum
+decomposition, and segments I and II are directed.
 """
 
 from __future__ import annotations
@@ -365,7 +366,7 @@ def bcc_path(raw_dir: Path, currency: str) -> Path:
 #: The first version of this pattern was written against a copy of that name
 #: whose hyphens a file-transfer step had stripped, so it accepted a name the
 #: source never produces and rejected all six real files, reporting the directory
-#: as empty. Same failure as ``PROJECT_PLAN.md`` §14.6's rule about endpoints, one
+#: as empty. Same failure as this repository's rule about endpoints, one
 #: level down: **a filename read off an intermediary is not the filename.** Both
 #: forms are accepted now because either can reach the directory, and
 #: ``xlsx_skipped`` says out loud what was not accepted.
@@ -404,8 +405,8 @@ def xlsx_skipped(raw_dir: Path) -> list[str]:
     directory holds six files whose names the loader does not accept" produce the
     same behaviour and must not produce the same message: a browser that appends
     " (1)" to a second download would otherwise make six files invisible with no
-    way to tell from the output. ``PROJECT_PLAN.md`` §11.11 collects guards that
-    were silent when they should have spoken.
+    way to tell from the output. **A guard that is silent when it should have
+    spoken is a defect of its own**, and this repository has collected several.
     """
     directory = Path(raw_dir) / "bcc_xlsx"
     if not directory.exists():
@@ -897,7 +898,7 @@ def guard_schedule_invariant(header: list[str], rows: list[list[object]],
     Returns the count of exact matches per column, so a caller can print that
     the guard did work rather than only that it did not fail. A guard whose
     output is indistinguishable between "checked everything" and "checked
-    nothing" is the failure mode ``PROJECT_PLAN.md`` §11.11 collects.
+    nothing" is a defect of its own.
 
     **A revision to the markup schedule mid-window must stop the run** rather
     than be averaged over: ``MARKUP_SCHEDULE`` would then be piecewise, and

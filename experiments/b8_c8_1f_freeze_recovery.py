@@ -57,7 +57,7 @@ The four measurements:
      quiet month. That bounds how much of "never recovered" is measurement.
 
 It also **repairs C8-1e's assistance column**, which counted field 102 as set
-whenever it was non-blank. `HANDOFF_B8.md` §3 records that ``7`` in that field
+whenever it was non-blank. In that field ``7``
 means none of the above and is not data, so the old column measured whether the
 field was populated. The three states are separated here.
 
@@ -357,9 +357,8 @@ def render(archs: list[Arch]) -> str:
 
     A("\n## 5. Field 102, repaired\n")
     A("C8-1e counted this field as set whenever it was non-blank. "
-      "`HANDOFF_B8.md` §3 records that **`7` means none of the above and is not "
-      "data**, so that column measured whether the field was populated. The "
-      "three states are separated here.\n")
+      "**`7` means none of the above and is not data**, so that column measured "
+      "whether the field was populated. The three states are separated here.\n")
     A("| archive | side | n | code `7` | rate | a real plan | rate | blank |")
     A("|---|---|---|---|---|---|---|---|")
     for a in archs:

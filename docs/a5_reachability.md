@@ -157,7 +157,7 @@ are all untouched here, and each is a different lever. A5 rules out one lever an
 says nothing about the others.
 
 **It inherits every limit of A3.** One asset, no leverage, no collateral channel,
-revaluation only. `PROJECT_PLAN.md` §12 lists them.
+revaluation only.
 
 ---
 
@@ -300,7 +300,7 @@ production layer's balances draining at the rate stage A4 measured directly: a
 half-life of one to five rounds. The same fact has now surfaced in three places
 that were designed independently —
 
-- A4: the competing mechanisms have no stock to act on (`PROJECT_PLAN.md` §12.6),
+- A4: the competing mechanisms have no stock to act on,
 - A3-6: an endowment into a median node leaves `1.4%` after forty rounds,
 - A5-4: reachability doubles in one round with the price held still.
 

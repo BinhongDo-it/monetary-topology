@@ -8,7 +8,7 @@ Four claims.
 
 **The two name sets must stay disjoint.** The split is well defined only while
 they are, and a name in both would reach one constructor and silently not reach
-the other. `PROJECT_PLAN.md` section 11.12 is that defect with a different
+the other. This repository has already paid for that defect with a different
 parameter: it reached one of two call sites, the default path was the correct
 one, so nothing fired until a sweep took the other branch. The module raises at
 import rather than letting a grid cell discover it.

@@ -152,7 +152,7 @@ welfare function, and no statement about whether the non-zero is large.
 
 ## Market microstructure and asset pricing
 
-**Stations: B9, B14, B3.**
+**Stations: B9, B14, B3, B21, B24.**
 
 **B9** measures the loop on ETF creation and redemption, where all three
 positions (shares, the creation basket, cash) are institutional objects with
@@ -177,8 +177,26 @@ inside the pilot and after it.
 1,513,471 rows, 2000 to 2025, and asks whether cycles that never touch the US
 Treasury vanish, which is what a single common convenience yield would require.
 
-**Nearest existing practice.** Limits-to-arbitrage, and the ETF arbitrage and CIP
-deviation literatures. Those measure a **deviation from a benchmark price**: how
+**B21 puts the same arithmetic where the answer is published before the
+measurement.** One company lists twice, pays one declared dividend to both lines,
+and the two lines are held under tax law that withholds by an amount the state
+prints: 0, 10 or 20 per cent on the Connect legs. The class index over one-year
+holding periods is **14.8 and 30.5 basis points a year** on the two legs across
+4,226 leg-years and **is zero on none of them**. A second arm checks the pipeline
+against its own closed form and reproduces the second, third and fourth order
+shape with nothing fitted, at a statutory gap of 0.25 as well as 0.10.
+
+**B24 asks the same question where the two listings can be exchanged for one
+another.** A sponsored receipt can be cancelled into its home line and A and H
+shares cannot be swapped at any price, so a path between the two positions exists
+in one carrier and not in the other. On the freely transferable side, at one
+closing bell and with the exchange rate removed by subtracting two pairs rather
+than modelled, the dispersion between two listings of one claim has a **median of
+16.4 basis points** over 465 pairings of thirty-one companies. On the other side
+the same function reads **196 times that**.
+
+**Nearest existing practice.** Limits-to-arbitrage, and the ETF arbitrage, CIP
+deviation, ex-dividend clientele and parity-deviation literatures. Those measure a **deviation from a benchmark price**: how
 far did this price get from where no-arbitrage says it should be.
 
 **How this differs.** A cycle sum needs no benchmark and no model of the correct
@@ -192,8 +210,9 @@ money is on the table.
 closing quotes, and the station says so. B14's mirror result is live and
 unresolved.
 
-**Where to read them.** Criteria and readings for B9, B14 and B3 are in
-[RESULTS.md](../RESULTS.md), one section each. Station documents:
+**Where to read them.** Criteria and readings for B9, B14, B3, B21 and B24 are in
+[RESULTS.md](../RESULTS.md), one section each, and B21 carries a census of its own
+criteria beside it. Station documents:
 [`b9_zero_holonomy.md`](../docs/b9_zero_holonomy.md),
 [`b3_cip_slice.md`](../docs/b3_cip_slice.md). B14 has no prose document; its
 record is the RESULTS.md section and the `b14_*` files in `results/`.
@@ -570,7 +589,20 @@ appendix and it is the densest thing in the repository for this field.
 
 ## Networks, complex systems, and agent-based modelling
 
-**Stations: A0, A0b, A2, A2c, A2d, A3, A5, A7, A13, A14, A15, A16, A17, A18.**
+**Stations: A0, A0b, A2, A2c, A2d, A3, A3h, A3i, A3j, A5, A7, A13, A14, A15, A16,
+A17, A18.**
+
+**A3h, A3i and A3j are where this model is told to produce a zero.** A
+simulation that only ever explains things cannot be wrong, so the useful question
+is where the framework says its own quantity must vanish. The position graph here
+is a star, so its first Betti number is zero, so every obstruction is a square and
+one of the two channels **cannot enter the holonomy at all**. Measured across
+every point on record: the ordering the theorem licenses holds at **54 of 57**,
+and the channel it says carries nothing **is sign-stable at none of them**, never
+exceeding 2.94 while the other reaches 24.83. The objection that a zero from an
+inert treatment proves nothing is answered by measuring what the treatment does to
+the mechanism rather than where the population sits: between two cells differing
+only in that channel it moves 19.4 nodes' cycle counts against the other's 16.8.
 
 **A16 produces a cascade with no balance sheet and no input dependence.** The
 usual derivations come in two families: financial contagion, where A owes B and
@@ -822,6 +854,97 @@ and every run record is a committed `results/*.json`.
 
 ---
 
+## Climate policy, education policy, and administrative conversion factors
+
+**Stations: C1, C2, C3.** These three are not financial carriers and nothing on
+them is traded. They exist because every reading elsewhere in this repository
+admits one cheap objection, that a non-zero loop sum on a market is friction:
+thin books, stale quotes, execution risk. **The objection is generic, so the
+answer should be too.** Wherever an institution declares that one unit of `a`
+counts as `R(a,b)` units of `b`, it asserts a scalar `v` with
+`R(a,b) = v(a)/v(b)`, and around any closed loop of declarations the product
+must be 1. There is no book, no spread and no population whose job is to
+compress the residual, so friction is not among the things that could produce a
+reading.
+
+**C1 is the claim: a greenhouse gas against CO2-equivalent.** A global warming
+potential is a declaration adopted by statute and by protocol, not a measurement
+of a gas, and compliance schemes offset against it. Cycle rank over the
+100-year family is **339**, computed two ways, and it is arithmetic available
+before any value is read: a species quoted under `S` standards contributes
+`S − 1` loops, so one standard would give zero and there would be nothing to
+disagree with. **Zero of 88 species read the same value under all six standards.**
+Holding the report fixed as well as the gas and the horizon, AR5's two
+authoritative 100-year values agree exactly once across 86 species. **Four
+methane values are in force at once**, and New York's change of statutory basis
+on 26 May 2026 moved its own reported reduction for 1990 to 2023 from 14.8 to 24
+per cent with nothing emitted or abated.
+
+**C2 is the control: California's course articulation system.** C1's cheap
+objection is that any administrative system of that scale accumulates
+inconsistency, and answering it takes a second system rather than an argument.
+115 colleges, six list types, a vocabulary that means the same thing state-wide:
+**84,018 comparable placements and 28 mutually non-containing**, all 28 between
+the same two documents, and one arm that could have read either way reads nested
+at 113 colleges of 115. **So the multivaluedness C1 measures does not follow from
+institutional scale.**
+
+**C3 removes the declared number: provincial university admission cutoffs.** C1
+and C2 both read a printed ratio, and showing that printed numbers disagree is a
+smaller result than showing the quantity does not exist. Fifteen Chinese
+provinces each publish, after the 2015 national examination, the filing line of
+every university admitting in their first tier. Nothing is convertible, no unit
+is shared between any two of the fifteen, and the claim under test is only that
+each province's order is the restriction of one common order. **105 of 105
+province pairs contain a reversal, in both subject tracks**, and 16,341 of 17,351
+majority edges in arts lie on a three-cycle, so counting the provinces does not
+resolve it either.
+
+**Status: all three closed**, at 5/5, 4/4 and 9/9. C2 carries one named absence,
+a college that returned a server error for all six list types, and its records
+carry a diagnostic flag until that is closed or shown not to matter.
+
+**Nearest existing practice.** For C1, the literature on GWP metric choice and on
+the policy consequences of horizon selection, which studies the entries one at a
+time. For C3, the literature on provincial quota allocation and examination
+equity, which studies the fairness of a given province's line.
+
+**How this differs.** Both literatures defend or attack a conversion factor by
+the reasoning behind that number. This asks whether the **set** of them is
+consistent, which is a different property and one nobody is checking because it
+is nobody's entry to defend. The reasoning behind each entry can be sound while
+the set admits no scalar.
+
+**C3 carries the sharpest objection in the C track and answers it by
+construction.** A point is not worth the same in two provinces: different papers,
+different cohorts, Jiangsu ran to 480 in 2015 and Shanghai to 600. Nothing here
+compares a score in one province with a score in another. Stated precisely, the
+objection is that the two provinces' scores are related by an unknown strictly
+increasing map, and every such map leaves the reading where it was. That is
+checked rather than argued: the reversing set is rebuilt under five recodings
+applied province by province, one giving each province a different map, and the
+five sets are identical **as objects** rather than equal in count.
+
+**And it is the one place in the repository where a rival account's own number
+comes out wrong.** The defence that survives the counts is a latent national
+difficulty scalar read by each province with independent error, under which a
+reversal is a small true gap flipped by noise. **That account fixes a number.**
+The two subject tracks are disjoint applicant pools sitting different papers in
+the same provinces in the same summer under the same quota policy, so on that
+account which province ends up on top is decided afresh and the direction match
+sits near one half. **It is 0.9024**, against a calibration of 0.9611 on the
+comparisons that agree, with the degenerate escape ruled out separately by a lean
+distribution running 0.3208 to 0.7624 over 91 province pairs.
+
+**Where to read them.** [`c_track.md`](../docs/c_track.md) covers what the three
+license together. Per stage:
+[`c1_gwp_holonomy.md`](../docs/c1_gwp_holonomy.md),
+[`c2_transfer_areas.md`](../docs/c2_transfer_areas.md),
+[`c3_admission_reversals.md`](../docs/c3_admission_reversals.md). Every criterion
+is in [RESULTS.md](../RESULTS.md).
+
+---
+
 ## What is not here
 
 - **The A track has no zero domain.** The B track's version of this obligation
@@ -837,6 +960,13 @@ and every run record is a committed `results/*.json`.
   arbitrary calibration value may not ground a negative finding, and undecidable
   is not the same state as decided-against. Both are in the text rather than a
   footnote.
+- **C3 refutes a scalar over institutions and does not touch one over
+  institution-and-programme pairs**, since a university offers a different
+  programme mix in different provinces and the panel carries institution-level
+  lines. What that rescue costs is worth seeing: it indexes the quantity by the
+  very thing whose independence was the claim. Fifteen provinces of thirty-one,
+  one year; the finding is an existence claim, so coverage bounds its generality
+  and not its validity.
 - **Every failed criterion is in [RESULTS.md](../RESULTS.md)** with its reading, on
   the same terms as the passing ones. A failed criterion is citable.
 

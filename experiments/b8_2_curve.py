@@ -25,7 +25,18 @@ consequence for the curve rule was not traced.
 
 **What follows for the criteria, estimated before this ran.** B8-3's
 `delta/floor` is 1.07e5 to 4.18e6, two to four orders above the curve spread,
-so it is safe. **B8-2 is the one at risk**: its per-period medians are 1e-2 to
+so it is safe.
+
+    WITHDRAWN 2026-08-27, pointer added rather than text removed. The margin
+    sentence immediately above used a mislabelled denominator and B8-3's entry
+    in RESULTS.md withdraws it: against the matched-window floor the curve
+    spread runs 1,773 to 358,532, the same order as the gap itself, and at
+    2007Q1 the two are 1.4 times apart rather than an order of magnitude. The
+    ratio 1.07e5 to 4.18e6 is real and is a distance above the instrument's
+    own floor; it is not a margin over the curve account, and it says nothing
+    on its own about which account it refutes. B8-3's live verdict rests on
+    per-cell signs and a permutation p of 0.001 across all six vintages, not
+    on this margin. `b8_3_curve.py`'s own header carries the full correction. **B8-2 is the one at risk**: its per-period medians are 1e-2 to
 1e-1, the same order as the spread, so a cell's sign could turn over. B8-1 is
 carried here as a secondary panel because it costs one line.
 

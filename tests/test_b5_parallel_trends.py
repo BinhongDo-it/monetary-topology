@@ -167,7 +167,7 @@ def test_a_bucket_below_the_date_floor_is_dropped_rather_than_averaged(pt):
 
 
 def test_a_rung_that_keeps_too_few_buckets_is_vacuous_and_not_small(pt):
-    """``PROJECT_PLAN.md`` §11.11 rule 1, expressed on this carrier.
+    """An empty comparison side fails and says so, expressed on this carrier.
 
     Seven buckets out of twelve is below two thirds, so the rung must refuse to
     return a slope rather than fit one to what survived.
@@ -357,7 +357,7 @@ def test_leg_b_needs_every_control_and_not_a_majority(pt, monkeypatch):
 
 def test_a_missing_final_pre_bucket_is_vacuous_and_not_a_pass(pt, monkeypatch):
     """§6B.4. The edge of the window is the whole criterion; without it there
-    is nothing to compare and ``PROJECT_PLAN.md`` §11.11 rule 1 applies."""
+    is nothing to compare, so the rung is vacuous rather than passing."""
     gone = dict(_edge(0.4, [0.05]), last_pre_bucket=None, vacuous=True)
     monkeypatch.setattr(pt, "edge_block", lambda _c, _d, _p: gone)
     out = pt.b5_15_edge_of_window({}, [])

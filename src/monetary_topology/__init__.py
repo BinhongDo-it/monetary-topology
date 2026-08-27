@@ -2,7 +2,7 @@
 
 Stage A0 (this release) isolates retention and allocation. Later stages add the
 default waterfall (A1), support-set contraction (A2), and the integrated
-simulator (A3). See PROJECT_PLAN.md for milestone criteria.
+simulator (A3). ``RESULTS.md`` carries each stage's criteria and their state.
 """
 
 from .asset import (

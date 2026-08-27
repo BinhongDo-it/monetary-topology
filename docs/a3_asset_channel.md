@@ -317,9 +317,25 @@ The peripheral tercile walks the cycle zero times, in every cell, at every seed,
 including the null, so the gate is not what removed it. The criterion's own
 "peripheral" group therefore sits near the 87th percentile, and `κ_gate`, which
 disperses admission along centrality, has almost no variation left to act on
-inside a band that runs from 87 to 100. **The gate reads as nothing because its
-treatment barely varies over the set it is read on.** That is a statement about
+inside a band that runs from 87 to 100. That is a statement about
 the estimand's reach and it holds whatever the gap comes out to.
+
+**One inference drawn from that row in 2026-08-13 was that the gate reads as
+nothing because its treatment barely varies over the set it is read on. It was
+measured on 2026-08-27 and it is false.** Taking the two cells that differ only
+in the gate and the two that differ only in the terms, the gate moves `19.4`
+nodes' cycle counts against the other channel's `16.8`, and `74.0` of total
+absolute cycle change against `85.6`, **eighty-six per cent of it**
+(`experiments/a3h_gate_acts.py`). It also moves `2.2` nodes into the trading set
+and none out, so it acts on the intensive margin rather than the extensive one
+this section assigned it to. **The scope fact above stands and the inertness
+read off it does not**, and the general form is in `docs/MEASUREMENT.md` failure
+mode 78: to decide whether a treatment is inert on a population, measure what it
+does to the mechanism rather than where the population sits. **Swept along the
+knob that widens the population, the ratio runs 0.748 at 18.4 nodes down to
+exactly 0.000 at 178.4 and at 200 of 200, so the inertness is at the wide end**:
+an admission rule that disperses entry has nothing left to ration once nearly
+everyone is already inside.
 
 **Any quotation of A3-8 must carry that population with it.** This is the same
 disease §6.4 records for A3-6, whose holding population is 15.8 nodes of 200
@@ -374,9 +390,18 @@ demotions and the registered-provenance rule exist to enforce.
 seeing that the ordering holds, so using it to convert A3-8's `void` into a pass
 would be manufacturing the result it was chosen to fit. **A3-8's state stays
 `void`, for the reason already on record: no threshold was registered for its
-two shares before it ran.** A3-8′ governs the next stage that runs this design,
-and the first thing it will need is a carrier whose measured population is not
-one eighth of one layer.
+two shares before it ran.** A3-8′ governs the next stage that runs this design.
+
+**Amended 2026-08-27.** The clause that once followed here, that such a stage
+first needs a carrier whose measured population is not one eighth of one layer,
+was built on the inertness inference this section now retires, and widening the
+population was measured to remove the effect along with it. What the next stage
+needs is that the treatment have a measurable effect on the mechanism, which
+this carrier already has. **A3-8′ has since been scored three times**: by A7 as
+`A7-A-4`, where the conjunction fails and the clause that fails it is sign
+stability; on fresh seeds by A3h; and pooled across every point on record by
+A3i, which counts the ordering clause holding at 54 of 57 points and the
+gate-only cell sign-stable at none of them.
 
 ---
 
@@ -524,8 +549,8 @@ transfer to a holder is not. Retention rises steeply with position and does so
 non-monotonically in claims. **That is the redistribution-futility result, and
 it is what A6 goes on to price.**
 
-*The stock A3 was built to supply is thin.* `PROJECT_PLAN.md` §12.6 recorded
-that A0 and A2 had no stock and A4 therefore could not run, and A3 exists partly
+*The stock A3 was built to supply is thin.* A0 and A2 had no stock and A4
+therefore could not run, and A3 exists partly
 to supply one. It supplies a stock for **16 of 200 nodes, all upstairs**, whose
 median holder retains **14%** over forty rounds.
 

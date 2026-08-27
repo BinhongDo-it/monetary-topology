@@ -83,7 +83,7 @@ A month enters only when **both** conventions are computable on it. Every exclus
 
 ## 4. Reproduction of v1's reading, unpaired
 
-The re-derived convention on **every** quiet month of every segment v1 kept, which is v1's own sample. **These figures must match v1's `old, re-derived` row bit for bit.** They are what killed the off-by-one candidate, and a default that does not reproduce is a defect per `SESSION_INIT.md` lesson four.
+The re-derived convention on **every** quiet month of every segment v1 kept, which is v1's own sample. **These figures must match v1's `old, re-derived` row bit for bit.** They are what killed the off-by-one candidate, and a default that does not reproduce is a defect.
 
 | archive | n | p10 | p25 | median | p75 | p90 | at 1.000 | rate | within 0.005 |
 |---|---|---|---|---|---|---|---|---|---|

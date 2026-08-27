@@ -1,9 +1,8 @@
 """A1a: what the joint says that the two margins could not.
 
 **Diagnostic. It registers nothing, gates nothing and feeds no criterion.**
-``PROJECT_PLAN.md`` §16.1's shape: measure first, decide afterwards, and keep
-the two steps in separate files so the measurement cannot be tuned to the
-decision.
+**Measure first, decide afterwards, and keep the two steps in separate files so
+the measurement cannot be tuned to the decision.**
 
 Usage::
 

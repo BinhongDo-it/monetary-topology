@@ -3,8 +3,8 @@
 Every parameter that affects a published figure is declared here, so a reader
 can audit the full parameter set without reading the simulation loop.
 
-Design rule (PROJECT_PLAN.md 6.1): parameters are explicit and immutable. No
-default may silently propagate between experiments.
+Design rule: parameters are explicit and immutable. No default may silently
+propagate between experiments.
 """
 
 from __future__ import annotations

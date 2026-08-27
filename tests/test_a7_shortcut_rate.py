@@ -7,8 +7,8 @@ claims, and the second and fifth are as necessary as the first.
 **The default must reach no code.** `0.0` is what every A2, A3, A4, A5 and A6
 number in the repository was produced under. A field that moved a float in the
 default position would make every stored number a measurement against a base
-that shifted underneath it. `SESSION_INIT.md` lesson four, which has held four
-times before this one.
+that shifted underneath it. **A new switch's default must reproduce what came
+before it, bit for bit**, and that has held four times before this one.
 
 **`replace` is a hand-written field list.** A field left out of it is not a
 missing feature, it is a silent reset to the default, and the sweep reaches

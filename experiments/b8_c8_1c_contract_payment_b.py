@@ -665,8 +665,7 @@ def render(tallies: list[Tally]) -> str:
     A("The re-derived convention on **every** quiet month of every segment v1 "
       "kept, which is v1's own sample. **These figures must match v1's `old, "
       "re-derived` row bit for bit.** They are what killed the off-by-one "
-      "candidate, and a default that does not reproduce is a defect per "
-      "`SESSION_INIT.md` lesson four.\n")
+      "candidate, and a default that does not reproduce is a defect.\n")
     A("| archive | n | p10 | p25 | median | p75 | p90 | at 1.000 | rate | "
       "within 0.005 |")
     A("|---|---|---|---|---|---|---|---|---|---|")

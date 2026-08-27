@@ -3,9 +3,8 @@
 **Pure theory. No data, no retrieval, no parameters.** Everything here is proved
 or it is not in the document.
 
-Registered as the prerequisite for the orphan-currency stage by
-`PROJECT_PLAN.md` §9.5 and §9.8, which state that the existing theorems do not
-cover a market where a conversion runs one way, and that using
+Registered as the prerequisite for the orphan-currency stage: the existing
+theorems do not cover a market where a conversion runs one way, and using
 `product_graph.py` on any such scenario is prohibited until this document
 exists.
 
@@ -18,7 +17,7 @@ Written 2026-08-11.
 Theorem 1 assumes every edge is two-way: the field is antisymmetric, and the
 proof chains equalities along paths in the agent graph. Real convertibility is
 often one-way. This document generalises to directed edges, and the result is
-**not** the one `PROJECT_PLAN.md` §9.5 predicted.
+**not** the one that was predicted.
 
 | | undirected (Theorem 1) | directed (here) |
 |---|---|---|
@@ -424,8 +423,8 @@ the quantity in dispute. Prohibited.
 
 ## 6. What this does and does not say about the agent graph
 
-`PROJECT_PLAN.md` §9.5 frames the orphan currency as a **directed agent edge**:
-a peso position passes from a local to a foreigner and not back. That framing is
+The orphan currency was framed as a **directed agent edge**: a peso position
+passes from a local to a foreigner and not back. That framing is
 available and Theorem 5 covers it. But the same fact admits a second reading and
 the two are not interchangeable.
 
@@ -453,7 +452,7 @@ in them extends to one-way markets either.**
 
 ---
 
-## 7. Correction to `PROJECT_PLAN.md` §9.5
+## 7. Correction to the directed-edge framing
 
 §9.5 states: *"有向图上'存在全局势'的条件更强，单向可达会同时产生 `H⁰` 分离与非零
 `H¹`"* — that the directed existence condition is *stronger*, and that one-way
@@ -478,10 +477,10 @@ market is `S + S'`, the spread. **A referee removes the stage with one sentence.
 The correction turns the stage's outcome measure from `S` into `S − S'` before
 any data is retrieved, which is the only time it is free to do so.
 
-`PROJECT_PLAN.md` §9.4's ruling is untouched and is confirmed by §5.1: the
-orphan currency measures **squares, not slices**, because the official and
-parallel rates are two operators on one conversion. §9.6's requirement that the
-connectivity index come from outside price data is untouched and is strengthened
+The ruling that the orphan currency measures **squares, not slices** is
+untouched and is confirmed by §5.1, because the official and parallel rates are
+two operators on one conversion. The requirement that the connectivity index
+come from outside price data is untouched and is strengthened
 by Theorem 5, since the object it now indexes is reachability rather than
 dispersion.
 
@@ -623,8 +622,8 @@ measurement and are restated here so this section is not read as more than it is
   evidence of the independent freedom, so no separate argument is needed and
   §5.1's construction reaches this carrier in full.
 
-**It does not license the orphan-currency stage.** It removes the blocker
-`PROJECT_PLAN.md` §9.5 records, and it replaces it with a narrower one: the
+**It does not license the orphan-currency stage.** It removes the recorded
+blocker and replaces it with a narrower one: the
 stage's outcome measure must be `S − S'`, its connectivity index must come from
 outside price data, and its `H⁰` claim and its `H¹` claim must be reported as two
 results rather than one.

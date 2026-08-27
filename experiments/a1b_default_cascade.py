@@ -788,8 +788,8 @@ def a1_9(records: list[HouseholdRecord], cost: CostRule, path,
 def a1_10(cost: CostRule) -> Criterion:
     """No rung gets an adjustment of its own, checked against the source.
 
-    ``PROJECT_PLAN.md`` §A1's own failure criterion, promoted to a gate. A
-    per-rung adjustment fails the stage, and by §A1 that failure is the coverage
+    A1's own failure criterion, promoted to a gate. A
+    per-rung adjustment fails the stage, and that failure is the coverage
     test failing, which requires stopping and redesigning rather than reporting
     a partial pass.
 

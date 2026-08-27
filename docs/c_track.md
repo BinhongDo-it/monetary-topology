@@ -13,7 +13,7 @@ no market, and where the declarations are administrative rulings rather than
 prices, friction is not among the things that could explain a product away
 from 1.
 
-Two carriers, one claim and one control.
+Three carriers: one claim, one control, and one that makes the same claim with no declared number in it at all.
 
 ## C1. A greenhouse gas against CO2-equivalent
 
@@ -117,11 +117,102 @@ on the other side.
 institution.** Here is an institution of the same kind, asked the same question,
 and it agrees with itself.
 
-## What the two together license
+## C3. The same claim with the number taken away
+
+C1 and C2 both read a declared ratio. The remaining objection to the pair is
+that both carriers are arithmetic in character: a number is printed, and showing
+that printed numbers disagree is a smaller result than showing that the
+underlying quantity does not exist. **C3 removes the number.**
+
+Each Chinese province publishes, after the national college entrance
+examination, the filing line of every university admitting in its first tier:
+the score of the last applicant it filed there. Nobody publishes a national
+difficulty score for universities, and the apparatus around the examination
+speaks as though one existed. That way of speaking has a content. If a scalar
+`v` over universities existed and each province's line were a reading of it,
+every province would place any two universities the same way round. `v` need not
+be observable, need not be in shared units, need not be the score itself. The
+commitment is that each province's order is the restriction of one common order.
+
+**The objection here is sharper than friction and is answered by construction.**
+A point is not worth the same in two provinces: the papers differ, the cohorts
+differ, Jiangsu ran to 480 in 2015 and Shanghai to 600. Nothing in this stage
+compares a score in one province with a score in another, and no conversion
+between provincial scales is formed, needed or estimated. The objection says the
+two scales are related by an unknown strictly increasing map, and every such map
+leaves the reading where it was. That is checked rather than argued: the
+reversing (institution pair, province pair) set is rebuilt under five recodings
+applied province by province, one of them giving each province a different map,
+and the five sets are identical to the original as objects.
+
+| | |
+|---|---|
+| provinces, 2015 first tier | 15 arts, 15 science, 14 in both |
+| institution entries | 5,771; smallest cell 75, largest 304 |
+| determined comparisons | 681,773 arts and 1,395,601 science |
+| province pairs containing a reversal | **105 of 105**, in both tracks |
+| majority edges lying on a three-cycle | 16,341 of 17,351 arts; 28,256 of 28,879 science |
+
+**A national scalar read with error is the one defence that survives the counts,
+and it makes a prediction it cannot escape.** The arts and science tracks are
+disjoint applicant pools sitting different papers, in the same provinces, in the
+same summer, under the same quota policy. If a reversal is cohort noise flipping
+a small true gap, then which province ends up on top is decided afresh in each
+track, and the direction match sits near one half.
+
+**It is 0.9024**, over 20,213 comparisons that reverse in both tracks, against a
+calibration of 0.9611 for comparisons that agree in both. The remaining escape,
+that one province of the pair is simply the noisier one and is flipped both
+times, would show as a degenerate lean; over the 91 province pairs measured in
+both tracks the lean runs from 0.3208 to 0.7624. **Which province is on top
+depends on which two universities are being compared.**
+
+**The reversals are not adjacent-rank hairsplitting, and the deciles that show
+it also show the other half.** The printed separation is the weaker of the two
+provinces' rank distances between the pair. Reversing comparisons do sit closer
+than agreeing ones, at a median of 8 places against 41 in arts, which is what a
+scalar read with error would produce. Their ninth decile is 32 in arts and 39 in
+science, so **7,793 arts and 16,028 science comparisons have both provinces
+separating the two schools decisively and separating them opposite ways**. The
+widest is `中央财经大学` against `对外经济贸易大学`, which Jiangxi ranks 10 and
+173 of 189 at 585 and 528, and Hunan ranks 163 and 8 of 182 at 544 and 614.
+
+**One institution in the panel publishes the same numbers itself.** Tsinghua
+keeps its own archive of what it filed at by province and year, which is the
+same quantity from a source with no common upstream. Twenty-nine cells are
+comparable and twenty-five agree to the digit; three of the four that differ do
+so by one point in inconsistent directions, and the fourth by nineteen in
+Guangdong, whose table is the first of two choice groups inside the tier rather
+than the whole tier. Guangdong is present in one track only and is not among the
+fourteen provinces the direction criterion uses.
+
+One pair, printed rather than summarised. `东北财经大学` against
+`中国海洋大学`: Shanghai, Beijing, Shanxi, Jiangxi, Hunan, Guizhou, Chongqing
+and Heilongjiang put the first above the second in both tracks; Shandong,
+Jiangsu, Zhejiang and Fujian put the second above the first in both tracks. The
+margins are not rounding, at 20 points one way in Heilongjiang science and 13
+the other in Jiangsu arts on a 480-point scale.
+
+What is refuted is a scalar over institutions. What is untouched is a scalar over
+institution-and-programme pairs, since a university offers a different programme
+mix in different provinces and the panel carries institution-level lines. Note
+what that rescue costs: it indexes the quantity by the very thing whose
+independence was the claim.
+
+## What the three together license
 
 **That a declared conversion can be multivalued with no market present, and that
 this is a property of the declarations rather than of institutional scale.**
 C1 measures it; C2 shows a comparable system where it does not appear.
+
+**That removing the declared number does not rescue the underlying scalar.** C3
+puts fifteen independent orderings of the same universities against each other,
+forms no conversion between them, and finds no common refinement on any of the
+105 province pairs, in either of two disjoint cohorts, with the direction of the
+disagreement surviving the change of cohort at 0.9024. C1 shows a declared
+exchange rate that does not close; C3 shows that taking away the exchange rate,
+the units and the cardinal structure leaves the same hole, because the scalar was
+never what the institution had.
 
 **That the choice between declarations is a policy variable with a measurable
 price.** New York's own reporting moves 9.2 percentage points on the change of
@@ -148,13 +239,17 @@ as the difference between two counts.
     python data/fetch_assist.py --transferability CSUTC IGETC UCTCA UCTEL CSUGE CSUAI
     python experiments/c2_transfer_areas.py        -> results/c2_transfer_areas.json
 
-Both records are byte-identical across runs. C1 reads one 6,744-byte table
+    python data/parse_gaokao_provincial.py         -> data/gaokao_provincial.csv
+    python experiments/c3_admission_reversals.py   -> results/c3_admission_reversals.json
+
+All three records are byte-identical across runs. C1 reads one 6,744-byte table
 pinned to a commit and verified by hash. C2 reads 690 payloads pulled from a
 public API, each checked against the list type it reports rather than the one
-requested. Per-stage detail is in `docs/c1_gwp_holonomy.md` and
-`docs/c2_transfer_areas.md`; every criterion, including the ones that read the
+requested. Per-stage detail is in `docs/c1_gwp_holonomy.md`,
+`docs/c2_transfer_areas.md` and `docs/c3_admission_reversals.md`; every criterion, including the ones that read the
 other way, is in `RESULTS.md`.
 
-A third carrier, provincial university admission cutoffs, has its design and
-criteria written and is held on availability. What would open it is recorded in
-`data/SOURCES.md`.
+`docs/c3_admission_reversals.md` carries the third stage in full, including the
+four states its comparison admits and the treatment of supplementary filing
+rounds. Sixteen more provinces were located for 2015 and hold no usable article
+body; what would add them is recorded in `data/SOURCES.md`.

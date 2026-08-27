@@ -15,9 +15,9 @@ built null, exactly as A3-8 runs them. `a3c_load_bearing` supplies `build_all`,
 different graph rather than a second implementation of it. Section 4.3's guard
 G3 inherits that module's inert detection with it.
 
-Alongside every row, the control variables in their own units, because
-`SESSION_INIT.md` lesson three is a scan whose second moving quantity had no
-name until three stages later:
+Alongside every row, the control variables in their own units, because this
+repository has already run a scan whose second moving quantity had no name until
+three stages later:
 
 - realised edge count and mean degree, so "the graph got denser" is visible;
 - centrality standard deviation, which section 2.5 requires be read instead of

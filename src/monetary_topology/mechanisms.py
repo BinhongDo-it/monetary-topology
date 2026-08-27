@@ -411,8 +411,8 @@ class A4Model(Network):
         # the cross-layer rate would fall to roughly one over the financial
         # layer's size. That number would be a property of the sort routine
         # presented as a property of assortative mating, which is the same class
-        # of error as the ``0.975`` incident recorded in ``PROJECT_PLAN.md`` section
-        # 7.2, and it would corrupt precisely the arm prediction A4-6 uses as
+        # of error as the ``0.975`` incident this repository has already recorded,
+        # and it would corrupt precisely the arm prediction A4-6 uses as
         # its reference.
         tiebreak = self._mech_rng.random(n)
         order = np.lexsort((tiebreak, self.holdings))

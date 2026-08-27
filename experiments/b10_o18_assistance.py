@@ -21,7 +21,7 @@ early in its life. A month whose balance did not move has ``P(t) = UPB * rate /
 asks the second question, and Freddie carries a field Fannie does not: a
 borrower-assistance status with forbearance, repayment plan and trial period as
 separate codes. Fannie's 102/106 carries the `7` = "none of the above" trap
-that cost a full scan once (`HANDOFF_B8.md` pit 1).
+that cost a full scan once.
 
 Earning the field, and why the anchors avoid a circle
 ------------------------------------------------------

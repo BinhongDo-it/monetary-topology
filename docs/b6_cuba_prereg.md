@@ -7,11 +7,10 @@ fixed here.
 Availability, sourcing, and the ruling that this stage may be opened are in
 [`b6_cuba_availability.md`](b6_cuba_availability.md). That document carries two
 things a reader should see before this one: the identification is
-**cross-sectional and not before-and-after**, contrary to what
-`PROJECT_PLAN.md` §14.4 envisaged; and the `H⁰` typing here rests on **a
-published eligibility rule rather than on the absence of a quote from a file**,
-which is what makes this carrier able to do what §12.11 says no carrier had
-done.
+**cross-sectional and not before-and-after**, contrary to what this stage was
+first planned as; and the `H⁰` typing here rests on **a published eligibility
+rule rather than on the absence of a quote from a file**, which is what makes
+this carrier able to do what no carrier in this project had done.
 
 The directed theorems in [`b4_directed_edges.md`](b4_directed_edges.md) are
 load-bearing throughout. Theorem 5 supplies the object; §5.2's table supplies the
@@ -33,9 +32,8 @@ what is deferred.
 
 Theorem 5 says that a position which can be entered and not left is **not
 priced**: the sub-potential polyhedron has an unbounded ray there, so the
-position is bounded on one side only. `PROJECT_PLAN.md` §12.11 says this has
-never had an empirical reading in this project, because the object of
-observation is a missing quote and a missing quote is indistinguishable from an
+position is bounded on one side only. **This has never had an empirical reading
+in this project**, because the object of observation is a missing quote and a missing quote is indistinguishable from an
 incomplete dataset.
 
 **This half of the stage supplies the reading, and it does so by finding a case
@@ -380,14 +378,13 @@ quote yields only an upper bound. Reading the statute located it.
 
 **This is `b2_measurement.md`'s cell structure printed by a central bank**: one
 position pair, several agent classes, terms differing by who the agent is rather
-than by what is bought. `PROJECT_PLAN.md` §9.4's ruling that the orphan currency
-measures **squares and not slices** holds here for the same reason it held in
-B5, and §2.4 confirms it from the shape rather than asserting it.
+than by what is bought. The ruling that the orphan currency measures **squares
+and not slices** holds here for the same reason it held in B5, and §2.4 confirms it from the shape rather than asserting it.
 
 **Do not run any slice-against-square decomposition on this carrier.** Theorem 2
 does not extend to directed graphs; directed cycles form a cone and cones have
-no direct-sum decomposition (`PROJECT_PLAN.md` §12.10, `b4` §6). Segments I and
-II are directed.
+no direct-sum decomposition ([`b4_directed_edges.md`](b4_directed_edges.md) §6).
+Segments I and II are directed.
 
 ### 2.2 The nineteen channel columns are one number times a constant
 
@@ -406,9 +403,8 @@ Two consequences are registered here as design rules rather than as findings.
 
 **No headline square may have both legs inside one segment.** For channels `a`
 and `b` of the same segment the index part is `2 log(k_b/k_a)`, the same
-constant on every date, zero variance. That is a construction identity, and
-`HANDOFF.md` §3.2 item 6 records what happens when one is written up as a
-confirmation.
+constant on every date, zero variance. **That is a construction identity, and
+this project has already had one written up as a confirmation once.**
 
 **The friction column on this carrier is a policy parameter.** `b4` §5.1
 describes `S + S'` as the two agents' round-trip costs. Here the spread is a
@@ -439,7 +435,7 @@ it rather than assuming it. The consequence, which is the point: **on this
 carrier the entire obstruction is in the agent factor**, and the square-against-
 slice split of Theorem 2 is not a finding to be measured but a property of how
 the source is built. Saying so in advance prevents the `curl`-against-`harmonic`
-error `PROJECT_PLAN.md` §12.3 records, where a decomposition was going to be run
+error this project has already made, where a decomposition was going to be run
 whose answer was fixed before the code.
 
 ### 2.5 The yen is published the other way up, and the bank says so
@@ -567,7 +563,7 @@ cannot run over this window.
 **The XLSX-against-API agreement is not a substitute and must not be written up
 as one.** Two delivery paths for one record test the retrieval code, not the
 collection. Calling it a zero calibration would be a guard that is silent when
-it should speak, which is the pattern `PROJECT_PLAN.md` §11.11 collects.
+it should speak, which is a defect of its own.
 
 **What replaces it is B6-4**, an external referee on the one quantity the table
 exposes to outside checking: the euro cross implied by its own columns. That is
@@ -928,8 +924,7 @@ fires is an error and stops the run; a guard is not a finding.
   regulation, and it would have nothing to show, which is the outcome this
   criterion exists to risk.
 - **B6-7 fails.** The distance did not grow. Reported as registered, not
-  rewritten. `HANDOFF.md` §3.2 item 9 is the precedent: a criterion that fails
-  stays failed.
+  rewritten. **A criterion that fails stays failed.**
 - **Guard 1 fires.** The markup schedule was revised inside the window, or the
   publisher stopped truncating. The stage is not thereby dead, but
   `MARKUP_SCHEDULE` becomes piecewise, B6-3 falls back to `index_tolerance`,
@@ -941,9 +936,8 @@ fires is an error and stops the run; a guard is not a finding.
   days, is not what a fabricated or stale euro leg produces. **Both halves of
   that sentence are diagnostics and neither is a pass.** The registered
   comparison is same-day, it was registered before the reference was retrieved,
-  and it stays as registered. `HANDOFF.md` §3.2 item 9 and A6-1 are the
-  precedent: a criterion that fails stays failed, and the diagnosis goes beside
-  it rather than into it.
+  and it stays as registered. A6-1 is the precedent: **a criterion that fails
+  stays failed**, and the diagnosis goes beside it rather than into it.
 
 - **B6-8 fails.** It did, on the yuan alone. The separability the write-up would
   otherwise assert does not hold across the whole window, and the sentence
@@ -993,8 +987,8 @@ The bank publishes one rate irrespective of size, so the agent factor visible
 here is coarser than the one the regulation defines, and no criterion in this
 document separates a size band from another. Stated as scope.
 
-**`C → D` does not return.** `PROJECT_PLAN.md` §14.3.1 dropped the connectivity
-index because one country cannot supply a `C` worth reporting. Cuba adds two
+**`C → D` does not return.** The connectivity index was dropped because one
+country cannot supply a `C` worth reporting. Cuba adds two
 more points to an annual index and the cross-section is still not there. A scope
 statement, not a to-do.
 

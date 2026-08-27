@@ -9,7 +9,7 @@ down whichever way it comes out.**
 
 This file is that step and nothing else. It estimates nothing, it constructs no
 ``ω``, it computes no ``λ`` and no ``π``, and it reads no prediction of B9 or of
-any other stage. It does not depend on B8 or B10: see ``PROJECT_PLAN.md`` §25.
+any other stage. **It does not depend on B8 or B10.**
 
 **The load-bearing question here is granularity, not presence.** Rule 6c-11
 requires the median bid-ask spread on the fund's website, and a website figure is

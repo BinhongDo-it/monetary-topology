@@ -266,9 +266,8 @@ against EM, banded against ranked, across maturities — and not the level.
 ## 10. Schema audit, after retrieval and before any computation
 
 **No threshold in §6 moved and no filter in §7 changed.** What follows corrects
-the *description* of the file against the file itself. It is recorded because
-`PROJECT_PLAN.md` §11.4 cost this project four separate errors from assuming a
-schema — a column name written with an underscore instead of a hyphen silently
+the *description* of the file against the file itself. It is recorded because assuming a schema has cost this project four separate
+errors — a column name written with an underscore instead of a hyphen silently
 dropped a column, and two metropolitan areas returned zero rows.
 
 The real header:

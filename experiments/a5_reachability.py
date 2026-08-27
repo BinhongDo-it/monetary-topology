@@ -69,8 +69,8 @@ ROUNDS = 300
 #: be read as having rescued anything.
 #:
 #: One constant, because the cap probe reports alongside these numbers and a
-#: second seed count kept in step by hand is the defect `PROJECT_PLAN.md` §11.12
-#: records.
+#: second seed count kept in step by hand is the call-site defect this
+#: repository has already paid for once.
 REGISTERED_SEEDS = 12
 
 #: Registered thresholds, section 4.
@@ -238,8 +238,8 @@ def _config(
 ) -> A3Config:
     """The one place a stage A5 configuration is built.
 
-    ``run`` and ``build`` both need it, and building it twice is the defect
-    ``PROJECT_PLAN.md`` §11.12 records: a parameter reached one of two call
+    ``run`` and ``build`` both need it, and building it twice is the defect this
+    repository has already paid for once: a parameter reached one of two call
     sites, the default path was the correct one, and so the guard on the
     default path never fired. Two constructions that must agree are one
     function.

@@ -14,7 +14,7 @@ They are built for checkability rather than scale: every structural claim is
 packaged so that someone who did not write the code can test it and see what
 would have counted as the other answer.
 
-**Status, 2026-08-27.** Both tracks have run. **Seven carriers have produced
+**Status, 2026-08-27.** All three tracks have run. **Seven carriers have produced
 measured non-zero readings on real transaction data**, and each stands against two
 different zeros. One is a floor that is measured rather than asserted, which says
 the reading can be seen. The other is **a point prediction of exactly zero, made by
@@ -29,7 +29,19 @@ conversion tracks; Cuba's central-bank table; and CME calendar spreads. Each is 
 separate regulatory environment, which is what makes them separate carriers
 rather than one carrier sampled seven times.
 
-**Six of them read an undirected cycle sum. The seventh reads a directed one**,
+**Three further carriers put the same question where friction cannot be the
+answer, because nothing on them is traded.** An institution that declares one
+unit of `a` to be `R(a,b)` units of `b` asserts the same scalar, and the loop
+product must still be 1. A declared conversion between physical quantities is
+multivalued, with **zero of 88 species reading the same value under all six
+standards in force**. A comparable institution of the same scale and age, asked
+the same question, agrees with itself, so that reading is not about
+bureaucracies. And with the declared number removed altogether, fifteen
+independent orderings of the same universities admit no common refinement on
+**any of 105 province pairs**, in either of two disjoint cohorts.
+
+**Six of the seven read an undirected cycle sum. The seventh reads a directed
+one**,
 where the question is not whether a potential exists but whether a *sub*-potential
 does, and it arrives with its own zero calibration measured on a second country
 under the same register. **One of the seven returns both a zero and a non-zero
@@ -50,7 +62,7 @@ record, and the index by field below for which stations sit in your field.
 
 This repository gives an exact criterion for when a single scalar price
 vector on positions exists, proves it with no economic assumptions in it,
-and measures it on seven carriers. Which standard constructs presuppose that
+and measures it on seven financial carriers and three where nothing is traded. Which standard constructs presuppose that
 object, and what each of their setups says in its own words, is in
 [`b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md).
 
@@ -212,6 +224,10 @@ with Theorem 6(5) new**, which is what that stage produced besides its readings.
 is B15, because it is the control carrier for B6 and four of its thresholds are
 B6's own values carried over unchanged. Judging two carriers by one ruler means
 something only if the ruler is visible.
+
+**Every C-track stage carries a document**, and one more besides:
+[`docs/c_track.md`](docs/c_track.md) is the account of what the three of them
+together license, which is a thing no single stage's document can say.
 
 ### Across every stage
 
@@ -514,7 +530,7 @@ performed afterwards. If it fails, the run stops and no figure is produced.
 
 ## Roadmap
 
-Two tracks, run in parallel. They share no code because they answer different
+Three tracks, run in parallel. They share no code because they answer different
 kinds of question.
 
 **Track A — distribution dynamics.** Computational claims: whether a support set
@@ -530,6 +546,10 @@ sweep maps where it does and does not.
 | A3 | **the asset price channel** | closed, **3/4 live, 1 void, 2 diagnostic**, [`docs/a3_asset_channel.md`](docs/a3_asset_channel.md) |
 | A3b | the construction the channel opens from | complete, [`docs/a3b_initial_construction.md`](docs/a3b_initial_construction.md) |
 | A3c | which parts of A3 are load-bearing | complete, A3-8 **void**, [`docs/a3_restated.md`](docs/a3_restated.md) |
+| A3g | the criterion registered forward in A3, read on a swept population | ran, **3/5, one undecidable, one fail**. Widening the measured set with the one knob that widens it also removes the effect being read, by a factor of 277, so the criterion cannot be read on this carrier that way. See [RESULTS.md](RESULTS.md) |
+| A3h | **a channel that moves the mechanism and carries no holonomy** | **4/4.** `tier_positions` is a star, so `b_1(G) = 0`, so every obstruction is a square and the gate cannot enter the holonomy at all. The objection that a zero from an inert treatment proves nothing is answered by measurement: between the two cells that differ only in the gate it moves 19.4 nodes' cycle counts against the other channel's 16.8, **86 per cent of it**. Scored on seeds drawn after the criterion was written |
+| A3i | the two clauses of that criterion, counted apart | **4/4, no model run.** It reads every record on disk where both cells were computed and counts the clauses separately: the ordering the theorem licenses holds at **54 of 57 points**, the sign-stability it never promised at 9, and **the gate-only cell is sign-stable at none of them** |
+| A3j | where the gate is inert, and it is the opposite end of the knob | **4/4.** The mechanical effect along A3g's declared grid: 0.748 at the narrowest population and **exactly zero at the two widest**, so the inertness is at the wide end, where an admission rule has nothing left to ration |
 | A5 | reachability against participation | **4 of 5 live criteria pass, 3 void, 1 diagnostic**, [`docs/a5_reachability.md`](docs/a5_reachability.md). The region closes through the denominator rather than the price: freeze the price and the threshold is still crossed in 12 of 12 seeds |
 | A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
 | A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below, [`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
@@ -706,10 +726,32 @@ simulating instances.
 | B17 | how many independent directions the parallel-rate deviations occupy | **closed**, on Argentina's simultaneously quoted legal conversion tracks, from files already on disk. **Nothing was bought.** Two carriers were screened out on paper before this one, before any data was bought: a GSE monthly panel whose cycle count ran from 1275 to 1 as the state definition changed with no cut having a source, and a depositary-receipt design |
 | B18 | the directional remnant in the direct book | **closed on the instrument's resolution, nothing bought.** One trading day, 295 spread contracts, 3,895,656 snapshots. Absence happens in runs, so counting runs rather than snapshots puts every contract's `A_s` inside two standard errors of zero. See [RESULTS.md](RESULTS.md) |
 | L2 | what is left of B14's move after the arithmetic is taken out | **opened on B14's carrier and free.** B14 closed with its index half unadjudicated because the lattice projection reproduces 88.7 per cent of the move. L2 asks whether the residue is arithmetic or behaviour, and **imports B14's sample, windows, pure-slack definition and group assignment character for character rather than restating them**. The residue has the wrong sign to be arithmetic |
+| B19 | compliance screens as a dated boundary | **closed at gate two before opening.** Gate zero passed with room, 268 treated against 895 control in the thinnest cell over 20,335 firm-quarters; gate two came back at 6.1 with the lower bound on the larger side. **Three numbers went into that ratio and none came from a document**, and moving the two checkable ones takes it to about 1.0. See [RESULTS.md](RESULTS.md) |
+| B21 | **a class index whose target is set by statute** | **19/26 pass, 2 fail, 4 open, 1 void.** One company, two share lines, one declared dividend, and withholding that differs by holder by an amount the state publishes. The index is 14.8 and 30.5 basis points a year on the two legs over 4,226 leg-years and **reaches zero on none of them**; a second arm reproduces the closed form's second, third and fourth order shape with nothing fitted. A census of its own criteria is beside it |
+| B23 | is that wedge Chinese, or does the treaty network carry it | **2/2, no price data.** Sixteen of twenty countries carry a binding wedge and the treatment takes eleven distinct values, 11.7 to 73.2 basis points at a three per cent yield, **which brackets B21's own measured edges** |
+| B24 | **the square where a path between the two positions exists** | **6/6.** A receipt can be cancelled into its home line and A and H cannot be exchanged at any price. On the freely transferable side the dispersion between two listings of one claim is **16.4 basis points**, median over 465 pairings of thirty-one companies at one bell with the exchange rate removed by subtraction; on the other it is **196 times that** |
 | square complex | curl against harmonic on `Γ` | **withdrawn**, see B1 §12 |
 
-**Three of those rows are newer than the narrative that follows them**, which was
-written when loop B was the next thing. B3 has since reached the slice summand
+**Track C — the same claim where no market exists.** A price field that does not
+compose can be argued back to friction: thin books, stale quotes, transaction
+costs. The argument is weak and it is available, and closing it costs work.
+**Track C moves the question to carriers friction does not reach.** Wherever an
+institution declares that one unit of `a` counts as `R(a,b)` units of `b`, it
+asserts a scalar `v` with `R(a,b) = v(a)/v(b)`, and that assertion has an exact
+consequence: around any closed loop of declarations the product is 1. Nothing is
+traded to produce these numbers, so friction is not among the things that could
+explain a product away from 1. Full account in
+[`docs/c_track.md`](docs/c_track.md).
+
+| stage | subject | status |
+|---|---|---|
+| C1 | **a greenhouse gas against CO2-equivalent** | **closed, 5/5.** Cycle rank over the 100-year family is **339**, computed two ways, and **0 of 88 species read the same value under all six standards**. Holding the report fixed as well as the gas and the horizon, AR5's two authoritative 100-year values agree exactly once in 86 species. Four methane values are in force at once. New York moved its statutory basis on 26 May 2026 and its own reported reduction for 1990 to 2023 went from 14.8 to 24 per cent, **with nothing emitted or abated to produce those 9.2 points**. [`docs/c1_gwp_holonomy.md`](docs/c1_gwp_holonomy.md) |
+| C2 | **the control: a comparable system that agrees with itself** | **closed, 4/4.** C1's cheap objection is that any administrative system of that scale accumulates inconsistency. Answering it takes a second system rather than an argument. California's course articulation system, 115 colleges and six list types, gives **84,018 comparable placements with 28 mutually non-containing**, all 28 between the same two documents, and the arm that could have read either way reads nested at 113 colleges of 115. **So the multivaluedness C1 measures does not follow from institutional scale.** [`docs/c2_transfer_areas.md`](docs/c2_transfer_areas.md) |
+| C3 | **the same claim with the declared number taken away** | **closed, 9/9.** Fifteen provinces ordering the same universities by 2015 filing line. No conversion between provincial scales is ever formed, so the objection that a point costs different effort in each province is answered by construction, and the reversing set is checked identical under five per-province recodings. **105 of 105 province pairs contain a reversal, in both tracks**, and 16,341 of 17,351 majority edges lie on a three-cycle. The defence that a national scalar is read with cohort error predicts a direction match near one half across the two disjoint applicant pools; **it is 0.9024** against a calibration of 0.9611. [`docs/c3_admission_reversals.md`](docs/c3_admission_reversals.md) |
+
+
+**Three rows of the B table above are newer than the narrative that follows
+them**, which was written when loop B was the next thing. B3 has since reached the slice summand
 that Corollary 2 says no volume of mortgage data can touch; B4 removes the
 standing prohibition on directed agent edges and replaces it with a narrower one,
 that a carrier with a bid-ask spread may report `S − S'` and never a single

@@ -357,7 +357,7 @@ It does not test the premise in credit score, and no public source that
 separates VA from FHA carries credit score at loan level. Ginnie Mae's
 pool-level disclosures do identify programme and do carry score bands, which
 makes them the candidate for a future check; they are registered as a candidate
-in `PROJECT_PLAN.md` §12.12 and not promised here.
+and not promised here.
 
 It does not establish that income, DTI and credit score move together. If a
 reader holds that VA borrowers have conventional-like incomes and FHA-like

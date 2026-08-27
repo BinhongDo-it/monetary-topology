@@ -6,9 +6,8 @@ pass the same day, on an Aduana Nacional comunicado supplied by hand: `RM 245` i
 from an official document, and it brought a fourth priced edge with it (§4.6).**
 
 **This carrier was assigned the number `B15` on 2026-08-19**, and the
-pre-registration is `docs/b15_bolivia_prereg.md`. Nothing in `PROJECT_PLAN.md` or
-`HANDOFF.md` held `B15` at the time it was assigned, and no `b15_*` or `b16_*`
-file existed, so the number is free rather than merely unclaimed.
+pre-registration is `docs/b15_bolivia_prereg.md`. No stage held `B15` at the time
+it was assigned, and no `b15_*` or `b16_*` file existed, so the number is free rather than merely unclaimed.
 
 **This is an availability check. No criterion is registered and no reading is
 computed.**
@@ -17,9 +16,9 @@ computed.**
 
 ## 1. Why this carrier and not a second Cuba
 
-`PROJECT_PLAN.md` §14.5 ruled out Latin American controls for B5 because a
-country with one market rate leaves `S - S'` undefined, and §14.7 ruled North
-Korea narrative-only for want of a referee. **Neither objection applies here.**
+Latin American controls were ruled out for B5 because a country with one market
+rate leaves `S - S'` undefined, and North Korea was ruled narrative-only for
+want of a referee. **Neither objection applies here.**
 Bolivia has a published official rate with two sides, a published parallel rate
 with two sides, and a dated regime change.
 

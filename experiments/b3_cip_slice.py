@@ -39,8 +39,8 @@ ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 DATA = ROOT / "data" / "raw" / "cip_dataset_v4.csv"
 
-#: §10. The real header, asserted rather than assumed. `PROJECT_PLAN.md` §11.4
-#: cost four errors to a column name guessed with an underscore for a hyphen, so
+#: §10. The real header, asserted rather than assumed. A column name guessed
+#: with an underscore for a hyphen cost this repository four errors once, so
 #: a missing column stops the run instead of silently producing a short sample.
 REQUIRED = (
     "group", "currency", "tenor", "date",

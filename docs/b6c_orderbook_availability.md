@@ -1,8 +1,8 @@
 # B6-C availability: the Havana order book, and the two assumptions it can retire
 
 **Written 2026-08-19.** This is an availability check and nothing else. No
-criterion is registered here and no reading is computed. `PROJECT_PLAN.md`
-§14.6 listed this source as a candidate on 2026-08-12 with the note that it
+criterion is registered here and no reading is computed. This source was listed
+as a candidate on 2026-08-12 with the note that it
 **ends 2025-02 and cannot reach B6's window**; §9 of `b6b_eltoque_prereg.md`
 registered it as not contained in B6-B.
 

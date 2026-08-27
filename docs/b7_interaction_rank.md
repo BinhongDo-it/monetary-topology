@@ -63,8 +63,7 @@ therefore fixed here, with its source.
 ### 2.1 What the retrieved file actually carries
 
 `data/fetch_hmda.py` retrieves twenty columns. Recorded verbatim, because
-`PROJECT_PLAN.md` §11.4 counts four separate errors in this repository from
-assuming a schema:
+assuming a schema has caused four separate errors in this repository:
 
 ```
 activity_year, derived_msa-md, state_code, county_code, census_tract,
@@ -1974,7 +1973,7 @@ gap over twenty splits is `0.0014` against an observed `0.1814`.
 rows from Du, Keerati and Schreger (2025), verdicts B3-1 through B3-8 all true.
 Its `worst_identity_error` of `7.41e-16` is a per-band zero calibration and not its
 headline, and reading it as the headline is the same substitution.
-`PROJECT_PLAN.md` §21.14 already logged that omission once as a factual error.
+That omission was already logged once as a factual error.
 **This stage committed it again**, which is what a lesson recorded in one place and
 not carried into another looks like.
 

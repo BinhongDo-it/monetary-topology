@@ -96,8 +96,7 @@ zero, the ratchet and the obstruction are **not** the same object, and
 
 ## 3. What A3 is not for, stated as a prohibition
 
-`PROJECT_PLAN.md` §12.1 describes as the project's largest open seam that
-"nothing has shown that the A-side connectivity parameter generates the number
+This project's largest open seam was recorded as: "nothing has shown that the A-side connectivity parameter generates the number
 the B side measured". **That target is withdrawn here and its pursuit is
 prohibited.**
 
@@ -251,8 +250,7 @@ It does **not** support "the real economy's holonomy causes the real economy's
 distributional divergence". That would need the real-data counterpart of the
 `κ_pay = 0` arm — setting mortgage terms uniform and re-running history — which
 does not exist. Statutorily uniform carriers such as federal student loans have
-been considered and are recorded in `PROJECT_PLAN.md` §11.6 as near-tautological
-in the placebo role; whether they are usable in the **intervention** role is a
+been considered and are recorded as near-tautological in the placebo role; whether they are usable in the **intervention** role is a
 different question and is **not resolved here**.
 
 The limit is structural and is not a defect of this experiment. It is the

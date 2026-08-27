@@ -223,10 +223,9 @@ _REWIRE_OFFSET = 51_413
 #: draw order rather than about the mechanism.
 _EDGE_CUT_OFFSET = 90_311
 
-#: Where newly issued claims are credited. ``PROJECT_PLAN.md`` §16.2 registers
-#: both arms as the two readings of the source's own claim that money is
-#: non-neutral because the path and the injection point decide everything. Only
-#: the first was ever implemented.
+#: Where newly issued claims are credited. Both arms are registered as the two
+#: readings of the source's own claim that money is non-neutral because the path
+#: and the injection point decide everything. Only the first was ever implemented.
 #:
 #: ``"top_node"``
 #:     The financial-layer node of highest in-degree, which is what

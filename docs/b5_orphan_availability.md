@@ -1,7 +1,7 @@
 # B5 availability check: what the orphan-currency stage would need, and what exists
 
 **Not a pre-registration. A check, run before deciding whether to open a stage**,
-as `PROJECT_PLAN.md` §13.5 requires. Same discipline as
+as this project requires before a stage is opened. Same discipline as
 `b3_slice_availability.md`, and for the same reason: the last time this project
 assumed a source was reachable it was wrong in both directions, and both errors
 surfaced inside the same check.
@@ -71,7 +71,7 @@ over forty years. Checked, and it is the same wall B3 hit on raw forward points.
 **The IRR files are free and they are not a substitute.** They publish the
 *classification* built from parallel rates, not the rate levels. And using the
 IRR capital-control index as this stage's connectivity index `C` would be
-**circular in exactly the way `PROJECT_PLAN.md` §9.6 prohibits**: the index is
+**circular in exactly the way this stage's own rule prohibits**: the index is
 constructed partly from whether a country has an active parallel market, which
 is the thing `C` is supposed to predict. Recorded here so it is not reached for
 later as a convenience.
@@ -99,8 +99,8 @@ That is the agent index, written into law:
 
 **This is `b2_measurement.md`'s cell structure in a different market.** One
 position pair, `ARS ↔ USD`, several classes of agent, terms differing by who the
-agent is and not by what is being bought. `PROJECT_PLAN.md` §9.4's ruling that
-the orphan currency measures **squares and not slices** is confirmed by the
+agent is and not by what is being bought. The ruling that the orphan currency
+measures **squares and not slices** is confirmed by the
 shape rather than asserted: every one of these is many agents on one edge.
 
 **And the `H⁰` claim has its own instances here**, kept separate per B4 §5.2:
@@ -130,8 +130,8 @@ central bank, so at least one side of every premium is authoritative, and that
 
 ## 4. The reason to run it at all: the government performed the intervention
 
-This is what makes the stage worth opening, and it was not available when
-`PROJECT_PLAN.md` §9.5 was written.
+This is what makes the stage worth opening, and it was not available when the
+stage was first framed.
 
 **On 14 April 2025 Argentina removed the cepo.** The USD 200 monthly cap ended,
 individuals were permitted to buy at the official rate for the first time in six
@@ -413,8 +413,7 @@ test is run on the pair actually used rather than assumed away.
 
 ## 8. Verdict
 
-**Open the stage, with the scope narrowed from what `PROJECT_PLAN.md` §9.5
-envisaged.**
+**Open the stage, with the scope narrowed from what was first envisaged.**
 
 Dropped: the cross-country parallel-rate panel, not free.
 Dropped: `C → D`, unless a form of `C` survives §6.
