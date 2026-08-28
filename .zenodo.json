@@ -1,0 +1,30 @@
+{
+  "creators": [
+    {
+      "name": "Dong, Binhong",
+      "orcid": "0000-0003-0152-3164"
+    }
+  ],
+  "description": "<p>Whether the effective terms of exchange in a financial system can be represented by a single globally consistent price field is a testable question. If a scalar price exists on every position, the cost of moving between positions is a difference of prices, and every closed sequence of transitions sums to zero. This repository measures that loop sum.</p><p>The mathematical result is a reduction theorem: on a product graph, the residual admits an exact quadratic form with no cross terms, and its zero set coincides exactly with that of the scalar account, which is therefore a degenerate case of this framework and strictly contained in it. The theorem also locates where the two accounts can disagree.</p><p>The measurements run on carriers chosen so that friction cannot account for the reading: seven regulatory environments, one carrier whose class difference is set by statute before any measurement is taken, and three administrative systems in which nothing is traded at all. Each reading is taken against a floor that is measured rather than asserted, and each stage is pre-registered.</p><p>RESULTS.md carries every criterion with its verdict, one section per stage. README.md carries the stage status table. Code is MIT; documentation and results are CC BY 4.0.</p>",
+  "keywords": [
+    "non-integrability",
+    "holonomy",
+    "closed-loop consistency",
+    "price system",
+    "mortgage loan performance",
+    "pre-registration",
+    "stock-flow consistency",
+    "stratified claim circulation",
+    "agent-based model"
+  ],
+  "license": "mit",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/BinhongDo-it/monetary-topology-empirical-fingerprints",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    }
+  ],
+  "title": "monetary-topology: mechanism models for a topological framework of claims and resources",
+  "upload_type": "software"
+}
