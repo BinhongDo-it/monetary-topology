@@ -2174,6 +2174,59 @@ gives, when it does not reject, weak evidence against the null rather than none,
 because the null would have rejected `alpha` of the time.
 
 
+## A3k — the zero domain, read off records already on disk
+
+`57 points` `6 records` `no model run` `no threshold in any criterion`
+
+**7/7 criteria passed**
+
+**Objection O11 said the coverage account lists what the framework explains and
+never what it forbids**, and the repair adopted was a zero domain: the framework
+must name where its own quantity has to vanish, then measure it there. B6's
+derived channel columns discharged that on the B track. **The A track had no such
+reading on file, and A3 had been carrying one since 2026-08-13 without it being
+read as one.**
+
+**The prediction is a theorem, not a calibration.** `tier_positions` is a star,
+so `b_1(G) = 0`, so by Theorem 2 every obstruction on this carrier is a square
+and `gamma_gate`, an admission threshold, is outside the cochain by construction.
+**The gate channel's holonomy share is predicted to be zero, with no constant
+chosen by anyone.**
+
+| pooled over 57 points | gate `H0` | terms `H1` |
+|---|---|---|
+| **same-sign across seeds** | **0** | 9 |
+| median absolute cell | `0.1130` | `0.3810` |
+| p90 absolute cell | `1.2264` | `18.3683` |
+| largest absolute cell | `2.9375` | `24.8347` |
+
+**The load-bearing reading is the subset where the gate measurably acts**, and
+the subset is read off A3j's own mechanical ratio rather than chosen. At the
+eight stretch values where that ratio is non-zero, it runs `0.492` to `1.069`,
+so the gate is doing roughly half to slightly more than the terms channel's
+mechanical work. On those eight points:
+
+> **the terms cell is positive at 8 of 8 with no sign change along the grid;
+> the gate cell is positive at 4 of 8 with two sign changes.**
+
+**A leak would look different.** A decomposition leaking `H1` into the gate cell
+shows up as a gate cell with a stable sign, and neither the eight active points
+nor the fifty-seven pooled ones ever produced one.
+
+**Three things this does not claim.** The five points where the gate reads
+exactly `0.0000` **are not evidence and the record says so beside each**: two are
+where A3j measures the gate as mechanically inert, and the other three sit inside
+the complete-graph endpoint that `docs/a7_continuous_c.md` section 4.1 already
+excluded as over-determined. **A3-8 stays void** for the reason A3g-5 measured,
+and the zero domain needs neither of its clauses. And this is **a mechanism
+model agreeing with its own theorem**, a different object from B13's `81,968`
+states of derived-against-quoted and from B6's arithmetic identity in a
+publisher's table. **Three zero domains, three kinds, never one reading**, and
+this is the smallest and the only one on the A track.
+
+Full section: `docs/a3_asset_channel.md` section 11.
+
+
 ## A3j — where the gate is inert, and it is the opposite end of the knob
 
 `10 stretch values` `5 seeds` `300 rounds` `gap column read from A3g's record`

@@ -5104,6 +5104,34 @@ structural, not effort. **B6 can, and has, without anyone noticing what it was.*
 > **Registered here, for whoever writes the joint account: the zero domain is B6's derived channel
 > columns, and the reading is `2.2e-16`. B9 is not the zero domain and never was.**
 
+**Three zero domains, not one, and the sentence above is now the smallest of
+them.** Added 2026-08-28. §56.6's own line is unchanged and its reading stands as
+§57 corrects it. What is added is the other two, one of which was built on this
+document's own prescription and is two orders of magnitude larger.
+
+| | where | what is zero | what it is paired with | size |
+|---|---|---|---|---|
+| **B track, market** | **B13**, the exchange's published implied spread against the two-leg derivation | §55.3's derived leg, exactly: the implied price is computed from the outrights and is never worse than them, and on six of nine products it is equal bit for bit | **B13-3**, the directly quoted member of the same family, non-zero in `65%` to `96%` of states | **`81,968` states**, 9 products, 3 channels |
+| **B track, publisher** | **B6**'s derived channel columns | a publisher's arithmetic identity | the floating segment against the street rate, same table | 238 publication days |
+| **A track, model** | **A3**'s gate channel, `A3k` | `γ_gate` is `H⁰`, so on a star its holonomy share is zero by Theorem 2 | the terms channel `γ_pay`, same run, same code path | 57 pooled points, 8 of them with the gate mechanically active |
+
+> **B13 is the one §55.3 asked for.** That section said a mathematical zero lives
+> where one leg is derived rather than quoted against the others, said this
+> carrier could not supply it, and said it was a statement about where to look.
+> **Someone looked, and the answer was a futures spread book.**
+
+**A3's reading**: over 57 pooled points the gate cell is same-sign across seeds
+at **`0`** against the terms cell's `9`; restricted to the eight grid values
+where `A3j` measures the gate as mechanically active, at `0.492` to `1.069` of
+the terms channel's mechanical work, **the terms cell is positive at 8 of 8 with
+no sign change and the gate cell is positive at 4 of 8 with two.**
+`docs/a3_asset_channel.md` §11, `results/a3k_zero_domain.json`.
+
+**The two must never be quoted as one reading.** B6's is measured on a real
+third-party price system; A3's is a mechanism model agreeing with its own
+theorem. **What they share is the only structure that makes either worth
+anything: a zero and a non-zero off the same instrument.**
+
 **Two limits, both mandatory.** The Cuban reading is one publisher over 238 days, and the euro
 agreement is an internal consistency of one table rather than an agreement with an outside
 reference — B6's external referee against an independent fixing **failed** on 3 of 147 days, worst

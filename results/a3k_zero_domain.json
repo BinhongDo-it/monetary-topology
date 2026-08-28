@@ -1,0 +1,162 @@
+{
+ "active_grid_points": [
+  {
+   "a3j_ratio": 0.748,
+   "gate_only": -0.55459963,
+   "loop_only": 2.80896627,
+   "point": "stretch=1.0"
+  },
+  {
+   "a3j_ratio": 1.069,
+   "gate_only": -2.47593585,
+   "loop_only": 19.72759904,
+   "point": "stretch=2.0"
+  },
+  {
+   "a3j_ratio": 0.864,
+   "gate_only": 1.4091482,
+   "loop_only": 21.67138846,
+   "point": "stretch=3.0"
+  },
+  {
+   "a3j_ratio": 0.926,
+   "gate_only": 1.30035161,
+   "loop_only": 11.50261481,
+   "point": "stretch=4.0"
+  },
+  {
+   "a3j_ratio": 0.943,
+   "gate_only": 1.47481862,
+   "loop_only": 4.42830791,
+   "point": "stretch=5.0"
+  },
+  {
+   "a3j_ratio": 0.805,
+   "gate_only": 0.02479221,
+   "loop_only": 0.77048755,
+   "point": "stretch=6.0"
+  },
+  {
+   "a3j_ratio": 0.492,
+   "gate_only": -0.00323166,
+   "loop_only": 0.08029273,
+   "point": "stretch=8.0"
+  },
+  {
+   "a3j_ratio": 0.678,
+   "gate_only": -0.00201545,
+   "loop_only": 0.0180209,
+   "point": "stretch=12.0"
+  }
+ ],
+ "criteria": [
+  {
+   "detail": "57 rows against A3i points 57; 6 distinct source records; ordering_failures is a view onto rows and is not added",
+   "name": "A3k-0  the row count equals A3i's own points field",
+   "passed": true
+  },
+  {
+   "detail": "57 points, 57 gate cells, 57 terms cells",
+   "name": "A3k-1  every pooled row loads and yields both cells",
+   "passed": true
+  },
+  {
+   "detail": "gate median 0.1130 p90 1.2264 max 2.9375; terms median 0.3810 p90 18.3683 max 24.8347; |gate|<|loop| at 48/57",
+   "name": "A3k-2  print both channels' amplitude, no line on either",
+   "passed": true
+  },
+  {
+   "detail": "A3 default stretch sweep stretch=20.0 gate +0.0000 terms +0.0761; D_reach preferential s=0.99 gate +0.0000 terms -0.7836; D_reach uniform s=0.95 gate +0.0000 terms -0.3810; D_reach uniform s=0.99 gate +0.0000 terms +0.3454; D_reach uniform s=1.0 gate +0.0000 terms +0.0000",
+   "name": "A3k-3  print every point where the gate cell is exactly zero",
+   "passed": true
+  },
+  {
+   "detail": "gate sign-stable 0/57, terms sign-stable 9/57",
+   "name": "A3k-4  print sign stability for both channels",
+   "passed": true
+  },
+  {
+   "detail": "A3h-1: total |d cycles| gate 74.0 against terms 85.6, ratio 86%; nodes with a changed cycle count 19.4; max net worth move 6.271e+02 | A3j-2: 1.0: 0.748; 2.0: 1.069; 3.0: 0.864; 4.0: 0.926; 5.0: 0.943; 6.0: 0.805; 8.0: 0.492; 12.0: 0.678; 20.0: 0.000; 40.0: 0.000",
+   "name": "A3k-5  print the gate's mechanical effect, so the zero is not read as inertness",
+   "passed": true
+  },
+  {
+   "detail": "stretch=1.0 ratio 0.748 gate -0.5546 terms +2.8090; stretch=2.0 ratio 1.069 gate -2.4759 terms +19.7276; stretch=3.0 ratio 0.864 gate +1.4091 terms +21.6714; stretch=4.0 ratio 0.926 gate +1.3004 terms +11.5026; stretch=5.0 ratio 0.943 gate +1.4748 terms +4.4283; stretch=6.0 ratio 0.805 gate +0.0248 terms +0.7705; stretch=8.0 ratio 0.492 gate -0.0032 terms +0.0803; stretch=12.0 ratio 0.678 gate -0.0020 terms +0.0180 || over 8 active points: terms positive at 8, gate positive at 4; sign changes along the grid, terms 0, gate 2",
+   "name": "A3k-6  print both channels on the grid points where A3j measures the gate as active",
+   "passed": true
+  },
+  {
+   "detail": "A3 default stretch=20.0: A3j ratio 0.000, the gate is inert here; D_reach s=0.99: within 5% of the complete graph, an over-determined zero excluded by a7_continuous_c.md section 4.1; D_reach s=0.95: within 5% of the complete graph, an over-determined zero excluded by a7_continuous_c.md section 4.1; D_reach s=0.99: within 5% of the complete graph, an over-determined zero excluded by a7_continuous_c.md section 4.1; D_reach s=1.0: within 5% of the complete graph, an over-determined zero excluded by a7_continuous_c.md section 4.1",
+   "name": "A3k-7  the exact zeros are named as carrying nothing, with the reason beside each",
+   "passed": true
+  }
+ ],
+ "gate_channel_H0": {
+  "exact_zero": 5,
+  "max_abs": 2.93747611,
+  "median_abs": 0.11302107,
+  "n": 57,
+  "p90_abs": 1.22636769
+ },
+ "gate_exact_zero_points": [
+  {
+   "arm": "stretch sweep",
+   "carrier": "A3 default",
+   "gate_only": 0.0,
+   "loop_only": 0.07605729,
+   "point": "stretch=20.0"
+  },
+  {
+   "arm": "preferential",
+   "carrier": "D_reach",
+   "gate_only": 0.0,
+   "loop_only": -0.78357209,
+   "point": "s=0.99"
+  },
+  {
+   "arm": "uniform",
+   "carrier": "D_reach",
+   "gate_only": 0.0,
+   "loop_only": -0.38098768,
+   "point": "s=0.95"
+  },
+  {
+   "arm": "uniform",
+   "carrier": "D_reach",
+   "gate_only": 0.0,
+   "loop_only": 0.34537635,
+   "point": "s=0.99"
+  },
+  {
+   "arm": "uniform",
+   "carrier": "D_reach",
+   "gate_only": 0.0,
+   "loop_only": 0.0,
+   "point": "s=1.0"
+  }
+ ],
+ "gate_sign_stable": 0,
+ "gate_smaller_in_absolute_value": 48,
+ "mechanical_effect_a3h1": "total |d cycles| gate 74.0 against terms 85.6, ratio 86%; nodes with a changed cycle count 19.4; max net worth move 6.271e+02",
+ "mechanical_effect_a3j2": "1.0: 0.748; 2.0: 1.069; 3.0: 0.864; 4.0: 0.926; 5.0: 0.943; 6.0: 0.805; 8.0: 0.492; 12.0: 0.678; 20.0: 0.000; 40.0: 0.000",
+ "note": "A3-8 stays void; this is a different object read off the same cells. Theorem 2 predicts the gate channel's holonomy share is zero because tier_positions is a star, b1(G) = 0, and every obstruction is therefore a square. No model is run here.",
+ "points": 57,
+ "sources": [
+  "a3g_widened_population.json",
+  "a3h_gate_acts.json",
+  "a7_continuous_c.json",
+  "a7_continuous_c.offparam_dfixed_preferential_20x300.json",
+  "a7_continuous_c.offparam_dfixed_uniform_20x300.json",
+  "a7_continuous_c.offparam_grid_preferential_20x300.json"
+ ],
+ "stage": "A3k",
+ "step": "zero_domain",
+ "terms_channel_H1": {
+  "exact_zero": 1,
+  "max_abs": 24.83472465,
+  "median_abs": 0.38098768,
+  "n": 57,
+  "p90_abs": 18.36829902
+ },
+ "terms_sign_stable": 9
+}

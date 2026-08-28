@@ -1558,3 +1558,143 @@ next stage built on this carrier needs a measured population larger than one
 eighth of one layer, and `stretch` is an existing lever on it.** Recorded as an
 observation. Choosing that parameter after seeing which value makes a channel
 quotable is the move §5.1's demotions exist to prevent.
+
+
+---
+
+## 11. The zero domain, and A3 had already measured it
+
+**Written 2026-08-28. Nothing was run for it beyond a re-read**, in
+`experiments/a3k_zero_domain.py`, of records that were already on disk.
+
+Objection O11 ruled the coverage test invalid as self-validation: it lists what
+the framework explains and never what it forbids. The repair adopted was a
+**zero domain** — the framework must name where its own quantity has to vanish,
+and then measure it there. `b9_zero_holonomy.md` §56 records that repair
+discharged on the B track, by B6's derived channel columns. **The A track had no
+such reading on file. A3 has had one since 2026-08-13 and it had never been read
+as one.**
+
+### 11.1 The theorem names the zero, and names it exactly
+
+`tier_positions` is a star. A star has `b₁(G) = 0`, so by Theorem 2 the cycle
+space of the enlarged graph holds no slice cycles and **every obstruction on
+this carrier is a square**. §2.1 above already classifies the two parameters
+that came out of the old `γ`: `γ_pay` is what is paid and enters the cochain,
+`H¹`; **`γ_gate` is an admission threshold, a restriction on the domain, outside
+the cochain by construction, `H⁰`.**
+
+> **So the gate channel's holonomy share is predicted to be zero. Not small and
+> not bounded: zero, as a point prediction, from the theorem, with no constant
+> chosen by anyone.**
+
+There is nothing in the prediction to calibrate, which is what `D5` asks for and
+rarely gets.
+
+### 11.2 The reading, both channels, one machine
+
+57 points pooled from 6 records, every one of them written before this section
+existed. `results/a3k_zero_domain.json`.
+
+| | exact `0` | median `|·|` | p90 `|·|` | max `|·|` | sign-stable |
+|---|---|---|---|---|---|
+| **gate channel, `H⁰`** | **5** | `0.1130` | `1.2264` | `2.9375` | **`0 / 57`** |
+| **terms channel, `H¹`** | 1 | `0.3810` | `18.3683` | `24.8347` | `9 / 57` |
+
+`|gate| < |terms|` at **48 of 57** points. Amplitude ratio `0.2967` at the
+medians and `0.1183` at the maxima.
+
+**The five points where the gate cell reads exactly zero carry nothing, and
+`A3k-7` prints the reason beside each.** `A3j` measures the gate's mechanical
+ratio as `0.000` at `stretch 20` and `40`, so a zero there is inertness and not
+the prediction. The other four sit within five per cent of the complete graph,
+whose endpoint §4.1 of `docs/a7_continuous_c.md` had already excluded as an
+attractor with an over-determined zero. **They are listed in the record for
+completeness and they are not evidence.**
+
+**The amplitude is not the reading either.** A median `|gate|` of `0.1130` is
+not a measurement of something non-zero: it is the size of a mean that never
+survives its own seed dispersion. §5.2 established that directly at the
+registered point, where a mean of `+1.409` sits on the seed range
+`[−16.26, +10.62]` and the harness declined to decompose. **The sign-stability
+count is the machine-readable form of the same fact, taken over every point on
+file**, and `0 / 57` is the strongest single number here.
+
+### 11.3 The load-bearing reading: the eight points where the gate is measurably active
+
+**Restricting to where the treatment does something is the whole test**, and the
+restriction is read off `A3j`'s own mechanical ratio rather than chosen. The
+eight grid values at which that ratio is non-zero:
+
+| point | `A3j` ratio | gate cell `H⁰` | terms cell `H¹` |
+|---|---|---|---|
+| `stretch=1.0` | `0.748` | `−0.5546` | `+2.8090` |
+| `stretch=2.0` | `1.069` | `−2.4759` | `+19.7276` |
+| `stretch=3.0` | `0.864` | `+1.4091` | `+21.6714` |
+| `stretch=4.0` | `0.926` | `+1.3004` | `+11.5026` |
+| `stretch=5.0` | `0.943` | `+1.4748` | `+4.4283` |
+| `stretch=6.0` | `0.805` | `+0.0248` | `+0.7705` |
+| `stretch=8.0` | `0.492` | `−0.0032` | `+0.0803` |
+| `stretch=12.0` | `0.678` | `−0.0020` | `+0.0180` |
+
+> **Terms positive at 8 of 8, zero sign changes along the grid.
+> Gate positive at 4 of 8, two sign changes along the grid** — while doing
+> `49%` to `107%` of the terms channel's mechanical work at those same values.
+
+**That is the zero domain.** One channel holds a sign across the entire
+population sweep; the other cannot, and it cannot while pushing the economy
+about as hard.
+
+**The gate's mechanical effect, from the records that measured it.** `A3h-1`:
+total `|d cycles|` for the gate is **`74.0`** against the terms channel's
+**`85.6`**, a ratio of **`86%`**; nodes with a changed cycle count `19.4`;
+largest net-worth move `6.271e+02`.
+
+> **A leaking decomposition would not look like this.** A leak shows up as a gate
+> cell with a stable sign, and that is the one thing neither the eight active
+> points nor the fifty-seven pooled ones ever produced.
+
+**Written in this order, and the order is recorded because it is the finding's
+own history**: this section's first draft rested on the five exact zeros. The
+`A3i` entry in `RESULTS.md` names why they are over-determined, `A3k-6` and
+`A3k-7` were added to answer it, and the reading moved to the eight active
+points. **The exact zeros looked like the strongest evidence and were the
+weakest.**
+
+### 11.4 What this is not
+
+**It is not a verdict on A3-8, which stays void.** `A3g-5` measured why: the two
+clauses of A3-8′ sit at opposite ends of the population knob, the peripheral
+third first enters the population at `stretch 8.0`, and by that value the
+both-cell gap has fallen from `25.8305` to `0.0932`. **The zero domain needs
+neither clause.** It needs the two cells side by side, which every record
+prints, and it asks a different question of the same numbers.
+
+**It is the third zero domain and the smallest, and the three must never be
+quoted as one reading.** `B13` is the large one, `81,968` states of an exchange's
+published implied spread against the two-leg derivation from its own outrights,
+paired with the directly quoted member of the same family at `65%` to `96%`
+non-zero. B6's is an arithmetic identity inside a third party's published table.
+**This one is a mechanism model's own machinery agreeing with its own theorem**,
+and it is the only one of the three on the A track. B6's is an arithmetic identity inside a third party's published
+table, `3.5e-6` over 238 publication days on a real price system. **This one is a
+mechanism model's own machinery agreeing with its own theorem.** What they share
+is the only structure that makes either worth anything: **a zero and a non-zero
+off the same instrument.**
+
+**It is not an exact zero at every point**, and it is reported as amplitude and
+sign stability rather than as a test statistic, which is what `D24` asks of a
+point prediction of zero.
+
+**It is carrier-specific.** `b₁(G) = 0` is a property of the star. On a position
+graph with two distinct routes between some pair, slice cycles exist and this
+argument does not run.
+
+### 11.5 What it discharges
+
+O11 said the coverage account never states what the framework forbids. **This
+states one thing it forbids and shows the model obeying it**: on a star, an
+admission threshold contributes nothing to a loop sum, however hard it pushes
+the economy around. The A track now carries the same pairing the B track does,
+and the two are independent in mechanism as well as in carrier — **one is a
+publisher's arithmetic, one is a model's topology.**

@@ -111,8 +111,9 @@ directed setting needs a different argument and now has a theorem saying which.
 B1 shows the question **dissolves entirely** on a single-index price vector, which
 fixes the domain: it is a real question exactly for a genuinely two-index field.
 And the criterion originally written to carry the unifying claim was withdrawn as
-self-validating and replaced by a stricter one, a **zero domain**, which the B
-track has since met twice.
+self-validating and replaced by a stricter one, a **zero domain**, which has
+since been met three times: twice on the B track and, as of 2026-08-28, once on
+the A track.
 
 **A fourth class of reading is neither a pass nor a refutation, and it is a
 result.** Where the instrument could not separate the question at the available
@@ -504,12 +505,29 @@ surfaces are read from, and reads the curve again over 630 runs: on every arm
 whose subsistence state describes a household, the edge set is the control's,
 edge for edge.
 
-**What remains open is the zero domain**, which is a stricter obligation and a
-different one: name the place the framework's own quantity must be zero, where it
-could have been non-zero, and where its neighbours read non-zero, then go measure
-there. **The B track has delivered it twice** — B6's derived channel columns read
-`2.2e-16`, and B13 closed seven criteria of seven on the exchange's implied book
-against its quoted one. **The A track has no zero domain yet.**
+**The zero domain is the stricter obligation that replaced it**: name the place
+the framework's own quantity must be zero, where it could have been non-zero, and
+where its neighbours read non-zero, then go measure there. **It has now been met
+three times, and the three are different kinds of object.**
+
+**B13**, the largest, closed seven criteria of seven on the exchange's published
+implied book against the two-leg derivation from its own outrights: `81,968`
+states over nine products and three channels, zero violations, equality bit for
+bit on six of the nine, while the directly quoted member of the same family is
+non-zero in `65%` to `96%` of states. **B6**, the smallest and the only one on a
+published rate table, holds its derived channel columns to a ratio varying by at
+most `3.5e-6` across 238 publication days while the same table's floating segment
+does not close.
+
+**The A track's arrived on 2026-08-28 and it is a different kind again**: not an
+arithmetic identity but a topological one. `tier_positions` is a star, so
+`b_1(G) = 0`, so every obstruction on that carrier is a square and an admission
+threshold is outside the cochain by construction. **A3's gate channel is
+therefore required to carry no holonomy, and it carries none while doing `49%` to
+`107%` of the other channel's mechanical work** — over the eight grid points
+where it measurably acts, the terms channel is positive at eight of eight with no
+sign change and the gate channel is positive at four of eight with two.
+`docs/a3_asset_channel.md` section 11.
 
 **Where to read them.** Every A-track station has a section in
 [RESULTS.md](../RESULTS.md), with its criteria and the numbers behind them.
@@ -947,9 +965,11 @@ is in [RESULTS.md](../RESULTS.md).
 
 ## What is not here
 
-- **The A track has no zero domain.** The B track's version of this obligation
-  has been met twice; the A track's has not been written. See the macro section
-  for why the criterion it replaces is closed rather than pending.
+- **The A track's zero domain is the weakest of the three.** B13 and B6 read
+  exact arithmetic identities; A3's rests on a sign-stability count over 57
+  pooled points and eight active grid values, and the estimator is noisy on both
+  of its channels. It is a model agreeing with its own theorem rather than a
+  measurement of a price system, and it is reported as such.
 - **Two stations are open for want of data**, not for want of design, and both
   produced results worth having before they stopped.
 - **B4 weakens the framework** in the directed setting, and is listed in the

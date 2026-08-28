@@ -550,6 +550,7 @@ sweep maps where it does and does not.
 | A3h | **a channel that moves the mechanism and carries no holonomy** | **4/4.** `tier_positions` is a star, so `b_1(G) = 0`, so every obstruction is a square and the gate cannot enter the holonomy at all. The objection that a zero from an inert treatment proves nothing is answered by measurement: between the two cells that differ only in the gate it moves 19.4 nodes' cycle counts against the other channel's 16.8, **86 per cent of it**. Scored on seeds drawn after the criterion was written |
 | A3i | the two clauses of that criterion, counted apart | **4/4, no model run.** It reads every record on disk where both cells were computed and counts the clauses separately: the ordering the theorem licenses holds at **54 of 57 points**, the sign-stability it never promised at 9, and **the gate-only cell is sign-stable at none of them** |
 | A3j | where the gate is inert, and it is the opposite end of the knob | **4/4.** The mechanical effect along A3g's declared grid: 0.748 at the narrowest population and **exactly zero at the two widest**, so the inertness is at the wide end, where an admission rule has nothing left to ration |
+| A3k | **the A track's zero domain** | **7/7, no model run.** `b_1(G) = 0` on a star makes every obstruction a square, so an admission threshold is outside the cochain and its holonomy share is required to be zero, with no constant chosen by anyone. Read off 57 pooled points: the gate channel is same-sign across seeds at **0** against the terms channel's 9. On the eight grid values where A3j measures the gate as mechanically active, at 49% to 107% of the terms channel's work, **terms is positive at 8 of 8 with no sign change and the gate at 4 of 8 with two**. The programme's third zero domain and the only one on the A track |
 | A5 | reachability against participation | **4 of 5 live criteria pass, 3 void, 1 diagnostic**, [`docs/a5_reachability.md`](docs/a5_reachability.md). The region closes through the denominator rather than the price: freeze the price and the threshold is still crossed in 12 of 12 seeds |
 | A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
 | A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below, [`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
@@ -932,4 +933,12 @@ it; each stage's limits sit in its own document under `docs/`.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+Code is MIT: `src/`, `experiments/`, `scripts/`, `tests/`. See [LICENSE](LICENSE).
+
+Documentation and results are CC BY 4.0: `docs/`, `results/`, `figures/`,
+`speedrun/`, `RESULTS.md`, `README.md`. Reuse and modification are permitted with
+attribution (https://creativecommons.org/licenses/by/4.0/); `CITATION.cff` gives
+the form.
+
+No source data is redistributed. `data/` is not in git, and each source keeps its
+own terms, recorded in `data/SOURCES.md`.
