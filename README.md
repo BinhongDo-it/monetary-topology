@@ -936,9 +936,9 @@ it; each stage's limits sit in its own document under `docs/`.
 Code is MIT: `src/`, `experiments/`, `scripts/`, `tests/`. See [LICENSE](LICENSE).
 
 Documentation and results are CC BY 4.0: `docs/`, `results/`, `figures/`,
-`speedrun/`, `RESULTS.md`, `README.md`. Reuse and modification are permitted with
-attribution (https://creativecommons.org/licenses/by/4.0/); `CITATION.cff` gives
-the form.
+`speedrun/`, `RESULTS.md`, `README.md`. See
+[LICENSE-CC-BY-4.0.md](LICENSE-CC-BY-4.0.md), which names the covered paths and
+the attribution form.
 
 No source data is redistributed. `data/` is not in git, and each source keeps its
 own terms, recorded in `data/SOURCES.md`.
