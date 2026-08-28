@@ -545,6 +545,96 @@ Theorem 1 has just shown to be a structurally different claim rather than a weak
 version of the same one. It should go before FX for that reason and not merely
 because it is cheaper.
 
+### 9.1 A square that was not arbitraged, observed where arbitrage is sharpest
+
+**Added 2026-08-28.** Corollary 2's claim that squares are not arbitrage is a
+derivation from A1: a square needs two agents, and no single agent traverses it.
+This subsection records an observation that bears on it. It was found while
+checking documents for an unrelated candidate carrier, and it cost three lookups.
+
+Irish-domiciled UCITS funds receive US dividends at `15%` under the US-Ireland
+treaty. Luxembourg-domiciled funds do not qualify and receive them at the `30%`
+statutory rate. Two wrappers, one underlying basket, terms differing by fifteen
+percentage points of the dividend yield, about `30` basis points a year on the
+S&P 500 at a `2%` yield. **That is a square: two holders of one position, on
+different terms, at one transition.**
+
+The venue is the one `b3_slice_availability.md` §7 names as the only place where
+the objection *give the market time and arbitrage grinds any non-integrability
+away* can be answered at all: deepest liquidity, most transparent information,
+most professional participants, and decades already given.
+
+**The differential was not priced away. The disadvantaged wrapper was withdrawn.**
+On US indices the Luxembourg products are swap-replicating, which takes the rate
+to zero under the section `871(m)` qualified-index exception, and a 2026 survey of
+S&P 500 UCITS ETFs lists Irish vehicles only.
+
+**The reason is structural, which is what makes this more than an anecdote.** A
+fund's market price is pinned to its net asset value by the creation and
+redemption mechanism. A wrapper carrying worse terms therefore cannot trade at a
+persistent discount that would compensate its buyer: the pin forces the buyer to
+pay net asset value for a worse stream. The only margin left is quantity, on both
+sides, which is not to buy it and not to offer it.
+
+> **The mechanism that arbitrages the slice direction flat is the same mechanism
+> that keeps the square from being priced at all.**
+
+**This pairs with B9 on the same wrapper mechanism, and the pair is the point.**
+B9 measured the premium, which is the slice-direction object on an exchange-traded
+fund, and found it arbitraged to the width of its own cost floor. The domicile
+differential is the square on the same kind of wrapper, and it was not arbitraged
+at all. **One wrapper family, both summands, opposite answers**, which is what
+Theorem 2 says should happen and is not something either summand could have shown
+on its own.
+
+**The route a reader will propose first, and why it is not a counterexample.**
+The differential can be reached by holding one wrapper long and the other short.
+**That is not a cycle, it is a carry held open**, and §9 above already rules that
+carry returns are compensation for bearing a constraint rather than a closed loop
+with a non-zero sum. The round trip that **is** a cycle, sell one wrapper and buy
+the other and then reverse, costs two spreads and captures nothing, because the
+differential accrues over time and does not sit in the switch. Both directions of
+that edge exist, so by `b4_directed_edges.md` §5.2 this is `H¹` with friction and
+not an `H⁰` reachability statement.
+
+**The carry's own friction is unobservable, and that is the sharper point.**
+`b4_directed_edges.md` §5 gives the reportable pair as `S − S'` beside `S + S'`,
+and Theorem 6(4) there bounds the first by the second, so the quantity a stage
+should register is `rho = |S − S'| / −(S + S')`. **On this carrier the numerator
+is known exactly and without estimation**: fifteen percentage points of the
+dividend yield, fixed by treaty, no sampling and no model. **The denominator is
+not available at all.** The friction on the short leg is the borrow fee, whose
+class structure is set in a private bilateral contract; `FINRA Rule 6540(d)`
+withholds the counterparty identifiers that would label it and disseminates only
+an unlabelled rate distribution.
+
+> **This carrier exhibits a square whose index part is exactly known and whose
+> friction part is unobservable by construction. `rho` cannot be formed on it.**
+
+**That is a boundary condition on the empirical programme rather than a defect of
+this example**, and it splits cleanly across the two pre-retrieval questions:
+`D30` asks whether the class differential lands on two prices that no single agent
+can move between cheaply, and it decides whether **`S − S'`** is observable;
+`D29` asks whether the differential is written in a document anyone can obtain,
+and it decides whether **`S + S'`** is observable. **`rho` needs both, and this
+carrier passes the first and fails the second.**
+
+**What this is and is not.** It is evidence that no arbitrage channel exists on
+this square, and the evidence is carried by the absence of a product rather than
+by a price. **It is not a measurement of the square**, no figure from it enters
+any criterion, and nothing downstream cites it as one. The rate is statutory and
+the withdrawal is a fact about a product catalogue; neither is estimated here.
+
+**Two neighbouring class differentials found in the same check, both statutory and
+exactly known, neither reaching any price at all**: substitute dividend payments
+in a securities loan, sourced as the underlying dividend under
+`Treas. Reg. §1.861-3(a)(6)` and withheld at the lender's treaty rate; and the
+initial margin a position occupies under `Regulation T` against `FINRA Rule
+4210(g)` portfolio margin. In both, the two classes hold one instrument at one
+price, so the differential lives entirely outside the price system. **These are
+concrete instances of the coordinate that §1 says the price vector does not
+carry**, and they require no estimation to exhibit.
+
 ---
 
 ## 10. What the theorem does not say
@@ -1150,3 +1240,29 @@ the residual left over is the quantity §13.4 shows standard practice already
 estimates under another name. Standard practice never writes this down because it
 never puts positions and agent classes into one graph, and without that there is
 no product Laplacian to diagonalise.
+
+**The nearest published result, and it has to be named here.** Farinelli and
+Takada, *Can You Hear the Shape of a Market? Geometric Arbitrage and Spectral
+Theory* (arXiv:1509.03264; Axioms 10(4) 242, 2021), prove that a market satisfies
+NFLVR **if and only if zero lies in the discrete spectrum of the connection
+Laplacian** on the cash-flow bundle, by way of Atiyah-Singer and
+Bochner-Weitzenbock. That is the same family of statement as Theorem 5: a
+Laplacian's spectrum decides whether the obstruction vanishes. **Four differences,
+each checkable against their text rather than asserted:**
+
+| | there | here |
+|---|---|---|
+| setting | continuous: stochastic differential geometry, principal fibre bundles, connection and curvature | discrete: the Cartesian-product graph Laplacian `L_G ⊗ I + I ⊗ L_H` |
+| agent index | their §2.1 Definition 8 introduces `K` investors with beliefs and utilities, and **the theorems do not carry that index**; the state space runs over assets and a cash account | the agent index is in the graph, and Theorem 5's damping parameter **is** the agent graph's spectrum |
+| what is returned | qualitative: whether `0` is in the spectrum | quantitative: `ρ(ω)²` in closed form, a distance to the nearest single potential |
+| frictions | assumed away in text: *"there are no transaction costs and short sales are allowed"* | `ω̄ ≢ 0` is the working case, and Theorem 6(4) needs it |
+
+**The second row is the one that matters and it should not be read as a
+criticism.** Introducing agents and then proving theorems that do not carry the
+index is the standard move, and it is standard because a single-index price field
+is what the classical statement is about. This document's construction is the same
+move refused: the index stays in the object, which is what leaves a product
+Laplacian to diagonalise and what makes the third row possible.
+
+**Whether the identification survives that comparison is the open question**, and
+it is one this project cannot settle from the inside.
