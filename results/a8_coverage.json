@@ -50,6 +50,11 @@
       "detail": "all four surfaces present at edges [1, 2, 3, 5, 8, 12, 20]; absent at [0, 30]; surfaces never present anywhere on the grid: none",
       "name": "A8-4  one setting puts all four surfaces on the table",
       "passed": true
+    },
+    {
+      "detail": "f2i=0: all_four 0/5, two 0/5 three 5/5 four_a 5/5 four_b 5/5; f2i=1: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=2: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=3: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=5: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=8: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=12: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=20: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=30: all_four 1/5, two 4/5 three 4/5 four_a 1/5 four_b 4/5",
+      "name": "A8-5  the seed arm is tallied surface by surface, no line on it",
+      "passed": true
     }
   ],
   "diagnostics": {

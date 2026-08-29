@@ -5054,6 +5054,9 @@ and the redemption fee are **equal**, the cancellation in §56.2 is exact and th
 index part outright. If they **differ**, the asymmetry survives into the index part, and the
 surviving amount is exactly half their difference.
 
+> **[Run 2026-08-29. The two fees are equal item for item; reading in §56.4a. The
+> correction contemplated below is not required.]**
+>
 > **Registered as B9-A-9, unrun**: read the redemption-side fee from the same SAI section §16.4 was
 > read from, form `S'`, and report `(S − S')/2` and `(S + S')/2` separately.
 > **The prediction, written before reading: the two fees are equal or nearly so, because they are
@@ -5063,6 +5066,67 @@ surviving amount is exactly half their difference.
 **§16.4's own defect is the reason this was not done already**: that section quoted half a sentence
 of the fee table and §48 had to go back for the other half. **This is the third item to come out of
 one paragraph.**
+
+## 56.4a B9-A-9, run 2026-08-29: the two fees are equal, item for item
+
+**Read from the Select Sector SPDR Trust SAI as filed, Post-effective amendment
+[Rule 485(b)], CIK `0001064641`, accession `0001193125-26-027312`, filed
+2026-01-28, document `d15107d485bpos.htm`, under `PURCHASE AND REDEMPTION OF
+CREATION UNITS`, pages 48 and 49.** Section 16.4 read the creation side from the
+supplement dated 2026-06-12 via the fund's own document viewer; that supplement
+is not on EDGAR, so the two sides here are quoted from **one** document to keep
+the comparison inside a single vintage. **The creation-side figures in this
+filing match section 16.4's quotation exactly**, which is the cross-check that
+the supplement did not move this section.
+
+| | creation | redemption |
+|---|---|---|
+| fixed fee, per transaction | **`$500`** | **`$500`** |
+| fixed fee, the one exception (XLC) | **`$250`** | **`$250`** |
+| additional charge | **up to 3x the fixed fee** | **up to 3x the fixed fee** |
+| total ceiling | **`$2,000`** (XLC `$1,000`) | **`$2,000`** (XLC `$1,000`) |
+| what triggers the additional charge | outside the Clearing Process; non-standard orders; cash creations | outside the Clearing Process; non-standard orders; cash used in lieu of securities |
+| charged per transaction regardless of unit count | yes (16.4) | **yes, stated in those words** |
+
+Verbatim, redemption side: *"A fixed transaction fee of $500 is applicable to
+each redemption transaction regardless of the number of Creation Units redeemed
+in the transaction for each Fund except [XLC]."* The Cash Redemption Amount
+paragraph states the same figure a second time: *"less a fixed redemption
+transaction fee of $500."*
+
+**The registered prediction holds and its stated reason does not.** The
+registration read: *the two fees are equal or nearly so, because they are named
+in one sentence of one fee table.* They are equal item for item, and they are
+**not** in one sentence: `CREATION TRANSACTION FEE` and `REDEMPTION TRANSACTION
+FEE` are separate headed subsections with the whole of `REDEMPTION` between them.
+**Recorded as prediction correct, reason wrong**, which is the same shape as the
+B20 derivation.
+
+**Consequence for the decomposition, which is the reason this was registered.**
+`S` and `S'` carry the same fee at every item, so the fee is symmetric under
+reversal, so it lands entirely in `(S + S')/2` and **cancels exactly** out of
+`(S − S')/2`. `δf = 0` at the fixed fee, at the multiplier, and at the ceiling.
+**Section 56.3's identification of the `f = 0` corner with the index part
+therefore stands as written, and no correction to the index reading is
+required.** The correction section 56.4 said would be needed *if they differ* is
+not needed.
+
+**One asymmetry in wording, and it does not move a number.** The creation side
+parenthesises the additional charge as *"expressed as a percentage of the value
+of the Deposit Securities"* and the redemption side carries no such phrase. The
+ceilings both sides quote are the same dollar amounts, so the reading above is
+unaffected; it is recorded because a later stage reading the schedule for
+anything other than the ceiling would meet it.
+
+**A separate line in the same document names who receives these fees**, under
+`Compensation` in the service-provider section: State Street receives *"in-kind
+creation (purchase) and redemption transaction fees"* along with its unitary
+custody fee. **That is the third party in the third-party-fee objection, named in
+the fund's own filing**, and it is now measured to charge the two directions
+identically. The objection's own premise supplies the symmetry that removes it
+from the index part.
+
+---
 
 ## 56.5 Where the mathematical zero is, and the answer is that it is already here
 

@@ -121,3 +121,13 @@ results/_b8_package_log/
 results/_baseline/
 results/_baseline.expired_*/
 
+# Column caches keyed on the retrieval's file list. A stage that reads two
+# thousand raw files writes the columns it needs here once, so a rerun is a
+# load rather than a second pass; the cache is a function of files that
+# data/raw/* already excludes, and it is invalidated and rebuilt when that file
+# list changes rather than being trusted across retrievals. Same reason as
+# data/cache/ above, different directory because these are keyed per stage.
+# Currently holds B2c's 800 MB column store, which is past GitHub's own
+# per-file limit, and A2e's.
+results/CACHE/
+

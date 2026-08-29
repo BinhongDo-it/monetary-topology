@@ -221,6 +221,31 @@ overstate a level.
 
 ---
 
+## Stage B13 and B18: the CME capture, and the four addresses every scan needs
+
+`data/raw/b13/dc3-glbx-ab-dedup-20230717T133000.pcap.zst`, 6.8 GB, the A and B
+feeds already de-duplicated against each other. Instrument definitions come from
+`dc3-glbx-a-20230716T110000.pcap.zst`, 30 MB, captured the previous day.
+
+**Every scan over this capture takes a `--groups` list, and it is four addresses,
+not two.** Channels 382 and 386 each publish on an A feed and a B feed:
+
+    224.0.31.130:14382    channel 382, feed A
+    224.0.32.130:15382    channel 382, feed B
+    224.0.31.134:14386    channel 386, feed A
+    224.0.32.134:15386    channel 386, feed B
+
+**The capture is de-duplicated across the two feeds, so each one still carries
+packets the other does not.** Passing only the A addresses runs to completion,
+resolves every instrument, writes a well-formed file, and silently drops **0.85%**
+of the packets: on a floor-2000 run that moves the row count of **259 of 295**
+spreads. Nothing in the output says so; it was caught by comparing against an
+earlier run field by field.
+
+The port's last three digits are the channel number, which is why the A addresses
+can be recovered from a traffic survey of the capture and the B addresses cannot:
+a survey lists both, and nothing in it says the two belong together.
+
 ## Stage B3: covered interest parity deviations between government bonds
 
 **This one is different from every other source here and the difference is the
@@ -969,6 +994,58 @@ is right.**
 2010 is the one year neither leg reproduces, at 1.5 on the A side and 0.8766 on
 the H side, and no product of any split in either file gives either number. It
 stays named.
+
+## Stage B9: the Select Sector SPDR creation and redemption transaction fees
+
+**What it is.** The fee schedule the ETF carrier's friction term is built from. It
+is not a price series and nothing is fetched; it is two paragraphs of a filed
+document, transcribed by hand and quoted verbatim in
+`docs/b9_zero_holonomy.md` sections 16.4 and 56.4a.
+
+**Source, and it is one document for both directions.** Select Sector SPDR Trust,
+Statement of Additional Information as filed in Post-effective amendment [Rule
+485(b)], CIK `0001064641`, accession `0001193125-26-027312`, filed 2026-01-28,
+document `d15107d485bpos.htm`. The fees are under `PURCHASE AND REDEMPTION OF
+CREATION UNITS`, in the subsections headed `CREATION TRANSACTION FEE` (page 48)
+and `REDEMPTION TRANSACTION FEE` (page 49). Read 2026-08-29.
+
+**Two vintages exist and the difference is recorded rather than merged.** Section
+16.4 read the creation side from the **supplement dated 2026-06-12**, obtained
+through the fund's own document viewer. That supplement is not on EDGAR. Section
+56.4a therefore quotes **both** directions from the 2026-01-28 filing above, so
+that the two sides being compared come from one vintage. **The creation-side
+figures agree exactly across the two vintages**, which is what licenses reading
+section 16.4 and section 56.4a together; had they differed, the two sides would
+have had to be reported in separate columns under the same rule that separates
+Hemlane's delinquency from RentRedi's late-payment rate.
+
+**The figures, both directions.**
+
+| | creation | redemption |
+|---|---|---|
+| fixed fee per transaction | `$500` | `$500` |
+| the one excepted fund (XLC) | `$250` | `$250` |
+| additional charge | up to 3x the fixed fee | up to 3x the fixed fee |
+| ceiling | `$2,000`, XLC `$1,000` | `$2,000`, XLC `$1,000` |
+
+**What the fee is charged per, which is the trap section 16.4 fell into once.**
+Per **transaction**, not per Creation Unit, on both sides. The redemption side
+states this in words: *"regardless of the number of Creation Units redeemed in
+the transaction."* So a fee expressed as a fraction of one unit's value depends
+on how many units were bundled into the order, a quantity nobody publishes. That
+is why `f` enters as an interval and not a point.
+
+**Who receives it**, from the `Compensation` paragraph of the same document:
+State Street, alongside its unitary custody, sub-administration and transfer
+agency fee. Recorded because the third-party-fee objection is about exactly this
+recipient.
+
+**A wording asymmetry that does not move a number.** The creation side
+parenthesises the additional charge as *"expressed as a percentage of the value
+of the Deposit Securities"*; the redemption side carries no such phrase. Both
+ceilings are stated as the same dollar amounts, so no reading taken here depends
+on it. Recorded for any later stage that reads this schedule for something other
+than the ceiling.
 
 ## Stage C1: IPCC global warming potentials, every assessment report
 

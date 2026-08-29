@@ -379,8 +379,92 @@ Stated in advance, and none of these are recoverable by re-specification.
 | `δ_A` is indistinguishable from zero within cells | There is no dispersion in terms at fixed position and date. The agent index is not carried by the data and loop A is withdrawn, leaving only loop B and its weaker hole argument. |
 | `δ_A` is non-zero but vanishes once occupancy type is conditioned on | The gap is between occupiers and investors rather than across agents generally. Still a two-index finding, but a narrower one, and it must be restated that way. |
 | `δ_A` dispersion is entirely accounted for by loan characteristics that are themselves positions, such as lien or purpose | The position space was not held fixed after all. The cell definition must be tightened and the measurement rerun before anything is claimed. |
+| | **Computed 2026-08-29. It does not fire: the accounting is partial, not entire. Reading in section 8.2.** |
 | the conventional-VA gap in section 8.1 is absent, or runs the other way | The within share is measuring how wide the borrower pool is, not how much the lender prices the borrower. Loop A would still show non-integrability but could no longer attribute it to the agent index, and the attribution claim must be withdrawn. |
 | the conventional-VA gap is present but no larger than the split-half null | The gap is sampling variability. Same consequence as above. |
+
+---
+
+## 8.2 The position-attribute falsification, computed
+
+**Registered in section 8, row eight. Computed 2026-08-29 by
+`experiments/b2c_position_attributes.py`, record in
+`results/b2c_position_attributes.json`.** It had not been computed before that
+date and it is not among the five conditions `LoopAResult.falsifications()`
+evaluates. The columns it needs were retained at fetch time for it and were
+otherwise unused.
+
+**Why it took its own stage.** The question is whether the within-cell dispersion
+is produced by loan attributes a scalar account is entitled to read, which are
+contract terms rather than borrower characteristics. Answering it means refining
+the cell, and **a refinement lowers within-cell dispersion whether or not the
+added key explains anything**, because the cells get smaller and the degrees of
+freedom go with them. On a six-state sample the artefact was larger than the
+signal: a label drawn at random with the same bin count took the within-share
+from `0.8379` to `0.1782`, while the real term-and-LTV refinement took it to
+`0.4207`. Read against the baseline, the naive conclusion would have been
+backwards.
+
+**The control.** Each real arm is paired with a twin in which the added labels are
+permuted **inside each baseline cell**. The refined partition then has, cell for
+cell, the same sizes and the same label marginals as its real arm, and the only
+thing destroyed is the association between the label and the rate spread. Five
+draws per twin, and the spread across draws is reported so that a difference
+smaller than it is not read as one.
+
+**Readings, full sample, 20,071,740 loans.**
+
+| arm | keys added | within | twin median | real − twin | twin spread | multiple |
+|---|---|---:|---:|---:|---:|---:|
+| A0 | none, the seven registered keys | `0.7831` | | | | |
+| A1 | loan term | `0.7000` | `0.7441` | `−0.0440` | `0.00034` | 129 |
+| A2 | loan term, LTV | `0.4720` | `0.5620` | `−0.0901` | `0.00071` | 127 |
+| G1 | debt-to-income | `0.6003` | `0.6390` | `−0.0387` | `0.00058` | 66 |
+| G2 | term, LTV, DTI | `0.2394` | `0.2947` | `−0.0553` | `0.00093` | 59 |
+
+`A0` reproduces the registered `0.7831` exactly, which is the first thing the
+stage checks.
+
+**The condition does not fire, because the word it turns on is "entirely".** The
+registered row asks whether the dispersion is *entirely* accounted for by
+position-side loan characteristics. It is not. After both contract keys are held
+fixed, `0.4720` of the variance is still inside the refined cells at a median
+within-cell interquartile range of `0.4010` percentage points, about forty times
+the quantum of a figure published to two and three decimals. The registered
+consequence, that the cell must be redrawn and the measurement rerun before
+anything is claimed, attaches to the entire case and is not triggered.
+
+**What the stage does establish, in three parts, and the third is new.**
+
+1. **Contract terms outside the cell account for part of the dispersion.** Term
+   and LTV together are worth `0.0901` of within-share net of the refinement
+   artefact, at 127 times the permutation spread. **Any statement that the
+   within-cell dispersion is independent of unmodelled contract terms is refuted
+   by this arm**, and no such statement should be made.
+2. **They do not account for it.** The residual above is what a scalar field
+   reading both keys still cannot generate.
+3. **One contract key and one borrower key are worth about the same here.** Term
+   alone nets `−0.0440` and debt-to-income alone nets `−0.0387`. So the residual
+   cannot be assigned wholly to the agent index either. Section 10's reading
+   carries this qualification: the within-cell dispersion is not shown to be
+   agent-borne, it is shown to survive both of the position keys tested and both
+   of the borrower keys available.
+
+**Coverage, reported rather than hidden.** The refined arms lose cells to the
+`min_size = 20` floor: `A2`'s surviving cells hold `15.0` per cent of loans and
+`G2`'s hold `1.4` per cent. The within-share column is computed at `min_size = 0`
+over the whole sample and is unaffected by that floor; the interquartile column
+on those arms is computed on the smaller surviving set and is read with that in
+mind. Missing rates on the added keys are `0.0005` for term, `0.0079` for LTV
+and `0.0084` for debt-to-income.
+
+**What is still not tested.** Discount points and total loan costs were retained
+at fetch time and are not used here, because both are components of the price of
+the same transaction rather than attributes of the position, so conditioning on
+them would move part of the measured quantity into the control. Credit score is
+not in the extract at all, and it is the borrower attribute the conventional
+pricing grid is written on. **The borrower side of part 3 rests on
+debt-to-income alone.**
 
 ---
 

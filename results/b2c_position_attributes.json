@@ -1,0 +1,224 @@
+{
+  "arms": [
+    {
+      "arm": "A0 baseline",
+      "coverage": 0.8059634092510166,
+      "loans_in_those_cells": 16177088,
+      "loans_total": 20071740,
+      "median_within_cell_iqr": 0.5257499999999999,
+      "n_cells_at_or_above_min": 328902,
+      "n_cells_total": 1103962,
+      "n_keys": 7,
+      "note": "the seven registered cell keys",
+      "share_of_cells_iqr_above_25bp": 0.9891730667493661,
+      "smallest_three_cells": [
+        20,
+        20,
+        20
+      ],
+      "within_share": 0.7831180573021999
+    },
+    {
+      "arm": "A1 +term",
+      "coverage": 0.7273129285253794,
+      "loans_in_those_cells": 14598436,
+      "loans_total": 20071740,
+      "median_within_cell_iqr": 0.51525,
+      "n_cells_at_or_above_min": 308966,
+      "n_cells_total": 1933311,
+      "n_keys": 8,
+      "note": "adds loan term, a contract attribute",
+      "share_of_cells_iqr_above_25bp": 0.9857298214042969,
+      "smallest_three_cells": [
+        20,
+        20,
+        20
+      ],
+      "within_share": 0.7000256665569805
+    },
+    {
+      "arm": "A2 +term+ltv",
+      "coverage": 0.15031482073801275,
+      "loans_in_those_cells": 3017080,
+      "loans_total": 20071740,
+      "median_within_cell_iqr": 0.401,
+      "n_cells_at_or_above_min": 92949,
+      "n_cells_total": 5924126,
+      "n_keys": 9,
+      "note": "adds loan term and LTV, both contract attributes",
+      "share_of_cells_iqr_above_25bp": 0.8984066531108458,
+      "smallest_three_cells": [
+        20,
+        20,
+        20
+      ],
+      "within_share": 0.4719528096542796
+    },
+    {
+      "arm": "G1 +dti",
+      "coverage": 0.19057744869154344,
+      "loans_in_those_cells": 3825221,
+      "loans_total": 20071740,
+      "median_within_cell_iqr": 0.4495,
+      "n_cells_at_or_above_min": 116431,
+      "n_cells_total": 4187718,
+      "n_keys": 8,
+      "note": "adds debt-to-income, a BORROWER attribute; a scalar account on positions is not entitled to it",
+      "share_of_cells_iqr_above_25bp": 0.9513703395143905,
+      "smallest_three_cells": [
+        20,
+        20,
+        20
+      ],
+      "within_share": 0.600317075414211
+    },
+    {
+      "arm": "G2 +term+ltv+dti",
+      "coverage": 0.013470730489733327,
+      "loans_in_those_cells": 270381,
+      "loans_total": 20071740,
+      "median_within_cell_iqr": 0.40455,
+      "n_cells_at_or_above_min": 9452,
+      "n_cells_total": 12192639,
+      "n_keys": 10,
+      "note": "position attributes together with the borrower one",
+      "share_of_cells_iqr_above_25bp": 0.8899703766398646,
+      "smallest_three_cells": [
+        20,
+        20,
+        20
+      ],
+      "within_share": 0.23941501705729681
+    }
+  ],
+  "contrasts": [
+    {
+      "arm": "A1 +term",
+      "cells_real": 308966,
+      "cells_twin_median": 308966,
+      "diff_over_twin_spread": 129.21154075752338,
+      "kind": "position",
+      "real_minus_twin": -0.04404467985028593,
+      "twin_within_share_median": 0.7440703464072664,
+      "twin_within_share_spread": 0.0003408726464529943,
+      "within_share_real": 0.7000256665569805
+    },
+    {
+      "arm": "A2 +term+ltv",
+      "cells_real": 92949,
+      "cells_twin_median": 90312,
+      "diff_over_twin_spread": 127.2623277491987,
+      "kind": "position",
+      "real_minus_twin": -0.09006888792846784,
+      "twin_within_share_median": 0.5620216975827474,
+      "twin_within_share_spread": 0.0007077419494162518,
+      "within_share_real": 0.4719528096542796
+    },
+    {
+      "arm": "G1 +dti",
+      "cells_real": 116431,
+      "cells_twin_median": 116431,
+      "diff_over_twin_spread": 66.3167814059334,
+      "kind": "borrower",
+      "real_minus_twin": -0.038654693945362584,
+      "twin_within_share_median": 0.6389717693595736,
+      "twin_within_share_spread": 0.000582879523491231,
+      "within_share_real": 0.600317075414211
+    },
+    {
+      "arm": "G2 +term+ltv+dti",
+      "cells_real": 9452,
+      "cells_twin_median": 8324,
+      "diff_over_twin_spread": 59.12366307033836,
+      "kind": "borrower",
+      "real_minus_twin": -0.05525388362596759,
+      "twin_within_share_median": 0.2946689006832644,
+      "twin_within_share_spread": 0.0009345477048712802,
+      "within_share_real": 0.23941501705729681
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "This stage answers the falsification registered in docs/b2_measurement.md section 8, which had not been computed. Until its reading is written into the B2 station file, the numbers here are not a licensed reading of that station.",
+  "draws": 5,
+  "dti_edges": [
+    20.0,
+    30.0,
+    36.0,
+    41.0,
+    46.0,
+    50.0,
+    60.0
+  ],
+  "ltv_edges": [
+    60.0,
+    70.0,
+    75.0,
+    80.0,
+    85.0,
+    90.0,
+    95.0,
+    97.0
+  ],
+  "min_cell_size": 20,
+  "missing_rate": {
+    "debt_to_income_ratio": 0.008416111408378148,
+    "loan_term": 0.0005257640842298675,
+    "loan_to_value_ratio": 0.007893336601610025
+  },
+  "reading": "Each real arm is read against its own permuted twin, which holds the cell sizes and the label marginals fixed. The falsification fires if a position arm drives the within-share below its twin and reaches the reporting quantum of rate_spread; then B2's cell is drawn too coarsely and must be redrawn. It does not fire if the position arms track their twins while the borrower arm G1 moves further than either. It is undecidable where coverage on a position arm is too low to evaluate, which the coverage column reports rather than hides.",
+  "seed": 20260829,
+  "spread_bound": 20.0,
+  "stage": "B2c",
+  "step": "position_attributes",
+  "term_bins": [
+    "360",
+    "180",
+    "240",
+    "120",
+    "300",
+    "480",
+    "60"
+  ],
+  "twins": [
+    {
+      "draws": 5,
+      "n_cells_at_or_above_min_median": 308966,
+      "note": "term shuffled inside each baseline cell, 5 draws; same cell sizes as the real arm by construction",
+      "twin_of": "A1 +term",
+      "within_share_max": 0.7442750932316096,
+      "within_share_median": 0.7440703464072664,
+      "within_share_min": 0.7439342205851566,
+      "within_share_spread": 0.0003408726464529943
+    },
+    {
+      "draws": 5,
+      "n_cells_at_or_above_min_median": 90312,
+      "note": "term and ltv shuffled inside each baseline cell, 5 draws; same cell sizes as the real arm by construction",
+      "twin_of": "A2 +term+ltv",
+      "within_share_max": 0.5624821818821186,
+      "within_share_median": 0.5620216975827474,
+      "within_share_min": 0.5617744399327024,
+      "within_share_spread": 0.0007077419494162518
+    },
+    {
+      "draws": 5,
+      "n_cells_at_or_above_min_median": 116431,
+      "note": "dti shuffled inside each baseline cell, 5 draws; same cell sizes as the real arm by construction",
+      "twin_of": "G1 +dti",
+      "within_share_max": 0.6390858256738242,
+      "within_share_median": 0.6389717693595736,
+      "within_share_min": 0.638502946150333,
+      "within_share_spread": 0.000582879523491231
+    },
+    {
+      "draws": 5,
+      "n_cells_at_or_above_min_median": 8324,
+      "note": "term and ltv and dti shuffled inside each baseline cell, 5 draws; same cell sizes as the real arm by construction",
+      "twin_of": "G2 +term+ltv+dti",
+      "within_share_max": 0.2949255282971468,
+      "within_share_median": 0.2946689006832644,
+      "within_share_min": 0.2939909805922755,
+      "within_share_spread": 0.0009345477048712802
+    }
+  ]
+}

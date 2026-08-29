@@ -475,6 +475,41 @@ def evaluate(
         )
     )
 
+    # A8-5. A8-4 reads the grid arm, which is one seed. The seed arm in this
+    # same record carries five at one elasticity, and the two halves of A8-4 do
+    # not survive it equally: that some setting shows all four is stable, and
+    # which surface drops at an end is not. The support ratio at the far edge
+    # straddles one across seeds, so a criterion placed on it would be a
+    # zero-width strict inequality on a quantity whose seed spread exceeds its
+    # margin, which is the shape rule 11 forbids. This prints the tally instead
+    # and places no line on it. Its own pass condition is structural: the seed
+    # arm exists and every point in it carries more than one seed.
+    seed_tally: dict[int, dict[str, int]] = {}
+    for row in across_seeds:
+        entry = seed_tally.setdefault(row["f2i"], {"seeds": 0, "all_four": 0})
+        entry["seeds"] += 1
+        entry["all_four"] += int(bool(row["all_four"]))
+        for name in ("two", "three", "four_a", "four_b"):
+            entry[name] = entry.get(name, 0) + int(bool(row["surfaces"][name]))
+    tally_lines = []
+    for f2i in sorted(seed_tally):
+        entry = seed_tally[f2i]
+        n = entry["seeds"]
+        tally_lines.append(
+            f"f2i={f2i}: all_four {entry['all_four']}/{n}, "
+            + " ".join(
+                f"{name} {entry[name]}/{n}"
+                for name in ("two", "three", "four_a", "four_b")
+            )
+        )
+    out.append(
+        Criterion(
+            "A8-5  the seed arm is tallied surface by surface, no line on it",
+            bool(seed_tally) and all(e["seeds"] > 1 for e in seed_tally.values()),
+            "; ".join(tally_lines) if tally_lines else "no seed arm on this run",
+        )
+    )
+
     return out
 
 

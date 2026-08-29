@@ -960,7 +960,7 @@ adjudication: a ratio above one, a ratio below one, a count equal to one. The
 magnitudes sit beside the flags in `results/a8_coverage.json`, which holds all 90
 runs.
 
-**4/4 live criteria passed**
+**5/5 live criteria passed**
 
 | | criterion | detail |
 |---|---|---|
@@ -968,6 +968,24 @@ runs.
 | PASS | A8-2  the real side is a level, not state | across 90 runs, the count of distinct resource values within a run is 1 every time |
 | PASS | A8-3  claims are conserved across the grid | 90/90 runs hold the identity between the holdings row sum and opening-plus-issuance at machine precision, below `1e-9`. The bound rather than the residue, because the residue is decided by accumulation order. Checked across the whole run rather than inside the loop: the loop's own assertion spans the transfer stage, while issuance lands before it and the asset settlement of stage A3 runs after it |
 | PASS | A8-4  one setting puts all four surfaces on the table | all four present at edges [1,2,3,5,8,12,20]; absent at [0,30]; no surface is absent everywhere on the grid |
+| PASS | A8-5  the seed arm is tallied surface by surface, no line on it | f2i=0: all_four 0/5, two 0/5 three 5/5 four_a 5/5 four_b 5/5; f2i=1,2,3,5,8,12,20: all_four 5/5, every surface 5/5; f2i=30: all_four 1/5, two 4/5 three 4/5 four_a 1/5 four_b 4/5 |
+
+**The two ends are not equally hard, and A8-5 is what separates them.** A8-4 reads
+the grid arm, which is one seed. The seed arm carries five at one elasticity, and
+the tally above is what it says. The zero end is structural: every seed loses the
+consuming-power surface and no seed loses anything else, 5/5 on the other three.
+The far end is a margin: the conjunction fails on four seeds of five and the
+support surface is the one that goes on all four, so the failure survives seed
+variation, but `support_ratio` there runs 0.9707 to 1.0604 across seeds and
+straddles one. A criterion placed on that quantity would be a zero-width strict
+inequality with a 1.2 per cent margin against a 5 per cent seed spread, which is
+the shape the discipline forbids, so A8-5 prints the tally and places no line on
+it. Its own pass condition is structural: the seed arm exists and every point in
+it carries more than one seed.
+
+**A8-4's reading is unchanged by A8-5's addition.** Its detail string reproduces
+byte for byte against the record written before A8-5 existed, which is the check
+that adding a criterion did not move an existing one.
 
 The two ends of the curve lose different surfaces. At zero autonomous edges the
 consuming-power surface is the one that goes: `M_a/R_a` reads 0.000, which is
@@ -3350,6 +3368,52 @@ Derived quantities:
 - `bound_sweep_range` = 0.0010
 - `within_share_ranked_nothing_excluded` = 0.7654
 
+## B2c — the registered position-attribute falsification, computed
+
+20,071,740 loans `min_cell_size=20` `spread_bound=20.0` 5 permutation draws per twin `seed=20260829`
+
+**Registered in `docs/b2_measurement.md` section 8, row eight, and not computed until 2026-08-29.**
+It is not one of the five conditions `LoopAResult.falsifications()` evaluates. Reading in
+`docs/b2_measurement.md` section 8.2.
+
+**Does not fire.** The row asks whether the within-cell dispersion is **entirely** accounted for by
+loan characteristics that are themselves positions. It is accounted for in part and not entirely,
+so the registered consequence, redrawing the cell and rerunning, is not triggered.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B2c-0  the baseline arm reproduces the registered reading | within share 0.7831 at min_size 0, identical to B2A-2 |
+| PASS | B2c-1  each real arm is paired with a twin that permutes its keys inside the baseline cells | 4 arms, 5 draws each; twin cell counts within 3% of their real arm at every arm |
+| PASS | B2c-2  print each arm against its own twin, no line on either | A1 term 0.7000 v 0.7441 net -0.0440 spread 0.00034; A2 term+LTV 0.4720 v 0.5620 net -0.0901 spread 0.00071; G1 DTI 0.6003 v 0.6390 net -0.0387 spread 0.00058; G2 all three 0.2394 v 0.2947 net -0.0553 spread 0.00093 |
+| PASS | B2c-3  print what survives both position keys | within share 0.4720, median within-cell IQR 0.4010 points over 92,949 cells of at least 20 loans, about forty times the quantum of a figure published to two and three decimals |
+| PASS | B2c-4  print coverage on every refined arm rather than reporting the surviving cells alone | A0 0.8060, A1 0.7273, A2 0.1503, G1 0.1906, G2 0.0135 of loans sit in cells of at least 20 |
+| PASS | B2c-5  print the missing rate on each added key | loan_term 0.0005, loan_to_value_ratio 0.0079, debt_to_income_ratio 0.0084 |
+
+Derived quantities:
+
+- `position_keys_net_of_twin` = -0.0901 (term and LTV together, at 127 times the permutation spread)
+- `one_contract_key_net` = -0.0440 (term)
+- `one_borrower_key_net` = -0.0387 (debt-to-income)
+- `within_share_after_both_position_keys` = 0.4720
+- `median_within_cell_iqr_after_both` = 0.4010
+
+**Three readings, and the third qualifies B2A.**
+
+1. Contract terms outside the cell do account for part of the dispersion, at 127 times the
+   permutation spread. **No statement that the within-cell dispersion is independent of unmodelled
+   contract terms is available.**
+2. They do not account for it. What survives both keys is above.
+3. One contract key and one borrower key are worth about the same, `-0.0440` against `-0.0387`.
+   **So the residual is not shown to be agent-borne either.** B2A's readings stand; what they
+   support is that the dispersion survives both position keys tested and both borrower keys
+   available, which is weaker than attributing it to the agent index.
+
+**Not tested.** Discount points and total loan costs are components of the same transaction's price
+rather than attributes of the position, so conditioning on them would move part of the measured
+quantity into the control. Credit score is not in the extract, and it is the borrower attribute the
+conventional pricing grid is written on. The borrower side of reading 3 rests on debt-to-income
+alone.
+
 ## B2B — vintage separation in the outstanding stock (H-zero, not H-one)
 
 53 quarters, 2013Q1 to 2026Q1
@@ -3773,6 +3837,45 @@ is not.** The converse is not a lesson and does not follow: a competing account
 also getting it right is overlap, and overlap is what a more general account owes
 the account it generalises. **What would count against this one is a reading the
 rival gets right and it gets wrong, and no such reading has been produced.**
+
+## B9-A-9 — the redemption-side fee, read 2026-08-29
+
+**Registered in `docs/b9_zero_holonomy.md` section 56.4 and unrun until 2026-08-29.** The
+friction-index split needs both directions of the fee and this station had measured one. Reading in
+section 56.4a.
+
+Source: Select Sector SPDR Trust SAI as filed, Post-effective amendment [Rule 485(b)], CIK
+0001064641, accession 0001193125-26-027312, filed 2026-01-28, document `d15107d485bpos.htm`, under
+PURCHASE AND REDEMPTION OF CREATION UNITS, pages 48 and 49. Both sides quoted from one document so
+the comparison stays inside a single vintage; the creation-side figures match section 16.4's
+quotation of the 2026-06-12 supplement exactly.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B9-A-9-1  the redemption side of the schedule is read and quoted | fixed redemption transaction fee $500 per transaction regardless of the number of Creation Units redeemed, $250 for XLC; additional charge up to 3x the fixed fee; total ceiling $2,000, XLC $1,000 |
+| PASS | B9-A-9-2  the two directions are compared item for item | fixed fee 500 v 500; exception fund 250 v 250; multiplier 3x v 3x; ceiling 2000 v 2000 and 1000 v 1000. Equal at every item |
+| PASS | B9-A-9-3  the registered prediction is scored, reason included | predicted equal or nearly so, on the stated ground that both are named in one sentence of one fee table. Equal item for item, and the ground is wrong: CREATION TRANSACTION FEE and REDEMPTION TRANSACTION FEE are separate headed subsections with the whole of REDEMPTION between them. Prediction correct, reason wrong |
+| PASS | B9-A-9-4  print the consequence for the split rather than asserting it | delta-f = 0 at fixed fee, multiplier and ceiling, so the fee is symmetric under reversal, lands entirely in (S+S')/2 and cancels exactly out of (S-S')/2 |
+| PASS | B9-A-9-5  print any wording asymmetry found, whether or not it moves a number | the creation side parenthesises the additional charge as expressed as a percentage of the value of the Deposit Securities and the redemption side carries no such phrase. Both ceilings are the same dollar amounts, so no reading here moves |
+
+Derived quantities:
+
+- `f_creation_fixed` = 500 (XLC 250)
+- `f_redemption_fixed` = 500 (XLC 250)
+- `delta_f` = 0
+- `multiplier_both_sides` = 3
+- `ceiling_both_sides` = 2000 (XLC 1000)
+
+**What this closes.** Section 56.3 identifies the `f = 0` corner with the index part, and that
+identification was conditional on the two fees being equal. They are. **No correction to the index
+reading of 1.2 to 1.7 basis points is required**, and the correction contemplated in section 56.4 is
+not needed.
+
+**And it closes the third-party-fee objection on its own premise.** The same filing names the
+recipient of both fees under Compensation: State Street receives in-kind creation and redemption
+transaction fees alongside its unitary custody fee. That is the third party the objection is about,
+and it charges the two directions identically, so its fee is symmetric under reversal and cancels
+out of the index part by the decomposition rather than by assumption.
 
 ## B9-A-1
 
