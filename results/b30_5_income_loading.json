@@ -1,0 +1,483 @@
+{
+ "cities": [
+  "Beijing",
+  "Changchun",
+  "Chongqing",
+  "Hangzhou",
+  "Harbin",
+  "Hohhot",
+  "Nanjing",
+  "Shanghai",
+  "Shenyang",
+  "Shijiazhuang",
+  "Taiyuan",
+  "Tianjin"
+ ],
+ "sd_log_salary": 0.3008507158732764,
+ "n_cities": 12,
+ "median_se_b": 0.19312453934105264,
+ "unknown_labels": [
+  "Salaries And Financing :: Annual Mortgage Interest Rate (20-Year Fixed, in %)",
+  "Utilities (Monthly) :: Basic Utilities for 915 Square Feet Apartment (Electricity, Heating, Cooling, Water, Garbage)",
+  "Utilities (Monthly) :: Broadband Internet (Unlimited Data, 60 Mbps or Higher)",
+  "Utilities (Monthly) :: Mobile Phone Plan (Monthly, with Calls and 10GB+ Data)"
+ ],
+ "missing_labels": [
+  "Utilities :: Basic Utilities for 915 Square Feet Apartment (Electricity, Heating, Cooling, Water, Garbage)",
+  "Utilities :: Broadband Internet (Unlimited Data, 60 Mbps or Higher)",
+  "Utilities :: Mobile Phone Plan (Monthly, with Calls and 10GB+ Data)"
+ ],
+ "items": [
+  {
+   "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment Outside of Centre",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 1.72803000490143,
+   "se": 0.364972268236098,
+   "sigma": 0.38036586811275896
+  },
+  {
+   "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment in City Centre",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 1.766984469821473,
+   "se": 0.4736569812087664,
+   "sigma": 0.49363462521649737
+  },
+  {
+   "item": "Childcare :: International Primary School, Annual Tuition per Child",
+   "class": "LOCAL",
+   "n": 10,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Childcare :: Private Full-Day Preschool or Kindergarten, Monthly Fee per Child",
+   "class": "LOCAL",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Clothing And Shoes :: Jeans (Levi's 501 or Similar)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.48987025525642963,
+   "se": 0.223976995053272,
+   "sigma": 0.23342377373618434
+  },
+  {
+   "item": "Clothing And Shoes :: Men's Leather Business Shoes",
+   "class": "LADDER",
+   "n": 12,
+   "b": -0.17572939371990978,
+   "se": 0.46870699147928263,
+   "sigma": 0.4884758575388765
+  },
+  {
+   "item": "Clothing And Shoes :: Nike Running Shoes (Mid-Range)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.13014258794635333,
+   "se": 0.15701147292846893,
+   "sigma": 0.16363381659854334
+  },
+  {
+   "item": "Clothing And Shoes :: Summer Dress in a Chain Store (e.g. Zara or H&M)",
+   "class": "LADDER",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Apples (1 lb)",
+   "class": "FRESH",
+   "n": 12,
+   "b": 0.3120609434006117,
+   "se": 0.10220764305693045,
+   "sigma": 0.10651850089048284
+  },
+  {
+   "item": "Markets :: Bananas (1 lb)",
+   "class": "FRESH",
+   "n": 12,
+   "b": 0.3030551239388645,
+   "se": 0.1285976993057196,
+   "sigma": 0.1340216224375747
+  },
+  {
+   "item": "Markets :: Beef Round or Equivalent Back Leg Red Meat (1 lb)",
+   "class": "FRESH",
+   "n": 12,
+   "b": -0.033966563054354984,
+   "se": 0.1473642342354502,
+   "sigma": 0.15357968197046443
+  },
+  {
+   "item": "Markets :: Bottle of Wine (Mid-Range)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.3552748388559269,
+   "se": 0.4305097907541461,
+   "sigma": 0.44866759626052866
+  },
+  {
+   "item": "Markets :: Bottled Water (50 oz)",
+   "class": "LADDER",
+   "n": 12,
+   "b": -0.08221627566398593,
+   "se": 0.2778367996514806,
+   "sigma": 0.2895552475914216
+  },
+  {
+   "item": "Markets :: Chicken Fillets (1 lb)",
+   "class": "FRESH",
+   "n": 10,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Cigarettes (Pack of 20, Marlboro)",
+   "class": "STATE",
+   "n": 12,
+   "b": 0.35512283800676464,
+   "se": 0.20048965994676823,
+   "sigma": 0.20894580270946134
+  },
+  {
+   "item": "Markets :: Domestic Beer (16.9 oz Bottle)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.3544070837615181,
+   "se": 0.13079886703721508,
+   "sigma": 0.1363156298127062
+  },
+  {
+   "item": "Markets :: Eggs (12, Large Size)",
+   "class": "FRESH",
+   "n": 12,
+   "b": 0.36963761504563386,
+   "se": 0.2476966509647017,
+   "sigma": 0.25814386426714636
+  },
+  {
+   "item": "Markets :: Fresh White Bread (1 lb Loaf)",
+   "class": "LADDER",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Imported Beer (12 oz Small Bottle)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.35026875531606433,
+   "se": 0.28569671161355986,
+   "sigma": 0.29774667060335347
+  },
+  {
+   "item": "Markets :: Lettuce (1 Head)",
+   "class": "FRESH",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Local Cheese (1 lb)",
+   "class": "FRESH",
+   "n": 10,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Milk (Regular, 1 Liter)",
+   "class": "LADDER",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Onions (1 lb)",
+   "class": "FRESH",
+   "n": 10,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Oranges (1 lb)",
+   "class": "FRESH",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Potatoes (1 lb)",
+   "class": "FRESH",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Markets :: Tomatoes (1 lb)",
+   "class": "FRESH",
+   "n": 12,
+   "b": 0.48687866045956557,
+   "se": 0.19449796490472143,
+   "sigma": 0.20270139324473796
+  },
+  {
+   "item": "Markets :: White Rice (1 lb)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.1264770490622146,
+   "se": 0.26993595349024907,
+   "sigma": 0.28132116388016787
+  },
+  {
+   "item": "Rent Per Month :: 1 Bedroom Apartment Outside of City Centre",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.812926838589589,
+   "se": 0.4711827255333147,
+   "sigma": 0.49105601174409697
+  },
+  {
+   "item": "Rent Per Month :: 1 Bedroom Apartment in City Centre",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 1.4409747320116955,
+   "se": 0.34091634713591235,
+   "sigma": 0.35529532958459586
+  },
+  {
+   "item": "Rent Per Month :: 3 Bedroom Apartment Outside of City Centre",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 1.173583889298072,
+   "se": 0.36760980648509095,
+   "sigma": 0.38311465100140796
+  },
+  {
+   "item": "Rent Per Month :: 3 Bedroom Apartment in City Centre",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 1.1709250474124426,
+   "se": 0.5302464501484082,
+   "sigma": 0.5526108936965526
+  },
+  {
+   "item": "Restaurants :: Bottled Water (12 oz)",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.11844193252257218,
+   "se": 0.1044938011609199,
+   "sigma": 0.10890108331536023
+  },
+  {
+   "item": "Restaurants :: Cappuccino (Regular Size)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.1716021316018218,
+   "se": 0.19312453934105264,
+   "sigma": 0.20127004009196856
+  },
+  {
+   "item": "Restaurants :: Combo Meal at McDonald's (or Equivalent Fast-Food Meal)",
+   "class": "LADDER",
+   "n": 12,
+   "b": -0.1313974295026606,
+   "se": 0.16932404307885113,
+   "sigma": 0.17646569957031968
+  },
+  {
+   "item": "Restaurants :: Domestic Draft Beer (1 Pint)",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.4681902931540227,
+   "se": 0.1525102429422759,
+   "sigma": 0.15894273620619437
+  },
+  {
+   "item": "Restaurants :: Imported Beer (12 oz Small Bottle)",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.21967399283941738,
+   "se": 0.1162588112400764,
+   "sigma": 0.12116231152796207
+  },
+  {
+   "item": "Restaurants :: Meal at an Inexpensive Restaurant",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.7922416793723732,
+   "se": 0.16498980697648585,
+   "sigma": 0.17194865643811283
+  },
+  {
+   "item": "Restaurants :: Meal for Two at a Mid-Range Restaurant (Three Courses, Without Drinks)",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.3844818428672017,
+   "se": 0.14407277487764683,
+   "sigma": 0.15014939724762935
+  },
+  {
+   "item": "Restaurants :: Soft Drink (Coca-Cola or Pepsi, 12 oz Small Bottle)",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.2451766051574487,
+   "se": 0.07635208219412415,
+   "sigma": 0.07957241838220395
+  },
+  {
+   "item": "Sports And Leisure :: Cinema Ticket (International Release)",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.27640313025842056,
+   "se": 0.1641966805830975,
+   "sigma": 0.17112207799531137
+  },
+  {
+   "item": "Sports And Leisure :: Monthly Fitness Club Membership",
+   "class": "LOCAL",
+   "n": 12,
+   "b": 0.07869426511603177,
+   "se": 0.5467985086237431,
+   "sigma": 0.5698610758034057
+  },
+  {
+   "item": "Sports And Leisure :: Tennis Court Rental (1 Hour, Weekend)",
+   "class": "LOCAL",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Transportation :: Gasoline (1 Liter)",
+   "class": "STATE",
+   "n": 12,
+   "b": 0.038097221662796825,
+   "se": 0.028699165363664982,
+   "sigma": 0.029909622997987485
+  },
+  {
+   "item": "Transportation :: Monthly Public Transport Pass (Regular Price)",
+   "class": "STATE",
+   "n": 11,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Transportation :: One-Way Ticket (Local Transport)",
+   "class": "STATE",
+   "n": 12,
+   "b": 0.8545496496282591,
+   "se": 0.33883660799392096,
+   "sigma": 0.3531278723473246
+  },
+  {
+   "item": "Transportation :: Taxi 1 Hour Waiting (Standard Tariff)",
+   "class": "STATE",
+   "n": 12,
+   "b": 1.1039524859448215,
+   "se": 0.2939161229339326,
+   "sigma": 0.3063127557400657
+  },
+  {
+   "item": "Transportation :: Taxi 1 mile (Standard Tariff)",
+   "class": "STATE",
+   "n": 12,
+   "b": 0.38361797712768,
+   "se": 0.16704630051661326,
+   "sigma": 0.17409188763329184
+  },
+  {
+   "item": "Transportation :: Taxi Start (Standard Tariff)",
+   "class": "STATE",
+   "n": 12,
+   "b": 0.6102315670968043,
+   "se": 0.1267607409104614,
+   "sigma": 0.1321071858200304
+  },
+  {
+   "item": "Transportation :: Toyota Corolla Sedan 1.6 (or Equivalent New Mid-Size Car)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.13080734860170665,
+   "se": 0.04788034266899702,
+   "sigma": 0.04989981346486352
+  },
+  {
+   "item": "Transportation :: Volkswagen Golf 1.5 (or Equivalent New Compact Car)",
+   "class": "LADDER",
+   "n": 12,
+   "b": 0.02896565535908212,
+   "se": 0.06187547269347914,
+   "sigma": 0.06448522239700051
+  },
+  {
+   "item": "Utilities :: Basic Utilities for 915 Square Feet Apartment (Electricity, Heating, Cooling, Water, Garbage)",
+   "class": "STATE",
+   "n": 0,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Utilities :: Broadband Internet (Unlimited Data, 60 Mbps or Higher)",
+   "class": "LADDER",
+   "n": 0,
+   "b": null,
+   "se": null,
+   "sigma": null
+  },
+  {
+   "item": "Utilities :: Mobile Phone Plan (Monthly, with Calls and 10GB+ Data)",
+   "class": "LADDER",
+   "n": 0,
+   "b": null,
+   "se": null,
+   "sigma": null
+  }
+ ],
+ "class_ranges": {
+  "LADDER": {
+   "n": 12,
+   "min": -0.17572939371990978,
+   "median": 0.13047496827403,
+   "max": 0.48987025525642963
+  },
+  "FRESH": {
+   "n": 5,
+   "min": -0.033966563054354984,
+   "median": 0.3120609434006117,
+   "max": 0.48687866045956557
+  },
+  "STATE": {
+   "n": 6,
+   "min": 0.038097221662796825,
+   "median": 0.4969247721122421,
+   "max": 1.1039524859448215
+  },
+  "LOCAL": {
+   "n": 14,
+   "min": 0.07869426511603177,
+   "median": 0.630215986263198,
+   "max": 1.766984469821473
+  }
+ },
+ "verdict": "OVERLAP. The classes do not separate on this panel; the medians are reported and the overlap with them."
+}

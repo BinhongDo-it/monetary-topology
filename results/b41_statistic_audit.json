@@ -1,0 +1,104 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "scores three assertions that were stated in the record without being run",
+  "interaction_directions": {
+    "KS  8 positions x 2 commodities": {
+      "df": 7,
+      "effective_directions": 1.0000000000000002,
+      "rank": 1,
+      "report": 2886,
+      "shares": [
+        1.0
+      ]
+    },
+    "MT  5 positions x 8 wheat grades": {
+      "df": 28,
+      "effective_directions": 1.4998571116962245,
+      "rank": 4,
+      "report": 2771,
+      "shares": [
+        0.807116652619437,
+        0.10617283145603915,
+        0.054775870217907016,
+        0.031934645706616825
+      ]
+    },
+    "SD  4 positions x 3 commodities": {
+      "df": 6,
+      "effective_directions": 1.136717205380245,
+      "rank": 2,
+      "report": 3186,
+      "shares": [
+        0.93573287764327,
+        0.06426712235673006
+      ]
+    }
+  },
+  "stage": "B41",
+  "statistic_separation": {
+    "+25 and -25, 60/40 split": {
+      "magnitude": 50.0,
+      "persistence": 0.295,
+      "persistent": 14.75
+    },
+    "+25 and -25, alternating": {
+      "magnitude": 50.0,
+      "persistence": 0.0,
+      "persistent": 0.0
+    },
+    "+25 and -25, at random": {
+      "magnitude": 50.0,
+      "persistence": 0.04,
+      "persistent": 2.0
+    },
+    "steady +12 every day": {
+      "magnitude": 24.0,
+      "persistence": 1.0,
+      "persistent": 24.0
+    }
+  },
+  "tennessee_by_year": {
+    "2020": {
+      "median": 2.125,
+      "median_month_balanced": 2.125,
+      "months": 1,
+      "n": 13
+    },
+    "2021": {
+      "median": 2.375,
+      "median_month_balanced": 1.5,
+      "months": 3,
+      "n": 24
+    },
+    "2022": {
+      "median": 5.9375,
+      "median_month_balanced": 1.625,
+      "months": 2,
+      "n": 18
+    },
+    "2023": {
+      "median": -8.75,
+      "median_month_balanced": -10.0625,
+      "months": 6,
+      "n": 75
+    },
+    "2024": {
+      "median": -2.5,
+      "median_month_balanced": -2.0,
+      "months": 4,
+      "n": 46
+    },
+    "2025": {
+      "median": 5.0625,
+      "median_month_balanced": 3.625,
+      "months": 7,
+      "n": 108
+    },
+    "2026": {
+      "median": 7.375,
+      "median_month_balanced": 6.25,
+      "months": 3,
+      "n": 45
+    }
+  }
+}

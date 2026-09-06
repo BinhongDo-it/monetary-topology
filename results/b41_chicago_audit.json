@@ -1,0 +1,587 @@
+{
+  "chicago_corn_days": 600,
+  "days": 1524,
+  "diagnostic_only": true,
+  "diagnostic_reason": "recheck of the Chicago selection explanation: does a quiet pair move when put on the same days",
+  "fill": {
+    "Central | Mills and Processors|Corn": 0.9140419947506562,
+    "Central | Mills and Processors|Soybeans": 0.910761154855643,
+    "Chicago | Mills and Processors|Corn": 0.9612860892388452,
+    "Chicago | Terminal Elevators|Corn": 0.3937007874015748,
+    "Chicago | Terminal Elevators|Soybeans": 0.926509186351706,
+    "Little Egypt | Country Elevators|Corn": 0.9757217847769029,
+    "Little Egypt | Country Elevators|Soybeans": 0.9645669291338582,
+    "Mississippi River | Barge Loading Elevators|Corn": 0.5853018372703412,
+    "Mississippi River | Barge Loading Elevators|Soybeans": 0.5853018372703412,
+    "North Central | Country Elevators|Corn": 0.9337270341207349,
+    "North Central | Country Elevators|Soybeans": 0.9258530183727034,
+    "North Illinois River | Barge Loading Elevators|Corn": 0.9455380577427821,
+    "North Illinois River | Barge Loading Elevators|Soybeans": 0.9461942257217848,
+    "North | Country Elevators|Corn": 0.9442257217847769,
+    "North | Country Elevators|Soybeans": 0.9383202099737533,
+    "South Central | Country Elevators|Corn": 0.931758530183727,
+    "South Central | Country Elevators|Soybeans": 0.8956692913385826,
+    "South Illinois River | Barge Loading Elevators|Corn": 0.9560367454068242,
+    "South Illinois River | Barge Loading Elevators|Soybeans": 0.9566929133858267,
+    "Southwest | Country Elevators|Corn": 0.9520997375328084,
+    "Southwest | Country Elevators|Soybeans": 0.9566929133858267,
+    "Wabash | Country Elevators|Corn": 0.9724409448818898,
+    "Wabash | Country Elevators|Soybeans": 0.9212598425196851,
+    "West | Country Elevators|Corn": 0.9383202099737533,
+    "West | Country Elevators|Soybeans": 0.9350393700787402
+  },
+  "pairs": [
+    {
+      "i": "Central | Mills and Processors",
+      "j": "Chicago | Terminal Elevators",
+      "mean_full": 9.238993710691824,
+      "mean_sub": 9.238993710691824,
+      "n_full": 477,
+      "n_sub": 477,
+      "sd_full": 20.366817567032506,
+      "sd_sub": 20.366817567032506
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "Little Egypt | Country Elevators",
+      "mean_full": -7.03506600660066,
+      "mean_sub": -5.0919191919191915,
+      "n_full": 1212,
+      "n_sub": 495,
+      "sd_full": 17.3215750131739,
+      "sd_sub": 18.97764333931125
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "North Central | Country Elevators",
+      "mean_full": -7.242070116861436,
+      "mean_sub": -7.161795407098121,
+      "n_full": 1198,
+      "n_sub": 479,
+      "sd_full": 11.610653206925406,
+      "sd_sub": 13.125816241281727
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "North Illinois River | Barge Loading Elevators",
+      "mean_full": -9.314310051107325,
+      "mean_sub": -8.527217741935484,
+      "n_full": 1174,
+      "n_sub": 496,
+      "sd_full": 16.32766102570889,
+      "sd_sub": 18.599656918769416
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "North | Country Elevators",
+      "mean_full": -29.862373737373737,
+      "mean_sub": -31.705208333333335,
+      "n_full": 1188,
+      "n_sub": 480,
+      "sd_full": 16.231885064894648,
+      "sd_sub": 19.36850299064099
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "South Central | Country Elevators",
+      "mean_full": -15.373305084745763,
+      "mean_sub": -13.932548179871521,
+      "n_full": 1180,
+      "n_sub": 467,
+      "sd_full": 10.321375709230926,
+      "sd_sub": 11.730030539355761
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "South Illinois River | Barge Loading Elevators",
+      "mean_full": -10.15590947191953,
+      "mean_sub": -9.382113821138212,
+      "n_full": 1193,
+      "n_sub": 492,
+      "sd_full": 15.581203743587347,
+      "sd_sub": 17.602979670565265
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "Southwest | Country Elevators",
+      "mean_full": -11.036333608587944,
+      "mean_sub": -9.83366533864542,
+      "n_full": 1211,
+      "n_sub": 502,
+      "sd_full": 16.970523821552167,
+      "sd_sub": 18.076620085737975
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -15.263772954924875,
+      "mean_sub": -12.70063025210084,
+      "n_full": 1198,
+      "n_sub": 476,
+      "sd_full": 13.398124151617587,
+      "sd_sub": 15.607022023565268
+    },
+    {
+      "i": "Central | Mills and Processors",
+      "j": "West | Country Elevators",
+      "mean_full": -16.465870307167236,
+      "mean_sub": -16.544329896907218,
+      "n_full": 1172,
+      "n_sub": 485,
+      "sd_full": 13.390672372441532,
+      "sd_sub": 16.70587792503929
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "Little Egypt | Country Elevators",
+      "mean_full": -16.285299806576404,
+      "mean_sub": -16.285299806576404,
+      "n_full": 517,
+      "n_sub": 517,
+      "sd_full": 22.747227801048858,
+      "sd_sub": 22.747227801048858
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "North Central | Country Elevators",
+      "mean_full": -17.1799591002045,
+      "mean_sub": -17.1799591002045,
+      "n_full": 489,
+      "n_sub": 489,
+      "sd_full": 18.130597699721413,
+      "sd_sub": 18.130597699721413
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "North Illinois River | Barge Loading Elevators",
+      "mean_full": -19.82135922330097,
+      "mean_sub": -19.82135922330097,
+      "n_full": 515,
+      "n_sub": 515,
+      "sd_full": 25.970203857907837,
+      "sd_sub": 25.970203857907837
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "North | Country Elevators",
+      "mean_full": -42.44499017681729,
+      "mean_sub": -42.44499017681729,
+      "n_full": 509,
+      "n_sub": 509,
+      "sd_full": 22.52701613954849,
+      "sd_sub": 22.52701613954849
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "South Central | Country Elevators",
+      "mean_full": -23.091966173361524,
+      "mean_sub": -23.091966173361524,
+      "n_full": 473,
+      "n_sub": 473,
+      "sd_full": 22.204211573304594,
+      "sd_sub": 22.204211573304594
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "South Illinois River | Barge Loading Elevators",
+      "mean_full": -21.17248062015504,
+      "mean_sub": -21.17248062015504,
+      "n_full": 516,
+      "n_sub": 516,
+      "sd_full": 25.217794966269132,
+      "sd_sub": 25.217794966269132
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "Southwest | Country Elevators",
+      "mean_full": -20.578393881453156,
+      "mean_sub": -20.578393881453156,
+      "n_full": 523,
+      "n_sub": 523,
+      "sd_full": 24.605811303549064,
+      "sd_sub": 24.605811303549064
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -21.773737373737372,
+      "mean_sub": -21.773737373737372,
+      "n_full": 495,
+      "n_sub": 495,
+      "sd_full": 15.423453313610498,
+      "sd_sub": 15.423453313610498
+    },
+    {
+      "i": "Chicago | Terminal Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -27.275590551181104,
+      "mean_sub": -27.275590551181104,
+      "n_full": 508,
+      "n_sub": 508,
+      "sd_full": 23.35467116726405,
+      "sd_sub": 23.35467116726405
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "North Central | Country Elevators",
+      "mean_full": 0.10734017363851618,
+      "mean_sub": -1.5867446393762183,
+      "n_full": 1267,
+      "n_sub": 513,
+      "sd_full": 16.569528975534528,
+      "sd_sub": 16.452369098468516
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "North Illinois River | Barge Loading Elevators",
+      "mean_full": -2.9518072289156625,
+      "mean_sub": -4.00625,
+      "n_full": 1328,
+      "n_sub": 560,
+      "sd_full": 11.106540828745725,
+      "sd_sub": 12.087429574230647
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "North | Country Elevators",
+      "mean_full": -23.13968871595331,
+      "mean_sub": -25.992565055762082,
+      "n_full": 1285,
+      "n_sub": 538,
+      "sd_full": 16.773880449186095,
+      "sd_sub": 15.471363001050845
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "South Central | Country Elevators",
+      "mean_full": -8.245153473344104,
+      "mean_sub": -8.413214990138068,
+      "n_full": 1238,
+      "n_sub": 507,
+      "sd_full": 15.542281911535888,
+      "sd_sub": 17.562040308617732
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "South Illinois River | Barge Loading Elevators",
+      "mean_full": -3.6140029325513194,
+      "mean_sub": -4.982238010657194,
+      "n_full": 1364,
+      "n_sub": 563,
+      "sd_full": 10.355990130370389,
+      "sd_sub": 10.180036144712991
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "Southwest | Country Elevators",
+      "mean_full": -4.0367376928728875,
+      "mean_sub": -4.34622144112478,
+      "n_full": 1361,
+      "n_sub": 569,
+      "sd_full": 8.314394990341095,
+      "sd_sub": 8.645074553896386
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -8.229938271604938,
+      "mean_sub": -7.9189453125,
+      "n_full": 1296,
+      "n_sub": 512,
+      "sd_full": 17.790110011033683,
+      "sd_sub": 20.853856693735917
+    },
+    {
+      "i": "Little Egypt | Country Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -9.121036349574632,
+      "mean_sub": -11.631918819188192,
+      "n_full": 1293,
+      "n_sub": 542,
+      "sd_full": 13.19242581654899,
+      "sd_sub": 13.740149743742187
+    },
+    {
+      "i": "North Central | Country Elevators",
+      "j": "North Illinois River | Barge Loading Elevators",
+      "mean_full": -3.091463414634146,
+      "mean_sub": -2.8050682261208575,
+      "n_full": 1230,
+      "n_sub": 513,
+      "sd_full": 14.525599869157624,
+      "sd_sub": 16.848938603823512
+    },
+    {
+      "i": "North Central | Country Elevators",
+      "j": "North | Country Elevators",
+      "mean_full": -23.06803542673108,
+      "mean_sub": -25.045631067961164,
+      "n_full": 1242,
+      "n_sub": 515,
+      "sd_full": 12.534031064874808,
+      "sd_sub": 14.367344191753908
+    },
+    {
+      "i": "North Central | Country Elevators",
+      "j": "South Central | Country Elevators",
+      "mean_full": -8.187706270627062,
+      "mean_sub": -6.973305954825462,
+      "n_full": 1212,
+      "n_sub": 487,
+      "sd_full": 10.436036420561694,
+      "sd_sub": 14.31042908552921
+    },
+    {
+      "i": "North Central | Country Elevators",
+      "j": "South Illinois River | Barge Loading Elevators",
+      "mean_full": -3.8345295055821373,
+      "mean_sub": -3.481299212598425,
+      "n_full": 1254,
+      "n_sub": 508,
+      "sd_full": 14.761874570660423,
+      "sd_sub": 16.979542880043216
+    },
+    {
+      "i": "North Central | Country Elevators",
+      "j": "Southwest | Country Elevators",
+      "mean_full": -4.010714285714286,
+      "mean_sub": -3.110576923076923,
+      "n_full": 1260,
+      "n_sub": 520,
+      "sd_full": 15.593274281733507,
+      "sd_sub": 16.89303260892634
+    },
+    {
+      "i": "North Central | Country Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -8.686501597444089,
+      "mean_sub": -6.749492900608519,
+      "n_full": 1252,
+      "n_sub": 493,
+      "sd_full": 10.533214258691496,
+      "sd_sub": 11.323927143965548
+    },
+    {
+      "i": "North Central | Country Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -9.974255832662912,
+      "mean_sub": -10.511472275334608,
+      "n_full": 1243,
+      "n_sub": 523,
+      "sd_full": 11.318570812556008,
+      "sd_sub": 13.283702973436677
+    },
+    {
+      "i": "North Illinois River | Barge Loading Elevators",
+      "j": "North | Country Elevators",
+      "mean_full": -19.87037037037037,
+      "mean_sub": -21.460332103321033,
+      "n_full": 1269,
+      "n_sub": 542,
+      "sd_full": 13.913798552602454,
+      "sd_sub": 14.541348854452215
+    },
+    {
+      "i": "North Illinois River | Barge Loading Elevators",
+      "j": "South Central | Country Elevators",
+      "mean_full": -5.702542372881356,
+      "mean_sub": -5.4118236472945895,
+      "n_full": 1180,
+      "n_sub": 499,
+      "sd_full": 13.46419851077825,
+      "sd_sub": 17.196777521076427
+    },
+    {
+      "i": "North Illinois River | Barge Loading Elevators",
+      "j": "South Illinois River | Barge Loading Elevators",
+      "mean_full": -0.6047297297297297,
+      "mean_sub": -0.9507168458781362,
+      "n_full": 1332,
+      "n_sub": 558,
+      "sd_full": 8.096810003540625,
+      "sd_sub": 9.912217468382423
+    },
+    {
+      "i": "North Illinois River | Barge Loading Elevators",
+      "j": "Southwest | Country Elevators",
+      "mean_full": -0.9377880184331797,
+      "mean_sub": -0.2816399286987522,
+      "n_full": 1302,
+      "n_sub": 561,
+      "sd_full": 10.101253749380424,
+      "sd_sub": 12.24814132337066
+    },
+    {
+      "i": "North Illinois River | Barge Loading Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -5.483240223463687,
+      "mean_sub": -3.549115913555992,
+      "n_full": 1253,
+      "n_sub": 509,
+      "sd_full": 15.731704928957933,
+      "sd_sub": 19.15486883800316
+    },
+    {
+      "i": "North Illinois River | Barge Loading Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -6.2967893500391545,
+      "mean_sub": -7.573260073260073,
+      "n_full": 1277,
+      "n_sub": 546,
+      "sd_full": 10.26937410666212,
+      "sd_sub": 11.416515446875703
+    },
+    {
+      "i": "North | Country Elevators",
+      "j": "South Central | Country Elevators",
+      "mean_full": 14.689200329760924,
+      "mean_sub": 17.907370517928285,
+      "n_full": 1213,
+      "n_sub": 502,
+      "sd_full": 13.532302404003513,
+      "sd_sub": 17.60460284628473
+    },
+    {
+      "i": "North | Country Elevators",
+      "j": "South Illinois River | Barge Loading Elevators",
+      "mean_full": 19.571818891491024,
+      "mean_sub": 21.00556586270872,
+      "n_full": 1281,
+      "n_sub": 539,
+      "sd_full": 14.704734374247435,
+      "sd_sub": 16.442870756147414
+    },
+    {
+      "i": "North | Country Elevators",
+      "j": "Southwest | Country Elevators",
+      "mean_full": 19.384284597341672,
+      "mean_sub": 22.335174953959484,
+      "n_full": 1279,
+      "n_sub": 543,
+      "sd_full": 16.27908193668837,
+      "sd_sub": 16.60794380229483
+    },
+    {
+      "i": "North | Country Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": 14.922863924050633,
+      "mean_sub": 19.16826923076923,
+      "n_full": 1264,
+      "n_sub": 520,
+      "sd_full": 12.305662049396078,
+      "sd_sub": 14.052339984538351
+    },
+    {
+      "i": "North | Country Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": 13.311268715524035,
+      "mean_sub": 13.896869244935543,
+      "n_full": 1269,
+      "n_sub": 543,
+      "sd_full": 9.866860094323457,
+      "sd_sub": 10.196340479994701
+    },
+    {
+      "i": "South Central | Country Elevators",
+      "j": "South Illinois River | Barge Loading Elevators",
+      "mean_full": 4.785714285714286,
+      "mean_sub": 4.155935613682092,
+      "n_full": 1211,
+      "n_sub": 497,
+      "sd_full": 12.57654720308232,
+      "sd_sub": 15.59638767303054
+    },
+    {
+      "i": "South Central | Country Elevators",
+      "j": "Southwest | Country Elevators",
+      "mean_full": 4.22467845659164,
+      "mean_sub": 3.9519607843137257,
+      "n_full": 1244,
+      "n_sub": 510,
+      "sd_full": 13.78808854253497,
+      "sd_sub": 16.348853653823465
+    },
+    {
+      "i": "South Central | Country Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -0.008821170809943865,
+      "mean_sub": 0.8215686274509804,
+      "n_full": 1247,
+      "n_sub": 510,
+      "sd_full": 12.8644901459477,
+      "sd_sub": 17.95805321670979
+    },
+    {
+      "i": "South Central | Country Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -1.281198003327787,
+      "mean_sub": -2.799607072691552,
+      "n_full": 1202,
+      "n_sub": 509,
+      "sd_full": 10.63548860564613,
+      "sd_sub": 13.723332043093224
+    },
+    {
+      "i": "South Illinois River | Barge Loading Elevators",
+      "j": "Southwest | Country Elevators",
+      "mean_full": -0.2987256371814093,
+      "mean_sub": 0.5445632798573975,
+      "n_full": 1334,
+      "n_sub": 561,
+      "sd_full": 8.94742532688496,
+      "sd_sub": 10.27109205471526
+    },
+    {
+      "i": "South Illinois River | Barge Loading Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -4.855971896955504,
+      "mean_sub": -2.7297830374753453,
+      "n_full": 1281,
+      "n_sub": 507,
+      "sd_full": 15.407313016444808,
+      "sd_sub": 18.81520179874608
+    },
+    {
+      "i": "South Illinois River | Barge Loading Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -5.678129829984544,
+      "mean_sub": -6.48051948051948,
+      "n_full": 1294,
+      "n_sub": 539,
+      "sd_full": 9.913320819907597,
+      "sd_sub": 11.557118974300817
+    },
+    {
+      "i": "Southwest | Country Elevators",
+      "j": "Wabash | Country Elevators",
+      "mean_full": -4.596316193399846,
+      "mean_sub": -3.9038461538461537,
+      "n_full": 1303,
+      "n_sub": 520,
+      "sd_full": 17.065387989082385,
+      "sd_sub": 20.391174198132827
+    },
+    {
+      "i": "Southwest | Country Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -5.437839937839938,
+      "mean_sub": -7.349177330895795,
+      "n_full": 1287,
+      "n_sub": 547,
+      "sd_full": 12.221008706583818,
+      "sd_sub": 13.251152906493836
+    },
+    {
+      "i": "Wabash | Country Elevators",
+      "j": "West | Country Elevators",
+      "mean_full": -1.3739164696611506,
+      "mean_sub": -4.301923076923077,
+      "n_full": 1269,
+      "n_sub": 520,
+      "sd_full": 11.709173876360117,
+      "sd_sub": 14.001658178495978
+    }
+  ],
+  "report": 3192,
+  "stage": "B41"
+}

@@ -1,0 +1,396 @@
+{
+ "archive_item": "Restaurants :: Combo Meal at McDonald's (or Equivalent Fast-Food Meal)",
+ "referee": "Big Mac index dollar price, 2022-07-01, 2023-01-01",
+ "n_countries": 53,
+ "slope": 1.047305414590537,
+ "pearson": 0.7336992347485393,
+ "residual_sd": 0.27524704198278394,
+ "pairs": [
+  {
+   "country": "Argentina",
+   "posted": 4.93775356718924,
+   "archive": 5.0,
+   "cities": 21,
+   "residual": -0.4124810271364112
+  },
+  {
+   "country": "Australia",
+   "posted": 4.86828375,
+   "archive": 8.83,
+   "cities": 55,
+   "residual": 0.17107536854433292
+  },
+  {
+   "country": "Azerbaijan",
+   "posted": 2.82283762351025,
+   "archive": 5.74,
+   "cities": 9,
+   "residual": 0.3111597938017119
+  },
+  {
+   "country": "Bahrain",
+   "posted": 4.37665782493369,
+   "archive": 5.57,
+   "cities": 3,
+   "residual": -0.1781925601946559
+  },
+  {
+   "country": "Brazil",
+   "posted": 4.34342440166388,
+   "archive": 5.75,
+   "cities": 145,
+   "residual": -0.1384048729831675
+  },
+  {
+   "country": "Canada",
+   "posted": 4.567334699357665,
+   "archive": 8.89,
+   "cities": 116,
+   "residual": 0.2446776839946061
+  },
+  {
+   "country": "Chile",
+   "posted": 4.204777203725445,
+   "archive": 5.38,
+   "cities": 25,
+   "residual": -0.17093992138580982
+  },
+  {
+   "country": "China",
+   "posted": 3.5473308818463947,
+   "archive": 4.98,
+   "cities": 101,
+   "residual": -0.07012940916794186
+  },
+  {
+   "country": "Colombia",
+   "posted": 3.8193116305014847,
+   "archive": 4.83,
+   "cities": 25,
+   "residual": -0.17808225666008526
+  },
+  {
+   "country": "Costa Rica",
+   "posted": 4.435936138121755,
+   "archive": 7.395,
+   "cities": 2,
+   "residual": 0.09112677473226061
+  },
+  {
+   "country": "Czech Republic",
+   "posted": 4.24135824199076,
+   "archive": 6.92,
+   "cities": 37,
+   "residual": 0.07171545308487981
+  },
+  {
+   "country": "Denmark",
+   "posted": 5.40927764213974,
+   "archive": 11.34,
+   "cities": 10,
+   "residual": 0.3108977878065575
+  },
+  {
+   "country": "Egypt",
+   "posted": 2.13546801873903,
+   "archive": 3.26,
+   "cities": 21,
+   "residual": 0.03768546946167217
+  },
+  {
+   "country": "Guatemala",
+   "posted": 3.403320951451705,
+   "archive": 5.73,
+   "cities": 5,
+   "residual": 0.11356049543778579
+  },
+  {
+   "country": "Honduras",
+   "posted": 3.83213224548739,
+   "archive": 6.0,
+   "cities": 9,
+   "residual": 0.03532105123609397
+  },
+  {
+   "country": "Hungary",
+   "posted": 3.201522208349065,
+   "archive": 4.63,
+   "cities": 40,
+   "residual": -0.035581290127050025
+  },
+  {
+   "country": "India",
+   "posted": 2.461074457911225,
+   "archive": 3.68,
+   "cities": 161,
+   "residual": 0.010245620322398397
+  },
+  {
+   "country": "Indonesia",
+   "posted": 2.3439020831835498,
+   "archive": 3.16,
+   "cities": 40,
+   "residual": -0.09100657356659947
+  },
+  {
+   "country": "Israel",
+   "posted": 4.99978002255698,
+   "archive": 15.27,
+   "cities": 34,
+   "residual": 0.6908972140595013
+  },
+  {
+   "country": "Japan",
+   "posted": 2.99013814854638,
+   "archive": 5.21,
+   "cities": 71,
+   "residual": 0.15397977583667055
+  },
+  {
+   "country": "Jordan",
+   "posted": 3.379815593804925,
+   "archive": 6.165,
+   "cities": 8,
+   "residual": 0.19399150950102717
+  },
+  {
+   "country": "Kuwait",
+   "posted": 5.22569267068657,
+   "archive": 6.029999999999999,
+   "cities": 2,
+   "residual": -0.28452992515009967
+  },
+  {
+   "country": "Lebanon",
+   "posted": 4.77590460526316,
+   "archive": 8.0,
+   "cities": 6,
+   "residual": 0.09242623571872577
+  },
+  {
+   "country": "Malaysia",
+   "posted": 2.729794354886285,
+   "archive": 3.42,
+   "cities": 26,
+   "residual": -0.1715570106093134
+  },
+  {
+   "country": "Mexico",
+   "posted": 3.8114612052731554,
+   "archive": 5.93,
+   "cities": 82,
+   "residual": 0.029250393810946518
+  },
+  {
+   "country": "Moldova",
+   "posted": 3.1468289612538554,
+   "archive": 2.82,
+   "cities": 9,
+   "residual": -0.5133550280194377
+  },
+  {
+   "country": "New Zealand",
+   "posted": 4.652039999999995,
+   "archive": 8.98,
+   "cities": 24,
+   "residual": 0.23550521669790814
+  },
+  {
+   "country": "Nicaragua",
+   "posted": 4.04895540825285,
+   "archive": 4.3,
+   "cities": 9,
+   "residual": -0.3554645232070881
+  },
+  {
+   "country": "Norway",
+   "posted": 6.426815904454375,
+   "archive": 12.33,
+   "cities": 25,
+   "residual": 0.21407941159686716
+  },
+  {
+   "country": "Oman",
+   "posted": 3.68831168831169,
+   "archive": 6.49,
+   "cities": 6,
+   "residual": 0.1538862196838462
+  },
+  {
+   "country": "Pakistan",
+   "posted": 3.27253297705931,
+   "archive": 3.35,
+   "cities": 38,
+   "residual": -0.3821535032315595
+  },
+  {
+   "country": "Peru",
+   "posted": 3.5743943177927653,
+   "archive": 4.57,
+   "cities": 14,
+   "residual": -0.1640059136421661
+  },
+  {
+   "country": "Philippines",
+   "posted": 2.80112682727979,
+   "archive": 2.69,
+   "cities": 76,
+   "residual": -0.4386721307654422
+  },
+  {
+   "country": "Poland",
+   "posted": 3.8403502954526996,
+   "archive": 5.63,
+   "cities": 62,
+   "residual": -0.03057252907663588
+  },
+  {
+   "country": "Qatar",
+   "posted": 3.70700899292922,
+   "archive": 6.87,
+   "cities": 2,
+   "residual": 0.20549205998484132
+  },
+  {
+   "country": "Romania",
+   "posted": 2.50163042885957,
+   "archive": 5.14,
+   "cities": 51,
+   "residual": 0.3272680917157147
+  },
+  {
+   "country": "Saudi Arabia",
+   "posted": 4.793945445669371,
+   "archive": 6.65,
+   "cities": 18,
+   "residual": -0.09634716357689577
+  },
+  {
+   "country": "Singapore",
+   "posted": 4.35476129218593,
+   "archive": 5.92,
+   "cities": 1,
+   "residual": -0.11199831800339743
+  },
+  {
+   "country": "South Africa",
+   "posted": 2.62077088158692,
+   "archive": 3.99,
+   "cities": 33,
+   "residual": 0.025279507002105905
+  },
+  {
+   "country": "South Korea",
+   "posted": 3.7341965669012698,
+   "archive": 4.99,
+   "cities": 29,
+   "residual": -0.1218891491336449
+  },
+  {
+   "country": "Sri Lanka",
+   "posted": 4.356620565252695,
+   "archive": 3.66,
+   "cities": 14,
+   "residual": -0.5933186729642237
+  },
+  {
+   "country": "Sweden",
+   "posted": 5.604190448055465,
+   "archive": 8.09,
+   "cities": 29,
+   "residual": -0.06388339717546199
+  },
+  {
+   "country": "Switzerland",
+   "posted": 6.9847573296828145,
+   "archive": 16.03,
+   "cities": 37,
+   "residual": 0.38931680804131474
+  },
+  {
+   "country": "Taiwan",
+   "posted": 2.4886779017813447,
+   "archive": 4.88,
+   "cities": 13,
+   "residual": 0.2807968830399168
+  },
+  {
+   "country": "Thailand",
+   "posted": 3.6979188133946552,
+   "archive": 5.745,
+   "cities": 36,
+   "residual": 0.029229179526569782
+  },
+  {
+   "country": "Turkey",
+   "posted": 3.3319853166310054,
+   "archive": 3.09,
+   "cities": 60,
+   "residual": -0.4817984676187752
+  },
+  {
+   "country": "Ukraine",
+   "posted": 2.49207682097679,
+   "archive": 3.26,
+   "cities": 40,
+   "residual": -0.12405052603896105
+  },
+  {
+   "country": "United Arab Emirates",
+   "posted": 4.90059283583256,
+   "archive": 6.81,
+   "cities": 5,
+   "residual": -0.09561516054940378
+  },
+  {
+   "country": "United Kingdom",
+   "posted": 4.55360303558279,
+   "archive": 7.38,
+   "cities": 154,
+   "residual": 0.06167773319811087
+  },
+  {
+   "country": "United States",
+   "posted": 5.255000000000001,
+   "archive": 8.0,
+   "cities": 1025,
+   "residual": -0.007692603392749131
+  },
+  {
+   "country": "Uruguay",
+   "posted": 6.46715348498951,
+   "archive": 10.23,
+   "cities": 11,
+   "residual": 0.02081585840490696
+  },
+  {
+   "country": "Venezuela",
+   "posted": 2.2407082653583252,
+   "archive": 8.18,
+   "cities": 17,
+   "residual": 0.9072685717526972
+  },
+  {
+   "country": "Vietnam",
+   "posted": 3.008469873134465,
+   "archive": 4.08,
+   "cities": 14,
+   "residual": -0.09690423461699438
+  }
+ ],
+ "referee_countries_without_archive": [
+  "Euro area",
+  "Hong Kong (China)"
+ ],
+ "b39_3_date_split": {
+  "median_move_log": 0.08699591598778722,
+  "stable": {
+   "n": 26,
+   "residual_sd": 0.2579481658808763
+  },
+  "moving": {
+   "n": 25,
+   "residual_sd": 0.2624582254418662
+  }
+ }
+}

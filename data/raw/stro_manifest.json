@@ -1,0 +1,46 @@
+{
+  "article_url": "https://doi.org/10.6084/m9.figshare.27176202",
+  "files": {
+    "customs_entries.csv": {
+      "action": "kept",
+      "bytes": 67632551,
+      "fetched_utc": "2026-09-02T23:47:57Z",
+      "md5": "7e831f5a9888f01ce18bff4bf2a6a2f8",
+      "url": "https://ndownloader.figshare.com/files/49710744",
+      "verified": true
+    },
+    "departure.csv": {
+      "action": "kept",
+      "bytes": 67789265,
+      "fetched_utc": "2026-09-02T23:47:57Z",
+      "md5": "566c660ca2cd261e07a61282a767d952",
+      "url": "https://ndownloader.figshare.com/files/49710741",
+      "verified": true
+    },
+    "destination.csv": {
+      "action": "kept",
+      "bytes": 65900463,
+      "fetched_utc": "2026-09-02T23:47:57Z",
+      "md5": "9fecfd98df5ab17515f08c1d1aba84a6",
+      "url": "https://ndownloader.figshare.com/files/49710747",
+      "verified": true
+    },
+    "registers.csv": {
+      "action": "kept",
+      "bytes": 61950,
+      "fetched_utc": "2026-09-02T23:47:57Z",
+      "md5": "9c774358e0946aed47638c6db6f70a16",
+      "url": "https://ndownloader.figshare.com/files/49710717",
+      "verified": true
+    },
+    "sections.csv": {
+      "action": "kept",
+      "bytes": 388582,
+      "fetched_utc": "2026-09-02T23:47:57Z",
+      "md5": "af3bfc1b61a5540d7a7ee04c3b3d04fc",
+      "url": "https://ndownloader.figshare.com/files/49710723",
+      "verified": true
+    }
+  },
+  "source": "STRO 2.0, Re-engineered data from Sound Toll Registers Online, figshare article 27176202, CC BY 4.0"
+}

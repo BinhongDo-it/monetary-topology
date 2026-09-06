@@ -164,6 +164,28 @@ EXPERIMENTS = [
         "experiments/a18_policy_paths.py --park",
         "a18_park.json",
     ),
+    # Forty one runs at about thirteen seconds each, so roughly nine minutes
+    # cold. Every run is cached in results/a19_cache.json keyed by the full
+    # parameter set, so a rerun after any edit that does not change a
+    # parameter costs seconds, and an interrupted run resumes where it stopped.
+    (
+        "A19  industries as clusters of agents",
+        "experiments/a19_industry.py",
+        "a19_directions.json",
+    ),
+    # Fifteen runs, all cached in results/a20_cache.json by the full parameter
+    # set, so a rerun costs seconds. It imports a19_industry for the carrier.
+    (
+        "A20  formation lag as a per-industry property",
+        "experiments/a20_formation_lag.py",
+        "a20_formation_lag.json",
+    ),
+    # Cached in results/a21_cache.json by the full parameter set.
+    (
+        "A21  the coefficient matrix moves",
+        "experiments/a21_technology.py",
+        "a21_technology.json",
+    ),
     (
         "A18_F who carries a forbearance programme",
         "experiments/a18_policy_paths.py --carry",
@@ -221,6 +243,56 @@ EXPERIMENTS = [
         "B1H  the hole taxonomy",
         "experiments/b1_holes.py",
         "b1_holes.json",
+    ),
+    # A26, every mode in one job, about two minutes. The script takes a mode
+    # argument, which this table already supports: the entry is split on
+    # whitespace before it is handed to the interpreter.
+    #
+    # One entry rather than one per mode. Three entries would each point at the
+    # same record file and the digest counts criteria per entry, so the stage's
+    # criteria would have been counted three times. Measured, not reasoned
+    # about: that is what it printed before this was collapsed.
+    #
+    # The gate mode is the one that has to run here rather than by hand. It
+    # compares the current build against the copy of ``network.py`` taken
+    # before the routing switch was added, on every history field, and that is
+    # rule 19's check for this switch.
+    (
+        "A26  rank-and-fill routing",
+        "experiments/a26_greedy.py --all",
+        "a26_greedy.json",
+    ),
+    # **A24 was missing from this table for its whole life**, and so were its
+    # sixteen criteria: no digest ever counted them and no summary ever showed
+    # them. It is the same hole the renderer had, where two whole stages never
+    # appeared, and it was found the same way, by counting rather than by
+    # anything failing.
+    #
+    # It could not have been added before this round without killing the
+    # digest. Six of its criteria are printed objects with no verdict, which
+    # is the second shape discipline 11 admits, and the reader took ``passed``
+    # by subscript. That is fixed in ``criteria_from`` above, in the same
+    # round, which is the order these two had to be done in.
+    #
+    # ``--all`` for the same reason as A26: nine modes write into one record,
+    # and nine entries would count the sixteen nine times. One minute forty on
+    # the machine this was added on.
+    (
+        "A24  the information wall",
+        "experiments/a24_information_wall.py --all",
+        "a24_information_wall.json",
+    ),
+    # **A25 had a section in RESULTS.md and nothing on disk.** The module was a
+    # library nothing called, the readings were hand-written, and the section
+    # said in so many words that the criteria were written into the script that
+    # produced the record and that the record carried their text. Neither half
+    # was true. A driver was written for it on 2026-09-03 and what it found is
+    # in the criterion: the structural halves reproduce and the four-cell table
+    # does not, by two orders of magnitude.
+    (
+        "A25  the clearing boundary",
+        "experiments/a25_boundary.py",
+        "a25_boundary.json",
     ),
 ]
 
@@ -431,6 +503,49 @@ EXPECTED_FAILURES = {
         "carried it as a failure, word for word, since it was reshaped. "
         "docs/a4_causal_primitive.md 11.8"
     ),
+    "A26-2c": (
+        "the reading, not a defect. The criterion asks that every edge the "
+        "proportional split would use is reached at least once while the "
+        "rank-and-fill rule is on. It is not, in 28.6 to 38.3 per cent of "
+        "them, and no edge is deleted and no floor is active: the ordering "
+        "produces an irreversibility that nothing in the rule states. Keeping "
+        "the criterion in its registered form is what makes that visible, so "
+        "it is not reshaped. RESULTS.md, the A26 section"
+    ),
+    "A26-7": (
+        "the locator's answer, and it is a negative one. It asks whether any "
+        "cell of the registered density grid crossed with three wage "
+        "elasticities leaves the ranking biting without driving cumulative "
+        "household inflow onto the floor. Fifteen of fifteen are on the floor, "
+        "the ratio running 0.004 to 0.011 of control and falling as the graph "
+        "gets denser. The criterion is written so that finding nothing fails "
+        "it, which is what makes the sweep worth having run. The reading is in "
+        "RESULTS.md, the A26 section"
+    ),
+    "A26-12": (
+        "a registered prediction refuted in every seed, and the direction "
+        "reverses a sentence this stage had been carrying since its first "
+        "run. That sentence said the ordering is driven by its own result: "
+        "a counterparty left unreached takes in less, ranks lower, and is "
+        "left unreached again. Ordering the queue on the in-degree instead, "
+        "which cannot move with the flow, was predicted to leave fewer "
+        "edges unreached. It leaves more, in twenty seeds of twenty, by 1.9 "
+        "to 27.1 percentage points. What puts edges out of use is the "
+        "fixity of the order, and the feedback is what keeps some of them "
+        "alive. RESULTS.md, the A26 section"
+    ),
+    "A26-10": (
+        "a registered prediction that was refuted, which is what the criterion "
+        "is shaped to record. The rule fills the counterparty with the largest "
+        "inflow, so the seeds whose median payer reaches four or five "
+        "counterparties were predicted to show a lower head-capacity to "
+        "typical-budget ratio than those whose median payer reaches three. "
+        "They show a higher one and no clean separation. The same run also "
+        "found the quantity ill-conditioned past the first round: with "
+        "issuance off the median payer's holdings reach zero within two "
+        "rounds, so the denominator vanishes. Both halves are in RESULTS.md, "
+        "the A26 section"
+    ),
     "A6-1": (
         "scope defect visible on paper: it quantifies over all eight cells "
         "while A6-3 requires the flat four not to contract. Not rewritten "
@@ -497,6 +612,52 @@ EXPECTED_FAILURES = {
         "under it. The zero calibration did what a zero calibration is for. "
         "A5-7 and A5-8 are registered forward to score what it caught, and "
         "this criterion is not backfilled. docs/a5_reachability.md 8.1, 8.4"
+    ),
+    "A25-4  what happens once it binds": (
+        "**a reproduction failure and it is the finding.** This stage ran in "
+        "August with no record on disk: its readings went straight into "
+        "RESULTS.md by hand and the module that produced them was never "
+        "called by anything. A driver written on 2026-09-03 puts the stage on "
+        "the carrier its design sheet names and reproduces both structural "
+        "halves, the boundary being off at width zero in ten of ten cells and "
+        "the ceiling binding in seven of thirty. The four-cell table does not "
+        "come back: the recorded closing balance runs to +9955 on the arm "
+        "with a pump and no ceiling, and a sweep of six widths at both pump "
+        "settings and both ceiling arms reaches 3.22 anywhere. The original "
+        "readings are not withdrawn and not overwritten. What is established "
+        "is that they do not reproduce from what is on disk. RESULTS.md, the "
+        "A25 section"
+    ),
+    "A26-22": (
+        "**the structural half is refuted and that is the reading.** This arm "
+        "asks which edges a load-insensitive ordering never reaches, a "
+        "question registered in August and never done. Two accounts were "
+        "written down before it ran, queue position and payer poverty, and "
+        "the discriminator between them was structural: with one global order "
+        "and a leftover spread over every edge, each payer should reach a "
+        "prefix of its own ranked neighbours and stop, with no holes. Across "
+        "4000 payers in twenty seeds there are 56 holes. The account is "
+        "wrong and the reason is not established: the obvious one, that a "
+        "counterparty with no capacity is stepped over, is refuted by its own "
+        "numbers, the largest capacity passed over being 1.03e-27 against a "
+        "smallest absorbing capacity of 3.88e-165. What the arm does "
+        "establish stands: the unreached edges are not identifiable as edges, "
+        "and what moves the stopping point is the payer's layer, spanning "
+        "0.197 to 1.000, and not its out-degree, whose relation is not "
+        "monotone. RESULTS.md, the A26 section"
+    ),
+    "A26-20": (
+        "**the outcome map failed, not the run.** This arm swept the other "
+        "sign of the terms elasticity, terms improving with load rather than "
+        "worsening, which is the sign this stage's own correspondence carries. "
+        "Two cells were written down before it ran, that unreached edges rise "
+        "or that they fall, and the reading landed in a third nobody had "
+        "enumerated: they hold at the frozen value exactly, above it in zero "
+        "seeds of twenty and below it in zero, while the queue on that side "
+        "does move. Both registered accounts are refuted and the numbers are "
+        "not in question. The criterion records FAIL because a design owes "
+        "every reachable branch a reading and this one gave two of three. "
+        "RESULTS.md, the A26 section"
     ),
 }
 
@@ -584,6 +745,12 @@ def _all_criteria(block) -> list:
 def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
     """Pass count, total, the names that failed, and every name seen.
 
+    **Totals count criteria that carry a verdict.** A printed object with a
+    reading declared in advance carries none by construction, so it is in the
+    fourth element and not in the denominator: putting it there would report
+    every reading as a failure, which is the same error the void exclusion
+    below was written to undo.
+
     The fourth element exists so that a criterion on ``EXPECTED_FAILURES``
     which has started passing can be told apart from one that was not run at
     all. Those are different events and only one of them is a finding.
@@ -601,25 +768,79 @@ def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
     """
     if not path.exists():
         return 0, 0, ["no result file"], []
-    record = json.loads(path.read_text())
-    blocks = []
-    if "criteria" in record:
-        blocks.append(record["criteria"])
-    else:
-        blocks.extend(
-            v["criteria"]
-            for v in record.values()
-            if isinstance(v, dict) and "criteria" in v
-        )
-    live = [
+    record = json.loads(path.read_text(encoding="utf-8"))
+    blocks: list = []
+
+    def _collect(node) -> None:
+        """Every ``criteria`` list in the record, at whatever depth it sits.
+
+        The two shapes this file already knew about are a record whose criteria
+        are at the top and a record whose criteria are one level down, one block
+        per stage section. **A third shape was on disk and invisible**: a writer
+        that nests its sections under a ``sections`` key puts them two levels
+        down, and the two-shape reader returned nothing at all for those
+        records rather than returning something wrong. A stage reporting seven
+        criteria printed as ``no result``.
+
+        This is the renderer's failure over again, in the file that replaced it.
+        That one skipped 22 records for having no ``stage`` key and two whole
+        stages never appeared; this one skipped every record a nesting writer
+        produced. Both were found by counting rather than by anything failing.
+
+        **Measured before the change, over every record on disk**: exactly two
+        records move, from 0 criteria to 15 and from 0 to 7, and the total goes
+        from 785 to 807. No record that was already visible changes by one
+        criterion, which is what makes this additive rather than a rewrite.
+        """
+        if isinstance(node, dict):
+            c = node.get("criteria")
+            if isinstance(c, list):
+                blocks.append(c)
+            for k, v in node.items():
+                if k != "criteria":
+                    _collect(v)
+        elif isinstance(node, list):
+            for v in node:
+                _collect(v)
+
+    _collect(record)
+    kept = [
         c
         for b in blocks
         for c in b
         if not (c.get("void") or c.get("diagnostic"))
     ]
+    # **A criterion with no ``passed`` is the second legitimate kind and not a
+    # broken record.** Discipline 11 admits exactly two shapes: a structural
+    # check, which has a verdict, and a printed object with a reading declared
+    # in advance, which does not. This line used to be ``c["passed"]`` and it
+    # would have raised KeyError on the first record of the second kind that
+    # reached it. That is the renderer's death over again, for the third time
+    # in this repository: it died on records writing ``criterion`` instead of
+    # ``name`` and took two whole stages with it.
+    #
+    # **A third shape was on disk too and it is the three-way middle**:
+    # ``passed`` present and null, which is what an undecidable reading writes.
+    # Discipline 23 requires that state to exist and to be neither a raise nor
+    # a FAIL, so it leaves the denominator with the printed objects.
+    #
+    # **Measured before the change, over every record on disk**: 824 criteria,
+    # 708 of them not void and not demoted, of which 698 carry a boolean, 6
+    # carry no verdict at all, all six in ``a24_information_wall.json``, and 4
+    # carry null, in ``a3g_widened_population.json``, ``b21_capture.json`` and
+    # ``b21_spread.json``, each one naming itself undecidable.
+    #
+    # **Nothing currently moves**, and the reason is worth writing down: every
+    # record holding a non-boolean sits outside the job table, so the digest
+    # has never read one. It did not survive this, it never met it. That is
+    # the same accident the diagnostic field lived on, and it ends here
+    # because A24 joins the table in this round.
+    live = [c for c in kept if isinstance(c.get("passed"), bool)]
+    read = [c["name"] for c in kept if "passed" not in c]
+    undecided = [c["name"] for c in kept if c.get("passed", False) is None]
     passed = sum(c["passed"] for c in live)
     failed = [c["name"] for c in live if not c["passed"]]
-    seen = [c["name"] for c in live]
+    seen = [c["name"] for c in live] + read + undecided
     return passed, len(live), failed, seen
 
 

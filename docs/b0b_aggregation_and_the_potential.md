@@ -13,14 +13,15 @@ narrow question about it:
 > **Which standard constructs presuppose that the object Theorem 1 characterises
 > exists, and what happens to them when it does not?**
 
-Three are treated below. They are not equally exposed and the document says which
-carries weight.
+The constructs treated below are not equally exposed, and the document says which
+carry weight.
 
 | construct | the object it needs | status here |
 |---|---|---|
 | **Domar-weighted aggregation** (Hulten 1978, and the misallocation literature after it) | a frontier `F` whose gradient is the price vector | **load-bearing** |
 | **a single pricing functional common to all agents** | `∮ω = 0` on the enlarged graph | **load-bearing** |
 | **the `P` in the quantity identity** | a scalar that generates the local exchange terms | **not load-bearing.** Kept as the shortest example of what the assumption looks like |
+| **the equilibrium the welfare theorems quantify over** (added 2026-08-29, section 8) | one price system `p` entering every agent's problem | **load-bearing** |
 
 ---
 
@@ -382,7 +383,137 @@ page numbers given are the ones those documents carry:
   Equilibrium*, model setup, and the companion note *A Short Note on Aggregating
   Productivity*.
 
+Section 8 carries its own sources in section 8.6.
+
 **Before any of these are quoted in a manuscript, check each against the published
 version of record and attach equation numbers.** Working-paper and published
 setups differ, and §6's standard applies to this document as much as to anything
 it argues with.
+
+
+---
+
+## 8. Construct four: the object the welfare theorems quantify over
+
+Added 2026-08-29. Same question as sections 2 to 4, put to the construct that does the
+most work outside this literature and is least often written down as needing anything.
+
+### 8.1 What the setup says
+
+**Two features of the standard setup carry this section, and neither is in dispute in any
+presentation of it.** They are stated here rather than quoted, because what the argument
+uses is the form of the definition and the form of the theorem, and both are the same in
+every source.
+
+**First, a competitive equilibrium is a price system together with an allocation.** In a
+private ownership economy each household maximises its utility over a budget set priced by
+`p`, each firm maximises profit over its production set at the same `p`, and markets
+clear. **One `p` enters every household's budget set and every firm's profit problem.**
+That is not an incidental feature of one presentation. It is what makes the object a price
+*system* rather than a list of bilateral terms.
+
+**Second, the First Welfare Theorem is stated over that object.** Its hypothesis is that
+`(p*, x*, y*)` is an equilibrium of such an economy, with preferences locally non-satiated;
+its conclusion is that the allocation is Pareto optimal. **The hypothesis names an
+equilibrium, and an equilibrium contains a `p*`.**
+
+### 8.2 Why the theorem needs it and not just likes it
+
+Sections 2 and 3 turn on an envelope step and on a common pricing functional. This one
+turns on something more elementary and therefore harder to repair.
+
+If no single scalar on positions generates the observed terms, then there is no `p*` for
+the triple `(p*, x*, y*)` to contain. **The hypothesis is not false. It is unsatisfiable.**
+A theorem whose hypothesis cannot be met on a carrier says nothing about that carrier, and
+the correct reading is that its domain is empty there rather than that its conclusion has
+been refuted.
+
+Theorem 1 in [`b1_theorem.md`](b1_theorem.md) gives the criterion, Corollary 1 decides it
+with a single edge, and the carriers in [RESULTS.md](../RESULTS.md) are where it was
+measured.
+
+**This is the sharpest form of the general point and it is also the narrowest.** It makes
+no comparison of anybody's welfare, ranks no allocation against another, and does not
+assert that any market fails to clear. [`b0_claim_scope.md`](b0_claim_scope.md) fixes this
+record's position at issuing no welfare criterion, and this section is consistent with
+that: it removes a theorem's applicability rather than supplying a verdict the theorem
+would otherwise have given.
+
+### 8.3 The escape, and its price
+
+The escape is the same one section 2.3's second branch already priced: **enlarge the
+commodity index so that it carries the transacting party.** A loan to class `a` and the
+same loan to class `b` become two commodities, one price vector exists again, and the
+theorem applies.
+
+Two things follow, and they are the price.
+
+**First**, the sufficient statistic's dimension grows with the number of agent classes,
+which is what section 2.3 records as costing the thing the compression was for.
+
+**Second, and specific to this construct**, on the enlarged commodity space each
+agent-good has exactly one possible buyer. The theorem still holds, and it now holds of an
+object in which no two agents trade the same commodity. **What the literature applies the
+theorem to is the unenlarged economy**, where a common good exists and its allocation
+across agents is the thing being called efficient. The enlarged version is a different
+object with the same theorem attached to it, and saying so is not a refutation of anyone.
+It is a statement about which of the two objects a given carrier is.
+
+### 8.4 The same step, one level down: the quadratic loss function
+
+The New Keynesian loss function in inflation and the output gap is obtained as a
+second-order expansion of a representative household's utility around an efficient steady
+state. **That is section 2.2's envelope step again**: it requires the allocation reached to
+be a stationary point of something. Where the local terms are not the gradient of any
+function, there is no object for the expansion to be taken of, and the loss function is
+undefined rather than wrong.
+
+[`b0d_new_keynesian.md`](b0d_new_keynesian.md) section 5.3 records the consequence for that
+literature: the normative closure it has over this framework is not an advantage this
+framework lacks, it is an artefact of the assumption this document is about.
+
+### 8.5 What this section does not claim
+
+Following section 5's pattern, since the same misreadings are available.
+
+**Does not claim** that the welfare theorems are wrong. On an economy with a price system
+they hold, and section 8.1 quotes the hypothesis rather than disputing the proof.
+
+**Does not claim** that any allocation is inefficient, that any market fails to clear, or
+that anyone behaved badly. Those are `b0_claim_scope.md` section 3's entries and they carry
+over unchanged.
+
+**Does not claim** that the enlargement in section 8.3 is illegitimate. It is legitimate
+and it is priced, which is a different objection.
+
+**Does not claim** that this delivers a welfare judgement of its own. It removes a
+theorem's applicability on a carrier and supplies nothing in its place, which is the
+position `b0_claim_scope.md` already fixes.
+
+### 8.6 Citation status for this section
+
+**Section 8.1 carried two quotations and no longer does.** They had been taken from
+teaching material rather than from a text of record, and rather than leave an unsourced
+quotation standing they were removed and the two statements written out directly. Section
+6's rule is to delete a row that cannot be answered by quotation rather than soften it, and
+this is that rule applied to this section.
+
+**Why the statements survive the removal, when section 6 bans paraphrasing an opponent.**
+That ban is aimed at claims about what a body of work assumes, where formulations differ and
+a paraphrase can quietly pick the convenient one. Section 6's own four questions are all of
+that kind. These two are not: the definition of competitive equilibrium and the form of the
+First Welfare Theorem do not vary across sources, so there is nothing to pick. **The
+operative difference is that if the statements in 8.1 were wrong they would be wrong in
+every textbook at once**, which a reader checks against their own copy rather than against a
+source this document chose.
+
+**What the argument needs from them is narrow and is visible in the statements themselves**:
+that the definition quantifies over one price system, and that the welfare theorem's
+hypothesis names an equilibrium. Neither needs surrounding text and neither is contested.
+
+**If either is ever quoted in a manuscript it is transcribed from the book at that point**,
+either Debreu's *Theory of Value* (1959) or Mas-Colell, Whinston and Green (1995), and from
+the book rather than from a description of it. **Section numbers are deliberately not given
+here.** An attempt to fix them from online copies returned a table of contents from a single
+mirror with no second source that could corroborate it, and a number carried in on one
+unverified mirror would be the same defect as the quotation it replaced.

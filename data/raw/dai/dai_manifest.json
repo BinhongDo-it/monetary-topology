@@ -1,0 +1,35 @@
+{
+  "dai_china_wp29.pdf": {
+    "bytes": 1378469,
+    "note": "pypdf not installed"
+  },
+  "dai_china_wp29.txt": {
+    "bytes": 962762,
+    "commodity_mentions": {
+      "beef": 15,
+      "corn": 1,
+      "cotton": 42,
+      "egg": 18,
+      "fish": 15,
+      "fruit": 41,
+      "groundnut": 5,
+      "maize": 41,
+      "milk": 41,
+      "pork": 34,
+      "poultry": 37,
+      "rapeseed": 4,
+      "rice": 247,
+      "sheep": 5,
+      "soybean": 43,
+      "sugar": 51,
+      "tobacco": 6,
+      "vegetable": 39,
+      "wheat": 42
+    },
+    "lines": 127535,
+    "n_distinct_years": 66,
+    "sha256": "4be6d2a8c666ca41",
+    "year_max": 2018,
+    "year_min": 1950
+  }
+}

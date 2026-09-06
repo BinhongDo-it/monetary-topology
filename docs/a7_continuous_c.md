@@ -283,7 +283,7 @@ A7-B inherits §12.3's second limit unchanged: the model's only stock is a
 transaction balance whose half-life is about one round on the complete graph and
 five on the stratified one, while `generation_length` is forty, so every
 generational mechanism fires on a variable that has already forgotten. §12.3's
-third limit records that `PROJECT_PLAN` §16.2's injection does not repair it, and
+third limit records that the injection switch does not repair it, and
 measures why: the stock is `credit / drain rate`, a fixed point rather than an
 accumulation. **If the slope in leg B is flat, that limit is a live alternative
 explanation for the flatness and the leg's reading must carry it.** Section 5
@@ -627,7 +627,7 @@ sign, an ordering or a monotone direction.
 **A7-B-1 fails, the slope is flat or reversed at a majority of seeds.** Then
 connectivity does not amplify capital returns on this carrier, **measured rather
 than non-computable**, which is the thing A4-4 could not deliver. That is a real
-negative against `PROJECT_PLAN` §8.3's amplification arrow, and §12.2 already
+negative against the upstream amplification arrow, and §12.2 already
 records that the arrow was never measured, so this would be the first reading of
 it in either direction.
 
@@ -834,7 +834,7 @@ cycle.** Dilute the margin and compounding erases the stock.
    counterparty count is sharp. Sectors or regions just below look extractive and
    just above look competitive with little in between, which is a bimodality that
    can be looked for.
-5. **It makes `PROJECT_PLAN` §12.3's fifth limit binding rather than
+5. **It makes §12.3's fifth limit binding rather than
    incidental.** If rent is exponential in traversal count, no quantitative claim
    about the size of positional rent is interpretable until the rounds-to-time
    mapping is pinned. A3-8's `+23.267` is then a function of an unfixed free

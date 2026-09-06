@@ -348,8 +348,8 @@ class AssetSpec:
     # generalisation that cannot recover its own special case is not a
     # generalisation, the same discipline as ``elasticity = 0``.
 
-    #: Which rule distributes the opening stock. ``docs/a3b_initial_
-    #: construction.md`` §3.
+    #: Which rule distributes the opening stock.
+    #: ``docs/a3b_initial_construction.md`` §3.
     #:
     #: ``"auction"`` — highest tier first, richest first. Retained as the
     #: default and it is not fictional: it is the primary sale of new supply and

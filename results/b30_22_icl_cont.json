@@ -1,0 +1,87 @@
+{
+  "plan2_P30000": {
+    "peak_income": 50425.0,
+    "peak_total": 39078.90686725395,
+    "peak_over_principal": 1.302630228908465,
+    "clearing_income": 43860.0,
+    "floor": 2.54717670031962e-06,
+    "threshold_used": 2.54717670031962e-05,
+    "monotone": false,
+    "n_breakpoints": 3,
+    "breakpoints": [
+      29385.0,
+      43860.0,
+      64055.0
+    ]
+  },
+  "plan2_P45000": {
+    "peak_income": 54660.0,
+    "peak_total": 68242.5,
+    "peak_over_principal": 1.5165,
+    "clearing_income": 54665.0,
+    "floor": 6.514145934492788e-06,
+    "threshold_used": 6.514145934492788e-05,
+    "monotone": false,
+    "n_breakpoints": 2,
+    "breakpoints": [
+      29385.0,
+      65970.0
+    ]
+  },
+  "plan2_P60000": {
+    "peak_income": 63090.0,
+    "peak_total": 90991.91874803929,
+    "peak_over_principal": 1.5165319791339882,
+    "clearing_income": 63090.0,
+    "floor": 1.3278750702741537e-05,
+    "threshold_used": 0.00013278750702741537,
+    "monotone": false,
+    "n_breakpoints": 2,
+    "breakpoints": [
+      29385.0,
+      71260.0
+    ]
+  },
+  "plan5_P30000": {
+    "peak_income": 33350.0,
+    "peak_total": 30000.000000000004,
+    "peak_over_principal": 1.0000000000000002,
+    "clearing_income": 33335.0,
+    "floor": 2.9103830456733705e-12,
+    "threshold_used": 2.9103830456733704e-11,
+    "monotone": true,
+    "n_breakpoints": 2,
+    "breakpoints": [
+      25000.0,
+      33335.0
+    ]
+  },
+  "plan5_P45000": {
+    "peak_income": 37725.0,
+    "peak_total": 45000.00000000001,
+    "peak_over_principal": 1.0000000000000002,
+    "clearing_income": 37500.0,
+    "floor": 5.820766091346741e-12,
+    "threshold_used": 5.820766091346741e-11,
+    "monotone": true,
+    "n_breakpoints": 2,
+    "breakpoints": [
+      25000.0,
+      37500.0
+    ]
+  },
+  "plan5_P60000": {
+    "peak_income": 41700.0,
+    "peak_total": 60000.00000000001,
+    "peak_over_principal": 1.0000000000000002,
+    "clearing_income": 41670.0,
+    "floor": 5.820766091346741e-12,
+    "threshold_used": 5.820766091346741e-11,
+    "monotone": true,
+    "n_breakpoints": 2,
+    "breakpoints": [
+      25000.0,
+      41670.0
+    ]
+  }
+}

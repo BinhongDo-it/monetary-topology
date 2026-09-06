@@ -34,6 +34,11 @@ result was a special case of the cohomological claim or a weaker relative. It is
 a special case, and under the assumptions of §8 it carries almost the whole
 obstruction.
 
+**Corollary 5.5**, added 2026-08-29, names the family that occupies Theorem 5's
+zero set: any account generating terms from one scalar on positions plus one common
+intertemporal rate returns `∮ω = 0` on every cycle identically, whatever its
+frictions and shocks. That is what the measured carriers are read against.
+
 **Theorem 5**, added 2026-08-27, turns Theorem 1's equivalence into a
 measurement. It computes the distance from the field to the nearest single scalar
 potential in closed form from the two graphs' spectra, and splits it, with no
@@ -488,6 +493,40 @@ the other side. Loop B, the vintage loop, argues from the **hole** rather than f
 the holonomy: integrability on a space one cannot move around in is vacuous, and
 the disconnection is itself the finding. Theorem 1 explains why loop B needs a
 different argument, which the setup document asserted but could not derive.
+
+**Where it is denied in the text of a law: a currency reform.** Added 2026-09-05,
+from the currency-reform corpus. Russia's exchange of July 1993 wrote one rate, one
+old rouble to one new rouble, and then wrote different terms for different holders
+of the same position: a citizen could take 35,000 in cash over a fortnight with the
+excess going to a six-month interest-bearing deposit at face; a foreign citizen
+15,000 on a single day; a legal person no cash at all. **The position does not trade
+at a single price independent of who holds it, and it is the statute that says so.**
+
+That gives A1 a kind of counterexample it does not otherwise have. In the dwelling
+and the mortgage the assumption has to be argued from how the market works; here the
+instrument enumerates the holder classes and the terms each of them gets, so the
+agent edge carries a weight that can be read off the text rather than estimated.
+
+The weight is computable. For a holder in class `c` with holding `H`, a within-band
+quota `Q(c)`, a within-band rate `r` and an outside-band treatment worth `r'(c)`,
+
+```
+r_eff(c, H)  =  [ Q(c)·r + (H − Q(c))·r'(c) ] / H       for H > Q(c)
+r_eff(c, H)  =  r                                        for H ≤ Q(c)
+```
+
+and the cost of traversing the edge at all — one day against a fortnight, how many
+exchange points, whether the queue clears — enters the `t` term below, in the same
+sum as a price difference.
+
+**Two objects, and only one of them was named.** The written rate is a one-index
+quantity attached to classes: finitely many, countable, and it is what the corpus's
+counting law counts. `r_eff` is a function of class and holding, so it is the
+two-index effective cost `P(a, g)` that `b1_setup.md` established the claim has to be
+about, with `a` the holder's class and `g` the conversion. **A written rate of "one
+for everyone" is therefore a reading of a text and not a statement that everyone
+faces the same price.** These carriers are not an application of the framework so
+much as an instance of its object being written down by a legislature.
 
 **Robustness when A1 is merely approximate.** If agent edges carry weight `t ≠ 0`
 — transaction costs, transfer frictions — the square sum becomes
@@ -1141,6 +1180,59 @@ off it, it is bounded away from zero by two graph spectra.
 object does not merely agree with it, it *is* it, by (4) ⟹ (1) of Theorem 1. Off
 it, the enlarged object returns a number and the single-price account returns
 zero, and Corollary 5.3 says how far apart those are.
+
+### Corollary 5.5: a named family that lies in the zero set
+
+Corollary 5.4 identifies the locus. This corollary names the family that occupies
+it, because naming it is what turns a general containment statement into a
+prediction someone can go and test.
+
+**Corollary 5.5.** Let a model generate the terms of exchange from a scalar on
+positions, `p_i(t)`, together with one intertemporal rate faced by every agent, so
+that its edge field is `w(i, j) = φ(j) − φ(i)` with `φ(i) = log p_i` and `φ`
+constant along `H`. Then `D = 0` and the common field is exact, so by Corollary 5.1
+and Corollary 5.4, `ρ(ω)² = 0`, and by Theorem 1 (4) ⟹ (1),
+
+```
+∮ω  =  0     on every cycle of Γ = G □ H
+```
+
+**identically, for every parameter setting, every friction specification and every
+shock process the model admits.**
+
+**Proof.** One line. The hypothesis is Theorem 1's condition (4) written out: each
+`w_a` is exact on `G` because it is a coboundary, and all the `w_a` coincide
+because none of them carries the index `a`. Apply (4) ⟹ (1).
+
+**Scope, and why the family is closed under its own extensions.** The New Keynesian
+literature is the largest current occupant of this locus, and its extensions do not
+leave it. They act in three places: the time dynamics of `φ`, which is what every
+nominal rigidity, indexation scheme, information friction and behavioural discount
+operates on; a measure laid over `C⁰(G)`, which is what a household distribution is;
+and edges added to the position graph `G`, which is what an input-output structure
+is. **None of the three introduces the index `a` into the field**, so none changes
+`D`. A survey of the current frontier by quotation of its setups, together with the
+one place a counterexample would have to appear, is in
+[`b0d_new_keynesian.md`](b0d_new_keynesian.md).
+
+**What this is not.** It is not a refutation of any model in that family, for the
+reason Corollary 1's reduction paragraph already gives: the locus is where the
+enlarged object *is* the older one rather than merely agreeing with it. On that
+locus their answers are this framework's answers.
+
+**What it buys.** It fixes what the carriers are measuring against. A non-zero
+closed-loop sum is not evidence that some model in that family fits badly. It is a
+reading of a quantity every member of it sets to exactly zero as an arithmetic
+consequence of its own index sets. **The seven carriers are therefore seven
+independent tests of one named point prediction**, and the shape of the test does
+not require anyone to concede a fit anywhere.
+
+**Two things it does not license.** It says nothing about the magnitude of any
+reading, per §10. And it is not escaped by staggered pricing: dispersion generated
+by firms resetting at different dates disperses `p_i` across sellers, which leaves
+the field inside `C⁰(G)`, so `w = dφ` stays exact and the cycle sum stays zero
+however large that dispersion is. What such a mechanism buys is slower dynamics for
+`φ`, and §14.5 states the domain fact it runs into.
 
 ### 14.3 What this licenses, and what it does not
 

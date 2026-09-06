@@ -287,7 +287,7 @@ def selftest() -> int:
     import inspect
     import zipfile
     # **Key the name on THIS file's case table, not on b8_core's generator.**
-    # HANDOFF_B8 §3 pit 19 is exactly this trap and it caught this file on its
+    # This is a known trap and it caught this file on its
     # first run: the fixture was named from `K._fixture_tag()`, the case table
     # here changed, the hash did not move, and the stale archive was reused.
     tag = hashlib.sha256(

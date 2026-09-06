@@ -1,0 +1,47 @@
+{
+ "n3": {
+  "configurations": 1539,
+  "one_sided_by_shared_term": 180,
+  "one_sided_counterexamples": 180,
+  "one_sided_counterexamples_distinct_terms": 0,
+  "one_sided_other_shape": 0,
+  "two_sided_by_shared_term": 810,
+  "two_sided_counterexamples": 810,
+  "two_sided_counterexamples_distinct_terms": 0,
+  "two_sided_other_shape": 0,
+  "upper_bound_by_shared_term": 180,
+  "upper_bound_counterexamples": 180,
+  "upper_bound_distinct_terms": 0,
+  "upper_bound_other_shape": 0
+ },
+ "n4": {
+  "configurations": 25029,
+  "one_sided_by_shared_term": 4994,
+  "one_sided_counterexamples": 4994,
+  "one_sided_counterexamples_distinct_terms": 0,
+  "one_sided_other_shape": 0,
+  "two_sided_by_shared_term": 18468,
+  "two_sided_counterexamples": 18468,
+  "two_sided_counterexamples_distinct_terms": 0,
+  "two_sided_other_shape": 0,
+  "upper_bound_by_shared_term": 4994,
+  "upper_bound_counterexamples": 4994,
+  "upper_bound_distinct_terms": 0,
+  "upper_bound_other_shape": 0
+ },
+ "n5": {
+  "configurations": 453438,
+  "one_sided_by_shared_term": 129783,
+  "one_sided_counterexamples": 129783,
+  "one_sided_counterexamples_distinct_terms": 0,
+  "one_sided_other_shape": 0,
+  "two_sided_by_shared_term": 394389,
+  "two_sided_counterexamples": 394389,
+  "two_sided_counterexamples_distinct_terms": 0,
+  "two_sided_other_shape": 0,
+  "upper_bound_by_shared_term": 129783,
+  "upper_bound_counterexamples": 129783,
+  "upper_bound_distinct_terms": 0,
+  "upper_bound_other_shape": 0
+ }
+}

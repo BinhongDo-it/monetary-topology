@@ -1,0 +1,16 @@
+{
+  "source": "db1b",
+  "year": 1995,
+  "quarter": 1,
+  "cfg_key": "e6748e87",
+  "n_carriers": 15,
+  "n_routes": 2141,
+  "n_cells": 9794,
+  "density": 0.3049665265452281,
+  "fare_mean": 200.38919122053886,
+  "fare_sd": 73.95480556190466,
+  "cells_per_route": 4.5744978981784215,
+  "floor_log_rms": 0.06106682682457167,
+  "floor_log_median": 0.04376804384126868,
+  "pax_median": 109.0
+}

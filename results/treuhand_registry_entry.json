@@ -1,0 +1,1087 @@
+{
+ "criteria": [
+  {
+   "detail": "REGISTER_DATUM is near-absent in the no_reg cell and near-complete in the has_court cell, in R, V and L alike",
+   "name": "B40-1 outcome is the same object in both arms",
+   "passed": true
+  },
+  {
+   "detail": "flipped: none; East total 0.3708 vs 0.0480, 28.0 se",
+   "name": "B40-2 no Land flips sign",
+   "passed": true
+  },
+  {
+   "detail": "ratio all 7.7x -> GmbH-only 12.9x (widened)",
+   "name": "B40-3 gap under restriction to self-declared companies",
+   "passed": true
+  },
+  {
+   "detail": "R 2.8% vs V 3.8% of the no-registry cell say so in the name; too few and too similar to carry the gap",
+   "name": "B40-4 the gap is not carried by explicit in-formation names",
+   "passed": true
+  },
+  {
+   "detail": "ratio all 7.7x -> prefix deleted 7.8x at 16.2 se",
+   "name": "B40-6 the gap survives deleting every prefixed row",
+   "passed": true
+  },
+  {
+   "detail": "cosine 0.9562 on all described rows and 0.9577 on the has_court subset, so the fill-rate difference does not drive it; the largest single-token gap is 2.17 pp, on a verb of making rather than an industry. A confound needs the treatment to correlate with industry, and here the two arms are composed alike. Weak form: German compounds are not split, so industry sits inside tokens this does not separate.",
+   "name": "B40-7 industry composition, printed for both arms",
+   "passed": true
+  },
+  {
+   "detail": "rated R n=20 against V n=387. The grades run 1 best to 6 worst: R means 3.550, V means 3.463, a difference of +0.087 at 0.3 se. What this subset can do is bound: it resolves 0.511 grade points at two standard errors, 10% of a scale five wide, so it excludes a quality gap larger than that and says nothing about smaller ones. Two limits travel with it. The rated firms are selected, so the bound holds on the rated subset and not on the arm. And n=20 is not a sample that could be enlarged: it is every rated restituted firm in the file, which is why B40-9 asks why that number is what it is. The criterion as registered asked for N and the resolution to be printed; both are printed. An earlier version recorded this as failed, which marked the answer rather than the criterion.",
+   "name": "B40-5 size story on the rated subset: what it excludes",
+   "passed": true
+  },
+  {
+   "detail": "the committee grade is an input to the agency own disposal decision, so the statuses the agency decided should carry ratings and one decided elsewhere should not. Restitution is the least covered of the seven at 1.03%, against 5.59% for sold and 7.21% for liquidated, a ratio of 5.43 to sold and 12.7 se. That is the identifying premise measured rather than assumed: restitution did not pass through the process that produced the grades. Liquidation being the best covered fixes the direction of the appendix sentence that grades are not awarded to firms already being privatized, municipalized or liquidated: it is about the state at the meeting, not the eventual outcome, and it does not name restitution at all, so it does not by itself account for this gap.",
+   "name": "B40-9 rating coverage by disposal status, seven cells printed",
+   "passed": true
+  },
+  {
+   "detail": "no group reverses sign under any of the three groupings (none flipped). Ratios run 2.7x to 51.3x on the widest grouping. The third grouping uses only the predecessor state-enterprise name, fixed before 1990 and so exogenous to the disposal, and the answer does not change.",
+   "name": "B40-8 industry, strong form: every group printed, three groupings",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": false,
+ "n_rows": 13378,
+ "scope_note": "two limits travel with every reading here and neither is an open step. About half of each arm never joins the register, and non-match is mixed with dying before 2005, so the later margin is read only among firms that did join. And the rated subset bounds the quality story at 0.51 grade points on a scale five wide, no finer, on the rated firms alone. Splitting the sold arm into West and East German buyers is a further measurement and not an unfinished one. Six source categories were checked for that column: the commercial firm register the published paper used, the agency own contract system at the federal archive (confidential, reached through an institutional cooperation), a research institute micro database that turns out to carry no acquirer information at all and only manufacturing, the public replication repository, this register dump, and the archive file series. This register dump cannot supply it: every dated table in it begins after 2000, and officer residence would in any case be conditional on surviving to be published, which is the outcome. What is open is the archive file series, at the cost of per-firm document work.",
+ "stage": "DE-REG",
+ "tables": {
+  "b40_9_rating_coverage": {
+   "R_vs_V_ratio": 5.434420551306104,
+   "R_vs_V_se_units": 12.719901127156048,
+   "by_status": {
+    "F": {
+     "n": 732,
+     "rated": 58,
+     "share": 0.07923497267759563
+    },
+    "GV": {
+     "n": 247,
+     "rated": 20,
+     "share": 0.08097165991902834
+    },
+    "IL": {
+     "n": 66,
+     "rated": 1,
+     "share": 0.015151515151515152
+    },
+    "L": {
+     "n": 3314,
+     "rated": 239,
+     "share": 0.07211828605914303
+    },
+    "R": {
+     "n": 1946,
+     "rated": 20,
+     "share": 0.010277492291880781
+    },
+    "SP": {
+     "n": 144,
+     "rated": 4,
+     "share": 0.027777777777777776
+    },
+    "V": {
+     "n": 6929,
+     "rated": 387,
+     "share": 0.05585221532688699
+    }
+   },
+   "least_covered": "R"
+  },
+  "c1_column_fill": {
+   "GV/has_court": {
+    "datum": 165,
+    "gruend": 167,
+    "n": 188
+   },
+   "GV/no_reg": {
+    "datum": 0,
+    "gruend": 14,
+    "n": 59
+   },
+   "L/has_court": {
+    "datum": 3001,
+    "gruend": 3061,
+    "n": 3072
+   },
+   "L/no_reg": {
+    "datum": 2,
+    "gruend": 240,
+    "n": 242
+   },
+   "R/has_court": {
+    "datum": 1131,
+    "gruend": 1159,
+    "n": 1166
+   },
+   "R/no_reg": {
+    "datum": 3,
+    "gruend": 652,
+    "n": 780
+   },
+   "V/has_court": {
+    "datum": 6434,
+    "gruend": 6552,
+    "n": 6553
+   },
+   "V/no_reg": {
+    "datum": 5,
+    "gruend": 347,
+    "n": 376
+   }
+  },
+  "c2_by_land": {
+   "BLNO": {
+    "a_k": 13,
+    "a_n": 38,
+    "a_p": 0.34210526315789475,
+    "b_k": 27,
+    "b_n": 619,
+    "b_p": 0.04361873990306947,
+    "ratio": 7.84307992202729,
+    "se": 0.07739682072462056,
+    "se_units": 3.8565734413929778
+   },
+   "BRAN": {
+    "a_k": 136,
+    "a_n": 202,
+    "a_p": 0.6732673267326733,
+    "b_k": 41,
+    "b_n": 1020,
+    "b_p": 0.04019607843137255,
+    "ratio": 16.749577396764067,
+    "se": 0.03356822935695598,
+    "se_units": 18.859238644057832
+   },
+   "ME-V": {
+    "a_k": 27,
+    "a_n": 142,
+    "a_p": 0.19014084507042253,
+    "b_k": 26,
+    "b_n": 776,
+    "b_p": 0.03350515463917526,
+    "ratio": 5.674972914409534,
+    "se": 0.03355812474916006,
+    "se_units": 4.667593663295139
+   },
+   "S-AN": {
+    "a_k": 108,
+    "a_n": 364,
+    "a_p": 0.2967032967032967,
+    "b_k": 47,
+    "b_n": 1149,
+    "b_p": 0.040905134899912966,
+    "ratio": 7.253448678980594,
+    "se": 0.024645787851982435,
+    "se_units": 10.37898091713096
+   },
+   "SACH": {
+    "a_k": 323,
+    "a_n": 835,
+    "a_p": 0.38682634730538923,
+    "b_k": 145,
+    "b_n": 1994,
+    "b_p": 0.07271815446339017,
+    "ratio": 5.319529217427215,
+    "se": 0.01782914768673676,
+    "se_units": 17.61767855429604
+   },
+   "THÜR": {
+    "a_k": 80,
+    "a_n": 272,
+    "a_p": 0.29411764705882354,
+    "b_k": 34,
+    "b_n": 1104,
+    "b_p": 0.030797101449275364,
+    "ratio": 9.550173010380623,
+    "se": 0.028112593309221737,
+    "se_units": 9.366640164184762
+   }
+  },
+  "c2_overall": {
+   "a_k": 687,
+   "a_n": 1853,
+   "a_p": 0.37075013491635184,
+   "b_k": 320,
+   "b_n": 6662,
+   "b_p": 0.048033623536475535,
+   "ratio": 7.718554371289799,
+   "se": 0.011522357410989139,
+   "se_units": 28.00785463156125
+  },
+  "c3_by_name_form": {
+   "NAME carries a legal form": {
+    "a_k": 384,
+    "a_n": 1380,
+    "a_p": 0.2782608695652174,
+    "b_k": 129,
+    "b_n": 5585,
+    "b_p": 0.023097582811101164,
+    "ratio": 12.047185709470845,
+    "se": 0.012229897056054291,
+    "se_units": 20.863894894994242
+   },
+   "NAME carries none": {
+    "a_k": 303,
+    "a_n": 473,
+    "a_p": 0.6405919661733616,
+    "b_k": 191,
+    "b_n": 1077,
+    "b_p": 0.17734447539461468,
+    "ratio": 3.612133756904243,
+    "se": 0.024944241976320815,
+    "se_units": 18.5713196343469
+   },
+   "NAME says GmbH": {
+    "a_k": 281,
+    "a_n": 1116,
+    "a_p": 0.2517921146953405,
+    "b_k": 107,
+    "b_n": 5488,
+    "b_p": 0.019497084548104955,
+    "ratio": 12.914346966804008,
+    "se": 0.013126088623413192,
+    "se_units": 17.69720110931505
+   },
+   "all East German firms": {
+    "a_k": 687,
+    "a_n": 1853,
+    "a_p": 0.37075013491635184,
+    "b_k": 320,
+    "b_n": 6662,
+    "b_p": 0.048033623536475535,
+    "ratio": 7.718554371289799,
+    "se": 0.011522357410989139,
+    "se_units": 28.00785463156125
+   }
+  },
+  "c4_forming": {
+   "R": {
+    "forming": 19,
+    "no_reg_n": 687,
+    "share": 0.027656477438136828
+   },
+   "V": {
+    "forming": 12,
+    "no_reg_n": 320,
+    "share": 0.0375
+   }
+  },
+  "c5_rated": {
+   "available": true,
+   "by_status": {
+    "F": 58,
+    "GV": 20,
+    "IL": 1,
+    "L": 238,
+    "R": 20,
+    "SP": 4,
+    "V": 387
+   },
+   "contrast": {
+    "a_k": 2,
+    "a_n": 20,
+    "a_p": 0.1,
+    "b_k": 0,
+    "b_n": 387,
+    "b_p": 0.0,
+    "ratio": null,
+    "se": 0.0670820393249937,
+    "se_units": 1.4907119849998598
+   },
+   "distinct_ids": 739,
+   "grades": {
+    "R_mean": 3.55,
+    "R_n": 20,
+    "V_mean": 3.462532299741602,
+    "V_n": 387,
+    "diff": 0.08746770025839767,
+    "resolves_2se": 0.5110167254564507,
+    "scale_width": 5,
+    "se": 0.25550836272822536
+   },
+   "matched_rows": 728
+  },
+  "c6_prefix": {
+   "VT rows only": {
+    "a_k": 402,
+    "a_n": 424,
+    "a_p": 0.9481132075471698,
+    "b_k": 155,
+    "b_n": 185,
+    "b_p": 0.8378378378378378,
+    "ratio": 1.1316189896530735,
+    "se": 0.029162193214034862,
+    "se_units": 3.7814498004306416
+   },
+   "VT rows removed": {
+    "a_k": 285,
+    "a_n": 1429,
+    "a_p": 0.1994401679496151,
+    "b_k": 165,
+    "b_n": 6477,
+    "b_p": 0.025474756831866605,
+    "ratio": 7.828933138240346,
+    "se": 0.010750071967011622,
+    "se_units": 16.182720604251784
+   },
+   "all rows": {
+    "a_k": 687,
+    "a_n": 1853,
+    "a_p": 0.37075013491635184,
+    "b_k": 320,
+    "b_n": 6662,
+    "b_p": 0.048033623536475535,
+    "ratio": 7.718554371289799,
+    "se": 0.011522357410989139,
+    "se_units": 28.00785463156125
+   },
+   "prefix_altname_veb": 469,
+   "prefix_no_registry": 643,
+   "prefix_rows": 707
+  },
+  "c7_industry": {
+   "all rows with a description": {
+    "cosine": 0.956225905245967,
+    "largest_gaps": [
+     {
+      "r": 0.054645354645354645,
+      "token": "herstellung",
+      "v": 0.032899235407471875
+     },
+     {
+      "r": 0.053646353646353645,
+      "token": "vertrieb",
+      "v": 0.03973705476471685
+     },
+     {
+      "r": 0.014185814185814187,
+      "token": "produktion",
+      "v": 0.007366196307577547
+     },
+     {
+      "r": 0.02107892107892108,
+      "token": "handel",
+      "v": 0.017218872381425995
+     },
+     {
+      "r": 0.001998001998001998,
+      "token": "dienstleistungen",
+      "v": 0.005718903462423075
+     },
+     {
+      "r": 0.005594405594405594,
+      "token": "durchführung",
+      "v": 0.009044570149810405
+     }
+    ],
+    "r_n": 1311,
+    "tokens": 14021,
+    "v_n": 6349
+   },
+   "has_court rows only": {
+    "cosine": 0.9577367294876019,
+    "largest_gaps": [
+     {
+      "r": 0.05452111476207862,
+      "token": "herstellung",
+      "v": 0.03308048220074911
+     },
+     {
+      "r": 0.0541560180114397,
+      "token": "vertrieb",
+      "v": 0.04003651128387523
+     },
+     {
+      "r": 0.01533406352683461,
+      "token": "produktion",
+      "v": 0.007396682509206509
+     },
+     {
+      "r": 0.0220275039552148,
+      "token": "handel",
+      "v": 0.017201221239495138
+     },
+     {
+      "r": 0.002190580503833516,
+      "token": "dienstleistungen",
+      "v": 0.005697019294325013
+     },
+     {
+      "r": 0.0055981501764634295,
+      "token": "durchführung",
+      "v": 0.00895470712284788
+     }
+    ],
+    "r_n": 1016,
+    "tokens": 13633,
+    "v_n": 6252
+   }
+  },
+  "c8_industry_groups": {
+   "altname only (pre-1990, exogenous to disposal)": {
+    "classified": 5258,
+    "flips": [],
+    "groups": {
+     "Bau": {
+      "a_k": 61,
+      "a_n": 126,
+      "a_p": 0.48412698412698413,
+      "b_k": 14,
+      "b_n": 350,
+      "b_p": 0.04,
+      "judged": true,
+      "ratio": 12.103174603174603,
+      "se": 0.04573665538461022,
+      "se_units": 9.710526062568777
+     },
+     "Baustoffe/Glas": {
+      "a_k": 23,
+      "a_n": 65,
+      "a_p": 0.35384615384615387,
+      "b_k": 4,
+      "b_n": 171,
+      "b_p": 0.023391812865497075,
+      "judged": true,
+      "ratio": 15.12692307692308,
+      "se": 0.060424483932757185,
+      "se_units": 5.468881477720187
+     },
+     "Bergbau/Steine": {
+      "a_n": 1,
+      "b_n": 20,
+      "judged": false
+     },
+     "Chemie/Kunststoff": {
+      "a_k": 15,
+      "a_n": 53,
+      "a_p": 0.2830188679245283,
+      "b_k": 18,
+      "b_n": 175,
+      "b_p": 0.10285714285714286,
+      "judged": true,
+      "ratio": 2.751572327044025,
+      "se": 0.06599972895529561,
+      "se_units": 2.729734317385099
+     },
+     "Dienstleistung": {
+      "a_k": 18,
+      "a_n": 44,
+      "a_p": 0.4090909090909091,
+      "b_k": 6,
+      "b_n": 159,
+      "b_p": 0.03773584905660377,
+      "judged": true,
+      "ratio": 10.840909090909092,
+      "se": 0.07564632130234472,
+      "se_units": 4.9090960887584485
+     },
+     "Druck/Papier": {
+      "a_k": 7,
+      "a_n": 31,
+      "a_p": 0.22580645161290322,
+      "b_k": 1,
+      "b_n": 130,
+      "b_p": 0.007692307692307693,
+      "judged": true,
+      "ratio": 29.354838709677416,
+      "se": 0.07548512081525761,
+      "se_units": 2.8894985073205137
+     },
+     "Elektro": {
+      "a_k": 25,
+      "a_n": 51,
+      "a_p": 0.49019607843137253,
+      "b_k": 1,
+      "b_n": 81,
+      "b_p": 0.012345679012345678,
+      "judged": true,
+      "ratio": 39.705882352941174,
+      "se": 0.07106764561667528,
+      "se_units": 6.723881103314675
+     },
+     "Energie/Sanitaer": {
+      "a_k": 11,
+      "a_n": 24,
+      "a_p": 0.4583333333333333,
+      "b_k": 4,
+      "b_n": 108,
+      "b_p": 0.037037037037037035,
+      "judged": true,
+      "ratio": 12.375,
+      "se": 0.10331777637932446,
+      "se_units": 4.077674830607411
+     },
+     "Handel": {
+      "a_n": 2,
+      "b_n": 87,
+      "judged": false
+     },
+     "Holz/Moebel": {
+      "a_k": 59,
+      "a_n": 142,
+      "a_p": 0.4154929577464789,
+      "b_k": 2,
+      "b_n": 167,
+      "b_p": 0.011976047904191617,
+      "judged": true,
+      "ratio": 34.693661971830984,
+      "se": 0.042203383430589055,
+      "se_units": 9.561245498383853
+     },
+     "Landwirtschaft": {
+      "a_k": 8,
+      "a_n": 11,
+      "a_p": 0.7272727272727273,
+      "b_k": 4,
+      "b_n": 90,
+      "b_p": 0.044444444444444446,
+      "judged": true,
+      "ratio": 16.363636363636363,
+      "se": 0.1360273300051573,
+      "se_units": 5.019787441261946
+     },
+     "Lebensmittel": {
+      "a_k": 25,
+      "a_n": 98,
+      "a_p": 0.25510204081632654,
+      "b_k": 4,
+      "b_n": 252,
+      "b_p": 0.015873015873015872,
+      "judged": true,
+      "ratio": 16.071428571428573,
+      "se": 0.04473274921338467,
+      "se_units": 5.347961597489518
+     },
+     "Maschinen/Anlagen": {
+      "a_k": 27,
+      "a_n": 81,
+      "a_p": 0.3333333333333333,
+      "b_k": 6,
+      "b_n": 349,
+      "b_p": 0.017191977077363897,
+      "judged": true,
+      "ratio": 19.388888888888886,
+      "se": 0.052838414205964315,
+      "se_units": 5.983172678567705
+     },
+     "Metall": {
+      "a_k": 26,
+      "a_n": 83,
+      "a_p": 0.3132530120481928,
+      "b_k": 3,
+      "b_n": 143,
+      "b_p": 0.02097902097902098,
+      "judged": true,
+      "ratio": 14.931726907630521,
+      "se": 0.05230203561813061,
+      "se_units": 5.58819532767582
+     },
+     "Textil/Bekleidung": {
+      "a_k": 24,
+      "a_n": 57,
+      "a_p": 0.42105263157894735,
+      "b_k": 1,
+      "b_n": 87,
+      "b_p": 0.011494252873563218,
+      "judged": true,
+      "ratio": 36.63157894736842,
+      "se": 0.06638688710739854,
+      "se_units": 6.169266199254289
+     },
+     "Transport": {
+      "a_k": 2,
+      "a_n": 12,
+      "a_p": 0.16666666666666666,
+      "b_k": 0,
+      "b_n": 70,
+      "b_p": 0.0,
+      "judged": true,
+      "ratio": null,
+      "se": 0.10758287072798381,
+      "se_units": 1.5491933384829666
+     },
+     "unclassified": {
+      "a_k": 354,
+      "a_n": 972,
+      "a_p": 0.36419753086419754,
+      "b_k": 246,
+      "b_n": 4223,
+      "b_p": 0.05825242718446602,
+      "judged": true,
+      "ratio": 6.252057613168724,
+      "se": 0.01584987769503313,
+      "se_units": 19.302679147840074
+     }
+    },
+    "judged_groups": 15,
+    "of": 12874,
+    "ratio_max": 39.705882352941174,
+    "ratio_min": 2.751572327044025
+   },
+   "name+altname": {
+    "classified": 7935,
+    "flips": [],
+    "groups": {
+     "Bau": {
+      "a_k": 67,
+      "a_n": 152,
+      "a_p": 0.4407894736842105,
+      "b_k": 23,
+      "b_n": 506,
+      "b_p": 0.045454545454545456,
+      "judged": true,
+      "ratio": 9.69736842105263,
+      "se": 0.04132093518678581,
+      "se_units": 9.567424513569353
+     },
+     "Baustoffe/Glas": {
+      "a_k": 37,
+      "a_n": 102,
+      "a_p": 0.3627450980392157,
+      "b_k": 8,
+      "b_n": 335,
+      "b_p": 0.023880597014925373,
+      "judged": true,
+      "ratio": 15.189950980392156,
+      "se": 0.04833082082639619,
+      "se_units": 7.011354146901168
+     },
+     "Bergbau/Steine": {
+      "a_n": 8,
+      "b_n": 51,
+      "judged": false
+     },
+     "Chemie/Kunststoff": {
+      "a_k": 20,
+      "a_n": 64,
+      "a_p": 0.3125,
+      "b_k": 24,
+      "b_n": 241,
+      "b_p": 0.0995850622406639,
+      "judged": true,
+      "ratio": 3.1380208333333335,
+      "se": 0.061065534272511615,
+      "se_units": 3.4866629809407703
+     },
+     "Dienstleistung": {
+      "a_k": 15,
+      "a_n": 45,
+      "a_p": 0.3333333333333333,
+      "b_k": 17,
+      "b_n": 351,
+      "b_p": 0.04843304843304843,
+      "judged": true,
+      "ratio": 6.882352941176471,
+      "se": 0.07120094395773519,
+      "se_units": 4.001355446486797
+     },
+     "Druck/Papier": {
+      "a_k": 11,
+      "a_n": 40,
+      "a_p": 0.275,
+      "b_k": 2,
+      "b_n": 163,
+      "b_p": 0.012269938650306749,
+      "judged": true,
+      "ratio": 22.4125,
+      "se": 0.0711247289559274,
+      "se_units": 3.693934095868324
+     },
+     "Elektro": {
+      "a_k": 24,
+      "a_n": 54,
+      "a_p": 0.4444444444444444,
+      "b_k": 2,
+      "b_n": 151,
+      "b_p": 0.013245033112582781,
+      "judged": true,
+      "ratio": 33.55555555555556,
+      "se": 0.06825706824424038,
+      "se_units": 6.317285849268025
+     },
+     "Energie/Sanitaer": {
+      "a_k": 14,
+      "a_n": 37,
+      "a_p": 0.3783783783783784,
+      "b_k": 7,
+      "b_n": 227,
+      "b_p": 0.030837004405286344,
+      "judged": true,
+      "ratio": 12.27027027027027,
+      "se": 0.08055206158020804,
+      "se_units": 4.314493846033164
+     },
+     "Handel": {
+      "a_k": 4,
+      "a_n": 10,
+      "a_p": 0.4,
+      "b_k": 6,
+      "b_n": 175,
+      "b_p": 0.03428571428571429,
+      "judged": true,
+      "ratio": 11.666666666666666,
+      "se": 0.1555287792216629,
+      "se_units": 2.351425167383729
+     },
+     "Holz/Moebel": {
+      "a_k": 73,
+      "a_n": 180,
+      "a_p": 0.40555555555555556,
+      "b_k": 5,
+      "b_n": 245,
+      "b_p": 0.02040816326530612,
+      "judged": true,
+      "ratio": 19.872222222222224,
+      "se": 0.037695269712493915,
+      "se_units": 10.217393196223615
+     },
+     "Landwirtschaft": {
+      "a_k": 8,
+      "a_n": 11,
+      "a_p": 0.7272727272727273,
+      "b_k": 6,
+      "b_n": 131,
+      "b_p": 0.04580152671755725,
+      "judged": true,
+      "ratio": 15.878787878787879,
+      "se": 0.13551815970541525,
+      "se_units": 5.028633815840836
+     },
+     "Lebensmittel": {
+      "a_k": 35,
+      "a_n": 118,
+      "a_p": 0.2966101694915254,
+      "b_k": 7,
+      "b_n": 325,
+      "b_p": 0.021538461538461538,
+      "judged": true,
+      "ratio": 13.771186440677965,
+      "se": 0.042812585456628124,
+      "se_units": 6.425019769752729
+     },
+     "Maschinen/Anlagen": {
+      "a_k": 32,
+      "a_n": 107,
+      "a_p": 0.29906542056074764,
+      "b_k": 8,
+      "b_n": 497,
+      "b_p": 0.01609657947686117,
+      "judged": true,
+      "ratio": 18.579439252336446,
+      "se": 0.04462041080813746,
+      "se_units": 6.3416906289953126
+     },
+     "Metall": {
+      "a_k": 47,
+      "a_n": 143,
+      "a_p": 0.32867132867132864,
+      "b_k": 5,
+      "b_n": 307,
+      "b_p": 0.016286644951140065,
+      "judged": true,
+      "ratio": 20.180419580419578,
+      "se": 0.03993957136517393,
+      "se_units": 7.821433056053734
+     },
+     "Textil/Bekleidung": {
+      "a_k": 31,
+      "a_n": 76,
+      "a_p": 0.40789473684210525,
+      "b_k": 3,
+      "b_n": 129,
+      "b_p": 0.023255813953488372,
+      "judged": true,
+      "ratio": 17.539473684210527,
+      "se": 0.05791317116424245,
+      "se_units": 6.641648439484971
+     },
+     "Transport": {
+      "a_k": 2,
+      "a_n": 19,
+      "a_p": 0.10526315789473684,
+      "b_k": 3,
+      "b_n": 154,
+      "b_p": 0.01948051948051948,
+      "judged": true,
+      "ratio": 5.4035087719298245,
+      "se": 0.07128129817701954,
+      "se_units": 1.2034382174295601
+     },
+     "unclassified": {
+      "a_k": 264,
+      "a_n": 687,
+      "a_p": 0.38427947598253276,
+      "b_k": 193,
+      "b_n": 2674,
+      "b_p": 0.07217651458489155,
+      "judged": true,
+      "ratio": 5.324162273457475,
+      "se": 0.0192211460369278,
+      "se_units": 16.237479326051986
+     }
+    },
+    "judged_groups": 16,
+    "of": 12874,
+    "ratio_max": 33.55555555555556,
+    "ratio_min": 3.1380208333333335
+   },
+   "name+altname+gegenstand": {
+    "classified": 10488,
+    "flips": [],
+    "groups": {
+     "Bau": {
+      "a_k": 70,
+      "a_n": 164,
+      "a_p": 0.4268292682926829,
+      "b_k": 23,
+      "b_n": 593,
+      "b_p": 0.0387858347386172,
+      "judged": true,
+      "ratio": 11.004772004241781,
+      "se": 0.039428586950886926,
+      "se_units": 9.841677411301115
+     },
+     "Baustoffe/Glas": {
+      "a_k": 50,
+      "a_n": 157,
+      "a_p": 0.3184713375796178,
+      "b_k": 17,
+      "b_n": 590,
+      "b_p": 0.0288135593220339,
+      "judged": true,
+      "ratio": 11.05282877482203,
+      "se": 0.0378139729526925,
+      "se_units": 7.660072603848392
+     },
+     "Bergbau/Steine": {
+      "a_k": 5,
+      "a_n": 19,
+      "a_p": 0.2631578947368421,
+      "b_k": 1,
+      "b_n": 164,
+      "b_p": 0.006097560975609756,
+      "judged": true,
+      "ratio": 43.1578947368421,
+      "se": 0.10120534998697059,
+      "se_units": 2.539987597437555
+     },
+     "Chemie/Kunststoff": {
+      "a_k": 17,
+      "a_n": 72,
+      "a_p": 0.2361111111111111,
+      "b_k": 24,
+      "b_n": 273,
+      "b_p": 0.08791208791208792,
+      "judged": true,
+      "ratio": 2.6857638888888884,
+      "se": 0.05290320890893487,
+      "se_units": 2.8013238942485716
+     },
+     "Dienstleistung": {
+      "a_k": 19,
+      "a_n": 64,
+      "a_p": 0.296875,
+      "b_k": 20,
+      "b_n": 521,
+      "b_p": 0.03838771593090211,
+      "judged": true,
+      "ratio": 7.733593750000001,
+      "se": 0.05772710420417271,
+      "se_units": 4.477745551809847
+     },
+     "Druck/Papier": {
+      "a_k": 9,
+      "a_n": 36,
+      "a_p": 0.25,
+      "b_k": 3,
+      "b_n": 156,
+      "b_p": 0.019230769230769232,
+      "judged": true,
+      "ratio": 13.0,
+      "se": 0.07300162216082995,
+      "se_units": 3.1611520941387146
+     },
+     "Elektro": {
+      "a_k": 28,
+      "a_n": 65,
+      "a_p": 0.4307692307692308,
+      "b_k": 2,
+      "b_n": 238,
+      "b_p": 0.008403361344537815,
+      "judged": true,
+      "ratio": 51.261538461538464,
+      "se": 0.06170436342120867,
+      "se_units": 6.844991926122355
+     },
+     "Energie/Sanitaer": {
+      "a_k": 14,
+      "a_n": 47,
+      "a_p": 0.2978723404255319,
+      "b_k": 10,
+      "b_n": 248,
+      "b_p": 0.04032258064516129,
+      "judged": true,
+      "ratio": 7.3872340425531915,
+      "se": 0.06786689920554033,
+      "se_units": 3.794924518362929
+     },
+     "Handel": {
+      "a_k": 5,
+      "a_n": 15,
+      "a_p": 0.3333333333333333,
+      "b_k": 6,
+      "b_n": 192,
+      "b_p": 0.03125,
+      "judged": true,
+      "ratio": 10.666666666666666,
+      "se": 0.12236212227834498,
+      "se_units": 2.468765069685249
+     },
+     "Holz/Moebel": {
+      "a_k": 81,
+      "a_n": 215,
+      "a_p": 0.3767441860465116,
+      "b_k": 6,
+      "b_n": 325,
+      "b_p": 0.018461538461538463,
+      "judged": true,
+      "ratio": 20.406976744186043,
+      "se": 0.03388047053441629,
+      "se_units": 10.57490176297948
+     },
+     "Landwirtschaft": {
+      "a_k": 8,
+      "a_n": 15,
+      "a_p": 0.5333333333333333,
+      "b_k": 8,
+      "b_n": 176,
+      "b_p": 0.045454545454545456,
+      "judged": true,
+      "ratio": 11.733333333333333,
+      "se": 0.1297656262715147,
+      "se_units": 3.7596920070186863
+     },
+     "Lebensmittel": {
+      "a_k": 36,
+      "a_n": 133,
+      "a_p": 0.2706766917293233,
+      "b_k": 9,
+      "b_n": 462,
+      "b_p": 0.01948051948051948,
+      "judged": true,
+      "ratio": 13.894736842105262,
+      "se": 0.03905939195768684,
+      "se_units": 6.431133708402973
+     },
+     "Maschinen/Anlagen": {
+      "a_k": 42,
+      "a_n": 130,
+      "a_p": 0.3230769230769231,
+      "b_k": 8,
+      "b_n": 610,
+      "b_p": 0.013114754098360656,
+      "judged": true,
+      "ratio": 24.634615384615387,
+      "se": 0.04127361956843442,
+      "se_units": 7.509934244187729
+     },
+     "Metall": {
+      "a_k": 48,
+      "a_n": 179,
+      "a_p": 0.2681564245810056,
+      "b_k": 6,
+      "b_n": 508,
+      "b_p": 0.011811023622047244,
+      "judged": true,
+      "ratio": 22.70391061452514,
+      "se": 0.03345648054855752,
+      "se_units": 7.662055205923646
+     },
+     "Textil/Bekleidung": {
+      "a_k": 46,
+      "a_n": 119,
+      "a_p": 0.3865546218487395,
+      "b_k": 3,
+      "b_n": 231,
+      "b_p": 0.012987012987012988,
+      "judged": true,
+      "ratio": 29.764705882352942,
+      "se": 0.045256833724008814,
+      "se_units": 8.254391174156497
+     },
+     "Transport": {
+      "a_k": 2,
+      "a_n": 18,
+      "a_p": 0.1111111111111111,
+      "b_k": 4,
+      "b_n": 221,
+      "b_p": 0.01809954751131222,
+      "judged": true,
+      "ratio": 6.138888888888888,
+      "se": 0.0746149082347962,
+      "se_units": 1.2465546872632018
+     },
+     "unclassified": {
+      "a_k": 207,
+      "a_n": 405,
+      "a_p": 0.5111111111111111,
+      "b_k": 170,
+      "b_n": 1154,
+      "b_p": 0.14731369150779897,
+      "judged": true,
+      "ratio": 3.4695424836601303,
+      "se": 0.02694120743136953,
+      "se_units": 13.503382152787903
+     }
+    },
+    "judged_groups": 17,
+    "of": 12874,
+    "ratio_max": 51.261538461538464,
+    "ratio_min": 2.6857638888888884
+   }
+  },
+  "no_registry_by_status_east": {
+   "F": {
+    "k": 6,
+    "n": 728,
+    "p": 0.008241758241758242
+   },
+   "GV": {
+    "k": 47,
+    "n": 213,
+    "p": 0.22065727699530516
+   },
+   "IL": {
+    "k": 4,
+    "n": 55,
+    "p": 0.07272727272727272
+   },
+   "L": {
+    "k": 226,
+    "n": 3219,
+    "p": 0.07020813917365641
+   },
+   "R": {
+    "k": 687,
+    "n": 1853,
+    "p": 0.37075013491635184
+   },
+   "SP": {
+    "k": 2,
+    "n": 144,
+    "p": 0.013888888888888888
+   },
+   "V": {
+    "k": 320,
+    "n": 6662,
+    "p": 0.048033623536475535
+   }
+  }
+ }
+}

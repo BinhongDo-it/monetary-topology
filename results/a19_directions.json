@@ -1,0 +1,600 @@
+{
+  "carrier": {
+    "bare_setting": {
+      "elasticity": 0.0,
+      "grace": 1,
+      "mode": "exit",
+      "need": 0.0
+    },
+    "industry_on": {
+      "column_sum": 0.5,
+      "count": 20,
+      "financial_count": 6,
+      "seed": 0,
+      "weight_shape": 2.0
+    },
+    "layer1_size": 20,
+    "layer2_size": 180,
+    "live_setting": {
+      "elasticity": 0.1,
+      "grace": 10,
+      "mode": "exit",
+      "need": 0.0914
+    },
+    "rounds": 300,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "5 seeds x 5 quantities, all finite",
+      "name": "A19-4 industry layer (live setting) produced a number for every seed and quantity",
+      "passed": true
+    },
+    {
+      "detail": "5 seeds x 5 quantities, all finite",
+      "name": "A19-4b industry layer (no subsistence, no wage channel) produced a number for every seed and quantity",
+      "passed": true
+    },
+    {
+      "detail": "5 seeds x 5 quantities, all finite",
+      "name": "A19-5 switching produced a number for every seed and quantity",
+      "passed": true
+    },
+    {
+      "detail": "5 seeds x 5 quantities, all finite",
+      "name": "A19-6 recovery friction produced a number for every seed and quantity",
+      "passed": true
+    },
+    {
+      "detail": "peak 8.0000, trough 7.3499, close 7.3540",
+      "name": "A19-7 wage path produced peak, trough and close",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Directions are printed, not scored: no threshold is applied to any difference in this file. The criteria here assert only that every seed and quantity returned a number.",
+  "part": "direction readings",
+  "readings": {
+    "A19-4 industry layer (live setting)": {
+      "non_empty_delta": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "rows": [
+        {
+          "active_nodes": -4.0,
+          "l2_inflow": -3.345541703239,
+          "l2_support": 5.115790318072,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": -0.019247232345,
+          "seed": 0,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": 60207.83951486531
+        },
+        {
+          "active_nodes": -3.0,
+          "l2_inflow": -3.050575094114,
+          "l2_support": 8.566461361278,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": -0.017894780596,
+          "seed": 1,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": 52103.16017478157
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": -0.167616657079,
+          "l2_support": 0.688176230284,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": -0.001452287127,
+          "seed": 2,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": 66315.37356980483
+        },
+        {
+          "active_nodes": -5.0,
+          "l2_inflow": -3.588996226032,
+          "l2_support": 12.774913752468,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": -0.020341810033,
+          "seed": 3,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": 30190.919982147578
+        },
+        {
+          "active_nodes": -6.0,
+          "l2_inflow": -2.600262020524,
+          "l2_support": 3.320928996569,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": -0.01579593088,
+          "seed": 4,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": 11633.815163488849
+        }
+      ],
+      "summary": {
+        "active_nodes": {
+          "hi": 0.0,
+          "lo": -6.0,
+          "negative": 4,
+          "positive": 0,
+          "zero": 1
+        },
+        "l2_inflow": {
+          "hi": -0.167616657079,
+          "lo": -3.588996226032,
+          "negative": 5,
+          "positive": 0,
+          "zero": 0
+        },
+        "l2_support": {
+          "hi": 12.774913752468,
+          "lo": 0.688176230284,
+          "negative": 0,
+          "positive": 5,
+          "zero": 0
+        },
+        "scar_depth": {
+          "hi": -0.001452287127,
+          "lo": -0.020341810033,
+          "negative": 5,
+          "positive": 0,
+          "zero": 0
+        },
+        "total_volume": {
+          "hi": 66315.37356980483,
+          "lo": 11633.815163488849,
+          "negative": 0,
+          "positive": 5,
+          "zero": 0
+        }
+      },
+      "switch_delta": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "switches_total": [
+        0,
+        0
+      ]
+    },
+    "A19-4b industry layer (no subsistence, no wage channel)": {
+      "non_empty_delta": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "rows": [
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 4.539800621833,
+          "l2_support": -13.296119161075,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 0,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": -31441.33421067946
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 5.566121063414,
+          "l2_support": -17.063486798912,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 1,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": -30607.468151507142
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 3.823156115958,
+          "l2_support": -13.257867639461,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 2,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": -10023.207527342398
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 3.898695164207,
+          "l2_support": -9.272366252495,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 3,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": -18502.66311217437
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 2.82550176299,
+          "l2_support": -13.565302268379,
+          "non_empty_control": 0,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 4,
+          "switches_control": 0,
+          "switches_treat": 0,
+          "total_volume": -11099.287374823092
+        }
+      ],
+      "summary": {
+        "active_nodes": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "negative": 0,
+          "positive": 0,
+          "zero": 5
+        },
+        "l2_inflow": {
+          "hi": 5.566121063414,
+          "lo": 2.82550176299,
+          "negative": 0,
+          "positive": 5,
+          "zero": 0
+        },
+        "l2_support": {
+          "hi": -9.272366252495,
+          "lo": -17.063486798912,
+          "negative": 5,
+          "positive": 0,
+          "zero": 0
+        },
+        "scar_depth": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "negative": 0,
+          "positive": 0,
+          "zero": 5
+        },
+        "total_volume": {
+          "hi": -10023.207527342398,
+          "lo": -31441.33421067946,
+          "negative": 5,
+          "positive": 0,
+          "zero": 0
+        }
+      },
+      "switch_delta": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "switches_total": [
+        0,
+        0
+      ]
+    },
+    "A19-5 switching": {
+      "non_empty_delta": [
+        -3,
+        -2,
+        -1,
+        -3,
+        0
+      ],
+      "rows": [
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 0.0,
+          "l2_support": 0.0,
+          "non_empty_control": 20,
+          "non_empty_treat": 17,
+          "scar_depth": 0.0,
+          "seed": 0,
+          "switches_control": 0,
+          "switches_treat": 378,
+          "total_volume": -27513.20414251444
+        },
+        {
+          "active_nodes": 4.0,
+          "l2_inflow": 1.571719666411,
+          "l2_support": -3.88791968887,
+          "non_empty_control": 20,
+          "non_empty_treat": 18,
+          "scar_depth": 0.010510987461,
+          "seed": 1,
+          "switches_control": 0,
+          "switches_treat": 1570,
+          "total_volume": -12973.661447136663
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 0.0,
+          "l2_support": 0.0,
+          "non_empty_control": 20,
+          "non_empty_treat": 19,
+          "scar_depth": 0.0,
+          "seed": 2,
+          "switches_control": 0,
+          "switches_treat": 1686,
+          "total_volume": -41283.46654175379
+        },
+        {
+          "active_nodes": 16.0,
+          "l2_inflow": 6.317076370168,
+          "l2_support": -20.68457693686,
+          "non_empty_control": 20,
+          "non_empty_treat": 17,
+          "scar_depth": 0.027344765588,
+          "seed": 3,
+          "switches_control": 0,
+          "switches_treat": 1571,
+          "total_volume": -59454.70794261369
+        },
+        {
+          "active_nodes": 2.0,
+          "l2_inflow": 0.0,
+          "l2_support": 0.0,
+          "non_empty_control": 20,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 4,
+          "switches_control": 0,
+          "switches_treat": 1186,
+          "total_volume": -33663.81021582597
+        }
+      ],
+      "summary": {
+        "active_nodes": {
+          "hi": 16.0,
+          "lo": 0.0,
+          "negative": 0,
+          "positive": 3,
+          "zero": 2
+        },
+        "l2_inflow": {
+          "hi": 6.317076370168,
+          "lo": 0.0,
+          "negative": 0,
+          "positive": 2,
+          "zero": 3
+        },
+        "l2_support": {
+          "hi": 0.0,
+          "lo": -20.68457693686,
+          "negative": 2,
+          "positive": 0,
+          "zero": 3
+        },
+        "scar_depth": {
+          "hi": 0.027344765588,
+          "lo": 0.0,
+          "negative": 0,
+          "positive": 2,
+          "zero": 3
+        },
+        "total_volume": {
+          "hi": -12973.661447136663,
+          "lo": -59454.70794261369,
+          "negative": 5,
+          "positive": 0,
+          "zero": 0
+        }
+      },
+      "switch_delta": [
+        378,
+        1570,
+        1686,
+        1571,
+        1186
+      ],
+      "switches_total": [
+        6391,
+        0
+      ]
+    },
+    "A19-6 min_share sweep": [
+      {
+        "damaged": 0,
+        "min_share": 0.0,
+        "relative_change": 0.0,
+        "switches_infinite": 378,
+        "switches_no_friction": 378
+      },
+      {
+        "damaged": 15,
+        "min_share": 0.5,
+        "relative_change": -0.005291005291,
+        "switches_infinite": 376,
+        "switches_no_friction": 378
+      },
+      {
+        "damaged": 15,
+        "min_share": 0.7,
+        "relative_change": -0.005291005291,
+        "switches_infinite": 376,
+        "switches_no_friction": 378
+      },
+      {
+        "damaged": 16,
+        "min_share": 0.9,
+        "relative_change": -0.579365079365,
+        "switches_infinite": 159,
+        "switches_no_friction": 378
+      },
+      {
+        "damaged": 18,
+        "min_share": 1.1,
+        "relative_change": -0.928571428571,
+        "switches_infinite": 27,
+        "switches_no_friction": 378
+      },
+      {
+        "damaged": 18,
+        "min_share": 1.3,
+        "relative_change": -0.957671957672,
+        "switches_infinite": 16,
+        "switches_no_friction": 378
+      }
+    ],
+    "A19-6 recovery friction": {
+      "non_empty_delta": [
+        2,
+        2,
+        1,
+        0,
+        0
+      ],
+      "rows": [
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 0.038453185321,
+          "l2_support": -0.091112965441,
+          "non_empty_control": 17,
+          "non_empty_treat": 19,
+          "scar_depth": 0.00050322265,
+          "seed": 0,
+          "switches_control": 378,
+          "switches_treat": 27,
+          "total_volume": 5257.149570168345
+        },
+        {
+          "active_nodes": -4.0,
+          "l2_inflow": -1.571719666411,
+          "l2_support": 3.88791968887,
+          "non_empty_control": 18,
+          "non_empty_treat": 20,
+          "scar_depth": -0.010510987461,
+          "seed": 1,
+          "switches_control": 1570,
+          "switches_treat": 41,
+          "total_volume": 9357.084979740728
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_inflow": 0.0,
+          "l2_support": 0.0,
+          "non_empty_control": 19,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 2,
+          "switches_control": 1686,
+          "switches_treat": 54,
+          "total_volume": 40870.21146384865
+        },
+        {
+          "active_nodes": -6.0,
+          "l2_inflow": -2.087262973821,
+          "l2_support": 9.834191960057,
+          "non_empty_control": 17,
+          "non_empty_treat": 17,
+          "scar_depth": -0.006531682616,
+          "seed": 3,
+          "switches_control": 1571,
+          "switches_treat": 621,
+          "total_volume": 33233.09550618526
+        },
+        {
+          "active_nodes": -2.0,
+          "l2_inflow": 0.0,
+          "l2_support": 0.0,
+          "non_empty_control": 20,
+          "non_empty_treat": 20,
+          "scar_depth": 0.0,
+          "seed": 4,
+          "switches_control": 1186,
+          "switches_treat": 31,
+          "total_volume": 33653.12596979865
+        }
+      ],
+      "summary": {
+        "active_nodes": {
+          "hi": 0.0,
+          "lo": -6.0,
+          "negative": 3,
+          "positive": 0,
+          "zero": 2
+        },
+        "l2_inflow": {
+          "hi": 0.038453185321,
+          "lo": -2.087262973821,
+          "negative": 2,
+          "positive": 1,
+          "zero": 2
+        },
+        "l2_support": {
+          "hi": 9.834191960057,
+          "lo": -0.091112965441,
+          "negative": 1,
+          "positive": 2,
+          "zero": 2
+        },
+        "scar_depth": {
+          "hi": 0.00050322265,
+          "lo": -0.010510987461,
+          "negative": 2,
+          "positive": 1,
+          "zero": 2
+        },
+        "total_volume": {
+          "hi": 40870.21146384865,
+          "lo": 5257.149570168345,
+          "negative": 0,
+          "positive": 5,
+          "zero": 0
+        }
+      },
+      "switch_delta": [
+        -351,
+        -1529,
+        -1632,
+        -950,
+        -1155
+      ],
+      "switches_total": [
+        774,
+        6391
+      ]
+    },
+    "A19-7": {
+      "active_nodes": 114.0,
+      "damaged_industries": 0,
+      "l2_inflow": 10.545541703239,
+      "l2_support": 84.884209681928,
+      "non_empty_alive": 0,
+      "non_empty_industries": 0,
+      "scar_depth": 0.919247232345,
+      "switches": 0,
+      "total_volume": 336034.2540112653,
+      "wage_close": 7.353977858756,
+      "wage_peak": 8.0,
+      "wage_trough": 7.349905848156
+    }
+  },
+  "stage": "A19"
+}

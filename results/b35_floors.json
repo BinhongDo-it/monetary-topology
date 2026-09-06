@@ -1,0 +1,69 @@
+{
+  "config": {
+    "band": 1.5,
+    "cty": "5700",
+    "volume_floor_kg": 25000,
+    "z90": 1.645
+  },
+  "instrument_floor": {
+    "pairs": {
+      "feet / head meat": {
+        "n": 35,
+        "slope_ratio": 2.435418880034031,
+        "vol_ratio": 1.6508383846091923
+      },
+      "hearts / feet": {
+        "n": 35,
+        "slope_ratio": 1.7634879915109862,
+        "vol_ratio": 1.9997863461074732
+      },
+      "hearts / head meat": {
+        "n": 35,
+        "slope_ratio": 1.3810237958849512,
+        "vol_ratio": 1.2113762102647547
+      },
+      "tongues / feet": {
+        "n": 35,
+        "slope_ratio": 1.9247714269189513,
+        "vol_ratio": 2.6113941515993346
+      },
+      "tongues / head meat": {
+        "n": 35,
+        "slope_ratio": 1.265302906087135,
+        "vol_ratio": 1.5818593606408886
+      },
+      "tongues / hearts": {
+        "n": 35,
+        "slope_ratio": 1.091457064740075,
+        "vol_ratio": 1.3058365743332223
+      }
+    },
+    "slope_ratio_max": 2.435418880034031,
+    "slope_ratio_median": 1.7634879915109862,
+    "vol_ratio_max": 2.6113941515993346,
+    "vol_ratio_median": 1.6508383846091923
+  },
+  "se_difference": {
+    "b_lq": -0.4099917683546011,
+    "b_paw": -0.043510906691026995,
+    "band_half_width_log": 0.4054651081081644,
+    "gate_two_lhs_joint": 0.7798521155082938,
+    "n": 46,
+    "residual_correlation": -0.13910660506948522,
+    "se_independent_bound": 0.46051436474018076,
+    "se_joint": 0.4740742343515464
+  },
+  "stage": "B35",
+  "volume_floor": {
+    "0207140010": {
+      "below_floor": [],
+      "months": 47,
+      "thinnest_kg": 100000.0
+    },
+    "0207140045": {
+      "below_floor": [],
+      "months": 48,
+      "thinnest_kg": 4641804.0
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "by_commodity": {
+    "Corn": {
+      "additivity": {
+        "corr": 0.9590505301147038,
+        "corr_25_alone": 0.8848933104701127,
+        "corr_lagrange_alone": 0.5134360096548596,
+        "increment_median": 10500.0,
+        "increment_share_negative": 0.35611510791366907,
+        "n": 556,
+        "ratio": 1.0501025252998566
+      },
+      "chain": [
+        {
+          "corr": 0.915342592080543,
+          "downstream": "MS Lock 25",
+          "n": 556,
+          "p_nondecreasing": 0.9676258992805755,
+          "ratio": 1.9267261445255843,
+          "upstream": "MS Lock 15"
+        },
+        {
+          "corr": 0.8848933104701127,
+          "downstream": "MS Lock 26",
+          "n": 556,
+          "p_nondecreasing": 0.9748201438848921,
+          "ratio": 1.6479825234450343,
+          "upstream": "MS Lock 25"
+        },
+        {
+          "corr": 0.9854657722106238,
+          "downstream": "MS Locks 27",
+          "n": 556,
+          "p_nondecreasing": 0.6223021582733813,
+          "ratio": 1.0157712952890452,
+          "upstream": "MS Lock 26"
+        }
+      ]
+    },
+    "Soybeans": {
+      "additivity": {
+        "corr": 0.9679735585722371,
+        "corr_25_alone": 0.8859642765823048,
+        "corr_lagrange_alone": 0.3104411502007111,
+        "increment_median": 4886.0,
+        "increment_share_negative": 0.37589928057553956,
+        "n": 556,
+        "ratio": 1.0433646635975742
+      },
+      "chain": [
+        {
+          "corr": 0.8881368278945156,
+          "downstream": "MS Lock 25",
+          "n": 556,
+          "p_nondecreasing": 0.9118705035971223,
+          "ratio": 1.5744566649177956,
+          "upstream": "MS Lock 15"
+        },
+        {
+          "corr": 0.8859642765823048,
+          "downstream": "MS Lock 26",
+          "n": 556,
+          "p_nondecreasing": 0.9550359712230215,
+          "ratio": 1.491994956451266,
+          "upstream": "MS Lock 25"
+        },
+        {
+          "corr": 0.986191757157825,
+          "downstream": "MS Locks 27",
+          "n": 556,
+          "p_nondecreasing": 0.6420863309352518,
+          "ratio": 1.015503380622263,
+          "upstream": "MS Lock 26"
+        }
+      ]
+    }
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "scores the transit reading of the lock panel against the river's own arithmetic",
+  "rows": 26200,
+  "rows_without_tons": 108,
+  "since": "2016",
+  "stage": "B42"
+}

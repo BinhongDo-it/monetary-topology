@@ -895,7 +895,7 @@ def sweep(
 def retention_profile(
     seeds: range, *, shock_round: int = A3_6_SHOCK_ROUND, **asset_kw
 ) -> dict:
-    """`PROJECT_PLAN` §16.1 step one: retention at every node, not two of them.
+    """Retention at every node rank, not two of them.
 
     **This registers nothing and decides nothing.** A3-6 keeps its threshold,
     its domain and its verdict; nothing here is read into that criterion. It
@@ -1411,7 +1411,7 @@ def main() -> int:
     ap.add_argument(
         "--retention-profile",
         action="store_true",
-        help="PROJECT_PLAN 16.1 step one: retention at every node rank rather "
+        help="Retention at every node rank rather "
              "than at two points. Diagnostic, registers nothing. Costs one "
              "model run per node per seed",
     )
@@ -1522,7 +1522,7 @@ def main() -> int:
         )
 
     if args.retention_profile:
-        print("\n  PROJECT_PLAN §16.1 step one: retention at every node rank")
+        print("\n  Retention at every node rank")
         print("  Diagnostic. It registers nothing, feeds no criterion, and is "
               "allowed to\n  come out either way. Until it is read, \"the model "
               "predicts a step\" rests\n  on two points, which cannot tell a "

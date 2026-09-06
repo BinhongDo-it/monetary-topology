@@ -47,6 +47,191 @@ This is not an empirical result about market efficiency. It is a consequence of
 having written prices as a one-index object. **On a single-currency price vector,
 integrability is a theorem of notation.**
 
+## The common-environment reading, and its ceiling
+
+**The first thing anyone says on being shown a non-zero loop is that the parties
+share an environment.** They buy the same fuel, they face the same cycle, they
+sit under the same regulator. The claim of this section is that the reading
+already answers that, by construction, and that no amount of credit given to the
+environment moves the answer.
+
+**Give it every advantage.** Let there be any number of environmental variables
+`c_1(t) ... c_m(t)`, `m` as large as you like, named or not. Let every position
+`i` load on each of them by its own coefficient, so the loading is as
+heterogeneous as you please. Position `i` then carries
+
+```
+f(i) + sum_k beta_k(i) * c_k(t)
+```
+
+Sum the edge differences around a closed loop taken at one time:
+
+```
+sum_edges [ f(j) - f(i) ]  +  sum_edges sum_k [ beta_k(j) - beta_k(i) ] * c_k(t)
+```
+
+**Both sums telescope to zero.** At fixed `t`, `beta_k(i) * c_k(t)` is a function
+of position alone, so it is a potential, and a potential has no curl. The number
+of environmental variables does not matter. The heterogeneity of the loading does
+not matter. **The contribution to the loop is not small. It is zero.**
+
+**So what would an environment have to be to produce a non-zero loop?** It would
+have to be a quantity carried on **ordered pairs** of positions that is **not**
+a difference of node values. A quantity on ordered pairs that is not a node
+difference is precisely the object this framework claims exists. **Pushed to its
+maximum the environmental reading either accounts for none of the loop, or it
+stops being an environment and becomes the claim. There is no interior.**
+
+### The reading has one dial and no setting escapes
+
+**Turn the scope of "environment" down** until it means a property of positions,
+which is what fuel, the cycle and a regulatory regime are. **Then it predicts a
+zero loop and it is falsified**, on seven carriers, the largest at 4.18e+06 times
+the measured floor.
+
+**Turn it up** until it means whatever shapes what all the parties can do. **Then
+one of two things has happened.** Either it names no object, no count and no
+forbidden outcome, in which case it is not a hypothesis and adds exactly what
+attributing an unexplained result to heterogeneity adds. **Or it does name the
+structure everyone is embedded in, and then it is the topology**, and it stops
+contradicting anything here, because the claim of this project is a measurement
+of how much signal stands on top of that structure.
+
+**The middle setting does not escape either, it relocates.** Set it to a
+property of ordered pairs, freight and duty and spread and borrow fee, and it is
+both falsifiable and unfalsified. **But it has conceded that the loop is
+non-zero**, so it is no longer a rival to the existence claim; it is a dispute
+about what the non-zero is made of, and that dispute is downstream.
+
+### Three things get called the same name, and only one of them is a rival
+
+| | what it is | ceiling on the loop |
+|---|---|---|
+| **a** | environment as a property of **positions**: fuel, the cycle, a regime, any number of them | **exactly zero** |
+| **b** | environment as a property of **ordered pairs**: freight, duty, spread, transaction cost, borrow fee | can be non-zero. **It does not deny that the loop is non-zero**, it disputes where the non-zero comes from |
+| **c** | environment as an account of **co-movement and low-dimensional structure** | **all of it** |
+
+**(a) is the rival and it is dead on arrival.** It is the same object as the
+scalar potential above, arrived at from the other side.
+
+**(b) is not a rival at all.** It concedes the existence claim and argues about
+the source, which is a second-order dispute and is graded as such.
+
+**(c) is not a hypothesis.** A common structure that every party is embedded in
+and that shapes what each of them can do **is the topology**. Naming it without
+naming an object, a count or a forbidden outcome adds nothing that can fail, in
+the way that attributing an unexplained result to heterogeneity adds nothing.
+**It is also already netted out**: every anchored reading in this project takes
+its floor from a construction that keeps the common structure and destroys only
+the thing being claimed, so what is reported is what stands above the
+environment. **A quantity that is already subtracted cannot also be the
+explanation.**
+
+### Where this argument applies, audited 2026-09-03
+
+**The requirement is weaker than a loop taken at one instant, and stating it
+correctly matters, because the weaker version is the one the carriers have to
+meet.** Write the term at position `i` and time `t` as `f(i) + beta_i * c(t)`
+and take edge `k` at time `t_k`:
+
+```
+edge 1->2 at t1:  (f2 - f1) + (beta_2 - beta_1) * c(t1)
+edge 2->3 at t2:  (f3 - f2) + (beta_3 - beta_2) * c(t2)
+edge 3->1 at t3:  (f1 - f3) + (beta_1 - beta_3) * c(t3)
+```
+
+**With homogeneous loading the common term cancels inside each edge**, before any
+telescoping across edges, because an edge subtracts two positions observed at the
+same moment as each other. **The dates of different edges are then irrelevant and
+a loop may be taken across years.** What is actually required is that **each
+edge's two endpoints are simultaneous with one another**, which is a far weaker
+condition than a simultaneous loop.
+
+**With heterogeneous loading the remainder is
+`(beta_2 - beta_1) c(t1) + (beta_3 - beta_2) c(t2) + (beta_1 - beta_3) c(t3)`,
+which does not vanish** unless the `c` values agree or the `beta` values do. That
+case, and only that case, is what forces one of the two routes below.
+
+**Route one, the loop is taken at one time.** Then `c_k(t)` is a single number
+across every edge and the remainder collapses regardless of the loading.
+
+**Route two, the terms are constants of the object being traversed rather than
+quantities marked to the world at each step.** Then the calendar is irrelevant:
+a loop may span years and still admit nothing, because the environment never
+enters the arithmetic that produces the terms. **An accounting identity on a
+closed object is the clean case.** A balance that advances by
+`b -> b(1+i) - P`, with `i` the instrument's own contractual rate and `P` its
+own contractual payment, closes by arithmetic. Nothing leaves the object
+unaccounted for, so no common drift can be hiding in the residual. **Route two
+fails only where the contract is itself indexed to the environment**, which is a
+named and checkable subset rather than a doubt.
+
+| carrier | how the loop is formed | how it is covered |
+|---|---|---|
+| B2 | within one cell; the cell key carries the period | route one |
+| B3 | the difference matrix inside a single (date, tenor) key | route one |
+| B6 | `CUP -> USD -> EUR -> CUP` per date | route one |
+| B9 | `log(price) - log(nav) - log1p(fee)` from one snapshot | route one |
+| **squares** (B21, B24, B41, B42) | four cells on the same day, **and a double difference** | **route one twice over**, and immune even across dates: a common term cancels once inside each of the two differences |
+| **B8** | one loan's own path, current to delinquent to modified to current, spanning months | **route two.** Its loop residual is built from the loan's **own note rate and own contract payment**, and the balance advances by `b -> b(1+i) - P`. **Every input is a constant of the contract and not one market quantity appears**; the code says as much beside it, the contract is a property of the period and not of the row. **The traversal takes months and admits nothing, because the balance has to reconcile: the object is closed and nothing leaves it unaccounted for** |
+| B13 | one **state**, a book snapshot in which all four legs are quoted natively; 50,055 states, the split available in 49,116 | route one |
+
+**The one place route two can fail on this carrier is an instrument whose own
+rate is indexed**, where the environment is written into the contract. **That
+subset was named and then counted, 2026-09-03.** The cache carries no product
+field, so the label route is unavailable and the object is measured instead: a
+note rate that moves at a row which is not a modification onset is the signature
+of an indexed contract. Carrying the contract field across blanks first, so a
+missing month does not read as a rate that changed and changed back:
+
+| archive | rows | loans | rate changes | at or beside a modification | **away from any** | **loans carrying one** |
+|---|---|---|---|---|---|---|
+| 2002Q1 | 42,679,752 | 968,761 | 6,633 | 6,259 (0.9436) | **374** | **248, 2.6 per ten thousand** |
+| **2007Q1** | 16,782,203 | 253,279 | 33,937 | 33,897 (**0.9988**) | **40** | **31, 1.2 per hundred thousand** |
+| 2019Q1 | 11,774,637 | 341,865 | 2,718 | 2,713 (0.9982) | **5** | **4, 1.2 per million** |
+
+**On the vintage with the most modifications, 99.88 per cent of every note-rate
+change in sixteen million rows sits at a modification onset. The population is
+fixed rate: a rate change here is a re-contracting.** The residue is at most two
+and a half loans in ten thousand and falls by two orders of magnitude in the
+newest archive, **and it is not shown to be indexed either**: a step-rate
+modification whose onset flag was missed, a servicer correction and a payment
+step-up all land in the same residue.
+
+**Route two's named failure mode is therefore bounded rather than merely named.**
+Three archives, agreeing, and no fourth was run.
+
+### Time enters these algorithms for a second reason, and it is not this one
+
+Several of the constructions do insist on a date, and **what they are protecting
+is the identity of the object, not the cancellation above.** The square builder
+drops a cell pair when the futures month differs across the two positions, so
+that the two legs are the same contract rather than two contracts a month apart.
+The loan reader carries a contract field across a gap because the contract is a
+property of the period and not of the row, so that a blank month does not read
+as a rate that changed and changed back.
+
+**Those are object-identity requirements. Conflating them with the environment
+argument would put a criterion's scope and the measured object's scope on
+different footings**, which is the category error this project files sixth. **A
+carrier can need a precise date for the first reason and need none at all for the
+second.**
+
+### B13 does not need this argument. It bounds it
+
+**B13 is the carrier where the framework predicts exactly zero, and it returns
+exactly zero 716 times out of 716** on one class, with the parity control in
+place. A common environmental factor leaking into that index would show up as a
+non-zero, because a leak has no reason to be identically zero. **716 exact zeros
+is therefore a direct empirical bound on the leak on that carrier**, obtained
+without assuming any of the algebra above.
+
+**This is the useful direction of a predicted-zero reading and it is easy to
+miss.** A carrier that returns non-zero needs the argument, to say the non-zero
+is not the environment. **A carrier that returns zero where zero was predicted
+supplies the argument instead of consuming it.**
+
+
 If that is the field Volume II is about, Volume II is a claim about the empty set.
 Anyone competent will ask this in the first five minutes.
 

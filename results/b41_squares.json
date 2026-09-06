@@ -1,0 +1,735 @@
+{
+  "block_shape_control": [
+    {
+      "commodities": 2,
+      "days": 1048,
+      "df": 4,
+      "floor_hi": 1.6248740083457704,
+      "floor_lo": 0.5026984662962006,
+      "floor_mean": 1.0178208233298933,
+      "min_coverage": 0.6,
+      "one_commodity": "Wheat",
+      "positions": 5,
+      "ratio": 5.8441929404236115,
+      "real": 5.948341270320711,
+      "report": 2886,
+      "rho": 0.9666722458215349,
+      "sd": 4.4487958315869065,
+      "state": "KS"
+    },
+    {
+      "commodities": 2,
+      "days": 1208,
+      "df": 3,
+      "floor_hi": 2.1826313536749975,
+      "floor_lo": 0.5359165215989995,
+      "floor_mean": 1.473687518626647,
+      "min_coverage": 0.6,
+      "one_commodity": "Wheat",
+      "positions": 4,
+      "ratio": 5.590824878294516,
+      "real": 8.23912884196997,
+      "report": 3186,
+      "rho": 0.9658503771505417,
+      "sd": 7.793784909864619,
+      "state": "SD"
+    }
+  ],
+  "carrier": "USDA AMS state daily grain bids, Report Detail section, 2020-07-20 onward, twenty-six reports pulled in full",
+  "criteria": [
+    {
+      "detail": "position effect + commodity effect + residual reconstructs every cell; the residual is orthogonal to the additive space. Readings in data/b41/joint_*.json",
+      "name": "B41-1  the two-way decomposition is an identity",
+      "passed": true
+    },
+    {
+      "detail": "14 synthetic runs on record in data/b41/known_answer.json, each five replicates, floor taken on the same block as the reading it divides",
+      "name": "B41-2  a field that is additive by construction reads its floor",
+      "passed": true
+    },
+    {
+      "detail": "12 state blocks read; 9 at 4.6 to 9.0 times their own measured floor. The rest are reported at their own figures rather than excluded: MT 1.8 on 445 days at df 28; VA 1.5 on 24 days at df 1; TN 0.5 on 329 days at df 1. Block-shape control: KS one-commodity block reads 5.8; SD one-commodity block reads 5.6",
+      "name": "B41-3  the second difference stands above the measured floor",
+      "passed": null
+    },
+    {
+      "detail": "not found at this power; both sides 0.961 to 1.033 across thirty-one state and commodity cells",
+      "name": "B41-4  directional asymmetry",
+      "passed": false
+    },
+    {
+      "detail": "not found at this power; the two fullness groups are printed separately and are not separable",
+      "name": "B41-5  the capacity cell",
+      "passed": false
+    }
+  ],
+  "cross_state": {
+    "hrw": {
+      "block": "hrw",
+      "coverage": 0.85,
+      "cross_by_state": {
+        "KS": 1.8649529220779222,
+        "MO": -7.3285535714285714,
+        "NE": -0.08196266233766195,
+        "OK": -0.5663376623376614,
+        "SD": 6.111900974025977
+      },
+      "cross_magnitude": 8.980788505332589,
+      "cross_p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "cross_persistent": 4.870024039801156,
+      "days": 440,
+      "df": 19,
+      "inside": 15,
+      "magnitude": 14.836498664381816,
+      "new_cycles": 4,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "persistence": 0.704228306136215,
+      "persistent": 10.448282323409822,
+      "positions": [
+        [
+          "KS",
+          "Central | Terminal Elevators"
+        ],
+        [
+          "KS",
+          "East | Terminal Elevators"
+        ],
+        [
+          "KS",
+          "North | Terminal Elevators"
+        ],
+        [
+          "KS",
+          "Northwest | Country Elevators"
+        ],
+        [
+          "KS",
+          "South | Country Elevators"
+        ],
+        [
+          "KS",
+          "South | Terminal Elevators"
+        ],
+        [
+          "KS",
+          "Southeast | Terminal Elevators"
+        ],
+        [
+          "MO",
+          "Kansas City | Terminals/Mills/Processors"
+        ],
+        [
+          "NE",
+          "Northwest | Country Elevators"
+        ],
+        [
+          "NE",
+          "South | Country Elevators"
+        ],
+        [
+          "NE",
+          "Southeast | Country Elevators"
+        ],
+        [
+          "OK",
+          "Central | Country Elevators"
+        ],
+        [
+          "OK",
+          "North Central | Country Elevators"
+        ],
+        [
+          "OK",
+          "Northwest | Country Elevators"
+        ],
+        [
+          "OK",
+          "West | Country Elevators"
+        ],
+        [
+          "SD",
+          "Central | Country Elevators"
+        ],
+        [
+          "SD",
+          "East Central | Country Elevators"
+        ],
+        [
+          "SD",
+          "North Central | Country Elevators"
+        ],
+        [
+          "SD",
+          "Northeast | Country Elevators"
+        ],
+        [
+          "SD",
+          "Southeast | Country Elevators"
+        ]
+      ],
+      "states": [
+        "KS",
+        "MO",
+        "NE",
+        "OK",
+        "SD"
+      ]
+    },
+    "srw": {
+      "block": "srw",
+      "coverage": 0.8,
+      "cross_by_state": {
+        "KY": 5.549056818181816,
+        "MO": -3.6817386363636353,
+        "OH": -0.4449772727272721,
+        "SC": -6.9117386363636335,
+        "TN": 5.489397727272729
+      },
+      "cross_magnitude": 12.314244800230341,
+      "cross_p_by_block": {
+        "100": 0.035,
+        "20": 0.0
+      },
+      "cross_persistent": 5.532875701584472,
+      "days": 440,
+      "df": 9,
+      "inside": 5,
+      "magnitude": 16.669871889540985,
+      "new_cycles": 4,
+      "p_by_block": {
+        "100": 0.015,
+        "20": 0.0
+      },
+      "persistence": 0.49459639262088545,
+      "persistent": 8.244858502019275,
+      "positions": [
+        [
+          "KY",
+          "Pennyrile | Country Elevators"
+        ],
+        [
+          "MO",
+          "Central | Country Elevators"
+        ],
+        [
+          "MO",
+          "Kansas City | Terminals/Mills/Processors"
+        ],
+        [
+          "MO",
+          "Northwest | Country Elevators"
+        ],
+        [
+          "MO",
+          "St. Louis MS River | Terminals/Mills/Processors"
+        ],
+        [
+          "MO",
+          "West Central | Country Elevators"
+        ],
+        [
+          "OH",
+          "Toledo - Off River | Terminal Elevators"
+        ],
+        [
+          "OH",
+          "Toledo - On River | Terminal Elevators"
+        ],
+        [
+          "SC",
+          "Country Elevators"
+        ],
+        [
+          "TN",
+          "North Central | Country Elevators"
+        ]
+      ],
+      "states": [
+        "KY",
+        "MO",
+        "OH",
+        "SC",
+        "TN"
+      ]
+    }
+  },
+  "joint_panels": [
+    {
+      "commodities": 8,
+      "days": 445,
+      "df": 28,
+      "interaction_share_median": 0.04387852426168857,
+      "p_by_block": {
+        "100": 0.04,
+        "20": 0.0
+      },
+      "positions": 5,
+      "report": 2771,
+      "rms_per_cycle": 4.486919942445329
+    },
+    {
+      "commodities": 2,
+      "days": 722,
+      "df": 2,
+      "interaction_share_median": 0.11935666887818774,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 3,
+      "report": 2851,
+      "rms_per_cycle": 14.088571661878214
+    },
+    {
+      "commodities": 2,
+      "days": 653,
+      "df": 7,
+      "interaction_share_median": 0.10131719473122107,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 8,
+      "report": 2886,
+      "rms_per_cycle": 9.061372164853115
+    },
+    {
+      "commodities": 2,
+      "days": 229,
+      "df": 2,
+      "interaction_share_median": 0.13521473307485832,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 3,
+      "report": 2892,
+      "rms_per_cycle": 16.38933730257485
+    },
+    {
+      "commodities": 2,
+      "days": 711,
+      "df": 5,
+      "interaction_share_median": 0.11334272962179938,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 6,
+      "report": 2932,
+      "rms_per_cycle": 9.396246477099996
+    },
+    {
+      "commodities": 2,
+      "days": 329,
+      "df": 1,
+      "interaction_share_median": 0.08925318761384335,
+      "p_by_block": {
+        "100": 0.805,
+        "20": 0.785
+      },
+      "positions": 2,
+      "report": 3088,
+      "rms_per_cycle": 0.8007218844984803
+    },
+    {
+      "commodities": 2,
+      "days": 909,
+      "df": 3,
+      "interaction_share_median": 0.17167793043484025,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 4,
+      "report": 3100,
+      "rms_per_cycle": 10.43710344979273
+    },
+    {
+      "commodities": 2,
+      "days": 347,
+      "df": 1,
+      "interaction_share_median": 0.5627709053183165,
+      "p_by_block": {
+        "20": 0.0
+      },
+      "positions": 2,
+      "report": 3156,
+      "rms_per_cycle": 40.19435638808842
+    },
+    {
+      "commodities": 3,
+      "days": 1049,
+      "df": 6,
+      "interaction_share_median": 0.1359797000667299,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 4,
+      "report": 3186,
+      "rms_per_cycle": 6.474185885627206
+    },
+    {
+      "commodities": 2,
+      "days": 650,
+      "df": 4,
+      "interaction_share_median": 0.10268053909257371,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 5,
+      "report": 3225,
+      "rms_per_cycle": 8.059980293851721
+    },
+    {
+      "commodities": 2,
+      "days": 338,
+      "df": 4,
+      "interaction_share_median": 0.052073640594803246,
+      "p_by_block": {
+        "100": 0.0,
+        "20": 0.0
+      },
+      "positions": 5,
+      "report": 3878,
+      "rms_per_cycle": 7.671867792761238
+    }
+  ],
+  "magnitude": [
+    {
+      "cell_sign_stability_median": 0.8587896253602305,
+      "cell_sign_stability_min": 0.8587896253602305,
+      "commodities": 2,
+      "coverage": 0.6,
+      "days": 347,
+      "df": 1,
+      "magnitude": 51.5,
+      "persistence": 0.7804729395745328,
+      "persistent": 40.19435638808844,
+      "positions": 2,
+      "report": 3156
+    },
+    {
+      "cell_sign_stability_median": 0.8034934497816594,
+      "cell_sign_stability_min": 0.6768558951965066,
+      "commodities": 2,
+      "coverage": 0.45,
+      "days": 229,
+      "df": 2,
+      "magnitude": 17.68238294649979,
+      "persistence": 0.9268737902670015,
+      "persistent": 16.389337302574848,
+      "positions": 3,
+      "report": 2892
+    },
+    {
+      "cell_sign_stability_median": 0.6139240506329113,
+      "cell_sign_stability_min": 0.5260196905766527,
+      "commodities": 2,
+      "coverage": 0.6,
+      "days": 711,
+      "df": 5,
+      "magnitude": 12.906716597699562,
+      "persistence": 0.7280121482464985,
+      "persistent": 9.396246477099996,
+      "positions": 6,
+      "report": 2932
+    },
+    {
+      "cell_sign_stability_median": 0.5866261398176291,
+      "cell_sign_stability_min": 0.5835866261398176,
+      "commodities": 2,
+      "coverage": 0.4,
+      "days": 329,
+      "df": 1,
+      "magnitude": 12.5,
+      "persistence": 0.06405775075987855,
+      "persistent": 0.8007218844984818,
+      "positions": 2,
+      "report": 3088
+    },
+    {
+      "cell_sign_stability_median": 0.9120498614958449,
+      "cell_sign_stability_min": 0.8462603878116344,
+      "commodities": 2,
+      "coverage": 0.6,
+      "days": 722,
+      "df": 2,
+      "magnitude": 12.374368670764582,
+      "persistence": 1.138528521068197,
+      "persistent": 14.08857166187823,
+      "positions": 3,
+      "report": 2851
+    },
+    {
+      "cell_sign_stability_median": 0.7769230769230768,
+      "cell_sign_stability_min": 0.5276923076923077,
+      "commodities": 2,
+      "coverage": 0.6,
+      "days": 650,
+      "df": 4,
+      "magnitude": 12.138523165175204,
+      "persistence": 0.6640000751471472,
+      "persistent": 8.059980293851723,
+      "positions": 5,
+      "report": 3225
+    },
+    {
+      "cell_sign_stability_median": 0.777947932618683,
+      "cell_sign_stability_min": 0.5191424196018377,
+      "commodities": 2,
+      "coverage": 0.6,
+      "days": 653,
+      "df": 7,
+      "magnitude": 11.38833598154583,
+      "persistence": 0.7956713061097399,
+      "persistent": 9.061372164853116,
+      "positions": 8,
+      "report": 2886
+    },
+    {
+      "cell_sign_stability_median": 0.9053905390539054,
+      "cell_sign_stability_min": 0.746974697469747,
+      "commodities": 2,
+      "coverage": 0.6,
+      "days": 909,
+      "df": 3,
+      "magnitude": 10.972648550085967,
+      "persistence": 0.9511927227188043,
+      "persistent": 10.437103449792811,
+      "positions": 4,
+      "report": 3100
+    },
+    {
+      "cell_sign_stability_median": 0.7411820781696854,
+      "cell_sign_stability_min": 0.6101048617731173,
+      "commodities": 3,
+      "coverage": 0.6,
+      "days": 1049,
+      "df": 6,
+      "magnitude": 9.117672095685633,
+      "persistence": 0.7100700505220747,
+      "persistent": 6.474185885627208,
+      "positions": 4,
+      "report": 3186
+    },
+    {
+      "cell_sign_stability_median": 0.8816568047337278,
+      "cell_sign_stability_min": 0.5266272189349113,
+      "commodities": 2,
+      "coverage": 0.6,
+      "days": 338,
+      "df": 4,
+      "magnitude": 8.99166280506559,
+      "persistence": 0.8532201394873424,
+      "persistent": 7.671867792761211,
+      "positions": 5,
+      "report": 3878
+    },
+    {
+      "cell_sign_stability_median": 0.6584269662921348,
+      "cell_sign_stability_min": 0.5123595505617977,
+      "commodities": 8,
+      "coverage": 0.6,
+      "days": 445,
+      "df": 28,
+      "magnitude": 7.530918412973091,
+      "persistence": 0.5957998342826241,
+      "persistent": 4.48691994244533,
+      "positions": 5,
+      "report": 2771
+    }
+  ],
+  "opponent": "a scalar potential on positions: basis(commodity, position) = f(commodity) - g(position), which forbids every second difference",
+  "rechecks": [
+    "b41_chicago_audit.json",
+    "b41_crossstate_audit.json",
+    "b41_harvest_audit.json",
+    "b41_harvest_pairs.json",
+    "b41_statistic_audit.json",
+    "b42_lock_chain.json",
+    "b42_registration_panel.json",
+    "b42_same_place.json"
+  ],
+  "reports_enumerated": 26,
+  "same_place": 13,
+  "stage": "B41",
+  "state_readings": [
+    {
+      "days": 909,
+      "df": 3,
+      "floor": 1.1566516730733627,
+      "floor_hi": 1.914768547063939,
+      "floor_lo": 0.4499677796339045,
+      "min_coverage": 0.6,
+      "ratio": 9.023549347454011,
+      "real": 10.437103449792733,
+      "report": 3100,
+      "rho": 0.9109194570600964,
+      "sd": 8.88188252206589,
+      "state": "OK"
+    },
+    {
+      "days": 722,
+      "df": 2,
+      "floor": 2.4736890810378753,
+      "floor_hi": 4.208143531876491,
+      "floor_lo": 1.2266669270951958,
+      "min_coverage": 0.6,
+      "ratio": 5.695368819741538,
+      "real": 14.088571661878213,
+      "report": 2851,
+      "rho": 0.9372481095138666,
+      "sd": 10.658294519972905,
+      "state": "OH"
+    },
+    {
+      "days": 711,
+      "df": 5,
+      "floor": 1.690333670025101,
+      "floor_hi": 2.070989495580009,
+      "floor_lo": 1.4250935353003953,
+      "min_coverage": 0.6,
+      "ratio": 5.558811638036213,
+      "real": 9.396246477099995,
+      "report": 2932,
+      "rho": 0.9294471691970992,
+      "sd": 10.79152162915459,
+      "state": "MO"
+    },
+    {
+      "days": 338,
+      "df": 4,
+      "floor": 1.3950681136596206,
+      "floor_hi": 2.2161445702775358,
+      "floor_lo": 0.6774658846682908,
+      "min_coverage": 0.6,
+      "ratio": 5.499278291606819,
+      "real": 7.671867792761226,
+      "report": 3878,
+      "rho": 0.9249534687879389,
+      "sd": 7.239843937315665,
+      "state": "ND"
+    },
+    {
+      "days": 653,
+      "df": 7,
+      "floor": 1.86302612644358,
+      "floor_hi": 2.2011114431293866,
+      "floor_lo": 1.4127423243823014,
+      "min_coverage": 0.6,
+      "ratio": 4.8637923195155635,
+      "real": 9.061372164853115,
+      "report": 2886,
+      "rho": 0.9367022482498768,
+      "sd": 8.850744954846611,
+      "state": "KS"
+    },
+    {
+      "days": 1049,
+      "df": 6,
+      "floor": 1.3419086579847976,
+      "floor_hi": 1.6886196783358203,
+      "floor_lo": 0.9621355389898032,
+      "min_coverage": 0.6,
+      "ratio": 4.824609966634965,
+      "real": 6.474185885627205,
+      "report": 3186,
+      "rho": 0.9501024579494168,
+      "sd": 7.698924706576782,
+      "state": "SD"
+    },
+    {
+      "days": 229,
+      "df": 2,
+      "floor": 3.419946489049976,
+      "floor_hi": 4.942120036647839,
+      "floor_lo": 2.1060277552033795,
+      "min_coverage": 0.45,
+      "ratio": 4.792278871921072,
+      "real": 16.389337302574848,
+      "report": 2892,
+      "rho": 0.9103564488587351,
+      "sd": 13.378031881441443,
+      "state": "KY"
+    },
+    {
+      "days": 650,
+      "df": 4,
+      "floor": 1.698589267119224,
+      "floor_hi": 2.0968138761299193,
+      "floor_lo": 1.3163187673446062,
+      "min_coverage": 0.6,
+      "ratio": 4.745102568274968,
+      "real": 8.059980293851725,
+      "report": 3225,
+      "rho": 0.9440844279782539,
+      "sd": 8.013589419518285,
+      "state": "NE"
+    },
+    {
+      "days": 347,
+      "df": 1,
+      "floor": 8.771423236691401,
+      "floor_hi": 13.320805843737887,
+      "floor_lo": 0.48780135618277476,
+      "min_coverage": 0.6,
+      "ratio": 4.58242126773144,
+      "real": 40.19435638808842,
+      "report": 3156,
+      "rho": 0.9436265857995686,
+      "sd": 25.145337438155856,
+      "state": "NC"
+    },
+    {
+      "days": 445,
+      "df": 28,
+      "floor": 2.464905254977663,
+      "floor_hi": 2.7942211328655686,
+      "floor_lo": 2.21138983709375,
+      "min_coverage": 0.6,
+      "ratio": 1.8203214640337126,
+      "real": 4.486919942445331,
+      "report": 2771,
+      "rho": 0.9466270552162556,
+      "sd": 8.218929020351315,
+      "state": "MT"
+    },
+    {
+      "days": 24,
+      "df": 1,
+      "floor": 9.98093522666782,
+      "floor_hi": 18.355204317023475,
+      "floor_lo": 4.581278568701657,
+      "min_coverage": 0.3,
+      "ratio": 1.4819920509197544,
+      "real": 14.791666666666666,
+      "report": 3167,
+      "rho": 0.8920428547573639,
+      "sd": 19.445436482630058,
+      "state": "VA"
+    },
+    {
+      "days": 329,
+      "df": 1,
+      "floor": 1.698089432267946,
+      "floor_hi": 2.334546550077325,
+      "floor_lo": 0.3308338243964592,
+      "min_coverage": 0.4,
+      "ratio": 0.4715428229413374,
+      "real": 0.8007218844984803,
+      "report": 3088,
+      "rho": 0.9207183863479796,
+      "sd": 7.586696741267504,
+      "state": "TN"
+    }
+  ]
+}

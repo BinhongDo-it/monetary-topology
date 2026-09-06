@@ -266,7 +266,7 @@ sentence in the write-up.
 
 **None of §2.1.1b was read from a `.cu` source.** `bc.gob.cu`, `cadeca.cu` and
 `granma.cu` all time out from this sandbox, which is the same limit
-`HANDOFF` §3.7 has recorded since 2026-08-12. **Four secondary outlets, two of
+recorded since 2026-08-12. **Four secondary outlets, two of
 them quoting a named Banco Central official, plus one internal corroboration
 from a registered constant.** That is strong enough to correct a section and it
 is not strong enough to be the citation in a paper.

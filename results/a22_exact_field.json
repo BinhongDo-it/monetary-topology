@@ -1,0 +1,167 @@
+{
+  "control": [
+    {
+      "delta": 0.0103519045,
+      "holonomy": 0.2587976128,
+      "n_better": 14,
+      "n_worse": 14,
+      "price_free": 0.0,
+      "seed": 0,
+      "support_close": 14.4571472297,
+      "support_open": 56.6054116561,
+      "support_ratio": 0.2554022099,
+      "treated": false,
+      "volume_ratio": 54.347025442
+    },
+    {
+      "delta": 0.0121681161,
+      "holonomy": 0.3042029036,
+      "n_better": 16,
+      "n_worse": 16,
+      "price_free": 0.0,
+      "seed": 1,
+      "support_close": 13.0700439721,
+      "support_open": 56.7981582805,
+      "support_ratio": 0.2301138693,
+      "treated": false,
+      "volume_ratio": 50.8108039017
+    },
+    {
+      "delta": 0.0078789185,
+      "holonomy": 0.1969729615,
+      "n_better": 13,
+      "n_worse": 13,
+      "price_free": 0.0,
+      "seed": 2,
+      "support_close": 14.0706442804,
+      "support_open": 53.2342051554,
+      "support_ratio": 0.2643158518,
+      "treated": false,
+      "volume_ratio": 54.0534678243
+    },
+    {
+      "delta": 0.0131326221,
+      "holonomy": 0.3283155536,
+      "n_better": 12,
+      "n_worse": 12,
+      "price_free": 0.0,
+      "seed": 3,
+      "support_close": 15.2146744958,
+      "support_open": 51.4667578255,
+      "support_ratio": 0.2956213902,
+      "treated": false,
+      "volume_ratio": 51.8255451888
+    },
+    {
+      "delta": 0.0121427499,
+      "holonomy": 0.3035687463,
+      "n_better": 16,
+      "n_worse": 16,
+      "price_free": 0.0,
+      "seed": 4,
+      "support_close": 12.4242272741,
+      "support_open": 53.2629473834,
+      "support_ratio": 0.2332621059,
+      "treated": false,
+      "volume_ratio": 51.1216930207
+    }
+  ],
+  "criteria": [
+    {
+      "detail": "holonomy 2.356946715681e-01 vs 2.356946715681e-01, support_close 14.928075968178 vs 14.928075968178 (30 rounds)",
+      "name": "A22-1  the mean-cost control is a no-op at the reference kappa",
+      "passed": true,
+      "structural": true
+    },
+    {
+      "detail": "treated max |holonomy| 0.000e+00 against control mean |holonomy| 0.278372 (control per seed: 0.258798, 0.304203, 0.196973, 0.328316, 0.303569)",
+      "name": "A22-2  the treated holonomy is zero  [STRUCTURAL, not a finding]",
+      "passed": true,
+      "structural": true
+    },
+    {
+      "detail": "control contracts in 5/5 seeds (ratios 0.2554, 0.2301, 0.2643, 0.2956, 0.2333); treated in 5/5 (ratios 0.2657, 0.2464, 0.2642, 0.3063, 0.2456)",
+      "name": "A22-3  support-set contraction under the exact field",
+      "passed": true,
+      "structural": false
+    },
+    {
+      "detail": "control 5/5, treated 5/5; treated (volume, support) = (50.039, 0.2657), (50.261, 0.2464), (52.530, 0.2642), (50.695, 0.3063), (49.610, 0.2456)",
+      "name": "A22-4  volume rises while support falls, under the exact field",
+      "passed": true,
+      "structural": false
+    }
+  ],
+  "kappa_flat": 0.0,
+  "kappa_reference": 1.0,
+  "rounds": 300,
+  "seeds": 5,
+  "stage": "A22",
+  "treated": [
+    {
+      "delta": 0.0,
+      "holonomy": 0.0,
+      "n_better": 14,
+      "n_worse": 14,
+      "price_free": 0.0,
+      "seed": 0,
+      "support_close": 14.3156513507,
+      "support_open": 53.8890042028,
+      "support_ratio": 0.2656506937,
+      "treated": true,
+      "volume_ratio": 50.0387978578
+    },
+    {
+      "delta": 0.0,
+      "holonomy": 0.0,
+      "n_better": 14,
+      "n_worse": 14,
+      "price_free": 0.0,
+      "seed": 1,
+      "support_close": 13.0668397806,
+      "support_open": 53.0292662936,
+      "support_ratio": 0.2464080817,
+      "treated": true,
+      "volume_ratio": 50.2612521308
+    },
+    {
+      "delta": 0.0,
+      "holonomy": 0.0,
+      "n_better": 13,
+      "n_worse": 13,
+      "price_free": 0.0,
+      "seed": 2,
+      "support_close": 13.8389369247,
+      "support_open": 52.377100751,
+      "support_ratio": 0.2642173149,
+      "treated": true,
+      "volume_ratio": 52.5302465014
+    },
+    {
+      "delta": 0.0,
+      "holonomy": 0.0,
+      "n_better": 12,
+      "n_worse": 12,
+      "price_free": 0.0,
+      "seed": 3,
+      "support_close": 15.4024863575,
+      "support_open": 50.2801241556,
+      "support_ratio": 0.3063334989,
+      "treated": true,
+      "volume_ratio": 50.6952125596
+    },
+    {
+      "delta": 0.0,
+      "holonomy": 0.0,
+      "n_better": 15,
+      "n_worse": 15,
+      "price_free": 0.0,
+      "seed": 4,
+      "support_close": 12.4108901264,
+      "support_open": 50.5409101337,
+      "support_ratio": 0.2455612709,
+      "treated": true,
+      "volume_ratio": 49.6102705902
+    }
+  ]
+}

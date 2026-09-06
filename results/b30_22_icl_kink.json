@@ -1,0 +1,148 @@
+{
+  "plan2_P30000": {
+    "named": {
+      "threshold": {
+        "income": 29385.0,
+        "jump": 2.6999999999999997,
+        "ratio": 1.0,
+        "is_kink": true
+      },
+      "band_hi": {
+        "income": 52885.0,
+        "jump": -0.5592549941211473,
+        "ratio": 1.0001878498231438,
+        "is_kink": true
+      },
+      "clearing": {
+        "income": 43858.66921009404,
+        "jump": -2.6999999999898137,
+        "ratio": 0.9999999999973052,
+        "is_kink": true
+      }
+    },
+    "n_kinks_found": 2,
+    "kinks_found": [
+      29385.0,
+      52885.0
+    ],
+    "unexplained": []
+  },
+  "plan2_P45000": {
+    "named": {
+      "threshold": {
+        "income": 29385.0,
+        "jump": 2.6999999999999997,
+        "ratio": 1.0,
+        "is_kink": true
+      },
+      "band_hi": {
+        "income": 52885.0,
+        "jump": 0.0,
+        "ratio": 0.0,
+        "is_kink": false
+      },
+      "clearing": {
+        "income": 54661.76625607512,
+        "jump": -4.378682916489197,
+        "ratio": 1.0000865934792833,
+        "is_kink": true
+      }
+    },
+    "n_kinks_found": 1,
+    "kinks_found": [
+      29385.0
+    ],
+    "unexplained": []
+  },
+  "plan2_P60000": {
+    "named": {
+      "threshold": {
+        "income": 29385.0,
+        "jump": 2.6999999999999997,
+        "ratio": 1.0,
+        "is_kink": true
+      },
+      "band_hi": {
+        "income": 52885.0,
+        "jump": 0.0,
+        "ratio": 0.0,
+        "is_kink": false
+      },
+      "clearing": {
+        "income": 63087.35500810016,
+        "jump": -4.378714518883498,
+        "ratio": 1.0000649495715426,
+        "is_kink": true
+      }
+    },
+    "n_kinks_found": 1,
+    "kinks_found": [
+      29385.0
+    ],
+    "unexplained": []
+  },
+  "plan5_P30000": {
+    "named": {
+      "threshold": {
+        "income": 25000.0,
+        "jump": 3.5999999999999996,
+        "ratio": 1.0,
+        "is_kink": true
+      },
+      "clearing": {
+        "income": 33333.33333333333,
+        "jump": -3.599999999983993,
+        "ratio": 0.9999999999967157,
+        "is_kink": true
+      }
+    },
+    "n_kinks_found": 1,
+    "kinks_found": [
+      25000.0
+    ],
+    "unexplained": []
+  },
+  "plan5_P45000": {
+    "named": {
+      "threshold": {
+        "income": 25000.0,
+        "jump": 3.5999999999999996,
+        "ratio": 1.0,
+        "is_kink": true
+      },
+      "clearing": {
+        "income": 37500.0,
+        "jump": -3.6000000000058208,
+        "ratio": 1.0000000000010105,
+        "is_kink": true
+      }
+    },
+    "n_kinks_found": 2,
+    "kinks_found": [
+      25000.0,
+      37500.0
+    ],
+    "unexplained": []
+  },
+  "plan5_P60000": {
+    "named": {
+      "threshold": {
+        "income": 25000.0,
+        "jump": 3.5999999999999996,
+        "ratio": 1.0,
+        "is_kink": true
+      },
+      "clearing": {
+        "income": 41666.66666666667,
+        "jump": -3.599999999991269,
+        "ratio": 0.9999999999984842,
+        "is_kink": true
+      }
+    },
+    "n_kinks_found": 1,
+    "kinks_found": [
+      25000.0
+    ],
+    "unexplained": []
+  }
+}

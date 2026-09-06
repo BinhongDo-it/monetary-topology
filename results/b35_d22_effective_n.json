@@ -1,0 +1,110 @@
+{
+ "acf_difference": [
+  -0.10129083878726772,
+  -0.05699496597726924,
+  -0.09875439562086241,
+  0.2215229907204365,
+  0.05807357993432224,
+  -0.02639119912792226,
+  -0.07224362401857713,
+  0.10210849463287852
+ ],
+ "acf_leg_quarters": [
+  -0.12865746324329919,
+  -0.072901495180813,
+  -0.06368675165296764,
+  0.15013683622786686,
+  0.048948124507951433,
+  -0.0655107573523679,
+  -0.09349557703892106,
+  0.05662783818843942
+ ],
+ "acf_paws": [
+  0.04853938035471624,
+  0.31160586116815037,
+  -0.09365761867388026,
+  0.15534383655566075,
+  0.008097587392458229,
+  0.11521289331668212,
+  0.007587439070972312,
+  0.02115750999431178
+ ],
+ "arm": "B35-6 / D22",
+ "b_diff": 0.36648086166357413,
+ "b_leg_quarters": -0.4099917683546011,
+ "b_paws": -0.043510906691026995,
+ "band_half_width_log": 0.4054651081081644,
+ "config": {
+  "acf_kmax": 8,
+  "band": 1.5,
+  "destination_cty": "5700",
+  "source_record": "b35_gate_b356_composite.json",
+  "treatment": "Wholesale broiler composite",
+  "window": "2020-01..2023-12",
+  "z90": 1.645
+ },
+ "criteria": [
+  {
+   "detail": "difference-series rho_1..rho_8 = -0.1013, -0.0570, -0.0988, +0.2215, +0.0581, -0.0264, -0.0722, +0.1021",
+   "name": "B35-D22-1  the residual autocorrelations are printed, not assumed",
+   "passed": true
+  },
+  {
+   "detail": "classical lhs 0.7799 (passes=False), nw94 lag 3 lhs 0.4655 (passes=False), band half-width 0.4055",
+   "name": "B35-D22-2  the gate-two verdict is unchanged by the serial correction",
+   "passed": true
+  },
+  {
+   "detail": "nominal n = 46, long-run-variance ratio 0.7417, n_eff direct 62.02, n_eff from HAC se 129.11 (nw94) and 135.03 (cube root)",
+   "name": "B35-D22-3  the effective count is reported and the arm is not recorded at n=46",
+   "passed": true
+  }
+ ],
+ "long_run_variance_ratio": 0.741691578031398,
+ "n_effective_direct": 62.0203887471575,
+ "n_nominal": 46,
+ "se_variants": {
+  "classical": {
+   "gate_two_lhs": 0.7798521155082938,
+   "gate_two_passes": false,
+   "lag": 0,
+   "n_eff": 46.0,
+   "se_diff": 0.4740742343515464,
+   "se_diff_independent_bound": 0.4605143647401808,
+   "se_leg": 0.4492116198121351,
+   "se_paws": 0.10140217333869156,
+   "shortfall_x": 1.92335197261969
+  },
+  "cuberoot": {
+   "gate_two_lhs": 0.45517762301877107,
+   "gate_two_passes": false,
+   "lag": 4,
+   "n_eff": 135.02697358777988,
+   "se_diff": 0.27670372219986084,
+   "se_leg": 0.3109994046350389,
+   "se_paws": 0.09362650811586856,
+   "shortfall_x": 1.1226061476474694
+  },
+  "hc0": {
+   "gate_two_lhs": 0.7257840633346219,
+   "gate_two_passes": false,
+   "lag": 0,
+   "n_eff": 53.108921885806026,
+   "se_diff": 0.4412061175286455,
+   "se_leg": 0.4095206581853017,
+   "se_paws": 0.11312237039582113,
+   "shortfall_x": 1.7900037483398132
+  },
+  "nw94": {
+   "gate_two_lhs": 0.46549971990877415,
+   "gate_two_passes": false,
+   "lag": 3,
+   "n_eff": 129.1051280847511,
+   "se_diff": 0.28297855313603293,
+   "se_leg": 0.3119974140110752,
+   "se_paws": 0.09422338577764248,
+   "shortfall_x": 1.1480635709462688
+  }
+ },
+ "stage": "B35"
+}

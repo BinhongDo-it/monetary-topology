@@ -1,0 +1,458 @@
+{
+  "config": {
+    "excluded_ages": {
+      "16": "lower bound is compulsory school age, not a birthday; NMWA 1998 s.1(2)(c)",
+      "17": "lower bound is compulsory school age, not a birthday; NMWA 1998 s.1(2)(c)",
+      "19": "apprentice rate crosses the age bands; NMWR 2015 reg 5(1), limbs disjunctive"
+    },
+    "source_records": [
+      "b34_lfs_arm1.json",
+      "b34_lfs_profile.json",
+      "b34_lfs_kink.json"
+    ],
+    "statute_boundaries": {
+      "2018": [
+        18,
+        21,
+        25
+      ],
+      "2019": [
+        18,
+        21,
+        25
+      ],
+      "2021": [
+        18,
+        21,
+        23
+      ],
+      "2022": [
+        18,
+        21,
+        23
+      ]
+    },
+    "statute_cite": {
+      "2018": "SI 2018/455 reg 2(2) and reg 2(3)(a)-(d), in force 1 April 2018; the age wording is in SI 2015/621 reg 4A as in force that day, because 2018/455 substitutes figures only",
+      "2019": "SI 2019/603 reg 2(2) and reg 2(3), in force 1 April 2019",
+      "2021": "SI 2021/329 reg 2(2) and reg 2(3)(a), in force 1 April 2021",
+      "2022": "SI 2022/382 reg 2, in force 1 April 2022"
+    },
+    "statute_rates": {
+      "2018": [
+        7.83,
+        7.38,
+        5.9,
+        4.2,
+        3.7
+      ],
+      "2019": [
+        8.21,
+        7.7,
+        6.15,
+        4.35,
+        3.9
+      ],
+      "2021": [
+        8.91,
+        8.36,
+        6.56,
+        4.62,
+        4.3
+      ],
+      "2022": [
+        9.5,
+        9.18,
+        6.83,
+        4.81,
+        4.81
+      ]
+    },
+    "statute_side_written_here": true,
+    "visible_multiple": 1.645
+  },
+  "criteria": [
+    {
+      "detail": "no gap outside the statute reads >= 1.645 se in a majority of that year's profiles, in any of the 4 rate years",
+      "name": "B34-3a no placebo gap carries a break",
+      "passed": true
+    },
+    {
+      "detail": "2018 top gap 26-27 (off statute); 2019 top gap 20-21; 2021 top gap 18-19 (off statute); 2022 top gap 20-21",
+      "name": "B34-3b the largest excess of each year sits on the statute",
+      "passed": false
+    },
+    {
+      "detail": "all 4 rate years equal in both steps that carry the set",
+      "name": "B34-4a boundary set, statute equals code",
+      "passed": true
+    },
+    {
+      "detail": "16, 17 and 19 absent from every boundary set",
+      "name": "B34-4b excluded ages never used as boundaries",
+      "passed": true
+    }
+  ],
+  "placebo": {
+    "2018": {
+      "18-19": {
+        "break": 2,
+        "flat": 0,
+        "mean_excess_mult": 0.9366,
+        "n": 8,
+        "named": false
+      },
+      "19-20": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.5042,
+        "n": 8,
+        "named": false
+      },
+      "21-22": {
+        "break": 0,
+        "flat": 2,
+        "mean_excess_mult": -1.3362,
+        "n": 8,
+        "named": false
+      },
+      "22-23": {
+        "break": 1,
+        "flat": 0,
+        "mean_excess_mult": 0.6497,
+        "n": 8,
+        "named": false
+      },
+      "23-24": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.2987,
+        "n": 8,
+        "named": false
+      },
+      "25-26": {
+        "break": 0,
+        "flat": 2,
+        "mean_excess_mult": -1.085,
+        "n": 8,
+        "named": false
+      },
+      "26-27": {
+        "break": 3,
+        "flat": 0,
+        "mean_excess_mult": 1.1276,
+        "n": 8,
+        "named": false
+      },
+      "27-28": {
+        "break": 0,
+        "flat": 3,
+        "mean_excess_mult": -1.1092,
+        "n": 8,
+        "named": false
+      },
+      "28-29": {
+        "break": 2,
+        "flat": 0,
+        "mean_excess_mult": 0.4972,
+        "n": 8,
+        "named": false
+      }
+    },
+    "2019": {
+      "18-19": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.3011,
+        "n": 8,
+        "named": false
+      },
+      "19-20": {
+        "break": 0,
+        "flat": 2,
+        "mean_excess_mult": -1.0682,
+        "n": 8,
+        "named": false
+      },
+      "21-22": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.6627,
+        "n": 8,
+        "named": false
+      },
+      "22-23": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.4596,
+        "n": 8,
+        "named": false
+      },
+      "23-24": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.1233,
+        "n": 8,
+        "named": false
+      },
+      "25-26": {
+        "break": 0,
+        "flat": 3,
+        "mean_excess_mult": -1.6886,
+        "n": 8,
+        "named": false
+      },
+      "26-27": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.5882,
+        "n": 8,
+        "named": false
+      },
+      "27-28": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.0631,
+        "n": 8,
+        "named": false
+      },
+      "28-29": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.4015,
+        "n": 8,
+        "named": false
+      }
+    },
+    "2021": {
+      "18-19": {
+        "break": 2,
+        "flat": 0,
+        "mean_excess_mult": 1.0026,
+        "n": 8,
+        "named": false
+      },
+      "19-20": {
+        "break": 0,
+        "flat": 1,
+        "mean_excess_mult": -1.4427,
+        "n": 8,
+        "named": false
+      },
+      "21-22": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.151,
+        "n": 8,
+        "named": false
+      },
+      "23-24": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.0635,
+        "n": 8,
+        "named": false
+      },
+      "24-25": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.5296,
+        "n": 8,
+        "named": false
+      },
+      "25-26": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.0085,
+        "n": 8,
+        "named": false
+      },
+      "26-27": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.5486,
+        "n": 8,
+        "named": false
+      },
+      "27-28": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.6539,
+        "n": 8,
+        "named": false
+      },
+      "28-29": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.7058,
+        "n": 8,
+        "named": false
+      }
+    },
+    "2022": {
+      "18-19": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.0833,
+        "n": 8,
+        "named": false
+      },
+      "19-20": {
+        "break": 0,
+        "flat": 1,
+        "mean_excess_mult": -1.0498,
+        "n": 8,
+        "named": false
+      },
+      "21-22": {
+        "break": 0,
+        "flat": 4,
+        "mean_excess_mult": -1.4264,
+        "n": 8,
+        "named": false
+      },
+      "23-24": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.1052,
+        "n": 8,
+        "named": false
+      },
+      "24-25": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.9589,
+        "n": 8,
+        "named": false
+      },
+      "25-26": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.6109,
+        "n": 8,
+        "named": false
+      },
+      "26-27": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.1098,
+        "n": 8,
+        "named": false
+      },
+      "27-28": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.1478,
+        "n": 8,
+        "named": false
+      },
+      "28-29": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.224,
+        "n": 8,
+        "named": false
+      }
+    }
+  },
+  "placebo_break": {},
+  "stage": "B34-LFS-step6",
+  "statutory": {
+    "2018": {
+      "17-18": {
+        "break": 0,
+        "flat": 1,
+        "mean_excess_mult": -0.6478,
+        "n": 8,
+        "named": true
+      },
+      "20-21": {
+        "break": 2,
+        "flat": 0,
+        "mean_excess_mult": 0.8282,
+        "n": 8,
+        "named": true
+      },
+      "24-25": {
+        "break": 2,
+        "flat": 0,
+        "mean_excess_mult": 0.6548,
+        "n": 8,
+        "named": true
+      }
+    },
+    "2019": {
+      "17-18": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.145,
+        "n": 8,
+        "named": true
+      },
+      "20-21": {
+        "break": 3,
+        "flat": 0,
+        "mean_excess_mult": 1.4858,
+        "n": 8,
+        "named": true
+      },
+      "24-25": {
+        "break": 2,
+        "flat": 0,
+        "mean_excess_mult": 1.3854,
+        "n": 8,
+        "named": true
+      }
+    },
+    "2021": {
+      "17-18": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.1423,
+        "n": 8,
+        "named": true
+      },
+      "20-21": {
+        "break": 2,
+        "flat": 0,
+        "mean_excess_mult": 0.7207,
+        "n": 8,
+        "named": true
+      },
+      "22-23": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": -0.1152,
+        "n": 8,
+        "named": true
+      }
+    },
+    "2022": {
+      "17-18": {
+        "break": 0,
+        "flat": 0,
+        "mean_excess_mult": 0.5847,
+        "n": 8,
+        "named": true
+      },
+      "20-21": {
+        "break": 3,
+        "flat": 0,
+        "mean_excess_mult": 1.4538,
+        "n": 8,
+        "named": true
+      },
+      "22-23": {
+        "break": 4,
+        "flat": 1,
+        "mean_excess_mult": 1.0834,
+        "n": 8,
+        "named": true
+      }
+    }
+  },
+  "top_gap_off_statute": {
+    "2018": "26-27",
+    "2021": "18-19"
+  }
+}

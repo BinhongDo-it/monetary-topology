@@ -1,0 +1,92 @@
+{
+  "T_DB1B_MARKET_1993.zip": {
+    "sig": [
+      13863402,
+      1788112793
+    ],
+    "periods": [
+      [
+        1993,
+        1
+      ]
+    ],
+    "columns": [
+      "bulk_fare",
+      "dest",
+      "dest_airport_id",
+      "dest_city_market_id",
+      "market_coupons",
+      "market_distance",
+      "market_fare",
+      "op_carrier_change",
+      "origin",
+      "origin_airport_id",
+      "origin_city_market_id",
+      "passengers",
+      "quarter",
+      "ticket_carrier",
+      "tk_carrier_change",
+      "year"
+    ]
+  },
+  "T_DB1B_MARKET_1994.zip": {
+    "sig": [
+      15662084,
+      1788114038
+    ],
+    "periods": [
+      [
+        1994,
+        1
+      ]
+    ],
+    "columns": [
+      "bulk_fare",
+      "dest",
+      "dest_airport_id",
+      "dest_city_market_id",
+      "market_coupons",
+      "market_distance",
+      "market_fare",
+      "op_carrier_change",
+      "origin",
+      "origin_airport_id",
+      "origin_city_market_id",
+      "passengers",
+      "quarter",
+      "ticket_carrier",
+      "tk_carrier_change",
+      "year"
+    ]
+  },
+  "T_DB1B_MARKET_1995.zip": {
+    "sig": [
+      16628202,
+      1788114311
+    ],
+    "periods": [
+      [
+        1995,
+        1
+      ]
+    ],
+    "columns": [
+      "bulk_fare",
+      "dest",
+      "dest_airport_id",
+      "dest_city_market_id",
+      "market_coupons",
+      "market_distance",
+      "market_fare",
+      "op_carrier_change",
+      "origin",
+      "origin_airport_id",
+      "origin_city_market_id",
+      "passengers",
+      "quarter",
+      "ticket_carrier",
+      "tk_carrier_change",
+      "year"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+ "casa": "blue",
+ "rows": 5720,
+ "first": "2011-01-03",
+ "last": "2026-08-31",
+ "rows_in_registered_window": 2495,
+ "window_first": "2019-09-01",
+ "window_last": "2026-06-30",
+ "window": [
+  "2019-09-01",
+  "2026-06-30"
+ ],
+ "sha256": "7ba2a2ed30a08d01b5164b33fd7bbb35329a066c5ee70e756df2fb1302dc59de"
+}

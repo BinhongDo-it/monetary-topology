@@ -1,0 +1,48 @@
+{
+ "beef": {
+  "argmin": "2025-05",
+  "min_S": 0.1820480266927753,
+  "median_S": 0.5068249564932715,
+  "sd_S": 0.42100290359474435,
+  "sd_below_median_raw": 0.7714363179621325,
+  "log_sd_S": 0.6765709332594767,
+  "sd_below_median": 1.513359656742301,
+  "S_at_break": 0.22325781240320247,
+  "recovery_ratio": 0.051491228147712544
+ },
+ "pork": {
+  "argmin": "2025-04",
+  "min_S": 0.5575081085992826,
+  "median_S": 0.8170146088774112,
+  "sd_S": 0.3247234551169513,
+  "sd_below_median_raw": 0.7991615517415138,
+  "log_sd_S": 0.3378731976491328,
+  "sd_below_median": 1.131134196737058,
+  "S_at_break": 0.5575081085992826,
+  "recovery_ratio": 0.7281470672185177
+ },
+ "poultry": {
+  "argmin": "2025-04",
+  "min_S": 0.3103676819587792,
+  "median_S": 0.7548789998645585,
+  "sd_S": 0.5881653415157981,
+  "sd_below_median_raw": 0.7557591148778013,
+  "log_sd_S": 0.6074886851891504,
+  "sd_below_median": 1.4630721978974444,
+  "S_at_break": 0.3103676819587792,
+  "recovery_ratio": 0.30746861750363236
+ },
+ "_verdict_reading_one": "COMMON. All three step together, which is what a tariff on all United States meat looks like.",
+ "_window": {
+  "step": [
+   "2025-01",
+   "2026-03"
+  ],
+  "break": "2025-04",
+  "recovery": [
+   "2025-07",
+   "2026-06"
+  ],
+  "base_year": 2024
+ }
+}

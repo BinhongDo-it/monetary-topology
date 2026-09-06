@@ -14,6 +14,10 @@ Covered by CC BY 4.0:
     speedrun/
     RESULTS.md
     README.md
+    data/SOURCES.md
+    data/*.json
+    data/*.csv
+    data/**/*_manifest.json
 
 Covered by MIT (see `LICENSE`):
 
@@ -21,9 +25,26 @@ Covered by MIT (see `LICENSE`):
     experiments/
     scripts/
     tests/
+    data/*.py
 
-No source data is redistributed. `data/` is not in this repository and each
-source keeps its own terms, recorded in `data/SOURCES.md`.
+Anything else in this repository that is this project's own work falls under one
+of the two above according to what it is: source files under MIT, prose and
+records under CC BY 4.0. The lists are meant to be exhaustive of what is here;
+if something is not on them, that is an omission rather than a third category.
+The two `.gitkeep` files under `data/` are empty and hold directories open; they
+carry nothing to license.
+
+**Nothing that came from anyone else is licensed by this file.** Retrieved
+source data is not in this repository: `data/raw/` and the per-stage `raw/`
+directories are excluded from git, and each source keeps its own terms, recorded
+in `data/SOURCES.md`. Two third-party repositories cloned under `data/raw/` are
+excluded on the same footing and keep whatever terms their upstreams set.
+
+**What is on the lists under `data/` is not retrieved data.** It is the
+retrieval scripts, the per-file provenance manifests, the choices this project
+pinned by hand and recorded with what was measured to settle them, and two
+tables this project collected and arranged itself. The account of each sits in
+`data/SOURCES.md`.
 
 ## The license
 

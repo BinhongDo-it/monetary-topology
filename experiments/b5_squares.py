@@ -270,7 +270,7 @@ def main() -> int:
             "MEP and CCL are clean with respect to the deleted cap and not with "
             "respect to every rule: the cross-restriction was removed on the "
             "intervention date and reimposed in September 2025, inside the "
-            "post-window (PROJECT_PLAN 14.5). `informal` is the only class whose "
+            "post-window. `informal` is the only class whose "
             "access was never rule-bound, which is why oficial-informal is the "
             "headline pair."
         ),

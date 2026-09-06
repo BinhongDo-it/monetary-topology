@@ -1,0 +1,72 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "recheck of the Missouri cross-block agreement: how much of the sign was free to disagree",
+  "hrw": {
+    "centred": {
+      "KS": 1.8649529220779222,
+      "MO": -7.3285535714285714,
+      "NE": -0.08196266233766195,
+      "OK": -0.5663376623376614,
+      "SD": 6.111900974025977
+    },
+    "counts": {
+      "KS": 7,
+      "MO": 1,
+      "NE": 3,
+      "OK": 4,
+      "SD": 5
+    },
+    "days": 440,
+    "positions": 20,
+    "raw": {
+      "KS": 0.17623376623376644,
+      "MO": -9.017272727272728,
+      "NE": -1.7706818181818156,
+      "OK": -2.255056818181818,
+      "SD": 4.423181818181819
+    }
+  },
+  "mo_positions": {
+    "hrw": [
+      "Kansas City | Terminals/Mills/Processors"
+    ],
+    "shared": [
+      "Kansas City | Terminals/Mills/Processors"
+    ],
+    "srw": [
+      "Central | Country Elevators",
+      "Kansas City | Terminals/Mills/Processors",
+      "Northwest | Country Elevators",
+      "St. Louis MS River | Terminals/Mills/Processors",
+      "West Central | Country Elevators"
+    ]
+  },
+  "shared_days": 239,
+  "srw": {
+    "centred": {
+      "KY": 5.549056818181816,
+      "MO": -3.6817386363636353,
+      "OH": -0.4449772727272721,
+      "SC": -6.9117386363636335,
+      "TN": 5.489397727272729
+    },
+    "counts": {
+      "KY": 1,
+      "MO": 5,
+      "OH": 2,
+      "SC": 1,
+      "TN": 1
+    },
+    "days": 440,
+    "positions": 10,
+    "raw": {
+      "KY": 7.066249999999996,
+      "MO": -2.164545454545455,
+      "OH": 1.0722159090909085,
+      "SC": -5.394545454545454,
+      "TN": 7.006590909090909
+    }
+  },
+  "srw_mo_without_shared": -3.984488636363639,
+  "stage": "B41"
+}

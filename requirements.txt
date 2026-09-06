@@ -22,3 +22,10 @@ matplotlib==3.11.1
 # and a ruff release adding a rule should surface rather than be frozen out.
 pytest>=7.4
 ruff>=0.4
+
+# Retrieval, and unpinned for the reason given above: its output is data rather
+# than a committed artefact, so a version change cannot move a number in a
+# committed file. One source answers python's own TLS handshake with a 403 and a
+# browser handshake with a 200, from the same address in the same minute, so a
+# client that impersonates the browser handshake is the only headless way in.
+curl_cffi>=0.7

@@ -1,0 +1,124 @@
+{
+  "stage": "A3b",
+  "seeds": 1,
+  "rounds": 40,
+  "fixed": {
+    "units_per_node": 1.1,
+    "residual_owner": true,
+    "proceeds": "seller"
+  },
+  "arms": {
+    "auction": {
+      "construction": "auction"
+    },
+    "continuous": {
+      "construction": "continuous",
+      "ownership_rate": 0.653
+    },
+    "occupancy": {
+      "construction": "occupancy",
+      "ownership_rate": 0.7,
+      "opening_discount": 0.44
+    }
+  },
+  "checkpoints": [
+    1,
+    25,
+    50,
+    100,
+    200,
+    300
+  ],
+  "conservation": {
+    "worst_unit_discrepancy": 0.0
+  },
+  "collapsed_pairs": [
+    {
+      "pair": "auction / continuous",
+      "identical_on_reported_measures": true,
+      "identical_in_net_worth": true
+    }
+  ],
+  "results": {
+    "auction": {
+      "supply": 220,
+      "ownership": {
+        "1": 0.205,
+        "25": 0.145
+      },
+      "prod_holders": {
+        "1": 21.0,
+        "25": 10.0
+      },
+      "prod_units": {
+        "1": 21.0,
+        "25": 10.0
+      },
+      "total_units": {
+        "1": 220.0,
+        "25": 220.0
+      },
+      "deviations": []
+    },
+    "continuous": {
+      "supply": 220,
+      "ownership": {
+        "1": 0.205,
+        "25": 0.145
+      },
+      "prod_holders": {
+        "1": 21.0,
+        "25": 10.0
+      },
+      "prod_units": {
+        "1": 21.0,
+        "25": 10.0
+      },
+      "total_units": {
+        "1": 220.0,
+        "25": 220.0
+      },
+      "deviations": []
+    },
+    "occupancy": {
+      "supply": 220,
+      "ownership": {
+        "1": 0.72,
+        "25": 0.33
+      },
+      "prod_holders": {
+        "1": 124.0,
+        "25": 46.0
+      },
+      "prod_units": {
+        "1": 124.0,
+        "25": 47.0
+      },
+      "total_units": {
+        "1": 220.0,
+        "25": 220.0
+      },
+      "deviations": []
+    },
+    "auction_pre_a3b": {
+      "supply": 100,
+      "ownership": {
+        "1": 0.205,
+        "25": 0.145
+      },
+      "prod_holders": {
+        "1": 21.0,
+        "25": 12.0
+      },
+      "prod_units": {
+        "1": 22.0,
+        "25": 12.0
+      },
+      "total_units": {
+        "1": 61.0,
+        "25": 61.0
+      },
+      "deviations": []
+    }
+  }
+}

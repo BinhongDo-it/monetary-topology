@@ -1,0 +1,2173 @@
+{
+  "cross_cut": [
+    {
+      "corr": -0.9287958305193879,
+      "floor_kg": 0,
+      "hi": [
+        2023,
+        12
+      ],
+      "label": "CHICKEN load-bearing window (on record)",
+      "lo": [
+        2022,
+        9
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.01746831971362165,
+          "hs": "0207140045",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken paws",
+          "qty_kt": 25.536148,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.07728414642237029,
+          "hs": "0207140025",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken legs",
+          "qty_kt": 4.411377,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.08937691021310348,
+          "hs": "0207140010",
+          "n_months": 15,
+          "n_steps": 14,
+          "name": "chicken leg quarters",
+          "qty_kt": 4.174474,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.22380877800475268,
+          "hs": "0207140030",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken wings",
+          "qty_kt": 1.282438,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.18463809461229158,
+          "hs": "0207140090",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken meat NESOI",
+          "qty_kt": 0.818026,
+          "subclass": "mixed basket"
+        }
+      ]
+    },
+    {
+      "corr": -0.7053756887881649,
+      "floor_kg": 0,
+      "hi": [
+        2023,
+        12
+      ],
+      "label": "CHICKEN widened",
+      "lo": [
+        2020,
+        1
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.02531379868391334,
+          "hs": "0207140045",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken paws",
+          "qty_kt": 24.309167,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.04803457927825231,
+          "hs": "0207140025",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken legs",
+          "qty_kt": 4.8919175,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.08577412102957338,
+          "hs": "0207140010",
+          "n_months": 47,
+          "n_steps": 46,
+          "name": "chicken leg quarters",
+          "qty_kt": 3.860731,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.15037441653766057,
+          "hs": "0207140090",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken meat NESOI",
+          "qty_kt": 1.7534055,
+          "subclass": "mixed basket"
+        },
+        {
+          "dlog_med": 0.11082446096270251,
+          "hs": "0207140030",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken wings",
+          "qty_kt": 1.559285,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.12424493666227013,
+          "hs": "0207140050",
+          "n_months": 33,
+          "n_steps": 26,
+          "name": "chicken offal",
+          "qty_kt": 0.05443,
+          "subclass": "thin"
+        }
+      ]
+    },
+    {
+      "corr": -0.7081530304197133,
+      "floor_kg": 0,
+      "hi": [
+        2024,
+        6
+      ],
+      "label": "CHICKEN widened to the 2024-06 break",
+      "lo": [
+        2020,
+        1
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.021690186196401742,
+          "hs": "0207140045",
+          "n_months": 54,
+          "n_steps": 53,
+          "name": "chicken paws",
+          "qty_kt": 23.776165,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.049461759707815696,
+          "hs": "0207140025",
+          "n_months": 53,
+          "n_steps": 51,
+          "name": "chicken legs",
+          "qty_kt": 4.65228,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.0808918542689738,
+          "hs": "0207140010",
+          "n_months": 52,
+          "n_steps": 49,
+          "name": "chicken leg quarters",
+          "qty_kt": 3.6464255,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.11073556613811938,
+          "hs": "0207140030",
+          "n_months": 54,
+          "n_steps": 53,
+          "name": "chicken wings",
+          "qty_kt": 1.4172365,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.16082984233080028,
+          "hs": "0207140090",
+          "n_months": 54,
+          "n_steps": 53,
+          "name": "chicken meat NESOI",
+          "qty_kt": 1.384771,
+          "subclass": "mixed basket"
+        },
+        {
+          "dlog_med": 0.12424493666227013,
+          "hs": "0207140050",
+          "n_months": 34,
+          "n_steps": 26,
+          "name": "chicken offal",
+          "qty_kt": 0.054415,
+          "subclass": "thin"
+        }
+      ]
+    },
+    {
+      "corr": -0.5791605394802571,
+      "floor_kg": 0,
+      "hi": [
+        2023,
+        12
+      ],
+      "label": "CHICKEN + PORK widened",
+      "lo": [
+        2020,
+        1
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.02531379868391334,
+          "hs": "0207140045",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken paws",
+          "qty_kt": 24.309167,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.04518984174264931,
+          "hs": "0203294000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork NESOI",
+          "qty_kt": 16.0207755,
+          "subclass": "thick, mixed basket"
+        },
+        {
+          "dlog_med": 0.04803457927825231,
+          "hs": "0207140025",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken legs",
+          "qty_kt": 4.8919175,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.08577412102957338,
+          "hs": "0207140010",
+          "n_months": 47,
+          "n_steps": 46,
+          "name": "chicken leg quarters",
+          "qty_kt": 3.860731,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.15037441653766057,
+          "hs": "0207140090",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken meat NESOI",
+          "qty_kt": 1.7534055,
+          "subclass": "mixed basket"
+        },
+        {
+          "dlog_med": 0.11082446096270251,
+          "hs": "0207140030",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken wings",
+          "qty_kt": 1.559285,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.10114321158094748,
+          "hs": "0203229000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork hams/shoulders b-i",
+          "qty_kt": 0.72723,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.0347179990997442,
+          "hs": "0203210000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork carcasses",
+          "qty_kt": 0.613139,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.12424493666227013,
+          "hs": "0207140050",
+          "n_months": 33,
+          "n_steps": 26,
+          "name": "chicken offal",
+          "qty_kt": 0.05443,
+          "subclass": "thin"
+        }
+      ]
+    },
+    {
+      "corr": -0.5672438213602239,
+      "floor_kg": 0,
+      "hi": [
+        2023,
+        12
+      ],
+      "label": "CHICKEN + PORK load-bearing window",
+      "lo": [
+        2022,
+        9
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.01746831971362165,
+          "hs": "0207140045",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken paws",
+          "qty_kt": 25.536148,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.048298630882157266,
+          "hs": "0203294000",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "pork NESOI",
+          "qty_kt": 13.851885,
+          "subclass": "thick, mixed basket"
+        },
+        {
+          "dlog_med": 0.07728414642237029,
+          "hs": "0207140025",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken legs",
+          "qty_kt": 4.411377,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.08937691021310348,
+          "hs": "0207140010",
+          "n_months": 15,
+          "n_steps": 14,
+          "name": "chicken leg quarters",
+          "qty_kt": 4.174474,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.22380877800475268,
+          "hs": "0207140030",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken wings",
+          "qty_kt": 1.282438,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.18463809461229158,
+          "hs": "0207140090",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "chicken meat NESOI",
+          "qty_kt": 0.818026,
+          "subclass": "mixed basket"
+        },
+        {
+          "dlog_med": 0.03427322991593004,
+          "hs": "0203210000",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "pork carcasses",
+          "qty_kt": 0.511058,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.1443564412080377,
+          "hs": "0203229000",
+          "n_months": 16,
+          "n_steps": 15,
+          "name": "pork hams/shoulders b-i",
+          "qty_kt": 0.503393,
+          "subclass": "thick, quoted daily"
+        }
+      ]
+    },
+    {
+      "corr": -0.6400341860432841,
+      "floor_kg": 50000,
+      "hi": [
+        2023,
+        12
+      ],
+      "label": "CHICKEN + PORK widened, floor sensitivity",
+      "lo": [
+        2020,
+        1
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.02531379868391334,
+          "hs": "0207140045",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken paws",
+          "qty_kt": 24.309167,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.04518984174264931,
+          "hs": "0203294000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork NESOI",
+          "qty_kt": 16.0207755,
+          "subclass": "thick, mixed basket"
+        },
+        {
+          "dlog_med": 0.04803457927825231,
+          "hs": "0207140025",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken legs",
+          "qty_kt": 4.8919175,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.08577412102957338,
+          "hs": "0207140010",
+          "n_months": 47,
+          "n_steps": 46,
+          "name": "chicken leg quarters",
+          "qty_kt": 3.860731,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.15037441653766057,
+          "hs": "0207140090",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken meat NESOI",
+          "qty_kt": 1.7534055,
+          "subclass": "mixed basket"
+        },
+        {
+          "dlog_med": 0.11082446096270251,
+          "hs": "0207140030",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken wings",
+          "qty_kt": 1.559285,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.10114321158094748,
+          "hs": "0203229000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork hams/shoulders b-i",
+          "qty_kt": 0.72723,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.0347179990997442,
+          "hs": "0203210000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork carcasses",
+          "qty_kt": 0.613139,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.14674541092828114,
+          "hs": "0207140050",
+          "n_months": 20,
+          "n_steps": 12,
+          "name": "chicken offal",
+          "qty_kt": 0.168867,
+          "subclass": "thin"
+        }
+      ]
+    },
+    {
+      "corr": -0.4432239536060263,
+      "floor_kg": 200000,
+      "hi": [
+        2023,
+        12
+      ],
+      "label": "CHICKEN + PORK widened, floor sensitivity",
+      "lo": [
+        2020,
+        1
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.02531379868391334,
+          "hs": "0207140045",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken paws",
+          "qty_kt": 24.309167,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.04518984174264931,
+          "hs": "0203294000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork NESOI",
+          "qty_kt": 16.0207755,
+          "subclass": "thick, mixed basket"
+        },
+        {
+          "dlog_med": 0.04803457927825231,
+          "hs": "0207140025",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken legs",
+          "qty_kt": 4.8919175,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.0808918542689738,
+          "hs": "0207140010",
+          "n_months": 46,
+          "n_steps": 45,
+          "name": "chicken leg quarters",
+          "qty_kt": 3.8649825,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.15550624831921347,
+          "hs": "0207140090",
+          "n_months": 47,
+          "n_steps": 46,
+          "name": "chicken meat NESOI",
+          "qty_kt": 1.838135,
+          "subclass": "mixed basket"
+        },
+        {
+          "dlog_med": 0.11082446096270251,
+          "hs": "0207140030",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken wings",
+          "qty_kt": 1.559285,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.10114321158094748,
+          "hs": "0203229000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork hams/shoulders b-i",
+          "qty_kt": 0.72723,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.0347179990997442,
+          "hs": "0203210000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork carcasses",
+          "qty_kt": 0.613139,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.08181160204052215,
+          "hs": "0207140050",
+          "n_months": 9,
+          "n_steps": 5,
+          "name": "chicken offal",
+          "qty_kt": 0.414514,
+          "subclass": "thin"
+        }
+      ]
+    },
+    {
+      "corr": -0.7379328032912712,
+      "floor_kg": 1000000,
+      "hi": [
+        2023,
+        12
+      ],
+      "label": "CHICKEN + PORK widened, floor sensitivity",
+      "lo": [
+        2020,
+        1
+      ],
+      "rows": [
+        {
+          "dlog_med": 0.02531379868391334,
+          "hs": "0207140045",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "chicken paws",
+          "qty_kt": 24.309167,
+          "subclass": "none"
+        },
+        {
+          "dlog_med": 0.04518984174264931,
+          "hs": "0203294000",
+          "n_months": 48,
+          "n_steps": 47,
+          "name": "pork NESOI",
+          "qty_kt": 16.0207755,
+          "subclass": "thick, mixed basket"
+        },
+        {
+          "dlog_med": 0.06599965627261913,
+          "hs": "0203229000",
+          "n_months": 21,
+          "n_steps": 19,
+          "name": "pork hams/shoulders b-i",
+          "qty_kt": 13.29309,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.02609947594049685,
+          "hs": "0203210000",
+          "n_months": 13,
+          "n_steps": 11,
+          "name": "pork carcasses",
+          "qty_kt": 5.922512,
+          "subclass": "thick, quoted daily"
+        },
+        {
+          "dlog_med": 0.04649786225616137,
+          "hs": "0207140025",
+          "n_months": 46,
+          "n_steps": 44,
+          "name": "chicken legs",
+          "qty_kt": 5.046423,
+          "subclass": "thick"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "hs": "0207140010",
+          "n_months": 44,
+          "n_steps": 43,
+          "name": "chicken leg quarters",
+          "qty_kt": 3.8756225,
+          "subclass": "thickest"
+        },
+        {
+          "dlog_med": 0.12908810646374352,
+          "hs": "0207140090",
+          "n_months": 34,
+          "n_steps": 30,
+          "name": "chicken meat NESOI",
+          "qty_kt": 2.571982,
+          "subclass": "mixed basket"
+        },
+        {
+          "dlog_med": 0.10780640415664323,
+          "hs": "0207140030",
+          "n_months": 38,
+          "n_steps": 35,
+          "name": "chicken wings",
+          "qty_kt": 1.8387655,
+          "subclass": "thickest"
+        }
+      ]
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "station not closed; these readings test a rival explanation, they do not score any registered criterion",
+  "sqrt": [
+    {
+      "comparator": "chicken leg quarters",
+      "excess_quiet": 2.068699415664512,
+      "observed": 0.19544555380099315,
+      "predicted": 0.4043181029423415,
+      "qty_ratio": 6.117213330350124,
+      "target": "chicken paws",
+      "window": "CHICKEN load-bearing window (on record)"
+    },
+    {
+      "comparator": "chicken legs",
+      "excess_quiet": 1.838860045319849,
+      "observed": 0.22602720638401663,
+      "predicted": 0.4156323989748317,
+      "qty_ratio": 5.788702257821084,
+      "target": "chicken paws",
+      "window": "CHICKEN load-bearing window (on record)"
+    },
+    {
+      "comparator": "chicken leg quarters",
+      "excess_quiet": 1.3503572709729248,
+      "observed": 0.2951216331926689,
+      "predicted": 0.3985196432031249,
+      "qty_ratio": 6.296519234310808,
+      "target": "chicken paws",
+      "window": "CHICKEN widened"
+    },
+    {
+      "comparator": "chicken legs",
+      "excess_quiet": 0.8512383726973236,
+      "observed": 0.5269911606236173,
+      "predicted": 0.44859509799512187,
+      "qty_ratio": 4.969251218974972,
+      "target": "chicken paws",
+      "window": "CHICKEN widened"
+    },
+    {
+      "comparator": "chicken leg quarters",
+      "excess_quiet": 1.4605091430869517,
+      "observed": 0.26813807635413606,
+      "predicted": 0.3916181121249629,
+      "qty_ratio": 6.5204033374602055,
+      "target": "chicken paws",
+      "window": "CHICKEN widened to the 2024-06 break"
+    },
+    {
+      "comparator": "chicken legs",
+      "excess_quiet": 1.008714590357754,
+      "observed": 0.43852435345065915,
+      "predicted": 0.44234591355288055,
+      "qty_ratio": 5.11064789737505,
+      "target": "chicken paws",
+      "window": "CHICKEN widened to the 2024-06 break"
+    }
+  ],
+  "stage": "B35",
+  "within_cut": [
+    {
+      "corr": -0.7651660223974599,
+      "hs": "0207140045",
+      "name": "chicken paws",
+      "win": 12,
+      "windows": [
+        {
+          "dlog_med": 0.10260616052939825,
+          "from": "2016-12",
+          "n_months": 12,
+          "n_steps": 8,
+          "qty_kt": 0.1974235,
+          "to": "2020-04"
+        },
+        {
+          "dlog_med": 0.09924126213626658,
+          "from": "2017-01",
+          "n_months": 12,
+          "n_steps": 8,
+          "qty_kt": 0.3838775,
+          "to": "2020-05"
+        },
+        {
+          "dlog_med": 0.08650419262777304,
+          "from": "2017-04",
+          "n_months": 12,
+          "n_steps": 9,
+          "qty_kt": 2.589001,
+          "to": "2020-06"
+        },
+        {
+          "dlog_med": 0.08060251207496394,
+          "from": "2017-07",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 5.7767885,
+          "to": "2020-07"
+        },
+        {
+          "dlog_med": 0.06294966164748031,
+          "from": "2017-08",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 9.966386,
+          "to": "2020-08"
+        },
+        {
+          "dlog_med": 0.04000901687769913,
+          "from": "2017-09",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 15.164512,
+          "to": "2020-09"
+        },
+        {
+          "dlog_med": 0.02831111802265596,
+          "from": "2017-10",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 17.5466485,
+          "to": "2020-10"
+        },
+        {
+          "dlog_med": 0.027802694062719437,
+          "from": "2019-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.1249945,
+          "to": "2020-11"
+        },
+        {
+          "dlog_med": 0.02531379868391334,
+          "from": "2020-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.4874935,
+          "to": "2020-12"
+        },
+        {
+          "dlog_med": 0.017569309670743535,
+          "from": "2020-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.668447,
+          "to": "2021-01"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.917785,
+          "to": "2021-02"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 19.7089395,
+          "to": "2021-03"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 20.4736235,
+          "to": "2021-04"
+        },
+        {
+          "dlog_med": 0.017569309670743535,
+          "from": "2020-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 20.4736235,
+          "to": "2021-05"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 20.845381,
+          "to": "2021-06"
+        },
+        {
+          "dlog_med": 0.017569309670743535,
+          "from": "2020-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 21.362488,
+          "to": "2021-07"
+        },
+        {
+          "dlog_med": 0.02531379868391334,
+          "from": "2020-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 22.2554245,
+          "to": "2021-08"
+        },
+        {
+          "dlog_med": 0.032550649377055436,
+          "from": "2020-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.475283,
+          "to": "2021-09"
+        },
+        {
+          "dlog_med": 0.03676837980763945,
+          "from": "2020-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.776165,
+          "to": "2021-10"
+        },
+        {
+          "dlog_med": 0.03676837980763945,
+          "from": "2020-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.776165,
+          "to": "2021-11"
+        },
+        {
+          "dlog_med": 0.042526957633331905,
+          "from": "2021-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 24.56072,
+          "to": "2021-12"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 25.190045,
+          "to": "2022-01"
+        },
+        {
+          "dlog_med": 0.04808575960777046,
+          "from": "2021-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 25.518069,
+          "to": "2022-02"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 26.536801,
+          "to": "2022-03"
+        },
+        {
+          "dlog_med": 0.042526957633331905,
+          "from": "2021-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 27.4279055,
+          "to": "2022-04"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 29.199589,
+          "to": "2022-05"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 31.2407335,
+          "to": "2022-06"
+        },
+        {
+          "dlog_med": 0.042837036125563055,
+          "from": "2021-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 31.944665,
+          "to": "2022-07"
+        },
+        {
+          "dlog_med": 0.042526957633331905,
+          "from": "2021-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 34.649214,
+          "to": "2022-08"
+        },
+        {
+          "dlog_med": 0.02759587282914997,
+          "from": "2021-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 38.197179,
+          "to": "2022-09"
+        },
+        {
+          "dlog_med": 0.02759587282914997,
+          "from": "2021-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2022-10"
+        },
+        {
+          "dlog_med": 0.02477945169426593,
+          "from": "2021-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2022-11"
+        },
+        {
+          "dlog_med": 0.02477945169426593,
+          "from": "2022-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2022-12"
+        },
+        {
+          "dlog_med": 0.02477945169426593,
+          "from": "2022-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2023-01"
+        },
+        {
+          "dlog_med": 0.019859696970223665,
+          "from": "2022-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2023-02"
+        },
+        {
+          "dlog_med": 0.018335959436417665,
+          "from": "2022-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 38.76064,
+          "to": "2023-03"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 36.925369,
+          "to": "2023-04"
+        },
+        {
+          "dlog_med": 0.014687211731419174,
+          "from": "2022-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 32.087926,
+          "to": "2023-05"
+        },
+        {
+          "dlog_med": 0.014687211731419174,
+          "from": "2022-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 29.9803595,
+          "to": "2023-06"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 28.978027,
+          "to": "2023-07"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 27.845834,
+          "to": "2023-08"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 26.364171,
+          "to": "2023-09"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 25.536148,
+          "to": "2023-10"
+        },
+        {
+          "dlog_med": 0.01746831971362165,
+          "from": "2022-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 24.8113185,
+          "to": "2023-11"
+        },
+        {
+          "dlog_med": 0.01746831971362165,
+          "from": "2023-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 24.309167,
+          "to": "2023-12"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.441388,
+          "to": "2024-01"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 22.5671535,
+          "to": "2024-02"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 21.6417145,
+          "to": "2024-03"
+        },
+        {
+          "dlog_med": 0.017466125178636452,
+          "from": "2023-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.198907,
+          "to": "2024-04"
+        },
+        {
+          "dlog_med": 0.017466125178636452,
+          "from": "2023-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 15.440932,
+          "to": "2024-05"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 13.732473,
+          "to": "2024-06"
+        }
+      ]
+    },
+    {
+      "corr": -0.5531786234018204,
+      "hs": "0207140010",
+      "name": "chicken leg quarters",
+      "win": 12,
+      "windows": [
+        {
+          "dlog_med": 0.1150519651855973,
+          "from": "2019-11",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 4.681352,
+          "to": "2020-11"
+        },
+        {
+          "dlog_med": 0.09065638779017297,
+          "from": "2020-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2020-12"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2021-01"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2021-02"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2021-03"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.9508185,
+          "to": "2021-04"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.874914,
+          "to": "2021-05"
+        },
+        {
+          "dlog_med": 0.02460647990156861,
+          "from": "2020-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0976415,
+          "to": "2021-06"
+        },
+        {
+          "dlog_med": 0.02460647990156861,
+          "from": "2020-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0976415,
+          "to": "2021-07"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0976415,
+          "to": "2021-08"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.02248,
+          "to": "2021-09"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.614753,
+          "to": "2021-10"
+        },
+        {
+          "dlog_med": 0.040600729309303356,
+          "from": "2020-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.614753,
+          "to": "2021-11"
+        },
+        {
+          "dlog_med": 0.04335100582607239,
+          "from": "2021-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.4609395,
+          "to": "2021-12"
+        },
+        {
+          "dlog_med": 0.04335100582607239,
+          "from": "2021-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.5683865,
+          "to": "2022-01"
+        },
+        {
+          "dlog_med": 0.06406158440666038,
+          "from": "2021-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-02"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-03"
+        },
+        {
+          "dlog_med": 0.10658560301973481,
+          "from": "2021-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-04"
+        },
+        {
+          "dlog_med": 0.10658560301973481,
+          "from": "2021-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-05"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.5683865,
+          "to": "2022-06"
+        },
+        {
+          "dlog_med": 0.10099188098713827,
+          "from": "2021-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.6121745,
+          "to": "2022-07"
+        },
+        {
+          "dlog_med": 0.10099188098713827,
+          "from": "2021-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.7449885,
+          "to": "2022-08"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.7449885,
+          "to": "2022-09"
+        },
+        {
+          "dlog_med": 0.1832339427051155,
+          "from": "2021-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.8534305,
+          "to": "2022-10"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.857682,
+          "to": "2022-11"
+        },
+        {
+          "dlog_med": 0.10099188098713827,
+          "from": "2022-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.8756225,
+          "to": "2022-12"
+        },
+        {
+          "dlog_med": 0.09786196615723317,
+          "from": "2022-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.0040635,
+          "to": "2023-01"
+        },
+        {
+          "dlog_med": 0.09329935846288076,
+          "from": "2022-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.1366815,
+          "to": "2023-02"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.5417245,
+          "to": "2023-03"
+        },
+        {
+          "dlog_med": 0.044795967970605144,
+          "from": "2022-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.6722995,
+          "to": "2023-04"
+        },
+        {
+          "dlog_med": 0.03686638528009618,
+          "from": "2022-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0838565,
+          "to": "2023-05"
+        },
+        {
+          "dlog_med": 0.03686638528009618,
+          "from": "2022-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0838565,
+          "to": "2023-06"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0838565,
+          "to": "2023-07"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.819954,
+          "to": "2023-08"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.819954,
+          "to": "2023-09"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.2914355,
+          "to": "2023-10"
+        },
+        {
+          "dlog_med": 0.0808918542689738,
+          "from": "2022-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.150295,
+          "to": "2023-11"
+        },
+        {
+          "dlog_med": 0.09149683255806734,
+          "from": "2023-01",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 3.484967,
+          "to": "2024-01"
+        },
+        {
+          "dlog_med": 0.10892882915235692,
+          "from": "2023-02",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 2.253178,
+          "to": "2024-02"
+        },
+        {
+          "dlog_med": 0.11575584745755295,
+          "from": "2023-03",
+          "n_months": 12,
+          "n_steps": 9,
+          "qty_kt": 1.664596,
+          "to": "2024-04"
+        },
+        {
+          "dlog_med": 0.11575584745755295,
+          "from": "2023-04",
+          "n_months": 12,
+          "n_steps": 9,
+          "qty_kt": 1.616299,
+          "to": "2024-05"
+        },
+        {
+          "dlog_med": 0.11575584745755295,
+          "from": "2023-05",
+          "n_months": 12,
+          "n_steps": 9,
+          "qty_kt": 1.385943,
+          "to": "2024-06"
+        }
+      ]
+    },
+    {
+      "corr": 0.26417485834384713,
+      "hs": "0207140045",
+      "name": "chicken paws",
+      "win": 12,
+      "windows": [
+        {
+          "dlog_med": 0.02531379868391334,
+          "from": "2020-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.4874935,
+          "to": "2020-12"
+        },
+        {
+          "dlog_med": 0.017569309670743535,
+          "from": "2020-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.668447,
+          "to": "2021-01"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.917785,
+          "to": "2021-02"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 19.7089395,
+          "to": "2021-03"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 20.4736235,
+          "to": "2021-04"
+        },
+        {
+          "dlog_med": 0.017569309670743535,
+          "from": "2020-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 20.4736235,
+          "to": "2021-05"
+        },
+        {
+          "dlog_med": 0.01570315658762161,
+          "from": "2020-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 20.845381,
+          "to": "2021-06"
+        },
+        {
+          "dlog_med": 0.017569309670743535,
+          "from": "2020-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 21.362488,
+          "to": "2021-07"
+        },
+        {
+          "dlog_med": 0.02531379868391334,
+          "from": "2020-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 22.2554245,
+          "to": "2021-08"
+        },
+        {
+          "dlog_med": 0.032550649377055436,
+          "from": "2020-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.475283,
+          "to": "2021-09"
+        },
+        {
+          "dlog_med": 0.03676837980763945,
+          "from": "2020-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.776165,
+          "to": "2021-10"
+        },
+        {
+          "dlog_med": 0.03676837980763945,
+          "from": "2020-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.776165,
+          "to": "2021-11"
+        },
+        {
+          "dlog_med": 0.042526957633331905,
+          "from": "2021-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 24.56072,
+          "to": "2021-12"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 25.190045,
+          "to": "2022-01"
+        },
+        {
+          "dlog_med": 0.04808575960777046,
+          "from": "2021-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 25.518069,
+          "to": "2022-02"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 26.536801,
+          "to": "2022-03"
+        },
+        {
+          "dlog_med": 0.042526957633331905,
+          "from": "2021-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 27.4279055,
+          "to": "2022-04"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 29.199589,
+          "to": "2022-05"
+        },
+        {
+          "dlog_med": 0.047351637298186144,
+          "from": "2021-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 31.2407335,
+          "to": "2022-06"
+        },
+        {
+          "dlog_med": 0.042837036125563055,
+          "from": "2021-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 31.944665,
+          "to": "2022-07"
+        },
+        {
+          "dlog_med": 0.042526957633331905,
+          "from": "2021-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 34.649214,
+          "to": "2022-08"
+        },
+        {
+          "dlog_med": 0.02759587282914997,
+          "from": "2021-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 38.197179,
+          "to": "2022-09"
+        },
+        {
+          "dlog_med": 0.02759587282914997,
+          "from": "2021-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2022-10"
+        },
+        {
+          "dlog_med": 0.02477945169426593,
+          "from": "2021-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2022-11"
+        },
+        {
+          "dlog_med": 0.02477945169426593,
+          "from": "2022-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2022-12"
+        },
+        {
+          "dlog_med": 0.02477945169426593,
+          "from": "2022-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2023-01"
+        },
+        {
+          "dlog_med": 0.019859696970223665,
+          "from": "2022-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 39.91898,
+          "to": "2023-02"
+        },
+        {
+          "dlog_med": 0.018335959436417665,
+          "from": "2022-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 38.76064,
+          "to": "2023-03"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 36.925369,
+          "to": "2023-04"
+        },
+        {
+          "dlog_med": 0.014687211731419174,
+          "from": "2022-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 32.087926,
+          "to": "2023-05"
+        },
+        {
+          "dlog_med": 0.014687211731419174,
+          "from": "2022-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 29.9803595,
+          "to": "2023-06"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 28.978027,
+          "to": "2023-07"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 27.845834,
+          "to": "2023-08"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 26.364171,
+          "to": "2023-09"
+        },
+        {
+          "dlog_med": 0.018054491680572993,
+          "from": "2022-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 25.536148,
+          "to": "2023-10"
+        },
+        {
+          "dlog_med": 0.01746831971362165,
+          "from": "2022-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 24.8113185,
+          "to": "2023-11"
+        },
+        {
+          "dlog_med": 0.01746831971362165,
+          "from": "2023-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 24.309167,
+          "to": "2023-12"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 23.441388,
+          "to": "2024-01"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 22.5671535,
+          "to": "2024-02"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 21.6417145,
+          "to": "2024-03"
+        },
+        {
+          "dlog_med": 0.017466125178636452,
+          "from": "2023-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 18.198907,
+          "to": "2024-04"
+        },
+        {
+          "dlog_med": 0.017466125178636452,
+          "from": "2023-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 15.440932,
+          "to": "2024-05"
+        },
+        {
+          "dlog_med": 0.014276521502480198,
+          "from": "2023-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 13.732473,
+          "to": "2024-06"
+        }
+      ]
+    },
+    {
+      "corr": -0.5776273466799228,
+      "hs": "0207140010",
+      "name": "chicken leg quarters",
+      "win": 12,
+      "windows": [
+        {
+          "dlog_med": 0.09065638779017297,
+          "from": "2020-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2020-12"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2021-01"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2021-02"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 6.022659,
+          "to": "2021-03"
+        },
+        {
+          "dlog_med": 0.0374041650430693,
+          "from": "2020-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.9508185,
+          "to": "2021-04"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.874914,
+          "to": "2021-05"
+        },
+        {
+          "dlog_med": 0.02460647990156861,
+          "from": "2020-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0976415,
+          "to": "2021-06"
+        },
+        {
+          "dlog_med": 0.02460647990156861,
+          "from": "2020-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0976415,
+          "to": "2021-07"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0976415,
+          "to": "2021-08"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.02248,
+          "to": "2021-09"
+        },
+        {
+          "dlog_med": 0.03731733263099315,
+          "from": "2020-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.614753,
+          "to": "2021-10"
+        },
+        {
+          "dlog_med": 0.040600729309303356,
+          "from": "2020-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.614753,
+          "to": "2021-11"
+        },
+        {
+          "dlog_med": 0.04335100582607239,
+          "from": "2021-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.4609395,
+          "to": "2021-12"
+        },
+        {
+          "dlog_med": 0.04335100582607239,
+          "from": "2021-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.5683865,
+          "to": "2022-01"
+        },
+        {
+          "dlog_med": 0.06406158440666038,
+          "from": "2021-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-02"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-03"
+        },
+        {
+          "dlog_med": 0.10658560301973481,
+          "from": "2021-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-04"
+        },
+        {
+          "dlog_med": 0.10658560301973481,
+          "from": "2021-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.448824,
+          "to": "2022-05"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.5683865,
+          "to": "2022-06"
+        },
+        {
+          "dlog_med": 0.10099188098713827,
+          "from": "2021-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.6121745,
+          "to": "2022-07"
+        },
+        {
+          "dlog_med": 0.10099188098713827,
+          "from": "2021-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.7449885,
+          "to": "2022-08"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.7449885,
+          "to": "2022-09"
+        },
+        {
+          "dlog_med": 0.1832339427051155,
+          "from": "2021-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.8534305,
+          "to": "2022-10"
+        },
+        {
+          "dlog_med": 0.10452552909981232,
+          "from": "2021-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.857682,
+          "to": "2022-11"
+        },
+        {
+          "dlog_med": 0.10099188098713827,
+          "from": "2022-01",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 3.8756225,
+          "to": "2022-12"
+        },
+        {
+          "dlog_med": 0.09786196615723317,
+          "from": "2022-02",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.0040635,
+          "to": "2023-01"
+        },
+        {
+          "dlog_med": 0.09329935846288076,
+          "from": "2022-03",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.1366815,
+          "to": "2023-02"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-04",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.5417245,
+          "to": "2023-03"
+        },
+        {
+          "dlog_med": 0.044795967970605144,
+          "from": "2022-05",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.6722995,
+          "to": "2023-04"
+        },
+        {
+          "dlog_med": 0.03686638528009618,
+          "from": "2022-06",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0838565,
+          "to": "2023-05"
+        },
+        {
+          "dlog_med": 0.03686638528009618,
+          "from": "2022-07",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0838565,
+          "to": "2023-06"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-08",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 5.0838565,
+          "to": "2023-07"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-09",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.819954,
+          "to": "2023-08"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-10",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.819954,
+          "to": "2023-09"
+        },
+        {
+          "dlog_med": 0.06849083316954255,
+          "from": "2022-11",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.2914355,
+          "to": "2023-10"
+        },
+        {
+          "dlog_med": 0.0808918542689738,
+          "from": "2022-12",
+          "n_months": 12,
+          "n_steps": 11,
+          "qty_kt": 4.150295,
+          "to": "2023-11"
+        },
+        {
+          "dlog_med": 0.09149683255806734,
+          "from": "2023-01",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 3.484967,
+          "to": "2024-01"
+        },
+        {
+          "dlog_med": 0.10892882915235692,
+          "from": "2023-02",
+          "n_months": 12,
+          "n_steps": 10,
+          "qty_kt": 2.253178,
+          "to": "2024-02"
+        },
+        {
+          "dlog_med": 0.11575584745755295,
+          "from": "2023-03",
+          "n_months": 12,
+          "n_steps": 9,
+          "qty_kt": 1.664596,
+          "to": "2024-04"
+        },
+        {
+          "dlog_med": 0.11575584745755295,
+          "from": "2023-04",
+          "n_months": 12,
+          "n_steps": 9,
+          "qty_kt": 1.616299,
+          "to": "2024-05"
+        },
+        {
+          "dlog_med": 0.11575584745755295,
+          "from": "2023-05",
+          "n_months": 12,
+          "n_steps": 9,
+          "qty_kt": 1.385943,
+          "to": "2024-06"
+        }
+      ]
+    }
+  ]
+}

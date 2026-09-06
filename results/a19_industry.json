@@ -1,0 +1,172 @@
+{
+  "backups_compared_against": {
+    "pre_industry": "network.py.expired_20260829_pre_产业层",
+    "pre_recovery": "network.py.expired_20260829_pre_恢复期",
+    "pre_spread": "network.py.expired_20260829_pre_异质摩擦",
+    "pre_supply": "network.py.expired_20260829_pre_供给约束",
+    "pre_switch": "network.py.expired_20260829_pre_转业",
+    "pre_theta": "network.py.expired_20260829_pre_技术系数"
+  },
+  "carrier": {
+    "industry_on": {
+      "column_sum": 0.5,
+      "count": 20,
+      "financial_count": 6,
+      "seed": 0,
+      "weight_shape": 2.0
+    },
+    "layer1_size": 20,
+    "layer2_size": 180,
+    "rounds": 300
+  },
+  "conservation": {
+    "all": 3e-12,
+    "off": 1.4e-11,
+    "on": 1e-12,
+    "on+recovery": 1e-12,
+    "on+supply": 1e-12,
+    "on+switch": 0.0
+  },
+  "criteria": [
+    {
+      "detail": "26/26 history fields identical",
+      "name": "A19-2a industry layer added",
+      "passed": true
+    },
+    {
+      "detail": "26/26 history fields identical",
+      "name": "A19-2b switching added",
+      "passed": true
+    },
+    {
+      "detail": "26/26 history fields identical",
+      "name": "A19-2c supply constraint added",
+      "passed": true
+    },
+    {
+      "detail": "26/26 history fields identical",
+      "name": "A19-2f friction spread added",
+      "passed": true
+    },
+    {
+      "detail": "26/26 history fields identical",
+      "name": "A19-2g coefficient perturbation added",
+      "passed": true
+    },
+    {
+      "detail": "26/26 history fields identical",
+      "name": "A19-2d switching priced out",
+      "passed": true
+    },
+    {
+      "detail": "26/26 history fields identical",
+      "name": "A19-2e damage without friction",
+      "passed": true
+    },
+    {
+      "detail": "19/19 fields carried",
+      "name": "A19-0 replace() lists every field",
+      "passed": true
+    },
+    {
+      "detail": "worst residual 1.410e-11 over 6 switch combinations, tolerance 1e-09",
+      "name": "A19-3 claims conserved",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Part one of A19. The direction readings A19-4 through A19-7 are not in this file yet, so nothing here is a closed reading of the stage.",
+  "final_demand_half": {
+    "fields_differing": [
+      "total_volume",
+      "effective_support",
+      "effective_support_l2",
+      "layer1_volume",
+      "layer2_inflow",
+      "holdings",
+      "issuance",
+      "epsilon_absolute"
+    ],
+    "l2_support_absolute": 0.592106349653,
+    "n_fields": 26,
+    "total_volume_relative": 0.0065769919
+  },
+  "gates": [
+    {
+      "differing": [],
+      "fields": 26,
+      "name": "A19-2a industry layer added",
+      "passed": true,
+      "what": "code before the industry module, against count=0 on current code"
+    },
+    {
+      "differing": [],
+      "fields": 26,
+      "name": "A19-2b switching added",
+      "passed": true,
+      "what": "the switching link, industries on and switching off"
+    },
+    {
+      "differing": [],
+      "fields": 26,
+      "name": "A19-2c supply constraint added",
+      "passed": true,
+      "what": "the supply link, against the constraint at zero"
+    },
+    {
+      "differing": [],
+      "fields": 26,
+      "name": "A19-2f friction spread added",
+      "passed": true,
+      "what": "per-industry friction, against the flat scalar it replaces"
+    },
+    {
+      "differing": [],
+      "fields": 26,
+      "name": "A19-2g coefficient perturbation added",
+      "passed": true,
+      "what": "the perturbation link: a live coefficient matrix, against a frozen one"
+    },
+    {
+      "differing": [],
+      "fields": 26,
+      "name": "A19-2d switching priced out",
+      "passed": true,
+      "what": "nobody switches because nobody can afford to"
+    },
+    {
+      "differing": [],
+      "fields": 26,
+      "name": "A19-2e damage without friction",
+      "passed": true,
+      "what": "marking an industry damaged has no consequence when the lag is zero"
+    }
+  ],
+  "part": "reproduction gates and conservation",
+  "routing_fix_link": {
+    "fields_differing": [
+      "total_volume",
+      "effective_support",
+      "effective_support_l2",
+      "layer1_volume",
+      "layer2_inflow",
+      "holdings",
+      "issuance",
+      "epsilon_absolute"
+    ],
+    "n_fields": 26,
+    "relative": {
+      "effective_support": 0.040814030485,
+      "effective_support_l2": 0.013017253364,
+      "epsilon_absolute": 0.0,
+      "holdings": 0.138679354632,
+      "issuance": 0.049458526978,
+      "layer1_volume": 0.041998965794,
+      "layer2_inflow": 0.025882874785,
+      "total_volume": 0.040746655128
+    },
+    "what": "final demand split by industry; the link between pre_recovery and pre_supply carries this fix as well as the supply switch"
+  },
+  "sfc_tolerance": 1e-09,
+  "stage": "A19"
+}

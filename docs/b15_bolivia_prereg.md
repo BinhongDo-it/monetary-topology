@@ -173,9 +173,8 @@ check.** `data/raw/bolivia/aduana_comunicado_2026-06_RM245.pdf` states
 **vigente** on Friday 2026-06-26, and whichever convention B15-4 selects must
 reproduce that.
 
-**No alignment may be chosen because it makes a criterion pass.** This is
-`HANDOFF` §3.2 item thirteen, which is why B6-4 is registered as a failure and
-not repaired.
+**No alignment may be chosen because it makes a criterion pass.** That is why
+B6-4 is registered as a failure and not repaired.
 
 ### 3.5 The breaks
 
@@ -443,7 +442,7 @@ unchanged so that the two carriers are compared on identical criteria.
   return live verdicts. Implemented as a hard gate, not a warning.
 - **`guard_no_alignment_shopping`**: the date convention and the side convention
   are read out of B15-4 and B15-3 and may not be re-derived inside any arm III
-  criterion. This is the code form of `HANDOFF` §3.2 item thirteen.
+  criterion. This is the code form of that rule.
 - **`guard_press_free`**: no number that entered this project through press
   coverage or a fetch summary may be an input to any criterion. The list of such
   numbers is in `bolivia_availability.md` §6 and it is checked against the

@@ -1,0 +1,33 @@
+{
+ "floor_share": 0.05,
+ "windows": {
+  "pre, nothing on": {
+   "n": 14,
+   "mean": -0.31010256371390044,
+   "sd": 0.032346690661833995,
+   "z_vs_pre": 0.0
+  },
+  "tariff on, registration off": {
+   "n": 7,
+   "mean": -0.32928112755949474,
+   "sd": 0.047543847965749925,
+   "z_vs_pre": -0.5929065216004669
+  },
+  "TARIFF OFF, registration off": {
+   "n": 6,
+   "mean": -0.37539987165811867,
+   "sd": 0.03750975736675372,
+   "z_vs_pre": -2.018670429901592
+  },
+  "both off": {
+   "n": 1,
+   "mean": -0.4692731735393768,
+   "sd": 0.0,
+   "z_vs_pre": -4.9207695306303
+  }
+ },
+ "verdict": "NOT SEPARATE on this carrier. The wedge is still away from the pre window after the tariff came off, so the withdrawn registration moved the weight as well as the edge.",
+ "heads": [
+  "0203"
+ ]
+}

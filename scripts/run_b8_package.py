@@ -50,7 +50,7 @@ merits:
   the wrong price for it: several of those stations rescan the 2.9 GB of
   archives to reprint a line that names no number. They were corrected in place
   on 2026-08-22 against their own writers' strings instead, which is the same
-  ruling reached on 2026-08-18 for the references inside the handoff, and for
+  ruling reached on 2026-08-18 for stale references elsewhere, and for
   the same reason: **a header line is not a measurement, so re-measuring is not
   what fixes it.**
 

@@ -1,0 +1,1419 @@
+{
+ "block_hist": {
+  "1": 11,
+  "2": 8,
+  "3": 15,
+  "4": 5,
+  "5": 4,
+  "6": 4,
+  "7": 5,
+  "8": 1
+ },
+ "blocks": 179,
+ "ceiling_rows": [
+  {
+   "ceiling": 1,
+   "collisions": 2,
+   "country": "Australia",
+   "excess": 0,
+   "forced": 2,
+   "n": 3,
+   "span": 0.0,
+   "span_is_zero": true,
+   "str_float_agree": true,
+   "top": 0.26,
+   "values": 1
+  },
+  {
+   "ceiling": 9,
+   "collisions": 2,
+   "country": "Bangladesh",
+   "excess": 2,
+   "forced": 0,
+   "n": 6,
+   "span": 0.08,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.12,
+   "values": 4
+  },
+  {
+   "ceiling": 10,
+   "collisions": 1,
+   "country": "Bolivia",
+   "excess": 1,
+   "forced": 0,
+   "n": 5,
+   "span": 0.09,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.09,
+   "values": 4
+  },
+  {
+   "ceiling": 10,
+   "collisions": 1,
+   "country": "Egypt, Arab Rep.",
+   "excess": 1,
+   "forced": 0,
+   "n": 7,
+   "span": 0.09,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.1,
+   "values": 6
+  },
+  {
+   "ceiling": 3,
+   "collisions": 4,
+   "country": "Ethiopia",
+   "excess": 0,
+   "forced": 4,
+   "n": 7,
+   "span": 0.02,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.03,
+   "values": 3
+  },
+  {
+   "ceiling": 1,
+   "collisions": 1,
+   "country": "Greece",
+   "excess": 0,
+   "forced": 1,
+   "n": 2,
+   "span": 0.0,
+   "span_is_zero": true,
+   "str_float_agree": true,
+   "top": 0.14,
+   "values": 1
+  },
+  {
+   "ceiling": 3,
+   "collisions": 1,
+   "country": "Guinea",
+   "excess": 1,
+   "forced": 0,
+   "n": 3,
+   "span": 0.02,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.03,
+   "values": 2
+  },
+  {
+   "ceiling": 10,
+   "collisions": 1,
+   "country": "Honduras",
+   "excess": 1,
+   "forced": 0,
+   "n": 5,
+   "span": 0.09,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.16,
+   "values": 4
+  },
+  {
+   "ceiling": 12,
+   "collisions": 1,
+   "country": "Iran, Islamic Rep.",
+   "excess": 1,
+   "forced": 0,
+   "n": 7,
+   "span": 0.11,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.13,
+   "values": 6
+  },
+  {
+   "ceiling": 12,
+   "collisions": 1,
+   "country": "Lebanon",
+   "excess": 1,
+   "forced": 0,
+   "n": 6,
+   "span": 0.11,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.13,
+   "values": 5
+  },
+  {
+   "ceiling": 8,
+   "collisions": 1,
+   "country": "Morocco",
+   "excess": 1,
+   "forced": 0,
+   "n": 6,
+   "span": 0.07,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.18,
+   "values": 5
+  },
+  {
+   "ceiling": 10,
+   "collisions": 1,
+   "country": "Mozambique",
+   "excess": 1,
+   "forced": 0,
+   "n": 4,
+   "span": 0.09,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.12,
+   "values": 3
+  },
+  {
+   "ceiling": 3,
+   "collisions": 1,
+   "country": "Myanmar",
+   "excess": 1,
+   "forced": 0,
+   "n": 3,
+   "span": 0.02,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.06,
+   "values": 2
+  },
+  {
+   "ceiling": 4,
+   "collisions": 4,
+   "country": "Philippines",
+   "excess": 0,
+   "forced": 4,
+   "n": 8,
+   "span": 0.03,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.21,
+   "values": 4
+  },
+  {
+   "ceiling": 3,
+   "collisions": 1,
+   "country": "Senegal",
+   "excess": 1,
+   "forced": 0,
+   "n": 3,
+   "span": 0.02,
+   "span_is_zero": false,
+   "str_float_agree": true,
+   "top": 0.23,
+   "values": 2
+  }
+ ],
+ "clean": [
+  {
+   "charges": [
+    "0.26",
+    "0.26",
+    "0.26"
+   ],
+   "consumption": [
+    "531.5"
+   ],
+   "country": "Australia",
+   "n": 3,
+   "sizes": [
+    "333",
+    "583"
+   ],
+   "type": "DBT"
+  },
+  {
+   "charges": [
+    "0.10"
+   ],
+   "consumption": [
+    "360.5"
+   ],
+   "country": "Austria",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear/Multiple"
+  },
+  {
+   "charges": [
+    "0.04",
+    "0.06",
+    "0.06",
+    "0.06",
+    "0.1",
+    "0.12"
+   ],
+   "consumption": [
+    "55.9"
+   ],
+   "country": "Bangladesh",
+   "n": 6,
+   "sizes": [
+    "75",
+    "200",
+    "300",
+    "400",
+    "600"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.16",
+    "0.22",
+    "0.23"
+   ],
+   "consumption": [
+    "38.9"
+   ],
+   "country": "Benin",
+   "n": 3,
+   "sizes": [
+    "20",
+    "250"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0",
+    "0.07",
+    "0.08",
+    "0.08",
+    "0.09"
+   ],
+   "consumption": [
+    "91.5"
+   ],
+   "country": "Bolivia",
+   "n": 5,
+   "sizes": [
+    "20",
+    "50",
+    "300",
+    "500"
+   ],
+   "type": "IBT/Multiple"
+  },
+  {
+   "charges": [
+    "0.15",
+    "0.16",
+    "0.26"
+   ],
+   "consumption": [
+    "60"
+   ],
+   "country": "Burkina Faso",
+   "n": 3,
+   "sizes": [
+    "75",
+    "100"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.04",
+    "0.08",
+    "0.16"
+   ],
+   "consumption": [
+    "60"
+   ],
+   "country": "Burundi",
+   "n": 3,
+   "sizes": [
+    "100",
+    "300"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.15",
+    "0.18"
+   ],
+   "consumption": [
+    "130.4"
+   ],
+   "country": "Cambodia",
+   "n": 2,
+   "sizes": [
+    "50"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.1",
+    "0.15",
+    "0.18",
+    "0.19"
+   ],
+   "consumption": [
+    "36.1"
+   ],
+   "country": "Cameroon",
+   "n": 4,
+   "sizes": [
+    "110",
+    "400",
+    "800"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.34"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Chile",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear"
+  },
+  {
+   "charges": [
+    "0.08",
+    "0.09",
+    "0.13"
+   ],
+   "consumption": [
+    "2006"
+   ],
+   "country": "China 6 Based on a",
+   "n": 3,
+   "sizes": [
+    "240",
+    "400"
+   ],
+   "type": "IBT/voltage- dependent sing data."
+  },
+  {
+   "charges": [
+    "0.01",
+    "0.02",
+    "0.02",
+    "0.03",
+    "0.05",
+    "0.08",
+    "0.1"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Egypt, Arab Rep.",
+   "n": 7,
+   "sizes": [
+    "50",
+    "100",
+    "200",
+    "350",
+    "650",
+    "1000"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.01",
+    "0.01",
+    "0.02",
+    "0.02",
+    "0.02",
+    "0.02",
+    "0.03"
+   ],
+   "consumption": [
+    "37"
+   ],
+   "country": "Ethiopia",
+   "n": 7,
+   "sizes": [
+    "50",
+    "100",
+    "200",
+    "300",
+    "400",
+    "500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.43"
+   ],
+   "consumption": [
+    "262.6"
+   ],
+   "country": "Germany",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear"
+  },
+  {
+   "charges": [
+    "0.08",
+    "0.17",
+    "0.24"
+   ],
+   "consumption": [
+    "35"
+   ],
+   "country": "Ghana",
+   "n": 3,
+   "sizes": [
+    "50",
+    "300"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.14",
+    "0.14"
+   ],
+   "consumption": [
+    "310.6"
+   ],
+   "country": "Greece",
+   "n": 2,
+   "sizes": [
+    "2000"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.16"
+   ],
+   "consumption": [
+    "92.6"
+   ],
+   "country": "Guatemala",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear/TOU"
+  },
+  {
+   "charges": [
+    "0.01",
+    "0.01",
+    "0.03"
+   ],
+   "consumption": [
+    "60"
+   ],
+   "country": "Guinea",
+   "n": 3,
+   "sizes": [
+    "60",
+    "330"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.11",
+    "0.16",
+    "0.28"
+   ],
+   "consumption": [
+    "16.6"
+   ],
+   "country": "Haiti",
+   "n": 3,
+   "sizes": [
+    "30",
+    "200"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.07",
+    "0.12",
+    "0.12",
+    "0.15",
+    "0.16"
+   ],
+   "consumption": [
+    "137.7"
+   ],
+   "country": "Honduras",
+   "n": 5,
+   "sizes": [
+    "100",
+    "150",
+    "300",
+    "500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.04",
+    "0.06",
+    "0.09",
+    "0.12"
+   ],
+   "consumption": [
+    "85.8"
+   ],
+   "country": "India",
+   "n": 4,
+   "sizes": [
+    "100",
+    "300",
+    "500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.02",
+    "0.03",
+    "0.04"
+   ],
+   "consumption": [
+    "113.9"
+   ],
+   "country": "Indonesia",
+   "n": 3,
+   "sizes": [
+    "30",
+    "60"
+   ],
+   "type": "IBT/Multiple"
+  },
+  {
+   "charges": [
+    "0.02",
+    "0.02",
+    "0.05",
+    "0.08",
+    "0.1",
+    "0.12",
+    "0.13"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Iran, Islamic Rep.",
+   "n": 7,
+   "sizes": [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600"
+   ],
+   "type": "IBT/TOU"
+  },
+  {
+   "charges": [
+    "0.21",
+    "0.27",
+    "0.32"
+   ],
+   "consumption": [
+    "408.7"
+   ],
+   "country": "Japan",
+   "n": 3,
+   "sizes": [
+    "120",
+    "300"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.06",
+    "0.1",
+    "0.12",
+    "0.15",
+    "0.21",
+    "0.25",
+    "0.36"
+   ],
+   "consumption": [
+    "335.4"
+   ],
+   "country": "Jordan",
+   "n": 7,
+   "sizes": [
+    "160",
+    "300",
+    "500",
+    "600",
+    "750",
+    "1000"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.03",
+    "0.14",
+    "0.22"
+   ],
+   "consumption": [
+    "38.8"
+   ],
+   "country": "Kenya",
+   "n": 3,
+   "sizes": [
+    "50",
+    "1500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.06",
+    "0.11",
+    "0.17",
+    "0.26",
+    "0.38",
+    "0.65"
+   ],
+   "consumption": [
+    "281.4"
+   ],
+   "country": "Korea, Rep.",
+   "n": 6,
+   "sizes": [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.01",
+    "0.03"
+   ],
+   "consumption": [
+    "435.9"
+   ],
+   "country": "Kyrgyz Republic",
+   "n": 2,
+   "sizes": [
+    "700"
+   ],
+   "type": "IBT/Multiple"
+  },
+  {
+   "charges": [
+    "0.02",
+    "0.04",
+    "0.04",
+    "0.05",
+    "0.08",
+    "0.13"
+   ],
+   "consumption": [
+    "486.3"
+   ],
+   "country": "Lebanon",
+   "n": 6,
+   "sizes": [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.06",
+    "0.29"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Madagascar",
+   "n": 2,
+   "sizes": [
+    "25"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.08"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Malawi",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear/Multiple"
+  },
+  {
+   "charges": [
+    "0.07",
+    "0.1",
+    "0.16",
+    "0.17",
+    "0.18"
+   ],
+   "consumption": [
+    "335.2"
+   ],
+   "country": "Malaysia",
+   "n": 5,
+   "sizes": [
+    "200",
+    "300",
+    "600",
+    "900"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.21",
+    "0.24"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Mali",
+   "n": 2,
+   "sizes": [
+    "200"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.05",
+    "0.06"
+   ],
+   "consumption": [
+    "164.2"
+   ],
+   "country": "Mongolia",
+   "n": 2,
+   "sizes": [
+    "150"
+   ],
+   "type": "IBT/TOU"
+  },
+  {
+   "charges": [
+    "0.11",
+    "0.12",
+    "0.12",
+    "0.13",
+    "0.15",
+    "0.18"
+   ],
+   "consumption": [
+    "130.6"
+   ],
+   "country": "Morocco",
+   "n": 6,
+   "sizes": [
+    "100",
+    "150",
+    "200",
+    "300",
+    "500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.03",
+    "0.08",
+    "0.12",
+    "0.12"
+   ],
+   "consumption": [
+    "76"
+   ],
+   "country": "Mozambique",
+   "n": 4,
+   "sizes": [
+    "100",
+    "300",
+    "500"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.04",
+    "0.04",
+    "0.06"
+   ],
+   "consumption": [
+    "39.4"
+   ],
+   "country": "Myanmar",
+   "n": 3,
+   "sizes": [
+    "100",
+    "200"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.09",
+    "0.19",
+    "0.2",
+    "0.27",
+    "0.25",
+    "0.39",
+    "0.44"
+   ],
+   "consumption": [
+    "97.9"
+   ],
+   "country": "Nicaragua",
+   "n": 7,
+   "sizes": [
+    "25",
+    "50",
+    "100",
+    "150",
+    "500",
+    "1000"
+   ],
+   "type": "Non-linear block tariff"
+  },
+  {
+   "charges": [
+    "0.15"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Niger",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear"
+  },
+  {
+   "charges": [
+    "0.16"
+   ],
+   "consumption": [
+    "61.7"
+   ],
+   "country": "Nigeria",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear/voltage dependent"
+  },
+  {
+   "charges": [
+    "0.02",
+    "0.06",
+    "0.08",
+    "0.15",
+    "0.17"
+   ],
+   "consumption": [
+    "135.7"
+   ],
+   "country": "Pakistan",
+   "n": 5,
+   "sizes": [
+    "100",
+    "200",
+    "300",
+    "700"
+   ],
+   "type": "IBT/TOU"
+  },
+  {
+   "charges": [
+    "0.18",
+    "0.18",
+    "0.18",
+    "0.18",
+    "0.18",
+    "0.19",
+    "0.2",
+    "0.21"
+   ],
+   "consumption": [
+    "98.3"
+   ],
+   "country": "Philippines",
+   "n": 8,
+   "sizes": [
+    "20",
+    "50",
+    "70",
+    "100",
+    "200",
+    "300",
+    "400"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.20"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Rwanda",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear"
+  },
+  {
+   "charges": [
+    "0.21",
+    "0.23",
+    "0.23"
+   ],
+   "consumption": [
+    "83.7"
+   ],
+   "country": "Senegal",
+   "n": 3,
+   "sizes": [
+    "150",
+    "250"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.13",
+    "0.18",
+    "0.24"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Sierra Leone",
+   "n": 3,
+   "sizes": [
+    "30",
+    "150"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.78"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Solomon Islands",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear"
+  },
+  {
+   "charges": [
+    "0.06",
+    "0.21"
+   ],
+   "consumption": [
+    "97.2"
+   ],
+   "country": "Tanzania",
+   "n": 2,
+   "sizes": [
+    "75"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.13",
+    "0.17",
+    "0.23",
+    "0.24"
+   ],
+   "consumption": [
+    "67.4"
+   ],
+   "country": "Togo",
+   "n": 4,
+   "sizes": [
+    "40",
+    "200",
+    "350"
+   ],
+   "type": "IBT/Multiple"
+  },
+  {
+   "charges": [
+    "0.15"
+   ],
+   "consumption": [
+    "209.1"
+   ],
+   "country": "Turkey",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear/TOU"
+  },
+  {
+   "charges": [
+    "0.21"
+   ],
+   "consumption": [
+    "150"
+   ],
+   "country": "Uganda",
+   "n": 1,
+   "sizes": [],
+   "type": "Linear"
+  },
+  {
+   "charges": [
+    "0.03",
+    "0.04",
+    "0.06",
+    "0.09"
+   ],
+   "consumption": [
+    "64.3"
+   ],
+   "country": "Yemen, Rep.",
+   "n": 4,
+   "sizes": [
+    "200",
+    "350",
+    "700"
+   ],
+   "type": "IBT/Multiple"
+  },
+  {
+   "charges": [
+    "0.03",
+    "0.09"
+   ],
+   "consumption": [
+    "295.5"
+   ],
+   "country": "Zambia",
+   "n": 2,
+   "sizes": [
+    "200"
+   ],
+   "type": "IBT"
+  },
+  {
+   "charges": [
+    "0.02",
+    "0.11",
+    "0.15"
+   ],
+   "consumption": [
+    "143"
+   ],
+   "country": "Zimbabwe 9 Refers to 10 Refers to",
+   "n": 3,
+   "sizes": [
+    "50",
+    "300"
+   ],
+   "type": "IBT"
+  }
+ ],
+ "collisions": 23,
+ "distinct_values": 156,
+ "excess_of_grid": 12,
+ "excluded": [],
+ "forced_by_grid": 11,
+ "mean_blocks_multi": 4.0,
+ "n_clean": 53,
+ "n_excluded": 0,
+ "n_rows": 64,
+ "ratio_median": 0.7369196757553428,
+ "ratio_n": 42,
+ "ratio_under_1": 25,
+ "ratio_under_half": 14,
+ "ratios": [
+  {
+   "consumption": 2006.0,
+   "country": "China 6 Based on a",
+   "first_block": 240.0,
+   "ratio": 0.11964107676969092
+  },
+  {
+   "consumption": 150.0,
+   "country": "Madagascar",
+   "first_block": 25.0,
+   "ratio": 0.16666666666666666
+  },
+  {
+   "consumption": 150.0,
+   "country": "Sierra Leone",
+   "first_block": 30.0,
+   "ratio": 0.2
+  },
+  {
+   "consumption": 98.3,
+   "country": "Philippines",
+   "first_block": 20.0,
+   "ratio": 0.2034587995930824
+  },
+  {
+   "consumption": 486.3,
+   "country": "Lebanon",
+   "first_block": 100.0,
+   "ratio": 0.20563438206868187
+  },
+  {
+   "consumption": 91.5,
+   "country": "Bolivia",
+   "first_block": 20.0,
+   "ratio": 0.2185792349726776
+  },
+  {
+   "consumption": 97.9,
+   "country": "Nicaragua",
+   "first_block": 25.0,
+   "ratio": 0.2553626149131767
+  },
+  {
+   "consumption": 113.9,
+   "country": "Indonesia",
+   "first_block": 30.0,
+   "ratio": 0.2633889376646181
+  },
+  {
+   "consumption": 408.7,
+   "country": "Japan",
+   "first_block": 120.0,
+   "ratio": 0.2936138977244923
+  },
+  {
+   "consumption": 150.0,
+   "country": "Egypt, Arab Rep.",
+   "first_block": 50.0,
+   "ratio": 0.3333333333333333
+  },
+  {
+   "consumption": 143.0,
+   "country": "Zimbabwe 9 Refers to 10 Refers to",
+   "first_block": 50.0,
+   "ratio": 0.34965034965034963
+  },
+  {
+   "consumption": 281.4,
+   "country": "Korea, Rep.",
+   "first_block": 100.0,
+   "ratio": 0.3553660270078181
+  },
+  {
+   "consumption": 130.4,
+   "country": "Cambodia",
+   "first_block": 50.0,
+   "ratio": 0.3834355828220859
+  },
+  {
+   "consumption": 335.4,
+   "country": "Jordan",
+   "first_block": 160.0,
+   "ratio": 0.47704233750745384
+  },
+  {
+   "consumption": 38.9,
+   "country": "Benin",
+   "first_block": 20.0,
+   "ratio": 0.5141388174807198
+  },
+  {
+   "consumption": 67.4,
+   "country": "Togo",
+   "first_block": 40.0,
+   "ratio": 0.5934718100890207
+  },
+  {
+   "consumption": 335.2,
+   "country": "Malaysia",
+   "first_block": 200.0,
+   "ratio": 0.5966587112171838
+  },
+  {
+   "consumption": 531.5,
+   "country": "Australia",
+   "first_block": 333.0,
+   "ratio": 0.6265286923800565
+  },
+  {
+   "consumption": 150.0,
+   "country": "Iran, Islamic Rep.",
+   "first_block": 100.0,
+   "ratio": 0.6666666666666666
+  },
+  {
+   "consumption": 295.5,
+   "country": "Zambia",
+   "first_block": 200.0,
+   "ratio": 0.676818950930626
+  },
+  {
+   "consumption": 137.7,
+   "country": "Honduras",
+   "first_block": 100.0,
+   "ratio": 0.7262164124909224
+  },
+  {
+   "consumption": 135.7,
+   "country": "Pakistan",
+   "first_block": 100.0,
+   "ratio": 0.7369196757553428
+  },
+  {
+   "consumption": 130.6,
+   "country": "Morocco",
+   "first_block": 100.0,
+   "ratio": 0.7656967840735069
+  },
+  {
+   "consumption": 97.2,
+   "country": "Tanzania",
+   "first_block": 75.0,
+   "ratio": 0.7716049382716049
+  },
+  {
+   "consumption": 164.2,
+   "country": "Mongolia",
+   "first_block": 150.0,
+   "ratio": 0.9135200974421438
+  },
+  {
+   "consumption": 60.0,
+   "country": "Guinea",
+   "first_block": 60.0,
+   "ratio": 1.0
+  },
+  {
+   "consumption": 85.8,
+   "country": "India",
+   "first_block": 100.0,
+   "ratio": 1.1655011655011656
+  },
+  {
+   "consumption": 60.0,
+   "country": "Burkina Faso",
+   "first_block": 75.0,
+   "ratio": 1.25
+  },
+  {
+   "consumption": 38.8,
+   "country": "Kenya",
+   "first_block": 50.0,
+   "ratio": 1.288659793814433
+  },
+  {
+   "consumption": 76.0,
+   "country": "Mozambique",
+   "first_block": 100.0,
+   "ratio": 1.3157894736842106
+  },
+  {
+   "consumption": 150.0,
+   "country": "Mali",
+   "first_block": 200.0,
+   "ratio": 1.3333333333333333
+  },
+  {
+   "consumption": 55.9,
+   "country": "Bangladesh",
+   "first_block": 75.0,
+   "ratio": 1.341681574239714
+  },
+  {
+   "consumption": 37.0,
+   "country": "Ethiopia",
+   "first_block": 50.0,
+   "ratio": 1.3513513513513513
+  },
+  {
+   "consumption": 35.0,
+   "country": "Ghana",
+   "first_block": 50.0,
+   "ratio": 1.4285714285714286
+  },
+  {
+   "consumption": 435.9,
+   "country": "Kyrgyz Republic",
+   "first_block": 700.0,
+   "ratio": 1.605872906629961
+  },
+  {
+   "consumption": 60.0,
+   "country": "Burundi",
+   "first_block": 100.0,
+   "ratio": 1.6666666666666667
+  },
+  {
+   "consumption": 83.7,
+   "country": "Senegal",
+   "first_block": 150.0,
+   "ratio": 1.7921146953405018
+  },
+  {
+   "consumption": 16.6,
+   "country": "Haiti",
+   "first_block": 30.0,
+   "ratio": 1.8072289156626504
+  },
+  {
+   "consumption": 39.4,
+   "country": "Myanmar",
+   "first_block": 100.0,
+   "ratio": 2.5380710659898478
+  },
+  {
+   "consumption": 36.1,
+   "country": "Cameroon",
+   "first_block": 110.0,
+   "ratio": 3.047091412742382
+  },
+  {
+   "consumption": 64.3,
+   "country": "Yemen, Rep.",
+   "first_block": 200.0,
+   "ratio": 3.1104199066874028
+  },
+  {
+   "consumption": 310.6,
+   "country": "Greece",
+   "first_block": 2000.0,
+   "ratio": 6.43915003219575
+  }
+ ],
+ "schedules_with_collision": 15,
+ "value_hist": {
+  "1": 13,
+  "2": 10,
+  "3": 13,
+  "4": 8,
+  "5": 4,
+  "6": 3,
+  "7": 2
+ }
+}

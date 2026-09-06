@@ -153,7 +153,7 @@ welfare function, and no statement about whether the non-zero is large.
 
 ## Market microstructure and asset pricing
 
-**Stations: B9, B14, B3, B21, B24.**
+**Stations: B9, B14, B3, B21, B24, B41, B42.**
 
 **B9** measures the loop on ETF creation and redemption, where all three
 positions (shares, the creation basket, cash) are institutional objects with
@@ -219,6 +219,22 @@ criteria beside it. Station documents:
 record is the RESULTS.md section and the `b14_*` files in `results/`.
 
 ---
+
+**B41 moves B38's object onto cash grain, where a third party publishes part of
+the answer before the measurement.** The two indices are a named delivery
+position and a grain, the opponent is the same scalar potential on positions, and
+the second difference that potential forbids comes back nonzero in every state
+that can carry the measurement. The record carries, for every block, its degrees
+of freedom, its days, its residual scale, its autocorrelation, its reading, its
+measured floor, and the ratio between the last two, so a reader can see which
+blocks are carried by the instrument and which are not.
+
+**B42 asks the next question and reports what three attempts returned.** If the
+position term carries a commodity index, then a published quantity sitting on the
+position should carry it too. The station captures that quantity, builds a panel
+from it, and makes three separate attempts to read a price against it. The
+captured workbooks stay on the machine that fetched them, because the source
+publishes only its current issue and no rerun rebuilds the archive.
 
 ## Household finance and consumer credit
 
@@ -290,7 +306,7 @@ document. **The pitfalls this carrier produced are catalogued separately**, in
 
 ## International finance and exchange rate regimes
 
-**Stations: B5, B6, B15, B3.**
+**Stations: B5, B6, B15, B3, B23, B31, B38, B39, B44, B48.**
 
 These are the carriers where **the eligibility rule is written in regulation
 rather than inferred**, which is unusual and is the reason they were chosen. When
@@ -342,14 +358,77 @@ interest in this measurement.
 [`b15_bolivia_prereg.md`](../docs/b15_bolivia_prereg.md) with its
 [results](../docs/b15_bolivia_results.md),
 [`b3_cip_slice.md`](../docs/b3_cip_slice.md). Availability audits, which record
-what was checked before anything was bought, are the `*_availability.md` files
-in the same directory.
+what was checked before anything was bought, are the files in that same
+directory whose names end in `_availability`.
 
 ---
 
+**B23 asks whether one wedge is Chinese or whether the treaty network carries
+it**, and answers it with no price data at all. Sixteen of twenty countries carry
+a binding wedge and the treatment takes eleven distinct values, 11.7 to 73.2
+basis points at a three per cent yield. The class difference is written into
+bilateral treaty text, so it is read off the instrument rather than estimated
+from quotes.
+
+**B31 puts the same object on China's domestic price against its border price,
+1981 to 2005.** A scalar potential over positions makes the domestic-to-border
+step a property of the position pair, so it predicts zero on every square. The
+exchange rate cancels to `3.608e-16` across the official, parallel and
+equilibrium rates over 106 squares, which means the reading does not depend on
+which rate anyone believes. The deviation sits at a median **51.7 times** the
+floor forced by the sheet's own printed precision, **106 of 106** squares above
+that floor and 91 above ten times it. Four commodities, 79 commodity-years, 54
+independent squares out of the 106 writable ones.
+
+**B38 computes something a whole literature assumes and nobody measures: the
+rank of the obstruction to a single price level per city.** One price level per
+city means `log P(i,c) = a_i + m_c`, which is rank one in logs and sets every
+square to exactly zero, and that is what every spatial price index and every
+purchasing-power construction rests on. That relative prices differ across cities
+is a common explanation; the rank is not, because only this framework says the
+rank is the information that survives. Currency never enters, since converting
+one city's prices adds a constant its column effect absorbs exactly, so every
+city runs at once with no exchange rate anywhere in the computation.
+
+**Three follow-on stations attack that reading from three directions, and each
+one is cheaper than a noise model.** B38b separates an obstruction from the same
+name meaning different things in two cities, which is the confound that actually
+threatens it. B38c needs no noise level at all: the archive exists in two
+vintages of one source a short interval apart, and 67% of shared cells differ, by
+a median of `+1.30%` in logs and systematically positive. B38d splits the matrix
+on the carrier's own quality flag, which reaches past both of B38's floors
+because both of them assume one noise level for the whole matrix and argue only
+about how high it is; **the two halves agree**.
+
+**B39 brings in a referee with no contact with the first source.** B38c closed by
+naming what two vintages of one archive cannot reach, a bias that is persistent,
+structured and unrelated to how tightly an item is specified, because a rolling
+window means the vintages share their entries. A posted menu price for a single
+brand, collected by a different organisation since 2000, has no such overlap.
+**The reading it returns runs against B38's, and it is reported as it came.**
+
+**B44 reads the class index where two treaties create the class difference and
+then remove it.** The Peace of Brömsebro exempted Swedish ships and Swedish goods
+from the Sound Toll in 1645; the Peace of Frederiksborg ended the exemption in
+1720, putting Sweden on the same tariff as the English and the Dutch. The Danish
+crown recorded every passage either way, so both halves of the ratio sit in one
+ledger, and the class difference is switched on and off by dated public
+instruments rather than inferred. **Twelve named criteria pass.**
+
+**B48 is the cheapest station in this section and it names two states that had no
+name.** A third party posted the ratio of one share's price in two cities on
+every trading day for two years. Its Harare leg was then removed in three steps,
+each dated and each documented. Cutting the transfer edge left the number
+computed, posted and **moving `+24%` in a week**. Ending production of one leg
+left it **frozen**: one value reprinted on 17 consecutive posts, and by
+construction that value is the last close before the halt. Removing the leg
+permanently left it **empty**: `0.00` on 146 posts to the end of the series. The
+publisher never stopped on any trading day through any of it, so the information
+channel is whole throughout and what changes is the object it carries.
+
 ## Corporate finance and credit
 
-**Station: B11.**
+**Stations: B11, B40.**
 
 The design asks whether the mortgage ring replicates in a second domain:
 `investment grade → downgrade → distressed exchange → re-rating`, where the
@@ -378,9 +457,20 @@ transition.
 
 ---
 
+**B40 is one public file, with no fetch and no join.** A freedom-of-information
+release carries the firm-level disposal record of every East German firm the
+Treuhandanstalt held: 13,378 firms in seven disposal classes, of which 6,929 were
+sold and 1,946 returned to their pre-expropriation owners. A published paper uses
+the same file and sets the returned class aside, because the decision to return
+was taken outside the agency's discretion and followed predetermined criteria.
+**That is exactly why this arm wants it.** Returning a firm is the one disposal
+that hands over the right to hold and to sell without handing over an operating
+lineage, so the exclusion that makes the class uninteresting there is what makes
+it identifying here.
+
 ## Macroeconomics, inequality, and monetary policy
 
-**Stations: the whole A track, plus the empirical fingerprints arm.**
+**Stations: the whole A track, plus the empirical fingerprints arm, plus B34, B46 and B47.**
 
 The A track asks one question: if claims keep accumulating at the top of a
 stratified payment network, **does the bottom get cut off from real resources
@@ -546,9 +636,35 @@ Domar-weighted aggregation is
 
 ---
 
+**B34 asks where the wage floor breaks, against where the statute puts the
+boundary.** The UK minimum wage pays by age and the age boundaries have moved
+four times. Any account in which age itself raises the wage predicts the old
+break survives a boundary move, because nobody becomes less skilled at 25 when
+the statute changes. It does not survive: the old position vanishes on both
+post-move years. The instrument is built so it cannot restate the answer, a
+single-year-of-age profile of the share paid below one threshold that is common
+across all ages by construction, so the profile does not know where the boundary
+is and where it bends is a reading. Across the three ages the statute puts on one
+rate the second difference reads `+7.97` pp against a measured floor of `4.79`,
+pooled over four rate years. **Six criteria pass, three fail, two are undecidable
+at this power, and the first round's table is superseded row by row and kept.**
+
+**B46 and B47 re-open a corpus that had already been counted, and each finds the
+count was of the wrong object.** The counting law says a programme's number of
+distinct prices equals the number of distinct class values it writes. B46 asks
+what a tier is before asking who was in it: a tier written into a text that no
+position falls into produces no value, and two of the nine multi-tier carriers
+turn out to be quantity limits rather than rate schedules, which change whether
+an edge is passable rather than the weight on it. B47 re-codes each case by what
+its blocks receive rather than by identity or by amount band, which moves cases
+in both directions, and which direction is set by whether the threshold varies
+with identity. **Neither fetched any data.** B47 also brought out a restriction
+the zero-counterexample statement had always carried without stating it: it holds
+for programmes that partition holders.
+
 ## Econometrics, identification, and measurement
 
-**Stations: B1, B4, B12, B13, B7.**
+**Stations: B1, B4, B12, B13, B7, B30, B43.**
 
 This is the section for readers who want to attack the design rather than the
 subject. **Two of these stations produce results that bound the framework**, and
@@ -604,6 +720,24 @@ produced it, is [`MEASUREMENT.md`](../docs/MEASUREMENT.md); it is the methods
 appendix and it is the densest thing in the repository for this field.
 
 ---
+
+**B30 is the index of a chain of arms, and it is here because most of them
+returned a negative that was recorded rather than absorbed.** On one carrier the
+quotation graph has maximum hop distance one, so there is no hop gradient and the
+arm cannot run. On another the public record does not yield dated
+initiator-and-follower pairs, and that was written down on the spot. What the
+record supplied instead is better than what the criterion asked for: an adjacency
+authored by both parties and entered into a court file, plus a court-ordered,
+dated, staggered deletion of edges lying in the information graph alone with the
+transfer graph untouched.
+
+**B43 proves the counting law's first proposition, which twenty-three cases had
+been resting on.** The enumeration was run before the proof was attempted,
+because a corpus cannot show which side conditions it has been silently relying
+on; the enumeration drew the boundary and the proof then closed it, separating
+two statements the corpus had been carrying as one. It is exhaustive rather than
+sampled, every configuration in the space walked, and the closed form the proof
+yields returns the nine integers already on disk, digit for digit.
 
 ## Networks, complex systems, and agent-based modelling
 
@@ -874,7 +1008,7 @@ and every run record is a committed `results/*.json`.
 
 ## Climate policy, education policy, and administrative conversion factors
 
-**Stations: C1, C2, C3.** These three are not financial carriers and nothing on
+**Stations: C1, C2, C3, B33, B36.** None of these is a financial carrier and nothing on
 them is traded. They exist because every reading elsewhere in this repository
 admits one cheap objection, that a non-zero loop sum on a market is friction:
 thin books, stale quotes, execution risk. **The objection is generic, so the
@@ -962,6 +1096,32 @@ license together. Per stage:
 is in [RESULTS.md](../RESULTS.md).
 
 ---
+
+**B33 and B36 sit here for the same reason the C stations do: on an
+administrative declaration there is no book and no spread, so friction is not
+among the things that could produce a reading.**
+
+**B33 reads a benefit scheme's own schedule of classes.** The scheme names five
+classes for a relevant month, writes the mutual exclusion into each definition,
+and writes the rule joining its monthly grain to its annual one, so the partition
+and the positions it is drawn on are both on the page. None of the six clause
+vectors it produces coincide on all five dimensions. **Its three written benefit
+tables carry two functions**: one schedule is exactly `(2/3)` times another on
+every one of 48 coefficients, and a third is identical to the first over 56
+cells. The same collision was measured on national electricity tariffs, where 53
+schedules drew 179 blocks and wrote 156 distinct values, but there it was bounded
+by the source's rounding to two decimal places. Here it is exact and carries no
+resolution limit.
+
+**B36 is a registration point doing what the framework says a registration point
+does.** A trade quota was written for 2026 on a coordinate the exporting country
+cannot change, and the flow it was written about collapsed in 2025, to 32.0 per
+cent of its four-year base and then to 2.3 per cent in the first half of 2026.
+The quota takes effect on 2026-01-01, so it did not cause that. The plant
+registrations that let those establishments ship expired in March 2025 and were
+not renewed, while the same customs system renewed three other product lines
+within days. **The point expires, the edge is gone, and no price mechanism
+intervenes anywhere in between.**
 
 ## What is not here
 

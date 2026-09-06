@@ -1,0 +1,766 @@
+{
+ "binds": [
+  {
+   "closing_balance": -6.323830348264892e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 0,
+   "width": 0.02
+  },
+  {
+   "closing_balance": -1.156408302449563e-12,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 0,
+   "width": 0.05
+  },
+  {
+   "closing_balance": -6.536993168992922e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 0,
+   "width": 0.1
+  },
+  {
+   "closing_balance": 0.1637327416953558,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 0,
+   "width": 0.02
+  },
+  {
+   "closing_balance": 0.1640602779977547,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 0,
+   "width": 0.05
+  },
+  {
+   "closing_balance": 0.16226738164937693,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 0,
+   "width": 0.1
+  },
+  {
+   "closing_balance": -1.4344081478157023e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 1,
+   "width": 0.02
+  },
+  {
+   "closing_balance": -2.886579864025407e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 1,
+   "width": 0.05
+  },
+  {
+   "closing_balance": -1.8829382497642655e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 1,
+   "width": 0.1
+  },
+  {
+   "closing_balance": 0.1387990560810073,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 1,
+   "width": 0.02
+  },
+  {
+   "closing_balance": 0.1295572404752665,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 1,
+   "width": 0.05
+  },
+  {
+   "closing_balance": 0.12594402730333165,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 1,
+   "width": 0.1
+  },
+  {
+   "closing_balance": 0.006214732314591576,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 2,
+   "width": 0.02
+  },
+  {
+   "closing_balance": 0.008888414588954952,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 2,
+   "width": 0.05
+  },
+  {
+   "closing_balance": 0.009473651377993164,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 2,
+   "width": 0.1
+  },
+  {
+   "closing_balance": -0.548055152802139,
+   "first_bind": 102,
+   "n_capped": 198,
+   "pump": true,
+   "seed": 2,
+   "width": 0.02
+  },
+  {
+   "closing_balance": -1.3599949465483665,
+   "first_bind": 211,
+   "n_capped": 89,
+   "pump": true,
+   "seed": 2,
+   "width": 0.05
+  },
+  {
+   "closing_balance": -1.9298064277238556,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 2,
+   "width": 0.1
+  },
+  {
+   "closing_balance": -0.5034800630116351,
+   "first_bind": 180,
+   "n_capped": 120,
+   "pump": false,
+   "seed": 3,
+   "width": 0.02
+  },
+  {
+   "closing_balance": -0.6465508693806239,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 3,
+   "width": 0.05
+  },
+  {
+   "closing_balance": -0.6549752320130473,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 3,
+   "width": 0.1
+  },
+  {
+   "closing_balance": -0.5188722552390368,
+   "first_bind": 167,
+   "n_capped": 133,
+   "pump": true,
+   "seed": 3,
+   "width": 0.02
+  },
+  {
+   "closing_balance": -1.046806390273436,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 3,
+   "width": 0.05
+  },
+  {
+   "closing_balance": -1.0719000388814326,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": true,
+   "seed": 3,
+   "width": 0.1
+  },
+  {
+   "closing_balance": 6.541434061091422e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 4,
+   "width": 0.02
+  },
+  {
+   "closing_balance": 8.029132914089132e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 4,
+   "width": 0.05
+  },
+  {
+   "closing_balance": 4.405364961712621e-13,
+   "first_bind": -1,
+   "n_capped": 0,
+   "pump": false,
+   "seed": 4,
+   "width": 0.1
+  },
+  {
+   "closing_balance": 0.5227799247866863,
+   "first_bind": 73,
+   "n_capped": 227,
+   "pump": true,
+   "seed": 4,
+   "width": 0.02
+  },
+  {
+   "closing_balance": 1.316308970321007,
+   "first_bind": 134,
+   "n_capped": 166,
+   "pump": true,
+   "seed": 4,
+   "width": 0.05
+  },
+  {
+   "closing_balance": 2.6643921478083943,
+   "first_bind": 254,
+   "n_capped": 46,
+   "pump": true,
+   "seed": 4,
+   "width": 0.1
+  }
+ ],
+ "config": {
+  "four_cell_grid": {
+   "ceilings": {
+    "accrue": null,
+    "truncate": 0.25
+   },
+   "pumps": [
+    true,
+    false
+   ],
+   "widths": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ]
+  },
+  "module_constants": {
+   "FUNDING": "issuance",
+   "NEED": 0.5,
+   "PUMP_RATE": 0.05,
+   "ROUNDS": 300,
+   "SEEDS": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "SWING_HISTORICAL": 0.25,
+   "WIDTHS": [
+    0.0,
+    0.02,
+    0.05,
+    0.1
+   ]
+  },
+  "note": "what this run actually used. Fields are those differing from the dataclass defaults; anything absent is at its default. Present so the readings below can be rebuilt.",
+  "seed_offset_between_sides": 100,
+  "sides": {
+   "pump_False": {
+    "g1": {
+     "resupply": {
+      "funding": "issuance"
+     },
+     "spec": {
+      "financial_to_intermediate_edges": 30,
+      "intermediate_size": 30,
+      "layer2_size": 150
+     },
+     "subsistence": {
+      "mode": "drawdown",
+      "need": 0.25
+     },
+     "wages": {
+      "elasticity": 0.5
+     }
+    },
+    "g2": {
+     "resupply": {
+      "funding": "issuance"
+     },
+     "seed": 100,
+     "spec": {
+      "financial_to_intermediate_edges": 30,
+      "intermediate_size": 30,
+      "layer2_size": 150,
+      "seed": 100
+     },
+     "subsistence": {
+      "mode": "drawdown",
+      "need": 0.25
+     },
+     "wages": {
+      "elasticity": 0.5
+     }
+    }
+   },
+   "pump_True": {
+    "g1": {
+     "resupply": {
+      "funding": "issuance",
+      "rate": 0.05
+     },
+     "spec": {
+      "financial_to_intermediate_edges": 30,
+      "intermediate_size": 30,
+      "layer2_size": 150
+     },
+     "subsistence": {
+      "mode": "drawdown",
+      "need": 0.25
+     },
+     "wages": {
+      "elasticity": 0.5
+     }
+    },
+    "g2": {
+     "resupply": {
+      "funding": "issuance",
+      "rate": 0.05
+     },
+     "seed": 100,
+     "spec": {
+      "financial_to_intermediate_edges": 30,
+      "intermediate_size": 30,
+      "layer2_size": 150,
+      "seed": 100
+     },
+     "subsistence": {
+      "mode": "drawdown",
+      "need": 0.25
+     },
+     "wages": {
+      "elasticity": 0.5
+     }
+    }
+   }
+  }
+ },
+ "criteria": [
+  {
+   "detail": "the boundary is off by default and the run proves it: with width zero nothing crosses and each side closes exactly where it closes run alone, in 10 of 10 cells",
+   "name": "A25-1  the boundary is off by default",
+   "passed": true
+  },
+  {
+   "detail": "not scored this round. That the independent cycle count across the boundary is one less than the number of channels is a counting result and this driver runs the single-channel case only",
+   "name": "A25-2  the crossing is a bridge"
+  },
+  {
+   "detail": "counts printed, no threshold. Of 30 cells the ceiling binds in 7 and never in 23, and the round it first binds runs 73 to 254 of 300, so both branches are reachable",
+   "name": "A25-3  the ceiling binds",
+   "passed": true
+  },
+  {
+   "detail": "**not reproduced.** The recorded reading is that the four cells leave no setting where the boundary is both live and stable, with closing balances running to +9955 on the arm with a pump and no ceiling. This driver sweeps six widths at both pump settings and both ceiling arms, 24 cells, and the largest closing balance anywhere is 3.22. Two orders of magnitude below, so the configuration behind the recorded table is not the one reachable from the module plus the design sheet's carrier line. The recorded readings are not withdrawn and not overwritten; what is established here is that they do not reproduce from what is on disk, which is the cost of a stage having had no record",
+   "name": "A25-4  what happens once it binds",
+   "passed": false
+  }
+ ],
+ "default_off": [
+  {
+   "identical": true,
+   "paired_close": 99.99999999999955,
+   "pump": false,
+   "seed": 0,
+   "solo_close": 99.99999999999955
+  },
+  {
+   "identical": true,
+   "paired_close": 106.68275177467753,
+   "pump": true,
+   "seed": 0,
+   "solo_close": 106.68275177467753
+  },
+  {
+   "identical": true,
+   "paired_close": 99.99999999999964,
+   "pump": false,
+   "seed": 1,
+   "solo_close": 99.99999999999964
+  },
+  {
+   "identical": true,
+   "paired_close": 111.1474683092159,
+   "pump": true,
+   "seed": 1,
+   "solo_close": 111.1474683092159
+  },
+  {
+   "identical": true,
+   "paired_close": 100.01900474106199,
+   "pump": false,
+   "seed": 2,
+   "solo_close": 100.01900474106199
+  },
+  {
+   "identical": true,
+   "paired_close": 106.2812372756506,
+   "pump": true,
+   "seed": 2,
+   "solo_close": 106.2812372756506
+  },
+  {
+   "identical": true,
+   "paired_close": 100.05029399874721,
+   "pump": false,
+   "seed": 3,
+   "solo_close": 100.05029399874721
+  },
+  {
+   "identical": true,
+   "paired_close": 102.17517157963283,
+   "pump": true,
+   "seed": 3,
+   "solo_close": 102.17517157963283
+  },
+  {
+   "identical": true,
+   "paired_close": 99.9999999999997,
+   "pump": false,
+   "seed": 4,
+   "solo_close": 99.9999999999997
+  },
+  {
+   "identical": true,
+   "paired_close": 110.33672699627107,
+   "pump": true,
+   "seed": 4,
+   "solo_close": 110.33672699627107
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "A25 is open: two reopening conditions are registered and neither is in hand",
+ "four_cells": [
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    0.1637327416953558,
+    0.1387990560810073,
+    -0.548055152802139,
+    -0.5188722552390368,
+    0.5227799247866863
+   ],
+   "pump": true,
+   "width": 0.02
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    0.1637327416953558,
+    0.1387990560810073,
+    -1.7994045800093545,
+    -0.9847102508581946,
+    2.922735384386822
+   ],
+   "pump": true,
+   "width": 0.02
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    -6.323830348264892e-13,
+    -1.4344081478157023e-13,
+    0.006214732314591576,
+    -0.5034800630116351,
+    6.541434061091422e-13
+   ],
+   "pump": false,
+   "width": 0.02
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    -6.323830348264892e-13,
+    -1.4344081478157023e-13,
+    0.006214732314591576,
+    -0.6144365946172703,
+    6.541434061091422e-13
+   ],
+   "pump": false,
+   "width": 0.02
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    0.1640602779977547,
+    0.1295572404752665,
+    -1.3599949465483665,
+    -1.046806390273436,
+    1.316308970321007
+   ],
+   "pump": true,
+   "width": 0.05
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    0.1640602779977547,
+    0.1295572404752665,
+    -1.8972043749592462,
+    -1.046806390273436,
+    3.1023723108344736
+   ],
+   "pump": true,
+   "width": 0.05
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    -1.156408302449563e-12,
+    -2.886579864025407e-13,
+    0.008888414588954952,
+    -0.6465508693806239,
+    8.029132914089132e-13
+   ],
+   "pump": false,
+   "width": 0.05
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    -1.156408302449563e-12,
+    -2.886579864025407e-13,
+    0.008888414588954952,
+    -0.6465508693806239,
+    8.029132914089132e-13
+   ],
+   "pump": false,
+   "width": 0.05
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    0.16226738164937693,
+    0.12594402730333165,
+    -1.9298064277238556,
+    -1.0719000388814326,
+    2.6643921478083943
+   ],
+   "pump": true,
+   "width": 0.1
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    0.16226738164937693,
+    0.12594402730333165,
+    -1.9298064277238556,
+    -1.0719000388814326,
+    3.1657595166402377
+   ],
+   "pump": true,
+   "width": 0.1
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    -6.536993168992922e-13,
+    -1.8829382497642655e-13,
+    0.009473651377993164,
+    -0.6549752320130473,
+    4.405364961712621e-13
+   ],
+   "pump": false,
+   "width": 0.1
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    -6.536993168992922e-13,
+    -1.8829382497642655e-13,
+    0.009473651377993164,
+    -0.6549752320130473,
+    4.405364961712621e-13
+   ],
+   "pump": false,
+   "width": 0.1
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    0.1607351273754567,
+    0.12414228587044107,
+    -1.9461106209943253,
+    -1.0851527119302737,
+    3.1954279944044828
+   ],
+   "pump": true,
+   "width": 0.2
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    0.1607351273754567,
+    0.12414228587044107,
+    -1.9461106209943253,
+    -1.0851527119302737,
+    3.1954279944044828
+   ],
+   "pump": true,
+   "width": 0.2
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    -2.1316282072803006e-13,
+    1.1723955140041653e-13,
+    0.009502354321600848,
+    -0.6583727028378092,
+    2.0961010704922955e-13
+   ],
+   "pump": false,
+   "width": 0.2
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    -2.1316282072803006e-13,
+    1.1723955140041653e-13,
+    0.009502354321600848,
+    -0.6583727028378092,
+    2.0961010704922955e-13
+   ],
+   "pump": false,
+   "width": 0.2
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    0.1596702268143133,
+    0.12496195681555378,
+    -1.9559005020722537,
+    -1.0931381005592868,
+    3.216181618622528
+   ],
+   "pump": true,
+   "width": 0.5
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    0.1596702268143133,
+    0.12496195681555378,
+    -1.9559005020722537,
+    -1.0931381005592868,
+    3.216181618622528
+   ],
+   "pump": true,
+   "width": 0.5
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    -1.1368683772161603e-13,
+    4.973799150320701e-14,
+    0.009502370531045301,
+    -0.6609173885783406,
+    1.3500311979441904e-13
+   ],
+   "pump": false,
+   "width": 0.5
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    -1.1368683772161603e-13,
+    4.973799150320701e-14,
+    0.009502370531045301,
+    -0.6609173885783406,
+    1.3500311979441904e-13
+   ],
+   "pump": false,
+   "width": 0.5
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    0.1464817539959995,
+    0.11608396874446214,
+    -1.9588725119981234,
+    -1.0840181076460738,
+    3.1928054534779164
+   ],
+   "pump": true,
+   "width": 1.0
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    0.1464817539959995,
+    0.11608396874446214,
+    -1.9588725119981234,
+    -1.0840181076460738,
+    3.1928054534779164
+   ],
+   "pump": true,
+   "width": 1.0
+  },
+  {
+   "ceiling": "truncate",
+   "closing_balance": [
+    2.842170943040401e-14,
+    2.842170943040401e-14,
+    1.1368683772161603e-13,
+    -0.11245195451282086,
+    -2.984279490192421e-13
+   ],
+   "pump": false,
+   "width": 1.0
+  },
+  {
+   "ceiling": "accrue",
+   "closing_balance": [
+    2.842170943040401e-14,
+    2.842170943040401e-14,
+    1.1368683772161603e-13,
+    -0.11245195451282086,
+    -2.984279490192421e-13
+   ],
+   "pump": false,
+   "width": 1.0
+  }
+ ],
+ "rounds": 300,
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "stage": "A25",
+ "widths": [
+  0.0,
+  0.02,
+  0.05,
+  0.1
+ ]
+}

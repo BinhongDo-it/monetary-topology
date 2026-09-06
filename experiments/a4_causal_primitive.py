@@ -68,7 +68,7 @@ the numerator. `A(X)` is biased **downward**, a pass at `A(X) > 1` is
 conservative, and a failure cannot be read without the headroom beside it.
 
 **Injection is a separate axis from the registered point, and it moves one thing
-at a time.** `PROJECT_PLAN` §16.2 makes `A(X)` a function of the injection
+at a time.** The injection switch makes `A(X)` a function of the injection
 amount. `NetworkConfig.authority` already defaults to `rule="endogenous"`, so
 the registered point is not "no injection", and sweeping an amount would mean
 changing the rule and the amount together, which is `MEASUREMENT.md` rule 4. So
@@ -174,8 +174,8 @@ def main_effect_cells() -> dict[str, Switches]:
 
     **Both generators are used as bases and both are reported.** Registering
     only the stronger one would be choosing a base after seeing which base is
-    stronger, which is the move §5.1's demotions, §10.3's second refusal and
-    `PROJECT_PLAN` §13.4 all exist to prevent. The two disagreeing is a result.
+    stronger, which is the move §5.1's demotions and §10.3's second
+    refusal both exist to prevent. The two disagreeing is a result.
     """
     cells: dict[str, Switches] = {}
     for connectivity in (True, False):

@@ -1,0 +1,50 @@
+[
+  {
+    "test": "2 month added 2018-10-16",
+    "quantity": "levels",
+    "n_before": 698,
+    "n_after": 1002,
+    "k_before_base": 2,
+    "k_after_base": 3,
+    "k_after_with_new": 3,
+    "cum3_after_base": 0.9974347154773731,
+    "cum3_after_with_new": 0.9976017303572394,
+    "raised": 0
+  },
+  {
+    "test": "2 month added 2018-10-16",
+    "quantity": "changes",
+    "n_before": 698,
+    "n_after": 1002,
+    "k_before_base": 8,
+    "k_after_base": 7,
+    "k_after_with_new": 8,
+    "cum3_after_base": 0.9151924542673717,
+    "cum3_after_with_new": 0.9071049598598463,
+    "raised": 1
+  },
+  {
+    "test": "4 month added 2022-10-19",
+    "quantity": "levels",
+    "n_before": 1002,
+    "n_after": 550,
+    "k_before_base": 3,
+    "k_after_base": 4,
+    "k_after_with_new": 4,
+    "cum3_after_base": 0.9840316220914166,
+    "cum3_after_with_new": 0.9828059961715266,
+    "raised": 0
+  },
+  {
+    "test": "4 month added 2022-10-19",
+    "quantity": "changes",
+    "n_before": 1002,
+    "n_after": 550,
+    "k_before_base": 7,
+    "k_after_base": 6,
+    "k_after_with_new": 7,
+    "cum3_after_base": 0.945525715495544,
+    "cum3_after_with_new": 0.9355934768839589,
+    "raised": 1
+  }
+]

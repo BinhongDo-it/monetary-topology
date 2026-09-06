@@ -5,7 +5,7 @@ Two claims, and the second is as necessary as the first.
 **The default must reproduce bitwise.** `rent_base = "layer"` is the behaviour
 every A3 result recorded before 2026-08-13 was produced under. If adding the
 switch moved a float, every stored number would be measured against a base that
-shifted underneath it. `PROJECT_PLAN` §16.4 is the precedent: `LevySpec` was
+shifted underneath it. `LevySpec` is the precedent: it was
 added the same way and the same assertion is what let A6's earlier results stand
 unchanged.
 
@@ -78,7 +78,7 @@ def test_explicit_layer_reproduces_the_default_bitwise() -> None:
     """`rent_base = "layer"` against the unset default, exact equality.
 
     This is the assertion that lets every stored A3 number stand unchanged. It
-    is run rather than argued: `PROJECT_PLAN` §16.4's lesson is that a default
+    is run rather than argued: the lesson is that a default
     believed to reproduce and never compared is how four switches in a row kept
     their guarantee only by luck.
     """

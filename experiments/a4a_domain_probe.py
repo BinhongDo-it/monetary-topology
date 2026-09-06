@@ -70,9 +70,9 @@ four times.
 A fourth claim, added after the ruling
 --------------------------------------
 
-The ruling went to C, which takes A4's stock from `PROJECT_PLAN` §16.2's
-injection instead of from A3's asset layer. §16.2 describes that as opening a
-switch that already exists. The same question therefore applies to it: what
+The ruling went to C, which takes A4's stock from the injection
+switch instead of from A3's asset layer. That is described as opening a switch
+that already exists. The same question therefore applies to it: what
 position is the switch in now, and does moving it reach anyone.
 
 `NetworkConfig.authority` defaults to `MonetaryAuthority(rule="endogenous")`,

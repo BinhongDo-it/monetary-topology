@@ -1,0 +1,3732 @@
+{
+  "config": {
+    "floor": "analytic binomial, se(ch)=sqrt(se_hi^2+4 se_mid^2+se_lo^2)",
+    "line_drawn": false,
+    "named_positions": {
+      "2019": [
+        18,
+        21,
+        25
+      ],
+      "2021": [
+        18,
+        21,
+        23
+      ],
+      "2022": [
+        18,
+        21,
+        23
+      ]
+    },
+    "named_source": {
+      "2019": "SI 2019/603, age boundaries for rate year 2019-20",
+      "2021": "SI 2021/329, age boundaries for rate year 2021-22",
+      "2022": "SI 2022/382, age boundaries for rate year 2022-23"
+    },
+    "profile_key_suffix": "|unweighted",
+    "pruning": "none",
+    "source_record": "b34_lfs_profile_england.json"
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Step 3 of the LFS arm reports kink positions and judges nothing. Design section 5.3 gives this step no pass condition. Arms one and four are scored in step 4.",
+  "kinks": {
+    "2019|hourpay|alt_21_under_25|no_apprentices": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        21,
+        20,
+        25,
+        19,
+        17,
+        26,
+        27,
+        28,
+        18,
+        24,
+        22,
+        29,
+        23
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.064409,
+          "floor": 0.08311,
+          "n": 193,
+          "named": false,
+          "ratio": 0.775,
+          "slope_left": -0.159632,
+          "slope_right": -0.095223
+        },
+        {
+          "age": 18,
+          "ch": -0.031128,
+          "floor": 0.081609,
+          "n": 217,
+          "named": true,
+          "ratio": -0.3814,
+          "slope_left": -0.095223,
+          "slope_right": -0.126351
+        },
+        {
+          "age": 19,
+          "ch": 0.107406,
+          "floor": 0.081733,
+          "n": 220,
+          "named": false,
+          "ratio": 1.3141,
+          "slope_left": -0.126351,
+          "slope_right": -0.018945
+        },
+        {
+          "age": 20,
+          "ch": -0.137634,
+          "floor": 0.077647,
+          "n": 238,
+          "named": false,
+          "ratio": -1.7726,
+          "slope_left": -0.018945,
+          "slope_right": -0.156579
+        },
+        {
+          "age": 21,
+          "ch": 0.131115,
+          "floor": 0.067086,
+          "n": 286,
+          "named": true,
+          "ratio": 1.9544,
+          "slope_left": -0.156579,
+          "slope_right": -0.025464
+        },
+        {
+          "age": 22,
+          "ch": -0.017483,
+          "floor": 0.057749,
+          "n": 368,
+          "named": false,
+          "ratio": -0.3027,
+          "slope_left": -0.025464,
+          "slope_right": -0.042947
+        },
+        {
+          "age": 23,
+          "ch": -0.002947,
+          "floor": 0.05203,
+          "n": 389,
+          "named": false,
+          "ratio": -0.0566,
+          "slope_left": -0.042947,
+          "slope_right": -0.045894
+        },
+        {
+          "age": 24,
+          "ch": -0.016422,
+          "floor": 0.04576,
+          "n": 421,
+          "named": false,
+          "ratio": -0.3589,
+          "slope_left": -0.045894,
+          "slope_right": -0.062316
+        },
+        {
+          "age": 25,
+          "ch": 0.063457,
+          "floor": 0.037908,
+          "n": 481,
+          "named": true,
+          "ratio": 1.674,
+          "slope_left": -0.062316,
+          "slope_right": 0.001141
+        },
+        {
+          "age": 26,
+          "ch": -0.020757,
+          "floor": 0.034203,
+          "n": 534,
+          "named": false,
+          "ratio": -0.6069,
+          "slope_left": 0.001141,
+          "slope_right": -0.019616
+        },
+        {
+          "age": 27,
+          "ch": 0.012296,
+          "floor": 0.030498,
+          "n": 617,
+          "named": false,
+          "ratio": 0.4032,
+          "slope_left": -0.019616,
+          "slope_right": -0.00732
+        },
+        {
+          "age": 28,
+          "ch": 0.011079,
+          "floor": 0.028884,
+          "n": 633,
+          "named": false,
+          "ratio": 0.3836,
+          "slope_left": -0.00732,
+          "slope_right": 0.003759
+        },
+        {
+          "age": 29,
+          "ch": -0.008135,
+          "floor": 0.028933,
+          "n": 619,
+          "named": false,
+          "ratio": -0.2812,
+          "slope_left": 0.003759,
+          "slope_right": -0.004376
+        }
+      ]
+    },
+    "2019|hourpay|alt_21_under_25|unweighted": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        21,
+        20,
+        25,
+        19,
+        26,
+        17,
+        28,
+        22,
+        24,
+        27,
+        18,
+        29,
+        23
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.046624,
+          "floor": 0.076669,
+          "n": 221,
+          "named": false,
+          "ratio": 0.6081,
+          "slope_left": -0.14677,
+          "slope_right": -0.100146
+        },
+        {
+          "age": 18,
+          "ch": -0.020477,
+          "floor": 0.074705,
+          "n": 257,
+          "named": true,
+          "ratio": -0.2741,
+          "slope_left": -0.100146,
+          "slope_right": -0.120623
+        },
+        {
+          "age": 19,
+          "ch": 0.106014,
+          "floor": 0.075762,
+          "n": 257,
+          "named": false,
+          "ratio": 1.3993,
+          "slope_left": -0.120623,
+          "slope_right": -0.014609
+        },
+        {
+          "age": 20,
+          "ch": -0.170631,
+          "floor": 0.073338,
+          "n": 269,
+          "named": false,
+          "ratio": -2.3266,
+          "slope_left": -0.014609,
+          "slope_right": -0.18524
+        },
+        {
+          "age": 21,
+          "ch": 0.168561,
+          "floor": 0.064976,
+          "n": 299,
+          "named": true,
+          "ratio": 2.5942,
+          "slope_left": -0.18524,
+          "slope_right": -0.016679
+        },
+        {
+          "age": 22,
+          "ch": -0.027705,
+          "floor": 0.056574,
+          "n": 389,
+          "named": false,
+          "ratio": -0.4897,
+          "slope_left": -0.016679,
+          "slope_right": -0.044384
+        },
+        {
+          "age": 23,
+          "ch": -0.002387,
+          "floor": 0.051423,
+          "n": 403,
+          "named": false,
+          "ratio": -0.0464,
+          "slope_left": -0.044384,
+          "slope_right": -0.046771
+        },
+        {
+          "age": 24,
+          "ch": -0.016758,
+          "floor": 0.045599,
+          "n": 429,
+          "named": false,
+          "ratio": -0.3675,
+          "slope_left": -0.046771,
+          "slope_right": -0.063529
+        },
+        {
+          "age": 25,
+          "ch": 0.066504,
+          "floor": 0.037965,
+          "n": 488,
+          "named": true,
+          "ratio": 1.7517,
+          "slope_left": -0.063529,
+          "slope_right": 0.002975
+        },
+        {
+          "age": 26,
+          "ch": -0.023132,
+          "floor": 0.034466,
+          "n": 540,
+          "named": false,
+          "ratio": -0.6712,
+          "slope_left": 0.002975,
+          "slope_right": -0.020157
+        },
+        {
+          "age": 27,
+          "ch": 0.008962,
+          "floor": 0.030707,
+          "n": 624,
+          "named": false,
+          "ratio": 0.2919,
+          "slope_left": -0.020157,
+          "slope_right": -0.011195
+        },
+        {
+          "age": 28,
+          "ch": 0.01485,
+          "floor": 0.028727,
+          "n": 645,
+          "named": false,
+          "ratio": 0.5169,
+          "slope_left": -0.011195,
+          "slope_right": 0.003655
+        },
+        {
+          "age": 29,
+          "ch": -0.006929,
+          "floor": 0.028824,
+          "n": 621,
+          "named": false,
+          "ratio": -0.2404,
+          "slope_left": 0.003655,
+          "slope_right": -0.003274
+        }
+      ]
+    },
+    "2019|hourpay|main_nlw_25plus|no_apprentices": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        20,
+        21,
+        25,
+        19,
+        28,
+        24,
+        29,
+        26,
+        18,
+        27,
+        17,
+        22,
+        23
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.019847,
+          "floor": 0.077418,
+          "n": 193,
+          "named": false,
+          "ratio": 0.2564,
+          "slope_left": -0.131163,
+          "slope_right": -0.111316
+        },
+        {
+          "age": 18,
+          "ch": 0.038882,
+          "floor": 0.079289,
+          "n": 217,
+          "named": true,
+          "ratio": 0.4904,
+          "slope_left": -0.111316,
+          "slope_right": -0.072434
+        },
+        {
+          "age": 19,
+          "ch": 0.087942,
+          "floor": 0.080759,
+          "n": 220,
+          "named": false,
+          "ratio": 1.0889,
+          "slope_left": -0.072434,
+          "slope_right": 0.015508
+        },
+        {
+          "age": 20,
+          "ch": -0.212135,
+          "floor": 0.077564,
+          "n": 238,
+          "named": false,
+          "ratio": -2.735,
+          "slope_left": 0.015508,
+          "slope_right": -0.196627
+        },
+        {
+          "age": 21,
+          "ch": 0.155562,
+          "floor": 0.070488,
+          "n": 286,
+          "named": true,
+          "ratio": 2.2069,
+          "slope_left": -0.196627,
+          "slope_right": -0.041065
+        },
+        {
+          "age": 22,
+          "ch": -0.006136,
+          "floor": 0.062056,
+          "n": 368,
+          "named": false,
+          "ratio": -0.0989,
+          "slope_left": -0.041065,
+          "slope_right": -0.047201
+        },
+        {
+          "age": 23,
+          "ch": 0.005142,
+          "floor": 0.05701,
+          "n": 389,
+          "named": false,
+          "ratio": 0.0902,
+          "slope_left": -0.047201,
+          "slope_right": -0.042059
+        },
+        {
+          "age": 24,
+          "ch": -0.04043,
+          "floor": 0.051792,
+          "n": 421,
+          "named": false,
+          "ratio": -0.7806,
+          "slope_left": -0.042059,
+          "slope_right": -0.082489
+        },
+        {
+          "age": 25,
+          "ch": 0.079725,
+          "floor": 0.044171,
+          "n": 481,
+          "named": true,
+          "ratio": 1.8049,
+          "slope_left": -0.082489,
+          "slope_right": -0.002764
+        },
+        {
+          "age": 26,
+          "ch": -0.020916,
+          "floor": 0.040013,
+          "n": 534,
+          "named": false,
+          "ratio": -0.5227,
+          "slope_left": -0.002764,
+          "slope_right": -0.02368
+        },
+        {
+          "age": 27,
+          "ch": 0.010351,
+          "floor": 0.036027,
+          "n": 617,
+          "named": false,
+          "ratio": 0.2873,
+          "slope_left": -0.02368,
+          "slope_right": -0.013329
+        },
+        {
+          "age": 28,
+          "ch": 0.032628,
+          "floor": 0.034365,
+          "n": 633,
+          "named": false,
+          "ratio": 0.9495,
+          "slope_left": -0.013329,
+          "slope_right": 0.019299
+        },
+        {
+          "age": 29,
+          "ch": -0.020668,
+          "floor": 0.035327,
+          "n": 619,
+          "named": false,
+          "ratio": -0.5851,
+          "slope_left": 0.019299,
+          "slope_right": -0.001369
+        }
+      ]
+    },
+    "2019|hourpay|main_nlw_25plus|unweighted": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        20,
+        21,
+        25,
+        19,
+        28,
+        24,
+        26,
+        29,
+        22,
+        17,
+        27,
+        23,
+        18
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.032198,
+          "floor": 0.071239,
+          "n": 221,
+          "named": false,
+          "ratio": 0.452,
+          "slope_left": -0.124386,
+          "slope_right": -0.092188
+        },
+        {
+          "age": 18,
+          "ch": 0.002694,
+          "floor": 0.071758,
+          "n": 257,
+          "named": true,
+          "ratio": 0.0375,
+          "slope_left": -0.092188,
+          "slope_right": -0.089494
+        },
+        {
+          "age": 19,
+          "ch": 0.11161,
+          "floor": 0.07421,
+          "n": 257,
+          "named": false,
+          "ratio": 1.504,
+          "slope_left": -0.089494,
+          "slope_right": 0.022116
+        },
+        {
+          "age": 20,
+          "ch": -0.243821,
+          "floor": 0.072633,
+          "n": 269,
+          "named": false,
+          "ratio": -3.3569,
+          "slope_left": 0.022116,
+          "slope_right": -0.221705
+        },
+        {
+          "age": 21,
+          "ch": 0.198784,
+          "floor": 0.068242,
+          "n": 299,
+          "named": true,
+          "ratio": 2.9129,
+          "slope_left": -0.221705,
+          "slope_right": -0.022921
+        },
+        {
+          "age": 22,
+          "ch": -0.029463,
+          "floor": 0.060916,
+          "n": 389,
+          "named": false,
+          "ratio": -0.4837,
+          "slope_left": -0.022921,
+          "slope_right": -0.052384
+        },
+        {
+          "age": 23,
+          "ch": 0.005463,
+          "floor": 0.056424,
+          "n": 403,
+          "named": false,
+          "ratio": 0.0968,
+          "slope_left": -0.052384,
+          "slope_right": -0.046921
+        },
+        {
+          "age": 24,
+          "ch": -0.038485,
+          "floor": 0.051532,
+          "n": 429,
+          "named": false,
+          "ratio": -0.7468,
+          "slope_left": -0.046921,
+          "slope_right": -0.085406
+        },
+        {
+          "age": 25,
+          "ch": 0.084708,
+          "floor": 0.044038,
+          "n": 488,
+          "named": true,
+          "ratio": 1.9235,
+          "slope_left": -0.085406,
+          "slope_right": -0.000698
+        },
+        {
+          "age": 26,
+          "ch": -0.023483,
+          "floor": 0.040062,
+          "n": 540,
+          "named": false,
+          "ratio": -0.5862,
+          "slope_left": -0.000698,
+          "slope_right": -0.024181
+        },
+        {
+          "age": 27,
+          "ch": 0.006716,
+          "floor": 0.03604,
+          "n": 624,
+          "named": false,
+          "ratio": 0.1863,
+          "slope_left": -0.024181,
+          "slope_right": -0.017465
+        },
+        {
+          "age": 28,
+          "ch": 0.037291,
+          "floor": 0.034089,
+          "n": 645,
+          "named": false,
+          "ratio": 1.0939,
+          "slope_left": -0.017465,
+          "slope_right": 0.019826
+        },
+        {
+          "age": 29,
+          "ch": -0.020366,
+          "floor": 0.035172,
+          "n": 621,
+          "named": false,
+          "ratio": -0.579,
+          "slope_left": 0.019826,
+          "slope_right": -0.00054
+        }
+      ]
+    },
+    "2019|hrrate|alt_21_under_25|no_apprentices": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        21,
+        25,
+        18,
+        29,
+        28,
+        22,
+        19,
+        23,
+        26,
+        27,
+        20,
+        17,
+        24
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.006369,
+          "floor": 0.091401,
+          "n": 175,
+          "named": false,
+          "ratio": 0.0697,
+          "slope_left": -0.215585,
+          "slope_right": -0.209216
+        },
+        {
+          "age": 18,
+          "ch": 0.154059,
+          "floor": 0.089443,
+          "n": 186,
+          "named": true,
+          "ratio": 1.7224,
+          "slope_left": -0.209216,
+          "slope_right": -0.055157
+        },
+        {
+          "age": 19,
+          "ch": -0.076783,
+          "floor": 0.090427,
+          "n": 162,
+          "named": false,
+          "ratio": -0.8491,
+          "slope_left": -0.055157,
+          "slope_right": -0.13194
+        },
+        {
+          "age": 20,
+          "ch": -0.018557,
+          "floor": 0.080642,
+          "n": 155,
+          "named": false,
+          "ratio": -0.2301,
+          "slope_left": -0.13194,
+          "slope_right": -0.150497
+        },
+        {
+          "age": 21,
+          "ch": 0.117123,
+          "floor": 0.05733,
+          "n": 159,
+          "named": true,
+          "ratio": 2.043,
+          "slope_left": -0.150497,
+          "slope_right": -0.033374
+        },
+        {
+          "age": 22,
+          "ch": 0.039782,
+          "floor": 0.042628,
+          "n": 186,
+          "named": false,
+          "ratio": 0.9332,
+          "slope_left": -0.033374,
+          "slope_right": 0.006408
+        },
+        {
+          "age": 23,
+          "ch": -0.030339,
+          "floor": 0.043025,
+          "n": 146,
+          "named": false,
+          "ratio": -0.7051,
+          "slope_left": 0.006408,
+          "slope_right": -0.023931
+        },
+        {
+          "age": 24,
+          "ch": -0.001119,
+          "floor": 0.033569,
+          "n": 162,
+          "named": false,
+          "ratio": -0.0333,
+          "slope_left": -0.023931,
+          "slope_right": -0.02505
+        },
+        {
+          "age": 25,
+          "ch": 0.038223,
+          "floor": 0.020903,
+          "n": 172,
+          "named": true,
+          "ratio": 1.8286,
+          "slope_left": -0.02505,
+          "slope_right": 0.013173
+        },
+        {
+          "age": 26,
+          "ch": -0.013641,
+          "floor": 0.024847,
+          "n": 158,
+          "named": false,
+          "ratio": -0.549,
+          "slope_left": 0.013173,
+          "slope_right": -0.000468
+        },
+        {
+          "age": 27,
+          "ch": -0.011641,
+          "floor": 0.024648,
+          "n": 162,
+          "named": false,
+          "ratio": -0.4723,
+          "slope_left": -0.000468,
+          "slope_right": -0.012109
+        },
+        {
+          "age": 28,
+          "ch": 0.018121,
+          "floor": 0.018754,
+          "n": 156,
+          "named": false,
+          "ratio": 0.9663,
+          "slope_left": -0.012109,
+          "slope_right": 0.006012
+        },
+        {
+          "age": 29,
+          "ch": -0.018434,
+          "floor": 0.018591,
+          "n": 161,
+          "named": false,
+          "ratio": -0.9916,
+          "slope_left": 0.006012,
+          "slope_right": -0.012422
+        }
+      ]
+    },
+    "2019|hrrate|alt_21_under_25|unweighted": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        21,
+        25,
+        18,
+        28,
+        29,
+        27,
+        20,
+        22,
+        23,
+        19,
+        17,
+        26,
+        24
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.027813,
+          "floor": 0.085855,
+          "n": 194,
+          "named": false,
+          "ratio": 0.324,
+          "slope_left": -0.212813,
+          "slope_right": -0.185
+        },
+        {
+          "age": 18,
+          "ch": 0.108527,
+          "floor": 0.085349,
+          "n": 209,
+          "named": true,
+          "ratio": 1.2716,
+          "slope_left": -0.185,
+          "slope_right": -0.076473
+        },
+        {
+          "age": 19,
+          "ch": -0.034195,
+          "floor": 0.088096,
+          "n": 175,
+          "named": false,
+          "ratio": -0.3882,
+          "slope_left": -0.076473,
+          "slope_right": -0.110668
+        },
+        {
+          "age": 20,
+          "ch": -0.068928,
+          "floor": 0.080978,
+          "n": 169,
+          "named": false,
+          "ratio": -0.8512,
+          "slope_left": -0.110668,
+          "slope_right": -0.179596
+        },
+        {
+          "age": 21,
+          "ch": 0.147917,
+          "floor": 0.059474,
+          "n": 162,
+          "named": true,
+          "ratio": 2.4871,
+          "slope_left": -0.179596,
+          "slope_right": -0.031679
+        },
+        {
+          "age": 22,
+          "ch": 0.029589,
+          "floor": 0.045188,
+          "n": 197,
+          "named": false,
+          "ratio": 0.6548,
+          "slope_left": -0.031679,
+          "slope_right": -0.00209
+        },
+        {
+          "age": 23,
+          "ch": -0.026246,
+          "floor": 0.043794,
+          "n": 153,
+          "named": false,
+          "ratio": -0.5993,
+          "slope_left": -0.00209,
+          "slope_right": -0.028336
+        },
+        {
+          "age": 24,
+          "ch": 0.003628,
+          "floor": 0.033406,
+          "n": 164,
+          "named": false,
+          "ratio": 0.1086,
+          "slope_left": -0.028336,
+          "slope_right": -0.024708
+        },
+        {
+          "age": 25,
+          "ch": 0.037796,
+          "floor": 0.020726,
+          "n": 173,
+          "named": true,
+          "ratio": 1.8236,
+          "slope_left": -0.024708,
+          "slope_right": 0.013088
+        },
+        {
+          "age": 26,
+          "ch": -0.007714,
+          "floor": 0.025343,
+          "n": 159,
+          "named": false,
+          "ratio": -0.3044,
+          "slope_left": 0.013088,
+          "slope_right": 0.005374
+        },
+        {
+          "age": 27,
+          "ch": -0.023481,
+          "floor": 0.026967,
+          "n": 165,
+          "named": false,
+          "ratio": -0.8707,
+          "slope_left": 0.005374,
+          "slope_right": -0.018107
+        },
+        {
+          "age": 28,
+          "ch": 0.024394,
+          "floor": 0.019214,
+          "n": 163,
+          "named": false,
+          "ratio": 1.2696,
+          "slope_left": -0.018107,
+          "slope_right": 0.006287
+        },
+        {
+          "age": 29,
+          "ch": -0.018709,
+          "floor": 0.018498,
+          "n": 161,
+          "named": false,
+          "ratio": -1.0114,
+          "slope_left": 0.006287,
+          "slope_right": -0.012422
+        }
+      ]
+    },
+    "2019|hrrate|main_nlw_25plus|no_apprentices": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        25,
+        24,
+        21,
+        26,
+        29,
+        18,
+        27,
+        22,
+        28,
+        19,
+        17,
+        20,
+        23
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.024861,
+          "floor": 0.084009,
+          "n": 175,
+          "named": false,
+          "ratio": -0.2959,
+          "slope_left": -0.121559,
+          "slope_right": -0.14642
+        },
+        {
+          "age": 18,
+          "ch": 0.062788,
+          "floor": 0.088139,
+          "n": 186,
+          "named": true,
+          "ratio": 0.7124,
+          "slope_left": -0.14642,
+          "slope_right": -0.083632
+        },
+        {
+          "age": 19,
+          "ch": -0.034887,
+          "floor": 0.094872,
+          "n": 162,
+          "named": false,
+          "ratio": -0.3677,
+          "slope_left": -0.083632,
+          "slope_right": -0.118519
+        },
+        {
+          "age": 20,
+          "ch": 0.014116,
+          "floor": 0.095101,
+          "n": 155,
+          "named": false,
+          "ratio": 0.1484,
+          "slope_left": -0.118519,
+          "slope_right": -0.104403
+        },
+        {
+          "age": 21,
+          "ch": 0.104505,
+          "floor": 0.088917,
+          "n": 159,
+          "named": true,
+          "ratio": 1.1753,
+          "slope_left": -0.104403,
+          "slope_right": 0.000102
+        },
+        {
+          "age": 22,
+          "ch": -0.049226,
+          "floor": 0.084028,
+          "n": 186,
+          "named": false,
+          "ratio": -0.5858,
+          "slope_left": 0.000102,
+          "slope_right": -0.049124
+        },
+        {
+          "age": 23,
+          "ch": 0.006253,
+          "floor": 0.084916,
+          "n": 146,
+          "named": false,
+          "ratio": 0.0736,
+          "slope_left": -0.049124,
+          "slope_right": -0.042871
+        },
+        {
+          "age": 24,
+          "ch": -0.09688,
+          "floor": 0.075004,
+          "n": 162,
+          "named": false,
+          "ratio": -1.2917,
+          "slope_left": -0.042871,
+          "slope_right": -0.139751
+        },
+        {
+          "age": 25,
+          "ch": 0.170735,
+          "floor": 0.054197,
+          "n": 172,
+          "named": true,
+          "ratio": 3.1503,
+          "slope_left": -0.139751,
+          "slope_right": 0.030984
+        },
+        {
+          "age": 26,
+          "ch": -0.05802,
+          "floor": 0.053982,
+          "n": 158,
+          "named": false,
+          "ratio": -1.0748,
+          "slope_left": 0.030984,
+          "slope_right": -0.027036
+        },
+        {
+          "age": 27,
+          "ch": 0.029648,
+          "floor": 0.050266,
+          "n": 162,
+          "named": false,
+          "ratio": 0.5898,
+          "slope_left": -0.027036,
+          "slope_right": 0.002612
+        },
+        {
+          "age": 28,
+          "ch": -0.023436,
+          "floor": 0.048626,
+          "n": 156,
+          "named": false,
+          "ratio": -0.482,
+          "slope_left": 0.002612,
+          "slope_right": -0.020824
+        },
+        {
+          "age": 29,
+          "ch": 0.041787,
+          "floor": 0.044161,
+          "n": 161,
+          "named": false,
+          "ratio": 0.9463,
+          "slope_left": -0.020824,
+          "slope_right": 0.020963
+        }
+      ]
+    },
+    "2019|hrrate|main_nlw_25plus|unweighted": {
+      "named": [
+        18,
+        21,
+        25
+      ],
+      "ranked": [
+        25,
+        21,
+        24,
+        26,
+        29,
+        22,
+        18,
+        27,
+        28,
+        20,
+        23,
+        17,
+        19
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.008458,
+          "floor": 0.07801,
+          "n": 194,
+          "named": false,
+          "ratio": -0.1084,
+          "slope_left": -0.118065,
+          "slope_right": -0.126523
+        },
+        {
+          "age": 18,
+          "ch": 0.027302,
+          "floor": 0.082353,
+          "n": 209,
+          "named": true,
+          "ratio": 0.3315,
+          "slope_left": -0.126523,
+          "slope_right": -0.099221
+        },
+        {
+          "age": 19,
+          "ch": -0.005969,
+          "floor": 0.090785,
+          "n": 175,
+          "named": false,
+          "ratio": -0.0657,
+          "slope_left": -0.099221,
+          "slope_right": -0.10519
+        },
+        {
+          "age": 20,
+          "ch": -0.024294,
+          "floor": 0.092362,
+          "n": 169,
+          "named": false,
+          "ratio": -0.263,
+          "slope_left": -0.10519,
+          "slope_right": -0.129484
+        },
+        {
+          "age": 21,
+          "ch": 0.131584,
+          "floor": 0.087957,
+          "n": 162,
+          "named": true,
+          "ratio": 1.496,
+          "slope_left": -0.129484,
+          "slope_right": 0.0021
+        },
+        {
+          "age": 22,
+          "ch": -0.058303,
+          "floor": 0.082603,
+          "n": 197,
+          "named": false,
+          "ratio": -0.7058,
+          "slope_left": 0.0021,
+          "slope_right": -0.056203
+        },
+        {
+          "age": 23,
+          "ch": 0.009057,
+          "floor": 0.083281,
+          "n": 153,
+          "named": false,
+          "ratio": 0.1088,
+          "slope_left": -0.056203,
+          "slope_right": -0.047146
+        },
+        {
+          "age": 24,
+          "ch": -0.09049,
+          "floor": 0.074058,
+          "n": 164,
+          "named": false,
+          "ratio": -1.2219,
+          "slope_left": -0.047146,
+          "slope_right": -0.137636
+        },
+        {
+          "age": 25,
+          "ch": 0.168392,
+          "floor": 0.053797,
+          "n": 173,
+          "named": true,
+          "ratio": 3.1301,
+          "slope_left": -0.137636,
+          "slope_right": 0.030756
+        },
+        {
+          "age": 26,
+          "ch": -0.052369,
+          "floor": 0.053873,
+          "n": 159,
+          "named": false,
+          "ratio": -0.9721,
+          "slope_left": 0.030756,
+          "slope_right": -0.021613
+        },
+        {
+          "age": 27,
+          "ch": 0.016371,
+          "floor": 0.05058,
+          "n": 165,
+          "named": false,
+          "ratio": 0.3237,
+          "slope_left": -0.021613,
+          "slope_right": -0.005242
+        },
+        {
+          "age": 28,
+          "ch": -0.012554,
+          "floor": 0.047396,
+          "n": 163,
+          "named": false,
+          "ratio": -0.2649,
+          "slope_left": -0.005242,
+          "slope_right": -0.017796
+        },
+        {
+          "age": 29,
+          "ch": 0.037626,
+          "floor": 0.043649,
+          "n": 161,
+          "named": false,
+          "ratio": 0.862,
+          "slope_left": -0.017796,
+          "slope_right": 0.01983
+        }
+      ]
+    },
+    "2021|hourpay|alt_21_under_23|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        29,
+        19,
+        28,
+        27,
+        22,
+        20,
+        25,
+        18,
+        24,
+        26,
+        23,
+        17,
+        21
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.007857,
+          "floor": 0.086791,
+          "n": 177,
+          "named": false,
+          "ratio": -0.0905,
+          "slope_left": -0.104519,
+          "slope_right": -0.112376
+        },
+        {
+          "age": 18,
+          "ch": -0.073682,
+          "floor": 0.095635,
+          "n": 146,
+          "named": true,
+          "ratio": -0.7704,
+          "slope_left": -0.112376,
+          "slope_right": -0.186058
+        },
+        {
+          "age": 19,
+          "ch": 0.170772,
+          "floor": 0.09671,
+          "n": 158,
+          "named": false,
+          "ratio": 1.7658,
+          "slope_left": -0.186058,
+          "slope_right": -0.015286
+        },
+        {
+          "age": 20,
+          "ch": -0.081181,
+          "floor": 0.093401,
+          "n": 159,
+          "named": false,
+          "ratio": -0.8692,
+          "slope_left": -0.015286,
+          "slope_right": -0.096467
+        },
+        {
+          "age": 21,
+          "ch": -0.004769,
+          "floor": 0.080002,
+          "n": 204,
+          "named": true,
+          "ratio": -0.0596,
+          "slope_left": -0.096467,
+          "slope_right": -0.101236
+        },
+        {
+          "age": 22,
+          "ch": 0.058986,
+          "floor": 0.062754,
+          "n": 276,
+          "named": false,
+          "ratio": 0.94,
+          "slope_left": -0.101236,
+          "slope_right": -0.04225
+        },
+        {
+          "age": 23,
+          "ch": 0.020714,
+          "floor": 0.05154,
+          "n": 354,
+          "named": true,
+          "ratio": 0.4019,
+          "slope_left": -0.04225,
+          "slope_right": -0.021536
+        },
+        {
+          "age": 24,
+          "ch": -0.020419,
+          "floor": 0.04774,
+          "n": 319,
+          "named": false,
+          "ratio": -0.4277,
+          "slope_left": -0.021536,
+          "slope_right": -0.041955
+        },
+        {
+          "age": 25,
+          "ch": 0.032811,
+          "floor": 0.03975,
+          "n": 412,
+          "named": false,
+          "ratio": 0.8254,
+          "slope_left": -0.041955,
+          "slope_right": -0.009144
+        },
+        {
+          "age": 26,
+          "ch": -0.014172,
+          "floor": 0.034832,
+          "n": 439,
+          "named": false,
+          "ratio": -0.4069,
+          "slope_left": -0.009144,
+          "slope_right": -0.023316
+        },
+        {
+          "age": 27,
+          "ch": 0.031745,
+          "floor": 0.029983,
+          "n": 543,
+          "named": false,
+          "ratio": 1.0588,
+          "slope_left": -0.023316,
+          "slope_right": 0.008429
+        },
+        {
+          "age": 28,
+          "ch": -0.034454,
+          "floor": 0.029122,
+          "n": 525,
+          "named": false,
+          "ratio": -1.1831,
+          "slope_left": 0.008429,
+          "slope_right": -0.026025
+        },
+        {
+          "age": 29,
+          "ch": 0.053241,
+          "floor": 0.026737,
+          "n": 552,
+          "named": false,
+          "ratio": 1.9913,
+          "slope_left": -0.026025,
+          "slope_right": 0.027216
+        }
+      ]
+    },
+    "2021|hourpay|alt_21_under_23|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        19,
+        29,
+        18,
+        28,
+        27,
+        20,
+        25,
+        23,
+        21,
+        26,
+        22,
+        24,
+        17
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.018778,
+          "floor": 0.079731,
+          "n": 198,
+          "named": false,
+          "ratio": 0.2355,
+          "slope_left": -0.101582,
+          "slope_right": -0.082804
+        },
+        {
+          "age": 18,
+          "ch": -0.12637,
+          "floor": 0.087123,
+          "n": 167,
+          "named": true,
+          "ratio": -1.4505,
+          "slope_left": -0.082804,
+          "slope_right": -0.209174
+        },
+        {
+          "age": 19,
+          "ch": 0.187539,
+          "floor": 0.088478,
+          "n": 191,
+          "named": false,
+          "ratio": 2.1196,
+          "slope_left": -0.209174,
+          "slope_right": -0.021635
+        },
+        {
+          "age": 20,
+          "ch": -0.095485,
+          "floor": 0.086465,
+          "n": 189,
+          "named": false,
+          "ratio": -1.1043,
+          "slope_left": -0.021635,
+          "slope_right": -0.11712
+        },
+        {
+          "age": 21,
+          "ch": 0.035072,
+          "floor": 0.076338,
+          "n": 221,
+          "named": true,
+          "ratio": 0.4594,
+          "slope_left": -0.11712,
+          "slope_right": -0.082048
+        },
+        {
+          "age": 22,
+          "ch": 0.026417,
+          "floor": 0.06187,
+          "n": 294,
+          "named": false,
+          "ratio": 0.427,
+          "slope_left": -0.082048,
+          "slope_right": -0.055631
+        },
+        {
+          "age": 23,
+          "ch": 0.030182,
+          "floor": 0.05121,
+          "n": 363,
+          "named": true,
+          "ratio": 0.5894,
+          "slope_left": -0.055631,
+          "slope_right": -0.025449
+        },
+        {
+          "age": 24,
+          "ch": -0.015224,
+          "floor": 0.04698,
+          "n": 332,
+          "named": false,
+          "ratio": -0.3241,
+          "slope_left": -0.025449,
+          "slope_right": -0.040673
+        },
+        {
+          "age": 25,
+          "ch": 0.031485,
+          "floor": 0.039241,
+          "n": 425,
+          "named": false,
+          "ratio": 0.8024,
+          "slope_left": -0.040673,
+          "slope_right": -0.009188
+        },
+        {
+          "age": 26,
+          "ch": -0.014999,
+          "floor": 0.034485,
+          "n": 453,
+          "named": false,
+          "ratio": -0.4349,
+          "slope_left": -0.009188,
+          "slope_right": -0.024187
+        },
+        {
+          "age": 27,
+          "ch": 0.036381,
+          "floor": 0.029851,
+          "n": 553,
+          "named": false,
+          "ratio": 1.2188,
+          "slope_left": -0.024187,
+          "slope_right": 0.012194
+        },
+        {
+          "age": 28,
+          "ch": -0.040011,
+          "floor": 0.029378,
+          "n": 534,
+          "named": false,
+          "ratio": -1.362,
+          "slope_left": 0.012194,
+          "slope_right": -0.027817
+        },
+        {
+          "age": 29,
+          "ch": 0.053663,
+          "floor": 0.02693,
+          "n": 563,
+          "named": false,
+          "ratio": 1.9927,
+          "slope_left": -0.027817,
+          "slope_right": 0.025846
+        }
+      ]
+    },
+    "2021|hourpay|main_nlw_23plus|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        19,
+        29,
+        17,
+        20,
+        22,
+        18,
+        27,
+        28,
+        26,
+        25,
+        24,
+        21,
+        23
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.096038,
+          "floor": 0.078501,
+          "n": 177,
+          "named": false,
+          "ratio": -1.2234,
+          "slope_left": -0.024541,
+          "slope_right": -0.120579
+        },
+        {
+          "age": 18,
+          "ch": -0.065393,
+          "floor": 0.090479,
+          "n": 146,
+          "named": true,
+          "ratio": -0.7227,
+          "slope_left": -0.120579,
+          "slope_right": -0.185972
+        },
+        {
+          "age": 19,
+          "ch": 0.182748,
+          "floor": 0.096638,
+          "n": 158,
+          "named": false,
+          "ratio": 1.8911,
+          "slope_left": -0.185972,
+          "slope_right": -0.003224
+        },
+        {
+          "age": 20,
+          "ch": -0.099347,
+          "floor": 0.095138,
+          "n": 159,
+          "named": false,
+          "ratio": -1.0442,
+          "slope_left": -0.003224,
+          "slope_right": -0.102571
+        },
+        {
+          "age": 21,
+          "ch": -0.010814,
+          "floor": 0.083993,
+          "n": 204,
+          "named": true,
+          "ratio": -0.1287,
+          "slope_left": -0.102571,
+          "slope_right": -0.113385
+        },
+        {
+          "age": 22,
+          "ch": 0.068495,
+          "floor": 0.068671,
+          "n": 276,
+          "named": false,
+          "ratio": 0.9974,
+          "slope_left": -0.113385,
+          "slope_right": -0.04489
+        },
+        {
+          "age": 23,
+          "ch": 0.006333,
+          "floor": 0.058155,
+          "n": 354,
+          "named": true,
+          "ratio": 0.1089,
+          "slope_left": -0.04489,
+          "slope_right": -0.038557
+        },
+        {
+          "age": 24,
+          "ch": 0.008138,
+          "floor": 0.054459,
+          "n": 319,
+          "named": false,
+          "ratio": 0.1494,
+          "slope_left": -0.038557,
+          "slope_right": -0.030419
+        },
+        {
+          "age": 25,
+          "ch": -0.007963,
+          "floor": 0.047191,
+          "n": 412,
+          "named": false,
+          "ratio": -0.1687,
+          "slope_left": -0.030419,
+          "slope_right": -0.038382
+        },
+        {
+          "age": 26,
+          "ch": 0.015016,
+          "floor": 0.040672,
+          "n": 439,
+          "named": false,
+          "ratio": 0.3692,
+          "slope_left": -0.038382,
+          "slope_right": -0.023366
+        },
+        {
+          "age": 27,
+          "ch": 0.019788,
+          "floor": 0.035142,
+          "n": 543,
+          "named": false,
+          "ratio": 0.5631,
+          "slope_left": -0.023366,
+          "slope_right": -0.003578
+        },
+        {
+          "age": 28,
+          "ch": -0.018317,
+          "floor": 0.033386,
+          "n": 525,
+          "named": false,
+          "ratio": -0.5486,
+          "slope_left": -0.003578,
+          "slope_right": -0.021895
+        },
+        {
+          "age": 29,
+          "ch": 0.043181,
+          "floor": 0.031296,
+          "n": 552,
+          "named": false,
+          "ratio": 1.3798,
+          "slope_left": -0.021895,
+          "slope_right": 0.021286
+        }
+      ]
+    },
+    "2021|hourpay|main_nlw_23plus|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        19,
+        29,
+        18,
+        20,
+        17,
+        27,
+        22,
+        28,
+        24,
+        26,
+        25,
+        21,
+        23
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.071648,
+          "floor": 0.071512,
+          "n": 198,
+          "named": false,
+          "ratio": -1.0019,
+          "slope_left": -0.025158,
+          "slope_right": -0.096806
+        },
+        {
+          "age": 18,
+          "ch": -0.095218,
+          "floor": 0.081535,
+          "n": 167,
+          "named": true,
+          "ratio": -1.1678,
+          "slope_left": -0.096806,
+          "slope_right": -0.192024
+        },
+        {
+          "age": 19,
+          "ch": 0.171331,
+          "floor": 0.087612,
+          "n": 191,
+          "named": false,
+          "ratio": 1.9556,
+          "slope_left": -0.192024,
+          "slope_right": -0.020693
+        },
+        {
+          "age": 20,
+          "ch": -0.091352,
+          "floor": 0.087598,
+          "n": 189,
+          "named": false,
+          "ratio": -1.0429,
+          "slope_left": -0.020693,
+          "slope_right": -0.112045
+        },
+        {
+          "age": 21,
+          "ch": 0.009804,
+          "floor": 0.080192,
+          "n": 221,
+          "named": true,
+          "ratio": 0.1223,
+          "slope_left": -0.112045,
+          "slope_right": -0.102241
+        },
+        {
+          "age": 22,
+          "ch": 0.048915,
+          "floor": 0.067296,
+          "n": 294,
+          "named": false,
+          "ratio": 0.7269,
+          "slope_left": -0.102241,
+          "slope_right": -0.053326
+        },
+        {
+          "age": 23,
+          "ch": 0.004959,
+          "floor": 0.057643,
+          "n": 363,
+          "named": true,
+          "ratio": 0.086,
+          "slope_left": -0.053326,
+          "slope_right": -0.048367
+        },
+        {
+          "age": 24,
+          "ch": 0.01936,
+          "floor": 0.053424,
+          "n": 332,
+          "named": false,
+          "ratio": 0.3624,
+          "slope_left": -0.048367,
+          "slope_right": -0.029007
+        },
+        {
+          "age": 25,
+          "ch": -0.006329,
+          "floor": 0.04636,
+          "n": 425,
+          "named": false,
+          "ratio": -0.1365,
+          "slope_left": -0.029007,
+          "slope_right": -0.035336
+        },
+        {
+          "age": 26,
+          "ch": 0.009389,
+          "floor": 0.040228,
+          "n": 453,
+          "named": false,
+          "ratio": 0.2334,
+          "slope_left": -0.035336,
+          "slope_right": -0.025947
+        },
+        {
+          "age": 27,
+          "ch": 0.026384,
+          "floor": 0.034878,
+          "n": 553,
+          "named": false,
+          "ratio": 0.7565,
+          "slope_left": -0.025947,
+          "slope_right": 0.000437
+        },
+        {
+          "age": 28,
+          "ch": -0.024276,
+          "floor": 0.033443,
+          "n": 534,
+          "named": false,
+          "ratio": -0.7259,
+          "slope_left": 0.000437,
+          "slope_right": -0.023839
+        },
+        {
+          "age": 29,
+          "ch": 0.044137,
+          "floor": 0.031291,
+          "n": 563,
+          "named": false,
+          "ratio": 1.4105,
+          "slope_left": -0.023839,
+          "slope_right": 0.020298
+        }
+      ]
+    },
+    "2021|hrrate|alt_21_under_23|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        20,
+        29,
+        21,
+        19,
+        22,
+        17,
+        25,
+        18,
+        24,
+        28,
+        27,
+        23,
+        26
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.135546,
+          "floor": 0.097756,
+          "n": 152,
+          "named": false,
+          "ratio": -1.3866,
+          "slope_left": -0.106998,
+          "slope_right": -0.242544
+        },
+        {
+          "age": 18,
+          "ch": 0.113377,
+          "floor": 0.107516,
+          "n": 120,
+          "named": true,
+          "ratio": 1.0545,
+          "slope_left": -0.242544,
+          "slope_right": -0.129167
+        },
+        {
+          "age": 19,
+          "ch": 0.159524,
+          "floor": 0.108967,
+          "n": 112,
+          "named": false,
+          "ratio": 1.464,
+          "slope_left": -0.129167,
+          "slope_right": 0.030357
+        },
+        {
+          "age": 20,
+          "ch": -0.252844,
+          "floor": 0.107153,
+          "n": 105,
+          "named": false,
+          "ratio": -2.3597,
+          "slope_left": 0.030357,
+          "slope_right": -0.222487
+        },
+        {
+          "age": 21,
+          "ch": 0.137205,
+          "floor": 0.079776,
+          "n": 108,
+          "named": true,
+          "ratio": 1.7199,
+          "slope_left": -0.222487,
+          "slope_right": -0.085282
+        },
+        {
+          "age": 22,
+          "ch": 0.067001,
+          "floor": 0.048033,
+          "n": 114,
+          "named": false,
+          "ratio": 1.3949,
+          "slope_left": -0.085282,
+          "slope_right": -0.018281
+        },
+        {
+          "age": 23,
+          "ch": 0.012463,
+          "floor": 0.031175,
+          "n": 119,
+          "named": true,
+          "ratio": 0.3998,
+          "slope_left": -0.018281,
+          "slope_right": -0.005818
+        },
+        {
+          "age": 24,
+          "ch": 0.032565,
+          "floor": 0.03097,
+          "n": 91,
+          "named": false,
+          "ratio": 1.0515,
+          "slope_left": -0.005818,
+          "slope_right": 0.026747
+        },
+        {
+          "age": 25,
+          "ch": -0.044483,
+          "floor": 0.041057,
+          "n": 106,
+          "named": false,
+          "ratio": -1.0834,
+          "slope_left": 0.026747,
+          "slope_right": -0.017736
+        },
+        {
+          "age": 26,
+          "ch": 0.00794,
+          "floor": 0.035066,
+          "n": 100,
+          "named": false,
+          "ratio": 0.2264,
+          "slope_left": -0.017736,
+          "slope_right": -0.009796
+        },
+        {
+          "age": 27,
+          "ch": 0.01864,
+          "floor": 0.028039,
+          "n": 98,
+          "named": false,
+          "ratio": 0.6648,
+          "slope_left": -0.009796,
+          "slope_right": 0.008844
+        },
+        {
+          "age": 28,
+          "ch": -0.027892,
+          "floor": 0.028546,
+          "n": 105,
+          "named": false,
+          "ratio": -0.9771,
+          "slope_left": 0.008844,
+          "slope_right": -0.019048
+        },
+        {
+          "age": 29,
+          "ch": 0.036289,
+          "floor": 0.018001,
+          "n": 99,
+          "named": false,
+          "ratio": 2.016,
+          "slope_left": -0.019048,
+          "slope_right": 0.017241
+        }
+      ]
+    },
+    "2021|hrrate|alt_21_under_23|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        20,
+        29,
+        21,
+        22,
+        19,
+        25,
+        24,
+        17,
+        28,
+        18,
+        27,
+        23,
+        26
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.094084,
+          "floor": 0.094662,
+          "n": 160,
+          "named": false,
+          "ratio": -0.9939,
+          "slope_left": -0.1125,
+          "slope_right": -0.206584
+        },
+        {
+          "age": 18,
+          "ch": 0.080507,
+          "floor": 0.103977,
+          "n": 131,
+          "named": true,
+          "ratio": 0.7743,
+          "slope_left": -0.206584,
+          "slope_right": -0.126077
+        },
+        {
+          "age": 19,
+          "ch": 0.148431,
+          "floor": 0.106541,
+          "n": 124,
+          "named": false,
+          "ratio": 1.3932,
+          "slope_left": -0.126077,
+          "slope_right": 0.022354
+        },
+        {
+          "age": 20,
+          "ch": -0.259196,
+          "floor": 0.105581,
+          "n": 114,
+          "named": false,
+          "ratio": -2.455,
+          "slope_left": 0.022354,
+          "slope_right": -0.236842
+        },
+        {
+          "age": 21,
+          "ch": 0.138864,
+          "floor": 0.081473,
+          "n": 114,
+          "named": true,
+          "ratio": 1.7044,
+          "slope_left": -0.236842,
+          "slope_right": -0.097978
+        },
+        {
+          "age": 22,
+          "ch": 0.072272,
+          "floor": 0.050699,
+          "n": 118,
+          "named": false,
+          "ratio": 1.4255,
+          "slope_left": -0.097978,
+          "slope_right": -0.025706
+        },
+        {
+          "age": 23,
+          "ch": 0.020028,
+          "floor": 0.031773,
+          "n": 120,
+          "named": true,
+          "ratio": 0.6303,
+          "slope_left": -0.025706,
+          "slope_right": -0.005678
+        },
+        {
+          "age": 24,
+          "ch": 0.031726,
+          "floor": 0.030732,
+          "n": 91,
+          "named": false,
+          "ratio": 1.0323,
+          "slope_left": -0.005678,
+          "slope_right": 0.026048
+        },
+        {
+          "age": 25,
+          "ch": -0.043668,
+          "floor": 0.040313,
+          "n": 108,
+          "named": false,
+          "ratio": -1.0832,
+          "slope_left": 0.026048,
+          "slope_right": -0.01762
+        },
+        {
+          "age": 26,
+          "ch": 0.008304,
+          "floor": 0.034214,
+          "n": 103,
+          "named": false,
+          "ratio": 0.2427,
+          "slope_left": -0.01762,
+          "slope_right": -0.009316
+        },
+        {
+          "age": 27,
+          "ch": 0.017907,
+          "floor": 0.027573,
+          "n": 99,
+          "named": false,
+          "ratio": 0.6494,
+          "slope_left": -0.009316,
+          "slope_right": 0.008591
+        },
+        {
+          "age": 28,
+          "ch": -0.027283,
+          "floor": 0.028048,
+          "n": 107,
+          "named": false,
+          "ratio": -0.9727,
+          "slope_left": 0.008591,
+          "slope_right": -0.018692
+        },
+        {
+          "age": 29,
+          "ch": 0.035786,
+          "floor": 0.017749,
+          "n": 102,
+          "named": false,
+          "ratio": 2.0162,
+          "slope_left": -0.018692,
+          "slope_right": 0.017094
+        }
+      ]
+    },
+    "2021|hrrate|main_nlw_23plus|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        19,
+        21,
+        22,
+        24,
+        25,
+        17,
+        20,
+        29,
+        23,
+        28,
+        26,
+        27,
+        18
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.08635,
+          "floor": 0.094014,
+          "n": 152,
+          "named": false,
+          "ratio": -0.9185,
+          "slope_left": -0.093913,
+          "slope_right": -0.180263
+        },
+        {
+          "age": 18,
+          "ch": -0.003666,
+          "floor": 0.107786,
+          "n": 120,
+          "named": true,
+          "ratio": -0.034,
+          "slope_left": -0.180263,
+          "slope_right": -0.183929
+        },
+        {
+          "age": 19,
+          "ch": 0.255953,
+          "floor": 0.112672,
+          "n": 112,
+          "named": false,
+          "ratio": 2.2717,
+          "slope_left": -0.183929,
+          "slope_right": 0.072024
+        },
+        {
+          "age": 20,
+          "ch": -0.074934,
+          "floor": 0.117157,
+          "n": 105,
+          "named": false,
+          "ratio": -0.6396,
+          "slope_left": 0.072024,
+          "slope_right": -0.00291
+        },
+        {
+          "age": 21,
+          "ch": -0.248064,
+          "floor": 0.112988,
+          "n": 108,
+          "named": true,
+          "ratio": -2.1955,
+          "slope_left": -0.00291,
+          "slope_right": -0.250974
+        },
+        {
+          "age": 22,
+          "ch": 0.167603,
+          "floor": 0.091163,
+          "n": 114,
+          "named": false,
+          "ratio": 1.8385,
+          "slope_left": -0.250974,
+          "slope_right": -0.083371
+        },
+        {
+          "age": 23,
+          "ch": 0.037476,
+          "floor": 0.070261,
+          "n": 119,
+          "named": true,
+          "ratio": 0.5334,
+          "slope_left": -0.083371,
+          "slope_right": -0.045895
+        },
+        {
+          "age": 24,
+          "ch": 0.104158,
+          "floor": 0.063178,
+          "n": 91,
+          "named": false,
+          "ratio": 1.6486,
+          "slope_left": -0.045895,
+          "slope_right": 0.058263
+        },
+        {
+          "age": 25,
+          "ch": -0.071471,
+          "floor": 0.072519,
+          "n": 106,
+          "named": false,
+          "ratio": -0.9855,
+          "slope_left": 0.058263,
+          "slope_right": -0.013208
+        },
+        {
+          "age": 26,
+          "ch": -0.015363,
+          "floor": 0.072277,
+          "n": 100,
+          "named": false,
+          "ratio": -0.2126,
+          "slope_left": -0.013208,
+          "slope_right": -0.028571
+        },
+        {
+          "age": 27,
+          "ch": 0.004761,
+          "floor": 0.063554,
+          "n": 98,
+          "named": false,
+          "ratio": 0.0749,
+          "slope_left": -0.028571,
+          "slope_right": -0.02381
+        },
+        {
+          "age": 28,
+          "ch": 0.026696,
+          "floor": 0.053748,
+          "n": 105,
+          "named": false,
+          "ratio": 0.4967,
+          "slope_left": -0.02381,
+          "slope_right": 0.002886
+        },
+        {
+          "age": 29,
+          "ch": -0.027529,
+          "floor": 0.050859,
+          "n": 99,
+          "named": false,
+          "ratio": -0.5413,
+          "slope_left": 0.002886,
+          "slope_right": -0.024643
+        }
+      ]
+    },
+    "2021|hrrate|main_nlw_23plus|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        19,
+        21,
+        22,
+        24,
+        20,
+        25,
+        23,
+        29,
+        28,
+        17,
+        18,
+        26,
+        27
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.043135,
+          "floor": 0.090758,
+          "n": 160,
+          "named": false,
+          "ratio": -0.4753,
+          "slope_left": -0.100329,
+          "slope_right": -0.143464
+        },
+        {
+          "age": 18,
+          "ch": -0.041096,
+          "floor": 0.102797,
+          "n": 131,
+          "named": true,
+          "ratio": -0.3998,
+          "slope_left": -0.143464,
+          "slope_right": -0.18456
+        },
+        {
+          "age": 19,
+          "ch": 0.26379,
+          "floor": 0.108638,
+          "n": 124,
+          "named": false,
+          "ratio": 2.4282,
+          "slope_left": -0.18456,
+          "slope_right": 0.07923
+        },
+        {
+          "age": 20,
+          "ch": -0.12309,
+          "floor": 0.113408,
+          "n": 114,
+          "named": false,
+          "ratio": -1.0854,
+          "slope_left": 0.07923,
+          "slope_right": -0.04386
+        },
+        {
+          "age": 21,
+          "ch": -0.199821,
+          "floor": 0.110271,
+          "n": 114,
+          "named": true,
+          "ratio": -1.8121,
+          "slope_left": -0.04386,
+          "slope_right": -0.243681
+        },
+        {
+          "age": 22,
+          "ch": 0.148766,
+          "floor": 0.090715,
+          "n": 118,
+          "named": false,
+          "ratio": 1.6399,
+          "slope_left": -0.243681,
+          "slope_right": -0.094915
+        },
+        {
+          "age": 23,
+          "ch": 0.04986,
+          "floor": 0.070003,
+          "n": 120,
+          "named": true,
+          "ratio": 0.7123,
+          "slope_left": -0.094915,
+          "slope_right": -0.045055
+        },
+        {
+          "age": 24,
+          "ch": 0.101221,
+          "floor": 0.062826,
+          "n": 91,
+          "named": false,
+          "ratio": 1.6111,
+          "slope_left": -0.045055,
+          "slope_right": 0.056166
+        },
+        {
+          "age": 25,
+          "ch": -0.07019,
+          "floor": 0.071273,
+          "n": 108,
+          "named": false,
+          "ratio": -0.9848,
+          "slope_left": 0.056166,
+          "slope_right": -0.014024
+        },
+        {
+          "age": 26,
+          "ch": -0.012356,
+          "floor": 0.070587,
+          "n": 103,
+          "named": false,
+          "ratio": -0.175,
+          "slope_left": -0.014024,
+          "slope_right": -0.02638
+        },
+        {
+          "age": 27,
+          "ch": 0.002402,
+          "floor": 0.062628,
+          "n": 99,
+          "named": false,
+          "ratio": 0.0384,
+          "slope_left": -0.02638,
+          "slope_right": -0.023978
+        },
+        {
+          "age": 28,
+          "ch": 0.026269,
+          "floor": 0.052783,
+          "n": 107,
+          "named": false,
+          "ratio": 0.4977,
+          "slope_left": -0.023978,
+          "slope_right": 0.002291
+        },
+        {
+          "age": 29,
+          "ch": -0.02567,
+          "floor": 0.049578,
+          "n": 102,
+          "named": false,
+          "ratio": -0.5178,
+          "slope_left": 0.002291,
+          "slope_right": -0.023379
+        }
+      ]
+    },
+    "2022|hourpay|alt_21_under_23|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        24,
+        21,
+        22,
+        25,
+        20,
+        19,
+        26,
+        23,
+        27,
+        17,
+        29,
+        18,
+        28
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.045145,
+          "floor": 0.096038,
+          "n": 141,
+          "named": false,
+          "ratio": 0.4701,
+          "slope_left": -0.164539,
+          "slope_right": -0.119394
+        },
+        {
+          "age": 18,
+          "ch": -0.01334,
+          "floor": 0.102679,
+          "n": 139,
+          "named": true,
+          "ratio": -0.1299,
+          "slope_left": -0.119394,
+          "slope_right": -0.132734
+        },
+        {
+          "age": 19,
+          "ch": 0.125357,
+          "floor": 0.109643,
+          "n": 120,
+          "named": false,
+          "ratio": 1.1433,
+          "slope_left": -0.132734,
+          "slope_right": -0.007377
+        },
+        {
+          "age": 20,
+          "ch": -0.158823,
+          "floor": 0.108524,
+          "n": 122,
+          "named": false,
+          "ratio": -1.4635,
+          "slope_left": -0.007377,
+          "slope_right": -0.1662
+        },
+        {
+          "age": 21,
+          "ch": 0.177513,
+          "floor": 0.097434,
+          "n": 123,
+          "named": true,
+          "ratio": 1.8219,
+          "slope_left": -0.1662,
+          "slope_right": 0.011313
+        },
+        {
+          "age": 22,
+          "ch": -0.133092,
+          "floor": 0.077987,
+          "n": 212,
+          "named": false,
+          "ratio": -1.7066,
+          "slope_left": 0.011313,
+          "slope_right": -0.121779
+        },
+        {
+          "age": 23,
+          "ch": 0.046373,
+          "floor": 0.06039,
+          "n": 235,
+          "named": true,
+          "ratio": 0.7679,
+          "slope_left": -0.121779,
+          "slope_right": -0.075406
+        },
+        {
+          "age": 24,
+          "ch": 0.114725,
+          "floor": 0.047463,
+          "n": 254,
+          "named": false,
+          "ratio": 2.4171,
+          "slope_left": -0.075406,
+          "slope_right": 0.039319
+        },
+        {
+          "age": 25,
+          "ch": -0.071546,
+          "floor": 0.0457,
+          "n": 308,
+          "named": false,
+          "ratio": -1.5656,
+          "slope_left": 0.039319,
+          "slope_right": -0.032227
+        },
+        {
+          "age": 26,
+          "ch": 0.039235,
+          "floor": 0.042731,
+          "n": 297,
+          "named": false,
+          "ratio": 0.9182,
+          "slope_left": -0.032227,
+          "slope_right": 0.007008
+        },
+        {
+          "age": 27,
+          "ch": -0.019159,
+          "floor": 0.039951,
+          "n": 344,
+          "named": false,
+          "ratio": -0.4796,
+          "slope_left": 0.007008,
+          "slope_right": -0.012151
+        },
+        {
+          "age": 28,
+          "ch": -0.003251,
+          "floor": 0.035681,
+          "n": 400,
+          "named": false,
+          "ratio": -0.0911,
+          "slope_left": -0.012151,
+          "slope_right": -0.015402
+        },
+        {
+          "age": 29,
+          "ch": 0.011738,
+          "floor": 0.031658,
+          "n": 441,
+          "named": false,
+          "ratio": 0.3708,
+          "slope_left": -0.015402,
+          "slope_right": -0.003664
+        }
+      ]
+    },
+    "2022|hourpay|alt_21_under_23|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        24,
+        25,
+        26,
+        22,
+        23,
+        21,
+        27,
+        29,
+        20,
+        19,
+        18,
+        17,
+        28
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.012316,
+          "floor": 0.08787,
+          "n": 162,
+          "named": false,
+          "ratio": 0.1402,
+          "slope_left": -0.140432,
+          "slope_right": -0.128116
+        },
+        {
+          "age": 18,
+          "ch": 0.025161,
+          "floor": 0.095451,
+          "n": 155,
+          "named": true,
+          "ratio": 0.2636,
+          "slope_left": -0.128116,
+          "slope_right": -0.102955
+        },
+        {
+          "age": 19,
+          "ch": 0.035172,
+          "floor": 0.101433,
+          "n": 143,
+          "named": false,
+          "ratio": 0.3468,
+          "slope_left": -0.102955,
+          "slope_right": -0.067783
+        },
+        {
+          "age": 20,
+          "ch": -0.046502,
+          "floor": 0.101641,
+          "n": 140,
+          "named": false,
+          "ratio": -0.4575,
+          "slope_left": -0.067783,
+          "slope_right": -0.114285
+        },
+        {
+          "age": 21,
+          "ch": 0.074674,
+          "floor": 0.094382,
+          "n": 140,
+          "named": true,
+          "ratio": 0.7912,
+          "slope_left": -0.114285,
+          "slope_right": -0.039611
+        },
+        {
+          "age": 22,
+          "ch": -0.077501,
+          "floor": 0.076009,
+          "n": 220,
+          "named": false,
+          "ratio": -1.0196,
+          "slope_left": -0.039611,
+          "slope_right": -0.117112
+        },
+        {
+          "age": 23,
+          "ch": 0.04906,
+          "floor": 0.058333,
+          "n": 255,
+          "named": true,
+          "ratio": 0.841,
+          "slope_left": -0.117112,
+          "slope_right": -0.068052
+        },
+        {
+          "age": 24,
+          "ch": 0.099124,
+          "floor": 0.046743,
+          "n": 269,
+          "named": false,
+          "ratio": 2.1206,
+          "slope_left": -0.068052,
+          "slope_right": 0.031072
+        },
+        {
+          "age": 25,
+          "ch": -0.064335,
+          "floor": 0.044626,
+          "n": 321,
+          "named": false,
+          "ratio": -1.4416,
+          "slope_left": 0.031072,
+          "slope_right": -0.033263
+        },
+        {
+          "age": 26,
+          "ch": 0.044514,
+          "floor": 0.041613,
+          "n": 307,
+          "named": false,
+          "ratio": 1.0697,
+          "slope_left": -0.033263,
+          "slope_right": 0.011251
+        },
+        {
+          "age": 27,
+          "ch": -0.024055,
+          "floor": 0.039562,
+          "n": 350,
+          "named": false,
+          "ratio": -0.608,
+          "slope_left": 0.011251,
+          "slope_right": -0.012804
+        },
+        {
+          "age": 28,
+          "ch": -0.004382,
+          "floor": 0.035359,
+          "n": 409,
+          "named": false,
+          "ratio": -0.1239,
+          "slope_left": -0.012804,
+          "slope_right": -0.017186
+        },
+        {
+          "age": 29,
+          "ch": 0.018058,
+          "floor": 0.031306,
+          "n": 449,
+          "named": false,
+          "ratio": 0.5768,
+          "slope_left": -0.017186,
+          "slope_right": 0.000872
+        }
+      ]
+    },
+    "2022|hourpay|main_nlw_23plus|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        22,
+        23,
+        24,
+        21,
+        25,
+        29,
+        20,
+        19,
+        17,
+        28,
+        18,
+        26,
+        27
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.06649,
+          "floor": 0.092925,
+          "n": 141,
+          "named": false,
+          "ratio": 0.7155,
+          "slope_left": -0.149504,
+          "slope_right": -0.083014
+        },
+        {
+          "age": 18,
+          "ch": -0.039468,
+          "floor": 0.100213,
+          "n": 139,
+          "named": true,
+          "ratio": -0.3938,
+          "slope_left": -0.083014,
+          "slope_right": -0.122482
+        },
+        {
+          "age": 19,
+          "ch": 0.081089,
+          "floor": 0.109552,
+          "n": 120,
+          "named": false,
+          "ratio": 0.7402,
+          "slope_left": -0.122482,
+          "slope_right": -0.041393
+        },
+        {
+          "age": 20,
+          "ch": -0.100751,
+          "floor": 0.109974,
+          "n": 122,
+          "named": false,
+          "ratio": -0.9161,
+          "slope_left": -0.041393,
+          "slope_right": -0.142144
+        },
+        {
+          "age": 21,
+          "ch": 0.182756,
+          "floor": 0.102339,
+          "n": 123,
+          "named": true,
+          "ratio": 1.7858,
+          "slope_left": -0.142144,
+          "slope_right": 0.040612
+        },
+        {
+          "age": 22,
+          "ch": -0.235453,
+          "floor": 0.083249,
+          "n": 212,
+          "named": false,
+          "ratio": -2.8283,
+          "slope_left": 0.040612,
+          "slope_right": -0.194841
+        },
+        {
+          "age": 23,
+          "ch": 0.133591,
+          "floor": 0.064323,
+          "n": 235,
+          "named": true,
+          "ratio": 2.0769,
+          "slope_left": -0.194841,
+          "slope_right": -0.06125
+        },
+        {
+          "age": 24,
+          "ch": 0.104097,
+          "floor": 0.053266,
+          "n": 254,
+          "named": false,
+          "ratio": 1.9543,
+          "slope_left": -0.06125,
+          "slope_right": 0.042847
+        },
+        {
+          "age": 25,
+          "ch": -0.073631,
+          "floor": 0.051542,
+          "n": 308,
+          "named": false,
+          "ratio": -1.4286,
+          "slope_left": 0.042847,
+          "slope_right": -0.030784
+        },
+        {
+          "age": 26,
+          "ch": 0.01483,
+          "floor": 0.04868,
+          "n": 297,
+          "named": false,
+          "ratio": 0.3046,
+          "slope_left": -0.030784,
+          "slope_right": -0.015954
+        },
+        {
+          "age": 27,
+          "ch": 0.001361,
+          "floor": 0.043438,
+          "n": 344,
+          "named": false,
+          "ratio": 0.0313,
+          "slope_left": -0.015954,
+          "slope_right": -0.014593
+        },
+        {
+          "age": 28,
+          "ch": 0.020472,
+          "floor": 0.038717,
+          "n": 400,
+          "named": false,
+          "ratio": 0.5288,
+          "slope_left": -0.014593,
+          "slope_right": 0.005879
+        },
+        {
+          "age": 29,
+          "ch": -0.037185,
+          "floor": 0.036254,
+          "n": 441,
+          "named": false,
+          "ratio": -1.0257,
+          "slope_left": 0.005879,
+          "slope_right": -0.031306
+        }
+      ]
+    },
+    "2022|hourpay|main_nlw_23plus|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        23,
+        22,
+        24,
+        25,
+        21,
+        29,
+        26,
+        17,
+        28,
+        19,
+        27,
+        20,
+        18
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": 0.033498,
+          "floor": 0.08485,
+          "n": 162,
+          "named": false,
+          "ratio": 0.3948,
+          "slope_left": -0.128241,
+          "slope_right": -0.094743
+        },
+        {
+          "age": 18,
+          "ch": -0.003339,
+          "floor": 0.09273,
+          "n": 155,
+          "named": true,
+          "ratio": -0.036,
+          "slope_left": -0.094743,
+          "slope_right": -0.098082
+        },
+        {
+          "age": 19,
+          "ch": 0.010219,
+          "floor": 0.10045,
+          "n": 143,
+          "named": false,
+          "ratio": 0.1017,
+          "slope_left": -0.098082,
+          "slope_right": -0.087863
+        },
+        {
+          "age": 20,
+          "ch": -0.004994,
+          "floor": 0.102662,
+          "n": 140,
+          "named": false,
+          "ratio": -0.0486,
+          "slope_left": -0.087863,
+          "slope_right": -0.092857
+        },
+        {
+          "age": 21,
+          "ch": 0.07987,
+          "floor": 0.098055,
+          "n": 140,
+          "named": true,
+          "ratio": 0.8145,
+          "slope_left": -0.092857,
+          "slope_right": -0.012987
+        },
+        {
+          "age": 22,
+          "ch": -0.171505,
+          "floor": 0.080887,
+          "n": 220,
+          "named": false,
+          "ratio": -2.1203,
+          "slope_left": -0.012987,
+          "slope_right": -0.184492
+        },
+        {
+          "age": 23,
+          "ch": 0.133803,
+          "floor": 0.062455,
+          "n": 255,
+          "named": true,
+          "ratio": 2.1424,
+          "slope_left": -0.184492,
+          "slope_right": -0.050689
+        },
+        {
+          "age": 24,
+          "ch": 0.078252,
+          "floor": 0.052846,
+          "n": 269,
+          "named": false,
+          "ratio": 1.4808,
+          "slope_left": -0.050689,
+          "slope_right": 0.027563
+        },
+        {
+          "age": 25,
+          "ch": -0.059122,
+          "floor": 0.050355,
+          "n": 321,
+          "named": false,
+          "ratio": -1.1741,
+          "slope_left": 0.027563,
+          "slope_right": -0.031559
+        },
+        {
+          "age": 26,
+          "ch": 0.020866,
+          "floor": 0.047381,
+          "n": 307,
+          "named": false,
+          "ratio": 0.4404,
+          "slope_left": -0.031559,
+          "slope_right": -0.010693
+        },
+        {
+          "age": 27,
+          "ch": -0.00214,
+          "floor": 0.042987,
+          "n": 350,
+          "named": false,
+          "ratio": -0.0498,
+          "slope_left": -0.010693,
+          "slope_right": -0.012833
+        },
+        {
+          "age": 28,
+          "ch": 0.014168,
+          "floor": 0.038548,
+          "n": 409,
+          "named": false,
+          "ratio": 0.3675,
+          "slope_left": -0.012833,
+          "slope_right": 0.001335
+        },
+        {
+          "age": 29,
+          "ch": -0.027588,
+          "floor": 0.03587,
+          "n": 449,
+          "named": false,
+          "ratio": -0.7691,
+          "slope_left": 0.001335,
+          "slope_right": -0.026253
+        }
+      ]
+    },
+    "2022|hrrate|alt_21_under_23|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        24,
+        21,
+        23,
+        18,
+        27,
+        20,
+        22,
+        26,
+        28,
+        19,
+        17,
+        25,
+        29
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.050545,
+          "floor": 0.104442,
+          "n": 135,
+          "named": false,
+          "ratio": -0.484,
+          "slope_left": -0.186492,
+          "slope_right": -0.237037
+        },
+        {
+          "age": 18,
+          "ch": 0.138112,
+          "floor": 0.10796,
+          "n": 125,
+          "named": true,
+          "ratio": 1.2793,
+          "slope_left": -0.237037,
+          "slope_right": -0.098925
+        },
+        {
+          "age": 19,
+          "ch": 0.057109,
+          "floor": 0.115506,
+          "n": 93,
+          "named": false,
+          "ratio": 0.4944,
+          "slope_left": -0.098925,
+          "slope_right": -0.041816
+        },
+        {
+          "age": 20,
+          "ch": -0.138078,
+          "floor": 0.113605,
+          "n": 81,
+          "named": false,
+          "ratio": -1.2154,
+          "slope_left": -0.041816,
+          "slope_right": -0.179894
+        },
+        {
+          "age": 21,
+          "ch": 0.144973,
+          "floor": 0.086498,
+          "n": 63,
+          "named": true,
+          "ratio": 1.676,
+          "slope_left": -0.179894,
+          "slope_right": -0.034921
+        },
+        {
+          "age": 22,
+          "ch": 0.057893,
+          "floor": 0.061267,
+          "n": 90,
+          "named": false,
+          "ratio": 0.9449,
+          "slope_left": -0.034921,
+          "slope_right": 0.022972
+        },
+        {
+          "age": 23,
+          "ch": -0.090388,
+          "floor": 0.057424,
+          "n": 89,
+          "named": true,
+          "ratio": -1.574,
+          "slope_left": 0.022972,
+          "slope_right": -0.067416
+        },
+        {
+          "age": 24,
+          "ch": 0.095194,
+          "floor": 0.032886,
+          "n": 63,
+          "named": false,
+          "ratio": 2.8946,
+          "slope_left": -0.067416,
+          "slope_right": 0.027778
+        },
+        {
+          "age": 25,
+          "ch": -0.012699,
+          "floor": 0.045677,
+          "n": 72,
+          "named": false,
+          "ratio": -0.278,
+          "slope_left": 0.027778,
+          "slope_right": 0.015079
+        },
+        {
+          "age": 26,
+          "ch": -0.043851,
+          "floor": 0.053988,
+          "n": 70,
+          "named": false,
+          "ratio": -0.8122,
+          "slope_left": 0.015079,
+          "slope_right": -0.028772
+        },
+        {
+          "age": 27,
+          "ch": 0.052187,
+          "floor": 0.042656,
+          "n": 71,
+          "named": false,
+          "ratio": 1.2234,
+          "slope_left": -0.028772,
+          "slope_right": 0.023415
+        },
+        {
+          "age": 28,
+          "ch": -0.037659,
+          "floor": 0.047586,
+          "n": 80,
+          "named": false,
+          "ratio": -0.7914,
+          "slope_left": 0.023415,
+          "slope_right": -0.014244
+        },
+        {
+          "age": 29,
+          "ch": -0.009012,
+          "floor": 0.038829,
+          "n": 86,
+          "named": false,
+          "ratio": -0.2321,
+          "slope_left": -0.014244,
+          "slope_right": -0.023256
+        }
+      ]
+    },
+    "2022|hrrate|alt_21_under_23|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        24,
+        23,
+        22,
+        18,
+        27,
+        26,
+        20,
+        21,
+        28,
+        17,
+        25,
+        29,
+        19
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.051396,
+          "floor": 0.101897,
+          "n": 141,
+          "named": false,
+          "ratio": -0.5044,
+          "slope_left": -0.173605,
+          "slope_right": -0.225001
+        },
+        {
+          "age": 18,
+          "ch": 0.130853,
+          "floor": 0.106112,
+          "n": 131,
+          "named": true,
+          "ratio": 1.2332,
+          "slope_left": -0.225001,
+          "slope_right": -0.094148
+        },
+        {
+          "age": 19,
+          "ch": 0.031403,
+          "floor": 0.113599,
+          "n": 102,
+          "named": false,
+          "ratio": 0.2764,
+          "slope_left": -0.094148,
+          "slope_right": -0.062745
+        },
+        {
+          "age": 20,
+          "ch": -0.086631,
+          "floor": 0.11437,
+          "n": 85,
+          "named": false,
+          "ratio": -0.7575,
+          "slope_left": -0.062745,
+          "slope_right": -0.149376
+        },
+        {
+          "age": 21,
+          "ch": 0.07212,
+          "floor": 0.096123,
+          "n": 66,
+          "named": true,
+          "ratio": 0.7503,
+          "slope_left": -0.149376,
+          "slope_right": -0.077256
+        },
+        {
+          "age": 22,
+          "ch": 0.108569,
+          "floor": 0.064882,
+          "n": 91,
+          "named": false,
+          "ratio": 1.6733,
+          "slope_left": -0.077256,
+          "slope_right": 0.031313
+        },
+        {
+          "age": 23,
+          "ch": -0.106582,
+          "floor": 0.058783,
+          "n": 93,
+          "named": true,
+          "ratio": -1.8131,
+          "slope_left": 0.031313,
+          "slope_right": -0.075269
+        },
+        {
+          "age": 24,
+          "ch": 0.103047,
+          "floor": 0.033518,
+          "n": 65,
+          "named": false,
+          "ratio": 3.0743,
+          "slope_left": -0.075269,
+          "slope_right": 0.027778
+        },
+        {
+          "age": 25,
+          "ch": -0.013302,
+          "floor": 0.0455,
+          "n": 72,
+          "named": false,
+          "ratio": -0.2923,
+          "slope_left": 0.027778,
+          "slope_right": 0.014476
+        },
+        {
+          "age": 26,
+          "ch": -0.042841,
+          "floor": 0.05334,
+          "n": 71,
+          "named": false,
+          "ratio": -0.8032,
+          "slope_left": 0.014476,
+          "slope_right": -0.028365
+        },
+        {
+          "age": 27,
+          "ch": 0.04977,
+          "floor": 0.04161,
+          "n": 72,
+          "named": false,
+          "ratio": 1.1961,
+          "slope_left": -0.028365,
+          "slope_right": 0.021405
+        },
+        {
+          "age": 28,
+          "ch": -0.03371,
+          "floor": 0.045284,
+          "n": 85,
+          "named": false,
+          "ratio": -0.7444,
+          "slope_left": 0.021405,
+          "slope_right": -0.012305
+        },
+        {
+          "age": 29,
+          "ch": -0.010684,
+          "floor": 0.037857,
+          "n": 87,
+          "named": false,
+          "ratio": -0.2822,
+          "slope_left": -0.012305,
+          "slope_right": -0.022989
+        }
+      ]
+    },
+    "2022|hrrate|main_nlw_23plus|no_apprentices": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        24,
+        25,
+        21,
+        18,
+        29,
+        22,
+        19,
+        28,
+        17,
+        27,
+        20,
+        23,
+        26
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.038989,
+          "floor": 0.103815,
+          "n": 135,
+          "named": false,
+          "ratio": -0.3756,
+          "slope_left": -0.16427,
+          "slope_right": -0.203259
+        },
+        {
+          "age": 18,
+          "ch": 0.080592,
+          "floor": 0.109506,
+          "n": 125,
+          "named": true,
+          "ratio": 0.736,
+          "slope_left": -0.203259,
+          "slope_right": -0.122667
+        },
+        {
+          "age": 19,
+          "ch": 0.060939,
+          "floor": 0.118258,
+          "n": 93,
+          "named": false,
+          "ratio": 0.5153,
+          "slope_left": -0.122667,
+          "slope_right": -0.061728
+        },
+        {
+          "age": 20,
+          "ch": -0.035274,
+          "floor": 0.120195,
+          "n": 81,
+          "named": false,
+          "ratio": -0.2935,
+          "slope_left": -0.061728,
+          "slope_right": -0.097002
+        },
+        {
+          "age": 21,
+          "ch": 0.089066,
+          "floor": 0.114612,
+          "n": 63,
+          "named": true,
+          "ratio": 0.7771,
+          "slope_left": -0.097002,
+          "slope_right": -0.007936
+        },
+        {
+          "age": 22,
+          "ch": -0.057607,
+          "floor": 0.097374,
+          "n": 90,
+          "named": false,
+          "ratio": -0.5916,
+          "slope_left": -0.007936,
+          "slope_right": -0.065543
+        },
+        {
+          "age": 23,
+          "ch": -0.019708,
+          "floor": 0.076658,
+          "n": 89,
+          "named": true,
+          "ratio": -0.2571,
+          "slope_left": -0.065543,
+          "slope_right": -0.085251
+        },
+        {
+          "age": 24,
+          "ch": 0.124934,
+          "floor": 0.052363,
+          "n": 63,
+          "named": false,
+          "ratio": 2.3859,
+          "slope_left": -0.085251,
+          "slope_right": 0.039683
+        },
+        {
+          "age": 25,
+          "ch": -0.052382,
+          "floor": 0.061229,
+          "n": 72,
+          "named": false,
+          "ratio": -0.8555,
+          "slope_left": 0.039683,
+          "slope_right": -0.012699
+        },
+        {
+          "age": 26,
+          "ch": 0.012096,
+          "floor": 0.060355,
+          "n": 70,
+          "named": false,
+          "ratio": 0.2004,
+          "slope_left": -0.012699,
+          "slope_right": -0.000603
+        },
+        {
+          "age": 27,
+          "ch": 0.020849,
+          "floor": 0.059986,
+          "n": 71,
+          "named": false,
+          "ratio": 0.3476,
+          "slope_left": -0.000603,
+          "slope_right": 0.020246
+        },
+        {
+          "age": 28,
+          "ch": -0.024606,
+          "floor": 0.064315,
+          "n": 80,
+          "named": false,
+          "ratio": -0.3826,
+          "slope_left": 0.020246,
+          "slope_right": -0.00436
+        },
+        {
+          "age": 29,
+          "ch": -0.041875,
+          "floor": 0.058476,
+          "n": 86,
+          "named": false,
+          "ratio": -0.7161,
+          "slope_left": -0.00436,
+          "slope_right": -0.046235
+        }
+      ]
+    },
+    "2022|hrrate|main_nlw_23plus|unweighted": {
+      "named": [
+        18,
+        21,
+        23
+      ],
+      "ranked": [
+        24,
+        25,
+        29,
+        18,
+        23,
+        17,
+        19,
+        27,
+        28,
+        26,
+        21,
+        22,
+        20
+      ],
+      "rows": [
+        {
+          "age": 17,
+          "ch": -0.040515,
+          "floor": 0.10111,
+          "n": 141,
+          "named": false,
+          "ratio": -0.4007,
+          "slope_left": -0.152328,
+          "slope_right": -0.192843
+        },
+        {
+          "age": 18,
+          "ch": 0.074672,
+          "floor": 0.106993,
+          "n": 131,
+          "named": true,
+          "ratio": 0.6979,
+          "slope_left": -0.192843,
+          "slope_right": -0.118171
+        },
+        {
+          "age": 19,
+          "ch": 0.037779,
+          "floor": 0.115563,
+          "n": 102,
+          "named": false,
+          "ratio": 0.3269,
+          "slope_left": -0.118171,
+          "slope_right": -0.080392
+        },
+        {
+          "age": 20,
+          "ch": 0.01016,
+          "floor": 0.119725,
+          "n": 85,
+          "named": false,
+          "ratio": 0.0849,
+          "slope_left": -0.080392,
+          "slope_right": -0.070232
+        },
+        {
+          "age": 21,
+          "ch": 0.022946,
+          "floor": 0.118429,
+          "n": 66,
+          "named": true,
+          "ratio": 0.1938,
+          "slope_left": -0.070232,
+          "slope_right": -0.047286
+        },
+        {
+          "age": 22,
+          "ch": -0.010022,
+          "floor": 0.098058,
+          "n": 91,
+          "named": false,
+          "ratio": -0.1022,
+          "slope_left": -0.047286,
+          "slope_right": -0.057308
+        },
+        {
+          "age": 23,
+          "ch": -0.034834,
+          "floor": 0.076638,
+          "n": 93,
+          "named": true,
+          "ratio": -0.4545,
+          "slope_left": -0.057308,
+          "slope_right": -0.092142
+        },
+        {
+          "age": 24,
+          "ch": 0.132313,
+          "floor": 0.051892,
+          "n": 65,
+          "named": false,
+          "ratio": 2.5498,
+          "slope_left": -0.092142,
+          "slope_right": 0.040171
+        },
+        {
+          "age": 25,
+          "ch": -0.053473,
+          "floor": 0.060975,
+          "n": 72,
+          "named": false,
+          "ratio": -0.877,
+          "slope_left": 0.040171,
+          "slope_right": -0.013302
+        },
+        {
+          "age": 26,
+          "ch": 0.012715,
+          "floor": 0.059693,
+          "n": 71,
+          "named": false,
+          "ratio": 0.213,
+          "slope_left": -0.013302,
+          "slope_right": -0.000587
+        },
+        {
+          "age": 27,
+          "ch": 0.017744,
+          "floor": 0.058649,
+          "n": 72,
+          "named": false,
+          "ratio": 0.3025,
+          "slope_left": -0.000587,
+          "slope_right": 0.017157
+        },
+        {
+          "age": 28,
+          "ch": -0.01851,
+          "floor": 0.061502,
+          "n": 85,
+          "named": false,
+          "ratio": -0.301,
+          "slope_left": 0.017157,
+          "slope_right": -0.001353
+        },
+        {
+          "age": 29,
+          "ch": -0.04449,
+          "floor": 0.057231,
+          "n": 87,
+          "named": false,
+          "ratio": -0.7774,
+          "slope_left": -0.001353,
+          "slope_right": -0.045843
+        }
+      ]
+    }
+  },
+  "stage": "B34-LFS-step3"
+}

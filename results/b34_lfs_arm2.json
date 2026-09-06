@@ -1,0 +1,240 @@
+{
+  "config": {
+    "criterion_third_state": "fewer than two readable years on each side",
+    "criterion_third_state_met": false,
+    "new_age": 23,
+    "new_year": 2021,
+    "old_age": 25,
+    "old_year": 2019,
+    "post_years": [
+      2021,
+      2022
+    ],
+    "pre_years": [
+      2018,
+      2019
+    ],
+    "source_record": "b34_lfs_kink.json",
+    "unmoved_boundaries": [
+      18,
+      21
+    ],
+    "visible_at": 1.645,
+    "visible_source": "one-sided five per cent critical value; this project's own derivation makes the resolution gate and the power floor the same inequality, so one constant carries both",
+    "years_each_side": {
+      "after": 2,
+      "before": 2
+    }
+  },
+  "criteria": [
+    {
+      "detail": "age 25 visible in 2019 on 7/8 profiles, gone in 2021 on 8/8",
+      "name": "B34-2a old position disappears",
+      "passed": true
+    },
+    {
+      "detail": "age 23 visible in 2021 on 1/8 profiles",
+      "name": "B34-2b kink follows to the new position",
+      "passed": false
+    }
+  ],
+  "post_move_progression": {
+    "2021": {
+      "new_mean": 0.7504,
+      "new_visible": 1,
+      "old_mean": -0.297,
+      "old_visible": 0,
+      "profiles": 8
+    },
+    "2022": {
+      "new_mean": 1.0481,
+      "new_visible": 4,
+      "old_mean": -0.7293,
+      "old_visible": 0,
+      "profiles": 8
+    }
+  },
+  "pre_move_progression": {
+    "2018": {
+      "new_mean": 0.4179,
+      "new_visible": 0,
+      "old_mean": 1.2295,
+      "old_visible": 2,
+      "profiles": 8
+    },
+    "2019": {
+      "new_mean": -0.2984,
+      "new_visible": 0,
+      "old_mean": 2.2232,
+      "old_visible": 7,
+      "profiles": 8
+    }
+  },
+  "profiles": [
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": 0.024053,
+        "floor": 0.037093,
+        "n": 498,
+        "ratio": 0.6484
+      },
+      "old_year": {
+        "ch": 0.060557,
+        "floor": 0.034196,
+        "n": 597,
+        "ratio": 1.7709
+      },
+      "stem": "hourpay|ALT|no_apprentices",
+      "visible_in_old_year": true
+    },
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": 0.020968,
+        "floor": 0.036794,
+        "n": 512,
+        "ratio": 0.5699
+      },
+      "old_year": {
+        "ch": 0.069421,
+        "floor": 0.034164,
+        "n": 608,
+        "ratio": 2.032
+      },
+      "stem": "hourpay|ALT|unweighted",
+      "visible_in_old_year": true
+    },
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": -0.004169,
+        "floor": 0.043077,
+        "n": 498,
+        "ratio": -0.0968
+      },
+      "old_year": {
+        "ch": 0.059917,
+        "floor": 0.040137,
+        "n": 597,
+        "ratio": 1.4928
+      },
+      "stem": "hourpay|MAIN|no_apprentices",
+      "visible_in_old_year": false
+    },
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": -0.003224,
+        "floor": 0.042537,
+        "n": 512,
+        "ratio": -0.0758
+      },
+      "old_year": {
+        "ch": 0.071029,
+        "floor": 0.039906,
+        "n": 608,
+        "ratio": 1.7799
+      },
+      "stem": "hourpay|MAIN|unweighted",
+      "visible_in_old_year": true
+    },
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": -0.030272,
+        "floor": 0.039679,
+        "n": 127,
+        "ratio": -0.7629
+      },
+      "old_year": {
+        "ch": 0.04047,
+        "floor": 0.017961,
+        "n": 219,
+        "ratio": 2.2532
+      },
+      "stem": "hrrate|ALT|no_apprentices",
+      "visible_in_old_year": true
+    },
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": -0.02915,
+        "floor": 0.038874,
+        "n": 130,
+        "ratio": -0.7499
+      },
+      "old_year": {
+        "ch": 0.035865,
+        "floor": 0.020411,
+        "n": 222,
+        "ratio": 1.7571
+      },
+      "stem": "hrrate|ALT|unweighted",
+      "visible_in_old_year": true
+    },
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": -0.065424,
+        "floor": 0.067491,
+        "n": 127,
+        "ratio": -0.9694
+      },
+      "old_year": {
+        "ch": 0.169277,
+        "floor": 0.050112,
+        "n": 219,
+        "ratio": 3.378
+      },
+      "stem": "hrrate|MAIN|no_apprentices",
+      "visible_in_old_year": true
+    },
+    {
+      "age": 25,
+      "gone_in_new_year": true,
+      "new_year": {
+        "ch": -0.06223,
+        "floor": 0.066226,
+        "n": 130,
+        "ratio": -0.9397
+      },
+      "old_year": {
+        "ch": 0.167541,
+        "floor": 0.050432,
+        "n": 222,
+        "ratio": 3.3221
+      },
+      "stem": "hrrate|MAIN|unweighted",
+      "visible_in_old_year": true
+    }
+  ],
+  "stage": "B34-LFS-arm2",
+  "verdict": "UNDECIDED",
+  "verdict_reason": "the load-bearing half holds on every profile (8 / 8), and the other half is not visible on 7 of 8: the kink is gone from the old position but not yet readable at the new one",
+  "year_effect_check": {
+    "mean_change_by_age": {
+      "18": 0.3989,
+      "21": -0.4807,
+      "23": 0.4087,
+      "25": -1.6216
+    },
+    "new_stronger_in_new_year": 5,
+    "old_falls_further_than_both_unmoved": 7,
+    "old_weaker_in_new_year": 8,
+    "profiles": 8,
+    "sign_flips": {
+      "18": 1,
+      "21": 2,
+      "25": 6
+    },
+    "unmoved_mean": -0.0409
+  }
+}

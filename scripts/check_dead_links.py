@@ -40,15 +40,24 @@ stated the lesson, so the unfollowable file-and-section token was removed and
 the lesson stayed. **A reference to a document a reader cannot open was never
 carrying the content; the sentence around it was.**
 
-**What remains is the noise, five of it, left alone deliberately.** Two are the
-tails of references wrapped across a line in a way the repair below does not
-catch, one is a glob naming a family of files rather than a file, and two are
-output paths a runner declares for products it writes at run time
-(``results/b8_triangles.md``, ``results/b9a_availability.md``). **Five false
-alarms against sixty-four findings is a working ratio, and tightening past it
-would start suppressing real ones**, which is the trade this project has already
-paid for once by setting a check at its strictest reading rather than a useful
-one.
+**The residual is now nought, and getting there changed what this check is.**
+It stood at five for as long as those five were called noise and left, which
+meant the exit code was 1 on every run and could never be anything else. A
+gate that cannot go green does not gate: the only reading it ever supports is
+the one that ignores it. Cleared 2026-09-02, four by writing the reference
+out and one by the classes below.
+
+Two of the four were prose repairs of the kind this check keeps asking for: a
+shorthand ``_b.md`` standing in for a file whose full name is three words
+longer, and a glob naming a family, both rewritten so a reader can follow
+them. One was a path split across two comment lines in a way the wrap repair
+below does not catch, rewrapped so it is not split. One was a header carrying
+a working file name where the convention asks for a station name.
+
+**The two classes are named below rather than tolerated**: a country-code
+domain that ends in ``.md``, and a script declaring the markdown file it
+writes. Both were reported for the whole life of this check, both are
+decidable, and neither is a link a reader would ever try to follow.
 
 Usage::
 
@@ -96,6 +105,38 @@ EXEMPT_FILES = ("docs/MEASUREMENT.md", "scripts/check_dead_links.py",
                 # searches the products for it. It is the guard for that string,
                 # so carrying it is the point rather than the defect.
                 "scripts/run_b8_package.py")
+
+#: **Moldova's country-code top-level domain is ``.md``.** So a hostname like
+#: ``legis.md`` or ``bnm.md`` is character-for-character the shape of a markdown
+#: file and no amount of context in the regex separates them. This is not a
+#: quirk of two sites: any Moldovan domain named anywhere in this repository
+#: lands here, and the source-availability sections name them beside
+#: ``matsne.gov.ge`` and ``e-qanun.az``, which the pattern never sees because
+#: their suffixes are not ``.md``.
+#:
+#: Listed by name rather than guessed at by shape. A rule of the form "a short
+#: lowercase stem with no underscore is probably a host" would also swallow a
+#: real missing document called ``notes.md``, and this check exists because a
+#: real one went missing.
+EXTERNAL_HOSTS = ("legis.md", "bnm.md")
+
+#: A script naming the file it writes is declaring a path, not citing a
+#: document, and this file's own scope note already draws that line for
+#: ``.json`` and ``.py`` targets. It did not draw it for a ``.md`` product,
+#: so two runners that write a markdown result were reported for the whole
+#: life of the check as referring to a document a reader cannot open.
+#:
+#: Narrow on purpose, three ways: only from a ``.py`` source, only for a bare
+#: name with no separator in it, and only on a physical line that also carries
+#: a quoted ``results`` path segment. That is the shape of a declared output,
+#: ``ROOT / "results" / "b8_triangles.md"``, where the directory and the file
+#: are two literals and the token the pattern sees is only the second of them.
+#:
+#: A prose citation keeps its separator, ``results/b8_triangles.md``, so it
+#: fails the second test and stays checked. That is what keeps the published
+#: result documents inside the net, and those are one of this arm's own
+#: classes of published file, so leaving them unchecked would be a bad trade.
+PRODUCT_LINE = re.compile("[" + chr(34) + chr(39) + "]results[" + chr(34) + chr(39) + "]")
 
 #: The other arm's repository. A cross-arm reference is not a dead link: it
 #: resolves for a reader who has both, which is the intended audience of a
@@ -165,6 +206,13 @@ def scan(paths: list[str]) -> dict[str, list[str]]:
             tok = m.group(0).strip("./")
             if tok.startswith(EXTERNAL_PREFIXES):
                 continue
+            if tok in EXTERNAL_HOSTS:
+                continue
+            if rel.endswith(".py") and "/" not in tok:
+                line = (text[:i].rsplit(chr(10), 1)[-1]
+                        + text[i:].split(chr(10), 1)[0])
+                if PRODUCT_LINE.search(line):
+                    continue
             if tok in present or any(p.endswith("/" + tok) for p in present):
                 continue
             miss.add(tok)

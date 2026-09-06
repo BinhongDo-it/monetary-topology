@@ -96,7 +96,8 @@ entire segment**, and the longer the segment the likelier that is. Replaced with
 a **modal cluster**, after which the pairing rate rose from 53.5 and 65.7 percent
 to 99.73 and 99.77 percent.
 
-Evidence: `results/b8_c8_1c_contract_payment.md` and `_b.md`.
+Evidence: `results/b8_c8_1c_contract_payment.md` and
+`results/b8_c8_1c_contract_payment_b.md`.
 
 ## 4. C9: the class-grid floor, and why B8-4b is VOID
 

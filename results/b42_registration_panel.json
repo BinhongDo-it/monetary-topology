@@ -1,0 +1,642 @@
+{
+ "declined_rows": [
+  {
+   "location": "Totals",
+   "row": 42,
+   "section": "WHEAT FUTURES"
+  },
+  {
+   "location": "Total Outstanding",
+   "row": 44,
+   "section": "WHEAT FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 65,
+   "section": "OATS FUTURES"
+  },
+  {
+   "location": "Total Outstanding",
+   "row": 67,
+   "section": "OATS FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 126,
+   "section": "CORN FUTURES"
+  },
+  {
+   "location": "Total Outstanding",
+   "row": 128,
+   "section": "CORN FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 215,
+   "section": "SOYBEAN FUTURES"
+  },
+  {
+   "location": "Total Outstanding",
+   "row": 217,
+   "section": "SOYBEAN FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 288,
+   "section": "SOYBEAN OIL FUTURES"
+  },
+  {
+   "location": "Total Outstanding",
+   "row": 290,
+   "section": "SOYBEAN OIL FUTURES"
+  },
+  {
+   "location": "08/28/2026",
+   "row": 292,
+   "section": "SOYBEAN OIL FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 331,
+   "section": "SOYBEAN MEAL FUTURES"
+  },
+  {
+   "location": "Total Outstanding",
+   "row": 333,
+   "section": "SOYBEAN MEAL FUTURES"
+  },
+  {
+   "location": "08/28/2026",
+   "row": 335,
+   "section": "SOYBEAN MEAL FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 367,
+   "section": "ROUGH RICE FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 386,
+   "section": "KC WHEAT FUTURES"
+  },
+  {
+   "location": "Total Outstanding",
+   "row": 388,
+   "section": "KC WHEAT FUTURES"
+  },
+  {
+   "location": "Totals",
+   "row": 395,
+   "section": "HARD RED SPRING WHEAT FUT"
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "Gate counts and the event list from one snapshot. No criterion is scored here; B42-4 needs the basis panel.",
+ "events_by_window": {
+  "1": 2,
+  "14": 16,
+  "3": 4,
+  "30": 18,
+  "7": 11,
+  "90": 32
+ },
+ "events_on_pair_rectangle": [
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -8.0,
+   "district": "ZONE 6",
+   "effective": "2020-02-19",
+   "extra_districts": 0,
+   "firm": "BUNGE NORTH AMERICA, INC.",
+   "previous": 8.0,
+   "previous_effective": "2019-11-01",
+   "town": "FAIRMONT CITY, IL",
+   "window_days": 110
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -15.0,
+   "district": "ZONE 3",
+   "effective": "2020-02-19",
+   "extra_districts": 0,
+   "firm": "ADM GRAIN COMPANY",
+   "previous": 15.0,
+   "previous_effective": "2019-12-13",
+   "town": "SPRING VALLEY, IL",
+   "window_days": 68
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -3.0,
+   "district": "ZONE 5",
+   "effective": "2020-05-06",
+   "extra_districts": 0,
+   "firm": "ADM GRAIN COMPANY",
+   "previous": 3.0,
+   "previous_effective": "2020-04-02",
+   "town": "HAVANA-N, IL",
+   "window_days": 34
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -1.0,
+   "district": "ZONE 6",
+   "effective": "2020-05-19",
+   "extra_districts": 0,
+   "firm": "LOUIS DREYFUS COMPANY RIVER ELEVATORS LLC",
+   "previous": 1.0,
+   "previous_effective": "2019-03-06",
+   "town": "CAHOKIA, IL",
+   "window_days": 440
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -1.0,
+   "district": "ZONE 3",
+   "effective": "2020-12-16",
+   "extra_districts": 0,
+   "firm": "ADM GRAIN COMPANY",
+   "previous": 1.0,
+   "previous_effective": "2020-10-23",
+   "town": "OTTAWA-S, IL",
+   "window_days": 54
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -22.0,
+   "district": "ZONE 5",
+   "effective": "2021-05-11",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 22.0,
+   "previous_effective": "2021-04-29",
+   "town": "HAVANA-N, IL",
+   "window_days": 12
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -2.0,
+   "district": "ZONE 2",
+   "effective": "2021-07-23",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 2.0,
+   "previous_effective": "2021-05-27",
+   "town": "SENECA, IL",
+   "window_days": 57
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -11.0,
+   "district": "ZONE 3",
+   "effective": "2022-07-19",
+   "extra_districts": 0,
+   "firm": "ADM GRAIN COMPANY",
+   "previous": 11.0,
+   "previous_effective": "2022-07-13",
+   "town": "HENNEPIN, IL",
+   "window_days": 6
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -11.0,
+   "district": "ZONE 3",
+   "effective": "2022-07-19",
+   "extra_districts": 0,
+   "firm": "ADM GRAIN COMPANY",
+   "previous": 11.0,
+   "previous_effective": "2022-07-13",
+   "town": "LACON, IL",
+   "window_days": 6
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -11.0,
+   "district": "ZONE 3",
+   "effective": "2023-07-11",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 11.0,
+   "previous_effective": "2023-07-03",
+   "town": "LACON, IL",
+   "window_days": 8
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -183.0,
+   "district": "ZONE 2",
+   "effective": "2023-12-15",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 183.0,
+   "previous_effective": "2023-12-14",
+   "town": "SENECA, IL",
+   "window_days": 1
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -16.0,
+   "district": "ZONE 5",
+   "effective": "2024-04-18",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 16.0,
+   "previous_effective": "2024-03-15",
+   "town": "HAVANA, IL",
+   "window_days": 34
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -4.0,
+   "district": "ZONE 5",
+   "effective": "2024-05-16",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 4.0,
+   "previous_effective": "2024-03-15",
+   "town": "FREDERICK, IL",
+   "window_days": 62
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -64.0,
+   "district": "ZONE 1",
+   "effective": "2024-06-13",
+   "extra_districts": 0,
+   "firm": "COFCO INTERNATIONAL GRAINS US LLC",
+   "previous": 64.0,
+   "previous_effective": "2024-03-12",
+   "town": "CHICAGO, IL",
+   "window_days": 93
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -11.0,
+   "district": "ZONE 5",
+   "effective": "2024-06-20",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 11.0,
+   "previous_effective": "2024-03-21",
+   "town": "HAVANA, IL",
+   "window_days": 91
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -7.0,
+   "district": "ZONE 5",
+   "effective": "2024-07-12",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 7.0,
+   "previous_effective": "2024-07-08",
+   "town": "BEARDSTOWN, IL",
+   "window_days": 4
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -3.0,
+   "district": "ZONE 2",
+   "effective": "2024-08-06",
+   "extra_districts": 0,
+   "firm": "CHS INC",
+   "previous": 3.0,
+   "previous_effective": "2024-06-21",
+   "town": "MORRIS, IL",
+   "window_days": 46
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -2.0,
+   "district": "ZONE 3",
+   "effective": "2024-12-05",
+   "extra_districts": 0,
+   "firm": "CONSOLIDATED GRAIN & BARGE",
+   "previous": 2.0,
+   "previous_effective": "2024-09-13",
+   "town": "HENNEPIN, IL",
+   "window_days": 83
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -109.0,
+   "district": "ZONE 5",
+   "effective": "2024-12-05",
+   "extra_districts": 0,
+   "firm": "ZEN-NOH GRAIN CORPORATION",
+   "previous": 109.0,
+   "previous_effective": "2024-11-11",
+   "town": "NAPLES, IL",
+   "window_days": 24
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -6.0,
+   "district": "ZONE 5",
+   "effective": "2025-01-09",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 6.0,
+   "previous_effective": "2024-06-20",
+   "town": "FREDERICK, IL",
+   "window_days": 203
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -2.0,
+   "district": "ZONE 5",
+   "effective": "2025-05-15",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 2.0,
+   "previous_effective": "2025-05-13",
+   "town": "MEREDOSIA, IL",
+   "window_days": 2
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -100.0,
+   "district": "ZONE 5",
+   "effective": "2025-08-11",
+   "extra_districts": 0,
+   "firm": "ADM GRAIN COMPANY",
+   "previous": 100.0,
+   "previous_effective": "2025-06-27",
+   "town": "HAVANA-N, IL",
+   "window_days": 45
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -15.0,
+   "district": "ZONE 3",
+   "effective": "2025-09-04",
+   "extra_districts": 0,
+   "firm": "ZEN-NOH GRAIN CORPORATION",
+   "previous": 15.0,
+   "previous_effective": "2025-07-16",
+   "town": "HENNEPIN, IL",
+   "window_days": 50
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -43.0,
+   "district": "ZONE 1",
+   "effective": "2026-02-26",
+   "extra_districts": 0,
+   "firm": "LAKESIDE GRAIN TRADING, LLC",
+   "previous": 43.0,
+   "previous_effective": "2026-01-29",
+   "town": "CHICAGO, IL",
+   "window_days": 28
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -7.0,
+   "district": "ZONE 2",
+   "effective": "2026-07-07",
+   "extra_districts": 0,
+   "firm": "CHS INC",
+   "previous": 7.0,
+   "previous_effective": "2026-06-26",
+   "town": "SENECA, IL",
+   "window_days": 11
+  },
+  {
+   "certificates": 5.0,
+   "commodity": "CORN FUTURES",
+   "delta": -45.0,
+   "district": "ZONE 2",
+   "effective": "2026-07-08",
+   "extra_districts": 0,
+   "firm": "CHS INC",
+   "previous": 50.0,
+   "previous_effective": "2026-07-06",
+   "town": "MORRIS, IL",
+   "window_days": 2
+  },
+  {
+   "certificates": 99.0,
+   "commodity": "CORN FUTURES",
+   "delta": 11.0,
+   "district": "ZONE 3",
+   "effective": "2026-07-14",
+   "extra_districts": 0,
+   "firm": "CONSOLIDATED GRAIN & BARGE",
+   "previous": 88.0,
+   "previous_effective": "2026-07-09",
+   "town": "UTICA, IL",
+   "window_days": 5
+  },
+  {
+   "certificates": 2.0,
+   "commodity": "CORN FUTURES",
+   "delta": 2.0,
+   "district": "ZONE 3",
+   "effective": "2026-07-14",
+   "extra_districts": 0,
+   "firm": "ZEN-NOH GRAIN CORPORATION",
+   "previous": 0.0,
+   "previous_effective": "2026-07-08",
+   "town": "UTICA, IL",
+   "window_days": 6
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "CORN FUTURES",
+   "delta": -7.0,
+   "district": "ZONE 5",
+   "effective": "2026-07-17",
+   "extra_districts": 0,
+   "firm": "CONSOLIDATED GRAIN & BARGE",
+   "previous": 7.0,
+   "previous_effective": "2026-07-08",
+   "town": "NAPLES, IL",
+   "window_days": 9
+  },
+  {
+   "certificates": 1.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -11.0,
+   "district": "ZONE 5",
+   "effective": "2026-07-21",
+   "extra_districts": 0,
+   "firm": "CONSOLIDATED GRAIN & BARGE",
+   "previous": 12.0,
+   "previous_effective": "2026-05-19",
+   "town": "NAPLES, IL",
+   "window_days": 63
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -9.0,
+   "district": "ZONE 5",
+   "effective": "2026-07-21",
+   "extra_districts": 0,
+   "firm": "ZEN-NOH GRAIN CORPORATION",
+   "previous": 9.0,
+   "previous_effective": "2026-07-08",
+   "town": "NAPLES, IL",
+   "window_days": 13
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -5.0,
+   "district": "ZONE 3",
+   "effective": "2026-08-17",
+   "extra_districts": 0,
+   "firm": "CONSOLIDATED GRAIN & BARGE",
+   "previous": 5.0,
+   "previous_effective": "2026-07-16",
+   "town": "HENNEPIN, IL",
+   "window_days": 32
+  },
+  {
+   "certificates": 2.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -94.0,
+   "district": "ZONE 3",
+   "effective": "2026-08-18",
+   "extra_districts": 0,
+   "firm": "CONSOLIDATED GRAIN & BARGE",
+   "previous": 96.0,
+   "previous_effective": "2026-08-17",
+   "town": "UTICA, IL",
+   "window_days": 1
+  },
+  {
+   "certificates": 0.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -100.0,
+   "district": "ZONE 3",
+   "effective": "2026-08-24",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 100.0,
+   "previous_effective": "2026-08-18",
+   "town": "LACON, IL",
+   "window_days": 6
+  },
+  {
+   "certificates": 4.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": -22.0,
+   "district": "ZONE 3",
+   "effective": "2026-08-26",
+   "extra_districts": 0,
+   "firm": "ZEN-NOH GRAIN CORPORATION",
+   "previous": 26.0,
+   "previous_effective": "2026-08-19",
+   "town": "UTICA, IL",
+   "window_days": 7
+  },
+  {
+   "certificates": 55.0,
+   "commodity": "CORN FUTURES",
+   "delta": 55.0,
+   "district": "ZONE 3",
+   "effective": "2026-08-31",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 0.0,
+   "previous_effective": "2026-07-08",
+   "town": "SPRING VALLEY, IL",
+   "window_days": 54
+  },
+  {
+   "certificates": 27.0,
+   "commodity": "SOYBEAN FUTURES",
+   "delta": 19.0,
+   "district": "ZONE 3",
+   "effective": "2026-09-02",
+   "extra_districts": 0,
+   "firm": "CARGILL, INC.",
+   "previous": 8.0,
+   "previous_effective": "2026-07-21",
+   "town": "SPRING VALLEY, IL",
+   "window_days": 43
+  }
+ ],
+ "gate": {
+  "b1": 22,
+  "pair": [
+   "CORN FUTURES",
+   "SOYBEAN FUTURES"
+  ],
+  "pair_towns": [
+   "BEARDSTOWN, IL",
+   "CAHOKIA, IL",
+   "CHICAGO, IL",
+   "FAIRMONT CITY, IL",
+   "FLORENCE, IL",
+   "FREDERICK, IL",
+   "HAVANA, IL",
+   "HAVANA-N, IL",
+   "HAVANA-S, IL",
+   "HENNEPIN, IL",
+   "HENRY, IL",
+   "LACON, IL",
+   "MEREDOSIA, IL",
+   "MORRIS, IL",
+   "NAPLES, IL",
+   "OTTAWA, IL",
+   "OTTAWA-N, IL",
+   "OTTAWA-S, IL",
+   "PEKIN, IL",
+   "PERU, IL",
+   "SENECA, IL",
+   "SPRING VALLEY, IL",
+   "UTICA, IL"
+  ],
+  "towns": 144,
+  "towns_multi_commodity": 41
+ },
+ "parsed_rows": 234,
+ "repaired_rows": [
+  {
+   "location": "HAVANA,  IL",
+   "row": 203,
+   "section": "SOYBEAN FUTURES"
+  }
+ ],
+ "sections": [
+  "CORN FUTURES",
+  "HARD RED SPRING WHEAT FUT",
+  "KC WHEAT FUTURES",
+  "OATS FUTURES",
+  "ROUGH RICE FUTURES",
+  "SOYBEAN FUTURES",
+  "SOYBEAN MEAL FUTURES",
+  "SOYBEAN OIL FUTURES",
+  "WHEAT FUTURES"
+ ],
+ "snapshot_day": "2026-09-02",
+ "stage": "B42"
+}

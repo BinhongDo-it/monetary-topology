@@ -1,0 +1,112 @@
+{
+  "TOL": 0.05,
+  "MIN_WIDTH": 0.01,
+  "runs": {
+    "plan2_P30000": {
+      "named": {
+        "threshold": 29385.0,
+        "band_hi": 52885.0,
+        "clearing": 43858.66921009404
+      },
+      "found": [
+        [
+          29384.998381137848,
+          2.7
+        ],
+        [
+          43858.67029428482,
+          -2.6999999996362023
+        ]
+      ],
+      "unexplained": [],
+      "named_not_found": [
+        "band_hi"
+      ]
+    },
+    "plan2_P45000": {
+      "named": {
+        "threshold": 29385.0,
+        "band_hi": 52885.0,
+        "clearing": 54661.76625607512
+      },
+      "found": [
+        [
+          29384.998381137848,
+          2.7
+        ],
+        [
+          54661.76062822342,
+          -3.0889679351349253
+        ]
+      ],
+      "unexplained": [],
+      "named_not_found": [
+        "band_hi"
+      ]
+    },
+    "plan2_P60000": {
+      "named": {
+        "threshold": 29385.0,
+        "band_hi": 52885.0,
+        "clearing": 63087.35500810016
+      },
+      "found": [
+        [
+          29384.998381137848,
+          2.7
+        ],
+        [
+          63087.351620197296,
+          -4.069798633907672
+        ]
+      ],
+      "unexplained": [],
+      "named_not_found": [
+        "band_hi"
+      ]
+    },
+    "plan5_P30000": {
+      "named": {
+        "threshold": 25000.0,
+        "clearing": 33333.33333333333
+      },
+      "found": [],
+      "unexplained": [],
+      "named_not_found": [
+        "threshold",
+        "clearing"
+      ]
+    },
+    "plan5_P45000": {
+      "named": {
+        "threshold": 25000.0,
+        "clearing": 37500.0
+      },
+      "found": [],
+      "unexplained": [],
+      "named_not_found": [
+        "threshold",
+        "clearing"
+      ]
+    },
+    "plan5_P60000": {
+      "named": {
+        "threshold": 25000.0,
+        "clearing": 41666.66666666667
+      },
+      "found": [
+        [
+          24999.994337558746,
+          2.5271163938712315
+        ],
+        [
+          41666.66179895401,
+          -2.813218689125132
+        ]
+      ],
+      "unexplained": [],
+      "named_not_found": []
+    }
+  },
+  "no_unexplained": true
+}

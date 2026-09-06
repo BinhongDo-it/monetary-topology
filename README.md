@@ -63,7 +63,7 @@ record, and the index by field below for which stations sit in your field.
 This repository gives an exact criterion for when a single scalar price
 vector on positions exists, proves it with no economic assumptions in it,
 and measures it on seven financial carriers and three where nothing is traded. Which standard constructs presuppose that
-object, and what each of their setups says in its own words, is in
+object, and what each of their setups states, is in
 [`b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md).
 
 The headline empirical number: hold census tract, year, lien position, loan
@@ -421,17 +421,138 @@ own drift.
 
 ---
 
+## Two readings from the price-field stations
+
+**How many dimensions the obstruction to a single price level occupies, stage B38.**
+Treat price as a field with two indices, one for the item and one for the city.
+A single scalar price level per city means `log P(i,c) = a_i + m_c`, which is
+rank one in logs and makes every square exactly zero. That is Theorem 1's
+premise, and it is what every spatial price index and every purchasing-power
+construction assumes without stating. **What this stage measures is the rank of
+the departure from it, which no competing account has a reason to compute**,
+because only this framework says the rank is what survives.
+
+The counting law and the two-way decomposition turn out to be one object: on the
+complete bipartite graph `b1 = E - V + 1 = (I-1)(C-1)`, which is exactly the
+number of free parameters the residual keeps after row and column effects are
+removed, and both were computed and printed at 66,886. Currency never enters,
+because converting a city's prices adds a constant to its column that the city
+effect absorbs, so the stage runs on every city at once with no exchange rate in
+it. On 53 items across the 1,263 cities carrying all of them, with no imputed
+cell, **at least eight directions clear a floor that concedes the entire
+residual to measurement error**, and the median square sum is 9.4 times the
+noise a square carries. **So a spatial price index cannot be repaired by adding
+a few correction factors**: a rank-`k` approximation needs far more of them than
+anyone fits. Two accounts that would explain the residual away were put against
+their own predictions and did not carry it, and an independently collected
+posted price -- a chain's menu price, gathered by people with no contact with
+the first source -- sets the bound the reading is stated on.
+
+**The same criterion run once inside each of 64 countries, stage B30-5.**
+Items were sorted in advance, from their descriptions alone, into those a single
+brand posts nationally and those produced where they are sold, and each
+country's cities were regressed separately: countries are never pooled, because
+pooling puts currencies, tax regimes and different brand sets on one line.
+**The nationally posted class sits below the locally produced one in 53 of the
+64 countries that meet the minimum**, on an assignment written for one country
+and never re-tuned, and no country's posted class approaches the value that would
+close the question the other way. The class assignment carries no country-specific
+tuning, so the count has an exact null and needs no threshold on any coefficient.
+The registered level for the locally produced class is not what the countries
+return, and RESULTS.md reports the ordering and the level apart.
+
+## How to read a result the rival account also gets right
+
+A reading in this repository sits somewhere on two axes: whether this framework gets
+it right, and what the rival says about it. The rival is stated above and is the same
+one throughout: **a single scalar price vector on positions**, whose gradient generates
+every term, and which therefore predicts that every closed loop returns exactly zero.
+
+|  | rival right | rival wrong | rival silent |
+|---|---|---|---|
+| **framework right** | **A**, shared explanation | **B**, discriminating | **D**, a quantity only this framework has reason to compute |
+| **framework wrong** | **C** | both wrong | wrong, and nothing on the other side says so |
+
+**The bottom row is failure. Labelling it and stopping there would be the wrong
+report**, because failures differ in kind and in size and the difference is the part
+worth having.
+
+- **C.** The framework is wrong where the rival is right. This is the only cell of the
+  bottom row that has been in play here, and it is empty: seven falsification
+  conditions, each fixed before the data it applies to, none hit. **That is a count and
+  not a claim about what is possible.**
+- **Both wrong.** Two accounts failing on the same reading are not failing the same
+  way. A mechanism that has the order of its steps wrong is a different object from a
+  result with no mechanism that produces it, and they cost different amounts to repair.
+  A cell entry here has to say which kind and how large, or it says nothing.
+- **Rival silent.** The framework is wrong and the other side carries no information
+  about it either way. Nothing external corrects this one, which is what makes it the
+  expensive cell rather than the empty one.
+
+**A is not a demotion.** A more general account giving the older one's answer where the
+older one is right is a requirement on it, not a defect in it. General relativity
+returns Newton's number in the Newtonian limit and a different one at Mercury's
+perihelion, and there is no cell in which Newton is right and it is wrong. Writing "so
+this reading does not count" about an A-cell result is a mistake this repository made
+for a while and does not make any more.
+
+**D is where most of this repository's output sits**: support-set size, the integrable
+fraction, the loop sums themselves. The rival is not answering those incorrectly. It has
+no reason to compute them.
+
+**Reading the cells requires the rival to be fixed first, and that is the step most
+easily got wrong.** Explanations of *why* a loop sum is not zero, in terms of spreads,
+fees, execution cost or constrained capital, are not the rival here. They concede the
+non-zero and then argue about its source, which is a later argument and a different one.
+Treating them as the rival moves results out of B and into A, and this repository did
+exactly that with seven carriers before correcting it.
+
 ## Scope
 
+- **What puts a position on the graph is whether an edge CAN form, not whether
+  one currently does, and not distance.** Two positions belong to the same graph
+  exactly when the possibility of an edge between them persists: there need be
+  no edge at any given moment, but the possibility has to stay. A thing is off
+  the graph only when no edge could form between it and anything on the graph,
+  which is physical isolation. **So the graph is not a map. It is one
+  circulation body that is not physically partitioned**, and two cities inside
+  one such body plainly can form edges, so *moving between them does not leave
+  the graph*: it is a change of edges inside it.
+
+  This forecloses a reading that otherwise looks like a hole: "the model has no
+  geography, so it cannot do migration, so it cannot speak to employment
+  separating from population." **Neither step holds.** Position is defined by
+  edges, so migration is edge rewiring, which is a native operation here and is
+  implemented with its own published anchors. Even the most complete version of
+  moving, cutting every edge at once and reconnecting at the destination, is
+  an operation inside the graph, and it is all-or-nothing rather than half,
+  which is also what the evidence on losing a position shows.
+
+  **What is genuinely out of scope is not migration but "elsewhere."** A closed
+  economy has one graph and no elsewhere, so a ratio whose denominator counts
+  people who left the region needs two graphs and the flow between them. **That
+  is a different carrier, not a missing mechanism**, and treating the carrier's
+  boundary as a hole in the theory is the confusion this paragraph exists to
+  prevent.
 - **The object is structure, not timing.** Every quantity here is a property of a
   configuration; none of them is a forecast, and nothing is dated forward.
 - **Levels are entered as published, not estimated from a target.** Nothing is
   fitted, so a match to a series is evidence rather than construction. Stage A1 is
   the first place the model is asked to meet one.
-- **The standard agent-based stylised facts are an entry ticket, reported and not
-  scored.** Models with no layered structure reproduce them too, so reproducing
-  them carries no differential information about this structure. They are in an
-  appendix at stage A3, and no criterion rests on them.
+- **Whether reproducing a stylised fact is worth anything depends on how many
+  knobs this model has on that fact, not on how many papers report it.** The
+  credit in reproducing something is exactly the chance it could have failed to.
+  A model with a few million parameters reproducing the standard agent-based
+  stylised facts earns nothing, because failing would have been the only
+  newsworthy outcome; a model whose positions are fixed before the run could
+  fail, so the same reproduction is informative. **The rule is therefore to
+  write down two numbers before paying for a fit: how many knobs can move, and
+  how many targets have to be met**, and to declare which targets are used to
+  fit and which are held back. A fit with at least as many knobs as targets is
+  not worth running, because only one of its outcomes is reachable. The
+  stylised facts sit in an appendix at stage A3 and no criterion rests on them,
+  which is a statement about that appendix rather than about the class of
+  facts.
 - **Two quantities are swept rather than defended: the adjacency matrix and the
   wage bill.** They are where the model is still assumption, so every conclusion
   is required to hold across the sweep, and obtaining real adjacency data is the
@@ -703,6 +824,8 @@ simulating instances.
 |---|---|---|
 | B0 | what the non-integrability claim licenses, and what it does not | **complete**, scope-fixing, no measurement. One inequality on one cycle carries it, with no interpersonal comparison, no utility function and no welfare criterion. The four readings it does not license were written down before the stage ran, and the single attack surface is logged as assumption A1: whether the cycles measured are the relevant cycles of the economy or an artefact of how the position space was carved, [`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) |
 | B0b | which standard constructs need the object Theorem 1 characterises | **complete**, and it runs no measurement of its own: every empirical assertion in it is a pointer to a criterion already in [RESULTS.md](RESULTS.md). Domar-weighted aggregation is the load-bearing one, because it needs a frontier whose gradient is the price vector, [`docs/b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md) |
+| B0c | whether the topological reading of exchange has a precedent, and where one sentence in the literature collides with one this project makes | **complete**, a priority-defence survey rather than an intellectual debt: nothing in the theorem takes an input from any work named there, [`docs/b0c_precedent_topological.md`](docs/b0c_precedent_topological.md) |
+| B0d | the New Keynesian family, the one line on which it and this framework disagree, and the sense in which it is a special case | **complete**, and the disagreement is an index-set argument rather than a dispute about frictions: that family's price field carries no agent index, so it lives in the zero set of the quantity measured here. Two direct engagements are on file, one of them a control arm that forced the field exact and reported what survived, [`docs/b0d_new_keynesian.md`](docs/b0d_new_keynesian.md) |
 | B1 setup | fixing the field so the claim is not vacuous | **complete**, [`docs/b1_setup.md`](docs/b1_setup.md) |
 | B2 design | pre-registration, filters, falsifications | **complete**, [`docs/b2_measurement.md`](docs/b2_measurement.md) |
 | B2 loop A | dispersion at fixed position and date, where a single scalar price on positions predicts zero | **complete, 7/7** on 20,071,900 loans |
@@ -731,6 +854,24 @@ simulating instances.
 | B21 | **a class index whose target is set by statute** | **19/26 pass, 2 fail, 4 open, 1 void.** One company, two share lines, one declared dividend, and withholding that differs by holder by an amount the state publishes. The index is 14.8 and 30.5 basis points a year on the two legs over 4,226 leg-years and **reaches zero on none of them**; a second arm reproduces the closed form's second, third and fourth order shape with nothing fitted. A census of its own criteria is beside it |
 | B23 | is that wedge Chinese, or does the treaty network carry it | **2/2, no price data.** Sixteen of twenty countries carry a binding wedge and the treatment takes eleven distinct values, 11.7 to 73.2 basis points at a three per cent yield, **which brackets B21's own measured edges** |
 | B24 | **the square where a path between the two positions exists** | **6/6.** A receipt can be cancelled into its home line and A and H cannot be exchanged at any price. On the freely transferable side the dispersion between two listings of one claim is **16.4 basis points**, median over 465 pairings of thirty-one companies at one bell with the exchange rate removed by subtraction; on the other it is **196 times that** |
+| B30 | the propagation chain, arm by arm, and what each one returned | **An index of every arm's state, including the arms that returned nothing.** On one carrier the quotation graph has maximum hop distance one, so there is no hop gradient and the arm cannot run; on the other the public record does not yield dated initiator-and-follower pairs, and that negative was recorded on the spot. What the record supplied instead is an adjacency authored by both parties into a court file, plus a court-ordered, dated, staggered deletion of edges lying in `G_I` alone with `G_T` untouched. The readings live in [`docs/b30_results.md`](docs/b30_results.md) and govern. |
+| B31 | China's domestic price against its border price, 1981-2005 | **4 pass, and one criterion that turned out not to be load-bearing.** A scalar potential over positions predicts `S = 0` on every square. The exchange rate cancels to `3.608e-16` across the official, parallel and equilibrium rates over 106 squares; `|S|` sits at a median **51.7 times** the printed-precision floor, **106 of 106** above it and 91 above ten times it. 54 of the 106 writable squares are independent, and on independent subsets the median runs `0.2170` to `0.4579`. The published trade taxes are near zero throughout, so the branch where they explain `S` was never reachable. |
+| B33 | **the five classes a benefit scheme writes, and the clause vectors they receive** | **5/5.** A published scheme names five classes for a relevant month, writes the mutual exclusion into each definition, and writes the rule joining its monthly grain to its annual one. None of the six clause vectors it produces coincide on all five dimensions. **Three written benefit tables carry two functions**: one schedule is `(2/3)` times another on every one of 48 coefficients, and a third is identical to the first over 56 cells. The collision is exact and carries no resolution limit, unlike the one on national electricity schedules, which was bounded by its source's rounding. |
+| B34 | where the wage floor breaks, against where the statute puts the boundary | **Closed, and every criterion carries a verdict**: six pass, three fail, two are undecidable at this power, and the first round's table is superseded row by row and kept. A statutory age boundary moved and the break moved with it: the old position vanishes on both post-move years. The second difference across three ages the statute puts on one rate reads `+7.97` pp against a measured floor of `4.79`, pooled over four rate years, while no single year reaches it. Two registered predictions were scored, and the one that did not land gives the harder result: the two non-statutory bends are pinned to ages and do not travel with people. |
+| B36 | a quota that does not bind, and an expiry date that does | **The station opened on a quota and closed on a registration date.** US beef to China ran at quota scale for four years and collapsed in 2025 to 32.0 per cent of that base, with the first half of 2026 at 2.3 per cent, while the quota takes effect on 2026-01-01, so the quota did not cause it. The plant registrations expired in March 2025 and were not renewed, while the same customs system renewed dairy, pork and poultry within days. **A registration point in the sense the framework uses: the point expires, the edge is gone, and no price mechanism intervenes anywhere in between.** |
+| B38 | the rank of the obstruction to a scalar price potential | One price level per city makes `log P(i,c) = a_i + m_c`, which is rank one in logs and sets every square to exactly zero. **What is measured here is the rank of the obstruction, not its existence**: that relative prices differ across cities is a common explanation, and nobody computes the rank, because only this framework says the rank is the surviving information. Currency does not enter, since converting one city's prices adds a constant that the city effect absorbs exactly. |
+| B38b | is that residual an obstruction, or one name meaning different things | The confound this reading has to survive is item non-comparability rather than agent error: the same menu item in two cities may not be one object, and a residual made of that is a mis-specified edge rather than a field that fails to close. The station separates the two. |
+| B38c | how much of that residual survives into the next vintage | **This one needs no noise level at all.** The archive exists in two vintages of the same source a short interval apart: 67% of shared cells differ, by a median of `+1.30%` in logs and systematically positive, which is a stretch of time rather than a re-clean. |
+| B38d | the rank split on the carrier's own quality flag | Both floors B38 read against assume one noise level for the whole matrix and argue only about how high it is. Splitting the matrix on the carrier's own quality flag reaches past both, and **the two halves agree**. Criteria are objects printed, with no threshold and no permutation. |
+| B39 | an independently collected posted price, as a referee | B38c closed by naming what it could not reach: a bias that is persistent, structured, and unrelated to how tightly an item is specified. Two vintages of one source cannot reach it, because a rolling window means they share entries. This station brings a posted menu price for one brand, collected by a different organisation since 2000, with no contact with the first source. **The reading it returns runs against B38's, and is reported as it came.** |
+| B40 | Treuhand disposals, and whether the entity ever reached the commercial register | One public file, no fetch and no join: a freedom-of-information release carrying the firm-level disposal record of 13,378 East German firms in seven classes, 6,929 sold and 1,946 returned to their pre-expropriation owners. **The returned class is the one disposal that hands over the right to hold and sell without handing over an operating lineage**, and the exclusion that makes it uninteresting in the published literature is what makes it identifying here. |
+| B41 | the same obstruction on cash grain, where a published rule fixes part of the answer | B38 read the rank on retail price levels across cities; here the two indices are a named delivery position and a grain, and a third party publishes part of the answer in advance. The record carries, for every block, its degrees of freedom, its days, its residual scale, its autocorrelation, its reading, its measured floor, and the ratio between the last two. The opponent is the same scalar potential on positions. |
+| B42 | a published quantity carrying a commodity index on a position | B41 read a second difference in cash grain basis that a scalar term on positions forbids, and found it nonzero in every state that could carry the measurement. This station asks the next question: if the position term carries a commodity index, a published quantity on the position should carry it too. **Three attempts to read a price against that quantity are reported with what each one returned.** |
+| B43 | the counting law's proposition (i), proved | The law says a published procedure draws a partition on positions, and that the number of values it produces equals the number of classes it wrote. **It rested on twenty-three cases and had never been proved.** The enumeration was run first and drew the boundary; the proof then closed it, and separated two statements the corpus had been carrying as one. Exhaustive rather than sampled: every configuration in the space is walked, and the closed form the proof yields returns the nine integers already on disk, digit for digit. |
+| B44 | a flag class the Sound Toll ledger recorded on both sides of two treaties | **12 named criteria pass.** One treaty exempted Swedish ships and Swedish goods from the toll in 1645, and another ended the exemption in 1720, putting Sweden on the same tariff as the English and the Dutch. The Danish crown recorded every passage either way, so the class index is read on a carrier where the class difference is created by one dated public instrument and removed by another, and where both halves of the ratio sit in one ledger. |
+| B46 | what "a tier" is, asked of the corpus before asking who was in it | **No data was fetched: this reads tables already on disk and the published texts of the reforms themselves.** A tier written into a text that no position falls into produces no value, and the corpus had been coded by how many tiers each text writes. Two of the nine multi-tier carriers turn out to be quantity limits rather than rate schedules, and a quantity limit changes whether an edge is passable rather than the weight on it. |
+| B47 | the corpus re-coded by what each class receives | **No data was fetched.** B43 proved the law needs only that class values be distinguishable, not that they be numbers, and the corpus had been coded before that, by identity or by amount band. Re-coding each case by what its blocks receive moves cases in both directions, and which direction is set by whether the threshold varies with identity. It also brought out a restriction the zero-counterexample statement had always carried without stating it: it holds for programmes that partition holders. |
+| B48 | **a reference number whose input is removed in three steps** | **4/4.** A third party posted the ratio of one share's price in two cities on every trading day. Cutting the transfer edge left the number computed, posted, and moving `+24%` in a week. Ending production of one leg left it **frozen**, one value reprinted on 17 consecutive posts, and that value is by construction the last close before the halt. Removing the leg permanently left it **empty**, `0.00` on 146 posts to the end of the series. The publisher never stopped, so this reads the cell where the transfer graph is cut and the information graph is whole, at three depths rather than two. **Two of the three states had no name before this.** |
 | square complex | curl against harmonic on `Γ` | **withdrawn**, see B1 §12 |
 
 **Track C — the same claim where no market exists.** A price field that does not
@@ -933,12 +1074,18 @@ it; each stage's limits sit in its own document under `docs/`.
 
 ## License
 
-Code is MIT: `src/`, `experiments/`, `scripts/`, `tests/`. See [LICENSE](LICENSE).
+Code is MIT: `src/`, `experiments/`, `scripts/`, `tests/`, and the retrieval
+scripts at `data/*.py`. See [LICENSE](LICENSE).
 
 Documentation and results are CC BY 4.0: `docs/`, `results/`, `figures/`,
-`speedrun/`, `RESULTS.md`, `README.md`. See
-[LICENSE-CC-BY-4.0.md](LICENSE-CC-BY-4.0.md), which names the covered paths and
-the attribution form.
+`speedrun/`, `RESULTS.md`, `README.md`, and under `data/` the provenance and the
+pinned choices: `data/SOURCES.md`, `data/*.json`, `data/*.csv`, and the
+per-file manifests. See [LICENSE-CC-BY-4.0.md](LICENSE-CC-BY-4.0.md), which
+names the covered paths and the attribution form.
 
-No source data is redistributed. `data/` is not in git, and each source keeps its
-own terms, recorded in `data/SOURCES.md`.
+**No retrieved source data is redistributed.** `data/raw/` and the per-stage
+`raw/` directories are not in git, and each source keeps its own terms, recorded
+in [`data/SOURCES.md`](data/SOURCES.md). What is committed under `data/` is this
+project's own: the scripts that fetch, the manifests that record what each fetch
+returned, the choices pinned by hand with the measurements that settled them,
+and two tables collected and arranged here.

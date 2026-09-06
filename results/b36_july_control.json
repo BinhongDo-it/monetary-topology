@@ -1,0 +1,37 @@
+{
+ "month": 7,
+ "rows": [
+  {
+   "dest": "chile",
+   "jul25": null,
+   "jul26": 19112.346999999998,
+   "yoy": null,
+   "jun26": 12688.088,
+   "mom": 1.5063220715367043,
+   "vs_h1": 1.6438569316529346
+  },
+  {
+   "dest": "china",
+   "jul25": 158373.91700000002,
+   "jul26": 82713.84599999999,
+   "yoy": 0.5222693709090998,
+   "jun26": 158377.39,
+   "mom": 0.5222579182546194,
+   "vs_h1": 0.6412016228951768
+  },
+  {
+   "dest": "egypt",
+   "jul25": null,
+   "jul26": 5542.987,
+   "yoy": null,
+   "jun26": 3650.825,
+   "mom": 1.518283401696877,
+   "vs_h1": 1.0226360142451087
+  }
+ ],
+ "compared_on": "mom",
+ "control_median": 1.518283401696877,
+ "focus_mom": 0.5222579182546194,
+ "focus_yoy": 0.5222693709090998,
+ "verdict": "COLLAPSE IN THE CHINA LANE. The controls hold and the China lane alone halves. That is the collapse half of B36-1, and it arrives with the quota at 70 per cent."
+}

@@ -1,0 +1,468 @@
+{
+ "criteria": [
+  {
+   "detail": "years in which the outside series reproduces the carrier to 0.005 in logs: cotton 16/18; maize 2/25; soybean 1/18; wheat/alt 1/18. The worst case is cotton at 16 of 18 years, so its delta is part tautology and part measurement, and the pairs containing it are marked rather than dropped.",
+   "name": "B31-7b independence of the second series, printed per year",
+   "passed": true
+  },
+  {
+   "detail": "on the 3 independent pairs the constant covers 26%-90% of the pair mean, which is the same order as Sigma, not an order below it: the fixed-offset story is NOT excluded on the means. It remains unable to produce variation, and sd/|mean| is 0.32 to 4.03 across pairs. The bound is generous by construction: the series compared are international benchmarks against China own border prices, so the gap contains freight and quality as well as measurement.",
+   "name": "B31-7 fixed-offset bound from an outside second measurement",
+   "passed": false
+  },
+  {
+   "detail": "maize carries both flags and measures its own wedge: d_M -0.2063 against d_X -0.0732, a wedge of -0.1330, 14.2% of the fob price and so 12.46% of the cif price it comes off. Removing it leaves -0.0732 in the M years against -0.0732 in the X years, so the two flags agree once the voyage is taken out. This is what the generous part of the B31-7 bound is made of, now measured rather than argued. Transfer test, read as fixed beforehand: as a per-tonne charge, that share of a 157.8 cif mean, $19.7/t, is subtracted from every other commodity cif years and the sign flips on cotton, wheat. A cif price minus its voyage cannot land below the fob price at the port it left from, so each flip proves the charge is too large for that commodity. The figure is therefore measured for one commodity and not portable, which is stated instead of the other three being corrected by it.",
+   "name": "B31-7c freight measured inside the carrier, not imported",
+   "passed": true
+  },
+  {
+   "detail": "the step registered as the one that would tighten B31-7 was run rather than left pending. Only maize carries both flags, so only that offset is pinned, at its X-year value. A cif-only commodity gives an offset bounded on one side only, because its freight is known just to lie between zero and the charge that would push its cif price below the fob port it left. On the 3 independent pairs the predicted constant therefore becomes an interval, and it covers the measured mean on 3 of them. The bound does not tighten, and B31-7 stays open for this reason, which is a property of the carrier and not an unfinished step. Untouched by any of it: a constant produces no variation, and sd/|mean| runs 0.32 to 4.03.",
+   "name": "B31-7d does removing the voyage tighten the B31-7 bound",
+   "passed": false,
+   "verdict": "answered: no"
+  },
+  {
+   "detail": "the purchase on offer is a freight series that would pin one cif-only offset, so that quantity was swept over its whole admissible range, [0, 17.4] $/t, before buying anything. The binding pair is maize-soybean, whose share never falls below 0.65 and moves by 0.0000 across the entire sweep: it does not contain the commodity on sale, so no value of the purchased quantity touches it. B31-7 asks for an order below, 0.10; the best attainable maximum share is 0.65 at 6.5 $/t. The series would therefore not close B31-7 and is not bought. This is computed from what is already on disk, and it holds for any freight series whatever, because the objection is to the quantity being purchased and not to its quality. What does bear against the fallback is untouched: a constant produces no variation.",
+   "name": "B31-7e would an outside freight series close B31-7",
+   "passed": false,
+   "verdict": "answered: no"
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "B31-7 bounds the fixed-offset story rather than removing it; the freight component of the bound has not been netted out",
+ "stage": "B31-7",
+ "tables": {
+  "b31_7d_pairs": {
+   "maize-soybean": {
+    "covers_mean": true,
+    "mean": -0.12646776478419858,
+    "one_sided": true,
+    "pred_high": null,
+    "pred_low": -0.0817620615690478
+   },
+   "maize-wheat": {
+    "covers_mean": true,
+    "mean": 0.055968866721072805,
+    "one_sided": false,
+    "pred_high": 0.04625880859726632,
+    "pred_low": -0.07323838524364548
+   },
+   "soybean-wheat": {
+    "covers_mean": true,
+    "mean": 0.14858624467818854,
+    "one_sided": true,
+    "pred_high": null,
+    "pred_low": 0.00852367632540233
+   }
+  },
+  "b31_7e_sweep": {
+   "binding_floor": 0.6465051525862304,
+   "binding_pair": "maize-soybean",
+   "ceiling_usd_per_t": 17.378832769393547,
+   "grid": [
+    {
+     "freight_usd": 0.0,
+     "max_share": 0.8615930124863486,
+     "offset": -0.1194971938409118,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 0.826509652728942,
+      "soybean-wheat": 0.8615930124863486
+     }
+    },
+    {
+     "freight_usd": 2.1723540961741934,
+     "max_share": 0.7664010528621978,
+     "offset": -0.1053529780368015,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 0.5737938728186643,
+      "soybean-wheat": 0.7664010528621978
+     }
+    },
+    {
+     "freight_usd": 4.344708192348387,
+     "max_share": 0.669781491958167,
+     "offset": -0.09099664031961606,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 0.3172880945485435,
+      "soybean-wheat": 0.669781491958167
+     }
+    },
+    {
+     "freight_usd": 6.51706228852258,
+     "max_share": 0.6465051525862304,
+     "offset": -0.07642142060788654,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 0.05687153502864499,
+      "soybean-wheat": 0.5716888337629428
+     }
+    },
+    {
+     "freight_usd": 8.689416384696774,
+     "max_share": 0.6465051525862304,
+     "offset": -0.0616202154036861,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 0.2075827244789474,
+      "soybean-wheat": 0.4720752710387672
+     }
+    },
+    {
+     "freight_usd": 10.861770480870966,
+     "max_share": 0.6465051525862304,
+     "offset": -0.046585553111584854,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 0.4762081795382429,
+      "soybean-wheat": 0.37089051921558425
+     }
+    },
+    {
+     "freight_usd": 13.03412457704516,
+     "max_share": 0.7491453854347827,
+     "offset": -0.03130956701153941,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 0.7491453854347827,
+      "soybean-wheat": 0.26808163449593525
+     }
+    },
+    {
+     "freight_usd": 15.206478673219355,
+     "max_share": 1.026542487030557,
+     "offset": -0.01578396560351363,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 1.026542487030557,
+      "soybean-wheat": 0.16359281427134792
+     }
+    },
+    {
+     "freight_usd": 17.378832769393547,
+     "max_share": 1.3085558013643057,
+     "offset": -3.6043698889740327e-17,
+     "shares": {
+      "maize-soybean": 0.6465051525862304,
+      "maize-wheat": 1.3085558013643057,
+      "soybean-wheat": 0.05736517767080753
+     }
+    }
+   ],
+   "share_span": {
+    "maize-soybean": 0.0,
+    "maize-wheat": 1.2516842663356607,
+    "soybean-wheat": 0.804227834815541
+   },
+   "swept": "wheat"
+  },
+  "by_flag": {
+   "cotton/M": {
+    "mean": -0.0003737679086298686,
+    "n": 11,
+    "sd": 0.0019403854415537877
+   },
+   "cotton/X": {
+    "mean": -0.03590019520449915,
+    "n": 7,
+    "sd": 0.06117109992786777
+   },
+   "maize/M": {
+    "mean": -0.20627073566676035,
+    "n": 6,
+    "sd": 0.12964946288511575
+   },
+   "maize/X": {
+    "mean": -0.07323838524364548,
+    "n": 19,
+    "sd": 0.09089670791654059
+   },
+   "soybean/M": {
+    "mean": 0.00852367632540233,
+    "n": 18,
+    "sd": 0.06233142629206109
+   },
+   "wheat/M": {
+    "mean": -0.1194971938409118,
+    "n": 18,
+    "sd": 0.1965230170772258
+   }
+  },
+  "freight_transfer": {
+   "by_commodity": {
+    "cotton": {
+     "border_mean": 1649.8045454545454,
+     "ceiling_usd_per_t": 0.5960383648933885,
+     "d_after": 0.012032303851739297,
+     "d_before": -0.0003737679086298686,
+     "n_M": 11,
+     "outside_mean": 1649.090909090909,
+     "sign_flip": true,
+     "years": [
+      1984,
+      1989,
+      1990,
+      1991,
+      1992,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      2001
+     ]
+    },
+    "soybean": {
+     "border_mean": 249.5,
+     "ceiling_usd_per_t": null,
+     "d_after": 0.0917417151229193,
+     "d_before": 0.00852367632540233,
+     "n_M": 18,
+     "outside_mean": 252.05555555555554,
+     "sign_flip": false,
+     "years": [
+      1983,
+      1984,
+      1985,
+      1986,
+      1987,
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2000
+     ]
+    },
+    "wheat": {
+     "border_mean": 161.16666666666666,
+     "ceiling_usd_per_t": 17.378832769393547,
+     "d_after": 0.016864518762037258,
+     "d_before": -0.1194971938409118,
+     "n_M": 18,
+     "outside_mean": 142.15,
+     "sign_flip": true,
+     "years": [
+      1984,
+      1985,
+      1986,
+      1987,
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2000,
+      2001
+     ]
+    }
+   },
+   "cif_share": 0.12456322909927686,
+   "source": "maize",
+   "source_cif_mean": 157.83333333333334,
+   "usd_per_t": 19.660229659502534
+  },
+  "freight_wedge": {
+   "cotton": {
+    "d_M": -0.0003737679086298686,
+    "d_X": -0.03590019520449915,
+    "pct_of_fob": -3.4902771017028322,
+    "residual_M_after": -0.03590019520449915,
+    "wedge": 0.03552642729586928
+   },
+   "maize": {
+    "d_M": -0.20627073566676035,
+    "d_X": -0.07323838524364548,
+    "pct_of_fob": 14.228695119936052,
+    "residual_M_after": -0.07323838524364548,
+    "wedge": -0.13303235042311487
+   }
+  },
+  "gap_per_commodity": {
+   "cotton": {
+    "max": 0.004728141195945896,
+    "mean": -0.014189600745912365,
+    "min": -0.134172212896372,
+    "n": 18,
+    "n_in_band": 16,
+    "sd": 0.041921778552480346,
+    "series": "Cotton, A Index",
+    "years_in_band": [
+     1984,
+     1985,
+     1986,
+     1987,
+     1988,
+     1989,
+     1990,
+     1991,
+     1992,
+     1993,
+     1994,
+     1995,
+     1996,
+     1997,
+     1998,
+     2001
+    ]
+   },
+   "maize": {
+    "max": 0.11612877556035699,
+    "mean": -0.10516614934519306,
+    "min": -0.36277252380685077,
+    "n": 25,
+    "n_in_band": 2,
+    "sd": 0.11636786542531678,
+    "series": "Maize",
+    "years_in_band": [
+     1994,
+     1996
+    ]
+   },
+   "soybean": {
+    "max": 0.14868319764512478,
+    "mean": 0.00852367632540233,
+    "min": -0.09365591970829835,
+    "n": 18,
+    "n_in_band": 1,
+    "sd": 0.06233142629206109,
+    "series": "Soybeans",
+    "years_in_band": [
+     1993
+    ]
+   },
+   "wheat": {
+    "max": 0.17409105765743904,
+    "mean": -0.1194971938409118,
+    "min": -0.5285252008653917,
+    "n": 18,
+    "n_in_band": 0,
+    "sd": 0.1965230170772258,
+    "series": "Wheat, US HRW",
+    "years_in_band": []
+   },
+   "wheat/alt": {
+    "max": 0.1426089193870867,
+    "mean": -0.18964321554207747,
+    "min": -0.6795557533564063,
+    "n": 18,
+    "n_in_band": 1,
+    "sd": 0.23777540249138196,
+    "series": "Wheat, US SRW",
+    "years_in_band": [
+     1992
+    ]
+   }
+  },
+  "median_abs_sigma": 0.23396307196966593,
+  "offset_after_freight": {
+   "cotton": {
+    "high": null,
+    "low": null,
+    "why": "second series is the carrier itself, no offset measurable"
+   },
+   "maize": {
+    "high": -0.07323838524364548,
+    "low": -0.07323838524364548,
+    "why": "pinned, both flags"
+   },
+   "soybean": {
+    "high": null,
+    "low": 0.00852367632540233,
+    "why": "already above the outside series, freight cannot produce that, basis in question"
+   },
+   "wheat": {
+    "high": 0.0,
+    "low": -0.1194971938409118,
+    "why": "cif years only, freight in [0, ceiling]"
+   }
+  },
+  "pairs": {
+   "cotton-maize": {
+    "both_independent": false,
+    "mean": -0.304113773081138,
+    "n": 18,
+    "pred": 0.09097654859928068,
+    "resid_mean": -0.3950903216804187,
+    "sd": 0.23892878789584118,
+    "share": 0.2991530034222028
+   },
+   "cotton-soybean": {
+    "both_independent": false,
+    "mean": -0.4265046651960656,
+    "n": 17,
+    "pred": -0.022713277071314694,
+    "resid_mean": -0.4037913881247509,
+    "sd": 0.13676619631452108,
+    "share": 0.05325446337350923
+   },
+   "cotton-wheat": {
+    "both_independent": false,
+    "mean": -0.2481449063600652,
+    "n": 18,
+    "pred": 0.10530759309499943,
+    "resid_mean": -0.35345249945506463,
+    "sd": 0.3032788041911035,
+    "share": 0.42437942668142126
+   },
+   "maize-soybean": {
+    "both_independent": true,
+    "mean": -0.12646776478419858,
+    "n": 18,
+    "pred": -0.11368982567059538,
+    "resid_mean": -0.012777939113603191,
+    "sd": 0.14232394733194004,
+    "share": 0.8989628769401661
+   },
+   "maize-wheat": {
+    "both_independent": true,
+    "mean": 0.055968866721072805,
+    "n": 18,
+    "pred": 0.014331044495718745,
+    "resid_mean": 0.04163782222535405,
+    "sd": 0.2254416083433328,
+    "share": 0.2560538623577842
+   },
+   "soybean-wheat": {
+    "both_independent": true,
+    "mean": 0.14858624467818854,
+    "n": 17,
+    "pred": 0.12802087016631414,
+    "resid_mean": 0.020565374511874412,
+    "sd": 0.20370228032260493,
+    "share": 0.8615930124863486
+   }
+  },
+  "sd_over_mean": {
+   "cotton-maize": 0.7856559256594229,
+   "cotton-soybean": 0.3206675271691324,
+   "cotton-wheat": 1.222184281917266,
+   "maize-soybean": 1.1253772656992718,
+   "maize-wheat": 4.027982368605865,
+   "soybean-wheat": 1.3709363256591345
+  },
+  "units": {
+   "Cotton, A Index": "($/kg)",
+   "Maize": "($/mt)",
+   "Soybeans": "($/mt)",
+   "Wheat, US HRW": "($/mt)",
+   "Wheat, US SRW": "($/mt)"
+  }
+ }
+}

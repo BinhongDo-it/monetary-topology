@@ -521,8 +521,8 @@ pre-result change since no A4 criterion has yet been evaluated.
 
 #### 9.3a This is a task with a method, not a decision awaiting one
 
-**Added 2026-08-13.** `PROJECT_PLAN` §13.1 has carried this as one of two
-rulings blocking A4 since 2026-08-10. **It is not a ruling.** The defect, its
+**Added 2026-08-13.** This has been carried as one of two rulings blocking A4
+since 2026-08-10. **It is not a ruling.** The defect, its
 direction, and the check are all specified above, and the check does not need
 anyone to choose between alternatives. Listing it as undecided kept A4 waiting
 on an answer nobody was being asked for.
@@ -677,8 +677,7 @@ criterion body must say so rather than leaving it in a detail string.
 > **sold**. Nothing below is deleted. The two refusals and the three obligations
 > still hold; only the third way out fails.
 
-**Added 2026-08-13, and it closes the second of the two rulings `PROJECT_PLAN`
-§13.1 has been carrying.** §10.2 states the constraint: A3-6's stock survives
+**Added 2026-08-13, and it closes the second of those two rulings.** §10.2 states the constraint: A3-6's stock survives
 for the asset-holding population and not for the median node, so A4 must be
 restricted to a population that holds a stock. The question left open was which
 population that is, given `a3_asset_channel.md` §6.4 measures it at sixteen
@@ -693,8 +692,8 @@ the arm most central to A4's question is the one with least to work with.
 
 **Not this either: widen the gate.** `a3_asset_channel.md` §6.5c records that
 `stretch` already moves the measured population, from `18.4` at `s = 1.0` to
-`98.8` at `s = 5.0` against `41.6` at the registered `s = 3.0`, and
-`PROJECT_PLAN` §13.3 records independently that `s = 5` admits eighty-eight
+`98.8` at `s = 5.0` against `41.6` at the registered `s = 3.0`, and it is
+recorded independently that `s = 5` admits eighty-eight
 production-layer nodes to the lowest tier against twenty-three at `s = 3`. The
 lever exists. **It is refused for the reason §6.5c states when it records the
 lever**: choosing a parameter after seeing which value makes a channel quotable
@@ -732,9 +731,9 @@ bought nothing and the fifth item stands unchanged.
 
 *A generation-scale competitor in a forty-round window is a different claim from
 a generation-scale competitor in three hundred.* Inheritance is the arm this
-bites. **A4 must say what one round is worth before it reads inheritance**, and
-`PROJECT_PLAN` §16.1's second step is the standing record that the rounds-to-time
-mapping has to be pinned before, not after. It is still not pinned. That is now
+bites. **A4 must say what one round is worth before it reads inheritance**, and the
+standing record is that the rounds-to-time mapping has to be pinned before, not
+after. It is still not pinned. That is now
 a precondition of A4's inheritance arm rather than a loose end elsewhere.
 
 ### 10.4 §10's three premises, measured; and the ruling that A4 keeps its parent
@@ -893,8 +892,7 @@ new machinery. **Registered**: `A(X)` is reported per seed and no point value is
 quoted for a competitor whose sign moves.
 
 **The ceiling: stands, with a known sign.** The control cell sits at `0.935`,
-leaving `0.065` of headroom against a denominator of `0.99` (`PROJECT_PLAN`
-§12.7). With `uniform_opening = same_marginal` both arms now open at the same
+leaving `0.065` of headroom against a denominator of `0.99`. With `uniform_opening = same_marginal` both arms now open at the same
 Gini, so the arm nearer the ceiling is the one whose numerator is compressed,
 and that is `C = 1`. **`A(X)` is therefore biased downward**, which makes a pass
 at `A(X) > 1` conservative and a failure unreadable. **Registered obligation**:
@@ -1259,7 +1257,7 @@ sorting on a layer-blind rule is derived from connectivity rather than assumed
 four competitors. The ratio that would say so is not computable on this carrier,
 for reasons §11 measures rather than conjectures.
 
-**`PROJECT_PLAN` §8.3's upstream diagram is not withdrawn and is not confirmed.**
+**The upstream amplification diagram is not withdrawn and is not confirmed.**
 §7's first falsification row fires on `A(X) ≈ 1` for all four competitors, which
 would have made connectivity parallel. That is not what happened: `A(X)` has no
 value at all. The diagram keeps A4-2 and A4-6 under it and loses the
@@ -1274,7 +1272,7 @@ amplification arrow, which was never measured.
    balance whose half-life is about one round on the complete graph and five on
    the stratified one, while `generation_length` is forty. Every generational
    mechanism fires on a variable that has already forgotten.
-3. **`PROJECT_PLAN` §16.2's injection does not repair that**, and
+3. **The injection switch does not repair that**, and
    `a4a_domain_probe.py --probe injection` measures why: at the registered
    `top_node` target the production layer's holdings history is bitwise
    identical with issuance on and off, and at `uniform` a credit of `9.000` per
@@ -1286,7 +1284,7 @@ amplification arrow, which was never measured.
    Every `C = 1` number in this stage should be read with the `pooling` value
    attached.
 5. **The rounds-to-time mapping is still not pinned**, which §10.3's third
-   obligation and `PROJECT_PLAN` §16.1's second step both require and which
+   obligation and the standing record both require and which
    bites hardest on inheritance.
 6. **A4-6's rate is measured on the matching rule's own output**, so it says
    what sorting the rule produces given the holdings it is handed. It does not

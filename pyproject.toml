@@ -17,6 +17,14 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Retrieval only. Nothing here reaches a committed artefact, so nothing here is
+# pinned, on the same reasoning that pins the two above. curl_cffi exists in this
+# list because one source is behind a vendor that refuses python's TLS handshake
+# with a 403 while answering a browser from the same address; see the backend
+# table in experiments/b42_registration_capture.py for the measurement.
+fetch = [
+    "curl_cffi>=0.7",
+]
 dev = [
     "pytest>=7.4",
     "ruff>=0.4",

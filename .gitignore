@@ -16,19 +16,59 @@ venv/
 HANDOFF*.md
 *HANDOFF*.md
 
-# Raw data is not redistributed. data/SOURCES.md records where to get it.
-# 3.8 GB across three programmes, and the retrieval script rebuilds it.
-data/raw/*
-!data/raw/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
+# Nothing under data/ is redistributed, wherever in the tree it sits.
+# data/SOURCES.md records where each set came from and the manifests record what
+# was taken from it; anyone reproducing this fetches it themselves.
+#
+# The rule is the whole directory rather than a list of directories, for two
+# reasons that were measured rather than assumed. Some of what is on disk is not
+# ours to hand on: an exchange's workbooks belong to the exchange, and the copies
+# here carry in their document properties the names of the people who saved them,
+# which the parsed numbers never show. And a rule that names today's directories
+# guards nothing tomorrow: a station opening data/b43 would have had no rule at
+# all. Counted on 2026-09-04, the earlier rules let 1,519 files and 338 MB
+# through, including 330 MB in a single directory and scraped pages from a
+# third-party site. The rule below lets 64 through, and none of them is data.
+#
+# Files already tracked are unaffected: an ignore rule does not untrack anything,
+# which was checked by asking git rather than by reasoning about it.
+data/**
+!data/**/
 
-# The manifests are the exception, and they are committed on purpose. Each
-# records, per file, the exact URL queried, the timestamp, and how many rows were
-# kept and dropped and why. That is the evidence that the sample was fixed before
-# any result was seen, it is the one part of the retrieval a reader cannot
-# reconstruct after the fact, and it is under a megabyte for all three.
-!data/raw/*_manifest.json
+# The four exceptions are code and provenance, not data.
+#
+# Retrieval scripts are source that happens to live beside its output.
+!data/*.py
+# The templates are inputs those scripts read, with the keys stripped out.
+!data/*.template.json
+# The other json files at the top of data/ are the same class: each one is a
+# choice pinned by hand and each carries its own _note or _comment saying which
+# raw listing it was pinned against and what was measured to settle it. Which
+# series, which variables, which regime is in force on which date, which page
+# carries which province. Nothing retrieved is written here, and the convention
+# that keeps this rule honest is that retrieved data goes in a subdirectory and
+# never at the top of data/.
+!data/*.json
+# The three gaokao files are this project's own collection and arrangement, so
+# all three are committed. The filing scores underneath are facts and belong to
+# nobody; what these files are is which pages were found, which were fetched,
+# which were thrown out and on what test, and how the rows were read. That work
+# is recorded in data/SOURCES.md rather than asserted: twenty-four duplicate
+# pages dropped by content hash, five with no article body, three excluded by
+# their own headline, and two independent outlets agreeing on all 80 shared
+# entries. gaokao_sources.json is the retrieval list, gaokao_provincial.csv the
+# 6,386-row panel, gaokao_cutoffs.csv the 181-row per-institution reading.
+!data/gaokao_cutoffs.csv
+!data/gaokao_provincial.csv
+# SOURCES.md is load-bearing: every file's origin URL, download date and
+# definition, and different definitions never share a column.
+!data/SOURCES.md
+# Each manifest records, per file, the exact URL queried, the timestamp, the
+# window, and how many rows were kept and dropped and why. It is the one part of
+# the retrieval a reader cannot reconstruct after the fact, and all twenty come
+# to under two megabytes.
+!data/**/*_manifest.json
+!data/**/.gitkeep
 
 # Figures and results ARE committed: they are the artefact.
 !figures/*.png
@@ -131,3 +171,95 @@ results/_baseline.expired_*/
 # per-file limit, and A2e's.
 results/CACHE/
 
+# B35: Census API key, never committed
+data/b35/census_key.txt
+**/census_key.txt
+
+# B41: raw API responses cached per query. Same reason as data/cache/ above,
+# different directory because these are keyed per report and query rather than
+# per stage. The two small readings beside it, structure.json and
+# earliest.json, are evidence and do belong in the repository.
+data/b41/cache/
+data/b41/**/*.part
+data/b41/**/*.corrupt.*.json
+
+# B41 and B35 share the Market News key. It lives beside the repository rather
+# than inside it, but these patterns are here so that a copy dropped in by
+# accident cannot be committed. Same intent as census_key.txt above.
+.mars_api_key
+**/.mars_api_key
+**/mars_api_key*
+
+# B41-5 pulls the fullness series from NASS Quick Stats. Same shape as the
+# Market News key above: the key lives beside the repository, the raw responses
+# cache under data/, and the small derived reading is what belongs here.
+data/b41/nass_cache/
+.nass_api_key
+**/.nass_api_key
+**/nass_api_key*
+
+# B42: the daily deliverable-under-registration and weekly stocks workbooks.
+# Both are published as the current issue only, so this cache is the series and
+# it is not reproducible by re-running anything. It is data, and data stays on
+# the machine that fetched it.
+data/b42/
+
+# B35: the AMS report catalogue, one cached API response. Same reason as
+# data/b41/cache/ above: reproducible from a single request with a key, and
+# data stays on the machine that fetched it.
+data/b35/catalogue.json
+data/b35/*.corrupt.json
+
+# Agmarknet 逐日到货面板（第三方抓取件，github.com/iancovert/Agmarknet）
+# 视同不可再生（第 6 条），不进仓库（11·2 第 6 类）
+data/agmark/
+
+# B34: the LFS quarters and every cache derived from them. These are End User
+# Licence microdata from the UK Data Service, individual level records, and the
+# licence does not permit redistribution. The raw .dta files sit under
+# data/raw/ which is already excluded, but the extracted per-person cache lives
+# here, so it needs its own rule. data/SOURCES.md records where to get the
+# originals and on what basis.
+data/b34/
+
+# B30-16, B30-17, B30-18. The licence is not what excludes these. DB1B and the
+# Consumer Airfare Report are Bureau of Transportation Statistics output and the
+# CMT curve is Treasury output; both are works of the US government and carry no
+# copyright there, and neither agency attaches a reuse condition. SOFR and EFFR
+# are New York Fed content, whose terms of use permit copying and distributing
+# in any format, and permit derived works, on three conditions: carry the source
+# identifier and copyright notice, do not imply endorsement, and do not impose
+# more restrictive terms. data/SOURCES.md carries that notice.
+#
+# What excludes them is the rule at the top of this file, that raw data is not
+# redistributed, plus 315 MB of DB1B quarters that a documented fetch rebuilds.
+#
+# data/*/raw/ generalises the data/raw/* line above, which only ever matched the
+# top level directory. On disk that pattern covers exactly b30_16 and b30_17; no
+# other station keeps a raw/ subdirectory, so it widens the rule without
+# changing what any other station does.
+data/*/raw/
+
+# data/raw as a bare line was tried on 2026-09-06 and withdrawn the same day.
+# It excludes the directory itself, and git does not descend into an excluded
+# directory, so the manifest exception above stops being evaluated at all and
+# every manifest under data/raw goes with it. That is also why the !data/**/
+# line near the top exists: it re-admits directories so the deep exceptions can
+# run. The rule that was actually needed is narrower and is the next two lines.
+#
+# Two third-party repositories were cloned under data/raw. Git records an
+# embedded repository as a gitlink, a directory-shaped entry, so !data/**/
+# re-admits it where data/** alone would have caught it. Naming the two closes
+# that hole without touching anything else. What each one is and where it came
+# from is in data/SOURCES.md; neither is redistributed here.
+data/raw/gaokao/Gaokao-Compass-11M/
+data/raw/havana_lob/
+data/b30_18/
+
+# Derived cell matrices keyed by a config hash, one per source-quarter-config,
+# rebuilt from the raw quarters above in one run. Same class as data/cache/ and
+# data/b41/cache/. The readings beside them stay: the stage*.json files are the
+# artefact, and so are the small *_diag.json files, which record the shape of
+# each cell matrix and are the only provenance a reader gets for it.
+results/b30_16/cell_*.csv.gz
+results/b30_17/mat_*.csv.gz

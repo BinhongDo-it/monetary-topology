@@ -1,0 +1,699 @@
+{
+  "config": {
+    "seeds": 48,
+    "rounds": 600,
+    "workers": 2,
+    "hodge": false,
+    "no_cache": false
+  },
+  "range": {
+    "realized_rank_frac": {
+      "spread": 0.977164,
+      "min": 0.020579,
+      "max": 0.901161,
+      "live": true
+    },
+    "realized_support_frac": {
+      "spread": 0.016393,
+      "min": 0.983607,
+      "max": 1.0,
+      "live": false
+    },
+    "support_fraction": {
+      "spread": 0.016393,
+      "min": 0.983607,
+      "max": 1.0,
+      "live": false
+    },
+    "total_ratio": {
+      "spread": 0.990194,
+      "min": 1.0,
+      "max": 101.983489,
+      "live": true
+    }
+  },
+  "sweep": {
+    "0": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.304969,
+        "d_bic": -0.925034,
+        "sarle": 0.506794,
+        "mu": [
+          0.02438,
+          0.028337
+        ],
+        "sd": [
+          0.001954,
+          0.000732
+        ],
+        "pi": [
+          0.671507,
+          0.328493
+        ],
+        "min_weight_ok": true,
+        "separation": 2.681161,
+        "overlap": 0.105692,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.121965,
+        "d_bic": -7.286597,
+        "sarle": 0.465535,
+        "mu": [
+          91.740675,
+          97.140396
+        ],
+        "sd": [
+          1.385032,
+          2.422936
+        ],
+        "pi": [
+          0.288289,
+          0.711711
+        ],
+        "min_weight_ok": true,
+        "separation": 2.736196,
+        "overlap": 0.101745,
+        "bimodal": false
+      }
+    },
+    "1": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.163795,
+        "d_bic": -8.759795,
+        "sarle": 0.432819,
+        "mu": [
+          0.792601,
+          0.84514
+        ],
+        "sd": [
+          0.030405,
+          0.014247
+        ],
+        "pi": [
+          0.767073,
+          0.232927
+        ],
+        "min_weight_ok": true,
+        "separation": 2.21284,
+        "overlap": 0.156251,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.431313,
+        "d_bic": -8.211382,
+        "sarle": 0.441576,
+        "mu": [
+          7.879716,
+          9.481689
+        ],
+        "sd": [
+          0.743649,
+          1.044862
+        ],
+        "pi": [
+          0.596134,
+          0.403866
+        ],
+        "min_weight_ok": true,
+        "separation": 1.766527,
+        "overlap": 0.173408,
+        "bimodal": false
+      }
+    },
+    "2": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.164495,
+        "d_bic": -9.691479,
+        "sarle": 0.423211,
+        "mu": [
+          0.77844,
+          0.829419
+        ],
+        "sd": [
+          0.027716,
+          0.025086
+        ],
+        "pi": [
+          0.317277,
+          0.682723
+        ],
+        "min_weight_ok": true,
+        "separation": 1.928557,
+        "overlap": 0.162434,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.395075,
+        "d_bic": -6.363794,
+        "sarle": 0.439596,
+        "mu": [
+          4.249234,
+          4.928454
+        ],
+        "sd": [
+          0.229169,
+          0.510099
+        ],
+        "pi": [
+          0.375455,
+          0.624545
+        ],
+        "min_weight_ok": true,
+        "separation": 1.717706,
+        "overlap": 0.183845,
+        "bimodal": false
+      }
+    },
+    "3": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.145165,
+        "d_bic": -8.426004,
+        "sarle": 0.442288,
+        "mu": [
+          0.808249,
+          0.856452
+        ],
+        "sd": [
+          0.029444,
+          0.012163
+        ],
+        "pi": [
+          0.773068,
+          0.226932
+        ],
+        "min_weight_ok": true,
+        "separation": 2.139864,
+        "overlap": 0.165045,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.333816,
+        "d_bic": 7.636457,
+        "sarle": 0.597382,
+        "mu": [
+          3.120695,
+          3.592742
+        ],
+        "sd": [
+          0.116187,
+          0.344597
+        ],
+        "pi": [
+          0.56617,
+          0.43383
+        ],
+        "min_weight_ok": true,
+        "separation": 1.835728,
+        "overlap": 0.118974,
+        "bimodal": false
+      }
+    },
+    "4": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.146234,
+        "d_bic": -7.612532,
+        "sarle": 0.437493,
+        "mu": [
+          0.812871,
+          0.860271
+        ],
+        "sd": [
+          0.028354,
+          0.010809
+        ],
+        "pi": [
+          0.773458,
+          0.226542
+        ],
+        "min_weight_ok": true,
+        "separation": 2.209076,
+        "overlap": 0.159153,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.343178,
+        "d_bic": 6.016246,
+        "sarle": 0.371482,
+        "mu": [
+          2.657095,
+          3.463803
+        ],
+        "sd": [
+          0.201642,
+          0.00023
+        ],
+        "pi": [
+          0.979167,
+          0.020833
+        ],
+        "min_weight_ok": false,
+        "separation": 5.657838,
+        "overlap": 0.022258,
+        "bimodal": false
+      }
+    },
+    "6": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.140535,
+        "d_bic": -6.606411,
+        "sarle": 0.440719,
+        "mu": [
+          0.775153,
+          0.838579
+        ],
+        "sd": [
+          0.015413,
+          0.022228
+        ],
+        "pi": [
+          0.131986,
+          0.868014
+        ],
+        "min_weight_ok": true,
+        "separation": 3.316122,
+        "overlap": 0.069309,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.27296,
+        "d_bic": -9.849873,
+        "sarle": 0.385768,
+        "mu": [
+          1.984861,
+          2.227604
+        ],
+        "sd": [
+          0.116331,
+          0.11872
+        ],
+        "pi": [
+          0.812401,
+          0.187599
+        ],
+        "min_weight_ok": true,
+        "separation": 2.065345,
+        "overlap": 0.149319,
+        "bimodal": false
+      }
+    },
+    "8": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.146273,
+        "d_bic": -7.610239,
+        "sarle": 0.43302,
+        "mu": [
+          0.816799,
+          0.852077
+        ],
+        "sd": [
+          0.027484,
+          0.0184
+        ],
+        "pi": [
+          0.356199,
+          0.643801
+        ],
+        "min_weight_ok": true,
+        "separation": 1.508419,
+        "overlap": 0.201513,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.240834,
+        "d_bic": -10.665483,
+        "sarle": 0.366409,
+        "mu": [
+          1.656468,
+          1.773186
+        ],
+        "sd": [
+          0.08636,
+          0.106686
+        ],
+        "pi": [
+          0.640554,
+          0.359446
+        ],
+        "min_weight_ok": true,
+        "separation": 1.202571,
+        "overlap": 0.264904,
+        "bimodal": false
+      }
+    },
+    "12": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.119502,
+        "d_bic": -2.494687,
+        "sarle": 0.515598,
+        "mu": [
+          0.83318,
+          0.870848
+        ],
+        "sd": [
+          0.023237,
+          0.010847
+        ],
+        "pi": [
+          0.548165,
+          0.451835
+        ],
+        "min_weight_ok": true,
+        "separation": 2.077241,
+        "overlap": 0.133115,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.143933,
+        "d_bic": -7.427844,
+        "sarle": 0.470841,
+        "mu": [
+          1.349331,
+          1.444456
+        ],
+        "sd": [
+          0.033286,
+          0.038223
+        ],
+        "pi": [
+          0.514622,
+          0.485378
+        ],
+        "min_weight_ok": true,
+        "separation": 2.654163,
+        "overlap": 0.091162,
+        "bimodal": false
+      }
+    },
+    "20": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.082662,
+        "d_bic": 5.135114,
+        "sarle": 0.565456,
+        "mu": [
+          0.825566,
+          0.870431
+        ],
+        "sd": [
+          0.005472,
+          0.012667
+        ],
+        "pi": [
+          0.147622,
+          0.852378
+        ],
+        "min_weight_ok": true,
+        "separation": 4.598258,
+        "overlap": 0.032636,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.070843,
+        "d_bic": -0.947368,
+        "sarle": 0.498138,
+        "mu": [
+          1.216071,
+          1.25934
+        ],
+        "sd": [
+          0.008417,
+          0.015956
+        ],
+        "pi": [
+          0.344529,
+          0.655471
+        ],
+        "min_weight_ok": true,
+        "separation": 3.391964,
+        "overlap": 0.059149,
+        "bimodal": false
+      }
+    },
+    "30": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.031371,
+        "d_bic": 2.845769,
+        "sarle": 0.505085,
+        "mu": [
+          0.884057,
+          0.895642
+        ],
+        "sd": [
+          0.00489,
+          0.001935
+        ],
+        "pi": [
+          0.609407,
+          0.390593
+        ],
+        "min_weight_ok": true,
+        "separation": 3.11538,
+        "overlap": 0.072511,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "d_bic": NaN,
+        "sarle": NaN,
+        "overlap": NaN,
+        "separation": NaN,
+        "cell_spread": 2.7e-05,
+        "bimodal": false,
+        "skipped": "cell spread below cut: constant within the cell"
+      }
+    }
+  },
+  "control": {
+    "1": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.305374,
+        "d_bic": -0.852836,
+        "sarle": 0.50687,
+        "mu": [
+          0.025725,
+          0.029911
+        ],
+        "sd": [
+          0.00206,
+          0.000774
+        ],
+        "pi": [
+          0.669831,
+          0.330169
+        ],
+        "min_weight_ok": true,
+        "separation": 2.689871,
+        "overlap": 0.104837,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.092167,
+        "d_bic": -7.228202,
+        "sarle": 0.463624,
+        "mu": [
+          111.155792,
+          115.994187
+        ],
+        "sd": [
+          1.285476,
+          2.02486
+        ],
+        "pi": [
+          0.312205,
+          0.687795
+        ],
+        "min_weight_ok": true,
+        "separation": 2.852908,
+        "overlap": 0.08919,
+        "bimodal": false
+      }
+    },
+    "2": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.304969,
+        "d_bic": -0.925034,
+        "sarle": 0.506794,
+        "mu": [
+          0.02438,
+          0.028337
+        ],
+        "sd": [
+          0.001954,
+          0.000732
+        ],
+        "pi": [
+          0.671507,
+          0.328493
+        ],
+        "min_weight_ok": true,
+        "separation": 2.681161,
+        "overlap": 0.105692,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.121965,
+        "d_bic": -7.286597,
+        "sarle": 0.465535,
+        "mu": [
+          91.740675,
+          97.140396
+        ],
+        "sd": [
+          1.385032,
+          2.422936
+        ],
+        "pi": [
+          0.288289,
+          0.711711
+        ],
+        "min_weight_ok": true,
+        "separation": 2.736196,
+        "overlap": 0.101745,
+        "bimodal": false
+      }
+    },
+    "3": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.304603,
+        "d_bic": -0.992346,
+        "sarle": 0.506716,
+        "mu": [
+          0.023168,
+          0.02692
+        ],
+        "sd": [
+          0.001859,
+          0.000694
+        ],
+        "pi": [
+          0.672969,
+          0.327031
+        ],
+        "min_weight_ok": true,
+        "separation": 2.673515,
+        "overlap": 0.106441,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.139265,
+        "d_bic": -7.46689,
+        "sarle": 0.466635,
+        "mu": [
+          80.171574,
+          85.563745
+        ],
+        "sd": [
+          1.389935,
+          2.512988
+        ],
+        "pi": [
+          0.279402,
+          0.720598
+        ],
+        "min_weight_ok": true,
+        "separation": 2.6554,
+        "overlap": 0.109407,
+        "bimodal": false
+      }
+    },
+    "4": {
+      "realized_rank_frac": {
+        "n": 48,
+        "cell_spread": 0.304272,
+        "d_bic": -1.055156,
+        "sarle": 0.506637,
+        "mu": [
+          0.022071,
+          0.025638
+        ],
+        "sd": [
+          0.001772,
+          0.00066
+        ],
+        "pi": [
+          0.674243,
+          0.325757
+        ],
+        "min_weight_ok": true,
+        "separation": 2.666771,
+        "overlap": 0.1071,
+        "bimodal": false
+      },
+      "total_ratio": {
+        "n": 48,
+        "cell_spread": 0.148553,
+        "d_bic": -7.612645,
+        "sarle": 0.467677,
+        "mu": [
+          72.537022,
+          77.752175
+        ],
+        "sd": [
+          1.472309,
+          2.405406
+        ],
+        "pi": [
+          0.3112,
+          0.6888
+        ],
+        "min_weight_ok": true,
+        "separation": 2.615159,
+        "overlap": 0.107772,
+        "bimodal": false
+      }
+    }
+  },
+  "switching": {},
+  "criteria": [
+    {
+      "name": "A2e-1  every run completed",
+      "passed": true,
+      "detail": "624 cells held, 624 jobs dispatched"
+    },
+    {
+      "name": "A2e-0  at least one candidate has range across the sweep",
+      "passed": true,
+      "detail": "live ['realized_rank_frac', 'total_ratio']; struck out for spread<=0.02: [('realized_support_frac', 0.016393), ('support_fraction', 0.016393)]"
+    },
+    {
+      "name": "A2e-2  bistability at a fixed knob value",
+      "passed": false,
+      "detail": "no cell cleared dBIC>10.0 and Sarle>0.555556 on 2 live candidate(s); a crossover, not two basins"
+    },
+    {
+      "name": "A2e-4  the flat control knob returns unimodal",
+      "passed": true,
+      "detail": "no control cell bimodal"
+    },
+    {
+      "name": "A2e-3  within-run transitions, not just two basins",
+      "passed": false,
+      "detail": "not evaluated: A2e-2 found no pair to cross between"
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "carrier": {
+    "friction": 1.0,
+    "industry": {
+      "column_sum": 0.5,
+      "count": 20,
+      "financial_count": 6,
+      "min_share": 1.1,
+      "seed": 0,
+      "supply_elasticity": 1.0,
+      "switch_cost": 0.3,
+      "switch_rate": 0.2,
+      "weight_shape": 2.0
+    },
+    "layer1_size": 20,
+    "layer2_size": 180,
+    "live_setting": {
+      "elasticity": 0.1,
+      "grace": 10,
+      "mode": "exit",
+      "need": 0.0914
+    },
+    "rounds": 300,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "spread": 1.04
+  },
+  "criteria": [
+    {
+      "detail": "switches at friction 0.5-1.0 are [333, 115], at 2.0-5.0 they are [36, 27]",
+      "name": "A20-1 the read point is below saturation",
+      "passed": true
+    },
+    {
+      "detail": "switches 115 -> 85, 7/20 industries change their hot count",
+      "name": "A20-2 the spread is not inert",
+      "passed": true
+    },
+    {
+      "detail": "removing the largest industry reverses the sign of the half-to-half difference in at least one seed of every environment",
+      "name": "A20-3 the half-sum is dominated by one industry",
+      "passed": true
+    },
+    {
+      "detail": "damaged industries: + +; damaged rounds: + +; hot members: - +",
+      "name": "A20-3 at least one quantity keeps its direction across both environments",
+      "passed": true
+    }
+  ],
+  "friction_vector": [
+    0.353455,
+    0.535797,
+    0.812207,
+    1.231213,
+    1.866379,
+    2.829217,
+    0.353455,
+    0.414783,
+    0.486752,
+    0.571209,
+    0.67032,
+    0.786628,
+    0.923116,
+    1.083287,
+    1.271249,
+    1.491825,
+    1.750673,
+    2.054433,
+    2.4109,
+    2.829217
+  ],
+  "readings": {
+    "A20-1 sweep": [
+      {
+        "damaged": 18,
+        "friction": 0.0,
+        "hot": 110,
+        "switches": 378
+      },
+      {
+        "damaged": 15,
+        "friction": 0.05,
+        "hot": 117,
+        "switches": 366
+      },
+      {
+        "damaged": 16,
+        "friction": 0.1,
+        "hot": 118,
+        "switches": 366
+      },
+      {
+        "damaged": 18,
+        "friction": 0.2,
+        "hot": 110,
+        "switches": 384
+      },
+      {
+        "damaged": 18,
+        "friction": 0.5,
+        "hot": 110,
+        "switches": 333
+      },
+      {
+        "damaged": 18,
+        "friction": 1.0,
+        "hot": 114,
+        "switches": 115
+      },
+      {
+        "damaged": 18,
+        "friction": 2.0,
+        "hot": 110,
+        "switches": 36
+      },
+      {
+        "damaged": 18,
+        "friction": 5.0,
+        "hot": 110,
+        "switches": 27
+      }
+    ],
+    "A20-2 mechanical": {
+      "flat": 115,
+      "n": 20,
+      "same_damage": 6,
+      "same_hot": 13,
+      "spread": 85
+    },
+    "A20-3 by environment": {
+      "registered need=0.0914": {
+        "rows": [
+          {
+            "hi": [
+              10,
+              937,
+              58
+            ],
+            "lo": [
+              8,
+              693,
+              60
+            ],
+            "seed": 0
+          },
+          {
+            "hi": [
+              8,
+              779,
+              49
+            ],
+            "lo": [
+              8,
+              1002,
+              68
+            ],
+            "seed": 1
+          },
+          {
+            "hi": [
+              10,
+              1178,
+              52
+            ],
+            "lo": [
+              7,
+              203,
+              57
+            ],
+            "seed": 2
+          },
+          {
+            "hi": [
+              10,
+              1294,
+              54
+            ],
+            "lo": [
+              7,
+              561,
+              56
+            ],
+            "seed": 3
+          },
+          {
+            "hi": [
+              10,
+              1093,
+              45
+            ],
+            "lo": [
+              9,
+              725,
+              63
+            ],
+            "seed": 4
+          }
+        ],
+        "summary": {
+          "damaged industries": {
+            "delta": [
+              2,
+              0,
+              3,
+              3,
+              1
+            ],
+            "negative": 0,
+            "positive": 4,
+            "zero": 1
+          },
+          "damaged rounds": {
+            "delta": [
+              244,
+              -223,
+              975,
+              733,
+              368
+            ],
+            "negative": 1,
+            "positive": 4,
+            "zero": 0
+          },
+          "hot members": {
+            "delta": [
+              -2,
+              -19,
+              -5,
+              -2,
+              -18
+            ],
+            "negative": 5,
+            "positive": 0,
+            "zero": 0
+          }
+        }
+      },
+      "unsaturated need=0.06": {
+        "rows": [
+          {
+            "hi": [
+              8,
+              2092,
+              75
+            ],
+            "lo": [
+              6,
+              1789,
+              64
+            ],
+            "seed": 0
+          },
+          {
+            "hi": [
+              6,
+              1788,
+              85
+            ],
+            "lo": [
+              10,
+              2393,
+              66
+            ],
+            "seed": 1
+          },
+          {
+            "hi": [
+              7,
+              2062,
+              66
+            ],
+            "lo": [
+              6,
+              1800,
+              79
+            ],
+            "seed": 2
+          },
+          {
+            "hi": [
+              8,
+              2389,
+              73
+            ],
+            "lo": [
+              7,
+              2047,
+              65
+            ],
+            "seed": 3
+          },
+          {
+            "hi": [
+              9,
+              2700,
+              71
+            ],
+            "lo": [
+              6,
+              1770,
+              64
+            ],
+            "seed": 4
+          }
+        ],
+        "summary": {
+          "damaged industries": {
+            "delta": [
+              2,
+              -4,
+              1,
+              1,
+              3
+            ],
+            "negative": 1,
+            "positive": 4,
+            "zero": 0
+          },
+          "damaged rounds": {
+            "delta": [
+              303,
+              -605,
+              262,
+              342,
+              930
+            ],
+            "negative": 1,
+            "positive": 4,
+            "zero": 0
+          },
+          "hot members": {
+            "delta": [
+              11,
+              19,
+              -13,
+              8,
+              7
+            ],
+            "negative": 1,
+            "positive": 4,
+            "zero": 0
+          }
+        }
+      }
+    },
+    "A20-3 direction across environments": {
+      "damaged industries": {
+        "signs": [
+          "+",
+          "+"
+        ],
+        "stable": true
+      },
+      "damaged rounds": {
+        "signs": [
+          "+",
+          "+"
+        ],
+        "stable": true
+      },
+      "hot members": {
+        "signs": [
+          "-",
+          "+"
+        ],
+        "stable": false
+      }
+    },
+    "A20-3 half-sum domination": {
+      "registered need=0.0914": [
+        {
+          "industry": 14,
+          "raw": -2,
+          "side": "hi",
+          "size": 38,
+          "without_largest": -40
+        },
+        {
+          "industry": 7,
+          "raw": -19,
+          "side": "lo",
+          "size": 27,
+          "without_largest": 8
+        },
+        {
+          "industry": 16,
+          "raw": -5,
+          "side": "hi",
+          "size": 22,
+          "without_largest": -27
+        },
+        {
+          "industry": 12,
+          "raw": -2,
+          "side": "lo",
+          "size": 31,
+          "without_largest": 29
+        },
+        {
+          "industry": 8,
+          "raw": -18,
+          "side": "lo",
+          "size": 18,
+          "without_largest": 0
+        }
+      ],
+      "unsaturated need=0.06": [
+        {
+          "industry": 13,
+          "raw": 11,
+          "side": "hi",
+          "size": 21,
+          "without_largest": -10
+        },
+        {
+          "industry": 14,
+          "raw": 19,
+          "side": "hi",
+          "size": 28,
+          "without_largest": -9
+        },
+        {
+          "industry": 11,
+          "raw": -13,
+          "side": "lo",
+          "size": 37,
+          "without_largest": 24
+        },
+        {
+          "industry": 14,
+          "raw": 8,
+          "side": "hi",
+          "size": 22,
+          "without_largest": -14
+        },
+        {
+          "industry": 16,
+          "raw": 7,
+          "side": "hi",
+          "size": 20,
+          "without_largest": -13
+        }
+      ]
+    },
+    "A20-6 rank correlation": {
+      "registered need=0.0914": {
+        "damaged": [
+          0.419418622927,
+          0.130164400219,
+          0.388835450189,
+          0.364533234552,
+          0.3583411368
+        ],
+        "damaged_rounds": [
+          0.02982267868,
+          0.181992364191,
+          0.582485989917,
+          0.426632218657,
+          0.237143138347
+        ],
+        "hot": [
+          -0.281543442916,
+          -0.021850997011,
+          -0.239019541262,
+          0.089738225543,
+          -0.242188876501
+        ]
+      },
+      "unsaturated need=0.06": {
+        "damaged": [
+          0.397658811194,
+          -0.325411000547,
+          0.109159493624,
+          0.070140421405,
+          0.480962889634
+        ],
+        "damaged_rounds": [
+          0.254549592081,
+          0.008691433574,
+          -0.043280312282,
+          0.425281225827,
+          0.508178592552
+        ],
+        "hot": [
+          -0.120019770948,
+          0.005677596745,
+          0.044125567892,
+          -0.003407855043,
+          -0.103767512498
+        ]
+      }
+    }
+  },
+  "stage": "A20"
+}

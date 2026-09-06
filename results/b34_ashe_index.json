@@ -1,0 +1,322 @@
+{
+  "labels_by_zip": {
+    "ICPSR_37382-V1.zip": [],
+    "ICPSR_37382-V1_Stata.zip": [],
+    "d_us_txt.zip": [],
+    "dfa.zip": [],
+    "scfp2022excel.zip": [],
+    "table62014revised.zip": [
+      "18-21",
+      "22-29",
+      "30-39",
+      "40-49",
+      "50-59",
+      "60+",
+      "All employees"
+    ],
+    "table62015revised.zip": [
+      "18-21",
+      "22-29",
+      "30-39",
+      "40-49",
+      "50-59",
+      "60+",
+      "All employees"
+    ],
+    "table62016revised.zip": [
+      "18-21",
+      "22-29",
+      "30-39",
+      "40-49",
+      "50-59",
+      "60+",
+      "All employees"
+    ],
+    "table62017revised.zip": [
+      "18-21",
+      "22-29",
+      "30-39",
+      "40-49",
+      "50-59",
+      "60+",
+      "All employees"
+    ],
+    "table62018revised.zip": [
+      "18-21",
+      "22-29",
+      "30-39",
+      "40-49",
+      "50-59",
+      "60+",
+      "All employees"
+    ]
+  },
+  "verdict": "SAME",
+  "zips": {
+    "ICPSR_37382-V1.zip": {
+      "workbooks": {}
+    },
+    "ICPSR_37382-V1_Stata.zip": {
+      "workbooks": {}
+    },
+    "d_us_txt.zip": {
+      "workbooks": {}
+    },
+    "dfa.zip": {
+      "workbooks": {}
+    },
+    "scfp2022excel.zip": {
+      "workbooks": {}
+    },
+    "table62014revised.zip": {
+      "workbooks": {
+        "Age Group Table 6.6a   Hourly pay - Excluding overtime 2014.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6a   Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2014"
+        },
+        "Age Group Table 6.6b   Hourly pay - Excluding overtime 2014 CV.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6b   Coefficients of variation for Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2014"
+        }
+      }
+    },
+    "table62015revised.zip": {
+      "workbooks": {
+        "Age Group Table 6.6a   Hourly pay - Excluding overtime 2015.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6a   Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2015"
+        },
+        "Age Group Table 6.6b   Hourly pay - Excluding overtime 2015 CV.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6b   Coefficients of variation for Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2015"
+        }
+      }
+    },
+    "table62016revised.zip": {
+      "workbooks": {
+        "Age Group Table 6.6a   Hourly pay - Excluding overtime 2016.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6a   Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2016"
+        },
+        "Age Group Table 6.6b   Hourly pay - Excluding overtime 2016 CV.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6b   Coefficients of variation for Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2016"
+        }
+      }
+    },
+    "table62017revised.zip": {
+      "workbooks": {
+        "Age Group Table 6.6a   Hourly pay - Excluding overtime 2017.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6a   Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2017"
+        },
+        "Age Group Table 6.6b   Hourly pay - Excluding overtime 2017 CV.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6b   Coefficients of variation for Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2017"
+        }
+      }
+    },
+    "table62018revised.zip": {
+      "workbooks": {
+        "Age Group Table 6.6a   Hourly pay - Excluding overtime 2018.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6a   Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2018"
+        },
+        "Age Group Table 6.6b   Hourly pay - Excluding overtime 2018 CV.xls": {
+          "labels": [
+            "All employees",
+            "18-21",
+            "22-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60+"
+          ],
+          "sheets": [
+            "All",
+            "Male",
+            "Female",
+            "Full-Time",
+            "Part-Time",
+            "Male Full-Time",
+            "Male Part-Time",
+            "Female Full-Time",
+            "Female Part-Time"
+          ],
+          "title": "Table 6.6b   Coefficients of variation for Hourly pay - Excluding overtime (£) - For all employee jobsa: United Kingdom, 2018"
+        }
+      }
+    }
+  }
+}

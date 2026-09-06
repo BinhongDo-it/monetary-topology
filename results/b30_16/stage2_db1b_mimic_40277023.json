@@ -1,0 +1,50 @@
+[
+  {
+    "source": "db1b_mimic_t6",
+    "year": 1993,
+    "quarter": 1,
+    "n_routes": 1727,
+    "n_carriers": 11,
+    "n_pairs": 80,
+    "gap_mean": 0.2827858379587051,
+    "gap_sd": 0.19039758921278555,
+    "r2_rank1": 0.17555790648328484,
+    "r2_pair": 0.23262310134630948,
+    "route_increment": 0.06624790643923628,
+    "r2_route_only": 0.10436530039428604,
+    "n_route_feats": 2,
+    "null_mean": 0.00578107098958508
+  },
+  {
+    "source": "db1b_mimic_t6",
+    "year": 1994,
+    "quarter": 1,
+    "n_routes": 1710,
+    "n_carriers": 13,
+    "n_pairs": 88,
+    "gap_mean": 0.27444189583970047,
+    "gap_sd": 0.20397929995480352,
+    "r2_rank1": 0.22200730240396715,
+    "r2_pair": 0.28365623537719087,
+    "route_increment": 0.05109777076418032,
+    "r2_route_only": 0.11069270007707943,
+    "n_route_feats": 2,
+    "null_mean": 0.008024600282261197
+  },
+  {
+    "source": "db1b_mimic_t6",
+    "year": 1995,
+    "quarter": 1,
+    "n_routes": 1756,
+    "n_carriers": 15,
+    "n_pairs": 111,
+    "gap_mean": 0.32425906426933493,
+    "gap_sd": 0.22724303988619238,
+    "r2_rank1": 0.20971052379927135,
+    "r2_pair": 0.27868533474569257,
+    "route_increment": 0.04402548211837243,
+    "r2_route_only": 0.07840494446401658,
+    "n_route_feats": 2,
+    "null_mean": 0.008684293471441428
+  }
+]

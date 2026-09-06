@@ -1,0 +1,163 @@
+{
+ "criteria": [
+  {
+   "detail": "returns exactly one candidate for 1275 of 2594 known firms and is right on 1244 of those: precision 97.6%. The failures look like a later company of the same name at a much higher register number.",
+   "name": "B40-N1 name join precision, measured not assumed",
+   "passed": true
+  },
+  {
+   "detail": "R unique 341 -> 470, V 2030 -> 2594. Dissolved share R 51.0% vs V 51.3% before, R 50.9% vs V 50.3% after.",
+   "name": "B40-N3 do the two margins move once the merged courts are folded in",
+   "passed": true
+  }
+ ],
+ "diagnostic_only": false,
+ "scope_note": "the join was calibrated before use and carries a measured 2.4% false-positive rate at 48.0% recall, and it reaches only the two Laender whose courts were merged. Both are printed beside the readings. Recall is capped by the register dump 2005 window, the same wall the register-number key hits, so it is a property of the source and not an unfinished step.",
+ "stage": "DE-NAME",
+ "tables": {
+  "by_land": {
+   "S-AN": {
+    "multi": 9,
+    "no_match": 1841,
+    "tried": 2250,
+    "unique": 400
+   },
+   "THÜR": {
+    "multi": 13,
+    "no_match": 1645,
+    "tried": 2045,
+    "unique": 387
+   }
+  },
+  "calibration": {
+   "n": 2594,
+   "no match": 1294,
+   "one correct": 1244,
+   "one wrong": 31,
+   "precision": 0.9756862745098039,
+   "recall": 0.47956823438704704,
+   "several": 25,
+   "several incl truth": 24
+  },
+  "dissolved_gap": {
+   "after": {
+    "diff": 0.005426598205351185,
+    "mde_pp": 4.122795903744475,
+    "r_n": 470,
+    "se": 0.025062589080513526,
+    "se_units": 0.21652185206876462,
+    "v_n": 2594
+   },
+   "before": {
+    "diff": -0.003036562992069114,
+    "mde_pp": 4.812558357644481,
+    "r_n": 341,
+    "se": 0.029255673906653384,
+    "se_units": -0.10379398545929693,
+    "v_n": 2030
+   }
+  },
+  "margins_after": {
+   "F": {
+    "dissolved": 9,
+    "dissolved_rate": 0.75,
+    "n": 722,
+    "unique": 12,
+    "unique_rate": 0.01662049861495845
+   },
+   "GV": {
+    "dissolved": 112,
+    "dissolved_rate": 0.9411764705882353,
+    "n": 190,
+    "unique": 119,
+    "unique_rate": 0.6263157894736842
+   },
+   "IL": {
+    "dissolved": 37,
+    "dissolved_rate": 0.8043478260869565,
+    "n": 59,
+    "unique": 46,
+    "unique_rate": 0.7796610169491526
+   },
+   "L": {
+    "dissolved": 118,
+    "dissolved_rate": 0.8489208633093526,
+    "n": 3022,
+    "unique": 139,
+    "unique_rate": 0.04599602911978822
+   },
+   "R": {
+    "dissolved": 239,
+    "dissolved_rate": 0.5085106382978724,
+    "n": 1329,
+    "unique": 470,
+    "unique_rate": 0.35364936042136946
+   },
+   "SP": {
+    "dissolved": 1,
+    "dissolved_rate": 1.0,
+    "n": 141,
+    "unique": 1,
+    "unique_rate": 0.0070921985815602835
+   },
+   "V": {
+    "dissolved": 1305,
+    "dissolved_rate": 0.5030840400925212,
+    "n": 6388,
+    "unique": 2594,
+    "unique_rate": 0.4060738885410144
+   }
+  },
+  "margins_before": {
+   "F": {
+    "dissolved": 7,
+    "dissolved_rate": 1.0,
+    "n": 488,
+    "unique": 7,
+    "unique_rate": 0.014344262295081968
+   },
+   "GV": {
+    "dissolved": 73,
+    "dissolved_rate": 0.948051948051948,
+    "n": 94,
+    "unique": 77,
+    "unique_rate": 0.8191489361702128
+   },
+   "IL": {
+    "dissolved": 26,
+    "dissolved_rate": 0.7878787878787878,
+    "n": 40,
+    "unique": 33,
+    "unique_rate": 0.825
+   },
+   "L": {
+    "dissolved": 95,
+    "dissolved_rate": 0.9047619047619048,
+    "n": 1993,
+    "unique": 105,
+    "unique_rate": 0.05268439538384345
+   },
+   "R": {
+    "dissolved": 174,
+    "dissolved_rate": 0.5102639296187683,
+    "n": 694,
+    "unique": 341,
+    "unique_rate": 0.49135446685878964
+   },
+   "SP": {
+    "dissolved": 1,
+    "dissolved_rate": 1.0,
+    "n": 93,
+    "unique": 1,
+    "unique_rate": 0.010752688172043012
+   },
+   "V": {
+    "dissolved": 1042,
+    "dissolved_rate": 0.5133004926108374,
+    "n": 4154,
+    "unique": 2030,
+    "unique_rate": 0.4886856042368801
+   }
+  }
+ }
+}

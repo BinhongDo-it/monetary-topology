@@ -1,0 +1,347 @@
+{
+ "items": [
+  {
+   "item": "Restaurants :: Meal at an Inexpensive Restaurant",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.411700944068498
+  },
+  {
+   "item": "Restaurants :: Meal for Two at a Mid-Range Restaurant (Three Courses, Without Drinks)",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.2854494964307147
+  },
+  {
+   "item": "Restaurants :: Combo Meal at McDonald's (or Equivalent Fast-Food Meal)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.26588829144236165
+  },
+  {
+   "item": "Restaurants :: Domestic Draft Beer (1 Pint)",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.40354846054033133
+  },
+  {
+   "item": "Restaurants :: Imported Beer (12 oz Small Bottle)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.37666883023648945
+  },
+  {
+   "item": "Restaurants :: Cappuccino (Regular Size)",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.3182446816907705
+  },
+  {
+   "item": "Restaurants :: Soft Drink (Coca-Cola or Pepsi, 12 oz Small Bottle)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.35195685094555856
+  },
+  {
+   "item": "Restaurants :: Bottled Water (12 oz)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.47641768924344335
+  },
+  {
+   "item": "Markets :: Milk (Regular, 1 Liter)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.44631309552653536
+  },
+  {
+   "item": "Markets :: Fresh White Bread (1 lb Loaf)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.3849009431624457
+  },
+  {
+   "item": "Markets :: White Rice (1 lb)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.35204457313009474
+  },
+  {
+   "item": "Markets :: Eggs (12, Large Size)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.25410331592570085
+  },
+  {
+   "item": "Markets :: Local Cheese (1 lb)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.3869305927592236
+  },
+  {
+   "item": "Markets :: Chicken Fillets (1 lb)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.24914519265252838
+  },
+  {
+   "item": "Markets :: Beef Round or Equivalent Back Leg Red Meat (1 lb)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.33458220587883253
+  },
+  {
+   "item": "Markets :: Apples (1 lb)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.4267482575535514
+  },
+  {
+   "item": "Markets :: Bananas (1 lb)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.3679646540011307
+  },
+  {
+   "item": "Markets :: Oranges (1 lb)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.3594359530234699
+  },
+  {
+   "item": "Markets :: Tomatoes (1 lb)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.4057600109732937
+  },
+  {
+   "item": "Markets :: Potatoes (1 lb)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.3715590244980343
+  },
+  {
+   "item": "Markets :: Onions (1 lb)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.3850045345739945
+  },
+  {
+   "item": "Markets :: Lettuce (1 Head)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.3565420551107648
+  },
+  {
+   "item": "Markets :: Bottled Water (50 oz)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.38576922913722345
+  },
+  {
+   "item": "Markets :: Bottle of Wine (Mid-Range)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.5100607854857448
+  },
+  {
+   "item": "Markets :: Domestic Beer (16.9 oz Bottle)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.5037782666169263
+  },
+  {
+   "item": "Markets :: Imported Beer (12 oz Small Bottle)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.4951616178128578
+  },
+  {
+   "item": "Markets :: Cigarettes (Pack of 20, Marlboro)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.3944662451351001
+  },
+  {
+   "item": "Transportation :: One-Way Ticket (Local Transport)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.5746355258018979
+  },
+  {
+   "item": "Transportation :: Monthly Public Transport Pass (Regular Price)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.5274224499539031
+  },
+  {
+   "item": "Transportation :: Taxi Start (Standard Tariff)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.5379695518610803
+  },
+  {
+   "item": "Transportation :: Taxi 1 mile (Standard Tariff)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.5229176774787176
+  },
+  {
+   "item": "Transportation :: Taxi 1 Hour Waiting (Standard Tariff)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.6946508520476952
+  },
+  {
+   "item": "Transportation :: Gasoline (1 Liter)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.46010674296370185
+  },
+  {
+   "item": "Transportation :: Volkswagen Golf 1.5 (or Equivalent New Compact Car)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.47010205250392334
+  },
+  {
+   "item": "Transportation :: Toyota Corolla Sedan 1.6 (or Equivalent New Mid-Size Car)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.4941860000745274
+  },
+  {
+   "item": "Utilities (Monthly) :: Basic Utilities for 915 Square Feet Apartment (Electricity, Heating, Cooling, Water, Garbage)",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.47961273014297995
+  },
+  {
+   "item": "Utilities (Monthly) :: Broadband Internet (Unlimited Data, 60 Mbps or Higher)",
+   "spec": "TIGHT",
+   "trade": "LOCAL",
+   "resid_sd": 0.5322720788105999
+  },
+  {
+   "item": "Sports And Leisure :: Monthly Fitness Club Membership",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.401627460787674
+  },
+  {
+   "item": "Sports And Leisure :: Tennis Court Rental (1 Hour, Weekend)",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.5624227437169397
+  },
+  {
+   "item": "Sports And Leisure :: Cinema Ticket (International Release)",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.24414146675921108
+  },
+  {
+   "item": "Childcare :: Private Full-Day Preschool or Kindergarten, Monthly Fee per Child",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.6712472337850331
+  },
+  {
+   "item": "Childcare :: International Primary School, Annual Tuition per Child",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.6500686684040919
+  },
+  {
+   "item": "Clothing And Shoes :: Jeans (Levi's 501 or Similar)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.41429050329300043
+  },
+  {
+   "item": "Clothing And Shoes :: Summer Dress in a Chain Store (e.g. Zara or H&M)",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.45993408964523586
+  },
+  {
+   "item": "Clothing And Shoes :: Nike Running Shoes (Mid-Range)",
+   "spec": "TIGHT",
+   "trade": "TRADED",
+   "resid_sd": 0.42116872813778045
+  },
+  {
+   "item": "Clothing And Shoes :: Men's Leather Business Shoes",
+   "spec": "LOOSE",
+   "trade": "TRADED",
+   "resid_sd": 0.3286303421090663
+  },
+  {
+   "item": "Rent Per Month :: 1 Bedroom Apartment in City Centre",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.44770720032704153
+  },
+  {
+   "item": "Rent Per Month :: 1 Bedroom Apartment Outside of City Centre",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.5021718401553663
+  },
+  {
+   "item": "Rent Per Month :: 3 Bedroom Apartment in City Centre",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.4490483296671309
+  },
+  {
+   "item": "Rent Per Month :: 3 Bedroom Apartment Outside of City Centre",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.45118085933610746
+  },
+  {
+   "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment in City Centre",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.5768560201598449
+  },
+  {
+   "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment Outside of Centre",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.5941744421117846
+  },
+  {
+   "item": "Salaries And Financing :: Average Monthly Net Salary (After Tax)",
+   "spec": "LOOSE",
+   "trade": "LOCAL",
+   "resid_sd": 0.5834553426450134
+  }
+ ],
+ "unclassified": [],
+ "cells": {
+  "TIGHT_TRADED": {
+   "median": 0.4001131280541969,
+   "n": 14
+  },
+  "TIGHT_LOCAL": {
+   "median": 0.513347972047822,
+   "n": 12
+  },
+  "LOOSE_TRADED": {
+   "median": 0.3807848866994676,
+   "n": 10
+  },
+  "LOOSE_LOCAL": {
+   "median": 0.45118085933610746,
+   "n": 17
+  }
+ },
+ "margins": {
+  "tight": 0.4239584928456659,
+  "loose": 0.44770720032704153,
+  "traded": 0.385967563666609,
+  "local": 0.47961273014297995
+ }
+}

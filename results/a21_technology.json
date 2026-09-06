@@ -1,0 +1,422 @@
+{
+  "carrier": {
+    "col_drift": 0.002,
+    "industry": {
+      "column_sum": 0.5,
+      "count": 20,
+      "financial_count": 6,
+      "friction_spread": 1.04,
+      "min_share": 1.1,
+      "recovery_friction": 1.0,
+      "seed": 0,
+      "supply_elasticity": 1.0,
+      "switch_cost": 0.3,
+      "switch_rate": 0.2,
+      "weight_shape": 2.0
+    },
+    "layer1_size": 20,
+    "layer2_size": 180,
+    "live_setting": {
+      "elasticity": 0.1,
+      "grace": 10,
+      "mode": "exit",
+      "need": 0.0914
+    },
+    "rounds": 300,
+    "row_drift": -0.005,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "sweep": [
+      0.0,
+      -0.001,
+      -0.002,
+      -0.005,
+      -0.01
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "switches across the sweep: [85, 85, 85, 85, 78]",
+      "name": "A21-2 the drift is not inert",
+      "passed": true
+    },
+    {
+      "detail": "5 seeds x 4 quantities",
+      "name": "A21-3 row drift vs frozen: every seed and quantity returned a number",
+      "passed": true
+    },
+    {
+      "detail": "5 seeds x 4 quantities",
+      "name": "A21-4 symmetric vs asymmetric: every seed and quantity returned a number",
+      "passed": true
+    },
+    {
+      "detail": "drift 0.002 against cap 0.00231; the cap is column_sum * (1+d)^rounds < 1, not a chosen bound",
+      "name": "A21-5 the column arm is inside the feasibility cap",
+      "passed": true
+    },
+    {
+      "detail": "5 seeds x 4 quantities",
+      "name": "A21-5 col drift vs frozen: every seed and quantity returned a number",
+      "passed": true
+    }
+  ],
+  "readings": {
+    "A21-2 sweep": [
+      {
+        "active_nodes": 118.0,
+        "column_sum_median": 0.5,
+        "drift": 0.0,
+        "l2_inflow_total": 3847.009317845628,
+        "l2_share": 0.011355830644,
+        "l2_support": 77.170719054875,
+        "switches": 85,
+        "total_volume": 338769.5218903426
+      },
+      {
+        "active_nodes": 119.0,
+        "column_sum_median": 0.379242718031,
+        "drift": -0.001,
+        "l2_inflow_total": 3933.1286682107,
+        "l2_share": 0.011742875721,
+        "l2_support": 81.394955745402,
+        "switches": 85,
+        "total_volume": 334937.4345366646
+      },
+      {
+        "active_nodes": 118.0,
+        "column_sum_median": 0.289720153712,
+        "drift": -0.002,
+        "l2_inflow_total": 3755.534290354757,
+        "l2_share": 0.010869199458,
+        "l2_support": 82.162292520804,
+        "switches": 85,
+        "total_volume": 345520.78143074864
+      },
+      {
+        "active_nodes": 118.0,
+        "column_sum_median": 0.137807839933,
+        "drift": -0.005,
+        "l2_inflow_total": 4062.592421354925,
+        "l2_share": 0.012415279423,
+        "l2_support": 77.321174441165,
+        "switches": 85,
+        "total_volume": 327225.2103907896
+      },
+      {
+        "active_nodes": 116.0,
+        "column_sum_median": 0.05712166878,
+        "drift": -0.01,
+        "l2_inflow_total": 3603.44332385218,
+        "l2_share": 0.010300627113,
+        "l2_support": 79.52368858767,
+        "switches": 78,
+        "total_volume": 349827.56721652206
+      }
+    ],
+    "A21-3 row drift vs frozen": {
+      "rows": [
+        {
+          "active_nodes": 0.0,
+          "l2_share": 0.001059448779,
+          "l2_support": 0.15045538629,
+          "seed": 0,
+          "sw_c": 85,
+          "sw_t": 85,
+          "total_volume": -11544.311499552976
+        },
+        {
+          "active_nodes": -7.0,
+          "l2_share": -0.002376364557,
+          "l2_support": 8.775091121028,
+          "seed": 1,
+          "sw_c": 1266,
+          "sw_t": 1278,
+          "total_volume": 10709.991430374386
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_share": -8.2371223e-05,
+          "l2_support": 0.0,
+          "seed": 2,
+          "sw_c": 343,
+          "sw_t": 304,
+          "total_volume": 1154.662679885572
+        },
+        {
+          "active_nodes": 2.0,
+          "l2_share": 0.002585081945,
+          "l2_support": -9.364188666859,
+          "seed": 3,
+          "sw_c": 198,
+          "sw_t": 267,
+          "total_volume": -18755.871124705067
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_share": -5.696063e-06,
+          "l2_support": 0.0,
+          "seed": 4,
+          "sw_c": 53,
+          "sw_t": 53,
+          "total_volume": 92.372028599377
+        }
+      ],
+      "summary": {
+        "active_nodes": {
+          "delta": [
+            0.0,
+            -7.0,
+            0.0,
+            2.0,
+            0.0
+          ],
+          "negative": 1,
+          "positive": 1,
+          "zero": 3
+        },
+        "l2_share": {
+          "delta": [
+            0.001059448779,
+            -0.002376364557,
+            -8.2371223e-05,
+            0.002585081945,
+            -5.696063e-06
+          ],
+          "negative": 3,
+          "positive": 2,
+          "zero": 0
+        },
+        "l2_support": {
+          "delta": [
+            0.15045538629,
+            8.775091121028,
+            0.0,
+            -9.364188666859,
+            0.0
+          ],
+          "negative": 1,
+          "positive": 2,
+          "zero": 2
+        },
+        "total_volume": {
+          "delta": [
+            -11544.311499552976,
+            10709.991430374386,
+            1154.662679885572,
+            -18755.871124705067,
+            92.372028599377
+          ],
+          "negative": 2,
+          "positive": 3,
+          "zero": 0
+        }
+      }
+    },
+    "A21-4 symmetric vs asymmetric": {
+      "rows": [
+        {
+          "active_nodes": 0.0,
+          "l2_share": -2.790226e-06,
+          "l2_support": 0.0,
+          "seed": 0,
+          "sw_c": 85,
+          "sw_t": 85,
+          "total_volume": 93.051139165822
+        },
+        {
+          "active_nodes": -2.0,
+          "l2_share": 0.000153451057,
+          "l2_support": 0.0,
+          "seed": 1,
+          "sw_c": 1278,
+          "sw_t": 1041,
+          "total_volume": -8422.478019739327
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_share": 6.635088e-06,
+          "l2_support": 0.0,
+          "seed": 2,
+          "sw_c": 304,
+          "sw_t": 304,
+          "total_volume": -261.817848842591
+        },
+        {
+          "active_nodes": -5.0,
+          "l2_share": -0.003245374588,
+          "l2_support": 13.466906229649,
+          "seed": 3,
+          "sw_c": 267,
+          "sw_t": 255,
+          "total_volume": 18480.743986611313
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_share": 3.858163e-06,
+          "l2_support": 0.0,
+          "seed": 4,
+          "sw_c": 53,
+          "sw_t": 55,
+          "total_volume": 37.754523412324
+        }
+      ],
+      "summary": {
+        "active_nodes": {
+          "delta": [
+            0.0,
+            -2.0,
+            0.0,
+            -5.0,
+            0.0
+          ],
+          "negative": 2,
+          "positive": 0,
+          "zero": 3
+        },
+        "l2_share": {
+          "delta": [
+            -2.790226e-06,
+            0.000153451057,
+            6.635088e-06,
+            -0.003245374588,
+            3.858163e-06
+          ],
+          "negative": 2,
+          "positive": 3,
+          "zero": 0
+        },
+        "l2_support": {
+          "delta": [
+            0.0,
+            0.0,
+            0.0,
+            13.466906229649,
+            0.0
+          ],
+          "negative": 0,
+          "positive": 1,
+          "zero": 4
+        },
+        "total_volume": {
+          "delta": [
+            93.051139165822,
+            -8422.478019739327,
+            -261.817848842591,
+            18480.743986611313,
+            37.754523412324
+          ],
+          "negative": 2,
+          "positive": 3,
+          "zero": 0
+        }
+      }
+    },
+    "A21-5 col drift vs frozen": {
+      "rows": [
+        {
+          "active_nodes": 2.0,
+          "l2_share": 0.002739836504,
+          "l2_support": 0.067623348037,
+          "seed": 0,
+          "sw_c": 85,
+          "sw_t": 108,
+          "total_volume": -28156.948894339206
+        },
+        {
+          "active_nodes": 5.0,
+          "l2_share": 0.000787441411,
+          "l2_support": 7.986908521201,
+          "seed": 1,
+          "sw_c": 1266,
+          "sw_t": 1266,
+          "total_volume": -10956.630691168597
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_share": -1.5409058e-05,
+          "l2_support": 0.0,
+          "seed": 2,
+          "sw_c": 343,
+          "sw_t": 351,
+          "total_volume": 1157.995013305394
+        },
+        {
+          "active_nodes": 8.0,
+          "l2_share": 0.004940242565,
+          "l2_support": -11.49454490632,
+          "seed": 3,
+          "sw_c": 198,
+          "sw_t": 212,
+          "total_volume": -35121.285804673564
+        },
+        {
+          "active_nodes": 0.0,
+          "l2_share": 2.247433e-06,
+          "l2_support": 0.0,
+          "seed": 4,
+          "sw_c": 53,
+          "sw_t": 53,
+          "total_volume": -59.204939855321
+        }
+      ],
+      "summary": {
+        "active_nodes": {
+          "delta": [
+            2.0,
+            5.0,
+            0.0,
+            8.0,
+            0.0
+          ],
+          "negative": 0,
+          "positive": 3,
+          "zero": 2
+        },
+        "l2_share": {
+          "delta": [
+            0.002739836504,
+            0.000787441411,
+            -1.5409058e-05,
+            0.004940242565,
+            2.247433e-06
+          ],
+          "negative": 1,
+          "positive": 4,
+          "zero": 0
+        },
+        "l2_support": {
+          "delta": [
+            0.067623348037,
+            7.986908521201,
+            0.0,
+            -11.49454490632,
+            0.0
+          ],
+          "negative": 1,
+          "positive": 2,
+          "zero": 2
+        },
+        "total_volume": {
+          "delta": [
+            -28156.948894339206,
+            -10956.630691168597,
+            1157.995013305394,
+            -35121.285804673564,
+            -59.204939855321
+          ],
+          "negative": 4,
+          "positive": 1,
+          "zero": 0
+        }
+      }
+    },
+    "A21-5 hawkins_simon_cap": 0.002313161842
+  },
+  "stage": "A21"
+}

@@ -2606,7 +2606,7 @@ XNYS.PILLAR and XNAS.ITCH, 27,602,417 cross-venue aligned quote-seconds, $34.689
 
 | | criterion | detail |
 |---|---|---|
-| PASS | B14-0  the friction half moved on the 2016 round, and it is not carried by the orders that do not participate in the spread | the primary share-weighted convention holds all six inequalities, and so do the order-count convention, the adverse convention and the NBBO cross-check. A19 then drops the order types that the code table named: away-from-market orders, which carry the largest single block of the share weight, retail liquidity providing orders, and both together. The primary measure holds 6/6 in every one of the three variants. Same event, same data, only the weight composition changes. **One caveat travels with any citation of T6**: its own 6/6 depends entirely on order type 22, holding under the retail variant and falling to exactly 3/6 under the other two. T6 was excluded from the verdict before the run, so nothing moves, but the dependence must be quoted with it |
+| PASS | B14-0  the friction half moved on the 2016 round, and it is not carried by the orders that do not participate in the spread | the primary share-weighted convention holds all six inequalities, and so do the order-count convention, the adverse convention and the NBBO cross-check. B14_A19 then drops the order types that the code table named: away-from-market orders, which carry the largest single block of the share weight, retail liquidity providing orders, and both together. The primary measure holds 6/6 in every one of the three variants. Same event, same data, only the weight composition changes. **One caveat travels with any citation of T6**: its own 6/6 depends entirely on order type 22, holding under the retail variant and falling to exactly 3/6 under the other two. T6 was excluded from the verdict before the run, so nothing moves, but the dependence must be quoted with it |
 | PASS | B14-A  leg A, the pilot's termination read as a reversed event, on the population the two rounds share | the two rounds had been reading different symbol universes. The venue's Appendix B coverage runs 618 distinct symbols in 201803 and 2110 in 201804, between the rounds, and from 201804 on it matches the other venue's where before it carried about a third of it. Restricted to the 618, which is a coverage fact and predates both of the round's windows, the primary window holds 6 of 6, every one of the four venue weighting conventions agreeing in sign and in the predicted direction, and the control group's own delta is 0.0594 where the unrestricted run gave 0.2766. Four of the six cells sit outside every gap measured on window pairs where nothing happened, whether those pairs are taken inside the pilot, widest 0.1299, or after it, widest 0.0593. The unrestricted run stands unaltered in results/b14_gate_exit.json and its own numbers are not touched; what changed is the population it was read on, not the criterion |
 | PASS | B14-B0  leg B was bought and the wire format was read correctly | 108 NYSE-listed pilot symbols on two venues over eight months of bbo-1s. The depth gate's four registered checks all passed before a cent of bulk data was bought, and the pull came to 34.689578 dollars against a quote of the same. The semantic check is exact: every treated name, on every second the pilot was in force, has all four prices on a whole nickel |
 | PASS | B14-B1  gate one: the two venues are two classes in section 5.1's own sense | the framework hands over its own criterion, that S - S' is zero exactly when the two classes face the same antisymmetric terms, so the question is measurable. Per control symbol, the count of days whose sign leans positive against a binomial null: 9 of 47 symbols beyond three standard deviations where the null expects well under one, and a median \|z\| of 2.08 where the null gives 0.67. Run on the control arm only, because inside the pilot the grid pins both venues to one lattice point and that branch is unreachable there |
@@ -4926,6 +4926,308 @@ figure can place it; placing it is their work and not this stage's.
 | PASS | A18_F3 is the count monotone in the parking rate | second state: 4 of 10 and 6 of 10 cells by route, and the two shapes are different |
 
 
+## A19 — industries as clusters of agents, and which layer of the mechanism carries the aggregate
+
+`20 industries` `200 agents` `5 seeds` `nothing fetched`
+
+Agents are partitioned into industries, a Leontief coefficient matrix sets what
+each industry buys from each other, agents may move between industries at a
+price, an industry that has lost members can be hard to re-enter, and an industry
+that has lost members cannot deliver what is asked of it. Five switches, each off
+by default, each reproducing the previous stage bit-for-bit at zero.
+
+**The structure carries the aggregate, and the adaptive behaviour carries it too,
+by moving the structure.** Paired
+against the same seed, turning the industry layer on moves four quantities in the
+same direction in all five seeds, and a fifth in four of them:
+
+| quantity | direction, 5 seeds |
+|---|---|
+| wage scar depth, close over peak | **5 of 5 down**, −0.0203 to −0.0015 |
+| total volume | **5 of 5 up**, +11,634 to +66,315 |
+| production-layer effective support | **5 of 5 up**, +0.69 to +12.77 |
+| production-layer inflow | **5 of 5 down**, −3.59 to −0.17 |
+| nodes still trading | 4 of 5 down, one unchanged, −6 to 0 |
+
+Under a second parameterisation, with no subsistence floor and no wage
+elasticity, three quantities are again unanimous: volume down, support down,
+inflow up. **Inflow rising while support falls is what support contraction is**:
+more money entering the layer, reaching fewer of its members.
+
+**Switching reads the aggregate, and it reads it through the graph rather than
+through the agent.** With industries on in both arms, total volume falls in all
+five seeds (−59,455 to −12,974) and the count of non-empty industries falls in
+four of five (−3 to 0, against twenty in every control arm). The path is in the
+same table: moving agents out of an industry empties it, an emptied industry
+cannot deliver, and under a Leontief min the undelivered share is not spent
+elsewhere. It does not happen. The switching fee runs the other way, so the fee
+is not what moved the total.
+
+**The entry friction reads the aggregate too, once the damage threshold is set
+where it has an object.** The threshold has to be swept before it can be read,
+and the sweep costs six runs:
+
+| damage threshold | industries marked | switches, no friction | switches, infinite friction | change |
+|---:|---:|---:|---:|---:|
+| 0.0 | 0 | 378 | 378 | +0.0% |
+| 0.5 | 15 | 378 | 376 | −0.5% |
+| 0.7 | 15 | 378 | 376 | −0.5% |
+| 0.9 | 16 | 378 | 159 | −57.9% |
+| 1.1 | 18 | 378 | 27 | −92.9% |
+| 1.3 | 18 | 378 | 16 | −95.8% |
+
+Fifteen industries are marked from 0.5 upward while switching barely moves:
+being marked is not the same as having the entry closed. The cliff sits between
+0.9 and 1.1. At 1.1, with 87.9% of switching suppressed (774 moves against
+6,391), total volume rises in all five seeds (+5,257 to +40,870) and the
+non-empty industry count rises in three of five. **Switching empties industries
+and the friction keeps them filled. The two readings are unanimous and
+opposite, and the supply constraint is the link between them.**
+
+**An earlier pass read this stage without a script, and three of its readings
+are superseded.** That pass wrote down five parameters and left four of them
+unrecorded, so its numbers could not be checked against anything; the script
+pins all nine. The live node count is four of five, not five of five. Switching
+moves total volume in one direction in every seed, where the earlier pass
+attributed the movement to the fee. And the entry friction reads volume in
+every seed at a damage threshold of 1.1, where the earlier pass sat at 0.7,
+found 0.5% of switching suppressed, and read that as a knob with no object.
+**The sweep above is the measurement that settles it.**
+
+**Where the manuscript's dividing line actually falls.** Volume One section 8
+puts MPC on the agent and this framework on the edges of the graph, and that
+line survives in a sharper position than before: changing an agent's industry
+label reads nothing by itself. It reads volume because the label decides which
+industry can deliver, and delivery capacity is a property of the graph. Take
+the supply constraint out and the reading goes with it. **The adaptive
+behaviour is not a second mechanism, it is a way of moving the graph.** No
+parameter was set for that result; it fell out of a machine built for a
+different question.
+
+**The level side of the wage scar, previously unread.** With wage elasticity at
+0.10 and industries off, the payroll bill falls from 8.000 to 7.350 and then
+**the trough equals the close** (7.350 against 7.352) for the rest of the run. It
+does not recover by any amount in three hundred rounds. The usable range is
+elasticity at or below 0.2; at 0.3 the production layer falls to twenty live
+nodes, which is the financial layer alone, and every arm reads the same.
+
+**Reproduction gates, all bit-for-bit**: industry count zero; intermediate input
+share to zero; switching rate zero; damage threshold zero; recovery friction
+zero; supply elasticity zero; and switching cost at twenty, which returns the
+no-switching row exactly. The claim-conservation assertion in the round loop
+never fired, and the residual against cumulative issuance stays at 1.4e-11.
+
+**What each switch turned out to be measuring, and the reading that found it.**
+Every row below presented as a switch that did nothing; none of them was a
+parameter problem, and four of the six were found by printing an object rather
+than by sweeping a value.
+
+| the reading | what it was |
+|---|---|
+| 38.5% of nodes with no outlet, volume down 34-fold | the coefficient matrix governs intermediate inputs; it had been applied to all spending |
+| switching cost flat from 0 to 0.5 | the fee was deducted after the move was settled, so it priced nothing |
+| still flat once the fee entered the decision | the gain is a flow and the fee was scaled off the holdings stock, and the movers are by construction the smallest holders |
+| friction identical from 0 to infinity | industry shares were being diluted by headcount, so a thinned industry offered its survivors no more than before |
+| still identical | final demand was routed down the raw payment graph, leaving half of all spending unbound from the cluster |
+| still identical | the switching candidates included nodes that had already left circulation; live industry membership was identical in both arms |
+
+Three sweep ranges were set by printing first: the switching-cost cliff sits
+between 1 and 2 in relative gain; the damage threshold needs to clear 0.62 of
+mean industry size before any industry is below it; and the friction cliff sits
+between 0.9 and 1.1 on that same threshold, which is the one that had a reading
+behind it.
+
+**Where the switching cost sits against measured values.** Structural estimates
+of inter-sector mobility costs run from 1.2 to over 6 times an annual wage
+(Artuç–Chaudhuri–McLaren 2010 for the United States at over six; Artuç–Lederman–
+Porto 2015 at 3.71 developed and 2.76 developing; Dix-Carneiro 2014 at 1.4–2.7;
+Ashournia 2014 at 1.2–2.4). Autor–Dorn–Hanson report that after the China trade
+shock the largest destination of lost manufacturing employment is exit from the
+labour force, +0.55 percentage points against −0.60 in manufacturing, with little
+geographic migration and depressed participation for at least a decade. **A zero
+switching cost is not a neutral control arm; it describes a world the evidence
+does not contain.** The measured values fall on the far side of the cliff, which
+is the arm where almost nobody moves. **The two are not the same dimension** —
+the literature reports a stock cost and the model's parameter is a dimensionless
+relative-gain threshold — so what can be said is that direction and order of
+magnitude agree, and not that the numbers match.
+
+
+## A20 — formation lag as a property of the industry, and what it selects
+
+`20 industries` `5 seeds` `nothing fetched`
+
+Volume Two section 3 makes one claim about formation lags that is not about
+their existence: that they are **heterogeneous**, and that the heterogeneity is
+what does the work. It orders four bases by lag, steel capacity at twenty to
+thirty years down to reputation at a few. A19 gave every industry the same
+recovery friction, so it could not read that claim. This stage spreads the
+friction within each layer and reads what the spread selects.
+
+**Spread industries by how hard they are to re-enter, hold everything else
+fixed, and the slow end spends more of the run below the sustainable level.**
+Rank correlation of an industry's own friction against each quantity, across all
+twenty industries, five seeds, two environments:
+
+| rho(friction, ·) | at the registered point | at an unsaturated point |
+|---|---|---|
+| **below the sustainable level** | +0.419, +0.130, +0.389, +0.365, +0.358 — **5 of 5 up** | +0.398, −0.325, +0.109, +0.070, +0.481 — 4 up, 1 down |
+| **rounds spent below it** | +0.030, +0.182, +0.582, +0.427, +0.237 — **5 of 5 up** | +0.255, +0.009, −0.043, +0.425, +0.508 — 4 up, 1 down |
+| members still trading | −0.282, −0.022, −0.239, +0.090, −0.242 | −0.120, +0.006, +0.044, −0.003, −0.104 |
+
+**The two damage readings hold their direction in both environments; the member
+count reads nothing in either, every coefficient inside ±0.29.**
+
+**A rank correlation is used because the obvious statistic is not safe here.**
+Splitting the twenty into a slow half and a fast half and comparing the sums of
+their members gave a unanimous reading at one point and a reversed one at the
+other — and both were an artefact. Members per industry are heavy tailed, one
+industry carrying 20 to 38 while the rest carry 0 to 10, so the sum IS that one
+industry. Removing whichever industry is largest flips the sign of the
+half-to-half difference in every seed of both environments:
+
+| | five seeds |
+|---|---|
+| registered point, raw difference | −2, −19, −5, −2, −18 |
+| **without the largest industry** | **−40, +8, −27, +29, 0** |
+| unsaturated point, raw difference | +11, +19, −13, +8, +7 |
+| **without the largest industry** | **−10, −9, +24, −14, −13** |
+
+At the unsaturated point the largest industry falls in the slow half in four of
+the five seeds, which is exactly the four positive signs. **The half-sum answers
+where the biggest industry landed, not what friction does.** More seeds would
+only have estimated a dominated quantity more precisely; the fix is the
+statistic. Both the domination check and the half-sums stay in the record,
+because the domination is one of this stage's findings.
+
+**The second environment is in the design for a related reason.** At the
+registered subsistence level the damage flag is close to saturated: 54 of 180
+production nodes still alive and 18 of 20 industries below the line at the
+close, leaving that quantity two cells to move in. Sweeping the level finds an
+unsaturated point, 119 alive and 14 below the line, and the readings above are
+run at both.
+
+**Against the measured world, the persistence half checks out and the
+attrition half does not.** Hershbein and Stuart separate the two for local
+labour markets after a recession: seven to nine years on, employment is down
+0.79 to 1.66 log points while population is down 0.37 to 0.63. **Employment
+falls about twice as far as population, and by 2017 no recession they study has
+recovered**, with confidence intervals rejecting a return to the initial peak.
+Their own summary is that limited population responses make the disruption last
+longer than previously thought. So persistence is real and matches this stage's
+reading; **people leaving is also real, and this stage does not reproduce it**,
+reading no relationship between friction and member count.
+
+A third quantity shows up in the same evidence and this model does not carry it
+at all. US shipbuilding needs 200,000 to 250,000 additional maritime workers
+over a decade, has had the problem for decades, and finds welders and
+electricians particularly hard to retain. Semiconductor reshoring needs 70,000
+to 90,000 for new fabs and around 300,000 for self-sufficiency, roughly
+two-thirds of it cleanroom technicians and operators, and the stated cause is
+that decades of offshoring **eroded the workforce's chip-making competencies**.
+**Competence is neither a duration nor a headcount**: it sits between them, with
+people leaving, then fewer people knowing how, then recovery requiring
+retraining. In this model a node that switches industry is a full member of it
+immediately, so the model can express "cannot get in" and cannot express "got in
+and is not yet useful" — which is the micro-foundation the manuscript's own line
+asks for, that you cannot bid a ten-year engineer into existence in eighteen
+months.
+
+**Two limits belong beside this reading.** The friction acts on entry, not on
+exit, so this is not "industries with long lags fail more often"; it is "once
+they are down they do not come back". And the spread's range is set from the
+manuscript's own four bases, whose slowest is about eight times the fastest, so
+`exp(2 × 1.04) = 8`; the manuscript reports years and the model carries a
+dimensionless threshold, so direction and order of magnitude agree and the
+numbers do not.
+
+**The first run of this stage read a clean zero, and the reason was the read
+point rather than the mechanism.** At friction 5.0 all twenty industries return
+identical membership, identical hot counts and identical damage rounds under
+both a flat and a spread friction, with 27 switches either way. Friction 5.0
+and infinite friction give the same 27: the entry threshold has saturated, and
+above saturation no spread can matter. The sweep locates the cliff:
+
+| recovery friction | switches | damaged of 20 |
+|---:|---:|---:|
+| 0.0 | 378 | 18 |
+| 0.5 | 333 | 18 |
+| **1.0** | **115** | 18 |
+| 2.0 | 36 | 18 |
+| 5.0 | 27 | 18 |
+
+At the read point the spread is not inert: switches fall from 115 to 85, and
+fourteen of twenty industries change their damage reading. That measurement is
+what licenses reading the arm at all; a treatment that moves nothing is inert,
+and counting what it moved is how you find out.
+
+**Reproduction gate**: `friction_spread = 0` reproduces the scalar-friction
+build bit for bit across all 26 history fields, and the hand written field list
+in the spec's `replace()` was extended in the same commit, so a new field
+cannot silently fall back to its default.
+
+
+## A21 — input-output coefficient perturbations, and which direction the machine can read
+
+`20 industries` `5 seeds` `nothing fetched`
+
+Coefficients are not fixed. Mariano, Verikios and Clements run 25 years of
+Australian tables and find they change substantially, fixity holding only where
+the elasticity of substitution is zero, which theirs mostly are not. The
+perturbation here is parameterised the way the literature decomposes it: the RAS
+split of a coefficient change into a row part, a column part and a cell
+residual, `A' = diag(r) A diag(s)`. The **row** part is substitution, every
+buyer using uniformly less of one seller per unit of its own output; the
+**column** part is fabrication, one buyer's intermediate input intensity, which
+IS the column sum of `A`.
+
+**Technical progress is one directed trend on the row multiplier, not a name for
+it.** Most of it cuts the logistics and labour per unit of output. Outsourcing
+is a directed trend on the **column** multiplier and it runs the other way:
+measured 1975-1985 the overall intermediate input coefficient rose from 0.307 to
+0.353, up 15% in a decade. Measured substitution over the same window ran away
+from energy, metal products and transport and toward computers, food and
+services, so even the row sign is a property of the sector pair. **Two trends on
+two multipliers; the net movement of a real table is their sum, and treating
+them as one parameter is what makes the two stories look contradictory.**
+
+**The column direction reads; the row direction does not.** Paired against the
+same seed, a column drift of +0.002 gives:
+
+| quantity | per seed | direction |
+|---|---|---|
+| **nodes still trading** | +2, +5, 0, +8, 0 | **3 up, 2 unchanged, none down** |
+| production layer's flow share | +0.00274, +0.00079, −0.000015, +0.00494, +0.0000018 | 4 up, one down by 1/330 of the largest |
+| total volume | −28157, −10957, +1158, −35121, −59 | 1 up, 4 down |
+
+A row drift of −0.005 against a frozen matrix gives 2 up 3 down on the flow
+share and 3 up 2 down on volume; isolating the layer asymmetry gives 3 up 2 down
+and 3 up 2 down. **Eight quantities across five seeds, none unanimous, none
+clear of zero** — while the matrix itself moves by an order of magnitude, median
+column sum falling from 0.5000 to 0.0571 across the sweep.
+
+**The difference between the two has a mechanism.** The route matrix is
+row-normalised, so only the ratio between the intermediate and final-demand
+halves survives. The column multiplier moves that ratio directly, because the
+intermediate share IS the live column sum. The row multiplier only reshuffles
+weights among industries inside the intermediate half, and normalisation eats
+more of it. **Two multipliers, one normaliser, different amounts absorbed.**
+
+**One asymmetry falls out of the arithmetic rather than the run.** Feasibility
+needs `column_sum * (1 + d)^rounds < 1`, so the column drift is capped at
+`(1/0.5)^(1/300) - 1 = 0.00231` here. A first pass at 0.005 raised the
+Hawkins-Simon assertion at round 139, where the arithmetic says it would. **The
+row direction has no floor at all: coefficients can fall toward zero and nothing
+complains.** So the fabrication direction cannot be sustained indefinitely and
+the substitution direction can. Carrying the measured decade forward at about
+1.4% a year multiplies the column sum by 62 over 300 rounds, far past the cap:
+**not a defect of the model, a statement that the observed rate cannot persist,
+which outside the model it has not.**
+
+**Reproduction gate**: with all four drifts at zero the run reproduces the build
+that had no perturbation at all, 26 of 26 history fields, and that gate reaches
+back across the renaming of the parameters rather than stopping at it.
+
 ## B18 — the directional remnant: what a position's one-sidedness leaves in the book
 
 `295 spread contracts` `3,895,656 snapshots` `one trading day` `nothing bought`
@@ -5650,3 +5952,6956 @@ other way.
 the elite seat count resting on names the source flags inconsistently. The
 records carry `diagnostic_only` and say which readings are not the station's
 own.
+
+## B31 — China's domestic price against its border price, 1981–2005
+
+Registered design: the criteria are written in the script that produced the
+record, the record carries their text, and every quantity this run produced
+is reported. Volume two, the price field, and its scope is that field.
+
+Object: `S(i,j,t) = log(Pw_i/Pb_i) - log(Pw_j/Pb_j)`, four commodities, 79
+commodity-years, 54 independent squares out of 106 writable ones. A scalar
+potential over positions makes the domestic-to-border step a property of the
+position pair, so it predicts `S = 0` for every pair and year.
+
+| Criterion | Reading | Verdict |
+|---|---|---|
+| B31-1 the exchange rate cancels | largest spread across the official, parallel and equilibrium rates over 106 squares: `3.608e-16` | PASS |
+| B31-2 resolution floor | floor from printed precision, median `0.00572`; `\|S\|/floor` median **51.7**; **106/106** above the floor, 91/106 above ten times it | PASS |
+| B31-3 after removing the published trade taxes | median `\|S\|` `0.2340` raw, `0.2881` on the sheet's own formula, `0.3129` with the published tariff removed | NOT LOAD-BEARING. The published tariffs are near zero (maize `0` throughout, wheat `0`–`0.03`, soybean `0`–`0.04`, cotton `0.30` only in 1993–2001), so the branch where they explain `S` was never reachable |
+| B31-4 independent cycles | 4 commodities, 1981–2005, peak 4 per year, **54** of the 106 writable squares. On independent subsets the median `\|S\|` runs **0.2170 to 0.4579** depending on which commodity is the reference; quote that range, not the all-pairs 0.2881 | structural, no threshold |
+| B31-5 no single commodity carries it | leave one out: median `\|S\|` stays between `0.2120` and `0.3876` | PASS |
+| B31-6 persistence | three pairs same-signed **18/18, 17/17, 18/18**; six-pair median same-sign rate **94.4%**; `sd/\|mean\|` `0.32`–`1.13` | PASS |
+
+**The fixed-offset fallback, tested against an outside second measurement, is
+not excluded.** A fixed per-commodity offset in how the border price is measured
+would also produce a non-zero `S` that keeps its sign. The carrier's own file
+bounds it for cotton only, so the second measurement was taken from outside it:
+the World Bank annual commodity series, same unit, same years, for all four
+commodities.
+
+**Independence was measured before it was used, and that caught something.**
+Printing the yearly gap between each outside series and the border leg actually
+used: **cotton falls inside a 0.005 band in 16 of its 18 years**, 1984–1998 and
+2001, missing only 1999 and 2000. **The carrier's cotton border leg is the
+Cotlook A Index itself, not a Chinese customs figure**, so cotton's offset
+cannot be measured from that series and the three pairs containing it are marked
+rather than dropped. Maize, soybean and wheat fall in that band in 2, 1 and 0
+years, and are independent. This also explains the `0.9415` above: template row
+39 and the A Index are two different international reference prices, and the
+carrier used the second.
+
+Taking `d_i` as the mean over years of `log(P_worldbank / P_border)`, a fixed
+offset predicts `S_ij` equals the constant `d_i - d_j`. On the three independent
+pairs it covers **26%, 86% and 90%** of the pair mean — the same order as `S`,
+not an order below it. **On the means, the fallback is not excluded, and that is
+stated without qualification.**
+
+Two things bound what it can take. **The bound is generous by construction**: the
+outside series are international benchmarks (`f.o.b. US Gulf` for maize, `Gulf
+export price` for US wheat, per the file's own Description sheet) against China's
+own cif import and fob export prices, so the gap carries real freight and quality
+as well as measurement — and the freight part of it was then measured inside the
+carrier rather than argued from outside it. The border leg is China's cif import
+price in an `M` year and its fob export price in an `X` year, so the voyage sits
+in the `M` years only, and a commodity carrying both flags measures its own
+wedge. **Maize does: `d_M = -0.2063` over six years against `d_X = -0.0732` over
+nineteen, a wedge of `-0.1330`, 12.45% of the cif price, which on a $157.8 cif
+mean is $19.7 a tonne. Removing it leaves `-0.0732` in the `M` years against
+`-0.0732` in the `X` years** — a quantity that appears only where there is a
+voyage and that aligns both sides once taken out.
+
+**Whether that figure carries to the other three was then tested rather than
+asserted, on a reading fixed before the numbers.** Freight is charged per tonne,
+so the transferable object is the per-tonne charge, not the log wedge. Subtract
+$19.7 a tonne from each other commodity's cif years: a cif price minus its voyage
+cannot land below the fob price at the port it left from, so a sign flip proves
+the charge is too large for that commodity. **Wheat flips, from `-0.1195` to
+`+0.0169`, and its own ceiling is $17.4 a tonne.** The maize figure is therefore
+measured for maize and not portable, which is what gets written rather than the
+other three being corrected by it. What wheat does gain is half an interval: its
+freight is under $17.4 a tonne, so of its `-0.1195` the measurement offset is at
+least `0` and at most all of it. Maize is the one commodity where the offset is
+pinned, at `-0.0732`. The source of the charge was picked on printed grounds and
+not alphabetically — both flags present, an independent second series, and a
+wedge of the right sign — which is what excludes cotton from being the source.
+Two limits go with it: cotton's wedge is `+0.0355`, the wrong
+sign, because its `M`-year border leg is the A Index itself; and soybean's `d` is
+positive at `+0.0085`, which freight cannot produce, against a series the file
+describes as `previously US origin, nearest forward` — neither clearly fob nor
+clearly cif, so that commodity's basis is in question and registered as such. **Taking the voyage back out of the offsets was the registered next step, and it
+was run rather than left pending.** A fixed measurement offset is what the
+fallback needs, and freight is not measurement, so it has to come out of each
+`d` first. Only maize carries both flags, so only its offset is pinned, at
+`-0.0732`. A cif-only commodity gives an offset bounded on one side only: its
+freight is known just to lie between zero and the charge that would push its cif
+price below the fob port it left, which puts wheat's offset anywhere in
+`[-0.1195, 0]` and soybean's at `+0.0085` or above. **On all three independent
+pairs the predicted constant becomes an interval that covers the measured mean,
+so the bound does not tighten.** That was the likely branch before it ran, and
+for a reason that is countable in advance: how many of four commodities carry
+both flags. One does. **B31-7 therefore stays open for a property of the
+carrier, not for an unfinished step.**
+
+**The obvious next purchase was then swept before it was bought, and it fails.**
+An outside freight series would pin one of the cif-only offsets, so that quantity
+was moved across its whole admissible range, `[0, 17.4]` a tonne, with every other
+offset held at the end of its interval most favourable to the bound closing.
+**The binding pair is maize-soybean, and it does not move at all: its share is
+`0.65` at every point of the sweep, span `0.0000`, because the commodity on sale
+is not in it.** The best attainable maximum share is `0.65` against a registered
+threshold of `0.10`. The series is therefore not bought, and this holds for any
+freight series whatever, since the objection is to the quantity being purchased
+and not to its quality. Three source categories were checked anyway and are
+recorded: the ERS wheat yearbook has no freight table and its table 33 is a flour
+table, the AMS report covers
+United States to Japan and does not reach back to 1981, and the FAO Food Outlook
+appendix does print wheat ocean freight in dollars a tonne but on a North Pacific
+to China route, whose loading port is not the Gulf the benchmark is quoted from.
+
+**And a constant produces no variation**: `sd/|mean|` on
+the three independent pairs is `1.13`, `1.37` and `4.03`, so whatever the offset
+takes, it takes it from the mean and leaves the year-to-year movement untouched.
+
+
+## A23 — a parked claim that can come back, and whether that is a mechanism or a slower leak
+
+`300 cells` `3 seeds` `nothing fetched`
+
+A18 added parking: a claim that exists, is owned, and is not in the money that
+circulates. Its own docstring said of it, one way, a parked claim does not come
+back. The manuscript says the opposite in as many words, that both sides keep
+the right to return and that a claim outside the system can come back to the
+market to buy resource. The gap was one line wide, and closing it is not a new
+premise.
+
+**The switch is triggered, not timed.** A parked claim returns when this graph's
+own circulating stock has fallen below where it opened, in proportion to that
+shortfall. A bare rate would have been a number with no source. Registered
+design: the criteria are written in the script that produced the record, the
+record carries their text, and every quantity this run produced is reported.
+
+**Default off means absent, checked and not argued.** Re-running the parking
+grid with the field present and at its default reproduces the record taken
+before the field existed, byte for byte: 430 cells, 233,343 bytes, sha256
+`4341f6c2…`. **Both sides of that comparison ran on the same machine, and the
+scope is deliberate.** One corner of this grid, the deepest floor against the
+weakest resupply, amplifies a `1e-13` change in an input into a `1e-2` change in
+the closing circulating stock; perturbing an input by that much moves seven of
+nine sampled cells there and none at all at the shallow floor. Those cells carry
+a property of the arithmetic they were computed with, so single-cell values from
+that corner are not quoted, while means and sign counts across the grid are. Within the stage, omitting the field entirely reproduces setting it
+to zero across five recorded series element for element, in 6 of 6 probes, and
+the return series is identically zero in 246 of 246 one-way cells.
+
+**The test is a plane, not a level.** The enumeration written before this ran
+said a one-way leak drains to zero while a returnable pool settles at a positive
+floor. **Both settle at positive floors**, measured, with resupply on and with
+it off, because parking bites on one layer and the rest of the graph keeps
+trading. That killed the first criterion shape before any grid was bought. What
+replaced it is the pair A18 itself declared for this arm, what circulates and
+what does not, recorded separately and never as a ratio. A one-parameter family
+of leaks traces a curve in that plane. Sweeping 41 leak strengths gives the
+curve; each two-way cell is a point; all 54 fell inside the swept range, so
+nothing is extrapolated.
+
+**The answer splits cleanly on one axis, and the split has a mechanism.**
+
+| | resupply off | resupply on |
+|---|---|---|
+| parked stock vs the curve, same circulating level | **+7.47% to +132.36%** | −1.51% to +0.66% |
+| against the measured seed floor | **32.32x to 215.56x** | 0.14x to 1.21x |
+| configurations clearing twice that floor | **9 of 9** | 0 of 9 |
+| two-way side holds less parked stock | **27 of 27** | 14 of 27 |
+| returned, as a multiple of the pool | 0.98 to 11.94 | 0.0003 to 1.19 |
+
+With resupply the circulating stock rises above its opening, so the shortfall is
+negative and the trigger never fires. **The two arms coincide there because
+there they are the same arm.** Where the trigger does fire, the two-way point
+sits off the one-way curve by up to 132% of the parked stock, in one direction
+in every cell, at a distance between 32 and 216 times the dispersion across
+seeds. The floor is measured rather than declared, and it is small: the seed
+standard deviation runs 0.46% to 3.09% of the gap it is being read against.
+**Inflating that floor threefold still leaves the narrowest configuration at
+10.8 times it**, which is why this ran on three seeds and not five.
+
+**Two scope conditions travel with this reading.** The outside is exogenous here: it supplies a
+boundary and no dynamics of its own, so the model cannot tell a second economy
+from a sink with a return rule, and nothing here should be written as two
+economies. And the separation holds only where the trigger fires; reporting it
+without that scope would be reporting half a grid as a whole one.
+
+**The approach to the floor is monotone on both sides, and it is the one-way
+arm that dips past it.** Lagged negative feedback was the side expected to
+ring. Of 95 cells
+whose approach crosses their own floor, 93 are one-way. The comparison is not
+clean, because a two-way cell's floor sits closer to its opening and so enters
+the band sooner; matched on the same floor the difference in settling rounds
+runs −7.3 to +3.1 and has no shape. **Printed, not claimed.**
+
+## B40 — Treuhand disposals and whether the entity ever reached the commercial register
+
+`13,378 firms` `no fetch` `no join` `one public file`
+
+The Treuhandanstalt's successor released, under a freedom of information
+request, the firm-level disposal record of every East German firm it held:
+13,378 firms in seven disposal classes, of which 6,929 were sold and 1,946
+returned to their pre-expropriation owners. A published paper uses this file and
+sets the returned class aside, because the decision to return was taken outside
+the agency's discretion and followed predetermined criteria. That is exactly why
+this arm wants it: it is the one disposal that hands over the right to hold and
+sell without handing over an operating lineage, and the exclusion that makes it
+uninteresting there makes it identifying here.
+
+An earlier reading of this file joined it to a public register dump and compared
+dissolution rates. That reading stands and is reported below, but it is
+conditioned on the register dump's 2005 window, and it reaches only about half
+of each arm. **This station asks a margin that sits one step earlier and needs no
+join at all: did the disposed entity ever acquire a commercial-register entry?**
+The answer is inside the released file, in a column that names the registry
+court, and it is reproduced independently by a second column that carries the
+registration date. Registered design: the criteria are written in the script
+that produced the record, the record carries their text, and every quantity this
+run produced is reported.
+
+**In the six East German Länder, 37.1% of returned firms (687 of 1,853) have no
+registry entry, against 4.8% of sold firms (320 of 6,662).** A ratio of 7.7 and
+a difference of 32.3 percentage points, 28.0 standard errors. Liquidated firms
+sit at 7.0%, merged firms at 0.8%. **No Land reverses the sign**: Saxony 323/835 against 145/1994, 5.3x; Saxony-Anhalt 108/364 against 47/1149, 7.3x; Thuringia 80/272 against 34/1104, 9.6x; Brandenburg 136/202 against 41/1020, 16.7x; Mecklenburg 27/142 against 26/776, 5.7x; Berlin 13/38 against 27/619, 7.8x. Three readings of the same file were then used against the three
+explanations that do not need the mechanism.
+
+**Sloppy recording is refused by another column on the same row.** Where the
+court name is absent, the registration date is absent too, in 0% of returned
+firms and 1% of sold ones; where a court is named, the date is present in 97%
+and 98%. But the founding date, on those same rows with no court, is present in
+84% and 92%, and the predecessor's name in 82%. The agency knows when the firm
+was set up and which state enterprise it came from. Loose recording degrades a
+row; it does not empty exactly two columns and leave the rest. The same shape
+holds in the sold and liquidated arms, so the split means the same thing in each.
+
+**The asset-not-a-firm story reverses under restriction.** The status label
+covers both a shareholding and a bare asset, so I restricted to firms whose own
+name declares a company. **The gap widens rather than narrows**: 12.0x for any
+legal form (384 of 1,380 against 129 of 5,585), and **12.9x for the firms calling themselves GmbH** (281 of 1,116 against 107 of
+5,488, 25.2% against 1.9%, 17.7 se). Among names carrying no legal form at all, both arms are high
+(303 of 473 and 191 of 1,077, 64.1% and 17.7%), so that pattern is common to the
+two arms and not what separates them. Names that announce a company in formation are 2.8% of the
+returned no-entry cell and 3.8% of the sold one, far too few and too alike to
+carry the difference.
+
+**The size story is closed by a statute rather than by a control variable.** The
+paper that released this file says as much about its own sample: restituted and
+municipalized firms *comprise an even smaller share when we account for their
+size in terms of initial employment or revenues*. So the concern is real and
+stated by the people who know the data best, and it is precisely what a file
+carrying no employment and no turnover cannot answer with a covariate. The
+released file has no employment or turnover. The agency's own rating committee
+scores are public and join cleanly to it, but they cover large firms rated in
+the first year only, which leaves 20 returned firms against 387 sold: 2 of 20
+against 0 of 387, 1.5 se, under-powered and therefore undecidable rather than
+failed. What settles the question instead is § 11 GmbHG: *Vor der Eintragung in
+das Handelsregister des Sitzes der Gesellschaft besteht die Gesellschaft mit
+beschränkter Haftung als solche nicht.* **Before registration the company does
+not exist as such.** The registration duty on a GmbH does not scale with size,
+and the exemption the file names in words on 64 rows, that an entry was not
+required, belongs to small traders, who may not call themselves a GmbH. On the
+GmbH subset the size explanation cannot hold by construction, and the gap there
+is 12.9x. A published rule, and free.
+
+**The industry story is answered by composition rather than by a classification.**
+A confound needs two things at once: industry has to move the outcome, and
+industry has to correlate with the disposal. The second is directly measurable
+without inventing an industry scheme. Cutting each firm's free-text description
+into words, one vote per firm, the two arms are composed alike: cosine 0.9562
+across all described rows (1,311 returned against 6,349 sold) and 0.9577 on the
+subset with a court (1,016 against 6,252), so the difference in how often that
+column is filled does not drive it. The four
+largest share gaps are on *herstellung* (+2.17pp), *vertrieb* (+1.39),
+*produktion* (+0.68) and *handel* (+0.39), every one a verb of making rather
+than a line of business. **That is the weak form**: German compounds are not
+split, and industry sits inside words like *Polstermöbel* that this comparison
+cannot separate.
+
+**The strong form was then run, three times over.** Sixteen hand-built industry
+groups matched as substrings, every group's sign printed, the reading fixed in
+advance as whether any group reverses. **None does, under any of three field
+sets.** Grouping on current name, predecessor name and description classifies
+10,488 of the 12,874 East German firms (81.5%) and gives ratios from 2.7x to
+51.3x; on name and predecessor alone, 7,935 (61.6%) and 3.1x to 33.6x; and **on
+the predecessor state-enterprise name alone, fixed before 1990 and therefore
+settled before any disposal decision was taken, 5,258 (40.8%) — and the answer
+does not move.** The lowest
+cell under all three groupings is chemicals and plastics, where the sold arm's
+own no-entry rate is highest at 8.8 to 10.3%, and it still points the same way.
+The keyword table is coarse and misassignment is visible in the sample names;
+misassignment scrambles labels toward the pooled 7.7x, so a sharper grouping can
+only make a reversal less likely, not more.
+
+**One name prefix carries much of the cell but not the difference.** 707 firms
+carry a prefix formed by replacing the state-enterprise abbreviation in the
+predecessor's name, and 90.9% of them have no registry entry. They concentrate
+in the returned arm, 22.9% of it against 2.9% of the sold arm, and within those
+rows alone the two arms are 402 of 424 against 155 of 185. The released
+codebook does not define the prefix and I do not supply a meaning for it. **With
+every one of those rows deleted the comparison is unchanged**: 285 of 1,429
+against 165 of 6,477, 19.9% against 2.5%, a ratio of 7.8 and 16.2 se. The prefix is one carrier of the pattern, not
+a confounder standing in for it.
+
+**Two margins, reported together.** On this margin the returned class is far
+worse, as the framework's positional reading predicts. On the later margin,
+among firms that did register and were still being announced after 2005,
+dissolution rates are 51.0% for returned and 51.3% for sold, which does not
+support that prediction. That second reading resolves differences down to 4.81
+percentage points and no finer, so it excludes a gap larger than that and says
+nothing about smaller ones. The two are not in conflict: they are consecutive
+margins, and 37.1% of the returned arm never reaches the second one.
+
+**That later margin was then widened by 38% and did not move.** The two Laender
+whose 1990s courts were merged away, Sachsen-Anhalt into Stendal and Thuringia
+into Jena, were joined by name instead of by register number. A name join has no
+external key to check it, and this register dump cannot supply one: of 89,459
+name rows only 364 carry a validity date before 2005, and of 44,536 founding
+dates at those two courts not one falls before 1995. So the instrument was
+calibrated first, on the 2,594 firms whose register number had already resolved
+uniquely and whose answer was therefore known. It returns exactly one candidate
+for 1,275 of them and is right on 1,244: **precision 97.6%, recall 48.0%.** It
+finds nothing at all for 1,294 and several candidates for 25, of which 24 contain
+the right one. That
+recall sits almost exactly on the register-number hit rate of 49.1%, because both
+are held back by the same 2005 window; the name join changes the key, not the
+wall. Its failures share one shape, a later company of the same name at a much
+higher register number — *Fördertechnik Freital GmbH* resolves to HRB309 by
+number and to HRB23285 by name.
+
+Run on the merged-court firms it resolves **787 more**, 400 in Sachsen-Anhalt of
+2,250 tried and 387 in Thuringia of 2,045, taking the returned arm from 341
+uniquely joined firms to 470 and the sold arm from 2,030 to 2,594. **The
+dissolution gap goes from −0.30 percentage points to +0.54**, that is from −0.10
+standard errors to +0.22: the sign flips inside the noise and neither reading
+resolves anything. What the extra coverage buys is resolution, from 4.81
+percentage points down to 4.12, which is what was written down before it was run.
+**One reading that would flatter the framework is available here and is not
+used**: unique-hit rates after the name join are 35.4% for returned against 40.6%
+for sold. Three things make it unreadable — the denominator now mixes two Laender
+with the other four, the two arms are joined by different instruments, and firms
+with no registry entry fail a name join by construction, which is the earlier
+margin leaking into this one.
+
+**Who was rated at all is itself a measurement, and it was not planned.** The
+agency's Leitungsausschuss graded firms 1 to 6, grade 6 reading *sollte dem
+Konkursverfahren zugefuehrt werden*, so the grade is an input to the agency's own
+disposal decision rather than a description of a firm. Then a status the agency
+did not decide should be the one the grades miss. **Across all seven disposal
+codes, restitution is the least covered: 1.03% of it carries a grade, against
+5.59% of the sold arm and 7.21% of the liquidated arm, a ratio of 5.43 and 12.7
+standard errors.** That is the identifying premise of this arm, which the
+published paper states in words, counted instead. Liquidation being the best
+covered of all seven also fixes the direction of the appendix's sentence that
+grades are not awarded to firms already being privatized, municipalized or
+liquidated: that sentence is about the state at the meeting rather than the
+eventual outcome, and it does not name restitution at all, so it does not by
+itself account for the gap.
+
+**Criteria.** B40-1, the outcome means the same object in both arms, passed. B40-2, no
+Land reverses sign, passed. B40-3, the gap under restriction to self-declared
+companies widens, passed, 7.7x to 12.9x. B40-4, explicit in-formation names do not
+carry the gap, passed. B40-6, the gap survives deleting every prefixed row, passed.
+B40-7 and B40-8, industry in weak form and in strong form, both passed. B40-9, rating
+coverage across the seven statuses, passed. B40-5, the size question on the rated
+subset, returns a bound rather than a decision: the grades differ by +0.087 at 0.3
+standard errors, and the subset resolves 0.511 grade points at two standard errors,
+10% of a scale five wide, so it excludes a quality gap larger than that and says
+nothing about smaller ones. That bound holds on the rated firms, which are
+selected, and not on the arm. **Its n = 20 is not a sample that could be
+enlarged**: it is every rated restituted firm there is, which is the fact B40-9
+then reads. The statute quoted above is what carries the size question instead.
+
+Both gates that read a band on an estimate are inapplicable here rather than
+unmet, since the criteria are directional and structural and no band was
+declared; the resolution gate applies and is met at 28.0 se. **One thing this arm does not observe, and where it is.** Splitting the sold arm by
+whether the buyer was West or East German would separate an outside running lineage
+from the incumbent one. Six source categories were checked for that column. The one
+the published paper used is a commercial firm register; the agency's own contract
+system at the federal archive holds the better version of the variable, the buyer at
+the moment of sale, and is confidential; a research institute's Treuhand micro
+database turns out to carry no acquirer information at all and covers manufacturing
+only; the public replication repository carries the disposal statuses and the ratings
+and nothing else. **This register dump cannot supply it either: every dated table in
+it begins after 2000**, and an officer's residence would in any case be conditional on
+the firm surviving long enough to be published, which is the outcome variable. What
+remains open is the archive's file series, at the cost of per-firm document work. A
+free proxy was tried and printed rather than assumed: whether the new name keeps a
+word from the predecessor state enterprise, which runs 42.0% in the returned arm
+against 42.8% in the sold arm, 0.6 standard errors, and so separates neither.
+
+**What that unobserved column costs this arm is stated rather than waved off.** The
+positional reading is registered over three disposal classes and predicts the
+restituted one worst; this arm scores it over two, returned against sold as a whole.
+The two-class version is a necessary condition of the three-class one and it passes
+at 28.0 standard errors, but it is not sufficient: were one component of the sold arm
+worse than the returned arm, the registered claim would fail. Not being able to
+obtain the column says nothing whatever about that branch.
+
+**The branch is instead addressed with someone else's measurement, cited as
+literature and not folded into any criterion here.** The published study that had the
+ownership column reports firm survival by owner origin with East German majority
+ownership as the omitted category, on privatized firms only: West German majority
+ownership carries +0.008 at five years, then +0.041, +0.070 and +0.085 at ten,
+fifteen and twenty, on base rates of 0.685 to 0.494, N = 2,566. So the worse
+component of the sold arm is the East German one, and its published distance from the
+West German one is single-digit percentage points where the gap measured here between
+returned and sold is 32.3 points at a ratio of 7.7. The two outcome variables are
+different objects and are not combined. On that reading the branch is unsupported
+rather than excluded, since nobody has run the comparison directly.
+
+**On the earlier margin it is excluded outright, and that bound borrows no estimate
+at all.** The sold arm's no-registry rate is 4.80% and is a weighted average over the
+buyer types, each of which is a non-negative rate. A component can therefore not
+exceed 4.80% divided by its own share. For the East-buyer component to reach the
+returned arm's 37.08%, East German buyers would have to be under **12.96%** of the
+sold arm: at most 863 of its 6,662 firms, since only 320 of them lack a registry
+entry at all. **The agency's own closing account puts management buyouts alone at
+21.6% of its firms**, and a management buyout is by definition an incumbent East
+German buyer, so that figure is a floor on the share rather than an estimate of it.
+Three further counts sit higher still, between 43% and 49%, and the one dataset among
+them that excludes the smallest sales notes those went mostly to East German buyers,
+which moves the true share up rather than down. The inputs to this bound are two rates
+measured here, the non-negativity of a rate, and one head-count share that only has to
+clear thirteen percent. **The often-quoted figure that East Germans received under 5%
+is a share of asset value, not of firms, and does not enter a bound stated in firm
+counts**; East German buyers took many small firms, which is why the two shares differ
+without contradicting each other. The bound does not bite on the later margin, where
+the sold arm's dissolution rate divided by any admissible share exceeds one, which is
+consistent with that margin not supporting the prediction in the first place.
+
+Pre-registered design: the criteria are written in the scripts that produce the
+records, each record carries its criterion in full, and every quantity this run
+produced is reported. Scripts `experiments/treuhand_registry_entry.py` and
+`experiments/treuhand_name_join.py`, records
+`results/treuhand_registry_entry.json` and `results/treuhand_name_join.json`,
+caches `data/processed/treuhand/bvs_registry_entry.csv` and
+`data/processed/treuhand/bvs_name_join.csv`.
+## B30-5 — regional deviation on income, and whether the carrier measures a level at all
+
+**RUN: 2026-09-01.  DESIGN: `docs/b30_prereg.md`, "B30-5 cross-sectional".**
+
+Twelve cities of a registered thirty-one, the four municipalities and every
+provincial capital, an administrative list rather than a selection on income.
+The host stopped the fetch at nineteen remaining with a `Retry-After` set to a
+date one month out, which is a quota resetting on a calendar rather than a rate
+to back off from, so the run stops instead of retrying.
+
+**Gate six, read on the measured numbers rather than the assumed ones.** The
+design assumed item noise 0.20 in logs and a city sample spanning `sd(log Y)`
+0.30, giving `se ≈ 0.67/sqrt(N)` and a registered minimum of twelve cities.
+Measured: `sd(log Y) = 0.3009`, median item residual sd `0.2013`, median
+`se(b) = 0.1931`. **Both assumptions landed on the measured values, and the
+panel stands exactly at the registered minimum.**
+
+| criterion | state | reading |
+|---|---|---|
+| B30-5-1 the kill branch: LADDER items load near 1 | **not triggered** | LADDER median `+0.130`, max `+0.490`. Nothing near 1 |
+| B30-5-2 the two class distributions separate with an empty gap | **OVERLAP** | LADDER `[-0.176, +0.490]` median `+0.130`; LOCAL `[+0.079, +1.767]` median `+0.630`. Ranges overlap by `0.411` |
+| B30-5-3 carrier arm A: the panel on an administratively priced item | **PASS** | see below |
+| B30-5-4 carrier arm B: the panel against the official housing level | **PASS** | slope `+0.949`, Pearson on logs `+0.962`, against a per-city official series. See below |
+
+**On B30-5-2, what separates and what does not.** The medians are `0.50` apart
+against a median `se` of `0.1931`, that is 2.6 median-se; the min-to-max ranges
+of twelve and fourteen noisy estimates overlap. The registered reading asks for
+an empty gap and there is none, so it is recorded as OVERLAP and not as
+anything friendlier.
+
+**The two tightest estimates in the whole table are both LADDER and both sit on
+zero**: Volkswagen Golf `b = +0.029, se 0.062`, Toyota Corolla `b = +0.131,
+se 0.048`. Ten of the twelve cities carry an identical Golf price to the cent,
+129,900 yuan, Harbin and Shanghai among them, whose incomes differ by 2.8 times.
+
+**LOCAL is not homogeneous and it is reported rather than split.** Housing runs
+`+0.81` to `+1.77`; restaurants and leisure run `+0.12` to `+0.79`. A restaurant
+meal is produced locally out of nationally traded inputs, so it is a blend, and
+the registered class puts it with rent. Splitting the class would move the
+reading, so it is a post-hoc redesign rather than a criterion-shape fix, and it
+is not done here.
+
+### B30-5-3, the carrier, on an item whose true answer is known
+
+`experiments/b30_5_carrier_check.py`, record `results/b30_5_carrier_check.json`.
+
+Retail gasoline is priced off a provincial ceiling, so its cross-city variation
+is administrative and its loading on local income is zero by construction. That
+makes it a known answer on the one dimension in question.
+
+| | |
+|---|---|
+| administrative cross-city sd | `0.00445` in logs, a 0.45% spread |
+| the panel's cross-city sd | `0.02961` in logs, a 3.01% spread |
+| **the panel's own noise, by quadrature** | **`0.02928`, about 3%** |
+| level offset | `+5.58%`, an intercept, it touches no `b` |
+| **the panel's `b` on this known-zero item** | **`+0.0381`, se `0.0262`, 1.45 se from zero** |
+
+**Two things come out of that, and the second is the more useful.**
+
+The noise is `0.0293` against a residual of `0.2013`, so measurement error
+carries **2.1% of the residual variance**, and the panel would have to be **4.9
+times noisier than measured** before it carried half. Noise on the left-hand
+side inflates `se` and does not move `b`, and `b` is what every reading here is,
+so softness in the levels makes this test harder rather than wrong.
+
+And the panel returns `b` within 1.45 se of zero on an item whose true `b` is
+zero. **The registered LADDER prediction is `b` near zero, so this is a
+calibration of the estimator against the very answer that arm is looking for.**
+
+**What arm A does not settle.** Gasoline is plausibly the carrier's best item:
+bought weekly, posted in large numerals, one grade per pump. So `0.0293` is a
+floor on the carrier's noise rather than a typical value, and the break-even
+multiple above is what makes the floor useful.
+
+**Two official series were checked and neither serves.** The fifty-city food
+price release publishes the average across the fifty cities, so the cross-city
+dimension is gone at the source; the seventy-city housing release is a change
+index whose base is each city's own past, so it is not comparable across cities
+in levels. Their per-region counterpart that would serve, the average
+residential selling price, sits behind the query host that refuses.
+
+**And no official source can carry the other side of this design, which is
+structural rather than a gap.** The contrast needs the price of one branded item
+in many cities, and price statistics average over brands by collection method
+everywhere. For that side the authoritative source is the posted price itself, a
+manufacturer's list price or a chain's menu by city, which is the number rather
+than an average of reports about it.
+
+### B30-5-4, the carrier against an official per-city housing level
+
+`data/read_b30_5_yearbook.py` -> `data/b30_5/nbs/housing_price.json`, read by arm
+B of `experiments/b30_5_carrier_check.py`.
+
+**Source.** China Statistical Yearbook 2024, table 19-16, main indicators for 35
+large and medium-sized cities, 2023: average selling price of newly built
+residential buildings, yuan per square metre, **per city**. All twelve panel
+cities are among the thirty-five. Per city means the mismatch this arm was
+first designed around, a capital compared against its whole province, does not
+arise at all.
+
+The yearbook archive is RAR5, which no archiver installable without root reads,
+so the single sheet was extracted once and is kept at
+`data/raw/yearbook2024_19-16_35cities.xlsx`. The reader re-derives every number
+from that sheet and checks the column header before reading it, so a yearbook
+that renumbers its columns stops the run rather than returning a neighbouring
+series that still looks like a price.
+
+| fit | slope | Pearson on logs | Spearman | residual sd |
+|---|---|---|---|---|
+| panel outside-centre | **`+0.9486`** | **`+0.9615`** | `+0.8182` | `0.1718` |
+| panel city centre | `+1.0334` | `+0.9397` | `+0.7483` | `0.2383` |
+
+**A prediction written into the script before the run, and it held.** The
+official figure is newly built stock averaged over a whole municipality
+including its outer districts, so it should sit between the panel's two housing
+rows and nearer the outside one. Measured: official / panel-centre runs `0.39`
+to `0.94`, every city below one; official / panel-outside sits around one
+(`0.74` to `1.45`). It does sit between, and nearer outside.
+
+**What this settles and what it does not.** The slope is one and the log
+correlation is `0.96`, so the panel tracks an official per-city level essentially
+one for one: **it measures a level, and that was the question**. The residual
+`0.1718` does **not** tighten anything, because it carries two scope differences
+that are not the panel's fault -- newly built against resale, and an official
+year of 2023 against a panel read in 2026, over which Chinese housing fell by
+different amounts in different cities. So the panel's own noise is bracketed
+rather than pinned: `0.0293` from arm A, where the comparison is same-item and
+same-period, up to `0.1718` here.
+
+**Arm A answers how noisy, arm B answers whether it is a level at all.** Neither
+substitutes for the other, and both now have a number.
+
+**Twenty-three of the thirty-five yearbook cities are not yet in the panel**, and
+eighteen of them are on the registered city list. Every one of them becomes a
+further comparison point the day the panel's host lets the fetch resume.
+
+### B30-5-5, the right-hand side, where noise bends `b` instead of `se`
+
+Arms A and B are about the price, which is the left-hand side, and noise there
+inflates `se` without moving `b`. Income is the right-hand side and does the
+opposite: noise in a regressor attenuates the slope toward zero by
+
+    lambda = (var of the observed regressor - noise var) / var observed
+
+**and zero is what one of the two registered classes predicts.** This is the one
+error direction that pushes the reading toward the station's own hypothesis, so
+it is corrected rather than assumed away.
+
+**The panel's income is not mostly noise.** Against the official per-city
+housing price, an authoritative series it has no contact with,
+`corr(log panel salary, log official price) = +0.8683`, `r² = 0.7540`, `n = 12`.
+
+**The correction, carried far past anything measured.**
+
+| noise sd | lambda | LADDER median | LOCAL median | gap |
+|---|---|---|---|---|
+| 0 (none) | `1.0000` | `0.130` | `0.630` | `0.500` |
+| `0.0293` (arm A's measurement) | `0.9905` | `0.131` | `0.636` | `0.505` |
+| `0.0500` | `0.9724` | `0.134` | `0.648` | `0.514` |
+| `0.0900` | `0.9105` | `0.143` | `0.692` | `0.549` |
+| `0.1718` (arm B's loose upper bound) | `0.6739` | `0.193` | `0.935` | `0.742` |
+
+**Two readings, and the correction does different things to each, so they are
+reported apart.**
+
+`lambda` multiplies every slope by one factor, so **it cannot manufacture a
+difference between two classes, only compress one that is already there.** The
+observed gap `0.500` is therefore a **floor**: every correction widens it.
+
+For the separate reading that LADDER sits near zero, attenuation genuinely does
+help that conclusion, and the correction is applied above. **The registered kill
+branch asks whether LADDER comes back near one, and the corrected LADDER median
+reaches only `0.193` at a noise level six times what arm A measured.** The kill
+branch does not trigger under any row of that table.
+
+**What this does not cover.** The noise column is a sensitivity range, not a
+measurement of the salary item specifically: arm A measured the panel's noise on
+gasoline and arm B bounded it loosely on housing, and neither is the salary row.
+A per-city income series independent of the panel would pin it, and the
+statistical yearbook does not carry one -- chapter 4 gives wages by province,
+not by city, and table 25-2 gives city GDP without a city population to divide
+it by.
+
+## A22 — forcing the field exact, and which readings go with it
+
+`rounds=300` `5 seeds` `2 arms`
+
+Pre-registered: the criteria are written into the script that produced the record,
+the record carries their text, and every quantity this run produced is reported.
+
+A3's four-cycle runs one tier and two classes, and its value is the log ratio of the
+two classes' terms, the price cancelling entirely. Substituting the terms function,
+the cycle is a function of the terms dispersion alone and vanishes at zero
+dispersion, which is the one setting at which every class faces a single function of
+position. This stage runs that setting against the registered one and asks which
+readings go with the holonomy.
+
+Three knobs move together or the arm reads the wrong thing. The dispersion is the
+treatment. The mean acquisition cost is held at its registered value, because
+flattening the dispersion also lowers the mean and the flat cell would otherwise
+also be the cheap cell. The admission threshold is pinned at its registered value,
+because it is otherwise tied to the dispersion and one switch would move both what
+is paid and who may enter.
+
+| criterion | reading |
+|---|---|
+| A22-1, the mean-cost control is a no-op at the reference dispersion | structural. Identical to twelve digits on both the holonomy and the closing support |
+| A22-2, the treated holonomy is zero | structural, and an identity rather than a measurement. Exactly `0.0` on all five seeds, against a control mean of `0.278372` |
+| A22-3, support-set contraction under the exact field | **survives, 5 of 5.** Control `0.2554 0.2301 0.2643 0.2956 0.2333`, treated `0.2657 0.2464 0.2642 0.3063 0.2456` |
+| A22-4, volume rises while support falls under the exact field | **survives, 5 of 5.** Volume `49.6` to `52.5` times, support ratio `0.246` to `0.306` |
+
+**2 of 2 live criteria passed**, with two structural checks printed and not counted.
+
+**The zero carries nothing and is reported as an identity.** At zero dispersion the
+cycle is a difference of two equal terms, and all three terms of the treated square
+vanish, so a zero read there is not a measurement. What the stage establishes is the
+other half: removing the entire holonomy costs 0.99 points of a 74.43-point
+contraction, so the field carries 1.33 per cent of it.
+
+**This is a control arm on the instrument and not an engagement.** The exact field is
+constructed here rather than taken from anyone, so no rival is answering and the
+reading does not belong in a comparison against one.
+
+**One carrier.** The position graph is a star, so every obstruction on it is a square
+and there are no slice cycles.
+## A24 — the two ways information travels, and what each does to the same damage
+
+`rounds=300` `5 seeds` `two channels`
+
+Pre-registered: the criteria are written into the script that produced the record,
+the record carries their text, and every quantity this run produced is reported.
+
+Every rule in this model reads the acting node's own state. One does not: edges are
+cut toward a counterparty whose inflow has fallen below a threshold, so the trigger
+is read on one node and the action taken on another. That is the only place
+information enters, and who can see a node is exactly its in-neighbours, so
+information here travels along trade edges. A broadcast is the other way it can
+travel: everybody has it at once, and having it is not evidence of already trading
+with anybody. This stage runs the first channel and settles the second by algebra.
+
+| criterion | reading |
+|---|---|
+| A24-1, the control arm reproduces the edge-cut stage's off arm | structural. Five seeds, each matched in that stage's record |
+| A24-2, the two kinds of damage do not fall on the same nodes | **disjoint.** Jaccard `0.000` at the two lighter cut shares, `0.038`–`0.046` and `0.181`–`0.204` at the two heavier ones. A node ceasing to trade and an edge being removed reach different sets |
+| A24-3, what running acquisition throughout does to the same cut | **stranded falls from `38.0` to `3.6`, ten cells of ten, and about six tenths of that is not density.** Acquisition adds edges without pairing removals, so the arm carries 14 to 23 per cent more of them when the cut lands. Raising construction degree until the graph is denser still leaves stranding at `23.4` to `24.2`, so density accounts for roughly `42` per cent of the drop. The rest is where the new edges point: they are aimed at the core, and a node holding an edge into the core is hard to cut off |
+| A24-5, the informed cut against the blind one at the same share | **`200` of `200` stranded, against `34`–`42`.** The same seven tenths of the edges go; choosing which ones by reading a counterparty's condition takes the graph to two hundred isolated points and total flow to `0.01` of control, where the blind cut leaves it at `0.95` |
+| A24-6, where the amplification begins | **on sensitivity, not on coverage.** At the heaviest share the stranded count runs `12` → about `140` → `200` as the distress threshold rises through three settings, while the share of observers who react moves it far less |
+| A24-7, weight zero reproduces the run without the broadcast switch | **structural, both carriers.** Five seeds each, bit for bit |
+| A24-9, the broadcast field is a potential, so every closed walk sums to zero | **`1.110e-16`, both carriers.** The field is one number per position by construction, so this checks the implementation rather than the world |
+| A24-10, the two axes crossed | **printed, at both signs of the signal**, against a three-way split registered before the run |
+| A24-11, both potentials reproduce the terms field | **`7.77e-16`, every seed** |
+| A24-12, the fitted agent half equals the closed form | **`1.11e-16`, every seed** |
+| A24-13, the same-position class ratio does not vary with position | **zero spread across positions, every seed** |
+| A24-14, whether a positive signal has an effect at the thin end of its own knob | **it does, and the two signs of signal have opposite curvature.** At the lightest weight the signal arm sits `0.164` below its own shuffle on the first carrier, five seeds of five on the same side, and the effect per unit of weight runs `8.18` `8.15` `8.07` `7.90` `7.44` `6.66` `5.05` as the weight rises, flat from the origin and falling into saturation. The negative signal's effect per unit of its own knob runs `1.0` `4.3` `19.4` `54.4`, rising. A cascade of withdrawal needs a critical mass to start and a broadcast does not, so a zero at the thin end of the first is a property of that sign rather than of thinness. On the second carrier the effect per unit of weight runs `4.42` `2.31` `1.53` `1.93` `1.69` `1.61` `1.50`, falling steeply off the lightest cell and flat thereafter, and the lightest cell is also the only one on either carrier where the seeds do not all sit on the same side, four of five |
+| A24-15a, `until_round` unset reproduces the always-on arm | **structural, bit for bit, five seeds** |
+| A24-15b, `until_round` zero reproduces the run with no signal at all | **structural, bit for bit, five seeds** |
+| A24-16, a signal built where there was none against one destroyed, at equal exposure | **`-3.76` against `-0.05`, a factor of `68` to `81`, and the same direction in all twenty-five seed-and-exposure cells.** The switch rounds are closed under `r -> 300 - r`, so the two arms carry the signal for the same number of rounds and differ only in where those rounds sit. Neither arm depends much on exposure: the built arm's spread across exposures is `0.002` to `0.019` per seed against a spread of `2.49` to `5.32` between seeds, and its direction is not even consistent across seeds; the destroyed arm rises monotonically but only to `1.2` to `1.5` per cent of the live effect. The raw readings say why: the built arm sits `0.06` to `0.09` from the always-on arm at every switch round, the destroyed arm `0.00` to `0.16` from the arm that never had a signal, and one seed returns to the no-signal value bit for bit. **What the closing reading is depends on whether the signal is live at the end, not on how long it was live.** Printed object, no threshold, and symmetry was not assumed anywhere |
+
+**Every criterion in the table above has a reading, and the record says which kind.**
+Nine carry a boolean and it is true: A24-1, A24-7 and A24-9 on both carriers, A24-10
+at both signs of the signal, A24-11, A24-12, A24-13, A24-15a and A24-15b. Six carry
+no boolean and print an object against a reading registered before the run: A24-2,
+A24-3, A24-5, A24-6, A24-14 and A24-16. A24-4 is void this round for the reason given below,
+and the repair attempt A24-4b is recorded beside it. Of the nine booleans, eight are
+checks on the implementation rather than statements about the world: a switch at its
+own endpoints, a default that reproduces the run without it, and a field that is one
+number per position and therefore has to close. The ninth, A24-10, crosses the two
+axes and prints a second difference against a three-way split fixed beforehand.
+
+**Acquisition is only available early, and that is measured rather than assumed.**
+Starting the rule at successively later rounds gives 47, 44, 45, 30, 22, 13, 6 and
+then zero promotions as the start moves from round 0 to round 50, on a run of three
+hundred. A buyer needs a thousandth of the claim stock to qualify, and by the
+fiftieth round no node outside the core clears it. The clean form of the question
+above therefore needs the cut to land while that door is still open, and is
+registered rather than run.
+
+**The mechanism is a loop the blind cut does not have.** A counterparty that looks
+weak stops being sent to, which lowers its inflow, which is the very quantity the
+observers are reading. The trigger variable is moved by the action the trigger
+authorises, so the withdrawal manufactures the evidence for the next withdrawal.
+The subsistence cascade next door has no such loop: there a node leaves only once
+its inflow has actually fallen.
+
+**Total flow is not a robust reading on this carrier and the stranded count is.**
+Where many nodes leave, the survivors turn the same claims over quickly and total
+flow can rise to thirty-three times control while only eight to seventeen nodes are
+stranded. Cells are therefore excluded at both ends rather than only at the low one.
+
+**A published price carries `20` to `38` per cent of this carrier's terms, across
+five seeds.** Fitting one number per position to the log of the terms matrix leaves
+a residual that is `62` to `80` per cent of the **variance**; adding one number per agent makes the fit exact to
+`7.77e-16`. The terms field is a sum of two potentials and carries no holonomy of
+its own, and the class ratio is `2.0000` at every position, so the first term of the
+square vanishes exactly and the non-zero square rests entirely on the transfer
+wedge.
+
+**Corrected 2026-09-02, and the correction is the reason the script exists.** The
+earlier figures here were `14.5` and `85.5`, taken from a calculation that ran once
+and landed in prose without a script or a record entry. `85.5` is the ratio of
+standard deviations; the share of variation a fit explains is the ratio of
+variances, `73.1`, so a published price carries `26.9` per cent rather than `14.5`.
+**The correction runs against this framework**, since it makes a published price
+carry nearly twice what was claimed, and the claim it supports is unchanged only in
+direction: one number per position still cannot express the majority share that
+lives on the agent index.
+
+**Corrected a second time the same day, and the second correction is larger than the
+first.** The figure was read on one seed. Across five it runs from `20.2` to `38.1`
+per cent, a spread of `17.9` points, and it is **perfectly rank-reversed against the
+dispersion of centrality** on all five. That ordering is an identity rather than a
+finding: the position half's variance is fixed by the three registered base terms
+while the agent half's grows with centrality dispersion, so the share must fall as
+dispersion rises. **The share is therefore a function of the registered parameters
+and of one random network draw, and no single value of it should be quoted.**
+
+**What does not move with any of this**: the agent half is the record of information
+the counterparty already used, since it had to observe this agent's centrality to
+quote it these terms. That half was never a candidate for a public price to carry.
+**That sentence holds at every seed and every parameter value, which is why it, and
+not the percentage, is what this reading is for.** The reproducing run is `--algebra`, whose three criteria
+are structural: both potentials reproduce the field to `7.77e-16`, the fitted agent
+half matches the closed form `log(1 + κ(1 − c))` to `1.11e-16`, and the
+same-position class ratio has zero spread across positions. A price is one number per position and cannot say that two holders
+pay differently at the same one, which on this carrier is most of what there is.
+
+**The separability is a modelling choice and it cuts against this model, not for
+it.** A multiplicatively separable terms function cannot produce a terms field with
+holonomy at all, while the empirical stages measure non-zero closure on seven
+carriers by other means. On this point the model assumes the rival's answer and
+still returns a non-zero square from elsewhere.
+
+**One carrier, and the readings above are its construction rather than a measurement
+of the world.** The dispersion and the position spread are both registered values
+and neither was chosen here, but the corresponding empirical quantity is the one the
+dual-listing, treaty and depositary stages measure, where the class difference is
+printed in law and absent from either price.
+
+**The reconnection criterion was voided when it ran and the repair has now been
+tried.** Holding reconnection back until the shock lands was the obvious fix, and it
+does not fix it: the control arm still moves about twelve per cent on its own.
+Sweeping every registered reconnection arm at both start rounds, 32 cells, gives the
+reason as an object rather than an argument. The control arm is left still in exactly
+the two cells where nobody is promoted, and moves by 1.3 to 438 per cent in every cell
+where anybody is. Moving a node between layers is a transfer, so it changes total
+volume by construction, and the mechanism this criterion would test is the mechanism
+that changes the world it would be tested in. Deciding it needs a different criterion
+shape, one read inside a single arm rather than across two, and that is registered
+rather than scheduled. The original verdict stays in the record beside this one.
+
+**What this stage is about is which nodes a given amount of damage lands on.** The two
+substrates are two routes information takes, the readings compare where the same
+number of severed edges leaves the graph, and the sign of a global signal turns out to
+decide whether it saves nodes or costs them. Reading any of that as a claim about how
+much information a system should have would need a premise this stage does not carry:
+nothing here varies whether a fact is known, only how it travels.
+
+### The carrier search for the arm that never opened, and the one screen that produced a number
+
+**One arm of this stage has no carrier and is closed on availability rather than on
+a reading.** It asks whether a support set collapses faster while a broadcast is
+running, and it needs a place where the broadcast has a date. Nine candidates were
+screened out and the tenth was closed on its own author's stated data boundary. The
+arm is negative on carriers, not on objects: the model side has the object and the
+readings for it are in this section.
+
+**The screening rule was replaced twice, and both replacements are worth stating
+because each was cheaper than the search it replaced.**
+
+The first screen asked whether a place was information-poor. That is the wrong
+question, because it screens on the absence of the very institution that produces
+the records the arm needs: thin information means a thin recording apparatus means
+the dependent variable does not exist. Counting the causes of death afterwards
+understates that screen systematically, because the candidates it killed never
+entered the table. The replacement asks for the width of the treatment variable's
+variation and whether its two ends are far apart, and compares a middle level
+against a thick one rather than hunting for a thin one.
+
+The second replacement came from the model side and changes what a carrier has to
+look like. Building a signal and destroying one are not symmetric in the model: the
+closing reading depends on whether the signal is live at the end rather than on how
+long it was live, and a destroyed signal returns most of the way to the no-signal
+value inside a short window. **So the carrier no longer has to supply a cross-section
+of thin against thick. It has to supply one dated switch, and a switch that is
+turned off is cheaper than one that is turned on**, because reading it needs a short
+window after the event rather than a long panel.
+
+**One screen proposed during this search was rejected, and the rejection was
+confirmed by data the same day.** The proposed rule would have discarded any
+candidate where one statute creates both the broadcast and the record, on the
+argument that a record beginning on the switch date has no pre-window. **The
+objection to it is that a statute often formalises or absorbs something that already
+existed in another form**, so the rule would discard carriers whose earlier record
+sits with a different institution.
+
+**Checked on the rule's own strongest case.** US livestock mandatory price
+reporting took effect on 2 April 2001, and the screen would have killed it on the
+grounds that the record starts there. It does not: the national statistics service
+has published `Livestock Slaughter` **monthly since January 1964**, by state and by
+species, with federally inspected slaughter broken out by region, classification and
+month for four species. **The record predates the statute by 37 years, and its cells
+do not change across the switch.** Two institutions, two dates, and the earlier one
+is not the one the statute created.
+
+**The carrier is nonetheless not in the queue, and for a different reason.** The
+treatment is national and falls on one day, so there is no cross-sectional gradient
+and the identification degenerates to a single national time series break. The
+region and classification cells are few, so the independent count is small. One
+internal staggered element is registered and is weaker: wholesale pork entered the
+same reporting regime on 22 August 2012 while hogs, cattle, lambs and boxed beef
+entered in 2001, but the treated object there is a trade in pork cuts while the
+statistical cell counts head.
+
+**What the rejected screen cost and what it bought.** It was proposed, checked
+against twelve rows, and reported as passing all twelve. The counter-example was
+found by asking one question of one archive, and it is recorded here rather than in
+the screen's own working notes, because a rule that survives its author's twelve-row
+check and dies on the thirteenth is a reading about screens and not a note about one
+carrier.
+
+
+## A25 — what a bounded clearing balance can be told apart from
+
+`rounds=300` `probe grid` `two graphs, one boundary`
+
+**This stage ran without a record and the sentence that used to stand here said
+otherwise.** It said the criteria were written into the script that produced the
+record and that the record carried their text. There was no record: the module was a
+library nothing called, and the readings below went into this file by hand. A driver
+was written on 2026-09-03 and the record exists from that date. What it found is in
+the last row of the table, and the readings below are left exactly as they were
+rather than replaced.
+
+Two networks, each with a clearing node, and between the clearing nodes a two-way
+balance with a ceiling. The question is whether that boundary is distinguishable
+from a single sink with a time-varying return.
+
+| criterion | reading |
+|---|---|
+| the boundary is off by default | **PASS.** 15 sequences across 4 configurations, identical element by element |
+| the crossing is a bridge | **not scored.** That the independent cycle count across the boundary is one less than the number of channels is a counting result, and this round did not reach the multi-channel case |
+| the ceiling binds | **PASS**, counts printed. The round at which it binds runs from 0 to 297 of 300, so both branches are reachable |
+| what happens once it binds | **undecidable, and because the comparison does not exist.** With the pump running the balance is unbounded; with it off the boundary barely moves; there is no comparable path between the two |
+| the four cells against a driver, 2026-09-03 | **not reproduced.** The driver puts the pair on the carrier the design names and reproduces both structural halves: the boundary is off at width zero in ten of ten cells, and the ceiling binds in seven of thirty with the first bind between rounds 73 and 254. The four-cell table does not come back. A sweep of six widths at both pump settings and both ceiling arms, 24 cells, reaches a largest closing balance of `3.22` against a recorded `+9955`. The configuration behind the recorded table is not recoverable from the module, the design's carrier line, or this section |
+
+**The four cells below are an observation that does not currently reproduce, and
+they are not a reading of this stage.** A driver written on 2026-09-03 reaches the
+same verdict by the same route, but not these numbers: at the carrier's default
+opening claim stock every sign matches and the magnitudes are three orders out,
+and at the stock implied by this stage's own total-claims figure one cell lands in
+range while two others change sign. The shape therefore turns on a parameter that
+was not recorded, and the original values are not recoverable. **The verdict, the
+placement, and the two structural criteria are unaffected and are stated above and
+below on their own evidence.**
+
+**The four cells as originally reported:**
+
+| pump | on hitting the ceiling | closing balance | effect on the floor |
+|---|---|---|---|
+| on | truncate | `+1.9` to `+30` | `+0.0000` to `+0.0004`, identical to having no boundary |
+| on | accrue | `+1745` to `+9955` | `+3.4` to `+82.9`, unbounded |
+| off | truncate | `−1.9` to `−7.2` | `+0.0147` against `75.788`, `0.02` per cent |
+| off | accrue | `−8.5` to `−21.1` | `−0.04` to `−0.73` |
+
+**The pump is identified rather than inferred.** It is resupply funded by issuance.
+Funding it from creditors instead moves the closing balance from `+445.4` to
+`−83.8`, and switching it off entirely gives `−7.2`. Total claims across the two
+graphs go from 2996 to 5009, and that difference is about the cumulative amount
+that crossed.
+
+**The two structural criteria reproduce.** A driver run on 2026-09-03 gives the
+default-off check bit-for-bit on ten of ten and the ceiling binding on seven of
+thirty cells, first binding between rounds 73 and 254.
+
+**The answer is that the two are not distinguishable, and it is reported in those
+words.** In this framework a leak across a border and a leak into a hoard are two
+outlets of one pump, and the outlet does not set the flow. The stage returned an
+answer; the answer is that the distinction is not there to be read on this carrier.
+
+**This is a quantity no rival has a reason to measure.** Nobody has claimed that a
+clearing boundary and a hoard read differently, so there is no opposing prediction
+here to be right or wrong about, and raising this reading above a framework-specific
+one would take such a claim being on record first.
+
+**Two reopening conditions are registered**: a carrier that can express gross trade
+rather than the net balance, and a rival's point prediction. Neither is in hand.
+
+---
+
+## A26 — every node ranks its counterparties, and what a queue does to a graph nobody cuts
+
+`rounds=300` `5 seeds` `f2i=30` `three arms: off, shuffled control, rank-and-fill`
+
+Pre-registered: the criteria are written into the script that produced the record,
+the record carries their text, and every quantity this run produced is reported.
+
+Every other rule in this model splits a node's spending over its surviving edges in
+proportion, and nothing anywhere compares two counterparties. This stage grants the
+agent that does: it fills the counterparty that took in the most last round, then
+the next, down its own out-edges. That is the agent standard theory is most willing
+to grant, and it is granted here on purpose, because it is the strongest assumption
+for the opposing account and the weakest for this one. It carries no parameter of its
+own: what "best" means and what "full" means are both last round's inflow, which is
+the quantity the existing run arm already reads, and the ranking is a property of the
+counterparty rather than of the pair, so no rule about who chooses first is needed.
+
+| criterion | reading |
+|---|---|
+| the switch off reproduces the previous build | **PASS**, bit for bit on all 31 history fields |
+| it reorders and does not delete | **PASS** on the adjacency, which is bit-identical before and after, and on the row sums, which stay at one to `1e-12` |
+| every edge is reached at least once | **FAIL**, and the failure is the reading. 28.6 to 38.3 per cent of the edges the proportional split would use are never reached again after the first round, with no edge deleted and no floor anywhere |
+| what the ranking does to support and volume | **read**, three arms, five seeds, below |
+| the ranking crossed with the run arm | **undecidable on this carrier**, and for a stated reason: the first treatment leaves the second no room |
+| terms held at zero response reproduce the degree ordering | **PASS**, the used-edge matrix is cell for cell identical in 20 seeds of 20 |
+| the same terms above zero response move the ordering | **PASS**, the used-edge matrix leaves the degree ordering in 20 of 20 at every elasticity swept |
+| what a responding term does to the count of unreached edges | **registered in advance and read**, it falls in 20 seeds of 20, mean 36.7 per cent to 0.1 |
+| whether a strongly responding term is still the same rule | **read**, it is: agreement with the position ordering is still +0.84 at the top of the sweep |
+| what removes the unreached edges | **read**, the queue stops being the same queue twice: one distinct head at the bottom of the sweep, 9.8 at the top |
+| what the ceiling on that elasticity is made of | **read**, it is the terms spread over the head's share of arriving flow, `2.4` to `4.5` on this graph, and it rises as the sweep proceeds |
+| the other sign of the same knob, terms improving with load | **read**, and both registered accounts were refuted: unreached edges hold at the frozen value in 20 seeds of 20, neither above nor below |
+| the headline figure against the urn-ball constant | **PASS**, it is not that constant: the figure moves `14.5` points with out-degree and layer size, which the constant does not |
+
+**A wall with no rule behind it.** The run arm makes an edge irreversible by deleting
+it, and irreversibility is written into the mechanism. Here nothing is deleted, the
+adjacency is bit-identical at the end of the run, every edge stays legal and
+reachable in every round, and about a third of them are never reached again.
+Irreversibility emerges from the ordering rather than being stated in it.
+
+**What produces it is the fixity of the order, and that was measured against the
+opposite claim.** This stage first recorded a feedback: a counterparty left unreached
+takes in less, ranks lower, and is left unreached again, so the quantity the ranking
+reads is driven by the ranking's own result. Ordering the queue on the counterparty's
+in-degree instead tests that directly, because an in-degree does not move with the
+flow and the loop cannot close. It was predicted to leave fewer edges unreached. It
+leaves more, in twenty seeds of twenty, by 1.9 to 27.1 percentage points, and the
+range tightens from 11.0 to 36.2 per cent under the endogenous order to 32.9 to 39.3
+under the static one. The count is cumulative over the run, so a frozen order means
+one set of edges carries every round for three hundred rounds and the rest never do;
+any churn at all in the order lets more of them in over time. The feedback is the
+churn, and it keeps edges alive rather than killing them. **The claim this stage now
+makes is the stronger one: an entirely static ranking, with no feedback of any kind,
+already puts more than a third of the channels out of use.** Only the ordering was
+changed; capacity stayed at last round's inflow, which separates two roles the first
+version had collapsed onto one quantity.
+
+**None of the existing damage measures sees it.** The stranded and departed sets are
+empty in all five seeds, so the damaged-set overlap against the control arm is not
+even defined. What the ranking costs shows up in two places only: the count of edges
+never reached, and what arrives at the household layer.
+
+**The aggregate improves while the distribution collapses**, and reading the
+aggregate alone would have got this backwards. Total volume rises about
+twenty-five fold, and that is not circulation: the claim stock itself rises by a
+factor of 69 to 86, all of it endogenous issuance, and the volume figure follows it.
+The issuance rule targets household-layer inflow and issues the shortfall each round,
+so once that inflow is on the floor the stock climbs at a fixed rate to a closed-form
+ceiling of opening inflow times rounds. It is linear accumulation against a wall, not
+a compounding spiral.
+
+| quantity | rule off | rank-and-fill |
+|---|---|---|
+| claim stock at close | `100` | `6942` to `8619` |
+| household-layer inflow at close | `29.1` to `30.0` | `0.000` to `6.387` |
+| wages actually paid | `6.60` to `6.96` | `0.000` to `0.314` |
+| effective support | `33.1` to `38.0` | `2.03` to `2.22` |
+
+**The control arm carries the same queue with the ranking shuffled**, and it stays
+near `100` to `313` on the claim stock. Almost the whole effect is the ranking's
+correspondence to the graph rather than the shape of filling one counterparty at a
+time.
+
+**What the issuance buys, and what it does not.** Running the same arm with the
+issuance rule off isolates it. Cumulative household-layer inflow under the ranking is
+`39` to `45` with no issuance and `79` to `2035` with it, against `8768` to `9004` in
+the control. So the issuance buys the household layer a factor of `2.0` to `48.0`,
+and still leaves it at `0.9` to `22.7` per cent of control. Both halves are load
+bearing and neither replaces the other: a reading that monetary policy is inert here
+is refuted by the first, and a reading that quantity is sufficient is refuted by the
+second. The return is ordered with the topology: the two seeds with the lowest
+effective support are the two where issuance buys least.
+
+**Why the crossing is undecidable rather than answered.** The second difference on
+the claim stock is uniform in sign across seeds, and it is an artefact: at the deep
+cut every one of the fifteen cells sits on the issuance ceiling, and a second
+difference between saturated cells returns the main effect with its sign flipped.
+Measured: `−6806.9` against a main effect of `+6833.6` on the same seed. Turning the
+issuance rule off removes the ceiling and the outcome meets a floor instead, because
+the ranking alone already takes cumulative household inflow to half a per cent of
+control. The range that the cut moves the outcome through, under the ranking, is
+`0.0014` to `0.0072` of the range with the ranking off in four of five seeds, and
+`0.3814` in the fifth. Four seeds mask and one does not, so the reading is not
+uniform either way. This is a statement about the carrier and not about the world:
+whether the two local signals interact is not settled here, and settling it needs a
+configuration in which the ranking does not on its own put the household layer on the
+floor.
+
+**Where this stands relative to a rival.** The opposing account here is that a
+shortfall in what reaches households is a shortfall of quantity. The claim stock rose
+by a factor of 69 to 86 and household inflow fell by 78 to 100 per cent, under the
+agent most favourable to that account. A second, weaker rival reading is that
+relationship death of this kind requires an irreversible primitive, a sunk cost, a
+per-link fixed cost, a search friction or a specific investment. This arm has none of
+them and produces the same shape, so the shape does not identify the cost.
+
+**One correspondence worth naming, and it is a correspondence and not a test.**
+Published data on correspondent banking records active correspondents falling about
+22 per cent and corridors about 12 per cent over 2011 to 2019, with the volume and
+value of cross-border payments rising over the same years, and the source's own
+commentary reads that as higher concentration in payment flows. The decline did not
+reverse. Nothing prevents a bank from opening such a relationship, so the links were
+never removed. That is this arm's joint signature: links intact, a third of them
+unused, flow up, concentration up, no recovery. The standing explanation is
+per-relationship compliance cost, and this arm does not refute it. It shows the shape
+does not require a cost, which makes attributing the whole of it to one over
+attribution.
+
+**What this stage is about is what an ordering does to a graph nobody cuts.** Both
+halves of the issuance reading are load bearing and each is reported in its own terms:
+the issuance buys the household layer a factor of 2.0 to 48.0, and leaves it at 0.9 to
+22.7 per cent of control. Together they say the quantity is short because the route
+does not arrive, and the return on adding quantity falls as the routing concentrates.
+The rule that produces this is decentralised, uniform across nodes, and locally
+optimal, so what the stage identifies is a property of the graph rather than a defect
+in any agent or a case for any particular remedy. The claim stock figure is linear
+accumulation against the issuance rule's own ceiling, about 23 per round for 297
+rounds, and this model carries no price level, so it forecasts no inflation rate.
+
+**What the queue is ordered on was varied, and it separates two things that are easy
+to run together.** Four orderings were considered and three are distinct objects. Two
+are one number per node, the counterparty's inflow last round and its in-degree; one
+is a quantity on the edge, what this payer has itself sent to that counterparty. The
+fourth, the terms a payer would get, is not a fourth: on the asset stage's
+construction terms are a monotone function of normalised in-degree, so that ordering
+is the degree ordering, identical array and rank correlation exactly one. **In this
+framework, going to the best connected counterparty and going to the best price are
+the same rule, and that is a checkable identity rather than a coincidence.** Telling
+them apart needs terms that respond to the flow that arrives. That switch was built
+and swept, and it does not tell them apart either: with terms that worsen as load
+arrives, at the strongest elasticity run, the ordering still agrees with the
+position ordering at Kendall tau-b `+0.84`, and its agreement with the negated
+arriving share is still `-0.65`, which is to say it is still positively aligned
+with where the flow already goes. On this graph the best connected counterparty is
+also the one the crowd is already at, and adding congestion does not pull the two
+apart. Separating them needs terms that depend on the pair rather than on the
+counterparty, which is a different switch and is locked.
+
+**The three distinct orderings line up on how much the order can move, and the
+readings follow that and not the locality of the information.** The static order never
+reaches the floor, in none of twenty seeds; the endogenous global one reaches it in
+three; the per-edge one in six, and its range is the widest. The per-edge ordering is
+the only genuinely local one, and its difference from the global one runs both ways,
+minus twenty-one to plus twelve percentage points. What decides the reading is whether
+the key moves, not who can see it.
+
+**Underneath all of them is a floor.** About eleven per cent of the routing edges are
+reached by no ordering at all, and when two orderings both land there they abandon
+almost exactly the same edges, overlap 0.94 to 0.99 with the smaller set contained in
+the larger. Where one lands there and another does not, the floor set is contained in
+the larger. So the readings decompose: a fixed set that this family of orderings does not
+reach, and between zero and thirty percentage points more that the ordering adds on
+top. That set is a property of orderings that do not respond to load and not of the
+graph, which corrects what an earlier reading of the same three orderings said.
+Granting the terms a response to arriving flow reaches those edges: at the
+strongest elasticity swept, 16 seeds of 20 leave exactly zero edges unreached and
+the other four leave `0.2` to `0.6` per cent.
+
+**The opposing account's own mechanism was built into the model and swept, and both
+halves of what came back are load bearing.** The ordering assumes terms are a function
+of position, so piling flow onto a profitable counterparty never makes it less
+profitable and the arbitrage never closes. Granting that arbitrage is granting the
+opposing account its strongest ground. With the response elasticity at `5`, the count
+of unreached edges goes to a mean of `0.1` per cent, sixteen seeds of twenty at
+exactly zero: **a strong enough arbitrage removes this stage's reading entirely.**
+With the elasticity at `0.25` the mean is `32.4` per cent against `36.7` with terms
+fixed by position, and at `1.0` it is still `20.2`: **a weak one leaves it essentially
+where it was**, so the reading is not an artefact of assuming that terms can never
+close. The direction was registered before the run and holds in 20 seeds of 20. The
+path is printed rather than voted on, and the five seeds that rise at one step in the
+middle are named in the record, largest rise `2.93` points inside falls of 33 or more.
+
+**The value `5` carries nothing, and what it has to beat is a quantity that was
+measured.** The key multiplies a position factor spanning `[1, 1 + k]`, where `k` is
+the asset stage's registered terms spread, by a congestion factor spanning `[1, 1 +
+e s]`, where `s` is the head counterparty's share of arriving flow. Congestion can
+move the best-positioned counterparty below the worst-positioned one once `e s > k`,
+so the ceiling is `k / s`. On this graph, with `k = 1`, the median head share falls
+from `0.456` at the bottom of the sweep to `0.221` at the top, so the ceiling is not
+a constant either: it runs `2.0` to `3.0` at the bottom and `3.6` to `5.7` at the top,
+because spreading the flow is itself what raises the bar. Every seed that crosses its
+own ceiling within the swept range reads under one per cent at or before the first
+value that clears it, 17 of 17; three seeds never clear it and collapse anyway, so
+clearing it is sufficient and not necessary. **A different terms spread or a less
+concentrated graph puts the ceiling somewhere else, which is why the number itself is
+a property of this parameterisation and says nothing about any economy.**
+
+**What this sweep does not touch.** The response is a function of one index, so every
+cell of it runs inside the case where the edge field is the gradient of a per-node
+quantity and loop sums are identically zero. That case is the one a scalar price
+field describes, and it is contained in this framework rather than opposed to it. So
+no value of the elasticity here bears on the framework's differentiating claim. What
+the sweep bounds is this stage's own reading about one routing rule.
+
+**What removes the edges is not a change of rule.** The natural account, that a
+strongly congested queue has become a queue that goes to whoever is empty rather than
+to the best counterparty, was measured before it was written down, and it is wrong:
+the agreement figures above say the queue is still ranking on position. What changes is
+that it stops being the same queue twice. With terms fixed by position the head of the
+queue does not change once in three hundred rounds and the overlap of its first ten
+between consecutive rounds is exactly `1.0000`; at the top of the sweep there are `9.8`
+distinct heads, `176` changes of head, and an overlap of `0.589`. Unreached edges track
+that and not the identity of the rule. This is the same axis the three orderings lie
+on, measured at the level of the key rather than inferred from the outcome.
+
+**The sign this stage's own correspondence carries is the other one, and on that
+side nothing moves at all.** A positive elasticity is congestion, terms worsening as
+a counterparty fills; a negative one is scale, terms improving as it fills. A
+correspondent bank does not price a payment worse because other banks also clear
+through it, and in most intermediation the busy counterparty is the cheap one, so the
+sign that this stage's own carrier has is negative. It had never been swept. Two
+accounts were registered for it: that scale reinforces concentration and unreached
+edges rise, or that any load dependence unfreezes the queue and they fall about
+symmetrically. **Both are refuted.** Across `-0.9`, `-0.5` and `-0.25` the reading
+holds at the frozen `36.7` per cent, above it in zero seeds of twenty and below it in
+zero, while the queue on that side does move: two distinct heads against one, and a
+first-ten overlap of `0.995` against exactly `1.000`. So movement is not sufficient
+and the sign does not reinforce anything. A third account, that what matters is
+eviction of the head, holds at the ends and fails in the middle: the modal head holds
+`0.9548` of rounds at `-0.9` and `0.9547` at `+0.25`, while the readings differ by
+`4.3` points. The one quantity that tracks the readings across all seven points is
+the first-ten overlap, which the negative side moves by `0.005` and the positive side
+by up to `0.155`, and per seed that association is monotone in only 5 of 20, mean
+rank correlation `+0.80`. **It is an association with a degenerate cluster and it is
+not reported as a law.** What is reported is the fact: **removing this stage's
+reading requires terms that respond to load in the worsening direction and strongly
+enough to clear the ceiling, and the first of those two conditions already fails on
+the carrier this stage corresponds to.**
+
+**The headline figure sits 0.45 points from a constant of the standard account, and
+that had to be checked before it could be reported.** Directed search has a
+quantitative answer for why capacity sits idle while queues are long: in the urn-ball
+limit, independently chosen targets leave a fraction `1/e = 36.788` per cent of them
+empty. This stage's static ordering reads `36.3` to `36.7` per cent. A number that
+agrees with a construction constant of the rival account to a tenth of a point is not
+a reading until it is shown not to be that constant. The two separate on invariance
+rather than level, which makes the check cheap: the limit depends on neither
+out-degree nor layer size, and this figure moves with both. Halving the out-degree
+takes it to `28.9` per cent, quadrupling it to `41.6`, doubling the layers to `43.4`,
+a spread of `14.5` points, and out-degree is the mechanism's own variable, how far
+down one shared queue a payer's budget reaches. **The agreement is a coincidence of
+the default carrier.** The urn-ball account and this one produce the same family of
+phenomena by different mechanisms, and it is the invariance that tells them apart.
+
+**Where the standard account is recovered, stated as what it is.** The rival's own
+premise is that arbitrage removes persistent differences. This stage now has the
+boundary of that premise in closed form, `e s_head > k`, and on the inside of it the
+rival's prediction holds exactly: sixteen seeds of twenty read `0.0` per cent
+unreached. Outside it the prediction is wrong by 20 to 37 points, and on the side
+this stage's own carrier sits, where terms improve rather than worsen with load, it
+is wrong by the whole `36.7`. **That is the same shape as collapsing the agent
+dimension to one class, where the product graph returns to the position graph, every
+square degenerates and the one-index world is recovered exactly. Recovering a rival
+exactly in the corner where its premise holds, and locating that corner, is what a
+strict generalisation looks like.** Two limits belong with it: this is the nesting
+for the disuse reading and not for the loop-sum claim, which no cell of the sweep
+touches; and the rival here is one specific proposition rather than a field, since
+the urn-ball account agrees that capacity goes idle and is a common explanation
+rather than a competing one.
+
+**One thing this switch does not deliver.** The response is a function of the
+counterparty alone, so the edge field it produces is still the gradient of a per-node
+quantity and its loop sums are still identically zero. Terms that respond to arriving
+flow were named as the condition for a non-exact edge field; they are not sufficient
+for it. The condition is that terms depend on the pair, and the checkable form of it is
+the number of indices on the quantity: one index and the loop sum is zero by
+construction.
+
+**Edges here are stable by construction.** The adjacency is fixed before the run and
+does not move during it, which this stage checks bit for bit, so a one-off contact was
+never an edge. Agents who deal with many counterparties once each and stop are a kind
+this model does not carry, and what is measured is which already-standing
+relationships fall out of use.
+
+**Registered and not scheduled**: a configuration in which the crossing can be read,
+whether the edges the queue abandons are the same edges the run arm would cut,
+which edges make up the set that load-insensitive orderings do not reach, and
+terms that depend on the pair rather than on the counterparty, for which the
+bilateral array the per-edge ordering already ranks on is the minimal carrier.
+
+---
+
+## B30-5 global — the same criterion run once in each of 64 countries
+
+**RUN: 2026-09-01.  DESIGN: `docs/b30_prereg.md`, "B30-5 cross-sectional",
+carried to a bulk carrier without changing the criterion.**
+
+The city-by-city route stalled at twelve Chinese cities because the source
+meters detail pages per calendar month. A third-party archive of the same
+database carries 4,956 cities in 215 countries with all fifty-five items and the
+salary row, so both sides of the regression live in one file and the same
+criterion runs inside each country separately. **Countries are never pooled**:
+pooling would put currencies, tax regimes and different brand sets on one line.
+
+`data/read_b30_5_kaggle.py` names the columns, `experiments/b30_5_global_classes.py`
+runs the criterion, record `results/b30_5_global_classes.json`.
+
+### The columns are named against a known answer, not transcribed
+
+The archive labels its price columns `x1` to `x55`. **Naming them wrong would put
+every item in the wrong class and every class contrast would still print a
+number**, so they are derived and then checked.
+
+They are positional: `x_i` is the i-th row of the source's own page, and the
+twelve pages already read were parsed in page order. **What makes that a check
+rather than an assumption is the ratio.** The archive is another currency and a
+2022 vintage against a 2026 read, so a correctly named column differs from its
+item by one exchange rate and a wrongly named one differs by two unrelated
+prices. The common ratio comes out at `0.15225`, which is the exchange rate, and
+**each item's own name predicts its departure from that ratio before anything is
+read**: `(1 lb)` predicts 2.2046, `Taxi 1 mile` predicts 1/1.6093, `per Square
+Feet` predicts 10.7639, `in %` predicts no currency at all.
+
+**54 of 55 columns land within a factor of two of what their own name predicts**,
+which is what four years of drift can do. The one that does not is `x37`, off by
+a factor of `0.0029`: the source replaced a per-minute prepaid tariff with a
+monthly plan between the two vintages, so that column is not the same item in
+both. It is named in the record and carried no further.
+
+### The reading is a count
+
+For item `i` over the cities `c` of one country, `log P(i,c) = a_i + b_i·log Y(c)`,
+then the median `b` over LADDER items and over LOCAL items. **The class of each
+item was fixed from its description before any of this was read and is the same
+in every country.** A country enters with at least twelve cities carrying a
+salary and at least four items in each class.
+
+| | |
+|---|---|
+| countries meeting the minimum | **64** |
+| LADDER median below LOCAL median | **53** |
+| the other way | **11** |
+| two-sided sign test at one half | **`p = 1.01e-07`** |
+| **countries whose LADDER median sits above 0.5** | **`0`** |
+
+Median gap `+0.196`, range `−0.199` to `+0.558`. **Of the eleven reversals only
+five are below `−0.05`**; the other six sit between `−0.048` and `−0.008`, which
+is zero. The five real ones are Belgium `−0.199`, South Africa `−0.112`, Tunisia
+`−0.093`, Iraq `−0.081`, Austria `−0.059`.
+
+### Two registered predictions, two different verdicts, reported apart
+
+**The ordering holds.** LADDER sits below LOCAL in 53 of 64 independent national
+carriers, with a class assignment written for China and never re-tuned. **And the
+kill branch is empty**: the registered branch asks whether LADDER comes back near
+one, and no country's LADDER median reaches `0.5`. Across countries the LADDER
+median is `+0.097`, range `−0.184` to `+0.405`.
+
+**The level does not.** The registered text says LOCAL should come back near one.
+Across countries its median is `+0.261`, range `−0.277` to `+0.861`. **LOCAL is
+not near one in most countries and that is recorded as it stands.** It reached
+`1.17` to `1.77` only on the housing rows of the twelve-city Chinese panel, where
+the LOCAL median was `+0.630`. So the class ordering replicates and the
+predicted level does not.
+
+### Two reads of China, both true, neither replacing the other
+
+| panel | cities | vintage | LADDER | LOCAL | gap |
+|---|---|---|---|---|---|
+| page by page | 12 | Aug 2026 | `+0.130` | `+0.630` | `+0.500` |
+| the archive | 64 | Dec 2022 | `+0.160` | `+0.390` | `+0.231` |
+
+Different city sets and different years. The twelve are the municipalities and
+provincial capitals; the sixty-four reach much further down. Both are printed
+and the larger is not quoted in place of the smaller.
+
+### What this does not settle
+
+**The 64 gaps are not fully independent.** The same fifty-odd items appear in
+every country, so an item that behaved oddly worldwide would move many countries
+together, and the sign test's null assumes independence it does not have. The
+count `53 of 64` is the object; the `p` is a summary of it and is optimistic.
+The design protects against the obvious version of this -- each class median is
+taken over fifteen to seventeen items, so no single item can carry a country.
+
+**A cross-section cannot separate inheritance down a branch from one common
+cause reaching every city**, which the registered text states and which no
+number of cities fixes. That needs timing.
+
+**The class assignment was written for China.** That it survives in 53 other
+countries is itself a reading about how far the assignment travels, and the two
+rows that were flagged in advance as shakiest abroad, packaged rice and milk,
+are each one item of fifteen.
+## B38 — the rank of the obstruction to a scalar price potential
+
+**RUN: 2026-09-01.  DESIGN: `experiments/b38_potential_rank.py`, criteria in the
+file and every quantity it computes reported in `results/b38_potential_rank.json`.**
+
+Price as a field with two indices, `P(item i, city c)`. A scalar potential -- one
+price level per city -- means
+
+    log P(i,c) = a_i + m_c
+
+which is rank one in logs and makes every square exactly zero. That is Theorem
+1's premise, and it is what every spatial price index and every
+purchasing-power construction assumes without stating. **What is measured here is
+the rank of the obstruction, not its existence.** That relative prices differ
+across cities is a common explanation; nobody computes the rank, because only
+this framework says the rank is the surviving information.
+
+**Currency does not enter.** Converting a city's prices adds a constant to its
+column in logs, which the city effect absorbs exactly, so this runs on every
+city at once with no exchange rate anywhere.
+
+**The counting law and the two-way decomposition are the same object.** On the
+complete bipartite graph `b1 = E − V + 1 = I·C − I − C + 1 = (I−1)(C−1)`, which
+is the number of free parameters the residual has after row and column effects
+are removed. Both were computed and printed: `66,886` and `66,886`. **The residual
+matrix is the representative of the class, as an identity rather than an
+analogy.**
+
+**Carrier**: 53 price items on the 1,263 cities that carry every one of them, so
+the matrix is complete and nothing is imputed. Two items are set aside and named:
+`x37`, which the source redefined between vintages, and the mortgage rate, which
+is a percentage a city's price level does not multiply. **The run is done both
+with and without the rate row and both are reported**; it changes almost nothing.
+
+> **CORRECTED 2026-09-03, and no reading moves.** The line above merges the two
+> arms' figures, and the script prints them apart: the **prices-only arm is 53
+> items on 1,280 cities with `b1 = 66,508`**, and the arm **with the rate row is
+> 54 items on 1,263 cities with `b1 = 66,886`**. So `1,263` and `66,886` belong
+> to the second arm, not to the 53-item one. Everything read off the main arm is
+> untouched and was checked against the run: `sd(R) = 0.4521`, `52 of 53` above
+> the measured floor, `8 of 53` above the conservative one, and the three named
+> directions with the same cities at their ends. **The original wording stays
+> above; B38d re-derives all of it from the data and reproduces the main arm to
+> the digit.**
+
+| criterion | state | reading |
+|---|---|---|
+| B38-1 the decomposition is an identity | **PASS** | `max abs(M − (a+b+R)) = 1.78e-15` |
+| B38-2 known answer: rank one plus measured noise returns nothing | **PASS** | `0` directions above the floor on synthetic data through the same code |
+| B38-3 the residual, printed and not judged | reported | `sd(R) = 0.4521`, **15.4 times one price's noise**; median `abs(square) = 9.4` times the noise a square carries |
+| **B38-4 how many directions clear the floor** | **reported, load-bearing** | `52` of 53 above the measured floor — **WITHDRAWN 2026-09-01 by B39, do not quote**; **`8` of 53** above the conservative floor, **standing**; `19` on B39's independent error estimate |
+| B38-5 what those directions are | printed | below |
+
+### Two floors, and the second one cannot be argued down
+
+The measured floor uses the carrier's own noise, `sd 0.0293`, from arm A of the
+carrier check -- an administratively priced item on twelve large Chinese cities.
+**The archive reaches far thinner cities than those**, so that figure is probably
+an underestimate and `52` is an upper bound on the rank.
+
+The second floor needs no measurement: **take the entire residual to be noise**,
+`sd 0.4521`, and put the edge at `sigma(sqrt(I)+sqrt(C)) = 19.38`. That is the
+highest floor any reading of this matrix could defend, and **eight directions
+still clear it**. The truth lies between eight and fifty-two.
+
+| k | sigma | share | above |
+|---|---|---|---|
+| 1 | `61.50` | 25.2% | both floors |
+| 2 | `36.79` | 9.0% | both |
+| 3 | `33.30` | 7.4% | both |
+| ... | | | |
+| 8 | `19.53` | 2.5% | both |
+| 9 | `18.66` | 2.5% | the measured floor only |
+
+> **SUPERSEDED IN PART, 2026-09-01, same day, by B39.** The `52` rested on the
+> measured carrier noise `0.0293`, and an independently collected posted price
+> puts the archive's country-level error on the most tightly specified branded
+> item in the panel at `0.2752` in logs. **On that error estimate the count is
+> `19`, and the `52` is not quoted again.** The `8` is untouched: it already
+> conceded the entire residual to measurement. **The reading that survives is at
+> least eight dimensions, and nineteen on the independent error estimate.** The
+> two floors and what each one buys are in the B39 section.
+
+**So the obstruction is not low-dimensional.** The leading direction carries a
+quarter of it and no small set carries the rest. **A spatial price index cannot be
+repaired by adding a few correction factors**, because a rank-`k` approximation
+needs essentially all of them. That is a claim about a practice, and it is
+checkable. **It stands on the surviving count rather than on the withdrawn one**:
+even at eight dimensions, no two or three factors reach the residual.
+
+### B38-5, the directions printed as objects rather than counted
+
+**Direction 3** (`sigma 33.30`) puts both apartment purchase rows and both
+schooling rows on one side against broadband and domestic beer, and the cities at
+its extreme are **Shanghai, Beijing, Shenzhen and Nantong**. That is a nameable
+thing: Chinese property and schooling sit far above where the rest of those
+cities' prices would put them.
+
+**Direction 1** (`sigma 61.50`) loads taxi waiting time, net salary, preschool and
+local transport against the price of a car, with Indian and Egyptian cities at the
+extreme -- the labour-against-traded-goods axis, arriving without being asked for.
+
+**Direction 2** (`sigma 36.79`) puts central apartments and apples against
+gasoline, utilities and jeans, with Kermanshah, Abuja, Lagos and Makati City at
+the end.
+
+### Where this sits, and what it does not settle
+
+**Per the four cells this is D, not B.** The framework and ordinary trade
+economics both expect relative prices to differ across cities, so the residual's
+*existence* is a common explanation and carries nothing. The rank is the part no
+opposing account has a reason to compute.
+
+**The floor is a floor on this carrier, not on the world.** The archive is
+crowdsourced, its thin cities are thin, and the conservative floor exists
+precisely because the measured one rests on twelve large cities.
+
+**A rank is not a mechanism.** Eight or more surviving directions say the
+obstruction is high-dimensional; they do not say what generates it. The three
+printed above are readable, and reading them is not the same as measuring them.
+
+## B41 — the same obstruction on cash grain, where a published rule fixes part of the answer
+
+**RUN: 2026-09-02, extended 2026-09-03.  `experiments/b41_ams_probe.py`,
+`b41_joint.py`, `b41_known_answer.py`, `b41_bootstrap.py`, `b41_persistence.py`,
+`b41_magnitude.py`, `b41_crossstate.py`. The station's record is
+`results/b41_squares.json`: the five criteria, and for every block its degrees of
+freedom, days, residual scale, autocorrelation, reading, measured floor and the
+ratio between the last two. The rechecks it names each carry their own record
+beside it. The scripts also write working files to a local data directory, which
+is not redistributed and which rerunning them rebuilds.**
+
+B38 read the rank of the obstruction on retail price levels across cities. This
+station reads the same object where the two indices are a named delivery
+position and a grain, and where a third party publishes part of the answer in
+advance.
+
+The opponent is the same one: a scalar potential on positions, one location term
+per place, so that basis(commodity, position) = f(commodity) − g(position). That
+is an additive two-way model, and everything it forbids lives in the residual
+after row and column effects are removed. The residual space has dimension
+(m−1)(n−1), the same count the cycle rank gives, and its norm does not depend on
+which cycles are chosen as a basis. An anchored count of independent cycles
+moved between four and eight out of eight depending on the anchor; the norm has
+no anchor and cannot move.
+
+**Carrier.** USDA AMS state daily grain bids, thirty daily reports and four
+weekly. The header section of these reports runs from 2020-02-24, and the
+detail section that carries the quotes begins on 2020-07-20, when the whole
+family came online in five Monday batches, so a state has about 1,510
+trading days rather than the 1,620 the header count suggests. A quote is
+keyed by reporting zone, facility type, commodity, class, grade, delivery window
+and futures contract month, and the last two are printed alongside the basis. A
+commodity whose futures month differs across positions on a day is dropped for
+that day, and a cell whose own quoted range straddles two months is dropped
+outright: differencing across months would import a calendar spread that has
+nothing to do with space. Twenty-six reports are pulled in full.
+
+**Resolution floor, measured rather than asserted.** A field that is additive by
+construction is built from each state's own fitted row and column effects plus
+noise and put through the same code. With independent noise the pipeline reads
+0.11 to 0.42 cents per bushel and its bootstrap does not reject, so the code does
+not manufacture a residual out of its own arithmetic. With noise carrying the
+residual's own measured lag-one autocorrelation, 0.911 to 0.950, the same
+pipeline reads 1.02 to 8.77 cents. The second figure is the floor, and it is
+three to six times the first: a persistent noise process leaves a persistent
+looking sample mean and a white one does not. The floor is not a function of
+the size of the graph alone. It also scales with the state's own residual, so
+two states at one interaction degree of freedom carry floors of 1.70 and 8.77
+cents. That is why a reading is reported as a multiple of its own state's
+floor and never compared in cents across states.
+
+**Reading.** Across eleven states nine carry a persistent residual of 4.6 to
+9.0 times that state's own measured floor. The two that do not are named in
+the criteria table below, each with a structural reason that was measured
+rather than assumed. The scalar potential itself, the only term the opponent
+allows, has a root mean square of 1.49 to 18.46 cents across the seven states
+where it was computed, so the part it cannot carry is
+comparable to the part it can, from about four tenths of it to about four times
+it, with a median near nine tenths.
+
+**Where a rule fixes the answer, the reading follows the rule.** CBOT location
+differentials are published per delivery territory in the contract rules. Corn
+and soybeans carry identical differentials at all five Illinois River shipping
+districts, so the exchange pins the corn-against-soybean contrast between any two
+of them to zero; measured, it is −0.50 cents, 0.74 of that panel's floor, while
+the other nine independent contrasts on the same panel read about six floors.
+Wheat is deliverable at par in the Toledo switching district and soybeans are not
+deliverable in Ohio at all, and the two Toledo positions the report distinguishes
+sit inside one switching district at one differential; measured, that contrast is
+−0.38 cents, 0.15 of its floor. Between Chicago at par and St. Louis, the rules
+set wheat at ten cents and corn and soybeans at sixteen and a quarter; measured
+medians over about 1,100 paired days are wheat 9.50, corn 19.00 and soybeans
+22.00, and the three second differences sit within two block-bootstrap standard
+errors of the published values, one of them within 0.14. The rules also schedule
+the corn and soybean St. Louis premium to rise to twenty-four cents for contract
+months from 2028, which was not in force over the sample and is reported here
+only as an independent judgement, by the exchange, that the figure in force sat
+below the market.
+
+**A fifth cell, where the rule says zero and the reading does not.** The same
+rules put Chicago and the Illinois River districts at differentials that are
+identical between corn and soybeans, so the corn-against-soybean contrast
+between Chicago and either river district is pinned at zero as well. Measured
+over 516 paired days it is −21.17 cents with a standard deviation of 25.22,
+about nineteen standard errors from zero. Two explanations for that figure
+were tested and neither holds: corn is quoted at that position on 39 percent
+of the days soybeans are, but putting the quietest river pair on exactly those
+days moves its standard deviation from 8.10 to 9.91 rather than to 25, and the
+reading is not confined to a noisy stretch, since the yearly standard
+deviations are 7.45, 24.43, 28.68 and 6.12 while the yearly means stay between
+−12 and −30. Decomposed, the whole of it sits on one leg: Chicago's corn basis
+runs 15 to 62 cents below the river districts while its soybean basis is above
+them in most years. Whether that is a location term that depends on the
+commodity or a quote the delivery rules do not govern turns on what the
+reporting agency says this bid covers, and on a reporting change dated
+2023-02: the Chicago corn series ends 2023-02-02 and a Mississippi River
+series begins 2023-02-10 with no overlapping day. The reading is stated here
+and its classification waits on that document.
+
+**Same rulebook, two kinds of location term.** The differentials are identical
+between corn and soybeans on the Illinois River and different between wheat and
+soybeans in Ohio, where wheat is deliverable and soybeans are not. A location
+term that varies by commodity is precisely what the additive model forbids, and
+it is printed in a public document, so that model fails before any price series
+is opened.
+
+| Criterion | State | Reading |
+|---|---|---|
+| B41-1 decomposition is an identity | **PASS** | Position effect plus commodity effect plus residual reconstructs every cell; largest of twenty-eight checks across seven states is 5.68e−14 against a 1e−12 requirement, and the residual is orthogonal to the additive space to 2.44e−15 |
+| B41-2 known answer | **PASS** | An additive field with independent noise reads 0.11 to 0.42 cents and is not rejected; four external controls where an exchange rule fixes the location term read 0.15 and 0.74 of their floors where the rule says zero, and reproduce the published figures where the rule says otherwise |
+| B41-3 second difference against a published figure | **READ** | Eleven states. Nine read 4.6 to 9.0 times their own measured floor; Montana reads 1.8 on a rectangle whose eight columns are protein tiers of one wheat rather than different commodities, and forcing that same shape in the two states where it can be built raises the reading rather than lowering it, from 4.9 to 5.8 in Kansas and from 4.8 to 5.6 in South Dakota, so the low Montana figure belongs to that state and not to the shape of its block, and Tennessee reads 0.5 on the persistent statistic while its typical daily second difference is 12.50 cents, fourth largest of the eleven. Published differentials account for three second differences to within two standard errors |
+| B41-4 directional asymmetry | **NOT FOUND AT THIS POWER** | Transmission is 0.961 to 1.033 on both sides across thirty-one state and commodity cells; the two sides differ by −0.047 to +0.028 and one cell of thirty-one exceeds two standard errors, in the opposite direction to the sign pattern of the others |
+| B41-5 the capacity cell | **NOT FOUND AT THIS POWER** | Off-farm stocks against off-farm storage capacity, both from the quarterly NASS Grain Stocks survey, split each state's days at its own median fullness and printed as two groups: five of seven states carry a smaller persistent residual in the full quarters, mean difference 1.43 cents, and one of seven exceeds two standard errors with the quarter as the independent unit. The facility level version of the split, which would separate places rather than dates, is a current snapshot only at the exchange and has no free history |
+
+**Screened out on paper, before any data was bought.** The weekly price-spread
+table of the Grain Transportation Report carries one commodity per
+origin-destination pair, five rows over six vertices, so its first Betti number
+is zero and no two-commodity contrast exists there at all. Illinois quotes soft
+red winter wheat at essentially one position and soybeans at thirteen, so that
+pairing has no rectangle; the same state read against corn instead is one of the
+thickest carriers in the set.
+
+**A statistic that survives its own block being changed.** Restricting Kansas
+and South Dakota to one commodity moves the raw residual by −34 and +27
+percent, in opposite directions, while the multiple of each state's own floor
+moves by +18 and +17 percent, in the same direction and inside the same band.
+The quantity reported here is stable under a perturbation large enough to
+reverse the sign of the change in the unnormalised one.
+
+**Two limits worth stating with the numbers.** The block bootstrap is not well
+calibrated at this persistence: on synthetic fields whose residual is zero by
+construction, three of thirty-five replicates returned a p-value between 0.05 and
+0.15 at the shortest block, so the ratio to the measured floor carries the
+reading and the p-values corroborate it. And the Toledo pair, the tightest of the
+four rule controls, puts two positions in one city, so it does not separate
+"the rule makes them equal" from "one city makes them equal"; the Illinois River
+pair, hundreds of river miles apart, is the one that does.
+
+### B41-3 pooled across states, where the model being tested actually lives
+
+Every reading above is inside one state, and the model under test is not a
+statement about a state: one scalar on positions and one on commodities is a
+global claim, and the graph it lives on does not stop at a state line. The
+commodity nodes are shared, so a position in Kansas and a position in Ohio are
+joined through the soybean node whether or not anyone quotes them side by side.
+The union graph is connected, and it carries cycles no state rectangle contains.
+
+How many is an identity rather than a measurement. A state with p positions and
+two commodities carries p − 1 cycles; the union of k such blocks carries the sum
+of the positions minus one, which is the sum of the state cycle ranks plus k − 1.
+Pooling k states adds exactly k − 1 independent cycles, and it was confirmed at
+seven coverage settings in both blocks. Pooling is not a multiplication of the
+evidence. It buys a small number of cycles that are the only ones testing the
+claim at the scope the claim is made.
+
+Those k − 1 cycles are exactly the state by commodity interaction, so averaging
+the residual over each state's own positions isolates them and drops every cycle a
+single state already contained. Two blocks exist, set by the wheat class rather
+than chosen: soft red winter is quoted with soybeans in the eastern states, hard
+red winter in the plains, and Missouri is in both. Coverage was set at the highest
+value that keeps every state in the block, since a threshold that drops a state
+drops the point of pooling; both blocks land on 440 complete days. The futures
+month rule is the within-state one and is not weakened: a commodity whose month is
+not the same at every position in the rectangle that day drops the day whole.
+
+| | soft red winter block | hard red winter block |
+|---|---|---|
+| states | KY MO OH SC TN | KS MO NE OK SD |
+| positions, coverage | 10 at 80% | 20 at 85% |
+| cycle rank pooled | 9 | 19 |
+| sum of the state cycle ranks | 5 | 15 |
+| cycles no state rectangle contains | 4 | 4 |
+| complete days | 440 | 440 |
+| cross-state persistent residual | **5.53 cents** | **4.87 cents** |
+| measured floor, five synthetic fields | 0.96 to 2.45 | 0.60 to 1.32 |
+| **times the floor** | **4.0** | **4.5** |
+
+The floor is read on a field that carries everything the real one carries except
+the quantity being measured: global position and commodity effects from the real
+fit, a persistent interaction inside each state scaled to the measured one and
+centred within that state so it contributes nothing across states, and
+autocorrelated noise at the measured coefficient of 0.94. Four to four and a half
+times that floor is the same range the within-state readings occupy against their
+own floors.
+
+Per state, the mean persistent residual in the soybean column, in cents:
+
+| soft red winter | | hard red winter | |
+|---|---|---|---|
+| Kentucky | +5.55 | South Dakota | +6.11 |
+| Tennessee | +5.49 | Kansas | +1.86 |
+| Ohio | −0.44 | Nebraska | −0.08 |
+| Missouri | −3.68 | Oklahoma | −0.57 |
+| South Carolina | −6.91 | Missouri | −7.33 |
+
+Missouri is the only state in both blocks, because it quotes both wheat classes,
+and both blocks give it a negative figure. What that agreement is worth was
+measured rather than assumed, because three things could have produced it on
+their own. The per-state vector is recentred across states every day, so it sums
+to zero and one state is negative whatever the data say. The two blocks share 239
+of their 440 days. And Missouri contributes five positions to the soft red block
+but only one to the hard red block, and that one position is among the five. Two
+checks were run against those. Dropping any one other state, or comparing
+Missouri against any one other state alone, leaves it negative in sixteen of
+seventeen recomputations, the exception being the soft red block's one state that
+is more negative still. And removing the position the two blocks share leaves the
+soft red figure at −3.98 rather than −3.68, so the agreement is not carried by
+the shared position. The sizes do not agree: −3.68 against −7.33 at the state
+level, and −0.65 against −9.02 at the shared position, which is itself a location
+term reading differently against two wheat classes at one place. Tennessee reads +5.49 here while its own within-state persistent
+residual is 0.80: a second difference that does not hold its sign inside a state,
+and a position term that sits away from other states', are different properties and
+both are readable.
+
+The recentred block bootstrap is corroboration here rather than the main reading,
+for the reason already established at this autocorrelation and now measured
+directly on a field known to carry no signal: across ten synthetic runs, block
+twenty rejects at or below 0.058 in five of them and once at 0.000, and block one
+hundred rejects once. Any use of this section carries the multiple and the floor,
+not the p value alone.
+
+### B41-3 across every state the carrier reaches, and two quantities rather than one
+
+All twenty-six daily state grain reports now carry their full history. Nine of them
+yield a complete rectangle at the registered coverage rule, up from seven, and two
+more yield one at a lower coverage that is printed alongside each reading rather
+than folded into it. Seventeen do not, and the reason is not the coverage rule: the
+second difference needs two commodities of the same statutory test weight, so
+soybeans and wheat, and ten of those states quote only one of the two, or quote
+both at fewer than two shared positions. Illinois is among them because its wheat
+is quoted at a single position, which no threshold repairs.
+
+The residual per cycle falls as the rectangle grows, from 40.19 cents on a two by
+two to 4.49 on a five by eight, so the comparable quantity across states is the
+ratio to that state's own floor and not the level. Neither the level nor the floor
+is a function of the rectangle alone: the two states at one interaction degree of
+freedom carry floors of 1.70 and 8.77 cents, and restricting Kansas from seven
+degrees of freedom to four moves its level down 34 percent while the same
+restriction in South Dakota, from six to three, moves it up 27 percent. The
+ratio moved by 18 and 17 percent under those two, in the same direction. North Carolina's 40.19 sits on a floor of 8.77, the
+highest of the eleven, and its ratio of 4.6 lands at the bottom edge of the range
+the other states occupy rather than three times above it.
+
+A second reading was added because one state forced it. The statistic fits the
+additive model to the time averaged matrix, so it reports the part of the
+interaction that survives averaging. A second difference that is large and reverses
+sign averages to nothing and reads the same as one that was small throughout, and
+those are opposite signals: against a model in which position carries a single
+scalar, which forbids any nonzero second difference on any day, size is what
+refutes and persistence is a further and separate property. Both are now reported.
+
+| State | df | days | persistent | magnitude | persistence | sign stability |
+|---|---|---|---|---|---|---|
+| North Carolina | 1 | 347 | 40.19 | 51.50 | 0.780 | 0.86 |
+| Kentucky | 2 | 229 | 16.39 | 17.68 | 0.927 | 0.80 |
+| Missouri | 5 | 711 | 9.40 | 12.91 | 0.728 | 0.61 |
+| Tennessee | 1 | 329 | 0.80 | 12.50 | 0.064 | 0.59 |
+| Ohio | 2 | 722 | 14.09 | 12.37 | 1.139 | 0.91 |
+| Nebraska | 4 | 650 | 8.06 | 12.14 | 0.664 | 0.78 |
+| Kansas | 7 | 653 | 9.06 | 11.39 | 0.796 | 0.78 |
+| Oklahoma | 3 | 909 | 10.44 | 10.97 | 0.951 | 0.91 |
+| South Dakota | 6 | 1049 | 6.47 | 9.12 | 0.710 | 0.74 |
+| North Dakota | 4 | 338 | 7.67 | 8.99 | 0.853 | 0.88 |
+| Montana | 28 | 445 | 4.49 | 7.53 | 0.596 | 0.66 |
+
+Magnitude is the median across days of the per cycle residual of that day's own
+matrix; persistence is the first column over the second; sign stability is the
+median over cells of the larger of the two sign fractions, so one half is a coin
+and one is a cell that never reverses.
+
+Tennessee is the one state whose persistence is not in the range the others
+occupy, at 0.064 against 0.55 to 1.14, and the cause is seasonal. Its rectangle
+pairs a river barge position with an inland one, and the wheat leg of the
+difference moves from about −10 cents in the first half of the calendar year to
++21 in June and +30 in October and December. The candidate cause is the soft red
+winter harvest, when new crop arrives at inland elevators and the inland basis
+falls away from the river, and that cause makes a prediction outside the state it
+was read on. Scored on all twenty-one river-and-inland position pairs
+in the four states that have any, June's wheat leg is above that pair's own median
+month in fourteen, against a chance rate of one half, and June's second difference
+is the year's lowest month in four and among the lowest three in ten, against
+chance rates of about one twelfth and one quarter. The direction is consistent and
+the strength is weak, and the pairs are not independent: Missouri supplies twelve
+of the twenty-one and they share their positions, so the effective count is nearer
+the number of states than the number of pairs. Within one state, different pairs
+can disagree: Ohio has three, two of which put June below their own median and one
+of which, the barge loading position the publisher's own glossary identifies as the
+river one, has its annual minimum in June at −37.00 cents. What is stated without
+depending on a choice of pair is the size: across Missouri's twelve pairs the most
+negative calendar month anywhere is −4.00 cents, against −22.50 in Tennessee and
+−37.00 in Ohio. A seasonal term modulates a second difference by an amount well
+below the differences between states; it does not manufacture one. Pooled by calendar month across years the pattern repeats: January is
+positive in all four years present, June negative in three of four. Tennessee's
+sample covers only twenty-six of the seventy months in the window, and no two
+years cover the same set of months: one year carries one month and another carries
+seven. Balancing months inside each year shrinks the year to year spread but
+leaves the sign of all seven years unchanged, so the annual figures are not
+comparable to each other rather than being an artefact of composition. A low
+persistence therefore has two readings that have to be separated before either is
+used: genuinely transient, or unevenly covered. This was written
+down in advance as a risk of the seasonal term and is the first state where it
+came true.
+
+Montana's twenty-eight interaction degrees of freedom are parameters rather
+than directions. Its time averaged residual has algebraic rank four, the ceiling
+for a five by eight, and one direction carries 80.7 percent of the variance:
+Northeast against North Central on the position side, hard red winter against dark
+northern spring on the grade side, which is the contrast already described from the
+cell values. The ratio to the floor is unaffected, since both terms divide by the
+same degrees of freedom, but the reading is one strong direction rather than
+twenty-eight weak ones.
+
+Neither of the two states outside the range weakens what the criterion reads. The
+opposing model predicts every second difference is exactly zero on every day.
+Tennessee's is exactly zero on two days of 329, and its typical size is larger than
+that of six of the states that pass comfortably.
+
+## B38b — is that residual an obstruction, or is it the same name meaning different things
+
+**RUN: 2026-09-01.  `experiments/b38b_spec_tightness.py`, record
+`results/b38b_spec_tightness.json`.**
+
+B38 found the residual large and high-dimensional. **The confound that reading
+has to survive is not agent error, it is item non-comparability**: a cappuccino
+in Oslo and a cappuccino in Lagos are not one object, and a residual made of
+that is a mis-specified edge rather than a field that fails to close.
+
+**Agent error does not sit in that place, and the reason is the framework's
+own.** Independent error averages out and carries a known spectral signature,
+which B38-2 already checked on synthetic data and which the two floors bracket.
+Correlated error -- one city, one shared rule of thumb -- does not average out,
+but it is not a confound: **a field that fails to close because of a shared
+heuristic is a field that fails to close**, and nothing here assumed anyone was
+optimising. So the whole weight falls on non-comparability.
+
+**One axis will not separate it.** Tightly specified items also tend to be
+tradeable, and arbitrage predicts a small residual for the same rows quality
+bias does. Crossed, on assignments made from each item's own description and
+printed in full in the record:
+
+| median per-item residual sd | TRADED | LOCAL |
+|---|---|---|
+| **TIGHT** | `0.4001` (n 14) | **`0.5133`** (n 12) |
+| **LOOSE** | `0.3808` (n 10) | `0.4512` (n 17) |
+
+| margin | ratio |
+|---|---|
+| LOOSE over TIGHT | **`1.06`** |
+| LOCAL over TRADED | `1.24` |
+
+**Quality bias is ruled out by its own prediction.** It predicts the residual
+tracks LOOSE; the ratio is `1.06`. And the cell it predicts smallest --
+**TIGHT and LOCAL**, where the name pins the object so there is nothing to
+mis-compare -- **is the largest of the four**.
+
+**Arbitrage contributes and does not carry it.** LOCAL over TRADED is `1.24`,
+in the expected direction and an order of magnitude short of the thing being
+explained: the residual is `15.4` times the noise floor, and the spread across
+all four cells is a factor of `1.35`.
+
+**The obstruction is present in every cell at a comparable size**, which is what
+a structural reading predicts and what neither of the two alternatives does.
+
+**One limit, named.** The TIGHT-and-LOCAL cell holds several administratively
+priced rows -- a litre of petrol, a transit ticket, taxi tariffs -- so part of
+its cross-city variation is policy rather than exchange. **A regulated price
+that fails to close still fails to close**, so this does not move the reading,
+but the mechanism there is not the mechanism in a restaurant meal and the two
+should not be quoted as one.
+
+**Also named**: the net salary row is classified LOOSE and LOCAL and is not a
+good; it is kept because dropping a row after seeing where it lands is the thing
+this project does not do.
+## B38c — how much of that residual is still there in the next vintage
+
+**RUN: 2026-09-01.  `experiments/b38c_two_vintages.py`, record
+`results/b38c_two_vintages.json`.**
+
+B38 read the rank against two floors, and both are arguments about a noise
+level. **This needs no noise level.** The archive exists in two vintages of the
+same source a short interval apart -- 67% of shared cells differ, by a median of
+`+1.30%` in logs, systematically positive, which is a stretch of time rather
+than a re-cleaning of one instant. Noise does not correlate across vintages;
+structure does.
+
+Take the two-way residual in each, `R1` and `R2`, on the **1,237 cities complete
+in both**, and ask for each singular direction of `R1` how much of `R2` it still
+carries. The null is the same quantity after the cities of `R2` are shuffled, 200
+permutations.
+
+| | |
+|---|---|
+| cell-by-cell correlation of the two residuals | **`+0.9971`** |
+| share of the residual's variance that persists | **`99.4%`** |
+| **directions surviving the permutation null** | **`52` of `53`** |
+| median carried / own sigma among survivors | **`0.995`** |
+
+They come back at full size, not at a fraction of it. Direction 40 carries
+`6.78` against a null 99th percentile of `0.48`.
+
+**This settles B38's bracket at the top.** B38 could only say the rank was
+between eight and fifty-two, because the conservative floor took the whole
+residual to be noise. **The residual is 99.4% persistent, so it is very largely
+not noise, and the answer is the upper end.**
+
+### What this separates, and what it does not
+
+**It separates the residual from transient noise.** An entry wrong in one
+vintage and right in the next cannot survive a correlation of `0.997`.
+
+**It does not separate it from a persistent per-cell bias, and the reason is
+mechanical.** The source publishes an average over a rolling window, so two
+vintages a few months apart **share most of their underlying entries by
+construction**. A high correlation is the expected result under a stable bias
+exactly as much as under structure, and this number cannot tell them apart. **The
+figure is an upper bound on what persistence can be worth as evidence here.**
+
+**The station that speaks to persistent bias is B38b**, where the main
+structured-bias account -- one name meaning different things in different cities
+-- was put against its own prediction and did not carry the residual: the
+loose-over-tight ratio came back `1.06`, and the cell that account predicts
+smallest came back largest.
+
+**The two together, and neither alone:** B38c rules out resampling noise, B38b
+rules out the leading non-comparability story. What neither reaches is a bias
+that is persistent, structured, and unrelated to how tightly an item is
+specified. **An independent source would reach it, and this carrier does not
+contain one.**
+## B39 — an independently collected posted price, as a referee, and it cuts against B38
+
+**RUN: 2026-09-01.  `experiments/b39_posted_price_referee.py`, record
+`results/b39_posted_price_referee.json`.**
+
+B38c closed by naming what it could not reach: a bias that is persistent,
+structured, and unrelated to how tightly an item is specified. Two vintages of
+one source cannot reach it, because a rolling window means they share their
+entries. **Only a source with no contact with the first one can, and this is
+that source.**
+
+The Big Mac index is a posted menu price collected by The Economist since 2000.
+The archive carries a McDonald's combo meal for every city. Same brand, two
+datasets built by different people for different reasons.
+
+**This is also the LADDER arm.** That class predicts a nationally posted number
+rather than a locally set one, and until now it was read from contributors'
+recollections of such a number. Here the number itself is the object.
+
+| | |
+|---|---|
+| countries in both | **53** |
+| slope of log archive on log posted | **`+1.0473`** |
+| Pearson on logs | `+0.7337`, `r² 0.538` |
+| implied level | a combo meal is `1.51` times a single sandwich |
+| **residual sd in logs** | **`0.2752`** |
+
+**B39-1 passes: the archive tracks the posted price one for one.** The slope is
+`1.05` and the level it implies for a combo against a sandwich is `1.51`, which
+is the right size for what a combo is.
+
+### B39-2, and it is not a comfortable number
+
+**`0.2752` in logs, about 30 per cent.** The archive's own two-vintage cell sd
+was `0.0373` and arm A's gasoline measurement was `0.0293`. **Against a source
+with no contact with it, the error on the most tightly specified branded item in
+the panel is an order of magnitude larger than either.**
+
+**B39-3 tried to explain it away by dates and failed.** The referee publishes two
+dates six months apart with the archive between them, so a country whose posted
+price barely moved cannot have a large date-driven residual. Split on the referee
+alone: **stable half `0.2579`, moving half `0.2625`**. The date mismatch is not
+the cause, and that negative is recorded because it makes the reading worse.
+
+**Two accounts remain and this carrier cannot separate them**: the archive is
+wrong at the country level by that much, or the combo-to-sandwich ratio genuinely
+differs by market. Either way the number sits between the archive and any claim
+about the world.
+
+### What it does to B38, stated at full strength
+
+B38's residual sd is `0.4521`. An error of `0.2752` is **`37.1%` of that
+variance**. So **up to about a third of what B38 read as obstruction may be
+carrier error**, and B38c cannot see it, because this error is persistent and
+persistence is all B38c measures.
+
+**B38's bracket moves toward its low end, and the low end was built for this.**
+
+| floor | edge | directions above |
+|---|---|---|
+| measured carrier noise, `0.0293` | `1.26` | `52` of 53 |
+| **the independent error estimate, `0.2752`** | **`11.85`** | **`19`** |
+| the whole residual taken as noise, `0.4521` | `19.47` | `8` |
+
+**The `8` is untouched by anything here**, because it already assumed every last
+part of the residual was error. **That floor was the reason for computing it, and
+it is now the load-bearing one.** The reading that survives B39 is: **at least
+eight dimensions, and on an independent error estimate nineteen.**
+
+**What does not survive B39 is the `52`.** That number rested on the measured
+carrier noise, and an independent source says that noise figure is far too small
+for this carrier. It is not quoted again.
+
+### Where this sits
+
+**This is a station whose result reduces an earlier reading of ours, and it is
+recorded at the strength it has.** The framework's claim on this carrier is
+weaker than B38 alone made it look. It is not withdrawn: `8` directions and a
+median square sum `9.4` times the noise a square carries both survive a floor
+that concedes the entire residual to measurement.
+
+## B1-R — the eleven checks behind the reduction theorem, and which of them can fail
+
+**RUN: 2026-09-02.  `experiments/b1_reduction.py`, run with `PYTHONPATH=src`.
+The script prints a table and returns an exit code; it does not write to
+`results/`, so this section is the record. Reported here for the first time.**
+
+Corollary 5 reduces the residual on the box product to a two-part split, and
+these eleven checks are what stands between that formula and the code that
+computes it. Ten of them accumulate into a single counter and the script exits
+non-zero if it is not empty. This run printed `ALL AGREE`.
+
+| criterion | state | reading |
+|---|---|---|
+| R-1 four routes to `dist(omega, im d0)^2` agree | **PASS** | five shapes, worst gap `1.42e-14` |
+| R-2 the split has no cross term | **PASS** | `t` swept `1.00` to `0.01`, `R/t^2` fixed at `17.11315731` in all five |
+| R-3 `rho*D^2 <= R <= D^2`, both ends spectral | **PASS** | ten shapes, both bounds hold in every one |
+| R-4 the two degenerate ends | **PASS** | all classes equal reproduces `m*dist(w, im d_G)^2` at `5.8049602561`; equal and exact returns `2.132e-14` |
+| **R-5 what the damping does** | **printed, carries no assertion** | four choices of `H` on one graph and one field; see below |
+| R-6 the product Laplacian factors | **PASS** | five shapes, difference `0.00e+00` exactly |
+| R-7 both ends of Corollary 5.2 | **PASS** | `t = 1e-6` gives `15.72801745` against target `15.72799829`; `t = 1e+6` gives `33.11672785` against `33.11674803` |
+| R-8 parallelogram law | **PASS** | five trials, worst gap `5.68e-14` |
+| R-9 structured fields, answer known without the formula | **PASS** | three arms, printed below |
+| R-10 `m = 1` collapses to the one-index problem on `G` | **PASS** | `0.7377548093` by both routes |
+| R-11 stress, 300 random shapes to `n = 12`, `m = 8` | **PASS** | worst relative spread across four routes `5.11e-15`; Corollary 5.3's bounds held on all 300 |
+
+R-9's three arms, printed as objects:
+
+    each class exact, all different    rho^2 = 18.24281028   R = 18.24281028   common = 0.00e+00
+    all equal and co-closed            rho^2 = 26.73354200   m*||w||^2 = 26.73354200
+    exact field on one class only      rho^2 = 5.29518162    brute = 5.29518162
+
+### R-5 carries no assertion, and the reading attached to it holds on one field
+
+**R-5 is the one step here that cannot fail.** Lines 294 to 314 print a table and
+never touch the counter the other ten write into; the counter appears zero times
+in that block and between one and five times in each of the others. So R-5 is a
+printed object, which is the shape this project asks criteria to have, but it is
+**not** one of the things that could have come out wrong. Counting it inside
+`ALL AGREE` overstates what that phrase covers by one.
+
+The reading the theorem document attaches to it (`docs/b1_theorem.md`, the R-5
+row) is that `R/D^2` rises with `mu_1`. On the shape and field the script draws
+it does: path `0.581067` at `mu_1 = 0.585786`, star `0.597132` at `1.0`, cycle
+`0.654533` at `2.0`, complete `0.750915` at `4.0`, monotone across all four.
+
+**Re-run on other fields it is a coin flip.** Holding the graph fixed and drawing
+400 fresh fields, the four values are monotone in `mu_1` in `153` of them and out
+of order in `247`. Redrawing the graph as well: monotone in `132`, out of order in
+`268`. **The monotone reading is a property of that draw, not of the split**, and
+nothing downstream should cite it as a general fact. What is general is the pair
+of bounds, and those are R-3 and R-11, both of which assert and both of which
+pass.
+
+### Three further limits on what these checks reach
+
+**R-6 is an implementation check, and the document calls it something stronger.**
+`docs/b1_theorem.md` names R-6 and R-7 as "the two that would catch a wrong
+theorem rather than a wrong implementation". R-7 does: it pins the formula
+against targets computed without it, at both limits. R-6 compares the Laplacian
+of `box_product` against the Kronecker form and returns `0.00e+00` exactly, which
+is what an identity between two expressions of the same construction returns.
+**It checks that `box_product` is built as claimed.**
+
+**R-9's first arm is close to a tautology.** Each class is built by applying
+`d_G` to a potential, so the common part is zero by construction and the arm
+confirms the code reads that construction back. The second and third arms are not
+in that position.
+
+**The fourth route shares more than its docstring claims.** `residual_projector`
+is documented as "a fourth route that shares no code with the other three". It
+builds `L_Gamma` from the product graph directly and never touches the mode
+transform, the Kronecker structure or `lstsq`, which is the substance of the
+claim. It does share `box_product`, `incidence_matrix` and the assembly helpers
+with the brute-force route, so **the agreement in R-1 and R-11 is evidence about
+the spectral algebra and not about the graph construction underneath it**. R-6 is
+what covers that construction, subject to the paragraph above.
+
+### What this section changes and what it does not
+
+**No reading moves.** Corollary 5 is unaffected; the ten asserting checks pass
+with the margins printed above, and the two that reach past the implementation
+are R-7 and, for the bounds, R-3 and R-11. What changes is the count: **ten
+checks can fail here, not eleven**, and the monotone reading in the R-5 row of
+the theorem document is a single draw rather than a result.
+
+## B38d — the rank split on the carrier's own quality flag, and the two halves agree
+
+**RUN: 2026-09-03.  `experiments/b38d_quality_split.py`, record
+`results/b38d_quality_split.json`. Criteria are objects printed; there is no
+threshold in the station and no permutation.**
+
+B38 read the rank against two floors, and **both of them assume one noise level
+for the whole matrix and argue only about how high it is**. The objection that
+reaches past them is that the archive is crowdsourced: thin cities are noisy,
+that noise is heteroskedastic, and a heteroskedastic noise matrix grows
+directions of its own.
+
+**That objection has a name in this project's own record.** B7's rank-two
+reading was withdrawn when a field with no interaction at all returned exactly
+two on the same design, twenty times out of twenty: two classes held `1.18` and
+`1.37` observations per cell, and each produced an indicator direction. **The
+floor there came from the design being unbalanced, not from the noise being
+large.** B38's matrix is complete so that exact mechanism cannot occur, but its
+continuous form can.
+
+**This station answers it with no noise model at all.** The carrier ships a
+per-city quality flag. Split the matrix on it, run the same decomposition on
+each half, and read what comes back.
+
+| criterion | state | reading |
+|---|---|---|
+| B38d-1 the full arm reproduces B38 | **PASS** | 1,280 cities, `b1 = 66,508`, `sd(R) = 0.4521`, `8` above the conservative floor, top three `61.50 / 36.79 / 33.30` |
+| B38d-2 each half through the same decomposition | reported | thick half `7`, thin half `7`, the two together `8` |
+| B38d-3 the vintage movement, split the same way | reported | thick `0.0174`, thin `0.0075` |
+| B38d-4 the two ratios, thin over thick | reported | movement `0.430`, cross-section `1.115` |
+
+### B38d-2, the cross-section
+
+| subset | cities | `sd(R)` | conservative floor | above it | top three |
+|---|---:|---:|---:|---:|---|
+| all | 1,280 | `0.4521` | `19.47` | **8** | 61.50 / 36.79 / 33.30 |
+| quality flag 1, thick | 749 | `0.4279` | `14.82` | **7** | 45.93 / 27.80 / 24.32 |
+| quality flag 0, thin | 531 | `0.4771` | `14.47` | **7** | 39.82 / 24.25 / 21.99 |
+
+**Three accounts die on these three rows.**
+
+**It is not the thin cities' noise.** If it were, the thin half would carry more
+directions than the thick one. Both carry seven.
+
+**The thin half is not imputed or smoothed.** If those figures were filled in by
+a model they would sit near rank one and the residual sd would collapse.
+**Its `sd(R)` is `0.4771`, larger than the thick half's `0.4279`.**
+
+**And the count is not an artefact of pooling.** Putting the halves together
+moves it from seven to eight, not from seven to fifteen. **The two halves are
+reading the same object.**
+
+### B38d-3, and the two axes point opposite ways
+
+1,237 cities are complete in both vintages; `53,006` of `65,561` cells moved.
+
+| subset | movement between vintages | dispersion in the section |
+|---|---:|---:|
+| quality flag 1, thick | `0.0174` | `0.4279` |
+| quality flag 0, thin | **`0.0075`** | **`0.4771`** |
+| thin over thick | **`0.430`** | **`1.115`** |
+
+**A thin city's figures move less between vintages and sit further apart from
+each other.** Both are ordinary. Small places are revised less often, and small
+places differ from each other more than large ones do, which converge.
+
+**Neither of them is a defect in the instrument, and the first one is not
+staleness in the sense that would matter here**: only `1.89%` of cells are
+byte-identical across the two vintages on the median city (`3.77%` on the thin
+half), and restricting the movement reading to cells that actually moved leaves
+the ratio at `0.430`. **The thin cities are being updated. They are updated by
+fewer hands.**
+
+### What this station does and does not settle
+
+**It settles the sampling objection on this carrier.** The rank is a property of
+the prices, because the carrier's own split does not move it.
+
+**It does not touch B39.** The `52` stays withdrawn and the `19` still rests on
+the independent error estimate; this station speaks only to whether the count is
+manufactured by uneven sampling, and it is not.
+
+**It does not reach a bias that is persistent, structured, and independent of the
+quality flag.** That is the same gap B38c named, and this split does not close
+it: a flag the carrier assigns is not an independent source.
+
+## B42 — a published quantity that carries a commodity index on a position, and three attempts to read a price against it
+
+**RUN: 2026-09-02 to 2026-09-03.  DESIGN: `experiments/b42_registration_capture.py`,
+`b42_registration_panel.py`, `b42_event_squares.py`, `b42_lock_flows.py`,
+`b42_pull_state_histories.py`; the counts they compute are written to
+`results/b42_registration_panel.json`. The captured workbooks themselves are data
+and stay on the machine that fetched them, since the source publishes only the
+current issue and the archive is not reproducible by re-running anything.**
+
+B41 read a second difference in cash grain basis that a scalar term on positions
+forbids, and found it nonzero in every state that could carry the measurement.
+This station asks the next question. If the position term carries a commodity
+index, there should be a published quantity on the position that carries the same
+index and moves, and the second difference should move with it.
+
+The exchange publishes one. Certificates registered as deliverable are reported
+daily by facility and by contract, so whether a location can deliver a given
+commodity stops being a yes or no fixed by a membership list and becomes a
+quantity that changes. The same file shows that the exchange does not even
+partition space the same way for different contracts: wheat is delivered against
+six named districts, corn and soybeans against six numbered river zones, oats
+against three lake and river points, hard red winter wheat against a Kansas set.
+The partition of space is itself commodity specific, which is a stronger statement
+than the one B41 read off the location differentials, and it is visible in a
+public file before any price is opened.
+
+| Criterion | State | Reading |
+|---|---|---|
+| B42-1 the daily panel builds | **PASS** | Four workbooks a day, byte identical on re-fetch, magic bytes checked, nothing suspect in the capture to date. The publisher refuses a plain client on its handshake: four header profiles answer 403 while a browser on the same machine and address is served, and a client that impersonates a browser handshake returns the same byte count as the browser |
+| B42-2 known answer against the published regulars list | **NOT YET RUN** | The parser's naming rule is in place and declines nineteen rows that are not facilities, printing each; the comparison against the list itself has not been made |
+| B42-2b the lag columns are successive | **NOT YET RUN** | Requires a change observed live, then checked against the previous day's capture |
+| B42-3 the position quantity carries a commodity index and moves | **READ** | 144 towns, 41 of them registered for two or more contracts, nine contracts each with its own district scheme. One snapshot carries 230 dated changes reaching back to 2009, of which 130 fall inside the basis window and 37 on the corn and soybean rectangle. Sixteen of those sit in a window narrow enough for an event study. The direction is one sided, 29 of 37 ending at zero, and that is the snapshot's truncation rather than the world: it keeps only the most recent change per row and most rows currently sit at zero |
+| B42-4 the second difference moves with it | **NOT FOUND AT THIS POWER** | Three carriers, three different reasons. See below |
+
+### Three carriers, and each failed for a reason worth separating from the others
+
+**Illinois, resolution.** Twenty-three towns registered for both corn and soybeans
+collapse into four positions the price report resolves, because the report quotes
+two reaches of the Illinois River rather than the towns on it. Across 39 events the
+treated pairs moved a median 4.19 cents and untreated pairs on the same dates 4.45;
+dates drawn at random gave 4.41 to 6.25 over five rounds, so the treated readings
+sit inside the placebo distribution and below its median. Treatment size shows no
+gradient. The pre-2020 issues of the report that once covered these barge points
+separately were checked directly: they carry the same two reaches, north and south
+of Peoria, so the finer resolution this design wants never existed and is not
+something a longer history recovers.
+
+**Ohio, count.** The same city is priced as two positions, one with water access
+and one without, and that pair is the finest instrument in the system: 1,203 days,
+a mean second difference of +0.17 cents and a standard deviation of 7.22, against
+28 to 40 for pairs spanning two cities. Every term that depends on distance cancels
+between them. The registration record holds four changes in that district over the
+whole window and two of them yield a usable comparison, which is not a reading.
+Whether a given facility sits on the water or off it is one bit that no document to
+hand settles, and it decides the sign but not whether the difference moves, so the
+unsigned comparison is available and the signed one is not.
+
+**Lock tonnage, object.** Weekly grain moved past seven locks by commodity, free
+and twenty-three years long, gives 203 independent weekly observations of a
+commodity specific quantity on a position, an order of magnitude more than the
+basis panel holds. Regressed against the second difference at the matching
+positions it reads −0.111 and −0.107 on two Illinois constructions and −0.032 on an
+independent Missouri one, none reaching conventional significance against a null
+that circularly shifts one series against the other, with a detectable correlation
+of about 0.13 at this sample. The negative sign is the one supply pressure predicts
+and the Missouri replication does not carry it.
+
+That third result has a cause that matters more than its p values. A lock counts
+grain passing through it, including grain loaded a hundred miles upstream; the
+price position is where elevators in that reach bid for grain from farms. The two
+coincide geographically and measure different objects, and the check that would
+have caught it before the run is the one that says to read what a carrier's own
+rule measures before mapping a quantity onto it. The correctly shaped flow
+quantity is published in the same daily file family as the registration data,
+receipts and shipments at the reach's own elevators, and it is issued as the
+current day only.
+
+### What this station has settled and what it is waiting on
+
+Settled without any price series: the exchange's partition of space is commodity
+specific; the registered quantity carries a commodity index and moves; and one
+snapshot of a current-issue file is already a sparse history, because each row
+carries its own previous value and the date that value took effect.
+
+Not settled: whether the second difference tracks that quantity. Of the three
+carriers tried, one is bounded by a resolution that does not exist anywhere in the
+free record, one by an event count that only accumulates forward at roughly one a
+year, and one measured the wrong object. The daily capture continues for the
+second and third of those, and its value is now located rather than assumed.
+
+## Counting law on the national tariff schedules of a global survey
+
+**Read 2026-09-03, parser corrected the same day.** Script
+`experiments/tariff_blocks_count.py`, record `results/tariff_blocks_count.json`,
+input `data/raw/falling_short_layout.txt`, reading in
+[`docs/tariff_block_corpus.md`](docs/tariff_block_corpus.md). Source is the
+residential annex of a published global survey of electricity tariff design.
+
+**This is the counting law's first cross-country corpus**, after a set of
+historical decrees and one commercial rating plan in force.
+
+| criterion | state | reading |
+|---|---|---|
+| **TB-1** structural: the parse recovers the survey's own two counts | **PASS** | the survey states it covers more than sixty countries and a mean block count of four; this parse gives **64 country rows** and **4.000** over 42 multi-block schedules, 168 blocks over 42 exactly. **A column-aligned table can be parsed wrongly and still yield plausible rows, and these are the two numbers in the document that catch it** |
+| **TB-2** the count, printed rather than scored | reading | **53 schedules, 179 blocks drawn, 156 distinct values written, 23 collisions**, 12.8 per cent of blocks. **15 of 53 schedules write fewer values than they draw blocks.** Nothing is dropped as unparsable |
+| **TB-3** the two distributions | reading | blocks `{1:11, 2:8, 3:15, 4:5, 5:4, 6:4, 7:5, 8:1}`, values `{1:13, 2:10, 3:13, 4:8, 5:4, 6:3, 7:2}`. **Eleven countries draw one block and thirteen produce one value; one draws eight and none produces eight** |
+| **TB-4** the object, printed | reading | **Philippines 8 blocks to 4 values**, five of the eight carrying the identical charge; **Ethiopia 7 to 3**; **Australia 3 to 1**, typed in the source as a declining block tariff. **The second half of that sentence is superseded by TB-8** |
+| **TB-5** how much of the collision count the printed resolution forces | reading | **11 of the 23 collisions are forced** by the two-decimal grid, 12 are not. **The two largest gaps, Ethiopia and the Philippines, are the two the grid explains in full**, so the collection order inverts and starts at Australia and Greece |
+| **TB-6** the first block against average consumption | reading, **with a period caveat** | on 42 schedules printing both, **25 (60 per cent) put the first block below average consumption, 14 (33 per cent) below half of it**, ratio 0.12 to 6.44, median 0.74. **The largest ratio is a period mismatch**: Greece's boundary is a four-month total divided by a monthly consumption, and like-for-like it is 1.61. **The survey converts some boundaries to a monthly basis and not others**, so a large ratio flags a billing period to check, not a structure that does nothing. The four next largest are unchecked |
+| **TB-7** whether TB-6 is a propagation reading | **closed, and it is not** | the principle is stated by the surveying body with no citation; the earlier source for the underlying critique is a published monograph, **so every country could read it, the treatment takes one value, and there is no second side**. Separately the rule follows from the mechanism, so conformance is over-determined |
+
+| **TB-8** the collection, started at Australia | **the schedule could not be identified, and that is the reading** | the survey takes the largest utility serving the largest business city, which in Sydney is one offer out of a competitive retail market, **and the survey prints neither the retailer nor the offer**. Two three-step Sydney schedules were read for structure: both print cents/kWh to two and four decimals, **both increase**, and neither matches the survey's second boundary. **The same declining-block label sits on Australia in the commercial annex over a row of three time-of-use prices**, so that column is not read off the schedule for this country. **The Australia collision is most likely a rounding artefact.** Counts in TB-2 and TB-5 are unchanged, being counts of what the survey prints |
+| **TB-9** the collection, second station, Greece | **closed, and it closes the collection** | one national schedule, one utility. The published G1 prints its two blocks at **`0.11058` and `0.11936` €/kWh** effective 2021-01-01, **eight per cent apart**, and an earlier undated copy at `0.0946` and `0.10252`, also eight per cent apart. **At 0.14 USD, eight per cent is one step of the survey's grid.** The boundary is a **four-month** total, not monthly. And the row types itself IBT while printing one price twice, **a contradiction inside one row needing no collection**. **Both totally-collided schedules, Australia and Greece, are rounding.** The eleven unforced collisions on the thirteen partially-collided schedules are **registered, not collected**: an increasing block tariff is non-decreasing, so a flat step inside one is not contradicted by its own label, and the two stations already run both returned the same answer from the same cause |
+| **TB-10** what the corpus is a reading of | **relocated, not emptied** | the survey is a two-decimal transcription of 53 procedures, and both stations show the transcription creating an equality the source does not have. **So the 23 collisions are a property of the transcription.** The transcription is itself a published, cited procedure: **it draws 179 blocks and writes 156 values, and 156 is what any reader of it can distinguish**, which is exactly the counting law's claim. **What cannot be done is carrying that back onto the 53 national schedules** — which the resolution paragraph stated before either station ran, and which is now measured rather than stated |
+
+**The limit is a resolution one and it is stated rather than worked around**: the
+survey rounds charges to two decimals, **so the twenty-three collisions are an upper
+bound at the published resolution**. What the reading measures exactly is what a
+reader of the published table can distinguish. **Taking the schedules from the
+national regulators at four significant figures removes the limit and is a
+collection, not a re-reading**, and TB-5 says which schedules it should start from.
+
+**Why this corpus is worth having**: the block count is what the survey reports and
+what the literature reports; **the count of distinct values is reported by nobody**,
+and it is systematically lower. Mean blocks 4.000 against mean distinct values 3.452
+on the same 42 schedules.
+
+**Correction, same day, and the numbers before it are kept.** The first parser
+started a new row on a wrapped country name and truncated any charge carrying a
+footnote marker, which split six countries in half and dropped four schedules. Before:
+**43 schedules, 144 blocks, 124 values, 20 collisions, 12 with a collision, mean
+blocks 3.97**. After: the row above. **The qualitative reading does not move.** What
+caught it was the known-answer check going from close to exact: 3.97, then 3.92, then
+4.000. **A check that is close is not a check that passes.** Full account in
+[`docs/tariff_block_corpus.md`](docs/tariff_block_corpus.md), last section.
+
+
+---
+
+### A second arm is registered on the same corpus, and it is not in the queue
+
+The arm above reads the corpus as it stands. **A second arm on the same carrier asks
+a different question: if a template is propagating, countries under a conditional
+programme should cluster on the block count, and the position of the spike is the
+position of the template.** It is registered here and it has not been opened.
+
+**It is one arm of this station rather than a station of its own.** The carrier is
+the same published survey, the parser is the same and carries its own known-answer
+check, and the positions are the same. What differs is where the treatment comes
+from: the first arm's treatment is a property of the schedule itself, and the second
+arm's treatment sits outside the carrier entirely, in a published list of programmes.
+
+**That is also why the second arm has to pass a gate the first one does not.** The
+first arm's treatment variable is the structure of a tariff schedule, so the ceiling
+on how many values a treatment can take in the world does not bind it. The second
+arm's treatment is a country attribute, binary, over the 53 schedules recovered, and
+that is the shape where the ceiling does bind. **The way out, if there is one, is
+that the survey publishes five customer-class annexes rather than one, roughly three
+hundred schedules in total, while a programme condition can name residential tariffs
+without naming industrial ones.** Positions would then be country-and-class pairs
+rather than countries, and the ceiling would not be the binding constraint.
+
+**A second and prior question is whether the treatment should be binary at all.**
+Being under a programme is a level, and the discipline that applies here asks for a
+gradient instead: the count or the strength of conditions naming utility tariffs,
+which a published programme database records line by line.
+
+**So two counts have to be produced before this arm opens**: how many of the 53
+countries were under a conditional programme in the survey's year, and how far apart
+the two ends of the condition-count are. Both are one query against a public
+database. **Until both exist the arm stays registered and unqueued**, and if the
+first count kills it the disposal is that the arm does not open, not that it opens
+under a different station number: a station number does not change how many values a
+treatment takes in the world.
+
+**One overlap is recorded here so it is not discovered twice.** Programme
+conditionality is already registered elsewhere in this repository, in the carrier
+ranking for a different question, with the note that the condition is itself an
+instruction to change a procedure and is published in a dated letter. That ranking
+asks whether a shared procedure can be told apart from a shared environment; this arm
+asks whether a counting law's object propagates. **Same treatment variable, two
+questions**, and the availability work already done there should be read before any
+is repeated here.
+
+
+## B30 — the propagation chain, arm by arm, and what each one returned
+
+**Entered 2026-09-03. The readings are in
+[`docs/b30_results.md`](docs/b30_results.md) and the
+registrations are in [`docs/b30_prereg.md`](docs/b30_prereg.md). Until now only the
+two B30-5 sections above were in this file, so this index is the missing half of
+discipline 18a: every arm's state, including the ones that returned nothing.**
+
+**This section is an index and not a second copy.** Each row carries the arm's
+state and the line where its block starts; the numbers, the limits and the
+corrections live in the results file and govern.
+
+| arm | what it returned | block |
+|---|---|---|
+| **B30-1** | **Two carriers, two recorded negatives, and a better instrument found on the second.** On the quotation graph the maximum hop distance is one, so there is no hop gradient and the arm cannot run. On ATPCO the registered criterion asked whether the public record yields dated "A initiated, B followed on day N" pairs; **it does not, and the negative was recorded on the spot**. What the record supplied instead is the adjacency authored by both parties and entered into a court record, plus a **court-ordered, dated, staggered deletion of edges lying in `G_I` alone**, with `G_T` untouched | 887, 1851 |
+| **B30-2** | **Carrier condition worked out 2026-09-03, the obvious candidate closed on arithmetic, census unbuilt.** The count is Menger's: edge-disjoint routes between two regions, minus one, is the number of independent checks available, and a region joined by a single intermediary has zero. **On a dense network that count degenerates into degree**, and degree in international merchandise trade tracks economic size, so the arm would read size and report checkability. **The census can only exist on a sparse network whose edges are physical**: inland waterway, pipeline, single-port islands and landlocked states are recorded as directions, not choices | 12709 |
+| **B30-3** | **First branch, with the alternative measured at its strongest rather than assumed away.** The matrix carries two named cars with opposite origins (Volkswagen Golf, Toyota Corolla). **Freight acts through origin and predicts they separate; they correlate `+0.8639`, third of all 1,378 item pairs, against a median pair of `-0.0376`.** Duty was then pulled from UNCTAD TRAINS (HS 870323, MFN applied, 133 of 149 countries, 1,231 of 1,280 cities, spread 0 to 167 per cent). **It enters and is not an income proxy** (Spearman `+0.6011` on the car rows against `-0.4315` on rent as control), **and it does not carry the co-movement**: one world rate takes `+0.8606` to `+0.8471`. **Chunk three then rebuilt the control in duty's favour** — each car on its own origin's schedule, the uncertain EPA step swept across its whole plausible range, both schedules entered for both rows, plus squares and interaction, six regressors. **Strongest point of the entire sweep `+0.8241`; the six-regressor case `+0.8032`, still above the matrix's 99th percentile of `+0.7064`.** Uncontrolled and named: registration tax, excise, dealer margin; tariff year 2020 against a late-2022 price vintage | 12619, 12768, 12860 |
+| **B30-4** | **Carrier settled on paper, availability gate run across six source classes, arm not opened, total collection cost zero.** Chunk one closed a city-by-item matrix without collecting anything (how many items a city carries is a property of the survey, not the market) and settled on the subscription-platform class, where a category's creator count is structural. **Chunk two then ran the gate and it returns a constant, not a shortage**: Substack's API works and its own description puts every category's leaderboard at the **top 25**, because a leaderboard is a display rule and not a market size. **So the treatment variable takes one value, which is gate zero (`D18`) answering one.** Graphtreon has no category and no entry tier; industry, press and trade-press classes give platform totals and never a per-category distribution. **What would open it is one published number, the count of creators in a category**, and none of the six classes contains it. Named as an instrument limit rather than a finding: Patreon's own directory was unreachable from this session and was never read | 12531, 13050 |
+| **B30-5** | Cross-sectional version ran 2026-09-01, two criteria PASS. See the two B30-5 sections above | 887, and above |
+| **B30-6** | **First branch fails on a six-product panel**: the restriction does not track the cross-market gap. The second branch is not thereby established | 1074, 1156, 1238 |
+| **B30-7** | cell B corrected the same day it was first read; the second branch was then found on a service with no ladder; the city-pair reading returns **no single city price level, spread 14 times** | 273, 343, 412, 523 |
+| **B30-8** | **Returns its first branch** | 802 |
+| **B30-10** | First branch **partially read**: the level-setting half is established, the other half is not | 1, 213 |
+| **B30-11** | The claim is one sided; the override reads **2.15 times**, on published weights with nothing fitted | 672 |
+| **B30-12** | Four blocks: three cases where the posted number sits below what anyone pays, the discriminating observation, the mechanism running in reverse on a date, and a maker posting two numbers for one bottle | 1311, 1421, 1530, 2033 |
+| **B30-13** | One block, on the single industry where the whole chain is documented | 1717 |
+| **B30-16** | **Six blocks. The cross-party arm is closed as measuring common shocks rather than a shared procedure.** The registered criterion passes cleanly on DB1B with no carrier selection. Chunk five reversed chunk four by computing a matched null for every principal angle, and **chunk six finds that null was computed after the interpolation**: not one of 10,021 route series is complete over the 120 quarters, every block is 8 to 13 per cent filled, and a null carrying the same mask and the same fill drops the cov 0.6 second-angle minimum from `51.83` to `20.70`, so **that row's flag does not hold**; cov 0.8 and 0.95 do. **Chunk six then drops the null entirely** and reads the same run between two measured anchors, a ceiling from two random halves of one carrier's own routes and a floor from the fill alone. **The first two directions sit at 60 to 68 per cent of the way from floor to ceiling at every threshold while the raw angles move by a quarter**, and the average projector puts the same answer on a scale fixed by the algebra, eigenvalues `0.98, 0.81, 0.58` against a floor of `0.91, 0.53, 0.30`. **Leave one carrier out then settles that the structure is real without any null at all**: a subspace built from the other carriers predicts the held-out one at 86 to 90 per cent of its own in-sample ceiling, against `0.02` to `0.06` for a random three dimensions, **and its advantage over the fill floor grows monotonically as the fill is stripped, `-0.005` at cov 0.6 to `+0.155` at cov 0.95**, which is the direction a real component moves and the opposite of an interpolation artifact. **Printing the three shared directions then names them: a thirty-year drift, 2008Q1 to 2010Q1, and 2020Q2 to 2021Q1.** All three are dated shocks from outside the industry, so the structure is real, out-of-sample predictive, and **carries no information on the copying claim in either direction**. `NO-OBJECT 2026-09-03` | 2132, 2238, 2471, 2807, 2894, 3004 |
+| **B30-17** | **Returns a negative on its own registered criteria**, and chunk three re-reads that negative against five things that could have produced it. The finding: **the criteria themselves carried failure mode 112** | 2359, 2581, 2700 |
+| **B30-18** | Five blocks. Criterion A is not disclosed by any of seven source classes and is re-registered on the 2010 switch; **criterion B is recorded as unidentified rather than as a pass** | 2984, 3134, 3227, 3331, 3414 |
+| **B30-19** | **Criterion A answered**, on eighteen banks over thirteen quarters. This is the chain's first disclosed measurement of the figure seven source classes failed to produce | 3509 |
+| **B30-20** | Six blocks, including **a counter-example collected on purpose** (the convention went, nobody replaced it, the market never came back) and a missing cell found in Greek | 3637, 3727, 3860, 3962, 4055, 4132 |
+| **B30-21** | **The window is registered, the floor is measured, and the decay names the mechanism.** Local leg read as the mean of the first `N` post-reopening sessions, `N = 5` registered, sweep 1 to 20 printed. Floor is the daily log-excess sd on the 42 common sessions after reopening, `2.326` per cent, so the floor for a mean of `N` is `sd/sqrt(N)`. **The excess is positive at every window, against the prediction, and it decays monotonically from `+3.69` at one session to `+0.30` at twenty**; at the registered window it is `+2.86` and stands at `2.75` multiples of its floor. **A restriction effect does not decay as more of the post-event window is averaged in; a control that overshot while the local market was shut and then converged does.** That was the competing explanation the arm registered and left untested, **and the decay is its signature**. Ruling: this carrier measures the control's own behaviour, not the restriction. **The earlier below-resolution verdict is withdrawn**, its floor was the reopening day's intraday range, which measures the day and not the statistic. `CONTROL-CONTAMINATED 2026-09-03`. Registered replacement is a control with no closed underlying. Data `data/raw/athex_grek_2015.csv` | 4220, 12959 |
+| **B30-23** | **Registered 2026-09-03, nothing pulled.** The chain's propagation claim asked through imposition rather than imitation: **a dated transfer of control hands the authority to set B's tariff to A, while B's customers, assets, market, regulator and costs continue unchanged.** B30-1 asks the same claim through decay against hop count and needs a published adjacency with dated propagation; this one needs neither, because an ownership event arrives with a direction and a date attached. **The criterion is a count off a filed document**, the distinct class values in B's tariff before and after against A's own, three outcomes all reachable. **The confound the channel introduces is immaterial to it**: an acquisition moves B's cost of funds and scale, which moves every value and changes how many distinct values there are not at all. **Named carrier**: United States insurance, where the filed rating plan is a per-company public document, on an acquisition that is cross-border or driven by insolvency. **Availability passed 2026-09-03 in two blocks, nothing pulled.** The criterion counts a property of a document, so the question is not sample depth but whether the filing and its attachments are public: **five large states confirmed open by address, and a third party has already extracted the rate calculation table and the factor documentation from one of them at no cost.** Chunk two then settles the window and finds the question is structural rather than a retention policy, since a filing predating a state's move to electronic filing is not in the system at all; **neither state page states a window, and the one demonstrated datum is that Michigan holds filings from at least 2018.** Recorded as the middle state, cleared on the evidence with the window unread. **Also recorded: a liquidation is not the transfer this criterion needs**, since policies go to the guaranty association rather than onto another carrier's rating plan; only an assumption agreement does that. **Chunks three to six then took it into the filing system by hand.** The census named a cross-border acquisition of a personal lines book, closing April 2021. **Two traps were found before any count was taken, and both would have corrupted it silently**: the interface shows current company names and current addresses against historical filings, so the acquired party's pre-transfer filings appear under the acquirer's name at a shared address, which is the twelfth category error; **the stable key is the SERFF tracking prefix for the side and the NAIC code for the entity.** And the first state chosen was disqualified because **its own 2019 auto reform sits inside the comparison window**, so a before-and-after there spans both the reform and the acquisition. **The state that demonstrated retrievability is the state its own reform spoils.** Moved to a state with no auto reform between 2019 and 2022, **both sides are present**: the acquired book's last filed rating plan before the transfer, disposed 29 January 2021, and two post-transfer filings that carry the acquirer's own manual beside its replacement plus marked-up copies, one of them narrowed to a single named rule, under a filing memorandum that names both parties and the direction and is dated one month after closing. Chunk seven then located the accepted post-transfer filing, so **all three quantities are now named documents**: the acquired book's last accepted rating plan before the transfer, disposed 29 January 2021, and the accepted filing disposed 9 March 2022 under the same NAIC entity but the acquirer's filing prefix, which carries marked-up copies of **both** the acquired book's rate pages and the acquirer's own manual. **The partition inventory came free off the attachment names**: base rate, personal credit, classification at 450 rate pages, household composition, prior insurance tier. Chunk eight read the pre-transfer plan, **1,415 pages**, and returned the arm's first numbers. **Chunk nine then withdrew the pair before a score was entered.** The post-transfer filing's own introduction says it is **a rate revision to a program the acquired party had approved in 2018**, and names the January 2021 filing as its predecessor: **the two are consecutive revisions of one program, so the partition matches by construction and the pair carries nothing about whether a procedure travelled.** The side key had been taken from the filing prefix, and **a prefix says who submitted a document, not whose procedure is inside it** — the third identifier on this carrier that looks like it carries provenance and does not, after the displayed name and address. **Two pre-checks were added to the design in the same round**: the authority over the tariff must actually have moved, and the post-transfer filing must replace the program rather than revise it, which its first sentence and its cited program number settle for free. **What can be said, from a memorandum rather than a count**: at the first accepted post-transfer filing the book was still on its own program, and two filings a month earlier under the acquirer's prefix carried its manuals as replacements and **were rejected by the state**. **The criterion is not scored on this carrier.** **The counting law did get a reading that does not depend on the pair**: on the in-force pre-transfer tariff, **22,032 blocks produce 3,274 distinct values**, the identity factor occupies 3,792 cells, and one two-block class line writes 2,208 and 2,396 values that **union to 3,225 rather than 4,604**, with 1,379 shared and 1,050 cells where the line separates nothing | design file, 3255, 3300, 3375, 3444, 3500, 3572, 3648, 3762 |
+| **B30-23 census** | **Read 2026-09-03**, script `experiments/b30_23_sro_census.py`, record `results/b30_23_sro_census.json`, block in [`docs/b30_results.md`](docs/b30_results.md) chunk fourteen. **The channel moved off insurance rate filings** after two negatives with a structural cause, onto **US exchange fee schedules**, where a retired licence leaves the procedure with no host. **44,604 Commission notices 2005-2026, 32,059 self-regulatory, 162 distinct entities, 68 with at least 25 notices, and 27 of those have stopped filing.** The 68 is the first gate's answer and it was returned by the census rather than guessed. **Seams line up with known transfers to within weeks** (philadelphia to nasdaq +22d, chicago to nyse +22d, ise to nasdaq +13d, byx 0d). **Pairing is by surviving name mark, not by date**: a date window returns twenty candidates a row because whole families were renamed at once in 2016-17. **19 of 27 pair, 8 named**, five of those false negatives from abbreviation and from a stop-word list that ate `national`. **Two title-level proxies were tried and both failed the same hour**: a name-change notice does not separate rebrand from acquisition (`international securities exchange`, `ise gemini` and `ise mercury` each carry one, titled `To Rename the Exchange as Nasdaq ISE`, which is a rename *by the acquirer*), and harmonisation wording appears **once in thirteen seams against 516 times index-wide**. **The titles are exhausted; the criterion's count was always in the body of the document.** The census's job was to name the population and the seams, and it has |
+| **B30-23 retrieval** | **route closed by one document, and it paid for itself** | `SR-NYSECHX-2019-01` (`2019-04285`, 12,463 bytes, `data/raw/fr_text/`) carries the *amendments* to a fee schedule and states in its own first section that the schedule is on the exchange's website. **The index is not the document: the distinct-value count is not in the Federal Register at any depth.** The schedule exhibit is a per-exchange PDF in a dozen layouts, **registered and unpriced**. **One document was retrieved instead of fifty-two because the first question is whether the counted object is in the text at all.** **The same page returned a reading**: six months after the transfer closed the acquired exchange's own mechanism was decommissioned and **two of its fee sections deleted entirely, a third emptied to `Reserved`** — one seam's direction, stated by the acquirer's own filing rather than inferred from a name. Not the criterion scored: that needs the two counts |
+| **B30-23 exhibit** | **the parse works, the schedule is not in the exhibit, and the route is now priced** | `34-85248-ex5.pdf`, 234 KB, three pages. **Settled**: the exhibit URL is regular and scriptable (`files/rules/sro/{exchange}/{year}/{release}-ex5.pdf`, release number printed in the text already on disk); **a declared user agent is required** or a 1,924-byte `Request Rate Threshold Exceeded` page saves under a `.pdf` name; and `pdftotext -layout` holds the columns, so counting distinct values off a schedule is a parse. **Whole schedules then located**: the acquired exchange's own 28-page schedule `Updated through July 27, 2017`, captured by a web archive eleven months before closing, and one acquirer-side 12-page schedule current. **Its section E.1 is the counting law with nothing in the way: 12 cells, 3 tapes x 2 price classes x 2 sides, and 4 distinct values — the three tapes priced identically cell for cell, in an original document at five significant figures.** Across section E, 23 cells and 7 distinct values. **Three parse traps, all caught by printing objects**: a five-decimal cap manufactured collisions out of six-decimal audit-trail fees (the tariff corpus's failure reproduced inside the parser); those audit-trail fees are set by a national plan and are identical across exchanges, so counting them makes both sides look alike; and `$1.00/share`, appearing 18 times, is a price threshold and never a fee. **And the acquirer told the acquired exchange's traders directly**, 18 June 2019: migration to the acquirer's platform, **a price-time priority model**, no auctions in any symbol, trading moved to the acquirer's data centre, and the market-data-revenue rebate eliminated. **Three independent statements by the acquirer that the procedure was replaced — which is not the same claim as the count moving.** The successor's whole schedule is the one side still missing; the archive that resolves its path went offline mid-session. **Not settled**: the exhibit is marked up and writes `1. - 5. Unchanged` for what did not move, so no single amendment carries the partition. **Whole schedules are not announced in titles either**: 69 title hits for restate / in its entirety / comprehensive, and printing them shows almost all are `Consolidated Audit Trail`. **Three title screens tried, three refuted.** Route priced: whole schedules from each exchange's own site plus an archive capture, **ten schedules at the reference count of five seams**, and the four Cboe-from-Bats seams share one layout so five seams need two parsers, not five |
+| **B30-23 whole schedules** | **reading, and it needs no seam** | **Seven original whole fee schedules**, four exchanges, 2014-2026, 12 to 34 pages each, no markup, from the exchanges' own sites and dated archive captures. Scope set **by dimension** (a per-share rate is three to six decimals of a dollar; listing fees are `$X,XXX`, port fees carry `/month`), because section structure differs between exchanges and between two vintages of one exchange. **380 per-share cells, 153 distinct values, 227 collisions, 59.7 per cent.** Per schedule the collision rate runs from **5 per cent** (NYSE National 2026, 20 cells 19 values) to **79 per cent** (NYSE MKT 2015, 77 cells 16 values); **the law predicts the two counts differ and the second is smaller, and that holds in all seven.** These are originals at five significant figures, **which is the property the tariff corpus lost** |
+| **B30-23 control** | **measured, and it goes against the registered criterion** | one exchange twice, eight years apart, **no change of owner between**: NYSE American 2018 is 10 cells 7 values, 2026 is 25 cells 19 values. **One programme's own drift nearly triples the distinct-value count**, so a difference in that count across a transfer cannot carry the claim. **A finding about the criterion, not about the retrieval.** Superseded by a shape correction registered the same day (`b30_prereg.md` §1a): compare **which values**, not how many — the overlap of B-after's value set with A's, against its overlap with B-before's. Set overlap is immune to that drift. **Registered, not run**: it needs the same three schedules, one of which is still missing. **Refuted the same day by the row below**: the two outcomes of the set shape are not separable on this carrier |
+| **B30-23 value sets** | **registered and refuted the same day, and the arm closes on the value dimension** | The shape correction asks whether B-after's value set sits closer to A's than to B-before's. Before pulling the missing schedule, the two outcomes were checked for separability on the seven already on disk. **Jaccard overlap, same entity at two dates: four pairs, 0.250 to 0.404. Different exchanges, no transfer between them: seventeen pairs, 0.042 to 0.565.** The two distributions overlap completely, and the top of the cross-exchange family (NYSE American 2026 against NYSE National 2026, 0.565) sits above every same-entity pair. **Set overlap does not separate one programme from two on this carrier**, so by `D15` the criterion has two outcomes that cannot be told apart and it is not a criterion. Both shapes are now excluded on this carrier: counts by the control above, sets here. **What the arm carries stands**: the counting-law reading on the seven originals (380 cells, 153 distinct values, 227 collisions, 59.7 per cent, no seam needed); the census (68 entities at 25 filings or more, 27 that stopped, 13 seam candidates); and one seam where the procedure was in fact replaced, on three-party evidence, which is a structural reading and not a registered criterion. Block in [`docs/b30_results.md`](docs/b30_results.md) chunk twenty |
+| **B30-22** | Chunk zero's literature precondition **voided sub-design C before it cost anything**; chunk one is the largest block in the file | 4312, 4403 |
+| **B48** | **a reference number loses its input in three steps, and the channel that carries it never stops** | Old Mutual Implied Rate, the ratio of one share's price in two cities, printed every trading day by a third-party publisher; 287 archived posts 2019-07 to 2021-07 plus 20 readings recovered from other pages' sidebars. **Three arms, three dated steps, each with a document.** **Transfer edge deleted** (2020-03-15, a numbered statutory instrument): the number keeps being computed and published, **and keeps moving**, 60.77 to 75.20 in a week, +24 per cent. **The Harare price stops being produced** (exchange closed from 2020-06-29, announced 2020-06-26, and a legal-analysis body records that no statutory instrument was ever promulgated for it): the number **freezes**, **seventeen consecutive posts print a bit-identical 122.22**, which by construction is the last close before the closure. **That leg is removed for good** (reopening 2020-08-03 without the share): the number goes **empty**, a sentinel printed for **146 consecutive posts** to the end of the series. **The publishing itself never stopped in any of the three windows**, so this reads the trade edge, not the information edge. **Not claimed**: the frozen value has no second route (the exchange's own 2020 closes are not retrievable); the last trading day is bounded by external facts, not by this series; a cross-quoter dispersion criterion is **undecidable** here because the other rails do not span the windows and the one control rail changes identity mid-way. Interpolation floor measured by leave-one-out, 0.0137 median at short gaps, and the frozen stretch is bit-identical rather than merely small. Four post dates were mislabelled by a year and were corrected from each page's own metadata, 287 pages checked, no false positives | design and readings in the station's two files |
+| **B35** | **one animal, two outputs, and the two anchors sit in different countries** | The carrier moved twice before it settled, and both moves are on record. Bovine offal against bovine muscle was killed at step zero: the HS heading for edible offal is not bovine, and on the China leg it is 99.8 per cent swine by value, because that market was shut to US beef for fourteen years. The swine family then gave way to the poultry family, where the two legs sit in one customs table: chicken paws, which no one buys in the origin country, against leg quarters, whose origin substitute class is the thickest there is. Unit values are computed per ten-digit line and never on an aggregate, because a mix can move a unit value with no price moving at all **Closed 2026-09-06; the full criterion list is in the B35 closing table below.** |
+| **B35-7** | **PASS on documentary evidence, and the control that kills the obvious alternative is free** | The structural arm asks whether the origin country has a substitute class for each part. **The national price report quotes no price for chicken paws at all**, confirmed three times in independent pulls, most recently on 1,819 machine-readable rows. A market nobody trades in has no quotation, so the absence is the reading rather than a gap in the data. **The same report quotes duck feet**, same organ, same domestic label, which removes 'the report simply does not cover feet'. **Limitation printed, not buried**: two source classes were checked, and at least three were not |
+| **B35-5** | **undecidable, and the word matters: this window cannot answer this arm** | The arm needs a dated move on the destination side. The window that has the control leg is occupied by a larger move on the origin side whose direction is already known, so the arm's own treatment is not the dominant variation there. **Not recorded as a failure**: a window that cannot answer is not a claim that cannot hold, and the two point the next reader in opposite directions. The shock originally registered for this arm was withdrawn when its direction assumption turned out to be untaken and then contradicted by a measured halving |
+| **B35-6** | **undecidable, and this time every gate is computed rather than asserted; the arm is at its ceiling on this carrier** | The criterion is a ratio of two responses to a move in the origin market, with a FAIL band of 1/1.5 to 1.5 declared before anything was read. **First pass, cut-level treatment: 7 adjacent steps, ratio 9.75, gate two short by 1.80x.** The lower bound came from the treatment series, not from the outcomes, and the criterion never required the treatment to be the same cut, so it was swapped for a composite index that runs from 1990. **Validity check passed on the twelve overlapping periods**: slope +2.68, se 0.41, t +6.55, R2 0.90, and the thinness of that test (n=7) is printed rather than smoothed. **Second pass, 46 adjacent steps over 2020-01 to 2023-11: ratio 9.42, and gate two got worse, short by 1.87x, then 1.92x on the joint standard error.** The reason is arithmetic and it corrects an expectation written a day earlier: the standard error scales with the treatment's total variation, not with the step count, and the composite's per-step spread is 0.353 of the cut-level series, which enters squared. Six and a half times the steps did not recover an eighth of the variation. **Gate six passes and it is not marginal**: the instrument's own floor was measured from four named single parts the framework says should not differ, all six pairs printed rather than one chosen, and the largest ratio the instrument produces on those is 2.44 against the 9.42 read here, so the reading stands at 3.9 to 5.3 times the floor. **Gate two still fails**, and the two are not in conflict: one asks whether the non-zero is visible, the other whether the instrument separates it from the rival's band. **The band is on a ratio while the inherited arithmetic tested a difference of slopes**; recomputed in the scale-invariant form the shortfall is 10.5x, and the reason is plain on the page: the denominator coefficient is -0.0435 against a standard error of 0.1014, so the ratio cannot be formed from it. **The registered minimum-volume floor, set at 25,000 kg from a physical source before any unit value was seen, removes no month**: the thinnest is 100,000 kg. **The independent bound on the standard error of the difference was called conservative twice and is not**: the residual correlation is -0.139, so the joint value is larger, and both earlier gate readings were slightly optimistic. **Ceiling, computed rather than guessed**: the window is bounded at both ends by dated institutional events, and a cut-level origin quotation covering the period does not exist, three doors one answer. More months and a different treatment are both exhausted; a different carrier is what this arm would need |
+| **B35, an objection tested to the end** | **not sustained, and it turns out to be the station's own treatment variable seen downstream** | 'Larger volumes are less volatile, so the comparison reads volume rather than anchoring.' It was first recorded as partly sustained. It is now recorded as not sustained, **and the change came from finding where the correlation lives rather than from pressing it harder**: one row in the same table is both second-smallest by volume and second-lowest by volatility; an equal-volume pair differs by 2.91 times; and once the institutional split is held fixed, the volume-volatility correlation inside the no-substitute-class part flips sign to +0.264 while the part with a thick origin substitute class holds at -0.578. The correlation only exists where the treatment does |
+| **B35-8** | **gate zero, and the same pull that closes the arm supplies its own reading** | The cross-destination arm needs one part sold to two or more anchors. The three-way read-out was written before the pull: two or more countries at ten per cent or more each and present in all twelve months opens the arm; one country above ninety per cent closes the family, **and that itself is a reading**. One call, all destinations, HS10, 2022: **chicken paws China 98.7 per cent, second place 0.49; swine feet China 96.74, second place 1.03; swine head meat China 94.55, second place 2.12.** Three parts, two species, two independent trade lines, all in the closing cell. **A part with no substitute class at origin has a naturally concentrated destination list, because the places that eat it are few** — the sentence now has numbers behind it. Cross-destination dispersion cannot be formed on any of the three legs. **The same pull drops a fourth candidate that the read-out's opening cell fits**: swine tongues, China 37.19 / Japan 31.37 / Mexico 26.48, all twelve months, unit values 1.87 / 3.23 / 2.33 dollars per kg, and no low-cost swap between the three (frozen offal access is plant-by-plant, so a consignment cleared for one cannot be rerouted to another). **It is a candidate, not a registered hit**, and it carries a September 2022 break: the China leg's unit value halves while volume rises sixfold, **the other five parts on the same edge do not move, the other two legs do not move, and a table of first-appearance months for swine skins rules out a reclassification** (skins are present on four legs from January and on the China leg only from September). Separating 'access opened' from 'two goods under one code' needs the rule text, not more prices. **Measured in passing**: unit values pile up on whole and half cents per pound (0.7496 dollars per kg is 0.34001 per pound, 26 rows), so the resolution floor of any Census unit-value reading is 0.011 to 0.022 dollars per kg. **One self-check on this pull, recorded because its cause is checkable**: the four ten-digit codes used for the same-level pork comparison were first read here as an omission from a six-code family. They are not. The exclusion is deliberate and carries its reason in a comment beside the dictionary (one code is a mixed basket, the other runs only sixteen months of that arm's window, and the second figure checks out against this pull). **The reason lived in a script comment rather than in the design file's scope block**, which is the one a later reader opens, so it was unreadable two days later. The scope block now carries it. |
+
+### Two things this index changes
+
+**B30-1's state is not "not run".** It has two recorded negatives on two carriers
+and a third instrument, better than the one the criterion asked for, already
+carried into B30-16. **Any document still saying the arm is unrun or merely
+blocked is behind the record**, and the general file and the design file were
+corrected on 2026-09-03 to match.
+
+**The C cell of the four-cell reading is still empty, and B30-21 is the first
+candidate to reach it.** It is not scored, because the arm's own block records a
+competing explanation for the entire sign that has not been tested. **The cell is
+reported as empty with a candidate queued, which is a different statement from
+empty with nothing in sight.**
+
+The Umstellungsgesetz of 1948 has been obtained, which closes a debt this arm's source list had named
+explicitly: the three ratios that give the corpus its widest spread rested on a reference lexicon, with a note
+that they had to be replaced by the statute before being cited anywhere. The text is Law No. 63 in the
+American and British zones and Ordinance No. 160 in the French, the Third Law for Monetary Reform
+(Conversion Law) in the promulgating authority's own English, of 20 June 1948, held in full with all twenty-seven implementing ordinances by a legal-text
+archive. Two earlier attempts on other hosts had failed on robots and on a 403, and the route that worked is
+recorded for next time.
+
+The statute says more than the lexicon did. Paragraph 2(1) converts Group I old-money balances at one Deutsche
+Mark for every ten Reichsmark, and then splits that: half is freely disposable and half is credited to a
+blocked account whose treatment is to be decided within ninety days. Beyond that the holder may be granted a
+further claim of up to one Deutsche Mark per ten Reichsmark, with the military government to determine its
+extent and nature after hearing the German legislative bodies. So a single clause carries a rate and an access
+restriction together, and it carries a written discretionary tier: the further claim is authorised without a
+value. Paragraph 2(2) extinguishes Group II balances, those of the credit institutions themselves, on 10 July
+1948, which is a class value of zero written as extinction rather than as non-conversion. Paragraph 1 defines
+four groups with four treatments.
+
+Paragraph 4 changes the reading of the per-head allowance. The Kopfbeträge paid out in Deutsche Mark under
+paragraph 6 of the Currency Law, and the business amounts under paragraph 17, are set off in full against what
+the old-money holder is entitled to under paragraph 2(1). The sixty marks were therefore an advance against
+the holder's own ten-to-one entitlement rather than a grant on top of it. That is the same device as the
+sanatorium clause in the 1947 North Korean decree, where five hundred won exchanged on the spot was wired back
+to the employer and counted against the holder's own limit. Two countries two years apart, and the same shape:
+a figure that reads as an allowance and is in fact an advance on one class value.
+
+The most consequential correction is to the comparison this arm ran between claims on ordinary debtors and
+deposits at banks. That comparison recorded ten per cent against six and a half, called the ordering inverted,
+and stated that both rows came from the statute; it was the sole instance behind the weak claim that a written
+hierarchy can differ from the endogenous one. Paragraph 16(1) converts Reichsmark claims so that the debtor
+pays the creditor one Deutsche Mark for every ten Reichsmark, and paragraph 16(2) reserves the identical
+further claim of up to one more per ten. So within Law No. 63 the two lines are written in parallel at the
+same ratio. The six and a half per cent arises from the later and separate Festkonto legislation acting on the
+blocked half, and paragraph 16(2) was repealed in 1953. The two rows are not two rows of one law, and at the
+moment the law took effect they were equal.
+
+The weak claim is not overturned by this, but its instance has to be rewritten, and the rewriting is worth
+more than the original. The divergence was not written by the original schedule; it was produced by a second
+act operating on the half the first act had blocked, while the first act had written the two sides
+symmetrically. A written hierarchy is therefore a dated process rather than a static table, and
+asking what a programme wrote requires asking which day's writing is meant.
+
+The Festkonto statute has since been obtained in full from the same archive. It is **Law No. 65 in the
+American and British zones and Ordinance No. 175 in the French, titled in the promulgating authority's own
+English the Fourth Law for Monetary Reform (Supplementary Conversion Law), in force 4 October 1948 in the
+bizone and 30 September 1948 in the French zone**, one law with
+two commencement dates. Its paragraph 1 writes the split as whole marks rather than as percentages: **seven of
+every ten Deutsche Mark on a Festkonto are struck with effect from the day of the credit, two of every ten are
+moved to the corresponding Freikonto, and the remainder is available for investment in medium or long-term
+securities under ordinances the Allied Bank Commission is to issue before 1 January 1949**. A reference source
+had rendered that last tranche as a transfer to an Anlagekonto, and the statute does not say that: **the value
+is written and the treatment is delegated with a deadline, which is one more written discretionary tier.** The
+same page names the four implementing ordinances, and the operative treatment of that tenth lives in the second
+of them, dated exactly to the deadline paragraph 1(c) sets. **That is one more carrier in which the operative
+clause turns out to live in the delegated instrument rather than in the law that names it, and the first in
+which the delegating sentence carries the date of its own delegate.**
+
+Walking a hundred Reichsmark through both laws now stands entirely on statute: ten Deutsche Mark under Law No.
+63, split five free and five blocked, then three and a half struck, one released and half a mark bound to
+securities, for six and a half Deutsche Mark credited in all, six of them freely disposable. **So the six and a
+half per cent has an arithmetic behind it.** It was first recorded here as something two statutes acting in
+sequence produced rather than a rate anyone wrote, **and that second half has since been corrected: someone did
+write it.**
+
+The instrument at the page this arm had registered as unfetched has been obtained. It is the **Second
+Ordinance under the Festkonto Law (Adaptation of Provisions of the Conversion Law)**, in force 1 January 1949,
+printed in the Verordnungsblatt für die Britische Zone of 6 January 1949, No. 1, page 4, issued by order of
+the Allied Bank Commission, with the German text declared authoritative. Its first paragraph converts a
+Reichsmark obligation **in derogation of paragraph 16(1) of the Conversion Law** so that the debtor pays **six
+and a half Deutsche Mark for every hundred Reichsmark**, written out in words. **The written hierarchy this arm
+had been claiming on a weak footing now has a hard instance: two legal instruments, two written rates on two
+classes of obligation, and the later one saying in its own text that it departs from the earlier.** What was
+wrong in the earlier entry was the date and the mechanism, not the claim: the divergence is written, and it is
+written in January 1949 rather than in June 1948.
+
+**The class that rate attaches to is one this corpus has not seen before, and neither is the form of its
+value.** It is not bank deposits. It is the debtor of a Reichsmark obligation that arose because he held
+someone else's money as custodian, under a mandate, for judicial deposit, as security, or by seizure or other
+possession for security, **provided he kept the sum owed in a Reichsmark account at a bank inside the currency
+area and declared it on form B**. His rate is six and a half because six and a half is what his own account
+yields after the two statutes have run. **The value of one class is defined as the value of another class**, so
+the rule is a pass-through: he pays out exactly what he takes in. Every class value in this corpus so far has
+been either a constant or a function of an attribute of the holder; **this is a third form, a reading taken off
+another edge.** Paragraph 2 extends the same ratio to obligations arising from advance payments on liabilities
+not yet incurred or not yet due.
+
+Three smaller things come with it. **Anlagekonto is a real account name**, which partly rehabilitates the
+reference source: paragraph 1(2) lets the debtor discharge by assigning his claims on the Freikonto and the
+Anlagekonto, so the tenth did land in such an account, and what the reference source got wrong was calling it a
+simple transfer rather than a delegated investment rule. Paragraph 1(3) carries the head-amount and
+business-amount set-off across to **the assignee's family**. And **Article II closes a discretionary valve by
+writing a mechanical condition in its place**: it rewrites paragraph 21(2) of the Conversion Law so that an
+application for judicial contract relief, for postponement or reduction of an obligation converted under
+paragraph 16, **is to be rejected out of hand** where the debtor's converted obligations were not matched at
+the changeover by old-money balances or by Reichsmark claims exempt from conversion. That is the discretionary
+tier running backwards: not a value delegated away, but a discretion withdrawn and replaced by a test a clerk
+can apply.
+
+**The same issue of the gazette runs the opposite way on the facing page, and the direction tracks the issuing
+authority.** The Seventh Ordinance extending the ordinance on the suspension of judicial proceedings, dated 4
+January 1949 and issued by the President of the Central Justice Office for the British Zone, rewrites the
+suspension rule so that **suspension may be dispensed with or lifted where the debtor's present capacity to pay
+is not materially impaired against his capacity when the Reich stopped payments, and where suspension would be
+an inequitable hardship for the creditor** — a comparative standard for a judge to apply. **In one issue, the
+banking authority removes judicial discretion over debtor relief and the justice administration restores it.**
+Recorded as an instance and not as a general claim, since who issues an instrument is a fact about people and
+their offices rather than about the structure of the programme.
+
+**The chain then closed.** The Third Ordinance under the Festkonto Law, in the same gazette of 12 May 1949,
+No. 24, page 145, states in its own opening that it is made **under paragraph 1(c) and paragraph 2** of the
+Fourth Law, so this is the instrument that paragraph 1(c) had been pointing at. **The last tenth's regime, at
+last written**: an Anlagekonto balance may pay the purchase price of **newly issued** securities declared
+suitable by the authority competent to approve issues for the whole currency area, which may so declare only
+within an amount **the Bank deutscher Länder fixes periodically**, and until that authority exists the Bank
+deutscher Länder declares them itself, **with the administration of the united economic area and every French
+zone Land government free to restrict the use further in its own territory**. Only securities the holder
+subscribed himself or that a member of the issuing syndicate took up qualify; Schuldbuch claims against
+public-law bodies count as securities; co-ownership rights of nominal value under five marks may not be bought
+with such a balance; and **a security bought from an Anlagekonto may not be sold for a year**. Balances **not
+above five marks** become freely disposable at once, as do odd-lot remainders **below five marks** left over
+from buying securities, and neither bears interest. **Everything else becomes a Freikonto on 1 January 1954**
+and counts as a sight deposit from then, bearing **two and a half per cent a year with effect from 21 June
+1948** until that date, payable at each year end into the holder's Freikonto.
+
+**Four readings come out of it, and the first is the one worth carrying.** Paragraph 1(c) of the Fourth Law
+required these ordinances **before 1 January 1949**, and this one took effect on **5 May 1949**. So between
+those dates the tenth had no regime at all. **This corpus had recorded discretionary tiers as clauses whose
+value is not written; here is a second dimension, a clause whose deadline is written and is missed, and by an
+amount that can be measured.** Second, paragraph 3 draws a line at five marks and so writes two class values on
+one account type, which is a one-sided bound and therefore predicts an atom exactly at five by the lemma proved
+in B43; **and the free class has two doors, one by attribute and one by action**, since a remainder under five
+marks arises from having bought securities. Every class in this corpus until now has been entered by attribute
+alone. Third, the two adjacent sentences use different comparators on the same number, **not above five** for
+balances and **below five** for remainders; recorded, not built on. Fourth, the two and a half per cent runs
+from 21 June 1948 while the ordinance takes effect on 5 May 1949, **the third instance in this family of a
+legal effect hung on a date before the document existed**, after the striking that operates from the day of
+credit and an ordinance signed on 4 January and in force from 31 December.
+
+**One more thing about that paragraph 1: its value is not a number at all.** What may be bought, and how much,
+is settled jointly by the issue-approval authority, by the periodic amount the central bank fixes, by the
+central bank acting in the authority's place until it exists, and by two further layers of government free to
+restrict. **The class value is whatever those four allow this period, and one of them had not yet been set
+up.** That is the upper end of the discretionary family in this corpus.
+
+**The fourth ordinance completes the series and is one sentence long.** It was registered here as living in the
+Allied High Commission gazette of 1950; it is in fact also in the same British Zone gazette, of 16 September
+1949, No. 53, page 489, nine months earlier, so that route is cancelled. Made under paragraph 2 and in force 12
+September 1949, its entire operative content is: **balances on Anlagekonten may be transferred to other
+Anlagekonten.** It writes **no class value at all** — no ceiling, no rate, no threshold — and only adds an edge
+to the position graph.
+
+**Three things follow.** It proves what the default had been: an ordinance was needed to permit transfers
+between blocked accounts, so until 12 September 1949 they could not even move between themselves, and a written
+permission has thereby dated a prohibition nobody wrote down. **The class values set five months earlier are
+untouched, and only the connectivity inside the blocked class changes**, which is the corpus's two objects
+coming apart: the partition stays and the trade graph moves. The counting law reads zero class values here, and
+**that zero is the right answer rather than a gap**. And it is the far end of the discretionary family from the
+third ordinance, whose paragraph 1 had a value settled jointly by four bodies: **this one has no value at all,
+and is still a complete, self-contained law of three paragraphs.** The unstated expectation that an ordinance
+in a conversion programme must write some value is falsified by it.
+
+**The whole chain, in one place.** Law No. 63 paragraph 2(1) of 20 June 1948 converts at ten to one with half
+free and half blocked, treatment to be settled within ninety days; Law No. 65 of 4 October 1948 strikes seven
+tenths, moves two tenths to the Freikonto, and leaves the remainder to ordinances due before 1 January 1949;
+the first ordinance takes effect 1 November 1948, the second 1 January 1949 under paragraph 2, the third **5
+May 1949 under paragraph 1(c)** and the fourth 12 September 1949 under paragraph 2. **Three of the four rest on
+paragraph 2; only the third answers paragraph 1(c), and it is the only one the deadline bound, and it missed it
+by four months.** The first ordinance's text is the one page in the series still unread here, its page having
+refused to render on three attempts; its citation was verified against a second source in the first pass, and
+it is recorded as located rather than as owed.
+
+**The first ordinance has since been read too, and it moves the earliest written statement of the six and a
+half back by seven months.** It is in the Verordnungsblatt für die Britische Zone of 16 November 1948, No. 52,
+page 329, made under paragraph 2, in force 1 November 1948. **Its paragraph 1(2) credits the account holder,
+for every hundred Reichsmark, six Deutsche Mark to the Freikonto and half a Deutsche Mark to the Anlagekonto.**
+That is better than the January instance in two ways: it is two months earlier, and **it gives the composition
+rather than a total**, and it applies to every account holder rather than to one class of custodial debtor. **So
+this arm has now corrected the same sentence twice in one session, in the same direction each time**: first
+from "nobody wrote it as a rate" to "the second ordinance did", then from "the second ordinance did" to "the
+first ordinance did, and in parts". The written divergence from the ten-to-one schedule therefore has a date:
+**1 November 1948**.
+
+Two attributions move with it. **The two and a half per cent belongs to this first ordinance**, whose paragraph
+2(2) sets the rate, makes the interest fall due at each year end and credits it to the Freikonto; the third
+ordinance restates the same rate and start date and adds the terminal date of 1 January 1954. **And the same
+paragraph 2(2) declares Anlagekonto balances to be time deposits within the meaning of paragraph 6 of the
+issues law and paragraph 10 of the conversion law** — the value untouched and the *type* of the position
+written, which pairs with the fourth ordinance writing an edge and leaving the value untouched.
+
+**Its paragraph 2(1) also changes the shape of the missed-deadline case, and the true shape is worse.**
+Anlagekonten may be disposed of **only in accordance with the implementing provisions foreseen in paragraph
+1(c) of the Festkonto Law**. So from 1 November 1948 the account existed, bore interest, and was **expressly
+frozen against a document that did not yet exist**; the deadline for that document fell on 1 January 1949 and
+it arrived on 5 May. **This is not four months without a rule. It is six months in which the freezing half took
+effect at once and the unfreezing half was owed.** A delegating clause can bring a restriction into force
+immediately while leaving the rule that lifts it outstanding indefinitely, and **the cost of the overrun is not
+a blank but one-sided operation.**
+
+Two smaller things. Paragraph 1(4) directs the postings and the transfers from Festkonto to Anlagekonto to be
+made **with value date 21 June 1948**, the fourth and earliest instance in this family of an effect hung on a
+date before the document existed, and three of those four hang on the day the Deutsche Mark took effect. And
+the issue's own table of contents names the ordinance with the nickname in brackets while **the heading over
+the text itself does not**, so within one document the index and the article disagree on the name, which is one
+more reason a search by title can miss what the volume plainly contains.
+
+**A page in the same issue is off the main line and states the constraint the main line runs under.** The
+Fifteenth Ordinance under the Conversion Law, on interim payments of interest on the equalisation claims of
+banks, made under paragraph 34(4) of the Conversion Law and in force 31 December 1948, exists because **the
+class values a conversion programme writes for holders are not free parameters; they are tied by an accounting
+identity.** Converting the liability side at ten to one and then to six and a half, while the Reich paper on
+the asset side went to nothing, opens a hole that something must fill, and the equalisation claim is that
+something; this ordinance settles how the public debtor pays interest on it before each bank's conversion
+account is confirmed. **The A-track model asserts claim conservation inside its main loop, and that is not a
+modelling convenience: a real currency reform had to issue an ordinance to make the identity hold, and the
+ordinance is the visible residue of it.** Three rates are written on that page, none of them on the main line:
+**four and a half per cent a year** on the shortfall portion of an equalisation claim for computing the interim
+payments, and **five per cent a year** both ways, on a debtor late with interest and on a bank late refunding
+an overpayment. **The corpus's penalties have mostly been one-directional; this is its first symmetric pair.**
+The same ordinance also has each institution file a conversion account **estimated to the best of its knowledge
+and conscience**, with a true-up that recomputes back to 21 June 1948 and refunds the difference. **The state
+ran on estimates and settled later, and wrote the correction rule into the text**, which is the other face of
+the granularity finding above: a registration point can itself be provisional.
+
+**Counting the eleven carriers without a registration point on the new column took a morning and showed two
+things the single-number column had hidden.** Nine of them return one and the same vector — the money may be
+drawn, may be spent without cash, no band is restricted, nobody has to fix a date later. **Burma 1987 returns
+two**, because the holder of one of the three voided denominations receives nothing at all while the holder of
+any other note is untouched. **Lithuania 1992 returns nothing at all**, and that is the finding: the four
+questions presuppose that there was an exchange, and on the cash side of that programme there was none, since
+cash roubles were exchanged nowhere and the talonas was already in hand. **A carrier the instrument cannot
+speak about is recorded as out of scope rather than as a one**, which is the middle state this corpus insists
+on keeping.
+
+**The first of those also separates two carriers this arm had been treating as one shape.** Burma 1987 and
+Indonesia 1959 are both filed as partitioning by asset rather than by holder, which is right and stays. But on
+the two components they differ: **Indonesia changed only what a note was worth and not whether it could be
+spent, while Burma changed both.** The two remain listed apart from the counting statement, and what changes
+is the sentence that had called them the same shape. The zero-counterexample statement is untouched, checked
+line by line: this column counts reachability and not price, the nine keep a price count of one, the two
+asset-partition cases were already listed apart, and Lithuania's price count is one, at a rate of zero.
+
+**Still owed on this column**: the carriers added to the corpus after the table of twenty-three was drawn, the
+1947 and later North Korean conversions, the 1948 German one and Argentina 2001. Their clause tables are on
+disk.
+
+**One route note, because it cost this session something.** The gazette is digitised and free, and its viewer
+returned a load failure on every page from this side, twice, after which the attempt was stopped. It renders on
+retry: the viewer is old, per-page reloads fail, and scrolling back and forth a few times brings the page up.
+**On that host a page that will not load is a fact about the server and not about the holding**, and stopping
+after two tries was stopping early.
+
+**The chain has three dates and each one is checkable.** On 20 June 1948 Law No. 63 writes deposits and
+ordinary claims at the same ten to one and gives each side the same optional further claim, blocking half of
+the deposit conversion. On 4 October 1948 the Fourth Law splits that blocked half seventy, twenty and ten,
+which puts the deposit side at six and a half. On 14 July 1953 paragraph 16(2) is repealed, which removes the
+further claim from the ordinary creditor's side. **The inversion this arm recorded was produced in October
+1948, it is not in the June schedule at all, and the 1953 act cut the symmetric term on the other side.** A
+written hierarchy has dates, and that sentence now has three of them holding it up.
+
+One more class value comes out of the same paragraph 4. The two amounts it sets off are the Kopfbeträge under
+paragraph 6 of the Currency Law and the Geschäftsbeträge under paragraph 17, and the second of those is **sixty
+Deutsche Mark per employee**. A firm drew against its own headcount, as an advance on the ten to one conversion
+it would later receive, so the value of that class is sixty marks times a number held in the firm's own books.
+**That is a function of the holder, and not a constant.**
+
+**Counting these carefully is worth a paragraph, because the running tally this arm had been keeping broke.**
+Successive records incremented an ordinal while counting two different things, carriers in one place and bands
+in another, and one record added six bands at once without continuing the ordinal. The tally is therefore
+replaced by a derivation, printed here so it can be recounted rather than trusted, and no ordinal is carried
+forward.
+
+| carrier | bands whose written value is a function | count |
+|---|---|---|
+| 1991 Soviet reform | employees at `min(average monthly wage, 1000)`; pensioners at 200 or the monthly pension; foreign nationals against the foreign-exchange receipt; co-operatives against the till limit set for a comparable state enterprise | **4** |
+| 1993 Russian reform | legal persons against their own cash-holding limit; refugees at the sum written on the housing-payment document | **2** |
+| 1947 North Korean decree, article 4 | seven of the ten named classes | **7** |
+| 2009 North Korean reform | a per-household figure plus a per-person addition | **1** |
+| 1948 West German currency law | paragraphs 5, 15, 16 and 17 | **4** |
+| **total** | | **5 carriers, 18 bands** |
+
+**Nine of the eighteen are on the legal-person or organisation side, and not one of those nine is a constant.**
+On the natural-person side a flat figure is common, and the sixty-mark Kopfbetrag in this same law is one of
+them. **This is worth carrying forward as an expectation rather than as a finding: for the next carrier,
+assume the legal-person band is a function and go looking for which ledger holds the argument.**
+
+One band was reclassified in the course of this recount, and the ground for it came from the arm's own earlier
+record. The 1947 decree's residual class pays **five hundred won per household head plus two hundred for every
+co-resident dependant over eighteen**, which had been booked as a constant; the 2009 record then described the
+identical shape as a function of household size. **The same shape had been booked two ways, which is a
+bookkeeping inconsistency and not two findings**, and the function reading is taken, since the value carries a
+coefficient multiplying a count of people. The 1947 decree therefore holds seven function-valued bands rather
+than six, and it keeps its place as the largest single instance in the corpus by a wide margin.
+
+The Currency Law itself was then obtained, and it carries that count further and settles it inside one
+document. **Law No. 61 of 20 June 1948 writes four initial-endowment class values, and three of them are
+functions with three different arguments.** Paragraph 6 gives every inhabitant up to sixty Deutsche Mark in
+exchange for old notes of the same nominal amount, a flat figure capped by what the holder hands in. Paragraph
+15 obliges the state central banks to endow the Länder and the territorial bodies under them with **one sixth**
+of their actual receipts between 1 October 1947 and 31 March 1948. Paragraph 16 obliges the Bank deutscher
+Länder to endow the railway and postal administrations with **one twelfth** of theirs, over the same base
+period and the same revenue definition. Paragraph 17 sets the Geschäftsbetrag at **sixty Deutsche Mark per
+employee, and at most one Deutsche Mark for every Reichsmark of old-money balance**, so the business band is a
+function of two arguments at once.
+
+**This is a control inside a single statute, and it is worth more than the cross-carrier count it replaces.**
+The same drafters on the same day in the same document wrote the natural person's band as a constant and all
+three legal-person bands as functions, using the same ceiling language in both places, with only the per-unit
+multiplier separating them. The claim that no legal-person band in this corpus is a constant no longer needs
+any assumption that eight reforms in six countries are comparable; **it holds inside Law No. 61 on its own.**
+The count of function-valued legal-person bands goes from four to six, with paragraphs 15 and 16 each adding
+one.
+
+**Paragraphs 15 and 16 are also the cleanest pair of written class values the corpus holds.** Two classes of
+public body, one base period, one revenue definition, and two fractions that differ by exactly a factor of two.
+The gap between them requires no estimate of any kind, because both sides of it are written. That sits
+alongside the dated-process reading above and cuts the other way: **there the hierarchy was made by a second
+act four months later, and here a hierarchy between two classes is written into a single day's text.**
+
+**The same law also holds a class the corpus has no analogue for, and a partition axis it has not seen
+before.** Paragraph 5 provides that where an employer's first pay date after 20 June 1948 falls later than 29
+June, the wage and salary earner receives a back-payment in Deutsche Mark of **seventy per cent of the portion
+of the net Reichsmark amount received at the last pay date that corresponds to the share of the pay period
+running from 30 June to the next scheduled pay date**, due on 3 July and free of wage tax, church tax and
+social insurance contributions. **Membership of that class is decided by the employer's payroll calendar, and
+the value is a function of the same calendar.** Every class in this corpus up to now has been drawn by who the
+holder is, how much the holder holds, or what the holder did; **this one is drawn by a third party's
+schedule.** It takes the count of places where a class value's argument can live from three to four, the first
+three being the state's own ledgers, a document a third party issued, and the subject's own books, and **the
+fourth being a schedule that records no amounts at all**. The German carrier therefore holds four
+function-valued bands rather than three, and the corpus total is eighteen. The seventy per cent is not a
+conversion rate: it acts on a Reichsmark net amount and pays out Deutsche Mark, so **that slice of wages was
+settled at 0.7 to 1 while deposits in the same weeks were settled at 10 to 1**.
+
+The axis behind that pair is written in paragraph 2, which replaces the Reichsmark, Goldmark and Rentenmark
+units of account with the Deutsche Mark wherever they appear in laws, ordinances, administrative acts or
+declarations of legal transactions, **subject to special provisions for particular cases**. Paragraph 16 of the
+conversion law is that special provision, and it reaches only Forderungen. **So the unit written into a
+contract moves across at par while claims and deposits are cut ten to one, and the line between them is drawn
+by what the object is rather than by who holds it.** That is the first object-drawn partition in a corpus of
+better than twenty carriers, all of the rest of which are drawn by the holder.
+
+Three smaller things in the same law are worth recording. Paragraph 6 pays the head amount **in two tranches,
+no more than forty marks at once and the rest within two months**, so one class value carries two dates; and
+its closing sentence already reserves the set-off, which means the advance character of the sixty marks was
+written on day one and merely executed by paragraph 4 of the conversion law four months later. Paragraph 20
+provides that **destroying old notes instead of surrendering them is not punishable**, an exit path written into
+the statute itself, which is the same question the alternative-route discipline asks and is here answered by
+the drafters rather than by the market; destruction leaves no record at all, so that cell is recorded as having
+no document that could carry it rather than as not yet found. And paragraphs 21 to 23 write three excluded
+classes, of which **two have no value at all**: the old money of persons outside German tax jurisdiction and of
+the occupying powers is to be deposited and then dealt with on the instructions of the Allied Bank Commission
+or the military government. **Two more classes whose written value is a sentence naming who will decide.**
+
+
+## B43 — the counting law's proposition (i), proved
+
+**RUN: 2026-09-03.  Proof in `docs/b43_counting_theorem.md`. Enumeration it was
+written against: `experiments/b43_counting_enumerate.py`, record
+`results/b43_counting_enumerate.json`. Closed form checked against that record:
+`experiments/b43_counting_proof_check.py`, record
+`results/b43_counting_proof_check.json`. Exhaustive, not sampled: every
+configuration in the space is walked.**
+
+The law says a published procedure draws a partition on positions and that the
+number of values it produces equals the number of classes it wrote. **It rests on
+twenty-three cases and had never been proved.** This station enumerated before
+attempting a proof, because a corpus cannot show which side conditions it was
+silently relying on. **The enumeration drew the boundary; the proof then closed
+it, and separated two statements the corpus had been carrying as one.**
+
+| criterion | state | reading |
+|---|---|---|
+| B43-1 (i-two-sided), equality constraint | **proved** | Two statements, not one. **Counting form `\|P_read\| = \|{t_a}\|` holds with no hypothesis at all**; partition form `P_read = P_written` holds **iff** the class terms are distinct. Theorem 1. Enumerated counterexamples to the partition form: `810` at `n=3`, `18,468` at `n=4`, `394,389` at `n=5`; **`0` once terms are distinct** |
+| B43-2 (i-one-sided), inequality constraint on the binding set | **proved** | The two partitions agree on `S` **iff** `a -> t_a` is injective on the classes whose bound actually bites — **weaker than distinctness**, and the gap is worth 264,606 configurations at `n=5`. Theorem 2. Enumerated: `180`, `4,994`, `129,783`; **`0` once terms are distinct** |
+| B43-3 the shape of every counterexample, printed rather than counted | **reported, load-bearing** | **every one is two classes carrying the same term. Counterexamples of any other shape: `0`, `0`, `0`** |
+| B43-4 the closed form read off the proof, against the counts already on disk | **passed** | **9 integers, 9 exact matches**, three sizes by three arms. The closed form counts baselines rather than walking them, so it is a second path to the same numbers |
+| B43-5 the counting form on every configuration, including each one that breaks the partition form | **passed** | **`0` failures in 480,006 configurations**, against 413,667 failures of the partition form in the same space. Both lemmas of Theorem 2 also hold everywhere |
+
+**Space walked**: 1,539 configurations at `n=3`, 25,029 at `n=4`, **453,438 at
+`n=5`**, positions and class terms each drawn from a three-value set.
+
+### What it settles
+
+**Neither proposition is false. The statement was incomplete by one word, and
+with that word in place it is a theorem with no side condition at all.**
+
+> written: the number of values equals the number of **classes** it wrote
+> enumerated, then proved: the number of values equals the number of **distinct class terms** it wrote
+
+**That word is not a patch.** A procedure that names two classes and gives them the
+same number has given them the same price, and the law is about the partition of
+prices. **So the qualifier is what "partition of prices" already meant.**
+
+**The corrected statement is stronger than the original**: the original has 394,389
+counterexamples at `n=5` and the corrected one has none in the same space — and
+**none at any size, over any ordered value set**, which is what the proof adds to
+the search.
+
+**Three further sharpenings, all from the proof:**
+
+1. **The one-sided condition registered was stronger than necessary.** Two bands
+   written at the same number are harmless if one of them is vacuous.
+2. **The atom count on a one-sided carrier needs the same two amendments as the
+   class count** — no atom from a band that never bites, one atom rather than two
+   from bands sharing a number — **while the atom's *position* needs neither.**
+   That an atom sits exactly at the written bound is Lemma B, one line, with no
+   condition on the terms. **The bunching family assumes this; here it is proved.**
+3. **The mass of an atom is contaminated by the complement** unless the baseline
+   distribution is atomless. On a discrete baseline the contamination does not
+   vanish, and the enumeration runs on a discrete baseline so that this term is
+   visible rather than assumed away.
+
+### What it does not settle
+
+1. **Empty bands in the corpus.** A class here is a block of a partition, so it
+   has members. A band that appears in the text of a decree but that no position
+   falls under produces no value, so it is not counted. **Whether any of the
+   twenty-three cases writes such a band is unchecked.** Registered.
+2. **The discretionary band stays outside**, unchanged: Kazakhstan 1993 fails the
+   law's premise, which requires the number to be published.
+3. **The proof takes the procedure as already written.** It says nothing about why
+   a given partition was drawn, nor about the two enabling conditions — a
+   registration point and a device blocking trade between classes — which are
+   prior to it and are classical.
+4. **The upper-bound arm is an implementation check, not an independent
+   confirmation.** It returns `180`, `4,994` and `129,783`, identical to the lower
+   bound at every size. **Theorem 3 says that identity was forced**: baselines and
+   terms are drawn from the same three-value set and `z -> 4 - z` is an
+   order-reversing involution of it, so it carries the cap configurations onto the
+   floor ones. Had the two columns differed, the code would have been wrong. They
+   did not.
+
+### The corpus already carried this condition, and the two arrivals are independent
+
+**The qualifier was not found here first.** The B30-22 seventeenth block states it
+as a registered falsification: *a published procedure divides positions into N
+classes, and if two of those classes are identical in every attached term then
+those two receive the same thing, and the claim dies there.* **Argentina 2002 is
+recorded as the first case to reach that form, and it passed.**
+
+**So this is a cross-check rather than a discovery**: the corpus reached the
+condition from twenty-three cases, the enumeration reached it from 453,438
+configurations.
+
+**And the collision does not occur in the corpus.** Of the twenty-three, eleven
+have exactly one class and cannot collide; of the twelve with a registration
+point, nine write multiple classes and the block prints their terms with the gaps
+named (Germany `1:1 / 2:1 / 3:1`, Estonia `10:1` against `50:1`, North Korea
+`100:1` against `1000:1`, and so on). Kazakhstan's third class is set by committee
+and is a discretionary tier, which the law's own scope clause already excludes.
+**Zero collisions.** So the qualifier is empirically inert and **no existing
+reading moves**.
+
+**Both propositions are now proved, in `docs/b43_counting_theorem.md`, and the
+closed form read off that proof returns the counts above digit for digit.**
+
+### Scope: the hypotheses are thinner than the setting they were read off
+
+**The corpus is currency reform, the terms are conversion rates, the values are
+money. The theorems know none of that.** Section 8 of the proof sets out what each
+one uses; four consequences:
+
+1. **The two-sided law does not need the terms to be numbers.** `pi(v) = t_{c(v)}`
+   uses nothing but "these two labels are the same or they are not" — no order, no
+   arithmetic. A class given a band name, a rank, a statutory priority or a
+   *treatment* is under the law exactly as one given a rate. **The corpus already
+   contains two such cases**: Wuhan 1949 sorts issuers into three tiers receiving
+   three different treatments (unit of account / not circulating but redeemable /
+   prohibited and not redeemed), and Czechoslovakia 1919 stamps, over-prints,
+   withdraws, and leaves valid. **Neither list can be ordered.** Only the
+   one-sided case needs an order, and it still needs no arithmetic.
+2. **Nothing bounds the number of classes**, `V` may be infinite (the partition
+   form never uses finiteness), and **`V` need not be a monetary carrier at all** —
+   a tariff schedule, a fee table, a fine schedule are instances of the same
+   object rather than analogies to it.
+3. **The counting form is an equation, so it reads backwards**, and the reverse
+   direction is an instrument the forward one is not: **`m` distinct values
+   observed implies the procedure wrote `m` distinct terms on classes that have
+   members**, with no access to the text of the procedure. **And it can fail** — a
+   value count above the number of bands the text names means either a class line
+   the text does not carry, or a discretionary band outside the law's premise.
+4. **A wider mathematical scope is not a wider empirical one.** The proof supplies
+   necessity given that a procedure is written a certain way. **It supplies no
+   observability**, which is what the separate tests on retrievable documents,
+   non-exchangeable prices, and treatment-value ceilings are for.
+
+
+## B44 — a flag class the Sound Toll ledger recorded on both sides of two treaties
+
+**RUN: 2026-09-03.  DESIGN: `experiments/b44_d29_rho.py`, `b44_r2_residual.py`,
+`b44_r2_split.py`, `b44_r3_base.py`, `b44_r4_rho.py`, `b44_homeport_year.py`,
+`b44_enumerate_ports.py`, `b44_r5_cells2.py`, `b44_r5_rho.py`, `b44_r7_b1.py`,
+`b44_r8_quads.py`, `b44_r8_decade.py`, `b44_r10_bimodal.py`, `b44_r12_subtotals.py`,
+`b44_r13_cells.py`, `b44_r14_fee_vs_tonnage.py`, `b44_r14b_symmetry.py`,
+`b44_r15_endpoint.py`, `b44_r15c_conquest.py`, `b44_r16_measured_fixed.py`,
+and five self-check scripts carrying 200 assertions between
+them. Station document `docs/b44_sound_toll.md`.**
+
+The Peace of Brömsebro (1645) exempted Swedish ships and Swedish goods from the
+Sound Toll and the Peace of Frederiksborg (1720) ended the exemption, putting
+Sweden on the same tariff as the English and the Dutch. The Danish crown recorded
+every passage either way, so the class index of `docs/b4_directed_edges.md` §5.1
+can be read on a carrier where the class difference is created by one dated
+public instrument and removed by another, and where **both halves of the ratio
+sit in the same ledger**. That second property is what `docs/b1_theorem.md` §9.1
+records as missing elsewhere: a numerator exactly known from a treaty against a
+denominator living in a private contract. Here the toll is levied in each
+direction and both levies are recorded.
+
+**Carrier.** Sound Toll Registers Online, classic packaging: 2,152,670 passages
+1497–1857 and 5,568,590 cargo parcels keyed to them. Home port is standardised
+through the register's own place codes, resolving 98.49 percent of names.
+Treatment is assigned by sovereignty inside the window rather than by the modern
+country field. Only Daler enters a column; Rosenobel (10.0 percent of the period)
+and Skilling are reported separately and never added in. About a third of amounts
+are written as fractions, and a parser that truncates them biases every median.
+
+**The estimator, and a step that turned out not to be needed.** Written for two
+classes and two directions, `S − S'` is a double difference and `−(S+S')` the sum
+of the four cells, so a fee common to both classes and symmetric in direction
+cancels from the numerator and remains in the denominator. The fixed component is
+a constant only inside the exemption window, its median drifting from 4 Daler to
+between 2 and 3 after 1720, and modelling that drift looked mandatory until the
+double difference made it unnecessary. Subtracting each voyage's parcel charges
+from its recorded total leaves a discrete residual, 88 distinct values with 96
+percent between 0 and 4.5 in half-Daler steps, equal to 4 for 95.1 percent of
+westbound and 91.9 percent of eastbound voyages in the exemption window. The
+exempt class pays the same 4, so the exemption remitted the charge on cargo and
+not the fixed due, which is why exempt ships are in the ledger at all.
+
+**The conversion base was identified from the data.** Half the amounts carry a
+subsidiary unit and dropping them leaves 13.1 percent of voyages whose median
+parcel count is 1. Two internal routes fix the base: the subsidiary value has a
+hard edge at 47, which occurs 6,326 times against 19 for 48, and sweeping the
+base for the one that puts the exemption-window residual back on its constant
+gives 56.70 percent at 48 against 44.74 at the next best. An external chain found
+afterwards agrees to the digit, 96 Danish skilling to the daler and two Danish to
+one Lübeck, the accounts being kept in Lübeck skilling.
+
+**The registered quantity.** Exemption window 1650–1709, 27,020 qualifying
+voyages, 16 route cells with at least 40 passages in each direction: **`rho`
+median 0.2552**, quartiles 0.1809 and 0.3802, range 0.0478 to 0.4661. No cell
+reaches 1, so by Theorem 6(4) none is degenerate. The same statistic on an
+unrelated carrier (`docs/b4_directed_edges.md` §5) has median 0.2000.
+
+**Across 1720, with a placebo rather than a bootstrap as the floor.**
+
+| | exemption 1650–1709 | after 1720–1779 |
+|---|---|---|
+| Swedish against non-Swedish, the treated pair | **0.2552** (16 routes) | **0.0794** (8) |
+| Dutch against the rest, the placebo | **0.0722** (6) | **0.0858** (24) |
+
+The floor here is cargo composition rather than sampling noise, and that was
+measured rather than assumed: the treated pair's `|S−S'|/se` has median 2.99 with
+5 of 8 above 2 and the placebo's has median 2.29 with 13 of 24 above 2, so a
+bootstrap calls both significantly non-zero and both are the same thing. The
+placebo does not move across 1720, which is what a floor should do. The two
+post-1720 figures cannot be separated from each other: medians give 0.0794 below
+0.0858 while means give 0.0858 above 0.0617, so the order is set by the choice of
+aggregator. What is stable under both aggregators and under a wider route
+threshold is that both sit far below the exemption-window 0.2552. Article 9 of
+the 1720 treaty states that thereafter there shall be no difference between the
+nations in the Sound, and names the English and the Dutch as the footing, which
+is the control class this station was already using.
+
+**The exemption's coverage, enumerated rather than sampled.** The arm was
+registered as three hand-picked port pairs; enumerating is cheap off one cached
+table and strictly harder, since three pairs have to agree and ninety-four have
+to. Ranking every home port with at least 150 cargo lines in both windows by its
+exemption-window fill rate, with no threshold drawn, **eleven ports collapse and
+all eleven were under the Swedish crown; none of the other 83 does.** Two of the
+eleven are coded to the wrong modern country and both are ports that were Swedish
+at the time. Dropping the pre-window requirement admits 171 ports, 29 Swedish and
+142 not: **no non-Swedish port reads below 0.15 and the first 22 in sort order
+are all Swedish**, while eight Swedish ports do not collapse and they are
+structured, four of them being the Baltic provinces. The supported statement is
+therefore that the exemption followed the realm proper rather than every territory
+under the crown.
+
+**The Baltic provinces are a mixture.** Read per voyage rather than per parcel,
+88.3 percent of provincial voyages were not measured at all and 10.7 percent were
+measured whole, with 1.1 percent in between; the four ports agree to within half
+a percentage point across four different modern countries. Against the control
+group's own 16.61 percent of blank voyages, which is archive loss, the homeland
+captures 97.5 percent of the available range and the provinces 85.9, so the
+provinces received 88 percent of the homeland's treatment.
+
+**Position loops, counted first and then read.** `b₁ = E − V + c` on the doubled
+graph shows the post-1720 route sets are forests, so one route is exactly one
+independent reading there; the exemption-window set carries three cycles in the
+position graph, giving 19 independent directions where this station had claimed
+16. Taking all four-leg loops rather than an arbitrary cycle basis, the
+normalised remainder `|Σŵ|/Σ|ŵ|` has median 0.1265, 0.2036 and 0.3924 in the
+three groups that exist, at 2.6, 6.5 and 3.6 times each group's own measured
+floor. About four fifths of the west-minus-east charge cancels around a loop as a
+difference of port-level potentials would, and the remainder is visible.
+
+| Criterion | Reading |
+|---|---|
+| B44-1 the friction term is observable | **PASS** — both halves of `rho` are recorded fields; the toll is levied and recorded in each direction. First carrier in this family whose denominator is observable |
+| B44-2 the charge decomposes as an identity | **PASS** — total minus the sum of parcel charges leaves a discrete residual, 88 values, 96 percent in 0 to 4.5, stepping in half Daler; equal to 4 for 95.1 and 91.9 percent of the two directions in the exemption window, and the exempt class pays the same 4 |
+| B44-3 the conversion base | **PASS** — 48, from two independent internal routes (a hard edge at 47 against 6,326 occurrences to 19, and a base sweep giving 56.70 percent against 44.74 at the next best), confirmed afterwards by an external chain to the digit |
+| B44-4 `rho`, exemption window | **READ** — 16 route cells, median 0.2552, quartiles 0.1809 and 0.3802, range 0.0478 to 0.4661; no cell degenerate under Theorem 6(4); the same statistic reads 0.2000 on an unrelated carrier |
+| B44-5 arm A, the exemption is visible at all | **PASS** — exemption-window fill rate 0.0845 on the treated class against 0.9214 on the Dutch control, a full order of magnitude, on n of 30,420 and 215,371 |
+| B44-6 arm B, the two dates | **PASS** — the two double differences are opposite in sign, −0.8452 entering and +0.8922 leaving, and the pre-window groups differ by 0.008 against a registered 0.05 tolerance |
+| B44-7 arm C prime, the full enumeration | **PASS, with the statement narrowed** — 94 ports, 11 against 83, the partition coinciding with the sovereignty table and its boundary set by the largest gaps in the sorted list rather than by a threshold. Widened to 171 ports the same half holds exactly: 0 of 142 non-Swedish ports read below 0.15 and the first 22 in sort order are all Swedish, while 8 of 29 Swedish ports do not collapse and 4 of those 8 are the Baltic provinces. **The supported claim is that the exemption followed the realm proper, not every territory under the crown** |
+| B44-8 the staggered treaty dates | **NOT SUPPORTED** — the registered expectation was that each port breaks on its own cession date across 1645, 1648 and 1658. The two groups with enough observations fall together, drifting from 1649 and reaching bottom around 1660, while the never-Swedish control holds between 0.77 and 0.91. What the data carry is one common administrative transition. This replaces the timing layer and leaves the sovereignty reading standing |
+| B44-9 arm D, the class index after 1720 | **READ; the registered conditional holds as far as indistinguishable** — registered as the treated pair falling below the placebo, it falls onto it. Medians order them 0.0794 below 0.0858, means order them 0.0858 above 0.0617, so the order is the aggregator's. Both sit far below 0.2552 under either aggregator and at either route threshold |
+| B44-10 arm D floor | **PASS** — the placebo is flat across 1720, 0.0722 to 0.0858. The floor is composition, not sampling noise: a bootstrap makes both the treated pair and the placebo significantly non-zero, medians 2.99 and 2.29 with 5 of 8 and 13 of 24 above two standard errors |
+| B44-11 arm D reduction check | **PASS** — the direct four-cell estimator reduces algebraically to the exemption-window formula, and measuring the exempt class rather than assuming it moves the distribution median from 0.2552 to 0.2422, down 5.1 percent. Individual cells move by a median of 21.7 percent and up to 118.9, so the distribution median carries and the per-cell figures take that caveat |
+| B44-12 Theorem 6(4) as a structural check | **PASS** — `\|S−S'\| ≤ −(S+S')` on every cell of four separate runs, zero violations |
+| B44-13 independence of the reported squares | **PASS** — `b₁` on the doubled graph is 8, 16 and 19 against 8, 16 and 16 squares claimed, so none is inflated; the third case leaves three directions unclaimed, which B44-14 reads |
+| B44-14 arm E, pure position loops | **READ** — normalised remainder median 0.1265, 0.2036 and 0.3924 in the three groups that exist, at 2.6, 6.5 and 3.6 times each group's own measured floor. Reported with the scale alongside, since the ratio degenerates as its denominator approaches zero, and with the redundancy stated: 1,147 four-leg loops are 1,147 ways of writing 101 independent readings. **Framework-only: no rival account of the Sound Toll predicts anything about loop sums, so a non-zero sum refutes none of them.** The station now reports 19 of 19 |
+| B44-15 arm E stability across 1720 | **UNRESOLVED AT THIS RESOLUTION** — the cross-window difference on a matched loop set is 0.018 while the pre-1720 decades range over 0.075 to 0.287, a spread twelve times larger; the 1710s and 1720s both fall inside the earlier band. There is no step on the line and this instrument cannot separate a change of that size. The criterion as registered also compared two windows seventy years apart while attributing the change to one year |
+| B44-16 the Baltic provinces, mixture against partial exemption | **PASS** — per voyage the distribution is bimodal, 88.3 percent unmeasured and 10.7 percent measured whole with 1.1 percent between; the four ports agree to within half a percentage point. Normalised against the control group's own 16.61 percent blank rate, the provinces received 88 percent of the homeland's treatment. Why 11 percent rather than 2 is not settled here |
+| B44-17 arm F, normalising by tonnage | **NOT AVAILABLE ON THIS CARRIER** — zero routes reach 40 passages in all four cells for the treated pair in either window, and the placebo has zero at every threshold down to five. The cause is that whether a burden was recorded is collinear with the flag: 0.027 percent of Dutch and 0.091 of English voyages against 63.4 Danish and 77.9 Norwegian, a factor of 2,865, and the between-class range of 0.778 exceeds any single class's own change across the two windows. **Structural rather than underpowered**: the file is the complete run of 2,152,670 passages, so what is absent is a field, not rows. The Swedish class's own recording rate also steps at the treatment date, 0 and 1 percent in the 1690s and 1700s against 34 in the 1720s, while three other classes are flat. The one well-populated pair, Danish against Norwegian, is registered and does not bear on the treaty question |
+| B44-19 what the fixed component is | **PASS** — the archive's transcribed ledger entry of 25 September 1731 prints the charges of one voyage separately: a ship of 16 læster, cargo duty 4 Rdr 12 S, lighthouse due 1 Rdr on its own line, total 5 Rdr 12 S. Joined to the burden over 44,265 voyages carrying both, the 15 to 19 læster band has a modal residual of exactly 1.0000, so the transcribed entry and the measured band agree on the value. The residual is a charge on the ship: median 4.000 at one, two, three and six parcels and 4.000 in both the seventh and ninth deciles of cargo value. Above about 20 læster it tracks burden at 1.01 to 1.08 skilling per læst against a published schedule of 2, and the factor between them is the factor this station measured for its own conversion base, Lübeck against Danish skilling; read in Danish the same cells give 2.02, 2.12, 2.33 and 2.50, converging on the published figure as the ship grows. It is class-dependent, 4.000 for Dutch, English and German against 1.375 Danish and 1.542 Norwegian, so the constant belongs to the western fleets rather than to the carrier |
+| B44-20 the fixed component and the double difference | **PASS** — a class-level level difference cancels only if the fee is symmetric in direction, and corpus-wide it is not, running 2.000 east against 4.000 west for three classes of six. Measured on the fifteen routes the exemption-window reading actually uses, with the selection logic copied rather than rewritten so both columns are the same voyages, it is exactly 4.000 in both directions on thirteen of them. **The `16 + E + W` denominator is confirmed by direct measurement and the median and quartiles are unchanged.** The one route that moves is Amsterdam to Riga, where the exempt class is thick enough to measure and pays 35.6 and 43.3 rather than 4, taking that cell from 0.0506 to 0.0802; it is the cell already recorded as not citable alone |
+| B44-21 why 11 per cent of provincial voyages were assessed | **PART ANSWERED, AND ONE CANDIDATE REFUTED** — the figure is three periods rather than one: 21.2 per cent over 1660 to 1689, 8.1 over the 1690s, 17.0 over 1700 to 1702 and 15.1 over 1703 to 1709, so the settled baseline is 8 and the average is raised at both ends by the administrative spread and by the war. The endpoint condition the literature states, cargo to and from Sweden, shows in the right direction and small: 17.9 per cent assessed with no endpoint in the realm against 10.4 with one, and 4.7 against 2.6 on the homeland, while the control moves the other way, 81.9 against 86.7. A provincial voyage with no Swedish endpoint is still exempt 82 per cent of the time. **Loss of the provinces to Russia is refuted as the cause of the wartime rise**: Riga is at 38 per cent in 1701, nine years before it fell, and Nyen and Narva show no step at their own dates of 1703 and 1704 and instead stop appearing. The other half of the stated condition, whether the cargo was Swedish, is unreadable here: 100 per cent of assessed provincial voyages name a commodity and carry a quantity against 2.0 and 0.0 per cent of unassessed ones |
+| B44-22 the per-læst rate against the published one | **LIKELY A UNIT, NOT A GAP** — the accounts are kept in Lübeck skilling, one of which is two Danish, which is the chain behind this station's own conversion base of 48. Read in Danish the measured cells give 2.02 at 100 læster and above, 2.12 at 50 to 99, 2.33 at 30 to 49 and 2.50 at 20 to 29, against a published 2, converging as the ship grows, which is a per-læst rate with a small floor beneath it. What would settle it is one sentence of the schedule naming its unit. It bears on nothing here: the charge is identified by the transcribed ledger entry, and it is per-ship, class-common and direction-symmetric, so it cancels from the index part and enters only the friction part |
+| B44-18 tonnage as a reading in its own right | **READ** — Swedish-flag ships are less than half the size of the others in both windows, post-1720 medians 10.0 against 24.0 læster and 8.0 against 21.0 in the exemption window, which names the scale gap in arm E and the composition floor in arm D. Median toll per læst 0.0526 Daler over 48,013 voyages, quartiles 0.0221 and 0.1667 |
+
+**The first pass of the registered quantity is superseded, and what superseded it
+was printing objects.** An earlier substitution set the exempt class to zero and
+read the total charge as a price in both directions, returning a median of 0.6686
+and a maximum of 0.9765. Three separate errors: the exempt class does pay the
+fixed due; eastbound is a flat fee rather than a price, since half to two thirds
+of eastbound voyages on a route pay the identical number while the westbound mode
+covers about one percent of them, which is a fixed absolute threshold against a
+heterogeneous distribution; and the fraction parser truncated. Corrected, the
+median falls to 0.2552 and the ceiling disappears. The three together had turned
+an ordinary reading into one pinned near its bound.
+
+**The first version of arm E is superseded for a deeper reason, and both sets of
+numbers are kept.** It used a fundamental cycle basis from a spanning tree built
+by iterating a set, so it was not reproducible run to run; and the statistic was
+a function of the basis, which is arbitrary, so fixing the iteration order would
+have made it reproducible without making it mean anything. The two versions
+disagree on the sign of the cross-window change, which is what a basis-dependent
+direction looks like, and agree on everything else. Exemption and post
+non-Swedish and post Swedish read 0.1547, 0.1200 and 0.2279 under the old
+version against 0.1265, 0.2036 and 0.3924 under the current one.
+
+**One cache filter became a bias downstream.** The route cache dropped cells with
+fewer than three passages before the classes were merged, and the merged class is
+a sum over small national groups, so cells that were thick after merging were
+thinned before it. The route count at the wider threshold read 14 against a true
+16. It was caught because a self-check computed the same count along two paths.
+The pre-fix figures are kept: 0.0807 against 0.0794 for the headline, 14 routes
+at 0.0858 against 16 at 0.0794, and 0.0917 against 0.0858 on the mean aggregator.
+No cell's classification changed and the shape of the two-by-two is unaltered.
+
+**Three things were settled by reading rather than measuring.** The 1720 treaty's
+most-favoured-nation clause makes any later tariff change common to both classes
+by construction, so a claim that the tariff in force dated from 1745, inside the
+post window, needs no decade-by-decade check; the check was run first and found
+no step, and the rule is the stronger statement because it covers every change
+rather than this one. The published fee schedule identifies the fixed component
+as the lighthouse due at 2 skilling per læst for laden ships, with the ship tax
+denominated in nobles and therefore in a currency column this station does not
+read, which retired a monograph that had been booked as necessary. And the
+register's own field list answered, in 43 columns this station had never opened,
+a question that had been hung on offline literature.
+
+**Evasion, answered with signs.** The mechanism recorded in the literature for
+this period is trade in flags and papers rather than under-declaration. The
+double difference removes a uniform under-declaration rate, a port-level one, a
+class-level level shift and a direction-level level shift; only the
+class-by-direction interaction survives. Re-flagging moves voyages, and the
+valuable ones, out of the non-exempt class, shrinking `E` and `W` together, and
+the ratio is decreasing in a common shrink. Under-declaration and routing around
+the Belts have a motive only in the non-exempt class and only on the expensive
+westbound leg, so both shrink the numerator. **All three channels that can reach
+the numerator push it down, so 0.2552 is a lower bound.** Losses at sea remove
+cargo rather than change a price, and risk compensation is already ruled not to
+be a closed quantity (`docs/b1_theorem.md` §9), so they reach the reading only
+through class-by-direction composition, which is what the placebo measures.
+Re-flagging also means that "Swedish" in this ledger is "treated as Swedish by
+the toll office", and that administrative classification is the treatment
+variable, so forged papers are evidence the classification was worth something.
+
+**Two questions left open, with what rules them out.** Neither bears on a reading
+here. The assessed share of provincial voyages decomposes into four periods, two
+of which have causes, the early 21.2 per cent belonging to the same
+administrative spread the entry side shows and the wartime 15 to 17 to the war;
+the 8.1 per cent over the 1690s, on 963 voyages, does not. Two candidates are
+ruled out rather than untested, the endpoint condition leaving a provincial
+voyage with no Swedish endpoint exempt 82 per cent of the time and the conquest
+explanation failing on its own timing. The leading remaining candidate, whether
+the cargo itself was Swedish, is unreadable on this carrier by construction, so
+moving it needs a document that records why a voyage was exempted. And which
+skilling the published rate is quoted in is settled by one sentence of the
+schedule rather than by any data, with the arithmetic already printed above.
+
+**Limits stated with the numbers.** The exemption-window reading rests on 16
+route cells and the post-1720 reading on 8, so nothing is inferred across cells.
+Only one route is thick enough in all four cells to compare the treated pair
+against the placebo on the same route, and two at the wider threshold; both point
+the same way and neither is strong. Directions are compared as medians over each
+leg rather than as the two legs of one voyage, so every reading here is
+route-level. One post-window route sits on a class boundary the mechanical rule
+gets wrong, since Stralsund remained Swedish after 1720 while the modern-country
+rule codes it non-Swedish, and that error pushes that route toward zero. The
+exemption window's exact break is unreadable for two independent reasons falling
+on the same years: the recording practice spread gradually from about 1650, and a
+general archive dip in the late 1650s reaches the control ports as well. One
+amount in the whole corpus is written as a fraction with denominator zero, and
+the parser now treats it as missing.
+
+
+## B46 — what "a tier" is, asked of the currency-reform corpus before asking who was in it
+
+**RUN: 2026-09-04.  No data was fetched: this reads the corpus tables already in
+`docs/b30_results.md` and the published texts of the reforms themselves.**
+
+The counting law says a programme's number of distinct prices equals the number of
+distinct class values it writes down. A tier written into a text that no position falls
+into produces no value, and the corpus had never been asked that question: it was coded
+by how many tiers each text writes.
+
+| criterion | state | reading |
+|---|---|---|
+| B46-1 scope | **corrected** | The station was opened on the 9 carriers with more than one tier. Two of those nine are quantity limits rather than rate schedules (India 2016, Brazil 1990), and a quantity limit changes whether an edge is passable rather than the weight on it, so it is not an object of this law at all. Seven carriers remain |
+| B46-1 scope, second | **corrected** | Kazakhstan 1993's third tier is set by a committee with no number written, so it falls outside the law's stated premise and is not countable. This was settled from the design sheet before any material was read |
+| B46-2 Russia 1993 | **undecidable** | Two secondary sources, both stating in as many words that they carry no per-class usage figures; the primary text (Bank of Russia telegram 131, 1993-07-24) could not be retrieved. The foreign-citizen tier stayed open for one day where the citizen tier stayed open two weeks, which is the shape a never-used tier would have, but a shape is not evidence |
+| B46-2 DPRK 2009 | **undecidable, mechanism now in hand** | The source states it carries no confirmation that the above-cap treatment was applied to anyone. A second source adds why it is hard to have: taking up the upper tier identifies the holder as someone with excess cash, so the incentive to use it was limited. That is an argument and not a measurement, so the row stays undecidable, but it restates the question more precisely than the design did. A tier whose use reveals the holder's type carries a cost that is not in the written rate, so low take-up is a statement about the cost of being identified rather than about the tier |
+| B46-2 Estonia 1992 | **answered, including the above-cap band, from the issuer** | Three source classes have now been tried. The central bank's own institutional history confirms the reform and gives neither the tiers nor any usage figure. The primary text, the currency law at Riigi Teataja 1992, 21, 299, was retrieved in full and carries no rate, no ceiling and no eligibility clause: it fixes the unit, the legal-tender status and the commencement date, and delegates the whole of how-to-convert. What carries the figures is an encyclopedia page with no inline citation: 1,410,951 residents on the exchange list, 1,096,706 of whom came, 77.73 per cent. That is the first occupancy figure this station has for any carrier, and it is recorded as a candidate rather than a reading. It is consistent with a separately sourced participation rate of 70.4 per cent of the population; the two denominators differ and are not interchangeable, and taken together they imply a population near 1.56 million with the list covering 90.6 per cent of it. The central bank's own monograph then closed the row outright: 2,259,669,091 cash roubles were gathered and bought for 28.2 million German marks, which at the fixed rate of eight kroons to the mark means 225.6 million kroons paid out, and solving for the split between the two bands leaves at most a few tenths of one per cent at fifty to one, zero within the rounding of the published figure. The monograph says the same thing in words, that the fifty to one rate had only theoretical significance because the rouble was still current elsewhere and the customs frontier was not yet working. This is the first occupancy figure for an above-cap band anywhere in this corpus. The headcount has since been confirmed digit for digit by a second account published in cooperation with the central bank, which also gives 727 exchange points and over 16,000 staff, so it is a reading rather than a candidate; the size of the list remains on the single source |
+| B46-2 Germany 1990, Czechoslovakia 1993, Kazakhstan 1993, Turkmenistan 1993 | **not yet checked** | Recorded as not checked rather than assumed, however strong the prior |
+| B46-3 corpus level | **third branch, as registered** | The registered third outcome was "the corpus cannot answer this question, register what source would be needed, change no counts." That is what happened, and no count was changed |
+| B46-4 bearer deposits, **2026-09-05** | **answered; scope of the price law changed** | Counting first, at no cost: of ten carriers with a deposit side, only Germany 1990 bands that side on an identity the ledger does not hold, and it built an application step, so the question could bite one cell at most. Bearer passbooks did exist: Czech `vkladní knížky na doručitele` lapsed only on 31 December 2002, with 120 billion crowns on the bank's books at that moment and 1,785 million never collected by end-2016, run by the one institution the 1993 statute named to receive above-limit cash. **The cut therefore moves from cash-against-deposit to whether a holder's identity is attached to that money**; a bearer passbook is a ledger entry on the unattached side, so it sat on both sides of the old line. Recut, the law is about a relation rather than a medium |
+| B46-5 low occupancy, **2026-09-05** | **three causes named, one for the first time** | A low occupancy has three causes that read identically: a cheaper route out, a starting point where the band was written on a stock people held little of, and **the height of the threshold**, which had never been treated as a category here. The third had been computed once, for Estonia, and never set beside the attribution that needed it: an average of 136.41 kroons exchanged against a 150 ceiling, 90.94 per cent, so the ceiling stood at the same order as what people brought. Placed beside the 0.203 per cent above the band, the route attribution is strengthened rather than weakened. Nine cells in scope, six out, seven uncomputed and each needing the same one ratio |
+
+Two states are reported separately and are not interchangeable: *undecidable* says do
+not spend more on that class of source, *not yet checked* says go and look.
+
+One carrier has since returned a candidate occupancy figure, which does not move the verdict, six of seven rows still being unchecked or undecidable, but it does weaken one of the three reasons behind it: occupancy records are rare in the primary texts, not across all source classes.
+
+The reason the answer came out undecidable is not the reason registered in advance. The
+design expected occupancy records to be rarer than tier definitions, and they are, but
+that accounts for a third of it. The rest is that two carriers are not objects of the law
+and two more have a classification that does not hold up. A station opened on the second
+layer returned its first three readings on the first layer.
+
+The two cells this station had recorded as unchecked, Germany 1990 and Czechoslovakia 1993, were checked, and
+the take-up broken down by allowance band is not published for either. For Germany six classes of source were
+consulted: an academic study, the central bank's 1990 annual report, a research institute's retrospective, a
+reference work, the savings banks' own operational history, and a statistical archive whose age tables sit
+behind a registration. None carries the split by band, and the note in the earlier entry that the three bands
+were exhaustively documented was a prior rather than a finding, and it was wrong. For Czechoslovakia the two
+sources are both the central bank's own pages, and both answer a different question: they give the stock of
+banknotes stamped rather than how much each person exchanged over the counter. Those two pages also disagree
+with each other, one giving 62 billion crowns stamped in the 100, 500 and 1000 denominations plus 30 billion
+of 1000-crown notes made with the stamp printed on, the other giving 72 billion stamped plus 5 billion of a
+newly issued 200-crown note. The bases are not stated and the discrepancy is left open.
+
+Germany did yield two figures worth more than the split would have been. The savings banks' history records
+that sixteen million conversion applications were filed in the GDR, of which the savings banks handled 14.3
+million, and the GDR population at the end of 1989 was 16,433,796, so about ninety-seven per cent of the
+population filed one. It also records that at 30 June the savings banks had converted about 50 billion mark at
+one to one, which it puts at 34 per cent of savings deposits, and 96 billion at two to one.
+
+That share can be reached independently. An academic account gives household financial assets falling from
+193.4 billion mark to 129.1 billion D-mark. Writing x for the amount converted at one to one and y for the
+amount at two to one, x + y = 193.4 and x + y/2 = 129.1, so y = 128.6 and x = 64.8, and the one-to-one share
+is 33.5 per cent. The savings banks' own 34 per cent and this project's 33.5 per cent are two independent
+routes to the same quantity, and it is the first occupancy reading in this corpus closed by two sources one of
+which is a calculation of ours. The implied average rate, 193.4 over 129.1, is 1.498, which matches the 1.5 to
+1 the same account states for the population's balances, and a research institute's 1.6 to 1 for all stocks
+including firms is consistent at a wider scope. The derivation assumes this pool divides only between one to
+one and two to one and contains none of the three to one applied to non-residents; the savings banks' figure
+landing independently in the same place is the check on that assumption.
+
+Dividing 64.8 billion by sixteen million applications gives about 4,050 mark converted at one to one per
+application, against a middle-band allowance of 4,000 for those born between 2 July 1931 and 1 July 1976. Let
+C be the population-weighted allowance ceiling. Utilisation is 4,050 over C and cannot exceed one, so C is at
+least 4,050, and since C cannot exceed 6,000 the utilisation is at least 0.675 and on any plausible age
+structure close to one.
+
+**That has since been pinned to a number, and the number is 0.9754.** The population table needed is not the
+one this arm had registered. The GESIS compilation obtained instead covers **the German Reich, the former
+Federal Republic, and Germany in its post-October-1990 borders**, and by its title contains no GDR series at
+all. But its B series states its territory as **the former federal area together with the new Länder and East
+Berlin**, its A series is the former federal area alone, the two overlap over 1950 to 1989 by single year of
+age at the same 31 December reference date in the same unit from the same statistical office, **so B minus A is
+the GDR**. **A series one does not have can be the difference of two one does**, which is worth recording
+beside the discipline on enumerating classes of source: besides looking, one can construct.
+
+**The subtraction checks to the person.** B for 1989 totals 79,112.8 thousand, A totals 62,679.0, and the
+difference is **16,433.796 thousand, that is 16,433,796** — the same integer this arm already held from a
+wholly different route, with a difference of zero, across 86 single-year cells none of which is negative.
+
+The bands are drawn on dates of birth rather than years, so at the 31 December reference each boundary falls
+inside a cohort and the 58-year-olds and the 13-year-olds split in half.
+
+| band | who, at 31 December 1989 | thousands | share |
+|---|---|---|---|
+| **6,000** | aged 59 and over, plus half of the 58-year-olds | **3,288.793** | **20.01%** |
+| **4,000** | half of the 58-year-olds, ages 14 to 57, half of the 13-year-olds | **10,207.253** | **62.11%** |
+| **2,000** | aged 12 and under, plus half of the 13-year-olds | **2,937.750** | **17.88%** |
+
+That gives a population-weighted ceiling of **4,042.7 marks a head** and a total entitlement of **66.44
+billion**, against **64.80 billion** actually converted at one to one, so **utilisation is 0.9754**. **The
+half-cohort assumption carries no weight**: cutting both boundaries at whole cohorts either way gives 0.9807
+and 0.9700, a spread under 1.1 points.
+
+The other route, 4,050 over C, returns **1.0018**, which is above one and does not conflict, because the two
+denominators are different objects: **4,050 is per application and C is per head**, and applications covered
+97 per cent of the population. **The figure reported is 0.9754**, where numerator and denominator share a
+denominator, with 1.0018 reported alongside and labelled as per application; the 0.18 per cent between them is
+either the precision of the inputs, since 64.8 is solved from two figures given to a tenth of a billion and
+the applications are given as about sixteen million, or applicants skewing toward the higher bands. **Both
+readings are kept and neither is chosen.**
+
+Set beside the 1947 North Korean case the comparison is instructive, and it is not in the numbers. The share
+of holdings that received the favourable treatment is 35 per cent there and 33.5 per cent here, on two
+programmes of opposite intent, one confiscatory and one compensatory. What differs is that the North Korean
+case has the take-up class by class, running monotonically from 82 per cent to 8, and the German case has only
+the aggregate. The reason can be named: the North Korean table comes from the Soviet defence ministry archive,
+so the body executing the operation was audited by a third party whose records were later opened, while the
+German and Czechoslovak operations were run by their own banks and reported in aggregate. Take-up by class
+appears where the executor was audited by someone else. That is usable as a rule for finding the next carrier
+rather than as an observation about these two.
+
+
+## B47 — the corpus re-coded by what each class receives
+
+**RUN: 2026-09-04.  No data was fetched.**
+
+B43 proved the counting law needs only that class values be distinguishable, not that
+they be numbers. The corpus was coded before that, by identity or by amount band. This
+re-codes it by what each block receives.
+
+| criterion | state | reading |
+|---|---|---|
+| B47-2 Russia 1993 | **reclassified as a quantity programme; and the reading is a first-day slice** | Coded 3 by identity (citizen / foreigner / legal person). What is received is `{up to 35,000 immediately, above 35,000 into a six-month deposit, foreigner up to 15,000 on one day}`, which the central bank telegram of 24 July states in full. The count of four blocks read off that telegram describes 24 July and not the reform: a presidential decree of 26 July raised the ceiling to 100,000, exempted one 1992-series denomination from any ceiling at all, and extended the window to the end of August; a September telegram carried the exchange to the year end behind a documentary requirement from 1 October; and a November one added proof that the money was held before 26 July, ended exchange of two denominations, and closed the exchange to citizens of neighbouring states except refugees. At least six instruments and five revisions across five months. Direction is decidable and level is not, as with the DPRK, and the earlier figure is retained with a date attached rather than withdrawn |
+| B47-2 Kazakhstan 1993 | **changed** | 3 to 2, the third tier being discretionary |
+| B47-2 Czechoslovakia 1993 | **nine, on both founding texts; corpus table updated 2026-09-04** | An earlier reading here said two, on the assumption that the 4,000 crown stamping limit was one number for everyone. That assumption was inferred, not checked, and it is wrong: the Czech National Bank's own history states *Výše maximální hotovostní výměny byla zvolena 4000 korun pro osoby starší 15 let, pro osoby mladší 15 let bylo maximum 1000 korun*. The threshold varies with age, so blocks run at least with rates: age by republic gives four received bundles. The old coding also said four, but its four were cash against account by Czech against Slovak. Another case of the right number for the wrong reason. The same page corrects a second detail: above-limit cash went to postal orders, central bank vouchers and savings-bank instruments, not simply into an account |
+| B47-2 DPRK 2009 | **direction decided, level undecidable** | The full sequence is now in hand. The announcement of 30 November set 100,000 old won per household at the standard rate of a hundred to one, the design being to remove two zeros. A decree the next day raised that to 150,000 and allowed excess up to 200,000 to be converted or deposited at a thousand to one, a tenth of the standard rate. Deposits of up to 500,000 were then allowed on terms that were unclear as to rate, drawability and interest. Limits were then raised again by adding 50,000 per household member, an average household reaching 250,000 or 300,000, and later in the month drifted to 300,000 and then 500,000 per person, with deposits up to a million allowed where the source of funds could be explained. Alongside this run identity classes: college students at 30,000 each, separate limits for military personnel and for elite workers, and an implicit exemption for officials with advance warning. So the rates number two and the blocks on any single day number at least five, with two discretionary tiers excluded from the count. The exact block count stays undecidable because the partition carries a time index, but blocks exceed rates on every version of it. Direction and level are separate states and are not compressed into one |
+| B47-2 Germany 1990 | **changed, 3 to 5** | The founding text settles it. Annex I to the treaty, Article 6, gives the one-to-one allowance by date of birth rather than by age: 2,000 marks for those born after 1 July 1976, 4,000 for those born between 2 July 1931 and 1 July 1976, 6,000 for those born before 2 July 1931, claimable once. Everything above the allowance, and every balance of a legal person, converts at two to one. Article 6(3) adds the block this station could not reach before: for holders domiciled outside the GDR, balances existing on 31 December 1989 convert at two to one and balances arising after that date at three to one. That last pair is one block with two margins rather than two blocks, since one non-resident can hold balances of both vintages, which makes it a partition by the age of the balance rather than by the holder. Five blocks |
+| B47-2 Estonia 1992 | **changed, 2 to 1** | Every listed resident could exchange 1,500 roubles of cash at 10:1 and deposits at 10:1, with anything above at 50:1 without limit. The threshold is the same for everyone, so the two rates fall on two margins of the same person like a tax schedule, and one schedule applied uniformly is one class. The deposit row now has a candidate answer from a fourth-tier source: every rouble account in every Estonian bank converted at 10:1, one rate, no ceiling and no second band. That leaves the count at one and gives the discriminant its second face, below. Non-listed persons remain unchecked |
+| B47-2 Turkmenistan 1993 | **prediction half hit** | Registered in advance as "expected to fall from two to one". An oral-history interview, a fourth-tier source that does not lift this row's standing flag, gives sixty manat to each adult citizen with everything above it, bank balances included, extinguished. Sixty manat is thirty thousand roubles at the official five hundred to one, which matches the figure already on the table from another direction. The amount axis collapses to one block as predicted. But the rule reads *to each adult citizen*, and neither the old coding nor the prediction carried an eligibility gate; what minors, non-citizens and enterprises received is not stated, so the block count is open |
+| B47-2 DPRK 1947 | **new carrier, the largest in the corpus, and counted two ways with both printed** | Twelve class values on the cash side, each proved by a different document, all at a single rate of one to one: 500 won to a household head, 200 to each co-resident aged eighteen or over, the amount of his November 1947 salary to a state employee with no family allowance at all, at most half its November wage bill to a private firm of ten or more, half of one month's assessed tax base to a smaller proprietor on a provincial finance chief's certificate, 700 per household to a farmer who had paid the in-kind tax, 500 to a boarding pupil on a headmaster's certificate, one month's stipend to a college student, 500 to a person in transit on a travel certificate, 500 to the family of a prisoner on a neighbourhood head's certificate, no ordinary exchange point at all for soldiers, and unlimited conversion at par for the Soviet garrison. The deposit side adds three more, the private one carrying a five-band marginal schedule whose effective rate falls from a hundred per cent at 2,000 to eighteen at 100,000. One rate with twelve quantities makes the cash side a quantity programme, a schedule of rates makes the deposit side a rate programme, and merged the carrier is the corpus's second mixed one after Czechoslovakia. The source is a third-tier reference work used as a reading because it carries three worked conversions that recompute from its own schedule to the digit; the founding decree is still to be fetched |
+| B47-2 USSR 1991, the Pavlov reform | **new carrier, opened on the founding text; five countable class values, three of them functions of the holder** | USSR Cabinet of Ministers decree No. 2 of 22 January 1991, signed by Premier Pavlov, read point by point. Eight groups are named and they are not eight values. Staff employees and temporarily seconded persons get the lesser of their own average monthly wage over the last year and 1,000 roubles; pensioners get 200 roubles or a monthly pension through Sberbank or the post office that pays it; foreign citizens get the amount on the Vnesheconombank receipt issued when they exchanged currency; state enterprises hand their tills in within three hours on 23 January and are credited at face after a check; and cooperatives that set their own carry-over cash balance are credited only up to the ceiling the bank sets for a state enterprise of comparable profile, which an earlier pass had missed. Two groups have a written treatment and no written value: the remaining citizens hand their notes to the district committee entire, and staff of foreign missions are handled in a procedure to be agreed later with Gosbank. One group is not a class: a person at a sanatorium exchanges up to 500 on the spot and the balance is wired to his employer, where the text says the exchange has already been made in the sum of 500, so the 500 caps where he may draw rather than what he receives. Five countable values, two written treatments without values, one quantity device, one discretionary tier |
+| **B47-3, load-bearing** | **half hit: not a counterexample, an unstated restriction** | The zero-counterexample statement covers eleven carriers with no registration point. Two of them partition by asset rather than by holder: Burma 1987 voided three denominations, about 80% of currency in circulation, leaving the rest valid; Indonesia 1959 cut two note types to a tenth, leaving smaller notes untouched. In each, holders of the affected instrument receive one thing and holders of the others receive another. The statement's phrase "the same for everyone" is true exactly when "everyone" means holders of the affected note, so the position set is narrower in those two carriers than in the rest of the table, and nothing said so |
+| B47-3, scope of the exclusion, **2026-09-05** | **corrected on two independent axes; no count changes** | The exclusion filing the two asset-partitioned carriers apart is a rule about the **price** component, not about the programme: price hangs on the holder and a denomination key does not partition holders, while reachability hangs on a sum of money and every note carries exactly one denomination. Read at programme level it would strip two of the five rows without a registration point from the reachability table, and both instances of banding on the object with them. It also applies **clause by clause inside a carrier**, since two of the four non-holder clauses are nested inside otherwise holder-partitioned programmes, which a carrier-level sieve never reaches |
+| B47 Czechoslovakia recount, **2026-09-05** | **the nine blocks are reachability, and the source labels were wrong** | The rate is one to one throughout and the only price device is the stamp, so the recount from four to nine changed the second column. That column now carries two figures: the four-question vector returns two, class values as what a block receives return at least nine. Reblocked against both statutes, six of the nine blocks and both residence exclusions band on an identity the ledger does not hold, so **two carriers, not one, band reachability that way and both built a registration point**; the count against stays zero and the support doubles. The borrowed identity also reaches two instances, Russia's refugee band and the Czech statute naming recognised refugees |
+| B47 Burma, **2026-09-05** | **row survives the conflation test, and the check yielded a within-country control** | Burma demonetised three times, and the risk was that the row for 1987 had been written from an account of 1985. Three sources agree it had not: 1964 and 1985 offered limited compensation, and the order of 5 September 1987 offered none and had no exchange step at all. The share figure comes in three forms, 80 per cent of money in circulation, 80 per cent of the country's savings and 75 per cent of the country's currency, so it is recorded as a range of 75 to 80 with the denominator disputed and not placed in any column for comparison. **The same retrieval gives the first within-country control on the registration point in this corpus**: one state, one instrument, three episodes across twenty-three years, with the counter present in 1964 and 1985 and absent in 1987. The law's prediction is readable on it, since the two with a counter could band by holder and the one without banded only on the object; the phrase "limited amounts" in 1985 is that per-person quota, and its level was not retrieved |
+| B47 Indonesia 1959, **2026-09-05** | **three changes, one of them to a cell written the same day** | The official register gives the instrument's title, and the title settles what it is: `Peraturan Pemerintah Pengganti Undang-Undang Nomor 3 Tahun 1959 tentang "Pembekuan Sebagian Dari Simpanan Pada Bank-Bank"`, enacted 24 August 1959 and in force from the 25th, **the freezing of a portion of bank deposits**. A third-tier source supplies the threshold and the proportion, deposits above 25,000 rupiah frozen by ninety per cent and converted into long-term government savings, marked as third-tier; the text itself is a PDF not yet retrieved. **The four questions had only ever been asked of the note side**, so the reachability count goes from one to two, and the carrier becomes a sixth row without a registration point in that table, banding on amount, which is one of the three free sources: the count against stays zero and the support goes from five rows to six. It also overturns the cell written hours earlier that Indonesia had a free distinction available and unused; that holds on the note side and fails at carrier level, since the free distinction it used was amount, on the other side. **The cell narrows to the note side and no longer forecloses the reading it was written to foreclose.** Indonesia is also a mixed carrier, notes a rate device and deposits a quantity device |
+| B47 Burma 1964, **2026-09-05** | **new carrier, and it completes the only within-country control** | The retrieval was aimed at the 1985 per-person ceiling and returned the 1964 terms instead. Two sources agree, and the figure 500 appears in both: notes surrendered within a week, spot reimbursement for small amounts, timely reimbursement for amounts between 500 and 4,200 kyats, further scrutiny and an escalating tax above 4,200, with 78 per cent of notes returned; the other gives 17 May 1964, the 100 and 50 voided, exchange for valid notes up to a total of 500 kyats, and exchanges stopped after a few days. **A ceiling, a middle band paid later and a top band whose source is examined is the fourth instance of that shape here and by twenty-nine years the earliest**; the top band is discretionary and not countable, so the carrier reads two plus one discretionary, the same as Kazakhstan cell for cell, and face value does not move so it is a quantity programme. **The control now reads: one state, one ruler, the same instrument three times across twenty-three years, and the count of holder-keyed bands falls from three to zero on exactly the occasion the counter was removed.** Every earlier comparison on the registration point in this arm was cross-country, which is the sampling defect this line has recorded against itself; this one has no such confound. It was not selected: the search was for 1985 |
+| B47 Burma 1985, **2026-09-05** | **not retrieved in three classes of source; two source errors caught, one without a new source** | Three classes were checked and all three write the same sentence with no number in it, that the public was allowed to exchange limited amounts of old notes for new ones. Recorded as absent from those three classes rather than absent; the central bank's own banknote history is refused by the site's robots rules and is recorded as not retrieved, and contemporary wire reports are unchecked. **One source dates the 1987 demonetisation to 22 September, which is the day the replacement notes were issued**, and prints both facts in the same row; two others give 5 September, which stands. Two sources also give 1985 as voiding 25, 50 and 100, which cannot stand beside their own statement that 1987 voided 25, 35 and 75, since no source says the 25 was reissued in between; **the same source's issue dates settle it, the 25 and 75 being the 1985 series and the 15 and 35 added in 1986**, so the internally consistent reading is that 1985 voided 20 and not 25. That is recorded as a contradiction with the consistent reading named, not asserted as a figure. **That sharpening is withdrawn the same day**, see the row below: the 25 was issued in 1972, so the three notes voided in 1987 date from 1972, 1985 and 1986 and are not one series of the same age |
+| B47 Burma, issuer's own record, **2026-09-05** | **first tier; confirms the reading and refutes the layer added on top of it** | The central bank's banknote history gives issue dates for each denomination and the three demonetisations verbatim. It confirms that 3 November 1985 voided the 20, the 50 and the 100 and not the 25, which two second-tier sources had got wrong and which the previous row had caught from their own internal contradiction. It fixes three dates against a second-tier source: the 1987 demonetisation is 5 September and 22 September is the day the replacement notes were issued; the 1985 demonetisation is 3 November; the 75 was issued on 11 November 1985. **It also refutes the inference built on that reading**: the 25 was issued on 30 September 1972, so the three notes voided in 1987 come from 1972, 1985 and 1986 and are not one uniformly aged series. The banding variable is still which note is held, still free and still requiring nothing of the holder; what is withdrawn is the layer added on a premise that had no source. **Reading two rows against each other settles that they cannot both be true; settling which one is true needs a third thing.** On the exchange terms the page is empty for all three episodes, which is a property of this class of source rather than an omission: **an issuer's own record documents what it issued and what it voided, and not what holders received** |
+| B47 Burma, source independence, **2026-09-05** | **five checks, at most three independent, and the count had been read off pages rather than off families** | A fifth class was checked and again carries no figure, and setting the five side by side shows why. Three of them carry the sentence word for word, that the public was allowed to exchange limited amounts of the old notes for new ones, and all three also give the 1985 denominations as 25, 50 and 100, which the issuer's own page refutes. **The same sentence three times and the same wrong triple three times is one upstream account copied thrice, not three readings.** Counted by independent families the checks are at most three: a reference work whose wording differs, that family, and the issuer's page. **That also explains the absence**: it is not that five independent accounts each omit the ceiling, it is that one omits it and three copied it, so a fourth member of the family buys nothing and the search has to leave the family altogether. **This line has had the independence discipline on the carrier side for some time, eight cases on one chain being worth one observation, and had never applied it on the source side.** Also settled: the issuer's page misdates the issue of its own 50 kyat note, 1979 being correct and 1975 the error, so a first-tier source is not an unchecked one |
+| B47 Indonesia 1959, primary text, **2026-09-05** | **the two figures were already right; the text carries seven other things** | The full instrument is in hand, `Peraturan Pemerintah Pengganti Undang-undang No. 3 Tahun 1959 tentang Pembekuan Sebagian Dari Simpanan Pada Bank-Bank`, Bogor 24 August 1959, state gazette 1959 number 90. Article 3 confirms both figures at first tier and adds two things the summaries had dropped: the ninety per cent falls on **the amount exceeding** 25,000 rupiah, so it is a marginal schedule and the effective rate rises with size, and it applies **per deposit and not per person**, so a holder with several deposits received the exemption on each — the same shape as the Argentine ceiling written per institution, and weaker, since this one does not consolidate even inside one bank. Article 2 names time deposits and current or giro balances and does not name ordinary savings accounts, so the deposit side has two keys, account type and amount. Article 6 grants the Government discretion to exempt social and religious bodies and official agencies on request, **the first discretionary tier here that grants relief rather than imposing scrutiny**, and it opens a gap the cash-and-counter dichotomy does not handle: **no counter for the rule, a counter for the exception**. Article 8 makes breach a crime punishable by up to two years, and the duties it enforces fall on bank managers, so the edge deleted is the intermediary's, not the holder's. Article 5 and the memorandum turn the frozen part into a long-term government bond loan bearing reasonable interest, confirming at first tier that this side is a quantity device. **The memorandum also states that the available figures on the composition of bank deposits were not complete enough for a more careful calculation**, while estimating that the measure would consolidate 3.5 billion rupiah: **the issuing government says it did not have the distribution of deposits by size**, which is the object this line has failed to obtain for carrier after carrier. Three consequences follow: the 3.5 billion is an ex ante estimate made without that distribution and is not a reading; **the threshold's height was guessed rather than chosen**, which is direct evidence on the third cause of low occupancy; and an inability to obtain such a distribution need not be an archival failure, since here it was an information gap of the issuer. The memorandum finally declares this instrument an inseparable complement to the one cutting the note values, which is the first time a legislature has spoken to the cash-and-deposit question this line declined to rule on |
+| B47 free distinctions left unused, **2026-09-05** | **swept: nine, not one, and the nine split in two with only one half bearing** | The cell was registered with a single instance and a note that it was a lower bound. Sweeping is direct: a carrier whose reachability count is one drew no distinction at all, while all three free sources stood open to it, and there are eight such rows plus the note side of Indonesia. **The nine split on one question: was there a moment to which a distinction could be attached.** Eight had none — the new money was already in hand and the old simply ceased to be legal tender on a date, so no exchange operation existed to carry a band; their slack is not a choice. Indonesia's note side had one, since revaluing the face of a note is an act that could have carried a rule about whether the note remained spendable, and it did not. **So the cell keeps one instance and gains a scope boundary**: for a programme that performs no exchange at all, the reachability law is not satisfied but inapplicable. A second reading falls out: **the claim that a programme without a registration point will band reachability on a free source also fails, eight times over.** The statement on the price side is unaffected, checked line by line, since those eight do have a price count of one, which is what the law predicts |
+| B47 Kazakhstan 1993, **2026-09-05** | **route closed; and the price count is corrected, a load-bearing table** | The alternative route for the rouble-zone family turns on one date, and it is closed here: what Kazakhstan withdrew on 15 November was the 1961 to 1992 issue, which the issuing state had itself voided in July, and the Kazakh account says that reform caused an uncontrolled dumping of old-style money into Kazakhstan. **The route was shut by another state's act four months earlier, not by anything Kazakhstan wrote.** The same retrieval settles the rate: within the limit 500 roubles to the tenge, and above the limit the same 500 to one, credited to a special account frozen for six months while a commission examined the source. **One rate; the tiers differ only in access.** So the price count goes from two plus one discretionary to one plus one discretionary, and the carrier moves from the rate column to the quantity column on this arm's own test that face value did not move, the same correction Russia 1993 received. The tally moves one cell between columns and the total is unchanged |
+| B47 written rate against effective price, **2026-09-05** | **the two are different types of object** | One written rate produces different effective prices, because a quota plus a window is weight on the agent edge, and A1 requires the position to trade at a single price independent of who holds it. Russia 1993 denies A1 **in the text of the law**, which is normally something that has to be argued. The written rate is a one-index quantity attached to classes, finitely many and countable; the effective rate is a function of class and holding, which is the two-index effective cost this framework says the claim must be about. **The counting law is unchanged and continues to count the text**, with one sentence added so that a count of one is not read as everyone facing the same price |
+
+The statement is not refuted. It needs one clause, "this covers programmes that partition
+by holder", after which it runs on nine carriers instead of eleven with the zero intact.
+The two asset-partitioned carriers move to a table of their own rather than being ruled
+out, and the cost of absorbing them instead is known: absorbing them puts two
+counterexamples on the statement immediately. The qualifier is written back into
+`docs/b30_results.md` in the same round, with the original wording untouched.
+
+The two closed rows move in opposite directions and for one reason. The old coding counted
+rates; the re-coding counts blocks and the bundle each block receives. Where the threshold
+varies with identity there are more blocks than rates, because one rate is shared across
+blocks whose thresholds differ. Where the threshold is the same for everyone there are
+fewer blocks than rates, because the rates fall on two margins of the same holder. So the
+re-coding is not a one-way correction, and which way any given carrier moves can be read
+off the text before any counting: look at whether the number in the rule is written per
+person, or per age, or per status.
+
+Scanning the rest of the corpus with that test leaves four carriers to score, the others
+being already settled, already at one class, or out of scope as quantity limits. Three are
+now scored and they do not move the same way: Germany up from three to four, Estonia down
+from two to one, Czechoslovakia down from four to two. Russia keeps the number three while
+changing which blocks it counts. The DPRK's cap rises by 50,000 per family member, so its
+blocks run with household size and far exceed its two rates, though its partition moved
+four times in three days and stays undecidable. Turkmenistan is predicted to fall from two
+to one and is unchecked.
+
+The corpus table is therefore not a table with a few wrong entries. It counts rates
+throughout, and rates equal blocks only by coincidence. This does not touch the counting
+law, which B43 proved and which is close to an identity once the right object is counted;
+what it touches is the measurement on the corpus side. Rebuilding the table by blocks needs
+the founding text of each programme, of which this round retrieved three and failed to
+retrieve two.
+
+The discriminant has to be asked twice, not once. Once of the threshold, does its size vary
+with identity; and once of eligibility, who is allowed to stand on that threshold at all.
+The second question is easiest to forget exactly when the first is answered "the same for
+everyone", because the word everyone in that sentence has already been filtered. That is the
+same shape as the two asset-partitioned carriers above: a phrase asserting sameness while a
+position set narrows behind it, met twice in one round.
+
+On the eligibility question the gap is not that the records are missing but that the
+records that exist do not carry this. The canonical comparative essay on the post-Soviet
+currency introductions treats the causes of currency proliferation and gives conversion
+terms for none of the four Central Asian cases; the World Bank country report on
+Turkmenistan devotes one sentence to the manat, its date and its peg. Both have been
+online in full text for thirty years. International financial institutions recorded that a
+state acquired a currency and what it was pegged to, not who was allowed to convert how
+much, and that is a property of the source class rather than of the country. The classes
+left to try are the founding decree itself and the Fund's 1994-95 country economic reviews.
+
+That search returned one thing it was not looking for. The same essay gives the mechanics
+of the January 1991 Soviet demonetisation: the ceiling on what a holder could exchange was
+whichever was smaller of a fixed quantity and that holder's own monthly salary. A threshold
+indexed to the holder's wage is the limiting form of the varies-with-identity side, where
+blocks run out along the wage distribution against a single rate, and it turns the question
+into a countable one: how many distinct ceilings does that formula actually produce. The
+episode is not in the corpus. It is registered as a candidate and counted in nothing.
+
+Five classes of source have now been tried for the conversion terms and four returned
+nothing: the canonical comparative essay, a World Bank country report, a participant-adjacent
+academic account of the ruble zone's collapse, and the transition-macro literature it belongs
+to. Only an oral-history interview carried any terms, and it is a fourth-tier source. The
+four failures share one assumption, which is what makes them one failure rather than four:
+each is answering why the states left the ruble zone and what leaving did to inflation and
+trade, and against that question the conversion terms are an administrative detail nobody
+records.
+
+Two instruments do not rest on that assumption. The founding decree, where the terms are
+definitional rather than incidental, and a 1993 Fund working paper whose subject is the
+procedure of conversion itself. The second carries a boundary worth noting before anyone
+spends on it: published in June 1993, it can speak to Estonia, Latvia, Lithuania and
+Ukraine and cannot speak to the November 1993 introductions. Memoirs by the officials who
+ran these exchanges are a sixth class and have not been tried; that is recorded as untried
+rather than as exhausted.
+
+The one instrument whose subject is the conversion procedure itself was located and could
+not be retrieved on any of three routes. It is named here so that anyone with institutional
+access closes it in one step: Fund working paper 93/49, Abrams and Cortes Douglas, June
+1993, thirty-eight pages, able to speak to Estonia, Latvia, Lithuania and Ukraine and not
+to the November 1993 introductions. Not retrievable on this channel is a different statement
+from not obtainable, and the two are not interchangeable.
+
+The search for conversion terms stops here. Six classes of source returned two new sets of
+terms between them, Germany's from the Bundestag's own account and Estonia's through a
+currency-board study, and those two were enough to state the discriminant and to put it to
+one out-of-sample test. Further sources would return between zero and one set each, and the
+discriminant does not need more.
+
+That correction arrived from outside. The open items were written up as a retrieval brief and
+put to a second system, under four rules: quote the original language, give a URL for every
+quote, answer not found whenever that is the answer, and mark each item as original text,
+secondhand, or not found. It returned not found on six of ten and gave quotations for two.
+One of those two has now been independently confirmed and it overturned a reading here. The
+method is worth its cost, which is the writing of the brief, on the condition that every item
+it returns is checked separately: of its two sourced claims one was confirmed and the other
+two could not be opened on this channel and are not relied on.
+
+The failure it caught has a shape this station has now met three times. A position set gets
+quietly fixed and the sentence above it reads as though it were not. Twice the narrowing sat
+in someone else's text; this time it sat in an inference of mine, drawn from a secondhand note
+that never mentioned age at all. The discriminant was sound. Its input had not been checked.
+
+The partition-by-something-other-than-the-holder shape has now turned up three times in this
+corpus: Burma's denominations, Indonesia's denominations, and inside an otherwise
+holder-partitioned programme, the vintage of a non-resident's balance in Germany. It is not
+a peculiarity of two demonetisations.
+
+Both of the second system's sourced claims have now been independently confirmed, the Czech
+age bands and the German non-resident rates, and neither was confirmed through the link it
+supplied: one of those sites runs an obsolete TLS stack that no current browser will complete,
+the other refuses automated clients. The quotations were accurate and the links were unusable,
+which are two separate facts. The rule demanding a URL did its work not by producing usable
+links but by keeping the responder silent on the six items where it had no text.
+
+The January 1991 Soviet decree was retrieved in full and it does not contain the terms
+attributed to it. Decree UP-1329 of 22 January 1991 stops acceptance of the 1961 fifty and
+hundred rouble notes from midnight and exchanges them for other denominations in the manner
+to be determined by the Council of Ministers, caps cash withdrawals from savings at five
+hundred roubles a month for the first half of the year, and leaves non-cash payment
+unlimited; its second point creates enforcement teams from the state bank, the finance
+ministry and the KGB. The salary-indexed ceiling is not there. It lies, if anywhere, in the
+implementing act the decree delegates to, and that is the document to look for. Two further
+things follow: the five hundred a month is a quantity limit and so not an object of this
+law, while the note exchange is a rate, making this episode a carrier with one half of each.
+
+The second system's third sourced claim is therefore refuted in its attribution, though not
+in its content, which may still be right in the delegated act. Its record on sourced claims
+stands at two confirmed and one misattributed, against six honest not-founds. What the URL
+rule bought was not usable links, since none of the three could be opened here, but
+checkability: a claim carrying a document and a clause number can be taken to a second
+source, and the one that failed failed precisely because the clause number could be checked
+and did not match. Next time the brief should require a clause or paragraph number, not
+merely a document name.
+
+The delegated act was found. Council of Ministers resolution No. 2 of 22 January 1991,
+which the presidential decree delegates to, carries the terms in its point 3, and they are
+the terms the second system quoted while attributing them to the decree: exchange within the
+average monthly wage of the last year of work, and not more than a thousand roubles per
+worker. Its content was right and its citation was wrong.
+
+The resolution turns out to be the strongest instance of the discriminant anywhere in this
+corpus, and it is not in the corpus. Seven blocks and a discretionary tier: staff employees
+at the smaller of their own average monthly wage and a thousand roubles; pensioners at two
+hundred or one month's pension; people away at a sanatorium or hospital at five hundred on
+the spot with the remainder wired back to their employer and counted against the employer
+limit; all other citizens with no direct exchange at all, only an application to a district
+commission; foreign nationals only against the receipts from their earlier currency purchases;
+foreign diplomatic staff by a separate agreed procedure; enterprises credited at face value
+after inspection; and anything above any of those limits sent to a deputies' commission that
+rules within ten days on whether the income was lawfully obtained, appealable once, then final.
+
+Two thresholds are indexed to the holder's own income, which is the limiting form of variation
+by identity, and the eligibility gate is the hardest kind: an entire category is not that its
+allowance is small but that it may not exchange at all. The same document also carries a
+quantity limit alongside its rate schedule, five hundred roubles a month in cash from deposits
+with non-cash payment unrestricted, so it is the first carrier here that needs the rate-versus-quantity
+split applied within a single text. Its discretionary tier is the second such tier seen and by
+far the more elaborate, which makes it the specimen for that category.
+
+Final tally on the outside check: of three sourced claims, three were right on content and two
+on citation. Its recall of substance ran ahead of its recall of provenance, which is the thing
+to design the next brief around.
+
+A second batch from the outside check behaved differently from the first and the difference
+matters more than any single item in it. The first obeyed the instruction to give a URL for
+every quotation, declined six of ten items outright, and was right on the content of all three
+it answered. The second supplied no URL at all, declined nothing, and answered every item
+expansively with quotations in Russian and Estonian. What made the first reliable was its
+refusals, and the second withdrew them.
+
+Of its claims one could be confirmed, that each Estonian exchanged up to 1,500 roubles for 150
+kroons, and that one had been written into the brief that was sent to it. The rest of what it
+added falls precisely on the cells the brief had marked as unknown. A model working from
+recall interpolates most readily where it has just been told there is a gap, so the brief
+itself created the condition under which repetition cannot be told apart from retrieval. The
+next one will state only what is being asked and never what is already known, will treat a
+missing URL as grounds to discard an item unread, and will flag as suspect any item that was
+answered not found in an earlier round and comes back full in a later one. That last shape
+appeared here: the Fund working paper whose full text it had previously been unable to find
+came back with a chapter-by-chapter summary.
+
+Nothing from this batch is relied on. Two figures did come out of the round, from an Estonian
+newspaper's twentieth-anniversary account rather than from the check: an average of 136.41
+kroons exchanged per person, and 70.4 per cent of the population taking part.
+
+The Bank of Russia telegram of 24 July 1993 was retrieved in full and settles that row at four
+blocks rather than three. Citizens and persons equated to them holding registration or a
+residence permit had a fortnight, 26 July to 7 August, for a single personal exchange against
+a passport, with up to 35,000 roubles handed over directly and anything above credited to a
+six-month interest-bearing term deposit. Citizens of other states temporarily present had one
+day, 26 July, and 15,000 roubles. Organisations, military units of three ministries included,
+were forbidden to exchange at all and could only deposit, capped at their own till limit plus
+the previous day's takings. And money held in bank custody for the courts was exchangeable
+only case by case on a judgment, which is the fourth block and one nobody had. The 35,000
+boundary inside the first block is two margins of one holder, not two blocks, as with Estonia
+and with the German non-resident vintages.
+
+Two things ride along. Soldiers had the exchange stamped in their military ID rather than a
+passport, a procedural difference and not a class value. And the eligibility gate appears
+again, stated affirmatively: the text grants the exchange to citizens holding registration or
+a residence permit and says nothing whatever about citizens holding neither. That is the third
+time in this station that an eligibility gate has been found hiding inside a positive
+sentence.
+
+The Fund working paper opened and returned a negative. It carries sections on the conversion
+and on the treatment of banks' customers, covering procedures, rates and limits in general
+terms, but no country-by-country schedule; Estonia appears once, in a footnote about
+non-resident rouble accounts. The earlier judgement that it could answer for Estonia, Latvia,
+Lithuania and Ukraine was wrong, and that line is closed rather than left open.
+
+Estonia's deposit row was closed from an unexpected direction, and closing it turned the
+discriminant over. Every rouble account held in an Estonian bank converted at ten to one, a
+single rate with no ceiling and no second band, alongside the listed resident's cash schedule of
+1,500 roubles at ten to one and everything above at fifty to one. Two rates on cash, one rate on
+deposits, and the block count stays at one. The rule behind that is the other half of what this
+station found earlier. Blocks count what one object receives in different holders' hands. A
+holder who stays fixed while the object changes, cash against a deposit, produces no new block;
+an object that stays fixed while the holder changes does. The earlier finding, that two rates on
+two margins of one person are one block, is the same rule seen from the first side. An enterprise
+does receive a different bundle from a listed resident, having no personal cash allowance, but no
+rule was written for enterprises: the text says accounts convert at ten to one and listed
+residents may exchange 1,500 in cash. The difference is that an enterprise has no person attached,
+not that it was singled out. A sentence giving enterprises a cash rate of their own would be the
+second block, and no such sentence has been found.
+
+Estonia's founding text was then retrieved in full and it carries none of the terms. The currency
+law, Riigi Teataja 1992, 21, 299, adopted 20 May 1992, runs to eight articles: the unit is the
+kroon, the kroon is the sole legal tender, external convertibility is on terms and by a procedure
+the central bank shall determine, and the law commences on the day the kroon is issued. There is
+no 1,500, no ten to one, no fifty to one, no eligibility, no register and no window. This is not
+a gap in the search. The terms were never there. The reform committee was created by a law of 27
+March 1991 with delegated power to enact what the reform required, and the terms live in its
+decrees; article 5 of the currency law is the first link in that chain, one sentence delegating
+the whole question away.
+
+That is the third carrier here whose conversion terms did not live in the document whose name
+fits best. The January 1991 Soviet decree delegated to a Council of Ministers resolution; the Bank
+of Russia telegram of 24 July 1993 delegated the savings-bank procedure to a second telegram of
+two days earlier; and Estonia's currency law delegates everything. Estonia is the sharpest of the
+three, because the full text of the best-named document is in hand and can be pointed at. The
+operational form is cheap: in the best-named document look for the sentence saying another body
+shall determine the procedure, and follow it, and only when no such sentence exists does it become
+reasonable to suspect the quantity was never written down at all. Reporting that a named law does
+not contain a clause, without also reporting the delegating sentence, leaves a reader thinking the
+trail ends there.
+
+Decree nr 030 is dated 17 June 1992 and fixed 20 June as the day the reform would be carried out.
+It is not the document that carries the eligibility rule attributed to it, so a population-register
+cut-off attributed to that decree stays unconfirmed and is now probably attached to the wrong
+document. The citation that came with it, Riigi Teataja 1992, 28, 381, was turned into a URL by
+concatenating the last two elements of the triple. That URL opens. What it opens is a 1990
+regulation on the statute of trade representations, unrelated to any of this. The document that
+was wanted, on the same site, has an identifier of an entirely different shape, which is to say
+the site's identifiers are not generated from the citation triple and a constructed one cannot be
+right. The general form is worth recording because it breaks in the less visible direction: a
+dense auto-incrementing identifier space will almost always return something, so a fabricated URL
+fails by returning a different document rather than by returning nothing. A 404 is a clean signal
+and a 200 on the wrong document is not, and the second is far more likely to be believed, arriving
+as it does with a correctly formatted page. A URL built from the digits of a citation is no
+evidence that it opens; what has to be checked is the identifier and date the retrieved document
+states for itself.
+
+The round also contains its own control on where to look. Three source classes were tried for
+Estonia. The class that should have had it, the central bank's institutional history, had neither
+the tiers nor the occupancy. The primary text had neither. Both came from the lowest-ranked class
+available, an encyclopedia page with no inline citations, which also carried the external link
+through which the primary text was then retrieved. Ranking source classes by trust is not ranking
+them by hit rate, and searching in trust order puts the most productive class last. The working
+order is the reverse: search where hits are likely, discount by class when recording, and use the
+low-ranked source to find the primary. That is what happened here, while in the same round the
+opposite move, building a link out of a citation, opened the wrong document.
+
+The last of the two named instruments on the international-institution side has now been
+tried and it is empty. The Fund's country report on Turkmenistan, Staff Country Reports
+volume 1996 issue 030, is readable in full and runs to 126,251 characters. It says of the
+event only that Turkmenistan introduced the manat as its national currency in November
+1993, and moves straight on to exchange arrangements. Word counts state the position better
+than any judgement would: manat appears 87 times, 1993 appears 49 times, deposit 38 times,
+conversion 3 times, ruble once and rouble not at all, and monetary reform, currency reform
+and confiscation not at all. A country report on a state that left the rouble zone in 1993
+uses the word rouble once. Six source classes have now been tried for the conversion terms
+and five returned nothing; the ratio of 87 to 1 in that document is the shared assumption
+itself, which is that this class of source records the exchange-rate regime and the
+macroeconomic aggregates rather than the administrative terms of a one-off conversion. Of
+the two instruments named as not resting on that assumption, one is now closed and one
+remains: the founding decree.
+
+Enumerating rather than guessing settled several open rows at once. Filtering the Estonian
+state gazette by issuer returns exactly four acts of the currency reform committee: a
+decision of 23 December 1991 on temporary currency rules, and decrees 21 of 6 May 1992, 25
+and 26 of 28 May 1992. Decrees 30 and 35 are not in the database and can only be read
+through acts that cite them, which is the argument for enumerating by issuer instead of
+guessing at numbers: guessing never terminates, while the enumeration says at once that the
+document is not there. One small caution came with it. The index dates decrees 25 and 26 to
+27 May while both texts date themselves to 28 May, and by the rule above it is the
+document's own statement that governs.
+
+The three retrieved decrees each answer a question that was open. Decree 21 settles the
+legal-person side: an entity registered in Estonia draws up a rouble balance sheet and
+income statement as at the moment of the reform, and the whole statement is revalued into
+kroons at the single rate the committee sets and publishes on the day the reform is
+announced. One rate, no bands, no ceiling. That replaces a fourth-tier candidate with a
+primary text on the structure, though not on the number, and it does not meet the condition
+registered for a second block, which was a sentence giving enterprises a cash rate of their
+own. This decree governs the restatement of books, not banknotes at a window, so the count
+stays at one and the registered condition proved itself the same day by declining a
+document that looked like an answer.
+
+Decree 25 does the same for a third object. Pensions, stipends, benefits, alimony and wages
+left unpaid for want of cash are to be paid out in kroons at the rate to be established. A
+claim on the state converts at one rate and does not pass under the 1,500 rouble cash
+ceiling, because it is not a cash exchange at all. Object changes, rate does not, count does
+not move.
+
+Decree 26 carries two things. Its recital states the eligibility gate in primary text:
+exchange is provided only for natural and legal persons recognised as residents. That closes
+the non-listed row, which turns out not to be silence but an explicit exclusion, and it
+confirms that legal persons exchanged rather than merely restating their books. Its
+operative point is the second instance in this corpus of an anti-circumvention nullity
+device: transactions carried out through front persons and front firms to exchange roubles
+for kroons are void, and the entire sum received under such a transaction is recovered into
+state revenue, with the audit office, the prosecutor and the interior ministry charged with
+enforcement. The first instance was Germany's nullity of avoidance transactions. Two
+reforms, independently, wrote the same clause.
+
+Its place in the framework is already defined and needs no new concept. Where a class cannot
+traverse the edge at all, that is reachability rather than a weight, so the excluded holder
+is not receiving a worse price but standing at an edge that does not exist, and an edge does
+not fail to exist until the paths around it are deleted too. The nullity clause is the legal
+form of that deletion. Three consequences follow, all checkable. Estonia stays at one block
+on the rate axis, since total exclusion is the limiting case of a quantity limit and quantity
+limits are not objects of this law. The device is predictable in its placement: a reform that
+imposes a reachability restriction rather than a price will carry an anti-circumvention
+clause, now seen twice. And the manuscript's table of edge-deletion devices takes its second
+entry.
+
+The same enumeration overturned a reading made three paragraphs earlier in this round. A
+Supreme Court civil judgment of January 1996 quotes decree 30 as prescribing that contractual
+obligations be recalculated at ten roubles to one kroon, so that decree carries terms and is
+not merely the one that fixed the date. The earlier inference, that a citation attributing an
+eligibility clause to decree 30 was probably attached to the wrong document, was drawn from
+the silence of an encyclopedia chronology about a primary text, and that step does not hold.
+The citation returns to unconfirmed rather than probably wrong, and its gazette issue number
+falls in late June, which fits. What remains true is only that the issue is not in the online
+database.
+
+The delegation rule turns out to be stronger than three countries once for each. Within
+Estonia alone six documents delegate the number and none states it: the currency law, decrees
+21 and 25, the supreme council's law replacing the rouble unit throughout the statute book, a
+government regulation on resource tax rates, and a government regulation on postage stamps.
+Each says at the rate the committee establishes, or publishes on the day of announcement. That
+is not coincidence but design, since publishing the rate before the announcement would open an
+arbitrage window, so in this family of reforms the delegation chain is mechanically forced
+rather than merely common.
+
+One primary occupancy lead came out of the same search. A parliamentary resolution of February
+1996 set up a special committee to investigate the sale of the roubles collected during the
+reform and held in the central bank's vaults, and the reform committee itself had taken a
+decision on selling them in December 1992. Selling requires counting, so the total is an
+occupancy figure and a primary one. Occupancy for that carrier now has two routes, a
+fourth-tier headcount and a primary total.
+
+The North Korean row moved because a policy brief carrying the full sequence became available,
+and it moved in a way worth stating precisely, since the earlier reading had let one
+undecidable quantity swallow a decidable one. That a partition moves does not stop blocks
+from exceeding rates on every static slice of it. What is undecidable is the level, not the
+direction, and those are two states rather than one.
+
+The same document supplies four carriers not previously in the corpus, from a footnote on
+earlier conversions. February 1959 set a hundred to one with no limit at all, which makes it
+the cleanest control this family has: same rate as 2009, no ceiling, therefore no second band
+and no identity classes, so the whole difference between the two episodes falls on whether
+there is a boundary rather than on the rate. April 1979 is named without detail. July 1992
+has a shape not seen anywhere else here: the rate was one to one, funds above a limit of 300
+won had to be deposited **(the ceiling is 399 per household; see the settlement below)**, and the deposit could be drawn only on a schedule, 5,000 won after
+three years, 10,000 after five, the remainder after ten. The rate carries no discount at all;
+the entire wedge is carried by the release schedule. Since class values need only be
+distinguishable and not numeric, that schedule is a class value and the carrier is countable,
+with price written in time rather than in rate.
+
+That carrier also opens a dimension this project has not been keeping. The deposits were only
+partly honoured or not honoured at all, with some depositors reported to have received
+nothing. The value written down and the value delivered are not the same object, and this is
+neither a block nor an occupancy figure but a third thing. A programme can write a complete
+schedule and then not execute it, and in that case the block count read off the text is
+correct and describes what nobody received. It is registered as a dimension rather than opened,
+since of the carriers here only this one has any record of delivery.
+
+Two enforcement technologies are now visible side by side, and neither changes the written
+weight on an edge. Estonia deleted the paths around an edge that the ineligible were not
+allowed to traverse, by voiding front transactions and recovering the proceeds. North Korea
+left the upper edge open and made traversing it self-revealing. Both change the effective
+weight while leaving the written one alone, and the second yields a testable prediction:
+take-up of a self-revealing tier falls below what the written rate implies, by an amount
+governed by the cost of being identified rather than by the rate. Testing it needs usage
+figures, which is exactly what the occupancy station cannot obtain for this carrier, so it is
+registered as a hypothesis in need of a different carrier.
+
+One outside statement was checked against the brief and holds on every component: a one-week
+window, since the announcement of 30 November required conversion by 6 December; a hundred to
+one, since the design removed two zeros; and a limit worth about one fifty-kilo sack of rice,
+since at 1,700 won a kilo that sack came to 85,000 won against a limit of 100,000. The
+arithmetic is the brief's own. What the statement does instead is name a moment as though it
+were the regime, since that limit was raised at least five times within three weeks and ended
+at 500,000 per person. This is the fifth time in this station that a position set has narrowed
+behind an affirmative sentence, and the first where the axis of narrowing is time rather than
+persons. The sentence is quotable with a date attached and not otherwise.
+
+Two Estonian decrees that the online gazette does not hold have now been reconstructed from
+three independent sources that each supply a different part and do not conflict. Decree 30 of
+17 June 1992 fixed the reform date, made the kroon the sole legal tender on the territory from
+four in the morning on 20 June, established it as the monetary unit, and required contractual
+obligations to be recalculated at ten roubles to one kroon, that last clause known because the
+Supreme Court applied it in a civil case in 1996. Decree 35 of 19 June raised value added tax
+from ten per cent to eighteen and set a top personal income tax rate of fifty per cent on
+monthly income above 20,000 roubles, with the stated purpose of balancing the budget.
+
+The first of those extends the single-rate finding from two objects to four. Cash up to the
+personal ceiling, every rouble account in an Estonian bank, arrears owed by the state to the
+population, and contractual obligations all convert at ten to one, each on a separate source
+and two of them on primary texts. The penalty rate of fifty to one turns out to have a
+remarkably narrow scope: banknotes held by a natural person above a personal ceiling, and
+nothing else. The rule that a fixed holder facing a changed object produces no new block now
+rests on four objects rather than two, and the count stays at one.
+
+The second is a schedule over a different object and does not enter this count. It is
+registered because it is easy to mistake for part of the same thing, being written by the same
+three people in the same week with an adjacent number. It is worth one separate note that a
+currency reform decree carries fiscal policy directly, so that the re-coding of money and the
+redistribution of fiscal revenue were done together by one body in one week, where the
+literature normally treats them as two subjects.
+
+The legality of both was contested at the time and remains so in commentary, on the ground
+that the committee was given competence over the reform but never the role of legislator, and
+that establishing a currency and setting a tax rate are legislative acts. This project does
+not adjudicate that, and two facts show why it does not need to. The supreme council passed
+three reform laws by expedited procedure on 20 May 1992, so the legislature did act and
+delegated the how; and the Supreme Court treated decree 30 as applicable law four years later.
+The binding force of a re-coding rule came from its execution and from later judicial
+application, not from its position in the hierarchy of norms. For a project that counts what
+each class receives, that is the load-bearing point: what is received is settled by execution
+rather than by a dispute over validity.
+
+How the eligible class was constituted is now on record as well. The registration for the
+exchange and the registration for the constitutional referendum of 28 June used the same
+lists, and the preparation for the one was already preparation for the other. Being a
+recognised resident was therefore the product of a registration exercise conducted alongside
+another, rather than a pre-existing legal status. The claim should not be read further than it
+goes: the same lists and the same machinery are not the same eligible set, since the
+referendum electorate and the 1,410,951 on the exchange list differ by an order of magnitude.
+Together with the nullity decree the eligibility axis is now complete on three levels, who may
+exchange settled by a registration, those not on it excluded by text, and transactions routed
+around the exclusion void with the proceeds recovered.
+
+One operational fact carries a methodological lesson worth keeping. The committee intended to
+complete the exchange in a single day, set up a trial exchange point, and had professional
+cashiers work a full day to measure how long the process actually took. Seventy per cent of
+the total time went on counting roubles, and the window was lengthened accordingly. The width
+of the exchange window was set by a measured throughput constraint rather than by policy. That
+matters for reading other carriers, because window length has been read here as a class value,
+most directly where foreign citizens had one day against a fortnight for citizens. That
+particular reading survives, since the difference there falls across two groups sharing one
+capacity, but the general rule now is to rule out a capacity explanation before treating
+window length as evidence about class.
+
+The issuer's own monograph settles the Estonian rows and, in doing so, separates two things
+this project had been running together. On the count it adds a fifth object to the single
+rate, since all bank deposits and debts converted at the same rate as cash within the ceiling,
+and that sentence is written by the central bank rather than inferred from a secondary
+account. On eligibility it uses the phrase permanent resident, matching the nullity decree's
+recognised as resident, and it prices the ceiling for the reader: 1,500 roubles at ten to one
+came to 18.75 German marks against an average monthly gross wage of 68.62 marks, so the
+personal cash ceiling was 27.3 per cent of a month's pay.
+
+The reason the above-cap band went unused is given by the issuer and is not about the rate at
+all. The Soviet rouble was still current outside Estonia and the customs frontier with Russia
+and with Latvia was not yet functioning, so a holder of excess roubles did not have to accept
+fifty to one and could carry them out and spend them at face value. That claim can be checked
+against the same paragraph's own figures rather than taken on authority. Splitting the
+2,259,669,091 roubles collected between the two bands so as to reproduce the 225.6 million
+kroons paid out leaves 0.2 per cent at fifty to one, and the answer goes to zero if the
+published mark figure is rounded up rather than down. Three sources of three different
+standings then close on each other: an average of 136.41 kroons per person across 1,096,706
+people gives 149.6 million kroons, a residual of 763.7 million roubles from non-individual
+cash such as enterprise and bank tills gives 76.4 million more, and the total of 225.97
+million kroons is 28.25 million marks against a published 28.2 million. The closure is itself
+a test of the weakest of the three figures, and it passes. It also separates a quantity that
+could not be separated before, since collections per head come to 2,060 roubles against a
+personal ceiling of 1,500, and with the upper band essentially unused the excess has to be
+cash that never came through a personal window.
+
+The general lesson is a reading rule rather than a count. A written rate on an edge is one
+thing and the effective cost of that edge is another, and the corpus now holds three
+mechanisms that separate them. Estonia deleted the paths around the eligibility restriction,
+voiding front transactions and recovering the proceeds. North Korea left the upper edge open
+but made traversing it self-identifying. And Estonia left the paths around the rate
+restriction entirely open, so that the penalty rate priced an edge nobody had to use. The
+first two are things a state did; the third is a thing a state did not do, and it hollowed out
+the price more completely than either. The sharpest contrast is within one reform in one week:
+the same committee enforced its eligibility restriction to the point of confiscating the
+proceeds of avoidance, and left the alternative route around its rate restriction wide open.
+
+None of this changes a block count. The counting law counts how many distinct class values a
+text writes down, and fifty to one was written down and does differ from ten to one. What
+changes is what the number carries. A rate whose edge has a cheaper parallel path classifies
+without describing anything anyone received, so it belongs in the count and not in any reading
+about behaviour. Those two roles had not been kept apart here. The operational form is to ask,
+before reporting any above-cap rate, whether the alternative route was open, and that question
+now has to be put to every such rate in the corpus.
+
+The monograph also lists the committee's decrees as part of the legal framework alongside the
+three laws of 20 May 1992, which is a second first-tier support for treating them as operative
+regardless of the dispute over whether the committee could legislate, and one more instance of
+the terms living in the delegated instrument rather than in the act whose name fits best.
+
+Applying that reading rule across the corpus costs almost nothing, because enumerating first
+shows only eight of the twenty-four carriers have an above-cap band at all; the rest write one
+rate, or cap a quantity while leaving face value untouched, or have no amount band. For each of
+the eight the question is whether a cheaper alternative route existed. Two answers were already
+in hand, Estonia where the route was open and North Korea in 1992 where the state simply did
+not execute its own schedule. Germany is the opposite pole on the face of it, since the mark of
+the GDR was not convertible and had no market at face value abroad, and since the two-to-one
+band applied to balances inside the banking system, which cannot be carried anywhere; that
+reform also voided avoidance transactions outright. Four post-Soviet carriers remain open, and
+they share one route rather than four, so one timeline answers all of them: was that series of
+notes still legal tender anywhere outside the border on the day of the reform. The Russian
+reform of July 1993 is itself the event that closed that route, so the same written penalty
+rate had a different bite for the 1992 exits than for those of late 1993.
+
+That yielded a prediction with its own falsification condition written down before the figure
+was fetched: take-up of an above-cap band should rise as the alternative route closes, and if
+Germany's two-to-one band also carried near nothing then the rule is wrong and goes. Household
+monetary assets in the GDR fell from 193.4 billion marks to 129.1 billion D-marks, an implied
+average of 1.4981 to one. Solving the same two equations used for Estonia splits that into 64.8
+billion at one to one and 128.6 billion at two to one, so the above-cap band carried 66.5 per
+cent of household money against 0.203 per cent in Estonia. A rough cross-check supports the
+reading that the favourable band was filled to the brim: the allowances were 2,000, 4,000 and
+6,000 marks by birth cohort, and a population of about 16.1 million at an age-weighted average
+allowance near 4,020 marks gives 64.7 billion against the 64.8 billion computed, though the
+population and age shares here are not retrieved figures and are registered for sourcing.
+
+Two limits belong with that comparison. The denominators are not the same object, cash roubles
+collected in one case and household monetary assets in the other, so the order of magnitude is
+what the pair carries and not the precise ratio. And the German pole is overdetermined, since
+book balances cannot be carried away whatever the currency's convertibility, so the case shows
+that a band bites when the route is shut without showing that the route is the only thing that
+matters. The prediction was falsifiable in the way stated and was not falsified, and the same
+rule now has to be put to the four remaining post-Soviet carriers.
+
+Putting the alternative-route question to the Russian carrier answered it and turned up two
+larger things in the process. The answer itself is stated in as many words: for some time after
+the reform, Soviet roubles no longer accepted in Russia were actively used in the monetary
+circulation of CIS countries. So the route out existed. What Russia sealed was the opposite
+direction, the inflow of old notes from the former republics, which the reform names as one of
+its purposes, and it sealed it twice, with a documentary requirement from 1 October and with an
+outright exclusion of citizens of neighbouring states, refugees apart, from 16 November. The
+same asymmetry as Estonia on a different axis: one restriction enforced down to the paperwork,
+the other left open.
+
+**The asymmetry in that paragraph does not hold, and a document found on 2026-09-05 is why.** A customs
+instruction of 5 August 1993, carried identically by six legal mirrors, is issued `на основании ... телеграммы
+Банка России от 22.07.93 г. N 396`. **So 22 July carried two telegrams and not one**: 396 for the frontier and
+397 for the counter, each named by a document that implements it, neither with its own text in the free
+corpora. **396's text was not obtained and its content was**, read off the instruction that carries it out:
+`установить с 27.07.93 г. следующий порядок пропуска наличной валюты`, within `норм ввоза валюты Российской
+Федерации, установленных Банком России`, and sums above that `выпуску не подлежат и принимаются таможенными
+органами на хранение по квитанции формы ТС-20`. **From 27 July an individual carrying rouble cash across the
+customs frontier was held to a Bank of Russia limit, and anything above it was not released but impounded
+against a receipt**, notes already withdrawn from circulation included. The numeric limit lives in 396, which
+is still not in hand; the customs instruction states no figure of its own.
+
+**The rule this yields is one layer beyond the one already recorded.** Before declaring a quantity
+unobtainable, ask whether some document states it; **and then ask whether some document carries it out**, since
+the implementing text is usually the more public of the two, having to be read by whoever executes it.
+
+**The reading on the alternative route gets harder rather than softer.** On paper the way out was shut from 27
+July; in fact it was used, and the Kazakh customs seized about 1.3 billion roubles in ten days of October with
+Russia named among the origins. **A rule that shuts an edge and an edge that is shut are two different things,
+and the reading belongs to the flow.** This corpus already forbids inferring the thickness of an edge from the
+severity of the device that seals it; this is the other half of that, and inferring that an edge was closed
+from the existence of an order sealing it is equally forbidden.
+
+**One inference is withdrawn.** Bank of Russia telegrams of 1993 ran in at least two parallel series, the
+`NNN-93` one and a plain-numbered one holding 396 and 397 of 22 July and 48 of 3 August, so a bare three-digit
+number is no evidence at all about whether a citation is genuine.
+
+**The registration convention changes with it: the original is not the criterion, the content is.** Many
+originals no longer exist, and many never entered any public archive at all; **filing a clause whose content is
+already reliably reported as "original not yet obtained" sends the next reader after something that may not be
+there.** Three questions settle it at no cost: is there a sufficiently authoritative source reporting it, do
+the reports conflict, and does this reading need the words themselves. All three answered no, the item is done.
+Where reports conflict, or where class values are being counted and quantifiers read, the original is still
+worth chasing.
+
+Entries are henceforth one of three, because they are three different instructions to whoever reads them next:
+**original not obtained and content unknown**, which is a real debt and means go and look; **original not
+obtained, content reported by a named source at a stated grade**, which is finished; and **does not exist in
+any obtainable form**, which means do not look and in particular do not spend time in the legal databases. The
+first two were indistinguishable under the old wording, **and which of the two it is turns entirely on the one
+thing that decides whether to go looking.** This is the third position in a family this corpus already has, the
+other two being "this category of source does not have it" against "it does not exist", and "this instrument
+cannot answer" against "this question cannot be answered". **All three are statements about one's own position
+written as statements about the world.** Re-grading the eleven items standing on this line under the new
+convention leaves six already finished, three real debts, one optional and one closed: **six of eleven were
+never debts, they were bookkeeping made to look like debts.**
+
+**The negative result about registration points has a positive form, and the column just completed carries
+it.** The question put to each row with two or more reachabilities is one line: what is the variable that bands
+this, and where did it live before the programme started. **The answers exhaust into four sources**: the
+arithmetic of a sum, meaning how much was presented or how much has been drawn this week, which the counter
+computes without identifying anyone; the object itself, meaning which note or which vintage, printed on the
+thing; a distinction the ledger already carries, such as an enterprise account against a personal one or cash
+against deposit; and an identity attribute the ledger does not hold, such as residence registration, refugee
+status, foreign nationality or household. **The first three are free and the fourth requires building a
+registration point.**
+
+**Fifteen rows, and the count is zero against.** The five carriers with no registration point band reachability
+on the object twice (Burma 1987, the DPRK of 1949), on a ledger distinction twice (the DPRK of 1959 and 1979)
+and on arithmetic once (Argentina 2001); **not one of them bands on the fourth kind.** The only carrier that
+bands reachability by an identity the ledger does not hold is Russia 1993 with its four, and it has a
+registration point. **So: how many reachabilities a programme can write is capped by the distinctions that
+existed before it started, of which three are free, and going past them means building a registration point,
+after which the price can be banded too.** It dies the moment a carrier appears with no registration point
+banding reachability on an identity attribute the ledger does not hold.
+
+**This turns the condition on the first law from three instances into a mechanism.** A price is a number
+attached to a holder: one holder's whole sum converts at one price, so giving two holders two prices requires
+telling those two holders apart, and where they cannot be told apart a registration point has to be built. A
+reachability is attached to a sum: one holder's two sums can differ, and that requires telling the two sums
+apart rather than the two holders. **The entire difference between the two laws comes from what the two
+quantities hang on.** A registration point buys knowing who you are; reachability needs only knowing what this
+is. **The cleanest two rows are the ones this mechanism predicts**: the DPRK of 1959 and of 1979 use a ledger
+distinction to separate natural persons from enterprises, and what they separate is the reachability and not
+the price, both classes taking the same rate with only the enterprise barred from drawing cash.
+
+**One gap is left open honestly.** The third source could in principle band a price as well, since a ledger
+that distinguishes an enterprise account from a personal one could give them two rates, **and no carrier here
+does that.** The zero-counterexample statement on prices therefore has a mechanically open door that nothing
+has walked through, and this line does not know why. Two candidate explanations, neither tested: banding a
+price across holders needs a story about who deserves less and an account type supplies none, or the sample
+simply lacks one. **Registered as open and deliberately kept out of the law.** Testing it means finding a
+programme with no registration point that gives two rates by account type.
+
+**Sweeping the above-cap bands turned the Argentine recital from a single legislator's phrasing into one of the
+two ways such a band is written.** Six of them cut the value: Germany 1990 at two to one above the quota,
+Estonia at fifty to one, Turkmenistan to nothing, the DPRK of 1992 refusing even a deposit above thirty
+thousand, and two that cut by object rather than by holder, Indonesia's notes to a tenth of face and Burma's
+three denominations with no compensation at all. **Eight restrict the access instead**, leaving the figure
+alone: Russia's six-month deposit with interest, Kazakhstan's six months plus a commission, Czechoslovakia's
+certificates redeemable by a stated date, Brazil's eighteen-month freeze returned in twelve instalments at par,
+India's tax scrutiny above a threshold, Argentina's weekly two hundred and fifty, the DPRK of 1947's special
+non-interest-bearing frozen account, and the DPRK of 1992's middle band released over three, five and ten
+years. Two do both, Germany 1948 and the DPRK of 2009, and one is partly unjudged.
+
+**Five of the access family have the text itself pin the value down**: interest credited on the Russian
+deposit, the German Anlagekonto declared a term deposit at two and a half per cent with the interest paid into
+the free account, Brazil converting at par and returning in instalments, Argentina declaring the deposits
+untouchable, Czechoslovakia naming a final redemption date. **Five documents, five legal families, doing the
+same thing in the same place: fix the value, take the access.**
+
+**The counter-instance inside the family says more than the five**: the DPRK of 1947 moves the above-limit
+balance into a special non-interest-bearing frozen account and forbids all payment from it. The figure is
+untouched on paper and nothing compensates it. **So "what moves is the reachability" does not mean the value
+was spared; it means the text did not move that number**, and the classification is about which component the
+text moves, not about what the holder ends up with.
+
+**A second mechanically open door appeared in the sweep and closed in it.** Banding a price by amount looks as
+if it needs no identification either, and three carriers do exactly that. But banding a price by amount
+requires knowing the person's total, which means aggregating what he holds in several places, **and
+aggregating is identifying**. Brazil's decree performs that aggregation in as many words, counting all
+conversions `em nome de um único titular em uma mesma instituição financeira`, which this corpus already
+described as doing the work of the passport stamp. **Banding reachability by amount needs no aggregation at
+all**: two hundred and fifty a week from this bank is enforceable account by account without knowing anyone's
+total. **So Argentina could write the weekly limit and could not have written a two-step conversion schedule,
+and that is a matter of the instrument it lacked rather than of what occurred to it.** The open door of the
+previous section narrows to the account-type half alone.
+
+**A programme that wants to band by identity does not have to build that identity; it can borrow one.** Of the
+five Russian classes of 1993, the refugee class is established by a certificate, and that certificate is not
+this reform's invention. Two laws of 19 February 1993, No. 4528-1 on refugees and No. 4530-I on forced
+migrants, adopted the same day and five months and five days before the telegram, each provide for an identity
+document. **So the certificate named in the telegram of 4 August is a register built by a statute passed for a
+different purpose, and the reform merely cites it.**
+
+This is the corpus's function-valued class one step further out. Until now what lived elsewhere was the
+argument of the function: a wage book, a pension register, an inventory limit the bank had set for that
+organisation, a third party's housing receipt. **Here what lives elsewhere is the eligibility itself.** The
+fourth of the four sources, an identity the ledger does not hold, therefore does not always require this
+programme to build a registration point. **It can borrow one, and borrowing differs from building by an order
+of magnitude in cost and not at all in the class values that result**, so the clause reading "going past the
+first three means building a registration point" is properly written as building **or borrowing** one.
+
+**Two decorative cells close on sources already in hand, under the convention that the original is not the
+criterion.** The foreigners' band has its primary text, fifteen thousand roubles on 26 July alone against a
+passport, and a contemporaneous English newspaper of 25 July repeats it: foreigners have one day to turn in up
+to 15,000 old roubles. No reading rests on how many of them did. The refugees' band takes the general ceiling,
+which the presidential decree and the telegram both establish, with only the channel and the certificate
+peculiar to it. **Its take-up is unknown and has an upper bound**: 235,065 refugees newly registered across
+1993 on a third-grade unverified figure, while the exchange for them began on 4 August, so the number holding
+the status then can only be smaller. **That is a bound and not a take-up, and it must not be read alongside the
+roughly 167,000 who actually used the above-cap deposit as though the two were both occupancies.**
+
+**The open door was tested, and it turns out to exist only on the cash side.** The Soviet reform of 1947, on a
+third-grade source with no original obtained, converted cash at ten to one over a counter while converting
+savings deposits in three bands by size, one to one up to three thousand roubles, a third off between three and
+ten thousand, half off above that, **all of it done on the books with nobody appearing anywhere**. So a price
+banded by amount does not always need a counter, and the earlier statement that aggregating is identifying
+holds on the cash side and is free on the deposit side: **a savings account is already in someone's name, so
+the deposit system is itself the registration point.**
+
+**Argentina supplies the contrast inside one country two months apart.** Decree 1570 of December 2001 has no
+counter and writes one price; decree 214 of February 2002 has no counter and writes three, the deposit at 1.40,
+the debt to a financial institution at 1.00, and the debt unrelated to the financial system at 1.00 with a
+right to seek adjustment. **Having no counter places no limit at all on how many prices a deposit-side
+programme writes.**
+
+**The law's scope narrows accordingly, and narrowing makes it stronger.** All eleven carriers on the side
+without a registration point are cash operations with no counter, old notes simply ceasing to be accepted or
+particular denominations voided; not one of them is done on the books. **So: a cash operation with no counter
+can write only one price, and the deposit side is outside the statement because the ledger is the counter.**
+What was a statistical blank now has a physical mechanism: **a banknote does not carry its holder's identity,
+so pricing by holder on the cash side requires somebody to turn up somewhere and be matched to the money,
+while a deposit does carry it and needs no such moment.** The entire difference between the two laws comes to
+rest on that one fact about the carrier.
+
+**This also settles why the door had never been walked through**: not because nobody tried, but because the
+door exists only on the cash side, where wanting to price by holder forces a counter into existence and the
+antecedent fails on the spot. **The falsifying shape is now specific**: a cash operation with no counter that
+gives two kinds of holder two prices, for instance voiding only the notes held by non-residents, with nothing
+required to be produced by anyone at any point. **One caution is recorded with it, since this is where the
+temptation to overstate sits: a counterexample being hard to find is not the same as the law being true.**
+What is offered here is a mechanism, and the mechanism itself can be killed by one carrier.
+
+**Three corrections to the paragraph above, and the second is the one that matters.**
+
+**The physical statement generalises**: physical money carries no holder identity, and a ledger entry carries
+one by construction **unless the ledger is anonymous and has no reconcilable other side**. That last clause
+does the work: a ledger carries identity not because it is a ledger but because at least one side is named and
+the two sides can be matched. **Where neither side leaves a reconcilable counterparty, that ledger is cash for
+this purpose.** A question this line has never asked follows from it: does any carrier here have a bearer-form
+deposit, a passbook payable to whoever presents it? If so, its deposit side must be read as a cash side.
+Registered, unchecked.
+
+**The word "counter" was wrong.** What is required is an identity-verification procedure, of which the bank
+counter is only the banking-system implementation. In a village market it is a familiar face, and the familiar
+face gets the better price automatically; in a gang transaction it is whoever vouches for you; in the Soviet
+family it was the internal passport and its special-marks page; in Brazil it was aggregating all of one
+holder's accounts at one institution. **Pricing by holder needs the ability to tell that this is the same
+person, not any particular device.**
+
+**The falsifying form is withdrawn, for two reasons.** First, it cannot single out a decidable
+counterexample: there are many ways to establish that a person is the same person, and both the resolution of
+the procedure and the strictness of its enforcement are continuous. A shop's limited-price offer with one queue
+per customer says it plainly: come round a second time and you get it again if the clerk does not recognise
+you, and if he does it depends on how strictly the rule is kept. **Second, and more to the point, nothing here
+owes anyone a form that could kill it.** Readings are judged on four counts, internal consistency, portability,
+explanatory reach and prediction. **A statement's worth is set by what it explains and predicts, not by
+whether a single sentence could destroy it.** A killing form, where one exists, is a useful statement of scope
+rather than a badge.
+
+**So the claim splits into three layers, and the weight lands on the explanatory one.** First, analytically:
+landing different prices on different people requires being able to tell those people apart at the moment the
+price is applied. Second, per carrier: the form of that procedure varies, and its resolution and enforcement
+are matters of degree. Third, empirically: the eleven carriers without such a procedure all wrote exactly one
+price. **The third layer does not say a state could not write more; a state can write anything.** It says
+those eleven did not write a price they could not apply, **and the corpus already holds an instance pointing
+the other way**: the DPRK of 1992 wrote a release schedule of five thousand after three years, ten thousand
+after five and the remainder after ten, and in fact the deposits were only partly honoured or not honoured at
+all, some depositors receiving nothing. **Why the gap between what is written and what is applied shows up on
+the reachability side and not on the price side is not known here**, and that is where the third layer has room
+to grow. It also gives the take-up dimension a place to sit: the difference between the bands written and the
+bands that actually land on different people **is the resolution of the identifying procedure plus the
+strictness of its enforcement**, and both halves can be read, the first from the text and the instruments, the
+second from the enforcement record.
+
+**Opened as a column of its own, that dimension has three sources rather than two, and it runs both ways.**
+Enforcement can fall short, which is the DPRK of 1992 writing a release schedule and then honouring it partly
+or not at all. The identifying procedure can be too coarse, so that two written bands land on the same people,
+for which this corpus has no clean instance and one is registered as wanted. **And the unit of account can
+move between the writing and the delivery**, which is Russia 1993's six-month deposit and Brazil 1990's
+eighteen-month freeze: the principal comes back in full by its own number while inflation has taken what that
+number buys. **The first two are a failure to give; the third is giving, where what is given is no longer the
+same thing.**
+
+**The column also runs the other way, which had not been recorded at all.** The DPRK of 2009 wrote nothing
+about officials with advance knowledge, and they received an implicit exemption its own source calls impossible
+to gauge. **So delivery is a separate table that can diverge from the written one in both directions**, and the
+counting law, which counts what is written, is untouched by either.
+
+**This resolves an objection that had been standing.** The inflation objection said that Russia's untouched
+face value was nominal only, and that the same holds for Brazil. It was filed as an attack on the
+rate-versus-quantity criterion. **It is not one.** The criterion asks which component the text moves; the
+objection asks what the holder ended up with. Both are true and they do not collide, and pressing a
+delivery-side observation against a text-side criterion is the scope mismatch this corpus already names.
+**The objection moves from a pending challenge to the criterion into the first instance of the third source of
+delivery gap, the classification stands unchanged, and the observation gains a better place to sit.**
+
+**A reading discipline falls out of the same sweep, pointing the other way.** The Lastenausgleich of 1952
+carries a headline rate of fifty per cent flat, while the same statute charges different interest by asset
+class, highest on business assets, then real property, lowest on agricultural and forest land, and grants
+discounts and deferrals by the holder's later circumstances, wealth having since fallen below a threshold, old
+age, disability, unemployment. **A table that says "a flat fifty per cent" is not one class, and those classes
+are all written down; they are simply not on the headline line.** So: **count class values across the whole
+document, not off the headline.** The two belong together to avoid mixing them up: the Lastenausgleich case is
+written classes that went unread, the DPRK 1992 case is written classes that went undelivered, and the remedies
+differ, one being to reread the document and the other to read the enforcement record.
+
+**The delivery column stands at four rows with one checkable cell.** The German Anlagekonto of 1948 is the
+cleanest delivery test here: the date is written, 1 January 1954, the amount is written, half a Deutsche Mark
+per hundred Reichsmark, and what happened over those six years is a matter of public record. It is first in
+line.
+
+**It was checked, and the answer is that it was written and it was given.** The third implementing ordinance
+had the Anlagekonto balances become free accounts from 1 January 1954, and the outcome, on a third-grade
+source, is that the remaining tenth stayed tied up and `wurden im Jahre 1954 freigegeben`, released during
+1954. **That is the first positive reading in the delivery column.** Two limits are recorded with it: the
+source is third grade, and it gives a year rather than a date, so it is consistent with the written 1 January
+1954 without matching it to the day.
+
+**The chain is not binary either, and the addition to it runs upward.** The Altsparergesetz of 1953 compensated
+old savers at between ten and fifteen per cent of the Reichsmark claim standing at 1 January 1940. So the
+sequence is a seventieth cancelled, a fifth freed and a tenth blocked in 1948; a separate statute adding ten to
+fifteen per cent of the 1940 claim in 1953; the blocked tenth released in 1954. **The state gave more along
+this chain than it wrote in 1948, not less**, which is the second instance of delivery exceeding what was
+written. The mechanisms differ, though: in the DPRK of 2009 the excess leaked outside the rule to particular
+people, while here a further rule was written above the first for everyone who qualified. **Enforcement failure
+against later addition.**
+
+**The same passage yields a new shape in that column.** The compensation was not paid out at first but bore
+four per cent a year, **and whether to distribute it to customers was left to the individual bank.** That is a
+third place for discretion to sit. It can sit in the band itself, as with the Kazakh commission fixing what the
+above-cap holder receives; it can sit in an authorisation to change the procedure while the operation runs, as
+in Russia 1993; **and it can sit on the delivery step, as here, where the value is fixed in the text and
+whether it arrives is not.** The first two fall outside the counting law by its own scope limit, since no value
+was written; **this one has its value written, so it counts, and the gap shows up in delivery.**
+
+Two things ride along at no cost. `Je 1.000 Reichsmark … nur 65 Deutsche Mark gutgeschrieben`, sixty-five
+Deutsche Mark credited per thousand Reichsmark, **is a third independent confirmation of the six plus a half
+composition**. And the Altsparergesetz moves from "text not obtained" to content known at second grade, so it
+stops sitting in the queue. **The delivery column now stands at five rows, two instances in each direction plus
+the one positive reading, with four sources: enforcement falling short, an identifying procedure too coarse,
+the unit of account moving, and discretion on the delivery step.**
+
+**The coarse-procedure cell has its instance, and the state named the gap itself.** India's 2016 exchange
+limit was written per person, four thousand rupees from 8 November, forty-five hundred from the 14th, two
+thousand from the 18th, **while the identifying procedure resolved only to this counter on this occasion**. On
+15 November the Economic Affairs Secretary explained the queues: `the same people keep coming again and again
+at diff places`. **The remedy was an identifying device**, the indelible ink used at elections, applied to the
+fingers of those exchanging. **No state adds an identifying device to a limit that is not leaking, so the
+remedy is itself the evidence of the gap, and it is the state's own admission.**
+
+The sequence reads as a complete enforcement narrative inside ten days: the band is raised on the 14th, the
+ink is announced on the 15th with that reason, the band is cut on the 18th. **Widen, discover it does not
+land, add a device that identifies, then tighten.**
+
+**A discriminant goes with it, because this source and enforcement failure look identical in the reading and
+have opposite causes.** To find a procedure too coarse, look where identification is weak: anonymous counters,
+several institutions, no single identity document. To find enforcement falling short, look where
+identification is strong and the rule is applied loosely: they know exactly who you are and treat you
+accordingly. **The DPRK of 2009 belongs to the second and not the first**, since the people's unit, the
+household head and residence registration identify everybody continuously; its gap is the officials' implicit
+exemption. **A band that moves quickly means the text is moving, not that the procedure cannot tell people
+apart.**
+
+**Argentina looks like this cell and is not.** The weekly two hundred and fifty is written `del total de sus
+cuentas en cada entidad financiera`, aggregating only as far as the institution, so a holder with accounts at
+N banks faces N times the limit. **That is not the procedure failing to recognise him; it is the text not
+asking for recognition across institutions, and failing to identify is not the same as not being required
+to.** So it is recorded as the domain of the band rather than a delivery gap, in the same family as counting
+class values across the whole document: **the domain of a limit and the number of the limit are usually not
+written on the same line.**
+
+**What became of the 2009 deposits is now on record, and the answer is that the state paid the written rate in
+full while that rate was exactly the loss.** At the end of July 2010 the central bank announced that
+individual deposits made during the reform would be redeemed at one hundred to one, capped at five hundred
+thousand old won, meaning five thousand new, over two weeks from 1 August. **The rate is the standard written
+one with nothing taken off**, and the cap deserves its own line: five hundred thousand is precisely the
+per-person cash exchange ceiling settled on 6 December, **so the redemption window is exactly the cash window
+and anything deposited above it returns nothing** — a cliff of the same shape as the DPRK 1992 refusal to
+accept deposits above thirty thousand.
+
+**Two sentences from the same report are the reading.** Rice was a thousand won, so a maximum deposit of five
+hundred thousand returning five thousand buys five kilogrammes; and prices had by then returned to their
+pre-reform level, which is to say the hundred-to-one redenomination had been entirely undone by inflation in
+eight months. **The state honoured the written rate in full, and the written rate was the loss: redeeming at a
+hundred to one, at the moment of redemption, meant redeeming one per cent.** This is the cleanest instance the
+unit-of-account source has, cleaner than Russia 1993 or Brazil 1990, **because the source supplies both ends
+itself**, the sum paid and the price level on the day.
+
+**Three of the four sources are present at once and the fourth is confirmed absent.** The unit moved; the
+enforcement fell short, most ordinary residents recovering nothing at all; and discretion sat on the delivery
+step, those who were paid being largely relatives of party or administrative cadres and acquaintances of bank
+staff. **The coarse-procedure source is not present**, consistent with the earlier finding that this carrier's
+identification is the finest in the corpus. **Delivery-step discretion therefore splits into two shapes with
+different remedies**: in Germany 1953 the bank decided whether to distribute and that was written into the
+scheme, while here the person at the counter sorted by connection and the text says nothing at all. **The first
+is readable from the document; the second is readable only from the enforcement record.**
+
+**The take-up side supplies a route this corpus had not recorded.** Many residents did not believe the promise
+because their deposits had been confiscated in the fourth currency reform of 1992. **The previous failure to
+deliver is an input into this operation's take-up.** Every alternative route recorded until now was spatial,
+somewhere else to spend it; **this one is temporal, the same issuer having failed to pay the last time.**
+
+**Two chains now sit side by side with the same shape and opposite endings.** Germany wrote its terms in 1948,
+added a compensating statute in 1953 and released the blocked tenth in 1954, ending with more than it had
+written. The DPRK wrote its terms on 30 November 2009, added a raised ceiling and a promise on 6 December, and
+paid in August 2010 at the written rate capped back at the cash ceiling, worth one per cent, and largely to the
+connected. **So the act of adding after the fact carries no guarantee of its own; what carries it is the three
+things at the moment of delivery — whether the unit held, whether enforcement reached, and who decided the
+handing over.**
+
+**The exclusion that files Burma and Indonesia apart is a rule about price, not a rule about the programme.**
+The counting statement carries a qualifier, that it covers only programmes partitioning by holder, and on that
+ground Burma 1987 and Indonesia 1959 were set aside and the eleven became nine. The reason for setting them
+aside was that a holder can hold several denominations at once, so those blocks do not partition the set of
+positions, and the convention is that a class is a block of a partition. Splitting the two carriers across the
+two components shows that this reason is true on one component and false on the other. Price hangs on the
+holder, and a denomination key does not partition holders. Reachability hangs on a sum of money, and every note
+carries exactly one denomination, so the same key partitions the money exactly. That second sentence was already
+written down before the question was put, in the passage deriving why a registration point is necessary for
+price and not for reachability.
+
+**Reading the exclusion at the level of the programme costs two rows, and they are the expensive two.** The
+fifteen-row table of reachability bands rests, for its zero count, on the five carriers with no registration
+point. Two of those five band on the object itself: Burma on which denomination was voided, and the DPRK of 1949
+on which auxiliary money was held. Both are asset keys. Excluding them at programme level would take the five to
+three, the independent programme shapes from four to two since 1959 and 1979 repeat one shape, and the instances
+of banding on the object from two to zero. **The cheapest of the three free sources would become an empty cell,
+and it is the source that carries the claim that a distinction can be drawn without identifying anyone.**
+
+**Read per component, both sides check out and neither gains a counterexample.** The price side is unchanged at
+nine with none against. On the reachability side Burma is a row in good standing, returning two by banding on
+the object with no registration point, which the law permits because that source is free; Indonesia returns one,
+having drawn no distinction at all, and so was never in that table to begin with.
+
+**Indonesia also names a cell that had none: the ceiling is not binding here.** Its programme is keyed on the
+asset, so the free distinction was available to it, a note stating on its face which kind it is, and it did not
+take it. Both kinds of note stayed directly spendable and only the figure moved. This forecloses a reading that
+would empty the law, that a programme will always consume every free distinction available to it; were that true
+the law would predict something that happens every time and would carry nothing. Indonesia is the counterexample
+to it, so the law is a ceiling and not a description of behaviour. One instance of an available and unused free
+distinction has been counted, with no sweep behind it, so that is a lower bound.
+
+**No row count and no tally changes.** What changes is the scope of one qualifier: it limits the price row, and
+the reachability row does not take it. **The scope of an exclusion equals the scope of the reason that produced
+it.** That exclusion was written when there was one component, so its subject was written as the programme; once
+there were two components the subject expired, and nothing reports that, because each table reads correctly on
+its own and only setting them side by side shows a key holding on one side and failing on the other.
+
+**The qualifier needs a second repair, independent of the first, and this one is about grain: it applies clause
+by clause inside a carrier and not carrier by carrier across the batch.** Of the four clauses in this corpus
+that partition by something other than the holder, two sit inside programmes that otherwise partition by holder:
+the vintage of a non-resident's balance in Germany 1990, and the exemption of the 1992-series ten-thousand rouble
+note from any ceiling in Russia 1993. **The first two were caught by the qualifier and the second two are never
+reached by it, because what it screens is the carrier.** Germany's cell was in fact read clause by clause, the
+two to one against three to one inside the non-resident block being recorded as two margins of one block rather
+than as two blocks, on the ground that one non-resident may hold balances of both vintages; but that was right
+because the text was reread on the spot, not because the qualifier caught it, and a reader who does not reread
+the text will count it as two.
+
+**The Russian exemption is this corpus's third instance of banding on the object itself, and it is a nested one.**
+The decree of 26 July exchanged notes of the 1992 series without any limit of amount, which is a reachability
+clause keyed on which issue of note is held, sitting inside a programme whose main partition is by an identity
+the ledger does not hold. Two things follow. The count of two going to zero above is unaffected, since that
+arithmetic concerns the five carriers with no registration point and Russia has one; three instances simply make
+that cell firmer. And the nesting is a positive prediction of the law: **a programme that has built a
+registration point does not thereby use it to band everything.** Where a free source suffices it keeps using the
+free source, because identifying people buys only the distinctions that cannot be drawn otherwise. One lower
+bound is corrected in passing: the four recorded for Russia is a reading of the 24 July slice, and after 26 July
+there is at least one further band by issue, so that four can only rise.
+
+**A qualifier written as a sieve will sieve and will not ask.** "Covers only programmes partitioning by holder"
+reads like a statement of scope and works like an entrance check: a carrier that passes it is never asked the
+question again on the inside, and half the instances of this family are on the inside. **The grain of an
+exclusion equals the grain of the reason that produced it**, and that reason speaks about a clause while it was
+written as a judgement about a programme.
+
+**The Czechoslovak block count was recounted on 4 September and went into the corpus the same day, while the
+record kept showing it as pending.** Grepping the carrier's name before writing turned that up at once. It is the
+seventh time here that a settlement made in a corpus file left the record carrying a queue, and five of the
+earlier six could be caught by a document number, which this one cannot: what changed was a figure in a table,
+and a figure has no name. The machine-readable keys in this arm are document numbers, criterion names and station
+numbers, and the block count in a particular cell is none of them.
+
+**Three things were open and are settled here. First, the nine blocks sit in the reachability column and not the
+price column.** The rate is one to one throughout, section 1(4) converting the nominal value of claims and
+obligations at par, and the only price device in the carrier is the stamp: which republic's stamp a note bears
+decides which country's money it is, and that is two values. The nine are nine different ceilings on cash
+exchange, with the excess routed into postal orders, central-bank vouchers and savings instruments. **That second
+column has to be reported on two scales.** The four-question vector returns two, because it asks whether cash may
+be drawn, whether the money moves without cash, whether a release date is stated and who fixes it, and none of
+those resolves how high a ceiling stands. Reading a class value as what a block receives returns at least nine,
+because four thousand and one thousand are two different things. Both are correct and they measure different
+objects, so both are reported rather than averaged or chosen between. **On the second scale this is the carrier
+with the most reachability bands in the corpus**, and the first scale is shown to be the coarse one, which is the
+defect its own audit had already registered.
+
+**Second, the claim that Russia 1993 was the only carrier banding reachability on an identity the ledger does not
+hold is wrong, and correcting it strengthens the law.** The Czechoslovak row had been labelled as banding on
+arithmetic and on a ledger distinction, written before either statute was in hand and reading only the amount and
+the cash-against-account split. Reblocked against the texts, six of the nine blocks and both residence exclusions
+band on an identity: the two age bands, the foreigners on each side, the international organisations and the
+foreign missions. Two blocks band on ledger type, the legal persons on each side, and one on arithmetic, the flat
+Slovak four thousand. **So two carriers band reachability on the fourth kind and both built a registration
+point.** The count against stays zero and the support goes from one instance to two, two independent legislatures
+each paying for the counter and neither getting the distinction free.
+
+**Third, the borrowed identity now has two instances.** Russia's refugee band used a status another statute had
+created five months earlier; the Czech statute names persons recognised as refugees among the eligible in section
+2(1), and that status is likewise not created by this law but referred to. Two countries, one device: a statute
+that needs an identity and does not build it points at one that already exists.
+
+**Whether the two republics count as one carrier or two is left open with both figures printed.** They are two
+sovereigns, two statutes and two partitions, so by substance they are two; but walking both readings through the
+conclusions already on the books, the only cell that differs is a bookkeeping one, whether the corpus holds one
+mixed carrier or two. Block count, largest example, price values, counterexamples to the counting law and the
+statement on the side without registration points all come out the same either way, so no ruling is taken and the
+note sits beside the tally. **One sentence in the recount was also superseded three times over without being
+marked**: it called this the largest example in the corpus, while the DPRK of 1947, entered the same day, names
+ten classes against these nine, and three later passages already say so. Printed both ways, ten against nine by
+classes named and eight against nine by classes given a value, this carrier is not the largest.
+
+**The bearer-deposit question is answered: such deposits existed, the stock was large, and the scope of the price
+law moves from a cut between cash and deposits to a cut between money that carries a holder's identity and money
+that does not.** The question had been registered without being asked: are there bearer deposit forms among these
+carriers, and if so must that carrier's deposit side be read like its cash side. **Counting first, at no cost,
+settles how much the answer can matter.** Reading a deposit side like a cash side bites only where the deposit
+side bands on an identity the ledger does not hold; banding on amount or on ledger type works perfectly well on
+an anonymous book, since the book knows its own balance and knows what kind of account it is. Across the ten
+carriers with a deposit side, the Soviet Union of 1947 bands on amount, the DPRK of 1947 on ledger type and
+amount, Germany 1948 on a uniform proportion, Belgium 1944 on amount with a retroactive qualifying date,
+Argentina 2002 on ledger type, Czechoslovakia 1993 not at all, the DPRK of 2009 on ledger type and amount, and
+Pavlov's decree on amount with a per-person unit. **Only Germany 1990 bands its deposit side on an identity, the
+one-to-one quota set by date of birth, and it built an application step to do it.** The question could bite one
+cell at most, which is what made the retrieval cheap.
+
+**Bearer passbooks existed, and one side of the corpus carries a figure.** Czech bearer passbooks, vkladní knížky
+na doručitele, were abolished only on 31 December 2002 under the banking act; the bank's own accounts held 120
+billion crowns in them at that moment, and 1,785 million crowns had still never been collected by the end of
+2016; one institution in the country ran them, Česká spořitelna. **That institution is one of the two the 1993
+statute named to receive above-limit cash.** On the Soviet side a bank's own explainer states that the bearer
+deposit appeared in Soviet times and that Russia prohibited issuing bearer securities only from 1 June 2018; that
+is a third-tier source, marked as such and not load-bearing.
+
+**So the earlier formulation, that the deposit side lies outside the scope because the ledger is itself the
+counter, stated an empirical fact as a structural one.** A deposit system is not a counter; it is a ledger that
+may or may not carry identities, and whether it does varies by country. The cut that works is **whether a
+holder's identity is attached to that particular money**. Cash is always on the unattached side, a named account
+on the attached side, and a bearer passbook on the unattached side while being a ledger entry, so it occupies
+both sides of the old line by itself. **Recut this way the law stops being about media and becomes about a
+relation**: to price by holder, an identity must first be attached to that money, and it may be attached by a
+counter, a document, a familiar face, an introducer, or by a ledger that attached it long ago.
+
+**Czechoslovakia is the positive instance and both halves close.** One statute, one day: nine blocks on the cash
+side, of which six and both residence exclusions band on identity, and on the deposit side a single conversion at
+par with no block at all, in a country where a large part of that deposit stock carried no name. No claim is made
+about why the legislature wrote it that way, which would need a legislative history nobody has retrieved; the
+claim is that the two point the same way and that the opposite cell is empty here.
+
+**The same page also answers an open cell on how much an above-limit band was actually occupied, and the answer
+is a starting position rather than a route.** The instruments designated for above-limit cash, postal orders,
+central-bank vouchers and the savings instruments of the two named banks, were **used minimally, because most
+citizens had already put their surplus cash in banks**. A first draft read that as a route walked in response to
+the announcement, and the corpus's own timeline refutes it in the same file: separation was announced on 3
+February and took effect on 8 February, and **all payment traffic was halted in between**. The state closed that
+route for four days. The phrase means "long before", not "as soon as they heard": household money in that economy
+was already mostly in savings accounts, cash was a small part of it, and the statute left the account side whole
+at par. **The state shut a road nobody was on any more, because the money had crossed to the other side years
+earlier**, so the nine identity blocks constrained only those still holding large cash on the day, a small group.
+
+**That gives the above-limit family a further question, and it asks about the starting point rather than about
+routes.** Every route question so far has asked whether there was somewhere else to go: another place to
+exchange, a goods market, a band priced at zero, an issuer that failed to pay last time. The new one asks whether
+holders held much of the stock the band was written on at all. A band written on a stock most people hold little
+of has a low occupancy without any route being walked. The consequence is the same, a written rate carrying no
+reading of behaviour, but the check is different and cheaper: asking about routes means establishing what
+happened inside the window, while asking about the starting point means measuring one share, and that share was
+fixed before anything was announced. It also places the surprise correctly. A band written on cash structurally
+admits the move onto the ledger, and most carriers compress announcement to execution into hours; this one
+compressed it to five days and stopped payments as well. The road was therefore almost never open in this corpus,
+and whether it was open is a separate matter from whether occupancy was low. Here both point down, and the reason
+is the starting point. The sweep across the whole corpus is registered and not done.
+
+**Before sweeping, the scope: a low occupancy has three distinct causes here and they read identically.** One is
+the route, that a cheaper way out existed, and checking it means establishing what happened inside the window.
+Two is the starting point, that the band was written on a stock most people held little of, and checking it means
+measuring one share. Three is **the height of the threshold**, that the line was drawn above nearly everyone's
+holdings in the first place, and checking it means one ratio, the threshold against what those people actually
+brought. **All three produce "almost nobody walked the written band", and all three say completely different
+things**: that people went around it, that they did not hold the thing, that the line was drawn too high. The
+third is the cheapest and the most obvious, and this arm had never treated it as a category.
+
+**It had, however, already been computed once, and the computation was never set beside the attribution that
+needed it.** For Estonia the check is on the books: an average of 136.41 kroons actually exchanged against a
+first-band ceiling of 150, which is 90.94 per cent, with the caveat recorded at the time that the average
+includes output from the fifty-to-one band, so it yields an order of magnitude only: **the ceiling stood at the
+same order as what people brought, not so high that nobody could reach it.** Separately, the share of collected
+cash that fell into the above-limit band was measured at 0.203 per cent and attributed wholly to the open route,
+rubles still being current across the border. **Both sit on disk, one a check and one an attribution, and they
+had never been placed side by side.** Placing them there makes the attribution stronger rather than weaker: with
+a threshold at 1.1 times the mean brought, any right-skewed distribution of holdings leaves tens of per cent of
+value above the line, and the measurement is two per thousand, so the threshold's height cannot account for that
+order and the route carries the remainder. That is an order-of-magnitude argument resting on an assumption of
+right skew, not a figure; the distribution has not been retrieved.
+
+**So the starting-point question is one of three candidates and not an explanation.** Reading a low occupancy as
+"the written rate carries no reading of behaviour" is sound, and all three causes support that step; reading it
+as any particular mechanism requires ruling the other two out. Three operations follow, all cheap: a band written
+on ledger balances puts the starting-point question out of scope, since balances are already on that side; where
+it is in scope, compute the third cause first, which is one division; and where the third cause cannot be
+excluded, write that two or more causes are open and undivided rather than picking one.
+
+**A further limit is not a cause at all but a purpose.** The Czechoslovak four thousand was not written to
+confiscate; it was written to block cross-border arbitrage during a five-day stamping window, in a statute that
+also forbids outright any domestic-currency payment to a payee in the other republic and deletes the large-cash
+edge with a twenty per cent penalty. **A band written to prevent something does what it was written to do even at
+zero occupancy**, because occupancy measures who was caught by it and cannot measure what it stopped from
+happening. Prevented means nobody was caught.
+
+**Classifying the cells is pure reading and closes half of them before any sweep.** Nine are in scope:
+Czechoslovakia 1993 and Estonia 1992, both now answered, and Russia 1993, Kazakhstan 1993, the DPRK of 1992, 2009
+and 1947, Belgium 1944, which carries two figures of its own, and India 2016. Six are out of scope: Germany 1990,
+Germany 1948, Brazil 1990 and both Argentine decrees, all written on ledger balances, and Turkmenistan 1993,
+whose band was priced at zero so no rate of use exists. **Seven cells remain uncomputed and each needs the same
+one thing, the threshold against what those holders actually brought.**
+
+**Where a reading has three causes that look alike, name the third one before sweeping.** Two of these were
+already written down as disciplines; the third had been computed once and had no name, no place and nothing
+pointing at it, so the correct computation bought nothing: the next person to make an attribution did not know
+the check existed. **A check that has not been categorised cannot even go stale, because it was never on any list
+to begin with.**
+
+The first larger thing is that this partition moved too, and the reading taken from the
+telegram was a first-day slice of it. The presidential decree of 26 July raised the personal
+ceiling from 35,000 to 100,000, exempted 1992-series ten-thousand notes from any ceiling, and
+ran the window to the end of August; a telegram of 29 September carried it to the year end
+behind a documentary test from 1 October; one of 13 November added proof of prior holding,
+stopped the exchange of two denominations, and shut out citizens of the near abroad. Six
+instruments, five revisions, five months. This is the sixth time here that a true statement
+about one moment has been read as the regime, and the first where the source was a primary
+text. That yields a rule of its own: being primary does not imply being complete in time. A
+founding instrument can be entirely correct and still describe only the first day, and the test
+is whether the document says it is final; if it does not, look for what amended it.
+
+The second is that this carrier may not belong in the rate column at all. The corpus classifies
+it as a rate programme on the ground that citizens, foreigners and legal persons each get a
+different treatment, but different treatment by identity is not the same as a different price.
+Reading through the instruments there is no second rate anywhere: old notes go to new at one to
+one, the excess is credited to a six-month interest-bearing deposit with face value untouched,
+the exempt denomination is still one to one, and the small notes that kept circulating are
+too. What varies by identity is the ceiling and the length of the window. The corpus's own test
+for a quantity programme is that face value does not move, and its worked example is Brazil in
+1990, where balances above a threshold were frozen for eighteen months at face value. Russia
+froze the excess for six. On the corpus's own criterion this is a quantity programme with
+holder-differentiated quotas, which would move the tally from twenty-one and three to twenty
+and four. The zero-counterexample statement is unaffected, since it rests on the eleven
+carriers with no registration point and this one is not among them. The obvious objection, that
+a six-month deposit under 1993 Russian inflation is a large real haircut however untouched the
+face value, applies equally to the Brazilian case the corpus has already classified as a
+quantity programme, so it is an objection to that criterion rather than to this application of
+it, and it belongs in its own place. The reclassification is recorded with its argument and the
+corpus tally is not altered here.
+
+**That reclassification has since been generalised, and the generalisation is a component coming apart.**
+The twenty-three carriers were tabulated with one number each, a class count, and the entry for each was
+written from the identities the programme names. Going back to write, for each band, what it actually
+receives, the answer comes out in two sentences rather than one: **one rouble of old money buys one rouble of
+new**, and separately, **what you get is spendable cash, or a deposit frozen for six months, or a deposit you
+may spend but not withdraw, or no cash at all.** The first sentence is the weight on the edge. The second is
+whether the edge is passable. **The old column counted one number where there are two components.**
+
+Recounting the twelve carriers that have a registration point on both components gives this.
+
+| carrier | old label | **distinct prices** | **distinct reachabilities** | what the old label was counting |
+|---|---|---|---|---|
+| Germany 1990 | 3 | **3** | **1** | price; correct, and for the right reason |
+| Czechoslovakia 1993 | 2×2 | **2** | **2** | one 2 per component, without saying which was which |
+| Estonia 1992 | 2 | **2** | **1** | price; correct |
+| **Russia 1993** | **3** | **1** | **4** | **identity; neither component** |
+| Kazakhstan 1993 | 3 | **2 plus one discretionary** | **2** | the two components mixed |
+| Turkmenistan 1993 | 2 | **2** | **2** | price; correct |
+| DPRK 2009 | 2 | **2** | **at least 2**, text silent | price, under the standing caveat that its boundary moved four times |
+| India 2016 | 2 and a screen | **1** | **at least 2** | quantity programme, already set aside |
+| Brazil 1990 | 2 | **1** | **2** | as above |
+| Latvia 1992 | 1 | **1** | **1** | correct |
+| Moldova 1993 | 1 | **1** | **1** | correct |
+| Kyrgyzstan 1993 | 1 | **1** | **1** | correct; a one-shot device blocks arbitrage, it does not band reachability |
+
+**The worry that prompted this was that a table labelled by identity would be wrong throughout. It is wrong
+once.** Nine of the twelve old labels equal the price count, two more are the quantity programmes already set
+aside, and the single mislabel is the one carrier the worry had itself named. **The reason is worth more than
+the count**: in almost every programme here the identity bands and the price bands coincide, because a
+different birth year, a different stamp or a different size bracket is exactly what buys a different rate.
+**Identity is the label and price is the content, and they come apart only where a programme spends identity on
+reachability instead of on price.** Russia 1993 is the only carrier in this corpus that does that.
+
+**So the zero-counterexample statement is now read with one word fixed**: absent a registration point, a
+programme writes exactly one **price**. Nothing in any verdict moves, because on the eleven carriers without a
+registration point both components equal one and the two readings agree. What moves is the reading on the
+other side: **Russia 1993 joins Latvia, Moldova and Kyrgyzstan as a fourth carrier that has a registration
+point and still writes one class value** — and its shape is unlike theirs. Those three **did not use** the
+point to band anything; Russia used it, and spent it on reachability.
+
+**The second column is a table nobody has counted.** Seven carriers write two or more reachabilities and five
+write one, with none left unchecked. **Germany 1990 has three prices and one reachability; Russia 1993 has
+one price and four reachabilities. Both were labelled 3 under the old column, and on the two
+components they are opposites.** This is the framework's own cell rather than a correction of anyone: a firm
+has no reason to count how many kinds of "same price, different access" a scheme writes, because on the seller's
+side access is not a thing that gets allocated. **Having a trade graph as a separate object is what makes it
+countable.** Three limits are recorded with it: Turkmenistan's second column is now filled from a
+participant-level text and reads two, Kazakhstan's discretionary band counts in neither column, and the DPRK 2009 price count carries the
+standing caveat that its boundary was not a fixed object during the operation.
+
+**A self-check the same day found the second column's criterion badly shaped, and the fix is recorded before
+the number is used for anything.** It was defined while being counted, not before, and its rule reads: two
+positions have the same reachability when the text says the same thing about what may be done with the money
+afterwards. **The rule is legitimate; what is wrong is that it was written after the count, and that it treats
+a multi-dimensional object as one number.** On a coarser axis, whether cash can be drawn at once, the four
+Russian bands collapse to two; on the axis actually used, what may be done with it, they are four. **The entry
+had read "at least four", and that inequality reads as a cautious lower bound while in fact concealing an
+undeclared choice of axis.**
+
+The replacement is a written list of questions answered from the text, at no data cost and declarable before
+any counting: **may cash be drawn at once; may the money be spent or transferred without cash; does the
+restricted band carry a release date; and is that date written down or delegated to somebody to fix later.**
+**A reachability value is the vector of those four answers**, two positions agreeing only when all four agree,
+and each question admits "not stated" so the middle state exists. Substituting the Russian bands returns four
+distinct vectors, so **the count stands at four and it is now derived rather than observed**. The third and
+fourth questions are the two that the delegated-deadline discipline asks, and the German Anlagekonto of 1948 is
+an instance where the fourth answer is "delegated", with the cost of that delegation already measured at four
+months. Two gaps are registered: the eleven carriers without a registration point have not been counted on
+this column, and neither have the carriers added to the corpus since the table of twenty-three was drawn, so
+**the second column is a table of twelve rows, not of twenty-three.** **The first of those two gaps has since been filled.** None of the verdicts above depend on its
+resolution, which was checked line by line.
+
+**Turkmenistan's cell was filled without any new search.** The clause was already on disk in another record of
+this line, and one search on the carrier's name before starting returned it. It comes from a 2018 interview
+with the man who was deputy governor of Turkmenistan's central bank at the time and had headed issue and cash
+management, so the manat's preparation had been his to run: `ведь меняли только по 60 манатов каждому
+взрослому гражданину Туркменистана, все остальное, включая безналичные деньги на банковских счетах, сгорало`,
+that is, sixty manats to every adult citizen, and everything else, including non-cash money in bank accounts,
+burned. At the official 500 to 1 that is exactly the 30,000 roubles this line had already recorded from an
+independent direction. The two bands answer the four questions as (yes, yes, no restricted band) and (no, no,
+extinguished), so **Turkmenistan writes two prices and two reachabilities.**
+
+**Filling it added a fourth option to the third question.** "No release date" had been folding two different
+things into one answer: a band frozen with no stated end still exists, while a band priced at zero does not.
+The question now reads: a release date, a release period, an indefinite freeze, or extinguished. Russia is a
+period of six months, Czechoslovakia a date, the German Anlagekonto a date with the fourth answer "delegated",
+and Turkmenistan extinguished. **The count does not move and the shape does**, which is the free kind of
+revision.
+
+**It also separated receiving zero from there having been no exchange at all.** Lithuania's cash side is
+recorded as "not applicable" because no exchange happened there for the four questions to describe.
+Turkmenistan's above-cap band did have the act, the holder going to the counter, receiving sixty and watching
+the rest lapse, so it receives zero, and zero is a written class value that the four questions answer.
+
+**The primary document for that carrier is closed rather than queued.** The 1993 decree introducing the manat
+has not been obtained, and an earlier source-availability test had left it as waiting for the archive to open.
+That wording is withdrawn: the 1990s document layer on that side is not published, so the wait names no date
+and no event that could be observed to happen, which makes it a reason to close and not an unlock condition.
+The other two items from that same test are unaffected, each of them hanging on something that could really
+occur, a photocopy of a printed gazette and a digitisation project releasing its 1993 volume. **The rule this
+yields has two halves**: before the source categories are exhausted, "this category does not have it" must not
+be written as "it does not exist"; after they are exhausted and each has been probed to the bottom, a closure
+must not be written as a wait, because a wait is re-queued every round and the re-queueing is paid for every
+round. **No reading depends on the decree**, whose only effect would be to give an existing clause a higher
+grade of source.
+
+**The carriers added to the corpus after the table of twenty-three was drawn now have this column too, at no
+retrieval cost, since every clause was already on disk.** Reading question three on its four options: the DPRK
+of 1947 puts the above-cap balance into a special non-interest-bearing frozen account in which all payment is
+forbidden, so two; the DPRK of 1949 voids the colonial subsidiary coin `교환없이`, without exchange, so two;
+the DPRK of 1959 and of 1979 let a natural person take cash freely while an enterprise must deposit its
+holding and draw only what it needs, so two each; the DPRK of 1992 pays cash to 399 won, forces the band above
+it into deposits released over three, five and ten years, and refuses even a deposit above 30,000, so three;
+Germany 1948 splits a converted deposit into a free account, a blocked account released on 1954-01-01 by rules
+delegated to a later instrument, and a cancelled portion, so three; and Argentina 2001 lets cash out at 250 a
+week and keeps the rest inside the deposit system, so two. **The second column is now nineteen rows.**
+
+**The German three checked itself.** The share going down each of the three channels can be computed from two
+statutes and then compared against the composition written in a third document: ten Deutsche Mark per hundred
+Reichsmark, half free and half to the blocked account; then seventy per cent of that blocked half cancelled,
+twenty per cent moved to the free account and the last tenth to the Anlagekonto. That gives 5.00 plus 1.00 for
+the free side and 0.50 for the Anlagekonto, **which is exactly the 6.00 plus 0.50 the first implementing
+ordinance writes**, with the cancelled 3.50 correctly absent from the composition. This column had never had a
+reconciliation of that kind against it.
+
+**Argentina's answer to the second question is the strongest "yes" in the corpus.** Article 5 of decree
+1570/2001 says the institutions `no podrán obstaculizar la transferencia o disposición de los fondos entre
+cuentas … ni percibir comisión alguna por la transferencia electrónica`: transfers between accounts may not be
+obstructed and electronic transfer may not be charged for. Elsewhere the answer is yes because the text does
+not forbid it; here it is yes because the text protects it. **A programme that shuts the cash side and forces
+the non-cash side open, in two articles of one decree, is writing reachability as an allocable object in both
+directions.**
+
+**Filling the seven exposed a boundary the zero-counterexample statement does not itself state.** That
+statement is about price: absent a registration point, a programme writes exactly one price, and it holds
+across twelve carriers. **Its reachability analogue is false, and three of this batch are the counterexamples**
+— the DPRK of 1959, the DPRK of 1979 and Argentina 2001 each have no registration point, one price, and two
+reachabilities. The reason is mechanical and it explains why the law is about price at all: **pricing by
+identity needs a person to appear with himself at a counter, because the price hangs on the person, while
+banding reachability does not, since the property it bands on is already in the ledger** — whether this is an
+enterprise account, which note this is, how much has been drawn this week. **A registration point buys knowing
+who you are; reachability only needs knowing what this is.** So the law's condition is not an arbitrary one:
+the registration point is necessary for the price count and not for the reachability count. The zero-
+counterexample statement itself is untouched, checked line by line, since all three of those carriers keep a
+price count of one.
+
+**Two of the remaining inequalities are not the same kind of thing, and the test is where the inequality comes
+from.** Kazakhstan's had no source at all: all four questions are answerable from the text, within-cap being
+yes, yes, no restricted band and above-cap being no, no, released after six months, with the commission's band
+counted in neither column, **so it is two**. The DPRK 2009 entry is different: the source itself records that
+deposits up to 500,000 were allowed while the rate, whether it could be withdrawn, and whether it bore interest
+were all unknown, so **that inequality is a real lower bound**, because an unanswered question can only raise a
+count and never lower it. **The two print identically and point opposite ways**: one tells the next reader to
+fix the criterion, the other tells him to go find the text.
+
+**Argentina's third question was answered by fetching the decree in full, and the deadline it was expected to
+carry does not exist.** Article 2 opens with nothing but `Prohíbense las siguientes operaciones:` and then the
+weekly 250. The duration sits in article 9 and hangs on an event: the decree runs from the date of publication
+`hasta las 24 horas del día siguiente al de cierre de las operaciones de crédito público previstas en el
+artículo 24 del Decreto Nº 1387/01`. A second route out sits in article 3 and hangs on a state of the world
+plus a judgement: the central bank **may** reduce the restrictions once total system deposits rise above their
+level at the close of 30 September 2001 and interest rates are, in its own judgement, normal. **So the release
+is neither a date nor a period**, and the fourth answer is "delegated".
+
+**That forced the third question to be rewritten a second time on the same day, and the second rewrite is
+worth more than the first.** The four options had been read off the rouble-zone and East Asian carriers, so
+they were that family's option set, and a carrier from another administrative genealogy simply added one.
+**That is failure mode 113 in its usual shape, a criterion read off the cases being tested**, and the remedy is
+the one already applied to the layer discipline: write the criterion from the classification side. The question
+now reads: what is the release attached to, a written calendar date, a written period, an event or a state of
+the world, nothing at all, or is there nothing left to release. **Those five are closed by construction** —
+either the release is attached to time, absolutely or relatively, or to a condition that is not time, or to
+nothing, or the band no longer exists — **so no further genealogy can add a sixth**. No count moves.
+
+**The same decree writes this line's two components apart, and says why.** Two consecutive recitals: `no es
+jurídicamente posible ni económicamente conveniente afectar la intangibilidad de los activos bancarios por
+parte de sus titulares`, and then `sin embargo, en situaciones como la presente puede restringirse por un breve
+período su uso y goce, limitando exclusivamente ciertos retiros en efectivo`. The value may not be touched;
+the use and enjoyment of it may be restricted for a short period. **Article 4 then declares the deposits
+untouchable, article 2 shuts the cash side and article 5 forbids obstructing the non-cash side.** Value fixed
+gives a price count of one, use and enjoyment restricted gives a reachability count of two, **and the `sin
+embargo` makes the first the reason for the second: precisely because the value could not be touched, the
+access was.**
+
+**This is the strongest instance the framework's own cell has.** A rival has no reason to split what a claim is
+worth from what may be done with it into two separately allocable objects, since on the seller's side access is
+not allocated at all. **This decree not only splits them, it writes the impossibility of moving the first as
+its motive for moving the second.** The two columns had until now been defended as this line's own way of
+reading; here a legislator got there first. **Reachability is written three times in the one document, in
+three directions**: shut in article 2, forced open in article 5, and priced in article 8, which makes the
+central bank the applying authority and requires it to ensure every inhabitant can open a savings account and
+hold a debit card in order to use their financial assets, setting the conditions and the maximum fee the
+institutions may charge for that service. **One item is registered**: the closing date of the public-credit
+operation that article 9 points at has not been retrieved, while the restrictions in fact ran to the end of
+2002, so the written duration is event-shaped and its relation to the realised length is unchecked.
+
+**The 1992 DPRK ceiling was not an open conflict either.** It had been settled at 399 won per household the
+previous day, from a Bank of Korea research paper that names its original, a 1994 South Korean intelligence
+compilation built from separate debriefings of several defectors. **Repeated independent debriefings agreeing,
+against a secondary account that names no original at all, are not two sources in conflict but one with a chain
+and one without**, so the figure is settled and the 300 is not retained as a candidate. **It was carried
+forward as unresolved here only because the record that settled it never wrote a pointer back into the record
+that had registered the conflict.**
+
+One more item rides along. The 1992-series ten-thousand rouble note was exchanged without any
+ceiling, which partitions by denomination and series rather than by holder. That family now has
+four members, and two of them, this one and the vintage of a non-resident's balance in Germany,
+sit inside programmes that otherwise partition by holder. The qualifier that this covers
+programmes partitioning by holder therefore cannot be applied by setting two carriers aside; it
+has to be asked again inside each one.
+
+The Russian cell now has figures on both sides of the question. From the central bank's own
+1993 report, ten banks exchanged 1.9 trillion roubles of old money, 0.7 trillion for
+enterprises, 1.1 trillion for households and 0.1 trillion through settlement centres outside
+the savings bank, while the sums credited to the six-month deposits, which is the above-cap
+band, came to 0.04 trillion held by about 167,000 people. Households made 24 million exchanges
+between 26 July and 31 August at an average of 46,000 roubles, and that average multiplied out
+gives 1.104 trillion against the 1.1 trillion stated, so the two figures are internally
+consistent and describe the household column. The above-cap band therefore carried 2.11 per
+cent of everything exchanged and 3.64 per cent of household exchange, and was used by 0.696 per
+cent of those who exchanged, each of them depositing 239,521 roubles on average and so holding
+something near 340,000 in all, about 7.4 times the average exchanger.
+
+The same average prices what the revision of 26 July did. At 46,000, the average household
+holding was 131 per cent of the first-day ceiling of 35,000 and 46 per cent of the revised
+ceiling of 100,000. The decree converted a line that would have bound the average holder into
+one that touched seven people in a thousand.
+
+The alternative route is not merely attested but measured. Soviet banknotes were still
+circulating in nine of the fifteen former republics when the Russian reform began, and in
+Armenia, Kazakhstan, Tajikistan, Turkmenistan and Uzbekistan they were the only currency. In
+ten days of October alone the Kazakh authorities intercepted about 1.3 billion roubles of
+illegal imports, which is 130 million a day caught at one border; Russia's entire above-cap
+band was 40 billion, only 30.8 times a single ten-day seizure at a single frontier. A third
+route is attested and priced: holders of large sums turned to friends, or to people who would
+take a small fee to make the exchange on their behalf, which is the allowance-splitting route
+running as a market.
+
+That gives a third point on the curve, and the three are monotone in how cheap the alternative
+was. Estonia, where the route out was free, 0.203 per cent. Russia, where the routes cost
+something, 2.11 per cent. Germany, where there was no route, 66.5 per cent. Estonia comes in
+below Russia despite having closed the allowance-splitting route, because what Estonia left
+open was free while what Russia left open carried a fee, and each country closed the route the
+other left open: Estonia voided front transactions and recovered the proceeds while leaving the
+frontier open; Russia stamped passports against a second exchange by the same person while
+sealing the inbound border with a documentary test from 1 October and an outright exclusion of
+near-abroad citizens from 16 November.
+
+The route Russia did not close did more than hollow out its own penalty. It exported the
+problem. Old notes moved into the nine republics still using them, those states were swamped,
+and they issued their own currencies within months: the Turkmen manat on 1 November at 500 to
+one with a ceiling of 30,000 roubles giving 60 manat, the Kazakh tenge introduced at eight in
+the morning on 15 November and sole legal tender from 18 November, also at 500 to one. Russia
+closed its exchange to citizens of neighbouring states on 16 November, one day after the tenge
+appeared. Six post-Soviet carriers in this corpus are therefore not six independent
+observations but six points on one chain, and that has to be carried into any statement here
+about the independence of observations.
+
+The Kazakh decree itself is in hand and contains four points: the date of introduction, the date
+from which the tenge is sole legal tender, its division into a hundred tiyn, and an obligation
+to accept it without limitation. It carries no exchange ceiling at all, which is the seventh
+instance of terms living outside the instrument whose name fits best. One conflict is left
+unresolved rather than settled: an outside account says Russia refused to supply 1993-series
+notes to these two states, while the Russian account says the central bank had to hand some of
+the new notes to Kazakhstan and Belarus. What is certain is only that the bulk of what was
+converted was the old series, since in those republics the old series was the only currency.
+
+The Kazakh cell closes and it supplies something the corpus did not have: a price for the
+alternative route. A student at the time recounts that the faculty office announced a ceiling of
+100,000 old roubles per student, which at five hundred to one is 200 tenge and matches the rate
+already on record. He exchanged the money of a friend's trader brother and was given 20 tenge
+for his trouble, so renting out an unused allowance ran at ten per cent. The scale is described
+too: traders with sacks of devalued roubles filled Almaty and the only way out was to reach
+students through acquaintances, of whom the city had no shortage.
+
+The purest form of the alternative route also appears, and it is not an exchange at all. Old
+Soviet roubles counted as money only in Kazakhstan by then, so holders bought whatever came to
+hand: six wagons of brick, four of meat and five of poultry in one city, two of grain in
+another, a container of toothpaste, two of sugar, four of salt, a wagon of liqueur, two of
+metal and 160 loaded vehicles at the Chinese border. The alternative to accepting a penalty
+rate is not necessarily another rate; it is the goods market, which is almost always open, and
+the observable is a wagon of salt rather than a conversion figure. That belongs in the reading
+rule.
+
+The inflow was not from one direction. Customs named five: Russia, Azerbaijan across the
+Caspian, Turkmenistan, Uzbekistan and Kyrgyzstan. Every state that had already left was pushing
+its demonetised notes into the one that had not, and the head of the customs administration put
+ten days of October at about 1.3 billion roubles intercepted, with 16 million taken at one post
+and 30 million at two others in three days of early November.
+
+From which a general result follows that the corpus can state. In a currency area coming apart,
+each exit redirects its stock of voided notes to whichever nodes still accept them, so the flow
+concentrates as the number of accepting nodes falls, and the last node to leave absorbs the
+accumulated stock of all the earlier ones. Kazakhstan prints the point: the tenge was ready in
+April 1993, Russia left the common zone in August, and Kazakhstan instead signed an agreement in
+September to merge its monetary system with Russia's, by which time every former republic except
+Tajikistan and Armenia had issued its own money. Only after prime-ministerial talks on 3
+November was separation acknowledged, the decree came on 12 November and the tenge on 15
+November. The seven months of delay are exactly the seven months of being the warehouse, and the
+cost was borne by residents converting at five hundred to one. The testable form is that the
+later a state exits, the larger the stock its residents face at conversion and the tighter the
+same nominal ceiling binds; two points exist so far.
+
+On the disputed question of whether Russia supplied 1993-series notes, one side now has a
+first-hand voice. The chairman of Kazakhstan's national bank in 1993 said in an interview that
+year that Russia openly declared it would not admit Kazakhstan to the new rouble zone, that the
+note factory ceased producing Soviet currency from July 1993, and that it stopped issuing
+banknotes to them. Against that stands a third-tier Russian account that the central bank had to
+hand over part of the new notes to Kazakhstan and Belarus. A proposed reconciliation, small
+emergency consignments as state technical credit during the August-September negotiations
+followed by a complete cut-off in October, is compatible with both and carries no source of its
+own. It is recorded as compatible and unsupported rather than adopted, and settling it needs the
+bilateral agreements of August to October 1993.
+
+Kazakhstan's Law on the Monetary System was then retrieved in full and it makes the delegation
+rule sharper than any earlier case. Sixteen articles, covering the unit, circulation, the duty
+to accept, counterfeiting, issue, manufacture, characteristics, design, backing, the right to
+replace the unit, replacement of notes, legal tender, settlement, forms of non-cash and cash
+settlement, and regulation. Not one exchange term: no ceiling, no rate, no eligibility, no
+provision for enterprises. What it does contain is two sentences that say where the terms live.
+Article 10 gives the right to determine the procedure, timing and conditions to the President.
+Article 11 gives the procedure for exchanging notes to the National Bank and states that it is
+published in the press.
+
+That is the eighth instance of terms living outside the best-named instrument and the first
+where the statute names the medium. A law can tell you where not to look, and published in the
+press means the legal databases are exhausted by construction. It explains why two legal
+databases returned nothing across this round, and it matches how the ceiling was actually
+obtained: from a participant relaying a faculty announcement and from the newspaper of the day,
+which is precisely the place article 11 points to. The operational addition is to switch
+archives as soon as the delegating sentence names one.
+
+An outside account of the disputed banknote supply was scored against what could be retrieved.
+Its skeleton holds: the six-country agreement on practical measures for a rouble zone of a new
+type exists, dated 7 September 1993, with exactly the six signatories named; the bilateral
+agreement of 23 September carries exactly the title given; and the Kazakh decree number matches
+the identifier in the official database. Its load-bearing clauses do not: that the bilateral
+agreement's articles 2 and 3 promised 1993-series notes as technical credit, that a draft
+implementing protocol demanded half the gold and foreign exchange reserves as collateral, and
+that a delegation refused it on 2 and 3 November are all unverified, the texts being paywalled
+or unreachable on this channel. One category is corroborated at the highest level available:
+the president's own address said that after new demands were put forward limiting the
+republic's economic sovereignty, the tenge was introduced under compulsion. That confirms the
+kind of condition without confirming any figure, and the two are reported as the separate states
+they are. Four of seven checkable items confirmed, one corroborated in category, two unverified,
+which is the same shape the three earlier outside checks produced: the skeleton is reliable and
+the clause-level content has to be fetched separately.
+
+The Czechoslovak cell closes on primary text. The central bank's implementing decree of 2
+February 1993, which executes the separation law, settles what happened above the cash ceiling:
+notes above it went onto a special certificate redeemable one-off at the issuing branch, or at
+post office points onto savings books, deposit certificates, central bank cash receipts, or a
+postal order sent anywhere in the country including to the holder's own address. The cash
+receipts were issued in denominations of 2,000 and 5,000 and carry the bank's undertaking to
+pay the bearer their nominal value in Czech crowns, maturing on 31 July 1993. Face value
+untouched, delayed by about six months, which is almost exactly the Russian six-month deposit
+and corrects an outside account that put the delay at a few weeks.
+
+That does not move the carrier out of the rate column the way the Russian case might, because
+this one contains both devices at once. The stamp is a class device, since the same note
+becomes one republic's money or the other's according to where it is stamped, and that is two
+distinguishable class values. The ceiling with its certificates is a quantity device, face value
+intact and simply not available. It is the second mixed carrier here, after the Soviet decree of
+January 1991 which paired a note exchange with a monthly withdrawal cap.
+
+The decree also answers a question that was asked in a weaker form. Rather than merely leaving a
+deposit window open before the separation, section 4(4) provides that where a person over 18
+performs the exchange on behalf of other eligible persons, the exchange point does not examine
+the relationship between them. The allowance-splitting route is written into the regulation and
+the counter is instructed not to question it. The exchange still has to be recorded in every
+identity document presented, so the proxy must hold the other person's papers and the device
+still blocks a second exchange by the same person, but the route itself is protected rather than
+policed. Set against Estonia, where front transactions were void and the proceeds recovered into
+state revenue, and against Russia and Kazakhstan, where nothing addressed it and a fee market
+appeared at ten per cent in the Kazakh case, this completes an axis running from criminalised to
+statutorily protected across four carriers of the same family.
+
+The outcome matches. The central bank's own account says the above-limit instruments were used
+minimally, and gives the reason: most citizens had already deposited their surplus in banks.
+Seventy-two billion crowns of notes were stamped and five billion of newly issued 200-crown
+notes put out, with late exchange running to 9 August 1993. So the reading rule now has four
+carriers pointing the same way: Estonia at 0.203 per cent with a free route out, Czechoslovakia
+with three open routes of which one is free and written into the regulation and an above-limit
+channel the issuer calls minimally used, Russia at 2.11 per cent where the routes carried a
+cost, and Germany at 66.5 per cent where there was no route at all.
+
+Three claims about the Russo-Kazakh negotiations are closed rather than left open, and closing
+them is worth more than leaving them unverified. The assertion that the September agreement's
+second and third articles designated banknote deliveries as technical credit, the contents of a
+draft implementing protocol, and a requirement to pledge half the gold and foreign exchange
+reserves are all traceable to one side's memoirs and interviews, with the other side's finance
+minister on record describing the requirement instead as collateral equal in value to the notes
+requested. No published bilateral agreement contains the figure. That is not a gap in the
+search but a known provenance: a political account from one party with an opposing account from
+the other, and it is recorded as such and not carried into any claim.
+
+Both founding texts of the Czechoslovak separation are now in hand, and together they are the
+closest thing this corpus has to a controlled comparison: two laws passed on the same day, 2
+February 1993, by the two halves of one state, for one event and one original currency.
+Anything that differs between them cannot be explained by economic conditions and can only be
+a choice.
+
+They differ in several places, and the first one overturns the coding. The Czech law sets 4,000
+crowns for those over fifteen and 1,000 for those under; the Slovak law sets 4,000 for all
+natural persons with no age band at all. The corpus reads this carrier as age crossed with
+republic giving four bundles, and that reading does not survive: the age split exists on one
+side only. Counting what each text actually grants gives four receiving classes on the Czech
+side, over-fifteens, under-fifteens, foreigners without local residence whose ceiling is the
+amount of legally acquired currency they can document, and legal persons and entrepreneurs
+capped at their provable cash-book balance; and five on the Slovak side, natural persons,
+foreigners on the same documentary basis, legal persons on the cash-book basis, international
+organisations written separately, and foreign embassies who receive the full cash balance
+without the provability condition. Nine in the union, plus two mutually exclusive exclusions,
+each side excepting residents of the other from its foreigner provision. If that stands it is
+the largest block count in the corpus, ahead of the seven plus discretionary tier of the Soviet
+resolution of January 1991. The recount is recorded with its basis and the corpus table is not
+altered here.
+
+A third threshold shape appears with the foreigner provisions. Until now a threshold either
+varied with identity or was the same for everyone. Here it varies with evidence: how much a
+person may exchange is the amount of currency they can document having acquired lawfully. That
+is a distinct value of the discriminant and belongs in it.
+
+The pair also supplies a controlled instance of the discretionary tier. For amounts above the
+ceiling the Czech law refers to implementing regulations, which produced vouchers and deposits
+at face value maturing in July. The Slovak law says nothing at all about the excess in its own
+text and instead permits the national bank to exchange above-limit notes for credibly proven
+serious reasons within six months. One side wrote a rule and the other wrote a discretion, on
+the same day for the same event, so whether a tier is countable at all turns on the drafter's
+choice between a number and an authorisation rather than on anything about the economy being
+measured.
+
+Their edge-deletion choices differ too, which sharpens the point that these are selections
+rather than necessities. The Czech law bans outright any payment in Czechoslovak currency to a
+recipient in Slovakia and requires banks to return such orders, and it forces business payments
+above 10,000 through bank accounts on pain of a fine of twenty per cent of the sum paid. The
+Slovak law does neither: it merely authorises the government to restrict cross-border payments
+for up to sixty days. Conversely the Slovak withdrawal freeze runs to fifteen days against the
+Czech seven, and the Slovak law provides for calling up soldiers with police powers to guard
+the border and the exchange points, which has no Czech counterpart. Both wrote the proxy route
+open in nearly identical words. Two legislatures, one day, one problem, two different
+combinations of which edges to cut.
+
+One provision is worth recording for the framework directly: the Slovak law treats forgery of
+the stamps as the criminal offence of counterfeiting money. The carrier of the class value is
+held in law to be the money itself rather than a mark upon it.
+
+All four subordinate instruments of the Czechoslovak separation are now in hand, two government
+regulations and two central bank decrees, all four signed on 2 February 1993. They close the
+cell and correct two things.
+
+Both sides set the separation for 8 February, the Slovak regulation putting it as the expiry of
+24:00 on 7 February. So unstamped large notes ceased to be legal tender at the end of 7
+February, not on 3 February; that earlier date belongs to something else, the cutting of
+cross-border payments in the Slovak regulation. The second correction runs the other way from
+what was assumed: during the exchange window the large notes were not unusable but compulsory,
+since both founding laws oblige legal persons and entrepreneurs to keep accepting the
+stampable notes right up to the separation day. Spending them was not merely an open route, it
+was a route the law forced merchants to keep open.
+
+The exchange windows themselves were arranged differently. The Czech regulation gives natural
+persons 4 to 7 February, foreigners a separate later window of 7 to 9 February at central bank
+and selected branches, and legal persons 8 to 9 February with an option to start on the 7th.
+The Slovak one gives natural persons 4 to 6 February and legal persons 6 to 7, with no separate
+window for foreigners.
+
+The sharpest asymmetry is in which notes were stamped at all. The Czech decree stamps three
+denominations, 1000, 500 and 100; the Slovak decree stamps five, adding 50 and 20. Since both
+sides define legal money as stamped notes plus notes not subject to stamping plus coins, an
+unstamped 50-crown note was legal tender in the Czech Republic after 8 February and worthless
+in Slovakia. The cross-border route was therefore not closed outright: for those two
+denominations it stayed open in one direction, from Slovak holders into Czech shops. This is
+also a fifth member of the family that partitions by something other than the holder, and its
+shape is new, because the earlier four partition by denomination inside one text while here two
+texts give different answers about the same denominations, so the line falls on the border
+rather than on a schedule of notes.
+
+One earlier reading here is corrected in the same round. It said Slovakia had no counterpart to
+the Czech rule forcing large business payments through banks. It has one, in the government
+regulation rather than the law: from 8 February to 8 April, one-off cash payments by legal
+persons and entrepreneurs were capped at 10,000. The Czech version sits in the law and carries
+a fine of twenty per cent; the Slovak one sits in a regulation and states no penalty. Reading
+only the best-named instrument produced a false negative about the other side, which is the
+delegation rule biting the reader rather than the drafter.
+
+Two more differences are worth the record. Slovakia wrote its withdrawal restriction as a
+number, 10,000 over fifteen days with banks permitted to allow more, while the Czech regulation
+restricts for at most seven days and names no amount for individuals, capping only business
+withdrawals above 10,000 and exempting withdrawals for wages. And Czechia created an instrument
+Slovakia did not, central bank cash receipts in denominations of 2,000 and 5,000, legally
+securities, maturing no earlier than seven days after separation and finally on 31 July. Two
+discretionary openings appear on the Slovak side and none on the Czech.
+
+Against all that divergence, the provision letting one adult exchange for others and barring
+the counter from asking about the relationship appears on both sides in almost identical words.
+It is the one thing the two drafting teams agreed on, which makes it a design feature of the
+scheme rather than a preference of either government. Four routes around the ceiling were open
+here, one of them compulsory for merchants, and the issuer reports the above-limit instruments
+as minimally used. It is the most open case in the corpus and it has the lowest take-up.
+
+The Turkmen cell closes on testimony from the man who ran the preparation, the then deputy
+chairman of the central bank who had previously headed its issue and cash department. He states
+the terms plainly: only 60 manat were exchanged for each adult citizen, and everything else,
+including non-cash money in bank accounts, burned. The above-cap price was zero, and it covered
+accounts as well as notes, which makes this the harshest above-cap treatment in the corpus
+against Estonia's fifty to one, Russia's six-month deposit and Czechoslovakia's face-value
+certificates.
+
+His own figures then prove the zero was unavoidable. In 1992 and 1993 the central bank of
+Turkmenistan received more than 542 billion roubles from the Russian central bank as credit, a
+quarter of it in cash, and the initial issue of manat notes and coins came to about 80 million
+manat. At five hundred to one those 80 million are worth 40 billion roubles, or 29.5 per cent of
+the 135.5 billion in cash. The allowance of 60 manat is 30,000 roubles, so the whole note issue
+could pay a full allowance to at most 1.33 million adults, while the cash stock alone was worth
+4.52 million such allowances against a population near four million. Two nested constraints,
+both binding: the ceiling times the entire population is smaller than the cash stock, and the
+note issue is smaller than the ceiling times the population. The designer states the intent
+directly, that the task was to cut the cash money supply from hundreds of billions of roubles to
+a few million manat, which at that rate is a contraction of some ninety-seven per cent.
+
+This is the limiting case of the reading rule and it needs its own statement. When the above-cap
+price is zero, take-up is not a quantity that exists, because there is nothing there to take up,
+and looking for it is a category error. What can be observed is the outflow, and the record of an
+outflow usually sits with whoever received it rather than with the country that caused it. Here
+it does: the Kazakh customs authority named Turkmenistan among five sources of the sacks of
+roubles arriving over its borders, and the timing fits, since the manat came on 1 November while
+the tenge did not arrive until 15 November, leaving a fortnight in which old roubles were still
+the only currency next door.
+
+One fact deserves separate record. The 542 billion was a credit from the Russian central bank,
+and the central bank of Turkmenistan subsequently repaid that debt to Russia in full. The same
+stock of money carried two creditors, the issuing central bank abroad and the holders of the
+notes at home, and the state honoured one and extinguished the other. That is not an inability
+to pay but a choice of which edge to honour, and it says that the enforceability of a liability
+follows from the creditor's ability to compel rather than from its nominal standing.
+
+The reading rule now covers five carriers and they line up by how cheap the alternative was:
+Estonia at 0.203 per cent with a free route, Czechoslovakia with routes that were free and in
+one case compulsory and an above-limit channel the issuer calls minimally used, Russia at 2.11
+per cent where the routes carried a cost, Turkmenistan where the band paid nothing so only the
+outflow is observable, and Germany at 66.5 per cent where there was no route at all.
+
+The two North Korean cells close the sweep, and what they contribute is the rule's negative
+space rather than another confirmation. In 2009 the alternative routes existed and are
+described, panicked dumping of old currency into goods or foreign exchange, but their price
+collapsed inside the window: the first-day ceiling of 100,000 old won was worth about $740 at
+the official rate, about $30 at the pre-reform black market rate, and about a quarter of a
+dollar at the rate of 400,000 won to the dollar reported from Sinuiju on 1 December. Both the
+official above-cap tier at a tenth of the standard rate and the alternative were bad at once,
+and the official tier carried the extra cost of identifying its user. So this carrier does not
+produce the conclusion that the band was hollowed out; it produces the observation that both
+routes failed together, and the rule is recorded as not applying here rather than as failing,
+which are different states. One indirect sign that the routes were used remains: a limit that
+was raised five times in three weeks is not a limit nobody was getting around.
+
+The 1992 conversion is outside the rule for a different reason. Its terms were one to one with
+anything above 300 won **(later settled at 399; see below)** placed in blocked deposits released on a schedule of 5,000 after three
+years, 10,000 after five and the remainder after ten, and the deposits were only partly
+honoured or not honoured at all, with some depositors reported to have received nothing. Nothing
+failed on the alternative side; what failed was the route the state itself had written. That
+belongs to the separate dimension of delivery rather than to this rule.
+
+With all eight carriers answered the scope can be stated, and stating where a rule does not
+apply is worth more than counting where it does. It applies where an alternative route exists
+whose price holds through the window. It does not apply where that price collapses along with
+the currency, nor where the written route is simply not executed. Its limiting case is a band
+priced at zero, where take-up is not a quantity and only the outflow can be seen. Five carriers
+support it and point the same way, one is the limiting case, two fall outside its scope for
+different reasons, and none contradicts it.
+
+A last negative result closes the Turkmen documentary line. The Fund article suggested as a
+possible source opens and mentions the country once, only to say that it and three others had
+announced they would introduce national currencies before the end of 1993. No terms. That is
+the seventh confirmation that this class of source records which states acquired a currency
+rather than how anyone converted into it, and the Turkmen terms are now sought in newspapers
+rather than in legal or institutional archives.
+
+A computable general equilibrium model of the same economy was examined as a rival, since it
+is the scalar price field written in computable form. Noland, Robinson and Wang, working paper
+99-1 of January 1999, published in World Development in 2000, so peer reviewed and a serious
+rival rather than grey literature. A CGE solves for a price vector clearing all markets, and a
+price vector is a potential on positions whose gradient generates every term, which is exactly
+the proposition seven carriers here have measured to be false. The model does not fail an
+independent test; it inherits the refutation by construction, and that distinction has to be
+kept.
+
+Three things in its own text carry the weight. The paper says that all factors are assumed to
+be intersectorally mobile, and separately that land is specific to agriculture though mobile
+within the three agricultural sectors, so immobility was available as a modelling choice and
+was used once. Full mobility elsewhere is therefore a choice rather than an approximation, in
+an economy that assigns people to work units and controls internal movement. The paper notes
+that there are limited farmers' and citizens' markets in which prices presumably reflect
+scarcity values, as well as a black market in consumer goods, and then does not model them. The
+two systems are far apart: 135 won to the dollar officially against roughly 3,500 on the black
+market before the 2009 conversion, so identifying them is a relative error of 2,493 per cent.
+And the base year output was raised, in the authors' words, because the simplest way to generate
+a consistent SAM was to raise output, taking GDP from an officially reported 23 billion won to
+roughly 32 billion, an adjustment of 39 per cent justified by ease of construction. Structural
+parameters come from elsewhere: industry employment structure from pre-reform Chinese data, the
+wage premium from South Korean data, the land share in value added from cross-country
+comparisons.
+
+The paper's own caveat, that the results are speculative and subject to a degree of spurious
+precision, does not reach any of that, and the reason is arithmetic rather than rhetorical. A
+caveat about precision covers the last digits, typically a band of ten or twenty per cent. It
+cannot cover setting one quantity equal to another that is twenty-six times larger, which is a
+statement about existence and not about precision. It cannot reach an input the model demanded
+before it ran, which is what the output adjustment was. And it cannot reach the substitution of
+one economy's structure for another's, which is a question of what was measured rather than of
+how precisely. What the authors do accept is stated in their own abstract: that CGE modelling
+forces internal consistency, and that the product incorporates fragmentary information in a
+rigorous way. Forcing consistency on data whose inconsistency is the object of study removes the
+object. The largest inconsistency in that economy is the twenty-six-fold gap between two prices
+of one dollar, and after consistency is forced the gap is gone.
+
+That yields a rule worth keeping, since every paper this project reads will have a limitations
+section. The scope of a caveat can be computed. Identify the dimension it claims, compute the
+error it would have to cover, and compare; a caveat about precision facing an error of 2,493 per
+cent is quantitatively insufficient, and no judgement about the authors' good faith is required
+to say so. Two further classes lie outside any precision caveat by definition: inputs the model
+required, and objects that were substituted rather than mismeasured. The one thing these authors
+explicitly decline, the likelihood of the regime undertaking any of the modelled actions, is not
+where any of this lands.
+
+Its own reported results settle the matter without any external benchmark. Rehabilitating the
+flood-affected land raises GDP by less than two per cent. Freeing the trade regime raises it by
+approximately sixty per cent, in the paper's words due to static reallocation of factors alone.
+Demobilisation adds eighteen. Five scenarios together give nearly seventy-nine per cent. So the
+one scenario constrained by a physical fact, hectares flooded and hectares rehabilitated,
+contributes two and a half per cent of the total, while the scenario that follows from the
+closure rule contributes seventy-six per cent and is thirty times larger. Sixty per cent of GDP
+from pure reshuffling, in a model that is static and in which investment does not touch the
+capital stock, is a reading of the assumption that all factors are intersectorally mobile rather
+than a reading of the economy. Assume costless mobility, assume the initial allocation is
+distorted, and removing the distortion must produce a gain whose size is set by how distorted
+the base was assumed to be; and the base came from the SAM that was forced into consistency.
+
+The signs of two of the three scenarios were fixed before any data about the country entered.
+With Armington elasticities and a fixed trade balance, liberalisation raises welfare as a
+property of the model class. With costless intersectoral mobility, releasing labour from the
+military must produce a gain. Only the land scenario is disciplined by something outside the
+model, and it is the one that returns two per cent.
+
+Applying this project's own test rather than an imported one: the lego reading asks, before
+spending anything, how many knobs can move and how many targets must be met. The knobs here are
+the cross-entropy priors, the adding-up constraints, the thirty-nine per cent output adjustment,
+sectoral import-substitution and export-transformation elasticities each ranging from 0.5 to
+5.0, an employment structure taken from another country, a wage premium taken from a third, a
+land share from cross-country comparison, and the closure choices. The targets are the base SAM,
+which calibration reproduces exactly by construction and which therefore carries no information,
+and counterfactuals for which no observed comparison exists. Many knobs, no targets. By this
+project's own rule a fit whose knobs are not fewer than its targets need not be run, since only
+one outcome is reachable. The same rule was written to judge this project's own coverage test,
+so it is one ruler used twice rather than a standard imposed on someone else.
+
+The circle closes at a specific step. Data are incomplete and inconsistent; cross-entropy plus
+adding-up constraints produce a consistent SAM, for which output was raised; the model is
+calibrated to that SAM; counterfactuals perturb the calibrated model. Calibration is not
+estimation: the model has zero degrees of freedom against the base year and reproduces it
+exactly, so the base year contains no test, and the counterfactuals have nothing to be compared
+against, so they contain none either. That is a property of the model class rather than a defect
+of this paper. The consequence is that the exercise yields no falsifiable statement about the
+economy it describes; its outputs are properties of its assumptions. The full text was checked
+for any discussion of whether the base year could validate the structure, and there is none.
+
+Both reclassifications were then carried into the corpus table, with the original rows and the
+original tally left in place and a pointer added, as the rule for changed conclusions requires.
+Russia 1993 moves from the rate column to the quantity column, since no second rate appears
+anywhere in its instruments and what varies by identity is the ceiling and the window rather
+than the price, which is the corpus's own test for a quantity programme and the same structure
+as the Brazilian case already classified that way. Czechoslovakia 1993 stays in the rate column
+because the stamp is a class device, and gains a note that it also carries a quantity device in
+its ceiling and certificates, making it the second mixed carrier after the Soviet decree of
+January 1991. Its block count goes from four to nine, since the age band exists on the Czech
+side only and the foreigner and legal-person classes were never counted. The tally becomes
+twenty rate programmes, four quantity programmes and one mixed. The zero-counterexample
+statement rests on the eleven carriers with no registration point and none of this touches it.
+
+Opening the 1959 North Korean conversion as a control returned more than it was opened for. A
+South Korean government reference work gives the terms of all five reforms in one place, each
+tied to the named instrument that carried it, which is a tenth instance of terms living in a
+delegated act.
+
+The control did not come out as expected, and that is its value. It was opened because 1959 is
+the same country, the same family and the same hundred to one rate with no ceiling, so it should
+isolate the effect of having a boundary at all and return a single class. It returns two.
+Individuals exchanged without limit; institutions and enterprises were required to deposit their
+entire holdings of old currency in banks rather than exchange them. The 1979 conversion repeats
+it: no limit, one to one, and enterprises deposit first and then draw what they need. So the
+line between natural and legal persons survives the removal of the amount ceiling in both
+carriers where the ceiling is absent. That line is the floor of this family rather than a
+feature of particular members, and amount bands are built on top of it. That has to be carried
+back across the corpus, where separate treatment of legal persons has been read as a
+characteristic of individual carriers.
+
+A rule stated here earlier was too strong and is corrected. It said that a fixed holder facing
+a changed object produces no new block, which was drawn from Estonia, where cash and deposits
+converted at the same rate. In 2009 they did not: cash at a hundred to one and bank savings at
+ten to one, a tenfold difference between two objects in one person's hands. The rule is that two
+objects produce no new class value when they carry the same rate and do produce one when they
+carry different rates. Estonia is the first case and this is the second. The original wording
+stays in place with a pointer. The tenfold advantage for bank savings is also a written class
+value whose holder set was nearly empty, in an economy where almost nobody kept money in banks,
+which mirrors the limiting case in the reading rule: there a band priced at zero, here a band
+with no holders.
+
+Two corrections to the 1992 terms follow. The household limit was 399 won rather than the 300
+recorded from the earlier source, and above the limit the money had to be deposited, but sums of
+30,000 won or more were not accepted even as deposits. So that conversion has three bands rather
+than two: cash up to the limit, a deposit channel above it, and a cliff above which nothing was
+given at all. The earlier finding that those deposits were only partly honoured or not honoured
+stands, and now the deposit channel is known to have had an upper bound of its own beyond which
+there was no channel.
+
+The first reform, of December 1947, is the most explicit instance of a class-written threshold
+anywhere in this corpus. The reference work states that the exchange limit was differentiated by
+stratum and class, using that word, and that amounts above the limit were frozen as deposits. A
+re-coding rule whose ceiling is written directly onto social class is registered as a new carrier
+and put first in the queue; how many bands it had and what each was are not given here and
+require the 1947 decree itself.
+
+Three standing write-backs were cleared. The first weakens a headline of this project's own, and
+it is recorded because the alternative is that someone else notices. The zero-counterexample
+statement rests on eleven carriers with no registration point, and those eleven are not eleven
+independent draws. Eight of them are post-Soviet exits, and this round established that those
+exits form one causal chain rather than eight separate events: Russia's demonetisation of July
+1993 pushed its voided notes into the nine republics still using them, those states were swamped
+(one customs service intercepted 1.3 billion roubles in ten days and named five source
+countries), and each then issued its own currency within months, with the last to leave
+absorbing what the earlier ones had expelled. Uzbekistan appears twice, which is a further
+dependence, and Russia 1998 is the same state that caused the chain, five years later. Counting
+independent units gives four: the chain, Russia 1998, Burma 1987 and Indonesia 1959. The
+statement stands and its direction is unchanged, since four independent units with no
+counterexample is still no counterexample and the three non-chain cases hold on their own; what
+changes is the weight, from eleven to four. The general lesson is registered: wherever the
+downstream products of one institutional event are listed side by side as separate
+observations, draw the order of events first.
+
+The second write-back adds a device the classical frame does not contain. The manuscript lists
+eight ways a programme stops classes from trading with each other, all of them deletions, and
+notes correctly that sorting and blocking arbitrage are Pigou's preconditions and not this
+project's discovery. What the corpus now holds is the opposite move: a legislature writing one
+arbitrage route open and forbidding officials to police it. Both Czechoslovak implementing
+decrees, issued the same day, provide in nearly identical words that where an adult performs the
+exchange for other eligible persons the exchange point does not examine the relationship between
+them. The two governments disagreed on much else and agreed here, so it is a design feature of
+the scheme. It sits outside the classical frame because there the discriminator always wants
+arbitrage blocked, whereas the motive here is administrative feasibility: not everyone can queue
+at a counter. In the same document one government deleted the large-cash edge with a twenty per
+cent fine and the cross-border edge by returning payment orders, while writing the proxy edge
+open. Which edges are cut is chosen one at a time, and the criterion is not only arbitrage
+revenue. A ninth device is added as well, revocation of eligibility mid-programme: a Russian
+telegram closed the exchange to citizens of neighbouring states from 16 November, which does not
+prevent an edge from forming between classes but removes an entire class from the eligible set
+while the programme is running.
+
+That write-back was half wrong and is corrected the same day. The chain is real and its
+evidence stands; the inference drawn from it does not. A common shock weakens independence only
+if it also supplies a common designer, and this one supplied only a common problem. By 1993 the
+centre could no longer compel the republics; several of those exits were acts of rupture with
+it; and one member of the set did not exit at all, staying in the restructured zone with the
+Russian ruble circulating there until 1995. The downstream responses diverged.
+
+The strongest evidence for that is internal and was obtained in the same round. The two halves
+of Czechoslovakia legislated on the same day for the same event, one month after being a single
+state, with every incentive and every opportunity to coordinate, and they wrote materially
+different laws: an age band on one side and none on the other, a rule for the above-limit amount
+on one side and a discretion on the other, different combinations of deleted edges, and three
+stamped denominations against five. If two halves of one state do not converge under those
+conditions, eight sovereign states are not copies of each other. And across every axis examined
+this round the designs vary widely: thresholds from 4,000 and 1,000 by age to a flat 4,000 to
+100,000 per person to 60 manat to no ceiling at all; above-cap treatments from fifty to one to
+face-value certificates to a six-month deposit to a thousand to one to outright burning;
+eligibility by listed residence, by registration, by long-term residence or refugee status, by
+adult citizenship; the allowance-splitting route criminalised in one country, unpoliced in
+another where a ten per cent market appeared, and written open by statute in a third.
+
+Variation is large on every axis except the one the law says is invariant. That is not eleven
+observations of which eight repeat; it is eight independent hands under one constraint writing
+the same structure. The shock is the treatment rather than the confounder, and an event that
+put eight independent legislatures at the same table in the same months to design the same kind
+of object is close to a natural experiment. The evidence is stronger than eleven unrelated
+cases would be, not weaker, because unrelated cases cannot rule out that each was its own
+accident, whereas here the conditions were unified, the practice diverged, and only the
+structure held. The earlier reduction from eleven to four is withdrawn.
+
+The distinction is worth keeping in general form. A common cause does weaken claims about
+magnitudes, since the quantities each later carrier faced were produced by the earlier ones, so
+averages and ratios across them are not independent draws. It does not automatically weaken a
+structural claim of the form that without one feature a second cannot be written, unless there
+was also a common author. The chain evidence therefore remains in use on the magnitude side,
+where the proposition that a later exit leaves residents facing a larger stock depends on it,
+and is irrelevant to the zero-counterexample statement.
+
+The December 1947 North Korean conversion turns out to be the largest carrier in this corpus by
+a wide margin, and it is recorded from a tertiary source for a specific reason: that source
+gives a marginal schedule together with three worked conversions, and all three reproduce
+exactly when recomputed from the schedule. Old 5,000 gives new 3,500, old 10,000 gives 5,000,
+old 50,000 gives 13,000. A tertiary account that can be checked against its own arithmetic has
+been checked, and it passes; the founding decree itself remains to be obtained.
+
+On the cash side the programme writes twelve distinct class values. A household head gets 500
+and each cohabiting family member aged eighteen or over 200. Employees of the armed forces,
+public security, civil administration, state enterprises and social organisations, and people
+on state support, get the amount of their November 1947 salary and no family allowance at all.
+A private firm employing ten or more may exchange no more than half its November wage bill,
+while a private entrepreneur, artisan, small trader or professional employing fewer than ten
+gets half of one month's assessed base for business or free-income tax, on a certificate from
+the provincial finance chief. Farmers may exchange 700 per household but only if they have paid
+the in-kind tax. Boarding pupils at middle school and above get 500 on a headmaster's
+certificate, while college and university students get one month's state stipend. A person in
+transit gets 500 on a travel certificate; the family of a household head serving a prison
+sentence gets 500 on a neighbourhood head's certificate; members of the Soviet and Korean
+armies are not handled at ordinary exchange points at all; and the Soviet army exchanges its
+military scrip for central bank notes without limit at par inside barracks.
+
+The deposit side adds three more classes, one of them with a schedule of its own. Institutional
+deposits held by the army, security organs, civil administration, state enterprises and social
+organisations were paid in full as of 5 December, with anything deposited later frozen.
+Cooperatives and department stores were paid half, on the reasoning that prices had halved.
+Private deposits were consolidated one account per depositor and paid in February 1948 on a
+five-band marginal schedule: full value up to 2,000, fifty per cent from 2,000 to 5,000, thirty
+from 5,000 to 10,000, twenty from 10,000 to 50,000 and ten above that. The effective rate falls
+from a hundred per cent at 2,000 to seventy at 5,000, fifty at 10,000, twenty-six at 50,000 and
+eighteen at 100,000. It is the first genuinely progressive confiscation schedule in the corpus,
+and it is marginal rather than stepped.
+
+Three partition shapes appear here that had not been seen. Eligibility can be conditioned on
+prior compliance rather than on identity: farmers qualify only if they paid the in-kind tax, and
+a small trader's allowance is literally a function of his tax assessment. A class can be defined
+by circumstance rather than by identity or asset: a person in transit, and the family of someone
+in prison, each get a written figure. And a class can have an unbounded allowance: the occupying
+army converted without limit at par, which the source notes transferred the cost of the garrison
+onto the local population.
+
+The framework consequence is about the first of the two enabling conditions. Those twelve
+classes each require a different document to prove: a household register, an employer, a wage
+book, a certificate from the provincial finance chief, a tax record, a headmaster's certificate,
+a travel certificate, a neighbourhood head's certificate, a military register. So the
+registration point is not a point but an apparatus of certificates, and how many distinct class
+values can be written is bounded by how many mutually distinguishable certificates the state can
+issue. That is a sharper version of the counting gate: the ceiling on the number of values sits
+with whoever signs the papers rather than with the people being sorted.
+
+An unstated restriction costs more than a counterexample. A counterexample overturns one
+sentence; a restriction nobody wrote down lets the same sentence fail again on the next
+corpus, where no one will recognise it.
+
+
+Whether cash and deposits count as one carrier or as two was printed rather than decided, and the
+reason for printing is computable. The two channels are administered apart wherever this corpus can
+see them. In December 1947 cash was exchanged at exchange points between the sixth and the twelfth
+while deposits were frozen and paid on a separate timetable, institutional balances as of 5 December
+and private ones on 25 February 1948, with whatever the schedule did not pay left as a
+non-interest-bearing deposit. Russia's above-limit roubles went into a six-month deposit; the DPRK
+in 1992 required the above-limit band to be deposited and refused deposits at all above 30,000; and
+Czechoslovakia paid the above-limit band in postal orders, central bank vouchers and savings
+instruments. In most carriers the deposit channel is the above-cap treatment itself. Estonia is the
+only carrier where the two share a rate, and the DPRK in 2009 paid cash at a hundred to one against
+bank deposits at ten to one, a factor of ten apart. A partition by channel is therefore defensible,
+and it moves the class counts and the tally.
+
+It moves nothing else. Both partitions were walked through the conclusion table cell by cell. The
+largest carrier in the corpus is this one under either, since the cash side alone already holds the
+record. There is no counterexample to the counting law under either. The zero-counterexample
+statement sits on the side of the corpus that has no registration point and is untouched by both.
+The five-carrier table on take-up above the cap is untouched by both. Only the tally moves: merged,
+the corpus reads twenty rate programmes and five quantity programmes across twenty-five carriers,
+two of them flagged mixed because they run a rate device and a quantity device at once, with one
+discretionary tier sitting inside a rate programme; split, it reads twenty-one and five across
+twenty-six carriers, with one flagged mixed. Both lines are recorded and neither is chosen.
+
+The general rule taken from this is that a partition whose two branches agree on every conclusion is
+a bookkeeping format rather than a research question, and the test is mechanical: walk both branches
+through the conclusion table that already exists and compare cell by cell. One cell different makes
+it a question that has to be decided. All cells the same makes it a format, and then the components
+are printed so a reader can partition them for whatever he is doing. Deciding it anyway would bind
+every carrier added after this one to a definition that buys nothing, and that cost compounds.
+
+One item is left open rather than closed. The 1947 reform does have a band above the cap, since the
+excess was frozen into a deposit and paid on the progressive schedule, but what fraction of the
+stock sat in that band is not known. So it is recorded as a carrier with a band and without a
+figure, and it does not enter the five-carrier monotone table on take-up.
+
+
+Three of the five Pavlov values are functions of an attribute of the holder rather than constants, which had
+not appeared in this corpus before. Every earlier class value is a constant: Germany's 2,000, 4,000 and 6,000;
+Czechoslovakia's 4,000 and 1,000; the DPRK's 500, 200 and 700 in 1947; Estonia's 1,500. The Pavlov values
+instead copy a number already recorded against that person in a ledger. This does not strain the counting law,
+which counts distinct values: how many values a function produces is the size of its range, and that is a
+counting question rather than an infinity. Where the function carries a cap, the distribution carries a
+signature. Everyone whose average monthly wage reached 1,000 is pushed to 1,000 and everyone below keeps his
+own wage, so the distribution of exchanged amounts has an atom at 1,000 and is otherwise the truncated wage
+distribution, and by the atom lemma proved in B43 the atom sits exactly at the written threshold. This is the
+first carrier where the counting law and the bunching instrument read the same clause. The mass of that atom,
+which is the share of staff employees whose average monthly wage reached 1,000 roubles, **has since been
+settled, and the settlement is not a figure.**
+
+Four classes of source were worked through: web transcriptions of the statistical yearbooks, where two sections
+were read and two more sat on a host that would not answer at all; a secondary compilation site, which carries
+wage levels by industry and no distribution; the academic literature; and retrospective press. **The answer
+comes from the academic class.** Alexeev, writing in the Review of Income and Wealth in 1993, records that the
+published Soviet distributions are of per capita family income and are **censored on the right at 200, 250,
+300 and 400 roubles a month, the highest 1990 bracket being over 400 roubles and holding 0.6 per cent of the
+population**. The written bound in the decree is a thousand roubles of individual monthly earnings. Those are
+not the same variable, since per capita family income divides one person's wage by the size of the household,
+so that 0.6 per cent is neither an upper nor a lower bound on what is wanted. **What is established is the one
+thing needed: the published Soviet distributional statistics carry no graduation at that height.**
+
+**The gap this opens is worth more than the percentage would have been.** The state had to compute this number
+person by person: an enterprise commission opened each staff employee's payroll record, took the average
+monthly figure for the last year, and compared it with a thousand, tens of millions of times over three days.
+**Its own published statistics stop at four hundred.** So the registration point is finer than the publication,
+and the difference is exactly why the atom's mass cannot be read from outside.
+
+| | |
+|---|---|
+| granularity of the registration point | the individual payroll record, fine |
+| granularity of the class value | `min(average monthly wage, 1,000)`, capped by the registration point and equal to it |
+| granularity of the published statistic | top bracket at over 400, too coarse to reach the bound |
+
+**A number the state could compute and did not print is a different thing from a number the state does not
+have.** It is not an absence of any document that records the quantity, and it is not a name present in a
+register with no series behind it; **it is a third case, where the record exists, exists per person, and was
+never published at that resolution.** That pairs with the register rule directly: **a register is not a
+record, and by the same token a published aggregate is not a record either.** Both are ways of deciding before
+spending whether a quantity can be obtained, and neither changes whether the quantity exists.
+
+**The atom's position is untouched by any of this.** The lemma places it exactly at the written bound with no
+condition on the terms, and that is a point prediction which needs no mass. Position and mass are reported
+separately and in their own words. Three routes remain open and are recorded so they are not walked twice: the
+wage-side bracket table in the 1990 yearbook's labour section, as against the income-side statement obtained
+here, both attempts having failed on one unreachable host rather than on the material; a scanned handbook with
+no text layer, whose cost is known and was not spent; and the Soviet press of January and February 1991, where
+only the later popular retrospectives have been checked. **None of the three would overturn the reading, since
+a wage-side table's top bracket almost certainly also sits below a thousand.**
+
+The same carrier settles the granularity question left open by the DPRK entry. In 1947 the registration point
+was a set of certificates, and a certificate is coarse: a headmaster's certificate says only that the holder is
+a pupil, so the class values could be no finer than that. In 1991 the registration point is three ledgers that
+already carry a number for each person, the payroll book, the pension roll and the currency receipt, so the
+class value can be as fine as the ledger is. The granularity of class values equals the granularity of the
+registration point, and the two carriers sit at the two ends of that axis.
+
+The rate device and the quantity device appear in the same document, and the text separates them more sharply
+than this project had. Points 3, 4, 5 and 7 exchange notes and carry the five class values. Point 8 caps cash
+withdrawals from deposits at 500 roubles a month and only at the branch covering the depositor's residence or
+workplace, while stating in the same paragraph that non-cash use of the deposit is unlimited for buying goods
+and paying for services, that transfers between deposits are unlimited, and that wages and pensions credited to
+a deposit do not count against the cap. The money loses none of its value and buys the same things; what it
+cannot do is come out as notes. The claim that a quantity programme produces one price with different
+accessibility is written in the source rather than inferred from it.
+
+The decree also adds a tenth edge-deleting device. Point 6 orders the customs administration not to allow 50
+and 100 rouble notes into the USSR from 23 to 25 January, which removes the whole edge from holders abroad to
+exchange points inside for exactly the length of the exchange window. Holders abroad are not a class in the
+text and are given no value, and the customs order exists so that they cannot reach anyone else's.
+
+The tally moves again with this carrier, and these two lines supersede the pair recorded with the DPRK 1947
+entry. Merged, the corpus reads twenty-one rate programmes and five quantity programmes across twenty-six
+carriers, three of them flagged mixed. Split by channel, it reads twenty-two and six across twenty-eight
+carriers, one of them flagged mixed. Discretionary tiers now stand at four carriers, and Pavlov gives that
+category its first fully written instance: a ten-day deadline, a stated test of the legality of the source of
+income, two levels of appeal and a final decision, with the value itself still unwritten. Discretion therefore
+means that the value is made by the administrator after the fact, and it does not mean that there is no
+procedure. Neither tally line is chosen, and the conclusions hold under both: the largest carrier is still the
+DPRK in 1947, the counting law still has no counterexample, and the statement about carriers with no
+registration point is untouched.
+
+
+A retrieval round on the same carrier failed to find the figure it went looking for and returned four other
+things, one of which bounds the whole family of edge-deleting devices. The figure was the tonnage of notes
+stopped at the border in 1993. Three classes of source were checked and none carries it: an archive-based
+press account written with the Russian State Archive of the Economy, a 36,706 character academic review of the
+memoir and scholarly literature, and a reference-work entry. Two classes remain unchecked, the daily press of
+July and August 1993 and the customs administration's own annual report, so this is recorded as three classes
+checked rather than as unavailable.
+
+The first of the four is a bound on how edge-deleting devices may be read. The Pavlov decree's point 6 has
+customs stop 50 and 100 rouble notes at the border for exactly the length of the exchange window, and the
+target of that order came from a secret memorandum: in the summer of 1990 the then finance minister wrote to
+the president and the chairman of the Council of Ministers arguing that the large denominations had
+concentrated abroad and in the hands of shadow capital. Asked about it, the customs administration of the same
+government replied that what leaves the country illegally is mostly ten rouble notes. The scope of an
+edge-deleting device is set by the designer's estimate rather than by a measurement, so a device can delete an
+empty edge precisely. The inference this forbids is reading device strength as evidence of edge thickness:
+these devices proxy for what the designer believed about an edge, which is a different object from the edge.
+Read the flow to size an edge, not the order that closes it.
+
+The second is a take-up statement without a figure: the outcome of several days of panic was the withdrawal
+from circulation of a small quantity of banknotes. It does not enter the five-carrier monotone table, both
+because it carries no number and because it reports the quantity recovered rather than the occupancy of the
+band above the cap. That band here is the discretionary tier, whose occupancy is the share of applications
+made and then granted, and the sentence supplies neither term.
+
+The third is that the design motive of the Russian 1993 exchange was stated by the people who took the
+decision, and it is an edge. The national banks of the former republics were asking the Russian central bank
+for as much cash as it would send, in the name of friendship and of keeping the Commonwealth together, and the
+Soviet roubles were pressing on the Russian domestic market. Russian cash had earlier been going to those
+republics by the wagonload. The prediction made at the time was that any restriction would produce a mass
+dumping of money back into Russia. The published objective names the separation of the monetary systems of
+Russia and the other Commonwealth states, which is a statement about a graph rather than about a price. The
+same body built the edge and then deleted it.
+
+The fourth is a conflict of figures in which the founding text wins and the people who misremembered were the
+participants. Two memoirs and the press account give the initial ceiling as 30,000 roubles. Telegram 131-93,
+read here from the original, sets 35,000, and the academic review quoting that telegram also gives 35,000. The
+original stands. This is the third instance in this station of substantive memory being right while numeric
+memory is wrong, and the first where the source is a participant rather than an assistant. The decree of 26
+July also acquired its number, No. 1107, which raised the ceiling to 100,000, exchanged the 1992-series 10,000
+rouble note without any limit, extended the window to the end of August and then to the end of the year, and
+from 1 October admitted only those who could document why they could not come earlier. That text is located
+and not yet fetched.
+
+
+The conflict between 30,000 and 35,000 was settled by reading telegram 131-93 in full. The word thirty does
+not appear in it. Citizens holding a residence registration or residence permit exchange up to 35,000 roubles
+directly at a Sberbank branch, anything above that is credited to a six-month term deposit at the stated rate,
+and citizens of other states exchange up to 15,000 on 26 July alone on production of a passport. The two
+sources giving 30,000 both describe what was announced rather than what the instrument says, and they are
+plausibly one source twice. The original stands and the corpus entry is unchanged.
+
+The possibility worth checking was that the counters applied something narrower than the published figure. No
+source says so: the original, the academic review and a later news retrospective all carry 35,000, and the
+question is closed here. What the original does carry is two places where the operating standard sits
+somewhere other than the published text, and neither is the individual band. The first is that the counter
+procedure for citizens is not in this telegram at all. The telegram says the instructions for how Sberbank
+branches are to conduct the exchange for citizens are set out in Bank of Russia telegram No. 397 of 22 July,
+dated two days before the public one. The document the counters worked from is therefore an earlier,
+non-public one, which is the eleventh instance in this station of terms living somewhere other than the
+best-named document. It is located and not fetched.
+
+The second is that the ceiling for legal persons varies by organisation and is written into the text: the sum
+an organisation hands in may not exceed the cash-till limit established for that organisation, plus the
+trading receipts in its till at the close of 25 July, and direct exchange for organisations is not permitted
+at all. The till limit is set for each organisation by its bank beforehand rather than by this telegram.
+
+That extends the finding from the Pavlov carrier. Class values that are functions of the holder rather than
+constants now appear on two carriers rather than one: the 1991 decree's staff wage, pension and currency
+receipt, its cooperative ceiling defined by the analogous state enterprise, and the 1993 telegram's
+per-organisation till limit. Two of those five take their argument from an administrative parameter the bank
+had already set for that entity, for another purpose, rather than from an attribute of the holder. So the
+registration point does not merely cap how fine the class values can be; in these cases it hands the value
+over ready-made. The four-block coding of the 1993 exchange is unchanged, and what changes is that the
+legal-person block's value is not a constant.
+
+
+Telegram 397 was not obtained, and the way it was not obtained is itself a reading. The free ConsultantPlus
+corpus carries three telegrams of the same family, 131-93 of 24 July, 142-93 of 27 July and 162-93 of 4
+August, and it does not carry 397 of 22 July, which 162-93 names in its own text as the procedure to follow.
+So this is not a document that could not be found: its siblings are all published and it is not. The terms the
+counters worked from live in an instrument that public instruments cite by name and that the public legal
+corpus does not hold. Two databases were checked and the remaining routes are the central bank's own archive
+and the 1993 volumes of its bulletin.
+
+The same search returned 162-93 in full, and with it a fifth block on this carrier. Citizens of neighbouring
+states registered with the Federal Migration Service as refugees and holding a form No. 02 certificate
+exchange at a settlement and cash centre rather than at Sberbank, on production of a passport and that
+certificate, in the procedure established by telegram 397. The one-time sum is 100,000 roubles, not counting
+the free exchange of the 1992-series 10,000 rouble note; denominations from 25 to 5,000 above that go to a
+six-month interest-bearing deposit; and a mark is entered in the passport. Two clauses in it carry more than
+the block itself. The deposit may, at the holder's wish, be used non-cash to buy goods and pay for services.
+And where the holder has documents for a housing payment, the exchange is made in the sum stated on those
+documents.
+
+Three things follow. The class values that are functions of the holder now number six (a tally since replaced by the
+derivation above), and this one takes its
+argument from outside the state's own ledgers: the first five read a payroll book, a pension roll, a currency
+receipt and two bank-set till limits, while this one reads a housing bill written by a third party. The
+registration point can therefore be outsourced, provided the state agrees to honour the paper, which widens
+the granularity clause rather than qualifying it. Second, the earlier coding of this carrier recorded that
+from November the exchange was closed to citizens of neighbouring states with refugees excepted; refugees in
+fact had their own instrument three months earlier, with their own ceiling, their own channel and their own
+document, so that is a class with a text of its own rather than an exception, and the carrier is coded at five
+blocks. Third, the band above the cap on this block is written as spendable without cash, which makes it a
+restriction on cash access rather than a confiscation, the same shape as point 8 of the 1991 decree and this
+time in the carrier's own founding text. That supports the reclassification of this carrier from a rate
+programme to a quantity programme from the text rather than by inference. The limit on that inference is
+recorded: 131-93 says nothing of the kind about the ordinary citizen's deposit above 35,000, and the clause is
+not carried across.
+
+**One of those three has since been corrected, and the correction is a subtraction.** The hundred thousand is
+not the refugee block's ceiling. **The presidential decree of 26 July 1993 raised the one-time free exchange
+limit to a hundred thousand roubles a head for citizens of the Russian Federation and for persons holding
+propiska or a residence permit there**, and the telegram of 4 August merely applies that figure to refugees.
+So the ceiling belongs to the general programme, and what the refugee block holds of its own is the channel
+and the housing-bill function. **The carrier's ceiling moves in three steps in one week, each taken by a
+different level of authority**: thirty-five thousand by central bank telegram on 24 July, a hundred thousand by
+presidential decree on 26 July, and the same hundred thousand extended to refugees by telegram on 4 August.
+The corpus loses one figure that had looked like a class value.
+
+**How that error was made is worth more than the figure.** The decree's full text, from the same official
+source, had been in this arm's own corpus file since 31 August, and that file's own outstanding-items table
+records it as obtained at first-hand grade. A later section of the same file still said the text was located
+but not yet fetched. **This session read the later line, fetched the decree a second time, and on the same day
+wrote the general ceiling into the refugee block's table.** The rule that would have caught it asks for a
+search on the station name, the carrier, the quantity and the criterion before a record is written; here what
+had to be searched was a document number and a figure, and both were already on disk. **The shape is the one
+this arm has recorded before: the fact was present and filed under a different station, so a search organised
+by station name walks past it.**
+
+Three further things in the decree had not been read out of it. **It draws a class on the note rather than on
+the holder, and it does so three times**: notes of the 1961 to 1992 series count against the hundred thousand,
+the 1992-series ten thousand rouble note is exchanged freely outside it, and pre-1993 notes of one, three,
+five and ten roubles keep circulating through August. **That is the second object-drawn partition in the
+corpus after the 1948 German pair, and it cuts finer, by denomination and series.** Both carriers keep the
+small notes alive, the German law at one tenth of former nominal and this decree at par. **It also writes a
+discretionary tier with neither a value nor a deadline**, authorising the central bank to take operational
+decisions adjusting the exchange procedure while the exchange is running; set beside the German Fourth Law,
+whose delegated tenth carries both a written value and a written deadline, the two are the extremes of one
+family forty-five years apart. **And its second article names a class and gives it nothing**: invalids,
+pensioners and other categories in need of the state's social protection are to be given particular attention
+and assistance in exchanging, which under the counting law is a class named without a written value, one step
+weaker than the two North Korean 1947 classes whose values are delegated. Finally, the decree changes two
+parameters at once, the ceiling and the length of the window; in this framework those are a quantity limit and
+a time dimension of reachability, and being written in one sentence does not make them one thing.
+
+
+The sentences the readings above rest on, in the language they were written in. This station had been quoting
+Czech and German founding texts in the original and paraphrasing the Russian and Korean ones, which is an
+inconsistency in the record rather than a difference between the carriers, and it is closed here.
+
+USSR Cabinet of Ministers decree No. 2 of 22 January 1991, point 3, the class values and the cap:
+
+> Обмен денежных знаков достоинством 50 и 100 рублей образца 1961 года на денежные знаки другого
+> достоинства производится предприятиями и организациями по решению упомянутой комиссии только
+> работникам, состоящим в штате предприятия, объединения, организации, учреждения, а также временно
+> прикомандированным лицам в течение трех дней с 23 по 25 января 1991 г. в пределах среднемесячного
+> заработка за последний год работы. При этом размер обмена не может превышать 1000 рублей на одного
+> работающего.
+
+Same decree, point 2, the cooperative ceiling defined by reference to a comparable state enterprise:
+
+> По кооперативным и иным организациям, самостоятельно определяющим переходящий остаток денег в своих
+> кассах, Госбанк СССР при решении вопросов зачисления сданных остатков касс на счет кооператива
+> (организации) исходит из предельных остатков касс, устанавливаемых учреждениями банков для
+> государственных предприятий и организаций, профиль деятельности которых аналогичен профилю
+> кооператива (организации).
+
+Same decree, point 6, the customs order that deletes the edge from holders abroad:
+
+> Главному управлению государственного таможенного контроля при Совете Министров СССР с 23 по 25 января
+> 1991 г. не пропускать к провозу в СССР денежные знаки Госбанка СССР достоинством 50 и 100 рублей
+> образца 1961 года.
+
+Same decree, point 8, the quantity device stated together with what it does not touch:
+
+> Установить, что вкладчик имеет право получить со своего вклада в течение месяца наличные деньги в сумме
+> не более 500 рублей в учреждении Сберегательного банка только по месту жительства (работы) ... При этом
+> безналичные перечисления заработной платы и пенсий во вклады в указанный выше лимит не входят.
+> ... Вкладчик имеет право использовать средства вклада (вкладов) безналичным путем без ограничения сумм
+> на приобретение товаров, оплату услуг, используя расчетные чеки Сберегательного банка СССР, а также для
+> перевода средств с одного вклада на другой.
+
+Bank of Russia telegram 131-93 of 24 July 1993, the individual ceiling that settles the 30,000 against 35,000
+question, and the per-organisation ceiling:
+
+> Причем денежные билеты на сумму до 35,0 тыс. рублей обмениваются непосредственно при предъявлении в
+> учреждение Сбербанка России. Сумма денежной наличности свыше 35,0 тыс. рублей подлежит зачислению
+> учреждением Сбербанка России на срочный депозит сроком на 6 месяцев с начислением установленных
+> процентов по счету.
+
+> Сумма сдаваемых денег не должна превышать лимит, установленный для кассы данной организации, и суммы
+> торговой выручки, поступившей в кассу на конец дня 25 июля.
+
+Same telegram, the delegation to the instrument that is not in the public corpus:
+
+> Указания о порядке работы учреждений Сберегательного банка по обмену гражданам изымаемой из обращения
+> денежной наличности изложены в телеграмме Банка России от 22 июля 1993 года № 397.
+
+Bank of Russia telegram 162-93 of 4 August 1993, the refugee block, the spendable band above the cap, and the
+class value read off a third party's bill. The telegram is transcribed in telegraph convention, with
+punctuation spelled out as words:
+
+> ГРАЖДАНАМ ГОСУДАРСТВ БЛИЖНЕГО ЗАРУБЕЖЬЯ зпт ЗАРЕГИСТРИРОВАННЫМ ФЕДЕРАЛЬНОЙ МИГРАЦИОННОЙ СЛУЖБЕ РОССИИ
+> КАЧЕСТВЕ БЕЖЕНЦЕВ И ИМЕЮЩИМ УДОСТОВЕРЕНИЕ ФОРМЫ НР 02 ОБ ЭТОМ зпт ОБМЕН ... ПРОИЗВОДИТСЯ РАСЧЕТНО тире
+> КАССОВОМ ЦЕНТРЕ ... СУММА ОДНОРАЗОВОГО ОБМЕНА СОСТАВЛЯЕТ 100000 РУБЛЕЙ
+
+> ЖЕЛАНИЮ ГРАЖДАНИНА ОСУЩЕСТВЛЯЕТСЯ ИСПОЛЬЗОВАНИЕ СРЕДСТВ ПО ДЕПОЗИТАМ ИЗЪЯТЫХ ОБРАЩЕНИЯ ДЕНЕЖНЫХ ЗНАКОВ
+> БЕЗНАЛИЧНЫМ ПУТЕМ НА ПРИОБРЕТЕНИЕ ТОВАРОВ И ОПЛАТУ УСЛУГ тчк
+
+> ПРИ НАЛИЧИИ У ГРАЖДАНИНА ДОКУМЕНТОВ НА ОПЛАТУ ЖИЛЬЯ ОБМЕН ПРОИЗВОДИТСЯ СУММЕ зпт УКАЗАННОЙ ЭТИХ
+> ДОКУМЕНТАХ тчк
+
+Decree of the President of the Russian Federation No. 1107 of 26 July 1993, "On securing the normal
+functioning of the monetary system of the Russian Federation", from kremlin.ru, which states its source as
+pravo.gov.ru. The general ceiling, the denomination carve-outs, the window, and the open-ended delegation:
+
+> увеличить лимит свободного одноразового обмена изымаемых из оборота денежных билетов и банкнот образца
+> 1961 - 1992 годов для граждан Российской Федерации и лиц, имеющих прописку или вид на жительство на ее
+> территории, на сумму до 100 тыс. рублей на каждого человека без учета свободного обмена банкнот Банка
+> России образца 1992 года достоинством 10 тыс. рублей;
+
+> обмен производить в течение августа 1993 года;
+
+> обеспечить снабжение разменной монетой, сохранив в течение указанного срока хождение в обращении
+> денежных билетов выпуска до 1993 года достоинством 1, 3, 5 и 10 рублей;
+
+> в ходе проведения обменных операций принимать оперативно решения по корректировке порядка обмена,
+> направленные на обеспечение гарантий социальной защиты граждан Российской Федерации.
+
+Same decree, article 2, the class that is named and given no value:
+
+> обратив особое внимание на оказание содействия в обмене денежных знаков инвалидам, пенсионерам и другим
+> категориям граждан Российской Федерации, нуждающимся в социальной защите государства.
+
+Law No. 61 of the Military Government, First Law for Monetary Reform (Currency Law) in its own official English,
+Währungsgesetz in the German, of 20 June 1948, held in full by a legal-text archive; the Military Government
+Gazette printing is No. 25, p. 848. Paragraph 6, the head amount in two tranches; paragraphs
+15 and 16, the two public-body fractions over one base period; paragraph 17, the business amount per employee;
+paragraph 2, the unit substitution at par subject to special provisions; paragraph 5, the class drawn by the
+employer's payroll calendar; and paragraph 20, the exit written into the statute:
+
+> § 6. Jeder Einwohner des Währungsgebiets erhält im Umtausch gegen Altgeldnoten desselben Nennbetrages bis
+> zu sechzig Deutsche Mark in bar (Kopfbetrag). Ein Teil des Kopfbetrags in Höhe von nicht mehr als vierzig
+> Deutsche Mark wird sofort ausgezahlt, der Rest innerhalb von zwei Monaten.
+
+> § 15. Die Landeszentralbanken sind verpflichtet, die Länder ... mit Beträgen in Deutscher Mark in Höhe von
+> einem Sechstel der Isteinnahmen ... in der Zeit vom 1. Oktober 1947 bis 31. März 1948 auzustatten.
+
+> § 16. Die Bank deutscher Länder ist verpflichtet, die Bahn- und Postverwaltungen des Währungsgebiets ... mit
+> Beträgen in Deutscher Mark in Höhe von einem Zwölftel ihrer Isteinnahmen in der Zeit vom 1. Oktober 1947 bis
+> 31. März 1948 auszustatten.
+
+> § 17. (1) ... Der Geschäftsbetrag bemißt sich nach der Zahl der von dem Anspruchsberechtigten beschäftigten
+> Arbeitnehmer und der Höhe der von ihm unterhaltenen Altgeldguthaben. Er beträgt sechzig Deutsche Mark je
+> Arbeitnehmer, höchstens jedoch eine Deutsche Mark für jede Reichsmark Altgeldguthaben.
+
+> § 2. Sind in Gesetzen, Verordnungen, Verwaltungsakten oder rechtsgeschäftlichen Erklärungen die
+> Rechnungseinheiten Reichsmark, Goldmark oder Rentenmark verwendet worden, so tritt, vorbehaltlich besonderer
+> Vorschriften für bestimmte Fälle, an die Stelle dieser Rechnungseinheiten die Rechnungseinheit Deutsche Mark.
+
+> § 5. Fällt der erste Zahlungstermin von Löhnen und Gehältern nach dem 20. Juni 1948 auf einen späteren Tag
+> als den 29. Juni 1948, so ist an die Lohn- und Gehaltsberechtigten eine Nachzahlung in Deutscher Mark zu
+> leisten. Nachzuzahlen sind siebzig vom Hundert desjenigen Teiles des beim letzten Zahlungstermin nach Abzug
+> der Lohnsteuer, der Kirchensteuer und der Beiträge zur Sozialversicherung empfangenen Reichsmarkbetrages,
+> der dem Anteil des am 30. Juni 1948 beginnenden und am nächsten planmäßigen Zahlungstermin endenden
+> Zeitraums an der gesamten Zahlungsperiode entspricht.
+
+> § 20. ... Straffrei bleibt, wer Altgeldnoten vernichtet, statt sie abzuliefern.
+
+Law No. 63, Third Law for Monetary Reform (Conversion Law), Umstellungsgesetz in the German, of 20 June 1948,
+paragraph 2(1), the conversion with its blocked half and its written discretionary tier, and paragraph 4, the
+set-off that makes the head and business amounts advances:
+
+> § 2. (1) Die Altgeldguthaben der Gruppe I werden grundsätzlich in der Weise in Neugeldguthaben umgewandelt,
+> daß den Inhabern für je zehn Reichsmark eine Deutsche Mark gutgeschrieben wird. Hiervon ist die Hälfte frei
+> verfügbar (Freikonto); die andere Hälfte wird einem gesperrten Konto (Festkonto) gutgeschrieben, über dessen
+> Behandlung innerhalb von 90 Tagen entschieden werden wird. Darüber hinaus kann den Inhabern der
+> Altgeldguthaben ein weiterer Anspruch im Höchstbetrage von einer Deutschen Mark für je zehn Reichsmark
+> Altgeldguthaben gewährt werden.
+
+> § 4. Die nach § 6 des Währungsgesetzes in Deutscher Mark ausgezahlten Kopfbeträge und die nach § 17 des
+> Währungsgesetzes in Deutscher Mark erhobenen Geschäftsbeträge werden auf die Beträge in Deutscher Mark, die
+> den Altgeldbesitzern nach § 2 Abs. 1 zustehen, grundsätzlich voll angerechnet.
+
+Second Ordinance under the Festkonto Law (Adaptation of Provisions of the Conversion Law), in force 1 January
+1949, Verordnungsblatt für die Britische Zone of 6 January 1949, No. 1, p. 4, by order of the Allied Bank
+Commission, German text authoritative. The class it binds and the rate written for it:
+
+> § 1 (1) Hat der Schuldner einer Reichsmarkverbindlichkeit, die dadurch entstanden ist, daß er fremdes Geld
+> als Verwahrer oder auf Grund einer Geschäftsbesorgung oder zum Zwecke der Hinterlegung (§ 372 BGB) oder als
+> Sicherheitsleistung erhalten oder beschlagnahmt oder sonst zwecks Sicherstellung in Besitz genommen hat, den
+> geschuldeten Reichsmarkbetrag auf einem Reichsmark-Konto bei einem Geldinstitut im Währungsgebiet gehalten
+> und dieses Guthaben nach § 11 Abs. 3 Ziff. 2 des Währungsgesetzes ... mit Vordruck B angemeldet, so wird die
+> Reichsmarkverbindlichkeit in Abweichung von § 16 Abs. 1 des Umstellungsgesetzes mit der Wirkung auf Deutsche
+> Mark umgestellt, daß der Schuldner für je einhundert Reichsmark sechseinhalb Deutsche Mark zu zahlen hat.
+
+Same ordinance, Article II, the discretionary valve closed by a mechanical condition:
+
+> § 21 Abs. 2 des Umstellungsgesetzes wird geändert und erhält folgende Fassung: "(2) Wird die richterliche
+> Vertragshilfe zwecks Stundung oder Herabsetzung einer nach § 16 umgestellten Verbindlichkeit angerufen, so
+> ist der Antrag ohne weiteres zurückzuweisen, wenn und soweit den auf Deutsche Mark umgestellten
+> Reichsmarkverbindlichkeiten des Schuldners im Zeitpunkt der Währungsumstellung nicht Altgeldguthaben oder
+> solche Reichsmarkforderungen gegenüber gestanden haben, bei denen nach § 14 eine Umstellung auf Deutsche
+> Mark unterbleibt."
+
+Third Ordinance under the Festkonto Law, Verordnungsblatt für die Britische Zone of 12 May 1949, No. 24, p.
+145, in force 5 May 1949, by order of the Allied Bank Commission, German text authoritative. Its enabling line,
+naming the clause it answers, and the disposal of the last tenth:
+
+> Auf Grund des § 1 Abs. c und § 2 des Vierten Gesetzes zur Neuordnung des Geldwesens (Ergänzung zum
+> Umstellungsgesetz) wird hiermit verordnet:
+
+> § 2 ... Ein aus Guthaben auf Anlagekonten erworbenes Wertpapier oder Miteigentumsrecht darf vor Ablauf eines
+> Jahres nach dem Erwerb nicht veräußert werden.
+
+> § 3 (1) Über Guthaben auf Anlagekonten, die nicht höher als fünf Deutsche Mark sind, darf mit sofortiger
+> Wirkung frei verfügt werden. Dasselbe gilt für Spitzenbeträge von weniger als fünf Deutsche Mark, die bei
+> Verwendung der Guthaben auf Anlagekonten zum Erwerb von Wertpapieren entstanden sind. Für die in Satz 1
+> bezeichneten Guthaben werden keine Zinsen vergütet ...
+> (2) Die übrigen Guthaben auf Anlagekonten werden ab 1. Januar 1954 Freikonten. Die Guthaben auf diesen Konten
+> gelten von diesem Zeitpunkt ab als Sichteinlagen. Bis zu diesem Zeitpunkt werden sie mit Wirkung vom 21. Juni
+> 1948 mit zwei und einem halben Prozent jährlich verzinst.
+
+First Ordinance under the Fourth Law on the Reorganisation of the Monetary System, Verordnungsblatt für die
+Britische Zone of 16 November 1948, No. 52, p. 329, in force 1 November 1948, by order of the Allied Bank
+Commission. The split written in parts, the value date, the freeze against a document not yet made, and the
+rate:
+
+> § 1 (2) Bei der Umwandlung der Altgeldguthaben sind dem Kontoinhaber vom Inkrafttreten dieser Verordnung an
+> für je einhundert Reichsmark sechs Deutsche Mark auf Freikonto und eine halbe Deutsche Mark auf Anlagekonto
+> (§ 2) gutzuschreiben.
+
+> § 1 (4) Die im Festkontogesetz vorgesehenen Buchungen und die Überträge von Festkonten auf Anlagekonten
+> (Abs. 2) sind mit Wertstellung vom 21. Juni 1948 vorzunehmen.
+
+> § 2 (1) Über die in § 1 bezeichneten Anlagekonten kann nur nach Maßgabe der in § 1 Buchst. c) des
+> Festkontogesetzes vorgesehenen Durchführungsbestimmungen verfügt werden.
+> (2) Die Guthaben auf Anlagekonten gelten als befristete Einlagen im Sinne des § 6 des Emissionsgesetzes und
+> von § 10 des Umstellungsgesetzes. Sie sind mit 2½ v. H. jährlich zu verzinsen. Die Zinsen sind am Schluß
+> jedes Kalenderjahres fällig. Sie sind dem Freikonto des Kontoinhabers gutzuschreiben.
+
+Fourth Ordinance under the Festkonto Law, Verordnungsblatt für die Britische Zone of 16 September 1949, No. 53,
+p. 489, in force 12 September 1949, by order of the Allied Bank Commission. The whole of its operative text:
+
+> § 1 Guthaben auf Anlagekonten können auf andere Anlagekonten überwiesen werden.
+
+Fifteenth Ordinance under the Conversion Law, on interim interest payments on banks' equalisation claims, same
+gazette volume, p. 3, in force 31 December 1948. The estimate the whole scheme runs on, and the two rates:
+
+> § 2 (1) ... Jedes Geldinstitut mit Ausnahme der Bank deutscher Länder und der Landeszentralbanken hat am
+> letzten Tage des zweiten Monats vor Fälligkeit der Abschlagszahlung der Landeszentralbank eine nach bestem
+> Wissen und Gewissen geschätzte Umstellungsrechnung einzureichen, aus der der voraussichtliche Betrag der
+> Ausgleichsforderung ersichtlich ist.
+
+> § 3 (2) ... so gilt für die Berechnung der Abschlagszahlungen die Ausgleichsforderung in Höhe des
+> Unterschiedsbetrages als mit jährlich viereinhalb von Hundert zu verzinsen.
+
+> § 6 (1) Zinsbeträge für eine Ausgleichsforderung, die der Schuldner erst nach dem Zeitpunkt an das
+> Geldinstitut leistet, zu dem sie nach § 11 Abs. 2 der Bankenverordnung zu vergüten sind, hat der Schuldner
+> von diesem Zeitpunkt an bis zur Zahlung mit jährlich fünf vom Hundert zu verzinsen. (2) Abschlagszahlungen
+> auf Zinsen für die Ausgleichsforderung, die dem Schuldner zu erstatten sind, hat das Geldinstitut vom
+> Zeitpunkt des Eingangs bis zur Erstattung mit jährlich fünf vom Hundert zu verzinsen.
+
+Seventh Ordinance extending the ordinance on the suspension of judicial proceedings, 4 January 1949, Central
+Justice Office for the British Zone, same gazette issue at p. 5, the comparative standard left to the judge:
+
+> Von der Aussetzung kann abgesehen oder die Aussetzung kann wieder aufgehoben werden, wenn und insoweit die
+> heutige Leistungsfähigkeit des Schuldners im Vergleich zu seiner Leistungsfähigkeit zur Zeit der Einstellung
+> der Zahlungen durch das Reich nicht wesentlich beeinträchtigt ist und die Aussetzung für den Gläubiger eine
+> unbillige Härte wäre.
+
+Law No. 65, Fourth Law for Monetary Reform (Supplementary Conversion Law), Festkontogesetz in the German, in
+force 4 October 1948 in the American and British zones and 30 September 1948 in the French zone as Ordinance
+No. 175, paragraph 1,
+the split written in whole marks with its third tranche delegated to a dated instrument:
+
+> § 1. ... a. Sieben von je zehn Deutschen Mark werden mit Wirkung vom Tage der Gutschrift auf das Festkonto
+> gestrichen. b. Zwei von je zehn Deutschen Mark werden auf das entsprechende Freikonto in Deutscher Mark
+> übertragen. c. Der Restbetrag ist für Anlage in mittel- oder langfristigen Wertpapieren nach Maßgabe der
+> Verordnungen verfügbar, welche von der Alliierten Bankkommission vor dem 1. Januar 1949 zu erlassen sind.
+
+The DPRK 1947 threshold, from a Ministry of Unification reference work naming the decree it summarises:
+
+> 교환 한도는 계층·계급별로 차별을 두었는데, 한도초과금액은 예금으로 동결했다
+
+The 1959 control case, no ceiling at all, from the same work:
+
+> 1959년 2월 13일부터 1959년 2월 17일까지 100:1로 무제한으로 교환
+
+
+The founding text of the 1947 North Korean conversion is now in hand, and it corrects the entry that was
+built on a reference work. The instrument is Decree No. 30 of the North Korean People's Committee, "On the
+issue of new currency to circulate in North Korea and on the exchange of the currency now in circulation",
+drawn up 1 December 1947 and printed in the Legal Gazette No. 38 of 22 December 1947 over the signatures of
+Kim Il Sung as chairman and Han Pyong Ok as secretary.
+
+Article 4 names ten classes, lettered 가 through 차. Eight of them carry a written value and two delegate it.
+The North Korean Farmers Bank exchanges up to its own statutory capital. State organs, state enterprises,
+parties, social organisations and consumer cooperatives deposit their cash in full and are paid from 13
+December within a limit the People's Committee is to set separately. A private firm employing ten or more may
+exchange at most half the wages it paid the previous month, and must produce that month's wage income tax
+receipt. A proprietor, artisan, small trader or professional employing fewer than ten may exchange at most
+half of one month's assessed tax base, on a certificate issued by the local finance organ. An employee of a
+state organ, party, social organisation or enterprise, and a person on state support, may exchange up to the
+previous month's income. A farmer who has paid the cash tax may exchange up to 700 won per household. A
+student at a specialist school or university may exchange one month's state scholarship. A church, cathedral
+or other religious body may exchange at most half of its own average monthly cash expenditure through
+November 1947. Everyone not listed above exchanges 500 won per household head plus 200 per co-resident aged
+eighteen or over. And Soviet military personnel and Soviet citizens exchange through the finance section of
+their own organisation, under rules to be set separately by the Soviet garrison command.
+
+Six of those eight written values are functions of the holder rather than constants: the bank's charter, two
+payroll records, a tax assessment, a scholarship schedule and, most sharply, a religious body's own books.
+That is twice the count on any other carrier and it predates the 1991 case by forty-four years. What a church
+could exchange was one half of what its own ledger showed it had been spending each month.
+
+Three corrections follow. The condition on the farmer's allowance is payment of the cash tax and not the
+in-kind tax. The certificate for the smaller proprietors is issued by the local finance organ. And two classes
+the earlier entry did not have are in the text, the Farmers Bank and the religious bodies, while three it did
+have are not: boarding pupils, persons in transit and the families of prisoners appear nowhere in the decree
+and are presumably in the separate regulation that Article 12 approves, which is not yet fetched. The class
+count is therefore printed two ways: ten classes named, which still exceeds Czechoslovakia's nine, and eight
+carrying a written value, which does not.
+
+The decree has no discretionary tier, and that is written rather than omitted. Article 6 voids all old
+currency neither exchanged nor deposited by 12 December and states that the central bank will accept no
+appeal or petition on the matter. Set against the 1991 Soviet decree, which wrote a ten-day deadline, a
+stated test of the legality of the source of income, two levels of appeal and a final decision, this is the
+opposite construction: every value written down and exceptions closed by name.
+
+Three structures appear here that had not been seen. Circulation is banned from 8 December but the old notes
+remain valid until the 12th for exactly three uses, paying taxes, paying railway fares, and exchanging for new
+notes, which is a class of uses rather than of holders and a device on the trade graph rather than on the
+weights. Deposits split by vintage: Article 8 undertakes to meet withdrawals without limit on deposits made
+after the exchange, while Article 5 holds the above-limit transfers and all balances existing on 5 December
+until two months after the exchange ends, on terms a separate decision was to publish. And the progressive
+schedule recorded earlier for private deposits lives in that separate decision rather than in the decree.
+
+Article 3 fixes one rate, one old won of either the Bank of Chosen note or the Soviet military scrip for one
+new won. One rate and ten written quantities makes the cash side a quantity programme, which the earlier entry
+had inferred and the founding text now settles.
+
+The take-up on this carrier has been measured class by class, which is a first for this corpus. A Bank of
+Korea researcher's study of the North Korean monetary economy carries a table sourced to the Soviet Defence
+Ministry archive, by way of a 1996 article on the December 1947 reform, giving the proportion of holdings
+actually exchanged for each of the classes the decree lettered: students 82 per cent, workers and office
+staff 74, farmers 69, the smaller proprietors 54, pensioners 43, the larger proprietors 21, and religious
+bodies 8. Every earlier reading of take-up in this corpus is either an aggregate or a qualitative statement.
+The ordering here is not arbitrary: the tighter the written allowance, the smaller the share that came
+through, monotonically from 82 down to 8. A written partition produced a measured partition of outcomes in
+the same order, which is the positive extreme of the rule that a written rate carries classification without
+automatically carrying behaviour. Here the rates were enforced and the strength of enforcement tracked how
+tightly each was written.
+
+In aggregate, of 7.12 billion yen of old currency submitted by the North Korean side, 35 per cent was
+exchanged; of 0.93 billion submitted by the Soviet side, 100 per cent was. The same study records that the
+Soviet garrison command proposed the reform in June 1947 on the condition that the sum it submitted be
+exchanged in full. So the entry that described the occupying army's allowance as unlimited is corrected
+twice over: the decree delegates that class's value rather than setting it, and the outcome was a hundred per
+cent that the party proposing the reform had written for itself as the price of proposing it. The scale
+explains the pressure: the military scrip stood at 7.2 billion yen before the reform, more than ninety per
+cent of the currency circulating in North Korea and equal to 86 per cent of that year's state expenditure,
+because the garrison was funded by issuing it rather than out of a budget.
+
+Three further points of record. A cabinet decision of 14 May 1949 issued 15, 20 and 50 chon notes and voided
+the colonial-era subsidiary coinage, which is a sixth reform in this family and was not previously in the
+corpus. The 1959 exchange ran five days from 13 to 17 February at a hundred to one with no ceiling. And the
+1979 exchange, six days from 7 to 12 April at par with no ceiling, required organs, enterprises and
+cooperative bodies to pay their holdings into the bank by 8 April and to draw only what they needed in new
+notes, which is the source for the deposit-first treatment recorded earlier without one.
+
+
+For the 2009 conversion there is no public founding text and there will not be one, which is a different
+statement from not having found it. The announcement was made by broadcast, at short notice, and the paper
+instrument existed inside the party. A reader told that a document could not be obtained goes looking for it
+in another archive; a reader told that no public paper exists stops looking in archives and reads the
+contemporaneous reporting instead. This carrier therefore rests on that reporting permanently, and that is a
+property of the carrier rather than a shortfall of the retrieval.
+
+What the reporting establishes about the instruments is narrow and worth stating exactly. A decree of the
+Presidium of the Supreme People's Assembly of 30 November 2009 provided the authority, and the implementing
+instrument was cabinet decision No. 423 on the currency exchange, issued as two lettered documents: 423-1,
+"For the stabilisation and improvement of the people's livelihood", and 423-2, "To set right the economic
+management system and order". Those two titles come from a single source, a newsletter published by a relief
+organisation citing informants inside the country, and three news outlets carried it on the same day. Three
+outlets relaying one newsletter are one observation, not three.
+
+The structure is new to this corpus. Every other carrier writes the schedule of class values and the devices
+that keep the classes from trading with each other into one instrument: the 1991 Soviet decree carries both,
+the 1947 North Korean decree carries both, and each of the two Czechoslovak laws carries both. Here they were
+issued as two documents under one number on one day, and the titles frame one half as a benefit and the other
+half as enforcement.
+
+The band above the cap dissolved over about forty-eight hours, and the sequence is worth recording as a shape.
+It was announced that old currency above 100,000 could be exchanged at a thousand to one. Within a few hours
+that was revised to say it could be deposited at a thousand to one. On the morning of the third it was revised
+again to say the state would take appropriate measures regarding the deposited money. So the same number was
+first a rate on the cash channel, then a rate on the deposit channel, and then not a value at all but an
+authorisation. After the third step it sits outside the premise of the counting law, which requires the
+programme to write the value down. Every discretionary tier previously recorded in this corpus was designed as
+one from the start; this is the first that arrived by degradation, and it supplies the mechanism behind the
+earlier finding that the block count on this carrier is undecidable because the partition carries a time index.
+The value did not merely move: it changed what kind of object it was, twice, in two days.
+
+The ceiling itself became a function of the household. It went from 100,000 won per household to 150,000, and
+then a further 50,000 of old currency per family member was allowed on top of the original 100,000. That is
+the same shape as the residual class in the 1947 decree, which gave 500 won per household head plus 200 per
+co-resident aged eighteen or over, sixty-two years apart, and it brings the count of class values that are
+functions of the holder to seven.
+
+One edge was not deleted and the flow along it is visible. The amount of North Korean currency a Chinese
+national could exchange was reported to be unlimited, and residents in the border areas were increasingly
+converting through Chinese nationals. A class whose membership condition is foreign nationality, with an
+effectively unbounded allowance, was rented by non-members. This is the first carrier where a class value is
+seen being used by people outside the class with an observable direction of flow, and it is the exact thing
+the edge-deleting devices exist to prevent. Point 6 of the 1991 Soviet decree closed the border to holders
+abroad; here holders abroad were the edge left open.
+
+The alternative route above the cap has been priced for the first time, and it was worse than the written
+band. Market prices reported on 1 December, against 30 November: rice from 2,500 to 50,000 won a kilogram, a
+factor of twenty; corn from 950 to 30,000, a factor of thirty-two; soybean from 1,200 to 25,000; perilla from
+4,000 to 60,000. A monthly wage was 3,000 to 4,000 won. Set the two routes side by side. The written high band
+at a thousand to one, against the standard hundred to one, retains a tenth of value. Spending the old currency
+in the market retained between a twentieth and a thirty-second of the previous day's purchasing power. The
+written band was two to three times better than the outside route. So the low use of that band cannot be
+explained by a cheaper route outside it, and the mechanism recorded for it, that using it identifies the
+holder as holding excess, is strengthened rather than displaced. These are order-of-magnitude comparisons on
+prices reported by informants rather than officially, and they are used as such.
+
+One cross-carrier statement was made at the time and is recorded: unlike the 1992 exchange, this one was
+directed throughout by the party. An instruction to punish irregularities in the exchange without mercy was
+reported from the same source.
+
+Three items supplied by an external search were not corroborated by either report and are not adopted: that
+423-2 contained the confiscation of private traders' goods and money, forced return to state shops and a
+general ban on foreign currency; that the ceiling was later raised to 500,000; and that ordinary workers
+received a 500 won consideration payment. The ban on using foreign currency in Pyongyang appears in the
+reporting as a separate follow-up notice rather than as a clause of 423-2. The document number and the two
+titles checked out; the attribution of contents did not, which is the fifth time on this station that the
+substantive layer of such a supply has been right while the attribution layer was reconstructed.
+
+
+Both instruments that the 1947 decree delegated its deposit terms to are now in hand, together with a fourth
+North Korean reform that had not been in the corpus at all. All three are full transcriptions with page images
+in the National Institute of Korean History's collection of North Korean gazettes, which runs from 1946 to
+1952 and carries the Legal Gazette and the Cabinet Gazette.
+
+Article 4(b) of the 1947 decree said institutional cash was to be deposited in full and paid from 13 December
+within a limit the People's Committee would set. That limit is People's Committee Decision No. 94, drawn up on
+3 January 1948 and printed on the 17th, and it opens by citing Article 4(b) by name. What it writes is not a
+payment schedule but a freeze, in three classes. Treasury and finance-bureau accounts and the provincial,
+special-city, city and township treasuries are not frozen at all. State commercial organs and consumer
+cooperatives of every level are frozen at fifty per cent. Everything else, state organs, parties, social
+organisations and enterprises, is frozen in full into a non-interest special deposit account from which not
+only cash withdrawal but non-cash transfer settlement is forbidden. Normal deposit business resumes after the
+freeze. The earlier entry recorded this the other way round, as full payment to institutions with later
+deposits frozen, and that is corrected here. The reason the earlier entry gave, that prices had halved, is not
+in the text; the reason the text gives is that deposits taken between 6 and 9 December came to more than 2.5
+billion won because many institutions had been holding more cash than their business needed, in breach of an
+earlier decision, and that paying such deposits without limit would obstruct the consolidation of the new
+currency. That 2.5 billion is a second occupancy reading on this carrier, measuring what the legal-person side
+put in rather than what the cash side got out.
+
+Article 5(2) delegated the private deposits, and that is People's Committee Decision No. 114 of 19 February
+1948, printed on the 27th, which likewise cites its parent article by name. The base is defined in the text:
+total deposits as at 12 December 1947, meaning the balance at 5 December plus anything paid in during the
+exchange period. The schedule is marginal and has five bands: everything up to 2,000 won paid in full; a basic
+allowance of 2,000 plus half of the next 3,000; then thirty per cent of the next 5,000; then twenty per cent
+of the next 40,000; then ten per cent of the remainder. That reproduces the schedule this station had been
+carrying from a third-tier reference work, band for band, and the four worked conversions recompute against
+the original as they did against the reference work. The practice of accepting a third-tier source as a
+reading because it carries worked examples that recompute from its own schedule has now been checked against
+the founding text, and it held. Two things the earlier entry did not have: payment runs from 25 February but
+may not exceed half the permitted amount until 24 March, with the remainder from the 25th; and anything above
+the permitted amount is transferred into a special non-interest frozen account from which all payment is
+forbidden, while every other private deposit is payable without limit from then on. The deposit side therefore
+carries four written class values rather than three.
+
+The fourth reform is Cabinet Decision No. 50 of 14 May 1949, printed in the Cabinet Gazette of 31 May over the
+signatures of the premier and the finance minister. It authorises 15, 20 and 50 chon notes of the central
+bank's 1947 design, gives them unlimited legal tender from 16 May, and voids every subsidiary coin issued by
+the Bank of Japan before 15 August 1945 from the same date. The operative words are that they are void
+"without exchange". There is no exchange, so there is no counter, no window and no identity check, and
+therefore no registration point; and the class count is one, at a rate of zero.
+
+That makes a twelfth case for the statement that a programme with no registration point writes exactly one
+class value, which has no counterexample, and it is the first of those twelve to come from a founding text
+that this project read itself. Its value is less in the count than in what it pairs with. The same state, the
+same central bank and the same premier's signature, seventeen months apart: one reform built a registration
+apparatus of nine kinds of certificate and wrote ten classes, the other built none and wrote one. Every
+earlier instance of that contrast was drawn across countries. This one is inside a single government, so the
+question of whether the cases share a designer does not arise: they do share one, and the outputs differ by a
+factor of ten.
+
+
+The separate regulation that Article 12 of the 1947 decree approves was not printed in the gazette, and that
+is checked rather than assumed. Legal Gazette No. 38 lists seven items: the currency decree itself, two
+decisions of the People's Assembly presidium, two approvals of instruments adopted between assembly sessions,
+and two on adding judges to the supreme court. The regulation on exchanging central bank notes against the old
+currency is not among them while all seven of its siblings are. So its status is not that it has not been
+fetched but that it was never published. That is the same shape as the Russian telegram of 22 July 1993, and
+the control here is tighter: there the siblings were present in a database and the one instrument was absent,
+here the gazette's own complete contents list for that issue does not carry it. Three carriers in three
+countries now show the same thing, terms living in an instrument that a published instrument names and that is
+itself not public. The three classes that the earlier reference-work account had and the decree does not are
+therefore not pending verification; they are in a document that was not published, may well be real, and
+cannot be reached, and that is not for want of looking.
+
+For the three later reforms in this family the gazette collection is out of window, since it ends in 1952. Two
+routes were checked. The Ministry of Unification's information centre is a holdings catalogue whose full-text
+service is largely on-site; it does hold the Korean Central Yearbook, which is where the state reprints its
+own decrees, so the 1960, 1980 and 1993 volumes are the primary route and require the reading room. The
+unification legal database is oriented to research material and current statutes and is unlikely to carry
+decrees of that period. Until the yearbook volumes are read, those three rest on the secondary study already
+in hand, which supplies each one's dates, duration, rate, presence or absence of a ceiling and new
+denominations, and quotes the 1979 requirement that organs and enterprises bank their holdings and draw only
+what they need. That is a division of labour rather than a downgrade: the structure is settled and what an
+original would add is the wording and whether any further class exists. The 1992 exchange is the one worth the
+trip, since it is the only one of the three with a real ceiling, and the figure for that ceiling is still in
+conflict between two sources.
+
+
+The conflicting figures for the 1992 ceiling are settled at 399 won per household. A Bank of Korea research
+paper on North Korean price policy gives the sequence: a decree of the Central People's Committee announced on
+14 July 1992, an exchange window of 15 to 20 July, old for new at par, a ceiling of 399 won per household,
+the remainder to be paid into a bank deposit, and no deposit accepted at all above 30,000 won. It states that
+the ceiling figure comes from defector testimony and cites a 1994 South Korean intelligence publication for
+it. The competing figure of 300 appears in one secondary source that names no original for it, while 399
+appears in two, one of which names its original, so 399 is adopted. The other three particulars are common to
+all three sources.
+
+The same page yields a small regularity about legal persons. In 1979 organs, enterprises and cooperative
+bodies were to bank their holdings and use only the amount they needed in new notes; in 1992 they were to
+exchange only as much as they needed; and in 1947 Article 4(b) delegated their figure to a later decision
+rather than writing one. Three reforms, and in all three the legal-person block carries no written value. By
+the discipline that a programme must write the value down for the counting law to apply, "as much as needed"
+is an authorisation rather than a value, so that block sits outside the law's premise each time. The earlier
+finding that the natural-person against legal-person boundary is the bedrock of this family now has its
+content as well: what the legal person receives is not an allowance but a discretion.
+
+How many reforms this family contains is printed two ways rather than decided. The literature counts four to
+1992, being 1947, 1959, 1979 and 1992. This corpus counts six, adding the 1949 voiding of the subsidiary
+coinage and the 2009 exchange. The difference is 1949, which the literature does not treat as a currency
+reform because it voided auxiliary coin without exchanging the main currency, and which this project counts
+because it meets the definition in use here: a published programme that wrote down one class value, zero. No
+conclusion moves either way. The counting law still has no counterexample, the statement about carriers with
+no registration point still has none, and the largest carrier is still 1947.
+
+Two carriers are registered from the same source without being opened. In 1994 the wholesale price system was
+revised, and one of the official reasons given was to maintain the principle of a single price for a single
+good. In 2002 all prices were raised roughly twenty-five fold and wages roughly twenty fold, the turnover tax
+was merged away, ceiling prices on key goods were to be reviewed every ten days, and grain was adopted as the
+basis from which other goods' prices are set. Both are attempts to construct a scalar potential by decree,
+once through a stated one-price principle and once through a numeraire. The same source also supplies a
+boundary: the state could set wages and procurement prices unilaterally, while eggs, hair oil and bread traded
+at market prices it could not control, so the state's schedule covered a strict subset of the edges and the
+multipliers inside and outside it differ. That difference is what a station here would read. This is used as
+literature rather than as measurement.
+
+
+## B34 — where the wage floor breaks, against where the statute puts the boundary
+
+The UK minimum wage pays different rates by age, and the age boundaries have
+moved four times: 2010-10, 2016-04, 2021-04, 2024-04. The station asks whether
+the lower edge of the wage distribution breaks at the ages the statute names,
+and whether a break moves when the statute moves. The second question carries
+the weight. Any account in which age itself raises the wage predicts the old
+break survives a boundary move, because nobody becomes less skilled at 25 when
+the statute changes.
+
+Two instruments, chosen to be different in the way that matters. A single year
+of age profile of the share paid below one common adult threshold, built from
+Labour Force Survey microdata; and a difference in differences on published
+ASHE percentiles for an age band whose own edges never move while the statutory
+boundary crosses it. The threshold is common across all ages by construction,
+so the profile does not know where the boundary is, and where it bends is
+therefore a reading rather than a restatement.
+
+**This station is closed. The station documents are
+[`docs/b34_prereg.md`](docs/b34_prereg.md) and
+[`docs/b34_results.md`](docs/b34_results.md), and the final verdicts are in the
+closing table at the end of this block. The table immediately below is the first
+round, read on published tables before any microdata existed; it is superseded
+row by row and kept because a superseded verdict is part of the record.**
+
+| criterion | verdict | reading |
+|---|---|---|
+| resolution gate, on published counts | PASS at year granularity | week and month granularity do not clear. The statute lands on whole years, so the station needs only years |
+| resolution gate, on the microdata | PASS | at the live boundary n = 353 and 433 against a pre-run extrapolation of 360; se of the difference 2.15pp at p = .10 against the 4pp effect sought, 1.86 se, threshold 1.645 |
+| B34-1 position | PASS on ASHE, unresolved on LFS | at the 22 boundary the step to step survival ratio is 0.333 on ASHE, half of the three preceding steps and the first in the series below 0.5. On LFS it is 0.600, inside the range the non-boundary steps span |
+| B34-2 movement | unresolved on the material read so far, one rate year short of resolvable | the published material spans 1999 to 2009, and the adult rate applied at 22 and over throughout it, so no boundary moved inside that window |
+| B34-3 placebo | PASS | ages 21 and 23 show no robust discontinuity; the pre-legislation window gives 24 discontinuity parameters of which one reaches 10 per cent, in a specification that fails its own goodness of fit |
+| B34-4 structure | not run | |
+| B34-5 ASHE difference in differences | unresolved, and only at one cell | 20th percentile log DiD +0.0675, t = 9.28; 10th percentile +0.0224, t = 1.55, inside the registered undecidable band. All three placebo percentiles move the other way, which is what the design asked of them |
+| B34-5p pre-trend | PASS, and it is a zero rather than a non-rejection | the same contrast on 2014 to 2015, before the policy was announced, with the power to have seen an effect |
+
+### What the microdata gate added that the published counts could not
+
+Four consecutive quarters of the 2021-22 rate year, SN 8826, 8872, 8915 and
+8957. A known answer check locates each file in absolute time from its own
+columns, `W1YR * 4 + (QRTR - 1) + (THISWV - 1)`, and returns a single value per
+file, four in sequence. One pass, no cost, and it confirms three things at
+once: that the wave variable means what the design assumed, that the four
+quarters do not overlap, and that no quarter is missing between them. The
+catalogue also publishes rolling quarters, one per month on a three month
+window, and pooling those with these would have inflated the cell counts the
+gate reads by up to a factor of three.
+
+The overlap question then answered itself against expectation. The survey
+interviews an address in five successive quarters, so four consecutive
+quarters share respondents and a pooled row count is ordinarily person
+quarters rather than persons. But the earnings questions are asked at waves 1
+and 5 only, and those are four quarters apart, so a four quarter window cannot
+hold both answers from one person. Measured rather than argued: eight entry
+cohorts, none appearing at more than one survey quarter. The same check run
+without the earnings filter does show cohorts spanning two, three and four
+quarters, so the zero is discriminating and not vacuous. The pooled n counts
+people.
+
+That yields a constraint worth carrying forward. The window must stay at four
+consecutive quarters. A fifth puts wave 1 and wave 5 of one cohort inside it
+and duplicates appear at once. Widen by rate year, never by one more quarter.
+
+Two instrument facts fell out of the same pass. `HOURPAY`, derived from weekly
+pay over hours, carries 121 to 715 observations per single year of age and
+clears the gate. `HRRATE`, the directly asked basic hourly rate, carries 133 to
+227 and does not: 1.35 se at the live boundary against the same effect.
+That 1.35 was computed before the special codes in `HRRATE` were dropped, and
+the count behind it therefore included them. The variable's documented value
+range is 1-994 for an amount, 995 for a top code, 998 for "don't know" and 999
+for a refusal; 998 and 999 are missing, they are positive, and they exceed
+every threshold, so a plain comparison counts them as not below one. They are
+32.2 percent of the non-null column and their share climbs with age, from 18.0
+percent at sixteen to 34.8 percent at twenty-eight, which deforms a profile
+rather than shifting it. Recomputed on the cleaned column at the same p, the
+same 4pp effect and the same line, the three adjacent pairs give 1.12, 1.14 and
+1.04 se. The instrument reads further below the line than first stated, the
+direction of this reading is unchanged, and the `HOURPAY` row is unchanged to
+the digit. The
+survey's declining response since 2020, flagged before any data was bought,
+bit one instrument and not the other. Both are reported; the gate is read on
+`HOURPAY`. This is the same shape as B34-1's split between the employer payroll
+and the employee's own account, one level down: the self reported quantity is
+again the one that cannot carry the reading.
+
+### What this station has settled and what it is waiting on
+
+Settled: the written partition is visible in employer payroll records at the
+one boundary that has been read, and it is not visible in employee self
+reports, which carry a checkable noise floor of their own, since 5 per cent of
+23 year olds are recorded below a rate that is legally binding on them. The
+band level difference in differences puts the 2016 National Living Wage at the
+20th percentile of the treated band and nowhere above it, with a pre-trend of
+zero.
+
+Waiting on one rate year. B34-2 asks whether a break moves and whether the old
+position vanishes, and the material read so far contains no boundary move at
+all. The 2021-22 microdata now in hand sits after the 2021-04 move of the
+adult boundary from 25 to 23. The matching pre-move year, 2019-20, opens the
+arm. The 24 against 25 pair is the thickest of the three boundary contrasts,
+n = 399 and 512, and it is exactly where the vanishing of the old position
+would be read.
+
+
+### B34 arm two: the boundary that moved
+
+The national living wage age went from 25 to 23 on 1 April 2021, so 25 is the
+old position and 23 is the new one, and the boundaries at 18 and 21 did not
+move. Two rate years of Labour Force Survey microdata, 2019-20 and 2021-22,
+four consecutive quarters each. The reading is a kink location: the second
+difference of the share paid below one common threshold, per single year of
+age, against an analytic binomial floor. Eight profiles, from two pay variables
+crossed with two thresholds crossed with holding apprentices out or not.
+
+| criterion | verdict | reading |
+|---|---|---|
+| B34-2a the old position disappears | PASS | age 25 visible in 2019-20 on 7 of 8 profiles, gone in 2021-22 on 8 of 8. The second difference itself changes sign on 6 of 8, and a sign change is not something a wider floor can produce |
+| B34-2b the kink follows to the new position | not established | age 23 clears the floor in 2021-22 on 1 of 8 profiles, and is stronger than in 2019-20 on 5 of 8 |
+| **B34-2 overall** | **undecided** | the criterion's PASS is the conjunction. Its FAIL condition, that the old position does not disappear, does not hold |
+
+The load-bearing half is the second criterion in that conjunction, and it was
+named as load-bearing in the design: any account in which age itself raises pay
+predicts the old kink stays where it was.
+
+**A year effect is ruled out by size, not by counting.** One year on each side
+invites the objection that 2021-22 was simply a weaker year, and a count of
+years cannot separate that from a boundary that stopped existing. The two
+boundaries that did not move can. Mean change in the ratio between the two rate
+years: the old boundary at 25 falls by 1.622; the unmoved boundaries average
+-0.041 between them (21 falls 0.481, 18 rises 0.399); the new boundary at 23
+rises 0.409. The old boundary falls further than either unmoved one on 7 of 8
+profiles. The weakening at 21 is real and is reported here rather than set
+aside, and it leaves about 1.58 of the fall at 25 unaccounted for.
+
+**Registered before the data exist:** the new boundary had been in force for
+one year at the time of this window, while the old one had stood for five. If
+the new position is unreadable because employers have not yet moved to it, then
+the 2022-23 rate year should show a stronger kink at 23 than 2021-22 does. That
+prediction can fail.
+
+Resolution: the kink at 25 in 2019-20 stands at 3.38 times its own floor, the
+first reading on this station to clear three. Instruments, thresholds and the
+apprentice treatment are reported in full; no profile was selected.
+
+**A third rate year, 2022-23, was added after the above was written, and it
+carries a prediction that was registered before those data were on disk.** The
+new boundary had stood for one year in 2021-22 and two in 2022-23, so if it was
+unreadable because employers had not yet moved to it, the later year should
+show it more strongly. Reading the two boundaries across all three rate years,
+eight profiles each:
+
+| | 2019-20 | 2021-22 | 2022-23 |
+|---|---|---|---|
+| age 25, the old boundary | +2.22, visible on 7 of 8 | -0.30, 0 of 8 | -0.73, 0 of 8 |
+| age 23, the new boundary | -0.30, 0 of 8 | +0.75, 1 of 8 | +1.05, 4 of 8 |
+
+The old position stays gone in both years after the move; the new one goes from
+one profile to four. The verdict is unchanged and still undecided, because PASS
+is the conjunction and the second half is 4 of 8 rather than 8 of 8, and because
+there is still only one readable year before the move. What changed is that the
+load-bearing half now holds in two separate years, and that the other half moved
+in the direction registered in advance.
+
+**A second registered prediction, on the same data, failed.** Two of the kinks
+this station finds sit at ages the statute does not name, 19 and 20, and one
+account of them was that they mark the cohort that left school into the 2020
+hiring freeze; that account predicts the anomaly travels with the birth cohort
+rather than staying at an age. Following the 2002 cohort across the three rate
+years gives +0.43 at 17, +1.59 at 19, and -1.16 at 20: the sign inverts. Read by
+age instead, 19 is positive in all three years and 20 is negative in all three,
+eight profiles each, twenty-four readings with no exception. So those two kinks
+are an age effect and not a cohort effect, which is a sharper statement than the
+station had before, and it is the failed prediction that produced it.
+### B34 arms one, three and four: where the break sits, against where the statute puts it
+
+`b34_lfs_arm1.json`, `b34_lfs_arm3_arm4.json`. No data were fetched; both
+scripts read the step 2 profile record.
+
+**The statistic was re-indexed before these arms were scored, and the
+re-indexing is the load-bearing step.** A statutory boundary is not an age. The
+floor rises on reaching 21, so the jump lies between age 20 and age 21. A
+second difference indexed by age splits a single step across two indices: for a
+profile flat everywhere except one gap of size `d`, `ch(a) = -d` and
+`ch(a+1) = +d` exactly, and nothing elsewhere. So an age index cannot say which
+side of it the boundary is on. That is a scope mismatch between the criterion
+and the object, and it is provable on a pure step function with no data. The
+repair is to index by gap:
+
+```
+D(a)      = p(a) - p(a+1)
+excess(a) = D(a) - ( D(a-1) + D(a+1) ) / 2  =  ( ch(a+1) - ch(a) ) / 2
+```
+
+No number in the step 2 record changes; only which combination the criterion
+reads. The dipole is in the data as the algebra says: at the 20-21 gap, which
+is a statutory boundary in all three rate years, `ch(20) < 0` in 24 of 24
+profiles and `ch(21) > 0` in 22 of 24.
+
+**Arm one is scored on order, not on a count of profiles.** The eight profiles
+per rate year are eight readings of one quantity off overlapping data, not
+eight independent votes, and the all-of-N shape is barred for that reason. The
+null is enumerated rather than sampled: 12 scorable gaps of which 3 are
+statutory gives `C(12,3) = 220` placements, written out in full, and the rank
+sum of the statutory gaps is read against them. No constant is chosen. The
+visibility multiple 1.645 is the one already fixed for this station; it is the
+single-sided five per cent critical value, which is the multiple at which the
+power gate and the readability gate are the same inequality.
+
+| criterion | reading | |
+|---|---|---|
+| B34-1a the break sits on the statutory gaps, by order | rank sums 10, 17, 7 against a chance 19.5 each; pooled 34 against 58.5, exact p = 0.00427 | PASS |
+| B34-1b no gap outside the statute outranks every gap inside it | 2021-22: the 18-19 gap does; 2019-20 and 2022-23 clean | FAIL |
+| B34-1c no statutory gap ranks worse than chance would give it | 2019-20: 17-18 at rank 7; 2021-22: 22-23 at rank 9; chance rank 6.5; 2022-23 clean | FAIL |
+| B34-3a no gap outside the statute carries a break | 27 non-statutory gaps across three rate years, none reaches 1.645 floors in a majority of its eight profiles | PASS |
+| B34-3b the largest excess of each rate year sits on the statute | 2019-20 and 2022-23 top at 20-21; 2021-22 tops at 18-19 | FAIL |
+| B34-4a boundary set, statute against code | three rate years, both steps carrying the set, six comparisons equal; five rates per year equal; the two thresholds used equal the two adult bands | PASS |
+| B34-4b excluded ages never used as boundaries | 16, 17 and 19 absent from every boundary set | PASS |
+
+The statute side of arm four is written out in the step 6 script from the
+instruments rather than imported from the other steps, because a check that
+imports what it checks checks nothing. Two exclusions are part of that side and
+are checked as such: entitlement begins on ceasing to be of compulsory school
+age, which is fixed by school year and not by a birthday, so 16 and 17 are not
+boundaries; and the apprentice rate reaches an apprentice who is either within
+twelve months of starting or under nineteen, disjunctively, so it crosses the
+age bands and 19 is not a boundary.
+
+The two FAIL directions are reported separately and are not collapsed. The
+22-23 gap ranks 9th in 2021-22 and 2nd in 2022-23, which is the adoption speed
+already measured on arm two appearing a second time in a different statistic.
+The 17-18 gap is unreadable in all three years on excess while being the
+strongest gap in the table on the survival ratio that section 5.1 fixes: at the
+2022-23 main threshold with apprentices held out it reads `|log r| / se = 3.71`,
+the largest of thirteen gaps. The two statistics disagree there because excess
+nets 17-18 against 16-17 and 18-19, and both of those carry institutional
+content of their own. That is a statement about the instrument at that gap, not
+about the world.
+
+### B34: the two kinks at 19 and 20 are one object, and half of it is statutory
+
+The block above this one records two kinks at ages the statute does not name,
+19 positive and 20 negative in all three rate years, eight profiles each,
+twenty-four readings with no exception. That reading holds. What it carries
+changes under the gap index.
+
+```
+ch(19) > 0  is  D(18) > D(19)
+ch(20) < 0  is  D(20) > D(19)
+together: D(19) is a local minimum
+```
+
+One object, not two. Printing the first differences, mean over the 24 profiles,
+in percentage points:
+
+| gap | mean fall | min | max |
+|---|---|---|---|
+| 16 to 17 | 12.9 | 3.9 | 21.3 |
+| 17 to 18 | 14.6 | 7.1 | 25.4 |
+| 18 to 19 | 12.4 | 7.2 | 20.6 |
+| **19 to 20** | **3.6** | -3.0 | 11.1 |
+| 20 to 21 | 13.4 | 1.2 | 20.8 |
+| 21 to 22 | 6.0 | -2.4 | 19.3 |
+
+Four consecutive gaps between 12.4 and 14.6 points, with one at 3.6 sitting
+among them. The 19-20 gap ranks 11th, 12th and 11th of twelve by excess in the
+three rate years, that is flattest or next to flattest, every year.
+
+**The statute puts 18, 19 and 20 on one rate in all three years** (6.15, 6.56,
+6.83), so it predicts both interior gaps of that band to be flat. One is and
+one is not. A story in which age alone raises wages predicts the two gaps alike
+and does not fit; a story in which the statutory boundaries drive everything
+predicts both flat and does not fit either. The half that sits outside the
+statute is the 12.4 point fall across 18-19, not the flatness across 19-20,
+which is what the statute writes.
+
+`ch(20) < 0` is the lower lobe of the dipole the 20-21 statutory boundary
+leaves. Under the gap index it falls on the statute.
+
+**Candidates for the 18-19 fall, registered as candidates and cited as
+literature, not as measurement.** Post-16 education funding in England is
+banded by age on 31 August, and the adult skills regime replaces it from 19;
+participation to 18 is compulsory in England and not in Scotland, Wales or
+Northern Ireland. Research commissioned for the Low Pay Commission's review of
+the youth rates reports participation in education falling from 68 per cent at
+18 to 29 per cent at 19, and employment rising from 12.3 to 37.7 per cent
+across the same year of age. The direction and the size both match, and the 31
+August rule regenerates the discontinuity for every birth cohort, which matches
+the finding that the pattern is pinned to age. Separately, the apprentice rate
+is lost by an apprentice who is both nineteen and past the first year, a 42 to
+58 per cent jump landing at 19; twelve of the twenty-four profiles hold
+apprentices out entirely and give the same shape, which counts against that
+channel. On the other side, child benefit and child tax credit end the day
+before the twentieth birthday and the universal credit child element on the 31
+August after the nineteenth, and higher education entry is concentrated at 18
+so that second and third year students living out and working sit at 20 rather
+than 19; both raise the share at 20 and both fit the flatness of 19-20.
+
+**One discriminating test is available and is not yet run:** participation to
+18 is compulsory in England only, so that account predicts the 18-19 fall to be
+larger in England than in the other three nations. The cache does not carry a
+region column, so it needs step 1 re-run with one more variable.
+
+**One named contaminant on the 2021-22 rate year, registered and not used to
+explain anything away.** All three FAIL branches above fire in that year and
+only that year. The job retention scheme ran to 30 September 2021, so the first
+two quarters of that rate year are furlough quarters; furlough pay was 80 per
+cent of reference pay, the minimum wage does not apply to non-working furloughed
+hours, and take-up was highest in the under-25 band for most of the scheme's
+life. That is testable at zero fetching cost, since the cache carries the
+quarter index, and it is not tested here. It also cannot cover the whole of what
+fires: 22-23 ranks 9th in 2021-22 and 2nd in 2022-23, and 2022-23 has no
+furlough.
+
+### B34: the country split is already in the files, and gate six kills the test it was meant to buy
+
+The section above registers two follow-ups at zero fetching cost, an England
+versus devolved-nations contrast and a furlough split of the 2021-22 rate year.
+Both were gated before either was run. The gate cost two passes over the twelve
+Stata files, eight seconds.
+
+**On the data first.** No other form of the survey is needed. All twelve
+quarterly End User Licence files already carry `COUNTRY` (labelled `Country
+within UK`), `CTRY9D` and `GOR9D`. `COUNTRY` has five categories, England,
+Wales, Scotland, Scotland North of Caledonian Canal, and Northern Ireland, so
+Scotland needs its two categories added; collapsed that way it equals `CTRY9D`
+row for row across all twelve files, the only exceptions being five rows that
+are empty in every column. Region-level geography is the level the End User
+Licence is designed to carry; what is withheld is everything below region.
+Northern Ireland is in the same file. The cache does not carry the column
+because step 1 extracted nine variables out of more than eight hundred, which is
+a statement about that extract and not about the data.
+
+**A counting error of my own, caught by cross-checking against the step 2
+record.** The first pass counted non-null values and gave 3,409 readings at age
+18 in 2019-20 where the profile record holds 329. `HOURPAY` codes missing as
+`-9`, and 76,481 of one file's 86,548 rows carry it, so every row is non-null.
+Step 1 already converted negatives to missing; the probe was wrong, not the
+pipeline. Counting values above zero reproduces the record exactly: 7,736 for
+2019-20 across ages 16 to 30. Printing the minimum once makes the `-9` announce
+itself.
+
+**Cell counts, usable readings, `HOURPAY`, four quarters pooled, age 18:**
+
+| rate year | England | N. Ireland | Scotland | Wales | non-England | UK |
+|---|---|---|---|---|---|---|
+| 2019-20 | 257 | 30 | 25 | 17 | **72** | 329 |
+| 2021-22 | 167 | 21 | 19 | 13 | **53** | 220 |
+| 2022-23 | 155 | 18 | 9 | 5 | **32** | 187 |
+| all three stacked | **579** | 66 | 53 | 38 | **157** | 736 |
+
+Wales alone is five to seventeen people per single year of age per rate year. A
+four-way split does not exist on this carrier, and that line answers it.
+
+**Gate six, computed with measured `n` and the profile's own `p`, on the widest
+variant available:**
+
+| contrast | se of the difference | needed at 1.645 floors | size of the object | ratio |
+|---|---|---|---|---|
+| England against non-England, three years stacked | 0.0976 | 16.1 pp | 7.2 pp | 2.2 |
+| 2021-22 furlough half against post-furlough half | 0.1437 | 23.6 pp | 7.2 pp | 3.3 |
+
+Neither clears. Both are recorded as undecided rather than failed: that is a
+statement about what the instrument can read, not about whether the accounts
+hold.
+
+**What clears is the restriction rather than the contrast.** Holding to England
+drops 22 per cent of the sample and widens the floor by 1.13, 1.14 and 1.13 in
+the three rate years. It does not buy the contrast, which cannot be read; it
+removes from the main reading the 22 per cent of the sample the England
+participation duty does not govern. It costs a full step 1 rebuild, one more
+variable across twelve files, so it is a decision and not a free read. If it is
+run, the England and UK excesses go side by side as printed objects with the
+middle state available, and no verdict is drawn on their difference.
+
+### B34: the country column is in the cache, England is run, and the gate's forecast holds
+
+Step 1 was rebuilt with `COUNTRY` and `CTRY9D` added, locally, in 15.2 seconds.
+Every pre-existing column reproduces exactly: twelve files, nineteen shared
+columns, zero differing, with `country`, `ctry9d` and two source-name columns
+added. The collapse of `COUNTRY`'s two Scottish categories into one is checked
+against `CTRY9D` inside the extractor rather than once by hand, and it agrees on
+all 942,150 rows; the five rows carrying no country are printed and are empty in
+every column. Step 2 gained a `--scope` switch; run at `uk` it reproduces the
+profile, apprentice, statutory-value and special-code blocks word for word, and
+the only difference in the file list is the two newly matched roles. Old caches
+and old records are renamed and left in place.
+
+**The quantity the account is about** is `D(18) - D(19) = p(18) - 2p(19) + p(20)`,
+how much steeper the 18-19 gap is than the 19-20 gap. The statute puts 18, 19
+and 20 on one rate, so it predicts zero. The education-exit account predicts it
+larger in England, since participation to 18 is compulsory there and not in the
+other three countries.
+
+| scope | 2019-20 | 2021-22 | 2022-23 | three years pooled |
+|---|---|---|---|---|
+| UK | +5.81 pp (0.80 floors) | +13.75 (1.58) | +4.83 (0.52) | **+7.97 pp, floor 4.79, 1.66 floors** |
+| England | +4.44 (0.54) | +19.28 (1.97) | +2.86 (0.27) | **+8.62 pp, floor 5.43, 1.59 floors** |
+| non-England | +10.25 (0.66) | -8.73 (-0.47) | +8.55 (0.45) | **+4.21 pp, floor 10.13, 0.42 floors** |
+
+Two readings, reported separately.
+
+**Pooled, the quantity now reads.** UK across three rate years is +7.97 pp
+standing at 1.66 times its own floor, which clears the 1.645 this station
+already uses. The earlier block reported the sign holding in 24 of 24 profiles
+and gave no pooled magnitude; this is that magnitude. No single rate year
+reaches it: 0.80, 1.58, 0.52.
+
+**The contrast points the way the account predicts and cannot be read.** England
+minus non-England is +4.40 pp against a floor of 11.50, that is 0.38 floors, and
+reading it would take 18.9 pp. The gate computed 16.1 pp before anything was
+run. Recorded as undecided, not failed. The non-England row changes sign year to
+year (+10.25, -8.73, +8.55), which is the shape of that floor rather than a
+separate piece of evidence, and it is printed because the object is what gets
+printed.
+
+First differences, three rate years averaged, percentage points:
+
+| scope | 16-17 | 17-18 | 18-19 | **19-20** | 20-21 | 21-22 |
+|---|---|---|---|---|---|---|
+| UK | 12.8 | 13.9 | 12.3 | **4.2** | 13.6 | 6.3 |
+| England | 12.8 | 14.0 | 12.6 | **3.7** | 13.8 | 6.4 |
+| non-England | 13.9 | 13.3 | 11.0 | **7.7** | 10.9 | 5.8 |
+
+`D(19)/D(18)` is 0.30 in England, 0.34 in the UK, 0.70 outside England. Same
+ordering, same floor problem.
+
+**Restricting to England improves no criterion.** Arm one 1a still passes, with
+pooled exact p moving from 0.00427 to 0.01543; 1b and 1c still fail and each
+fires in one more rate year than before; arm three 3b fails in two years rather
+than one; arm four is scope-independent and passes. The 22 per cent of the
+sample dropped costs a floor factor of 1.13, and the confound it removes
+contributes less than that. The UK specification remains the main one and the
+England figures stand beside it as printed objects.
+
+### B34 closing table
+
+Station documents: [`docs/b34_prereg.md`](docs/b34_prereg.md),
+[`docs/b34_results.md`](docs/b34_results.md). Every criterion this station
+scored, including the ones that did not hold and the ones a later round
+superseded.
+
+| criterion | verdict | reading |
+|---|---|---|
+| B34-1a the break sits on the statutory gaps, by order | **PASS** | pooled rank sum 34 against a chance 58.5, exact p 0.00427, null enumerated over `C(12,3)` per year and convolved |
+| B34-1b no gap outside the statute outranks every gap inside it | **FAIL** | 2021-22: the 18-19 gap; 2019-20 and 2022-23 clean |
+| B34-1c no statutory gap ranks worse than chance | **FAIL** | 2019-20: 17-18 at rank 7; 2021-22: 22-23 at rank 9; chance rank 6.5 |
+| B34-2a the old position disappears | **PASS** | age 25 visible on 7 of 8 profiles in the year it was a boundary, 0 of 8 in both years after; not a resolution artefact, not a year effect |
+| B34-2b the break follows to the new position | **not established** | age 23 goes 1 of 8 to 4 of 8 across the two years after the move |
+| **B34-2 overall** | **undecided** | PASS is the conjunction, and there is one readable year before the move rather than two |
+| B34-3a no gap outside the statute carries a break | **PASS** | 27 non-statutory gaps across three rate years, none reaches 1.645 floors in a majority of its eight profiles |
+| B34-3b the largest excess of each rate year sits on the statute | **FAIL** | 2021-22 tops at 18-19 |
+| B34-4a boundary set, statute against code | **PASS** | six comparisons equal, fifteen rates equal, thresholds equal |
+| B34-4b excluded ages never used as boundaries | **PASS** | 16, 17 and 19 absent from every set |
+| B34-5 ASHE difference in differences, 2015 to 2017 | **undecided** | 20th percentile log DiD +0.0675, t = 9.28; one cell of three does not clear, and its noise comes entirely from the control group |
+| B34-5p ASHE pre-trend, 2014 to 2015 | **PASS** | -0.0008, a zero rather than a non-rejection |
+| B34-1 position, first round on published tables | **superseded** | ASHE survival ratio 0.333 at the 22 boundary, LFS 0.600; superseded by B34-1a to 1c on microdata |
+| B34-2 movement, first round | **superseded** | the published window held no boundary move; superseded by B34-2a and 2b |
+| B34-3 placebo, first round | **superseded** | superseded by B34-3a and 3b |
+| B34-4 structure, first round | **superseded** | recorded as not run; superseded by B34-4a and 4b |
+| registered prediction: adoption has a speed | **confirmed** | new boundary 1 of 8 to 4 of 8; on `HOURPAY` all four profiles strengthen, two reaching 2.7 floors |
+| registered prediction: cohort scarring | **failed** | following the 2002 cohort inverts the sign; read by age the pattern holds 24 of 24, so it is an age effect |
+| gate six on England against non-England | **undecided** | +4.40 pp against a floor of 11.50, 0.38 floors; 18.9 pp needed, 16.1 pp forecast before the run |
+| gate six on the 2021-22 furlough split | **undecided** | 23.6 pp needed against a 7.2 pp object |
+
+**Open at closing.** Arm two's conjunction needs a second readable year before
+the 2021-04 move, which needs the 2018-19 rate year: one fetch, four quarters.
+*That fetch was made and run on 2026-09-05; the section below is what it read,
+and the year count is now two on each side. Arm two stays undecided on the
+other half of the conjunction. Nothing else in this paragraph changed.*
+The source of the 18-19 fall has two cited accounts and no measurement on this
+carrier that separates them. The arithmetic garbage at the low end of `HOURPAY`
+has no bound set.
+
+### B34, the fourth rate year
+
+The 2018-19 rate year was fetched and run through the same six steps on
+2026-09-05. Statutory floors £7.83 and £7.38, boundaries {18, 21, 25}, from
+SI 2018/455 with the age wording in SI 2015/621 reg 4A as in force that day.
+The rows above record what was scored on three rate years and are left as
+they stand; this table is the same criteria with the fourth year in.
+
+**Nothing above changed verdict.** Every reading for 2019-20, 2021-22 and
+2022-23 reproduces bit for bit, checked by running rather than argued: the
+twelve cached quarters are untouched, and the six records differ only in
+pooled quantities and in the year strings inside criterion text.
+
+| criterion | verdict | with the fourth rate year |
+|---|---|---|
+| B34-1a the break sits on the statutory gaps, by order | **PASS** | pooled rank sum 50 against a chance 78, exact p 0.00481. Per year the exact p is 0.3000, 0.0500, 0.3636, 0.0091: the added year is the second weakest and does not carry on its own |
+| B34-1b no gap outside the statute outranks every gap inside it | **FAIL** | 2018-19: the 26-27 and 18-19 gaps; 2021-22: the 18-19 gap; 2019-20 and 2022-23 clean |
+| B34-1c no statutory gap ranks worse than chance | **FAIL** | 17-18 at rank 9 in 2018-19 and rank 7 in 2019-20, the two years the 25 boundary was in force; 22-23 at rank 9 in 2021-22; chance rank 6.5; 2022-23 clean |
+| B34-2a the old position disappears | **PASS** | unchanged. Read across all four years, age 25 is visible on 2 of 8 profiles in 2018-19 and 7 of 8 in 2019-20, and 0 of 8 in both years after. By sign it is positive on all sixteen readings before the move and negative on all eight in 2022-23 |
+| B34-2b the break follows to the new position | **not established** | unchanged. Age 23 is visible on 0 of 8 profiles in **both** years before the move, then 1 of 8 and 4 of 8 after |
+| **B34-2 overall** | **undecided** | the year count is now two on each side and that clause no longer applies. The verdict does not turn on it: it comes from the second half of the conjunction, which counts profiles rather than years |
+| B34-3a no gap outside the statute carries a break | **PASS** | holds in all four rate years |
+| B34-3b the largest excess of each rate year sits on the statute | **FAIL** | 2018-19 tops at 26-27; 2021-22 tops at 18-19; 2019-20 and 2022-23 top at 20-21 |
+| B34-4a boundary set, statute against code | **PASS** | four rate years, both steps carrying the set, equal throughout |
+| B34-4b excluded ages never used as boundaries | **PASS** | unchanged |
+
+**The 18-19 gap now has a year with no furlough in it.** That gap outranking
+every statutory gap had been seen only in 2021-22, a year carrying a named
+contaminant, and this station declined to explain anything with that
+contaminant. 2018-19 runs from April 2018 to March 2019, entirely before the
+pandemic, and it shows the same thing. The contaminant does not account for
+the 18-19 gap.
+
+**The 19 to 20 flat spot does not repeat in the added year.** Read on the
+three-year average the fall from 19 to 20 was 3.6 pp, the smallest step
+between 16 and 22. Per rate year that step reads 10.2, 4.9, 1.7 and 6.1 pp,
+and it is the smallest step in its year only in 2021-22. In 2018-19 it is
+10.2 pp, the same size as the steps on either side of it. The three-year
+average is arithmetically right and it carries less than it appeared to: the
+shape is in three of four rate years and it is deepest in the year with the
+contaminant. It is not withdrawn, its scope is narrower. An average that
+pools rate years hides the spread between them, which is what printing the
+object rather than the summary is for.
+
+### B35 closing table
+
+Station documents: [`docs/b35_prereg.md`](docs/b35_prereg.md),
+[`docs/b35_results.md`](docs/b35_results.md). Every criterion this station
+registered is below, including the ones a later round superseded, the ones that
+were never scored, and the one closed at gate zero.
+
+The station changed carrier twice. Both moves are on record and both were forced
+by a fact the design had wrong: the offal heading is not bovine on the China leg,
+and the shock the design named is a swine shock. The first three criteria belong
+to the bovine carrier and no longer have an experiment behind them.
+
+| criterion | verdict | reading |
+|---|---|---|
+| B35-7 substitute class at origin | **PASS** | the national price report quotes no price for chicken paws at all, in three independent pulls, most recently across 1,819 machine-readable rows. A market nobody trades in has no quotation |
+| B35-6 origin-side magnitude ratio | **undecidable, and the arm is at its ceiling on this carrier** | ratio 9.42 in the predicted direction over 46 adjacent steps, 9.75 over 7. The denominator is not distinguishable from zero, so the ratio carries no claim. Gate two is short by 1.148x under the serial correction and by 1.923x classically; gate six clears at 3.9 to 5.3 times the measured floor |
+| B35-5 destination-side arm | **undecidable** | the window carrying the control leg is occupied by a larger origin-side move whose direction is already known, so this arm's own treatment is not the dominant variation there |
+| B35-8 cross-destination dispersion | **closed at gate zero, and the closure is itself a reading** | paws 98.7 per cent to one destination, swine feet 96.74, swine head meat 94.55, second places 0.49, 1.03 and 2.12. A part with no substitute class at origin has a naturally concentrated destination list |
+| B35-4 self-sufficiency gradient | **not run** | registered; one change of destination code on the same query supplies it |
+| B35-D22-1 autocorrelation printed rather than assumed | **PASS** | eight orders on three residual series |
+| B35-D22-2 gate two survives the serial correction | **PASS** | four standard-error conventions, all short of the band |
+| B35-D22-3 effective count reported, arm not booked at 46 | **PASS** | long-run variance ratio 0.7417, effective count 62 by the direct ratio and 129 to 135 implied by the HAC standard errors |
+| objection: larger volumes are less volatile | **not sustained** | the correlation it points at is a function of this station's own treatment variable, one step downstream |
+| B35-1 destination-side arm, bovine carrier | **superseded** | superseded by B35-5 |
+| B35-2 origin-side arm, bovine carrier | **superseded** | superseded by B35-6 |
+| B35-3 substitute class at origin, bovine carrier | **superseded** | superseded by B35-7, which answered the same question on a stronger source |
+
+**Two things stay open at closing and belong to no verdict above.** Swine tongues
+are a candidate the same pull dropped out: China 37.19 / Japan 31.37 / Mexico
+26.48 per cent, all twelve months, unit values 1.87 / 3.23 / 2.33 dollars per kg,
+with no low-cost swap between the three because access for frozen offal is
+granted plant by plant. It carries a September 2022 break on the China leg that
+prices cannot resolve and rule text can. B35-4 was registered and never run.
+
+**The independent count came out the other way round.** The gate arithmetic
+divides by the square root of the step count, and monthly series are serially
+correlated, so the count was measured rather than assumed. The residual
+difference series has negative low-order autocorrelation and a long-run variance
+ratio of 0.7417, so the effective count is larger than the nominal one. Dividing
+by the square root of the raw month count is conservative on differenced monthly
+data, not optimistic. It is worth one pass over residuals already on disk
+wherever an arm books a month count.
+
+## B36 — a quota that does not bind, an expiry date that does, and the same switch thrown twice
+
+A trade quota was written for 2026 on a coordinate the exporting country cannot
+change: the average market share over July 2021 to June 2024. The station opened
+on the United States because that leg was cheap to pull, and it closed on that
+leg at once for a reason the design had not anticipated. Everything after that
+came from following the reason rather than the quota.
+
+### B36: the quota does not bind on this leg, and what killed the flow is a registration date
+
+US beef to China ran at quota scale for four years (176.1, 208.3, 166.1 and
+157.3 million kg for 2021 to 2024, against a 2026 quota of 164,000 tonnes) and
+then collapsed in 2025 to 32.0 per cent of that base, with the first half of
+2026 at 2.3 per cent. **The collapse is in 2025 and the quota takes effect on
+2026-01-01, so the quota did not cause it.** The plant registrations that let US
+beef establishments ship to China expired in March 2025 and were not renewed;
+the same customs system renewed dairy, pork and poultry on 15 and 17 March.
+
+**This is a registration point in the sense the framework uses**: the point is
+there, the edge is there; the point expires, the edge is gone, and no price
+mechanism intervenes anywhere in between.
+
+The 2026 unit value is not a price series. Six months of it climb 80 per cent
+from $4.77 to $8.61 while the annual figure sat at $8.1 to $9.5 for five years,
+on 2 per cent of normal volume. That is composition, not price, and the minimum
+volume floor is what catches it.
+
+### B36: two axes, and the cause is pinned to one pair of countries
+
+Neither axis alone identifies anything. Changing the destination while holding
+product and origin fixed rules out a contraction in US supply; changing the
+origin while holding product and destination fixed rules out China cutting every
+source. Both bands were fixed before either was read, at the same 1.5-factor
+convention used throughout.
+
+| axis | reading | verdict |
+|---|---|---|
+| US beef to destinations other than China, 2025 against the 2021-24 mean | **0.8975** | holds, band was 0.75 |
+| Brazilian beef to China, same window | **1.4718**, an all-time high | holds |
+| US beef to China, same window | 0.2964 | the collapse |
+
+**The US supply story is not zero and it is not nothing: non-China fell 10.3 per
+cent, which is roughly what a multi-decade low in the cattle herd would do. It
+cannot account for the other sixty points.** Nor was the volume resold: US beef
+exports fell 20.4 per cent overall, so that meat was not sold, it did not change
+buyer. China's share of US beef exports went from a stable 16.0-18.1 per cent to
+6.3 per cent.
+
+The monthly series adds a different instrument to the same conclusion. March 2025
+is entirely normal and April is a cliff: fresh-chilled falls 95.7 per cent in one
+month and is zero for most of the following fourteen. **A cattle herd is a
+variable measured in years and cannot produce a one-month step.**
+
+### B36: three meats, one registration system, two different tariffs
+
+Pork and poultry are meat. Same customs order, same expiry, same tariff
+announcement; the only systematic difference is whether that category's plants
+were renewed. The statistic is a three-month-over-three-month ratio and the
+read-outs were registered before any of the three series was seen. Gate six ran
+first, on a log scale after the raw scale compressed all three into the same
+0.8 (a ruler-shape artefact, recorded as such): 1.513, 1.131 and 1.463 standard
+deviations, all three clear.
+
+| meat | registration | tariff | step month | lowest ratio | after the April step |
+|---|---|---|---|---|---|
+| pork | renewed | +10% | 2025-04 | 0.558 | **0.728** |
+| poultry | renewed | +15% | 2025-04 | 0.310 | 0.307 |
+| beef | **not renewed** | +10% | 2025-04 | **0.182** | **0.051** |
+
+**The answer is not one cause but two, with two different dates.** All three
+steps land in April, and only the tariff reaches pork and poultry, so the step is
+the tariff. The floor is the registration: pork and beef carry the identical
++10%, imposed the same day and removed the same day, and pork recovers to 0.728
+while beef sits at 0.051. Fourteen times. **Poultry recovered no better than beef
+despite renewed registrations, and this station does not explain that**; its
+tariff is higher and it has its own avian influenza suspension history, neither
+of which was checked. Recorded as residue.
+
+### B36: the switch was thrown twice more, in another country, with no tariff anywhere
+
+Brazil suspended its own beef exports to China twice on atypical BSE findings,
+2021-09-04 to 2021-12-15 and 2023-02-23 to 2023-03-23. Dates come from documents,
+and four predictions were written before the monthly series was seen. **All four
+hold.**
+
+| suspension | months closed | months below half | trough, against the pre-suspension mean |
+|---|---|---|---|
+| Brazil, 2023 | 1.0 | 2 | 0.478 |
+| Brazil, 2021 | 3.5 | 3 | **0.0051** |
+| United States, 2025 | 14 | 14 | 0.043 |
+
+**The length of the hole follows the length of the closure, across three events,
+two countries and three unrelated proximate causes.** The one-month closure
+leaves a two-month hole because the pipeline takes about a month to drain, and
+the same lag is visible inside the 2021 event, which is also why the US step
+lands in April rather than March. A purely administrative switch, with no tariff
+moving at all, produces the same shape as the US episode, so the tariff is not
+necessary to it. The switch also has an opening: a nationwide self-suspension
+bottoms at 0.005 against 0.043 for a partial loss of plant eligibility, eight
+times deeper.
+
+### B36: a registered prediction was refuted, and the instrument was measuring a leg rather than a loop
+
+The framework separates a rate instrument, which moves a weight on an edge, from
+a quantity instrument, which decides whether the edge conducts at all. If that
+split is real, one shock should leave two marks whose durations follow their own
+causes. **The two durations are documented and they differ by six months**: the
++10% tariff ran 2025-03-10 to 2025-11-10, eight months; the registrations were
+down from March 2025 to 2026-05-15, fourteen months.
+
+The registered prediction was that the unit-value wedge would track the tariff
+window. It does not.
+
+| window | n | log wedge | sd |
+|---|---|---|---|
+| before, 2024-01 to 2025-02 | 14 | **+0.1125** | 0.0333 |
+| tariff on, registrations down | 7 | -0.2573 | 0.3782 |
+| **tariff off, registrations still down** | 6 | **-0.7254** | 0.0315 |
+| both restored, 2026-06 | 1 | -0.1457 | — |
+
+**Verdict in the words it was registered in: not separate on this carrier.** The
+wedge does not move when the tariff is removed and it moves the month the
+registrations return, recovering 69 per cent of the distance in one month.
+
+The shape is worth more than the verdict. Two windows have almost identical
+standard deviations, 0.0333 and 0.0315, with the transition between them eleven
+times noisier. **The wedge is not drifting; it switches between two tight
+plateaus, and it switches on the registration dates.**
+
+The registered control settles what that means. Pork carries the identical
+tariff, imposed and removed on the same days, and its registrations were renewed,
+so its seller set did not change. **Pork's wedge is flat**: a monotone drift of
+0.065 over two years against beef's 0.838 step, a factor of 12.9, with a standard
+deviation of 0.032 that shows the instrument is not blunt. So the beef step is
+not the tariff and not anything common to all US meat.
+
+**Why the tariff moves nothing here has a one-line answer that the project's own
+first theorem already gave**: the +10% is levied by the importer on the landed
+price, and the wedge is computed on the US free-on-board price, before it. A
+wedge is a quantity on a loop, not on one leg, and looking at one leg cannot see
+it. The refuted prediction was a badly shaped criterion, not a failed claim, and
+the correction is checkable: the theorem is one of the oldest documents here.
+**One real reading falls out of it**: if exporters had absorbed the whole +10%
+the wedge would fall 0.0953, and pork's fell 0.0192, so full absorption by the
+exporter is excluded and most of the wedge is not in the US price. The 20 per
+cent point estimate has a margin of roughly nineteen points and is not claimed.
+
+### B36: two customs systems, and the offset between them is the voyage
+
+The Brazilian quota cell is 1,106,000 tonnes for 2026 out of a 2,688,000 tonne
+total, taken from the annex table the official HTML does not carry (a research
+source, not an official one, and that is recorded wherever the figure is used).
+The unit was checked rather than copied: the source rendered it as million tonnes
+and two figures already on disk, the US cell and the total, both land on ten
+thousand tonnes.
+
+China announced Brazil reached 50 per cent of its cell on 2026-05-09. Aligning
+that against Brazilian shipment data gave a lag of minus nine days, which is
+impossible, and **the impossible sign is what caught the definition**: the quota
+counts customs clearance in China, and January clearances left Brazil the
+previous November. Solving for the lag rather than guessing it gives **52 days,
+with 50 and 52 bracketing the target at 0.9953 and 1.0046**, one day of shift
+moving 0.47 per cent of the target. The six covered headings on one side map
+exactly onto the ten eight-digit codes on the other, so the definitional gap is
+zero rather than small.
+
+**Two customs systems built by different countries for unrelated purposes, and
+the offset between them lands on the sailing time of the ship, 51 days give or
+take one.**
+
+### B36-7: both halves of the criterion fired, in opposite directions, in one year
+
+The criterion was registered as either-or: a collapse as the quota is approached,
+**or** a rush to ship before it binds, either one counts.
+
+```
+January to June 2026 against 2025      1.0844      the rush
+July 2026 against July 2025            0.522       the collapse
+same month, control destinations       about 1.51
+```
+
+Chile and Egypt rose about fifty per cent in the same month from the same source
+and the same codes, so July was not an incomplete publication. Against this
+lane's own ten-year seasonality, July over June runs 0.683 to 1.336 since the
+lane had scale, median 1.122, and 2026 reads **0.522**, below every one of them.
+July is normally this lane's strongest month-on-month step of the year.
+
+**And the turn does not sit on the quota line, it sits on the quota line minus a
+voyage.** A full quota's worth of beef had left Brazil by 2026-07-23, clearing
+around 2026-09-13. Ships leaving in July clear from 2026-08-22, which is to say
+July cargo is exactly the cargo at risk of arriving after the ceiling and paying
+55 per cent. **The lag used to place that date was solved independently, two
+sections earlier, and not chosen for this explanation.**
+
+### B36 criterion table — the station is open
+
+Registered read-outs, their verdicts, and the ones with no verdict yet.
+
+| criterion | verdict | reading |
+|---|---|---|
+| B36-0 does the quota bind on the US leg | **degenerate, and the reason is dated** | 2026 half-year 2.3 per cent of the cell, 4.7 per cent annualised; the line sits twenty-one times above the flow. The collapse predates the quota by a year |
+| B36-1 the quota's own footprint | **both halves fired, on the Brazilian leg** | rush 1.0844 for January to June, collapse 0.522 in July, controls about 1.51 the same month |
+| B36-2 the quota is written on a coordinate the exporter cannot change | **PASS** | share of July 2021 to June 2024; 2023 and 2024 sit at 101.3 and 95.9 per cent of the resulting cell |
+| B36-3 anti-circumvention text | **not fetched** | |
+| B36-4 pork and poultry as a same-system control, annual | **not identified, and the criterion was missing a branch** | beef 0.296, pork 0.480, poultry **0.115**. Poultry fell further than beef and the registered three-way read-out had no cell for that. All three fell in 2025, and a common retaliatory tariff explains that as easily as expiry does |
+| B36-5 change the destination | **PASS** | non-China 0.8975 against a 0.75 band |
+| B36-6 change the origin | **holds** | Brazil to China 1.4718, an all-time high, and 1.2462 against 2024 alone |
+| B36-7 the quota on the leg where it is inside the flow | **both halves, see B36-1** | Brazil 2025 at 1.49 times its cell, 2026 annualised at 1.33 |
+| B36-8 read the two documents rather than cutting the series again | **read** | pork 365 and poultry 210 plants renewed 15-17 March 2025; 386 of 654 beef plants overdue; beef and pork +10%, chicken +15%; 425 beef plants renewed 2026-05-15 |
+| B36-9 three meats, one system, two tariffs | **two causes, two dates** | steps all in 2025-04, so the step is the tariff; pork and beef share the tariff exactly and end at 0.728 against 0.051, so the floor is the registration |
+| B36-10 a second cycle, in another country, with no tariff | **four predictions of four** | hole length tracks closure length across 1, 3.5 and 14 months; trough 0.0051 against 0.043 |
+| B36-11 do the two graphs leave marks of different lengths | **not separate on this carrier** | the wedge ignores the tariff's removal and moves on the registration date; recorded in the words it was registered in |
+| B36-12 the pork control on the same wedge | **flat, and it settles B36-11's reading** | beef steps 0.838 between two tight plateaus, pork drifts 0.065 with no step, ratio 12.9 |
+| B36-13 does reopening speed measure what a closed edge left behind | **not run** | the 2017 reopening after fourteen years is on disk; the 2026 reopening after fourteen months recovered 69 per cent in one month |
+| registered prediction: August 2026 | **registered, source has not published** | mechanism puts August below the 72,417 to 102,327 tonne seasonal band, because every August sailing clears after the ceiling |
+| registered prediction: US beef, second half of 2026 | **registered, not yet readable** | if eligibility was the binding constraint, monthly volume should keep rising above June's 1,152 tonnes |
+
+**Not claimed by this station.** Which of expiry and tariff caused the April step
+was undecidable on the monthly series alone and is answered only by the
+cross-meat design; poultry's failure to recover is unexplained; the Brazilian
+quota cell rests on a research source rather than an official one; the control
+destinations were pulled for 2026 only.
+
+**One candidate for the wrong-answer cell was registered and did not survive its
+own control.** B36-11's refutation was registered as entering that cell if the
+pork control failed to hold. It held, and the reason the prediction failed is
+that the instrument measured a leg where the theory says the quantity lives on a
+loop. The criterion's shape was wrong, not the claim under test, and both figures
+stay on the record for a reader who wants to judge that for themselves.
+
+
+## B33 — the five classes a benefit scheme writes, and the clause vectors they receive
+
+Arm one of station B33 asks whether the partition a published scheme writes over
+its positions equals the partition its full clause vectors induce. The object
+compared is the whole vector, not one scalar component of it.
+
+Carrier: Singapore, Central Provident Fund (Revised Workfare Income Supplement
+Scheme) (Amendment No. 2) Regulations 2025, S 156/2025, made 5 March 2025, first
+published in the Government Gazette, Electronic Edition, on 5 March 2025.
+Thirty-three pages, transcribed in full; the coverage table sits in the record.
+Script `experiments/b33_wis_schedules.py`, record `results/b33_wis_schedules.json`.
+Exact rational arithmetic throughout, no floating point. Criteria are written in
+the script that produces the record, the record carries their text, and every
+quantity this run produced is reported.
+
+The instrument writes five classes for a relevant month, and draws the mutual
+exclusion into each definition: an eligible employee `worked as an employee (and not
+also as a platform worker)`, an eligible Group A worker `being a Group A worker,
+worked as a platform worker (and not also as an employee)`, an eligible Group B
+worker likewise, and an eligible employee-platform worker `worked as an employee,
+and also as a platform worker`. A fifth class, the eligible self-employed person,
+is assessed over a relevant year rather than a month, and the instrument writes
+the rule joining the two grains: that eligibility is `assessed after the member's
+eligibility for each relevant month in that year under regulation 8AA, 8AB, 8AC or
+8AD`.
+
+The five dimensions read for each class are the qualifying quantity, the
+small-sum exclusion, the top-up payable on the waiver path, the cash proportion
+of the benefit, and the schedule that gives the benefit amount.
+
+| criterion | reading | |
+|---|---|---|
+| **B33-1** every coefficient of the Thirteenth Schedule is exactly two-thirds of the corresponding coefficient of the Twelfth | **48 coefficients compared over seven bands and four age columns, slopes and intercepts alike; the set of distinct ratios has one element, `2/3`; zero anomalies** | PASS |
+| **B33-2** the Fourteenth Schedule is cell for cell identical to the Twelfth, only the variable read against differs | **56 cells compared, 0 differ** | PASS |
+| **B33-3** no two of the clause vectors coincide on all five dimensions | 5 written classes carrying 6 clause vectors, 0 colliding pairs | PASS |
+| **B33-4** every page of the instrument was opened, and the coverage table names what each batch carried | 33 of 33 | PASS |
+| **B33-5** where the read partition is finer than the written one, the extra line is drawn by the instrument itself and its provisions are named | 1 of 5 written classes carries more than one vector, and two provisions draw that line | PASS |
+
+The read partition equals the written one, so the arm passes on this carrier. The
+pass is not a narrow one: every pair of classes is separated on at least two
+dimensions, and by numbers rather than by a single non-scalar side right. The two
+platform classes are separated by a small-sum exclusion of `$50` against `$500`
+from any one platform operator, and by a waiver top-up that is a five-step age
+table for one and a two-dimensional schedule for the other.
+
+Two readings fell out of the run and bear on nothing the criteria scored.
+
+**Three written benefit tables carry two functions.** The Thirteenth Schedule is
+`(2/3)` times the Twelfth on every one of 48 coefficients, and the Fourteenth is
+the Twelfth cell for cell. A published scheme pointing at three tables is reading
+off two. This is the same object the tariff-block corpus measured on national
+electricity schedules, where 53 schedules drew 179 blocks and wrote 156 distinct
+values; there the collisions were bounded by the survey's rounding to two decimal
+places, and that limit was recorded with them. Here the collision is exact and
+carries no resolution limit, which makes it the first one in this repository read
+off a published price table without one.
+
+**One class carries two vectors, and the instrument dates the change.** For an
+eligible Group A worker the cash proportion moves from one-tenth to two-fifths at
+applicable year 2029 (reg 13B(1)(b)(ii)), and the benefit table moves from the
+Thirteenth to the Twelfth Schedule at the same year (reg 13C(2)(b)). After that
+year the class is separated from the eligible employee on three dimensions rather
+than five. The Income Tax Act 1947 carries a matching date: the additional
+deduction at section 39(2)(hb) runs for years of assessment 2026 to 2029 only.
+Two instruments end the same class's transitional treatment at the same point.
+Registered as a prediction, not as a reading.
+
+**What this station does not claim.** It does not claim the two platform classes
+are objects of the counting law in the Income Tax Act 1947: there `Group A worker`
+qualifies income and contributions rather than persons, and `Group B worker` does
+not appear in any operative provision. It does not claim a Group B worker
+receives nothing under the tax statute; those workers carry mandatory MediSave
+contributions and are reached by the provisions already written for self-employed
+persons. It does not claim the arm has been scored in more than one jurisdiction:
+one carrier, one piece of subsidiary legislation. And it does not claim the
+Fifteenth Schedule has been checked cell by cell; it belongs to one class alone
+and has no counterpart table to compare against.
+
+
+## B48 — a reference number whose input is removed in three steps, and the channel carrying it never stops
+
+The Old Mutual Implied Rate is the ratio of one share's price in Harare against
+its price in London or Johannesburg, computed and posted every trading day by a
+third party. Its Harare leg was removed in three steps, each with a date and each
+with a document. The question is what the posted number does at each step.
+
+Carrier: 287 daily market posts, 22 July 2019 to 23 July 2021, plus 20 live
+readings recovered from the sidebars of those pages. `data/fetch_zw_rates.py`
+captures the pages and `data/build_zw_daily.py` builds the working panel from
+them; the pages themselves and the panel are data and stay on the machine that
+fetched them, and rerunning the first script rebuilds them. Criteria are written
+to be read off the act of publishing and off the content published, with no
+threshold on any level.
+
+| criterion | date and what was removed | reading | |
+|---|---|---|---|
+| **B48-1** the transfer edge is cut while both prices still exist | 15 March 2020, Exchange Control (Suspension of Fungibility of Certain Shares) Order 2020, GN 583/2020, in force to 12 March 2021 | the number goes on being computed and posted, **and moves faster**: `60.77` on 13 March to `75.20` on 23 March, `+24%` in a week | PASS |
+| **B48-2** the Harare price itself stops being produced | announced 26 June 2020, trading halted from 29 June; **no statutory instrument was ever promulgated**, and a legal analysis service recorded that the halt `was not done in terms of any law` | **frozen**: `122.22` reprinted on 17 consecutive posts from 10 July to 4 August, and that value is by construction the last close before the halt | PASS |
+| **B48-3** the Harare leg is removed permanently | 3 August 2020, trading resumes without the counter | **empty**: `0.00` from 5 August, 146 posts unbroken to the end of the series on 23 July 2021 | PASS |
+| **B48-4** each of the three dates points at a document | — | all three do, and one of them is the recorded fact that no statutory instrument exists | PASS |
+
+The publisher never stopped. It posted on every trading day through the month the
+exchange was shut and through the 146 posts that carried `0.00`. So this station
+reads the cell where the transfer graph is cut and the information graph is
+whole, at three depths rather than two.
+
+**Two of the three states had no name before this.** A stale copy reprinted
+verbatim seventeen times is one; a channel that runs on schedule and delivers a
+sentinel meaning `this number does not exist` is the other. Silence is the
+absence of a message; this is a message whose content is the absence of the
+quantity. Both occur with the information edge intact, so both describe the state
+of the object carried rather than the state of the edge carrying it.
+
+**Alongside the criteria, four readings the run produced.** The leave-one-out
+log-linear interpolation floor, binned by gap length, is `0.0137` median at one
+to three days and `0.0176` at four to seven, against a headline move of about
+`0.9` log points. Four post dates carried the previous year in their titles and
+were corrected from each page's own `article:published_time` and JSON-LD, all 287
+pages checked with no false positives; what found them was two outlying
+leave-one-out points at `1.5` log points. Sweeping the sidebars of all 287 pages
+returned 324 date-value pairs, 38 of them on days absent from the panel and 20
+carrying a live value, seven of those around the 15 March 2020 cut. Of 733
+calendar days, 287 carry a post; the publisher posts on trading days, so 102 of
+104 Saturdays and 102 of 104 Sundays are absent by design, 20 of the 21 weekday
+public holidays are absent, and only 13 isolated single weekdays are missing.
+
+**What this station does not claim.** It does not claim the cell where both edges
+are cut: the information edge here was never cut. It does not claim `122.22` was
+independently confirmed; the exchange's own 2020 closing prices could not be
+obtained, its daily price files covering only August 2016 to January 2018. It
+does not claim its own series fixes the last trading day, which is bounded by the
+external dates instead, and the series carries an 18-working-day hole from 16
+June to 9 July 2020 with no archive capture in that month. And the registered
+cross-publisher dispersion criterion is **not decidable on this carrier**: the
+orbits do not cross the window, and the one leg present throughout is an
+administratively pegged rate in one window and an auction rate in the other,
+which are two objects.
+
+**A permanent limit on the source.** The publisher's domain no longer resolves as
+of September 2026, so the 287 captured pages held here are the only copy of that
+series known to this project. They are treated as non-reproducible.
+

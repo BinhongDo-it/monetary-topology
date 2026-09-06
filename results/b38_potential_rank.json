@@ -1,0 +1,307 @@
+{
+ "noise_sd": 0.029276190499456258,
+ "arms": {
+  "prices only": {
+   "items": 53,
+   "cities": 1280,
+   "b1": 66508,
+   "noise_edge": 1.2605507172398354,
+   "conservative_edge": 19.466660869768756,
+   "b38_1_reconstruction_max_abs": 1.7763568394002505e-15,
+   "b38_2_synthetic_above_edge": 0,
+   "b38_3_resid_sd": 0.452111655816248,
+   "b38_3_square_abs_quantiles": {
+    "p50": 0.5515351887484234,
+    "p90": 1.5060242656900602,
+    "p99": 2.615316628444937
+   },
+   "b38_4_singular_values": [
+    61.49730667063424,
+    36.79229634418392,
+    33.29953355278063,
+    27.733585814246286,
+    25.467728377807436,
+    23.471859015139312,
+    22.28135034963685,
+    19.785542383513757,
+    18.658186520218333,
+    17.209746204398197,
+    16.791569055279844,
+    15.904696154394278,
+    15.511656710823186,
+    14.689141398792803,
+    14.090777635301384,
+    13.842276248206272,
+    13.457760828616294,
+    12.945250436568603,
+    12.292224273547488,
+    11.763889376930605,
+    11.453891593289327,
+    11.007912961017176,
+    10.784857032618959,
+    10.707244504041093,
+    10.270022548324738,
+    10.034328594767816,
+    9.883734448736005,
+    9.548894028196257,
+    9.32795809443437,
+    9.305022775718182,
+    9.019415271189871,
+    8.58436336748721,
+    8.293328975421526,
+    8.16758141237875,
+    7.983647692831153,
+    7.931088662269847,
+    7.593753100402189,
+    7.470828833838703,
+    7.392333430728015,
+    6.993488403457185
+   ],
+   "b38_4_above_measured_edge": 52,
+   "b38_4_above_conservative_edge": 8,
+   "b38_5_top_items": [
+    {
+     "direction": 1,
+     "sigma": 61.49730667063428,
+     "items": [
+      {
+       "item": "Transportation :: Taxi 1 Hour Waiting (Standard Tariff)",
+       "loading": 0.30763079051802883
+      },
+      {
+       "item": "Salaries And Financing :: Average Monthly Net Salary (After Tax)",
+       "loading": 0.2550509888289205
+      },
+      {
+       "item": "Childcare :: Private Full-Day Preschool or Kindergarten, Monthly Fee per Child",
+       "loading": 0.2368710375474837
+      },
+      {
+       "item": "Transportation :: Toyota Corolla Sedan 1.6 (or Equivalent New Mid-Size Car)",
+       "loading": -0.2350259233580982
+      },
+      {
+       "item": "Transportation :: One-Way Ticket (Local Transport)",
+       "loading": 0.22531239780511697
+      },
+      {
+       "item": "Rent Per Month :: 1 Bedroom Apartment Outside of City Centre",
+       "loading": 0.22175513571989983
+      }
+     ]
+    },
+    {
+     "direction": 2,
+     "sigma": 36.792296344183924,
+     "items": [
+      {
+       "item": "Rent Per Month :: 3 Bedroom Apartment in City Centre",
+       "loading": 0.24198679112687538
+      },
+      {
+       "item": "Markets :: Apples (1 lb)",
+       "loading": 0.23889288323018545
+      },
+      {
+       "item": "Transportation :: Gasoline (1 Liter)",
+       "loading": -0.23765394158500236
+      },
+      {
+       "item": "Utilities (Monthly) :: Basic Utilities for 915 Square Feet Apartment (Electricity, Heating, Cooling, Water, Garbage)",
+       "loading": -0.23696954866827477
+      },
+      {
+       "item": "Clothing And Shoes :: Jeans (Levi's 501 or Similar)",
+       "loading": -0.23300524374536527
+      },
+      {
+       "item": "Restaurants :: Bottled Water (12 oz)",
+       "loading": -0.22583016935537925
+      }
+     ]
+    },
+    {
+     "direction": 3,
+     "sigma": 33.29953355278063,
+     "items": [
+      {
+       "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment in City Centre",
+       "loading": -0.3816648135292484
+      },
+      {
+       "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment Outside of Centre",
+       "loading": -0.36502087664549215
+      },
+      {
+       "item": "Childcare :: International Primary School, Annual Tuition per Child",
+       "loading": -0.31169294981486656
+      },
+      {
+       "item": "Utilities (Monthly) :: Broadband Internet (Unlimited Data, 60 Mbps or Higher)",
+       "loading": 0.30560735672967954
+      },
+      {
+       "item": "Childcare :: Private Full-Day Preschool or Kindergarten, Monthly Fee per Child",
+       "loading": -0.22063970540184316
+      },
+      {
+       "item": "Markets :: Domestic Beer (16.9 oz Bottle)",
+       "loading": 0.2049569980956
+      }
+     ]
+    }
+   ]
+  },
+  "with the rate row": {
+   "items": 54,
+   "cities": 1263,
+   "b1": 66886,
+   "noise_edge": 1.2555732667763497,
+   "conservative_edge": 20.19334386623227,
+   "b38_1_reconstruction_max_abs": 1.7763568394002505e-15,
+   "b38_2_synthetic_above_edge": 0,
+   "b38_3_resid_sd": 0.4708480161947791,
+   "b38_3_square_abs_quantiles": {
+    "p50": 0.5649467198180222,
+    "p90": 1.5471980501559939,
+    "p99": 2.7659485943283393
+   },
+   "b38_4_singular_values": [
+    69.79952837203527,
+    36.90189442954982,
+    33.047916177981264,
+    28.14777327793282,
+    25.500168919392895,
+    24.645085117648183,
+    22.152126685128117,
+    19.752065339488517,
+    18.820736064694042,
+    17.648168370786152,
+    16.610997528461972,
+    16.06992809331569,
+    15.263337785603984,
+    14.784778979262136,
+    14.511642563708259,
+    13.839122488777399,
+    13.603351685417929,
+    13.201964165129503,
+    12.318528788531623,
+    12.178322621591494,
+    11.638227279798146,
+    11.15929889910768,
+    10.894314531145374,
+    10.59975526270413,
+    10.451267227337947,
+    10.065968973128875,
+    9.782293517461289,
+    9.521592185693558,
+    9.34706042029172,
+    9.229179707858727,
+    9.111169620554113,
+    8.929090761784574,
+    8.399295667181804,
+    8.149598587843665,
+    8.01809991697183,
+    7.868613766713779,
+    7.685868658349849,
+    7.521080875947452,
+    7.292266500253368,
+    7.224146399540204
+   ],
+   "b38_4_above_measured_edge": 53,
+   "b38_4_above_conservative_edge": 7,
+   "b38_5_top_items": [
+    {
+     "direction": 1,
+     "sigma": 69.79952837203524,
+     "items": [
+      {
+       "item": "Salaries And Financing :: Annual Mortgage Interest Rate (20-Year Fixed, in %)",
+       "loading": 0.5062101017512948
+      },
+      {
+       "item": "Transportation :: Taxi 1 Hour Waiting (Standard Tariff)",
+       "loading": -0.2842630549113145
+      },
+      {
+       "item": "Salaries And Financing :: Average Monthly Net Salary (After Tax)",
+       "loading": -0.23561312733348933
+      },
+      {
+       "item": "Transportation :: One-Way Ticket (Local Transport)",
+       "loading": -0.2113988369146423
+      },
+      {
+       "item": "Childcare :: Private Full-Day Preschool or Kindergarten, Monthly Fee per Child",
+       "loading": -0.20199589136370755
+      },
+      {
+       "item": "Transportation :: Toyota Corolla Sedan 1.6 (or Equivalent New Mid-Size Car)",
+       "loading": 0.19550098855401957
+      }
+     ]
+    },
+    {
+     "direction": 2,
+     "sigma": 36.90189442954976,
+     "items": [
+      {
+       "item": "Rent Per Month :: 3 Bedroom Apartment in City Centre",
+       "loading": -0.2573355471068977
+      },
+      {
+       "item": "Transportation :: Gasoline (1 Liter)",
+       "loading": 0.2520974867797732
+      },
+      {
+       "item": "Clothing And Shoes :: Jeans (Levi's 501 or Similar)",
+       "loading": 0.24269114106276446
+      },
+      {
+       "item": "Utilities (Monthly) :: Basic Utilities for 915 Square Feet Apartment (Electricity, Heating, Cooling, Water, Garbage)",
+       "loading": 0.2293854845502195
+      },
+      {
+       "item": "Rent Per Month :: 3 Bedroom Apartment Outside of City Centre",
+       "loading": -0.22026686183261143
+      },
+      {
+       "item": "Markets :: Apples (1 lb)",
+       "loading": -0.21804852517828202
+      }
+     ]
+    },
+    {
+     "direction": 3,
+     "sigma": 33.04791617798129,
+     "items": [
+      {
+       "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment in City Centre",
+       "loading": 0.3725506420908927
+      },
+      {
+       "item": "Buy Apartment Price :: Price per Square Feet to Buy Apartment Outside of Centre",
+       "loading": 0.36077024164620497
+      },
+      {
+       "item": "Utilities (Monthly) :: Broadband Internet (Unlimited Data, 60 Mbps or Higher)",
+       "loading": -0.30139996182836265
+      },
+      {
+       "item": "Childcare :: International Primary School, Annual Tuition per Child",
+       "loading": 0.29963142979471225
+      },
+      {
+       "item": "Childcare :: Private Full-Day Preschool or Kindergarten, Monthly Fee per Child",
+       "loading": 0.2293957319818225
+      },
+      {
+       "item": "Markets :: Domestic Beer (16.9 oz Bottle)",
+       "loading": -0.22334466898906338
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "b38_main_arm_expected": {
+  "above": 8,
+  "b1": 66508,
+  "cities": 1280,
+  "sd_R": 0.4521,
+  "sv3": [
+   61.5,
+   36.79,
+   33.3
+  ]
+ },
+ "cross_section": {
+  "all": {
+   "above_conservative": 8,
+   "b1": 66508,
+   "cities": 1280,
+   "conservative_floor": 19.466660869768756,
+   "items": 53,
+   "sd_residual": 0.452111655816248,
+   "singular_values_top5": [
+    61.49730667063424,
+    36.79229634418392,
+    33.29953355278063,
+    27.733585814246286,
+    25.467728377807436
+   ]
+  },
+  "quality_0_thin": {
+   "above_conservative": 7,
+   "b1": 27560,
+   "cities": 531,
+   "conservative_floor": 14.466856651350453,
+   "items": 53,
+   "sd_residual": 0.47708325770572296,
+   "singular_values_top5": [
+    39.820947314983776,
+    24.245418658260185,
+    21.994635661828614,
+    18.740685687619536,
+    17.778616475134022
+   ]
+  },
+  "quality_1_thick": {
+   "above_conservative": 7,
+   "b1": 38896,
+   "cities": 749,
+   "conservative_floor": 14.82464165531009,
+   "items": 53,
+   "sd_residual": 0.4278646002718332,
+   "singular_values_top5": [
+    45.92545922407206,
+    27.796817172455686,
+    24.320293631104217,
+    20.692077218702988,
+    18.31906297925246
+   ]
+  }
+ },
+ "ratios_thin_over_thick": {
+  "cross_section": 1.1150332544515715,
+  "movement": 0.43045963560663075
+ },
+ "reproduces_b38_main_arm": true,
+ "vintage_movement": {
+  "quality_0_thin": {
+   "cities": 434,
+   "median_sd_move": 0.007493554111432198,
+   "p90_sd_move": 0.058371789305306974
+  },
+  "quality_1_thick": {
+   "cities": 637,
+   "median_sd_move": 0.017408261986915013,
+   "p90_sd_move": 0.04974319738891269
+  }
+ }
+}

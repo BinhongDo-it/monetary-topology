@@ -582,8 +582,8 @@ prices.**
 **B6-4 is registered as a failure and is not repaired.** It compared the BCC's
 implied euro cross against the ECB daily reference rate and 3 of 147 days fell
 outside the band, on days when EUR/USD moved about a percent, because **the BCC
-prices off the previous business day**. `HANDOFF` §3.2 item thirteen forbids
-swapping in a lagged comparison, since choosing the alignment that makes the
+prices off the previous business day**. Swapping in a lagged comparison is
+forbidden, since choosing the alignment that makes the
 criterion pass is fitting.
 
 **Here the alignment is not a choice.** `RD 88/2026` Art. 5.III states it: the

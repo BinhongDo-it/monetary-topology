@@ -1,0 +1,161 @@
+{
+ "arm_a_administrative": {
+  "n": 12,
+  "sd_admin": 0.0044452626706127435,
+  "sd_panel": 0.0296117491947233,
+  "panel_noise_sd": 0.029276190499456258,
+  "b_on_known_zero": 0.038097221662796825,
+  "se": 0.02619863375208378,
+  "level_offset": 0.05577563399373786
+ },
+ "arm_a_cost": {
+  "noise_sd": 0.029276190499456258,
+  "resid_sd": 0.2013,
+  "noise_share_of_var": 0.021151519844321714,
+  "breakeven_multiple": 4.861991694428129
+ },
+ "arm_c_attenuation": {
+  "n": 12,
+  "corr_salary_official": 0.8683355210866393,
+  "sd_log_income": 0.3008507158732764,
+  "rows": [
+   {
+    "noise_sd": 0.029276190499456258,
+    "lambda": 0.9905305003917703,
+    "ladder": 0.13124280367801192,
+    "local": 0.6360228178242116,
+    "gap": 0.5047800141461997
+   },
+   {
+    "noise_sd": 0.05,
+    "lambda": 0.972379094614665,
+    "ladder": 0.1336927137985381,
+    "local": 0.6478954591775308,
+    "gap": 0.5142027453789927
+   },
+   {
+    "noise_sd": 0.09,
+    "lambda": 0.9105082665515147,
+    "ladder": 0.1427773967306917,
+    "local": 0.6919212303102751,
+    "gap": 0.5491438335795834
+   },
+   {
+    "noise_sd": 0.1718,
+    "lambda": 0.6739049394138185,
+    "ladder": 0.19290554557008838,
+    "local": 0.9348499516088898,
+    "gap": 0.7419444060388014
+   }
+  ],
+  "observed_gap": 0.5
+ },
+ "official_meta": {
+  "source": "China Statistical Yearbook 2024, table 19-16, Main Indicators of Real Estate Projects in 35 Large and Medium-sized Cities (2023)",
+  "variable": "average selling price of newly built residential buildings, yuan per square metre",
+  "year": "2023",
+  "unit_of_observation": "city, so no capital-versus-province mismatch enters",
+  "scope_note": "newly built only, averaged over the whole municipality including its outer districts",
+  "file": "data/raw/yearbook2024_19-16_35cities.xlsx",
+  "total_row": {
+   "residential": 18402,
+   "all_uses": 16780
+  }
+ },
+ "official_year": "2023",
+ "ft2_per_m2": 10.7639,
+ "fits": {
+  "centre_all": {
+   "n": 12,
+   "slope": 1.033382857400986,
+   "resid_sd": 0.2383446624188649,
+   "pearson": 0.9396961338039069,
+   "spearman": 0.7482517482517482,
+   "intercept": 0.19731888127805597
+  },
+  "centre_exact": null,
+  "outside_all": {
+   "n": 12,
+   "slope": 0.9485543359881679,
+   "resid_sd": 0.1717714217738698,
+   "pearson": 0.9615131600525896,
+   "spearman": 0.8181818181818182,
+   "intercept": 0.3944058751289319
+  }
+ },
+ "pairs_centre": [
+  {
+   "city": "Beijing",
+   "official": 46783.0,
+   "panel": 83873.169912,
+   "exact": true
+  },
+  {
+   "city": "Changchun",
+   "official": 8300.0,
+   "panel": 10999.844688,
+   "exact": true
+  },
+  {
+   "city": "Chongqing",
+   "official": 8558.0,
+   "panel": 18167.956253999997,
+   "exact": true
+  },
+  {
+   "city": "Hangzhou",
+   "official": 33047.0,
+   "panel": 51806.220144,
+   "exact": true
+  },
+  {
+   "city": "Harbin",
+   "official": 8434.0,
+   "panel": 21399.817228999997,
+   "exact": true
+  },
+  {
+   "city": "Hohhot",
+   "official": 10845.0,
+   "panel": 11499.935482,
+   "exact": true
+  },
+  {
+   "city": "Nanjing",
+   "official": 23643.0,
+   "panel": 33848.15994,
+   "exact": true
+  },
+  {
+   "city": "Shanghai",
+   "official": 45997.0,
+   "panel": 92749.189491,
+   "exact": true
+  },
+  {
+   "city": "Shenyang",
+   "official": 11219.0,
+   "panel": 15333.17555,
+   "exact": true
+  },
+  {
+   "city": "Shijiazhuang",
+   "official": 10743.0,
+   "panel": 16810.520825,
+   "exact": true
+  },
+  {
+   "city": "Taiyuan",
+   "official": 10105.0,
+   "panel": 17749.886378,
+   "exact": true
+  },
+  {
+   "city": "Tianjin",
+   "official": 16324.0,
+   "panel": 36180.266514,
+   "exact": true
+  }
+ ],
+ "unmatched": []
+}

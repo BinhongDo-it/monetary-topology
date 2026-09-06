@@ -377,7 +377,7 @@ def b5_15_edge_of_window(classes: dict, dates: list[str]) -> dict:
             "vacuous": True,
             "why": (
                 "the final pre-window bucket or too few post buckets survived "
-                "the date filter; prereg 6B.4 and PROJECT_PLAN 11.11 rule 1"
+                "the date filter; prereg 6B.4 rule 1"
             ),
             "treated": treated,
             "controls": controls,

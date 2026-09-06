@@ -108,6 +108,16 @@ import dataclasses
 
 import numpy as np
 
+from .industry import (
+    IndustrySpec,
+    assign_industries,
+    build_io_matrix,
+    check_feasible,
+    route_weights,
+    friction_vector,
+    coefficient_perturbation,
+    perturbation_is_off,
+)
 from .config import LAYER_1, LAYER_2, MonetaryAuthority, SpendRule, WageChannel
 
 #: A realized edge is one carrying flow above this fraction of the mean edge
@@ -222,6 +232,14 @@ _REWIRE_OFFSET = 51_413
 #: nothing to do with, and the bitwise reproduction would then be a claim about
 #: draw order rather than about the mechanism.
 _EDGE_CUT_OFFSET = 90_311
+
+#: A stream of its own for the rank-and-fill control arm, same reason again. It
+#: is drawn from once, at build time, and only when that arm is on, so a run
+#: without it reaches none of this.
+_GREEDY_OFFSET = 70_207
+
+#: What the rank-and-fill queue may be ordered on. See ``GreedySpec.rank_by``.
+GREEDY_RANKS: tuple[str, ...] = ("inflow", "degree", "bilateral", "terms")
 
 #: Where newly issued claims are credited. Both arms are registered as the two
 #: readings of the source's own claim that money is non-neutral because the path
@@ -1021,6 +1039,14 @@ class RewireSpec:
     #: Rounds between rewires. One is every round.
     interval: int = 1
 
+    #: The first round the rule may fire. Zero is the opening round and
+    #: reproduces every earlier stage. It exists because an arm that runs this
+    #: rule from round zero is not the same world as one that does not: the
+    #: control's own path moves with it, and a comparison between the two is
+    #: then two worlds rather than one world with one switch moved. A24-4 was
+    #: undecidable for exactly that reason.
+    from_round: int = 0
+
     #: Whether promotion also hands over the core's spending propensity, and
     #: demotion hands it back. Off by default, and off is the arm every reading
     #: before 2026-08-24 was taken on: promotion buys edges and nothing else,
@@ -1321,9 +1347,10 @@ class ParkSpec:
     **That split is exactly what could not be expressed before**: a stock of
     claims that exists, is owned, and is not in the money that circulates.
 
-    **One way.** A parked claim does not come back. That is the limiting case
-    and it is deliberately the first one: an instrument that matures is a second
-    mechanism and would make this one impossible to read on its own.
+    **One way by default.** A parked claim does not come back unless
+    ``return_rate`` is set. The one-way case is deliberately the default and was
+    built first: an instrument that matures is a second mechanism and having
+    both at once would have made the first impossible to read on its own.
 
     Off by default, and off reproduces a run without it to the last bit.
     """
@@ -1342,9 +1369,51 @@ class ParkSpec:
     #: rather than about a position in it.
     target: str = "financial"
 
+    #: Share of the shortfall in circulation that comes back out of the parked
+    #: stock each round. Zero is off, and off is the default, so a run that does
+    #: not set it reproduces the one-way case exactly.
+    #:
+    #: **This is the half of the manuscript's latent pool that was missing.**
+    #: Volume One, section one, states the pool both ways: claims outside the
+    #: system may come back to the market to buy resources. Parking implemented
+    #: only the outward half, deliberately, because an instrument that matures
+    #: is a second mechanism and having both at once would have made the first
+    #: unreadable.
+    #:
+    #: **The trigger is the shortfall, not a rate on the stock.** The manuscript
+    #: has the claims come back *to buy resources*, so what pulls them is the
+    #: home graph running short of circulating claims, not a clock. A decay
+    #: constant on the parked stock would be a number with no source behind it;
+    #: keying it to the shortfall sources the trigger and leaves one
+    #: coefficient, which gets swept rather than chosen.
+    #:
+    #: **What this produces that the outward half cannot, measured rather than
+    #: predicted.** Both halves settle on positive floors, because parking bites
+    #: on one layer and the rest of the graph keeps trading, so the floor's
+    #: level is not what separates them: a one-way rate can be found that
+    #: reproduces any two-way floor to seven decimal places. What separates them
+    #: is where the run sits in the plane whose axes are what circulates and
+    #: what does not. A one-parameter family of leaks traces a curve there, and
+    #: at a matched circulating level the returning arm holds between 7% and
+    #: 132% less parked stock, at 32 to 216 times the dispersion across seeds.
+    #: Matching one axis costs the other.
+    #:
+    #: **That separation needs the trigger to fire.** Where the circulating
+    #: stock rises above its opening the shortfall is negative, nothing returns,
+    #: and the two arms coincide because there they are one arm.
+    #:
+    #: **A trigger on M/R would be this same trigger.** The manuscript has the
+    #: claims come back to buy resources, which reads as a price, but ``R`` and
+    #: ``R_a`` are both run constants here, computed once outside the loop, so
+    #: ``M/R`` is ``M`` over a constant and a target level stated in prices
+    #: collapses to a target level stated in claims.
+    return_rate: float = 0.0
+
     def __post_init__(self) -> None:
         if not 0.0 <= self.rate <= 1.0:
             raise ValueError("rate must lie in [0, 1]")
+        if not 0.0 <= self.return_rate <= 1.0:
+            raise ValueError("return_rate must lie in [0, 1]")
         if self.target not in PARK_TARGETS:
             raise ValueError(
                 f"target must be one of {PARK_TARGETS}, got {self.target!r}")
@@ -1352,6 +1421,10 @@ class ParkSpec:
     @property
     def active(self) -> bool:
         return self.rate > 0.0
+
+    @property
+    def returns(self) -> bool:
+        return self.return_rate > 0.0
 
 
 @dataclass(frozen=True)
@@ -1545,6 +1618,258 @@ class WriteOffSpec:
         return self.rate > 0.0 and self.trigger > 0.0
 
 
+#: What a public signal is attached to. **Three, not two, and the third one was
+#: found by measurement rather than by thinking about it.**
+#:
+#: A3's terms are ``gamma[i,q] = gbar[q] * (1 + kappa (1 - c_i))``, so
+#: ``log gamma`` is a position term plus an agent term, and **both halves are
+#: potentials**. Measured on the registered configuration: a position-only
+#: signal leaves a residual that is **62 to 80 percent** of the variance, and
+#: position plus agent is **exact to 6.66e-16**. So the terms field carries no
+#: holonomy at all; the non-zero square A22 reads sits on the agent edges and
+#: the transfer wedge instead (D25's three-term decomposition).
+#:
+#: ``"position"``  one number per position. A published price: "X costs Y".
+#:                 **Cannot say that two people pay differently at the same
+#:                 position**, and on this carrier that is most of it. The
+#:                 remainder is not a missing half: the counterparty had to
+#:                 observe this agent to quote it these terms.
+#: ``"agent"``     one number per agent. A credit rating. Cannot say that one
+#:                 agent faces different terms at different positions.
+#: ``"edge"``      one number per edge, which **can** express a profitable
+#:                 cycle. Not implemented, and the reason is a gate rather than
+#:                 an omission: see ``BroadcastSpec.terms_respond``.
+#:
+#: **This module's ``phi`` is always indexed by node**, because this graph's
+#: vertices are agents. A caller announcing a position-level signal maps it onto
+#: nodes itself, and which of the three it is describing is what ``locus``
+#: records.
+BROADCAST_LOCI: tuple[str, ...] = ("position", "agent", "edge")
+
+
+@dataclass(frozen=True)
+class BroadcastSpec:
+    """A public signal every node can see, laid over the graph, not sent along it.
+
+    **The distinction this switch exists for.** The only rule in this model that
+    reads anybody else's state is ``EdgeCutSpec(mode="run")``, and it reads it
+    along trade edges: who can see node j is exactly j's in-neighbours. So
+    information here percolates, and the information graph is a subgraph of the
+    transaction graph. A broadcast is the other way information travels: it does
+    not percolate, everybody has it at once, and having it is not evidence of
+    already trading with anybody.
+
+    **What it does to the routing.** Without it, flow splits over a node's
+    surviving edges in proportion, and nothing anywhere compares two
+    counterparties. With it, the split is tilted by the announced difference
+    between where the flow would land and where it starts.
+
+    Off by default, and off returns the routing array untouched, which is what
+    makes ``weight = 0`` reproduce every earlier stage to the bit.
+    """
+
+    #: See ``BROADCAST_LOCI``. Records what the caller means ``phi`` to be; it
+    #: does not change the arithmetic, which is the same gradient either way.
+    locus: str = "position"
+
+    #: How hard the routing bends toward the signal. Zero is off.
+    weight: float = 0.0
+
+    #: The announced value at each position, one entry per node. Supplied by the
+    #: caller rather than derived here, because what a broadcast says is the
+    #: experiment's object and not the model's: a station can announce the best
+    #: scalar fit to the true terms field, or a rank, or a constant.
+    phi: tuple[float, ...] = ()
+
+    #: The first round the signal is acted on. Zero reproduces a run without it
+    #: when the weight is zero anyway, and when the weight is not zero the gap
+    #: between this and the round a shock lands is the lead time between an
+    #: announcement and the event it is about. That gap is what the currency
+    #: changeovers on the empirical side actually differ in: six weeks in one
+    #: case and six days in the other, with the second one collapsing.
+    from_round: int = 0
+
+    #: The first round the signal is **no longer** acted on, so the signal is
+    #: live for ``from_round <= t < until_round``. ``None`` is never off and
+    #: reproduces every earlier stage to the bit, because the check below is
+    #: skipped entirely when it is ``None``.
+    #:
+    #: **Why this exists as a separate field rather than a duration.** The two
+    #: ends are not the same experiment. Switching on is a signal graph being
+    #: built where there was none; switching off is one being destroyed after
+    #: the flow has already reorganised around it. A duration would make the
+    #: second a function of the first and hide the asymmetry, and the asymmetry
+    #: is the object: category error thirteen is exactly a check that assumes
+    #: the imposition and the release of a constraint are mirror images.
+    until_round: int | None = None
+
+    #: Whether terms respond to the flow that arrives. **Required for
+    #: ``locus="edge"`` and the reason is discipline 12, not caution.** A3's
+    #: terms are a function of position and not of flow, so piling onto a
+    #: profitable edge never reduces its profit, the arbitrage never closes, and
+    #: the concentration that comes out is forced by the construction rather
+    #: than measured. ``locus="position"`` does not need it, because its
+    #: load-bearing prediction is that the signal can never point at the loop at
+    #: all, and that one **is** what the construction says.
+    terms_respond: bool = False
+
+    def __post_init__(self) -> None:
+        if self.locus not in BROADCAST_LOCI:
+            raise ValueError(f"locus must be one of {BROADCAST_LOCI}")
+        if self.locus == "edge" and not self.terms_respond:
+            raise NotImplementedError(
+                "locus='edge' with terms that do not respond to flow: the "
+                "arbitrage never closes and the concentration is forced by the "
+                "construction, so the arm would not be an arm (discipline 12)"
+            )
+
+
+@dataclass(frozen=True)
+class GreedySpec:
+    """Each node fills its best edge first, then the next best, and so on.
+
+    **The assumption this switch exists to grant.** Every other rule here splits
+    a node's spending over its surviving edges in proportion, so nothing
+    anywhere ranks two counterparties. This one does: a node sends to the
+    counterparty that did the most business last round until that counterparty
+    is full, then to the next, and so on down its own out-edges. It is the agent
+    standard economics is most willing to grant, and it is granted here on
+    purpose: **it is the strongest assumption for the opposing account and the
+    weakest for this one.** No rationality beyond what a node can see, no
+    forecasting, no aversion holding it back from moving on.
+
+    **Zero parameters beyond the flag**, and that is a requirement rather than a
+    convenience:
+
+    * *what "best" means* is last round's inflow, which is the quantity
+      ``EdgeCutSpec(mode="run")`` already reads. The two rules read one number
+      and act on it with opposite signs: ``run`` sees a low one and cuts, this
+      sees a high one and fills. That is what makes the pair of them a clean
+      crossing rather than two unrelated interventions.
+    * *what "full" means* is that same number. This model has no capacity
+      anywhere: a node receives whatever points at it, so "fill" had to be
+      given an object, and the only one already on the machine that is a flow
+      rather than a stock is what the counterparty took in last round.
+    * *who chooses first* does not arise. The ranking is a property of the
+      counterparty and not of the pair, so every node sees the same order and
+      no tie-break between choosers is needed. **The version of this rule that
+      needed one would have grown a knob here.**
+
+    **Two consequences fixed here rather than left to the caller.** Before any
+    inflow has been observed the rule is inert and the proportional split
+    stands, exactly as the triggered edge-cut arms are inert on their first
+    round. And when the ranked capacities do not absorb a node's whole budget,
+    the remainder is spread proportionally over the same edges rather than left
+    unspent: leaving it unspent would put a second mechanism on the claim
+    identity, riding on this one.
+
+    **What it may not do.** It may reorder and it may starve, but it may not
+    delete: the adjacency is untouched, so an edge that receives nothing this
+    round is eligible again next round. That is the line between this and
+    ``run``, which removes the edge for good, and keeping the two apart is the
+    only way the crossing of them can be read.
+
+    Off by default, and off leaves the routing untouched, which is what makes
+    every earlier stage reproduce to the bit.
+    """
+
+    #: Whether the ranking is used at all. False leaves the proportional split.
+    enabled: bool = False
+
+    #: What the queue is ordered on. **The order and the capacity are two
+    #: different roles and this field separates them**: capacity stays what a
+    #: counterparty took in last round, and only the ordering changes.
+    #:
+    #: ``"inflow"``
+    #:     Last round's inflow, which is also the capacity. The original
+    #:     behaviour, and the default, so a run that does not set this is the
+    #:     run that was made before the field existed.
+    #: ``"degree"``
+    #:     The counterparty's in-degree, how many nodes can pay it. **Static**:
+    #:     it moves only when the adjacency does, so a queue ordered on it
+    #:     carries no feedback from the flow to the order.
+    #: ``"terms"``
+    #:     The terms the payer would get from that counterparty, which on the
+    #:     asset stage's construction is ``γ̄(1 + κ(1 − c))`` and so is a
+    #:     monotone function of the counterparty's centrality. **Ranking on the
+    #:     price collapses to ranking on centrality**, and centrality is
+    #:     computed from the adjacency, so this arm needs no price object and
+    #:     introduces no parameter. It is static for the same reason the degree
+    #:     is: nothing in the flow moves it.
+    #:
+    #:     **This is a stand-in and it is one on purpose.** A payer ranking
+    #:     counterparties by price wants a price on the edge, and no stage here
+    #:     has one: the asset stage's terms are indexed by node and asset class,
+    #:     not by payer and counterparty. What can be run without inventing an
+    #:     object is the ordering that a per-edge price would induce if terms
+    #:     followed that construction, and that ordering is this one.
+    #: ``"bilateral"``
+    #:     What this payer has itself sent to that counterparty so far.
+    #:     **The only one of the three that is a quantity on the edge rather
+    #:     than on the node**, so every payer holds a different order and the
+    #:     order is not a field anyone announces. Ties, which is what a payer
+    #:     with no history to go on has, fall back to the inflow: a
+    #:     counterparty never dealt with is judged by what everyone can see.
+    #:
+    #: The pair exists to test a claim this rule's readings already make, that
+    #: the ordering is driven by its own result. Under ``"degree"`` it cannot
+    #: be. Both are one number per node, so both are exact one-forms in the
+    #: sense the broadcast switch documents, and neither can point at a cycle.
+    rank_by: str = "inflow"
+
+    #: The control arm. The same capacities in a random order, so the queue is
+    #: still filled one counterparty at a time and money still concentrates,
+    #: while which counterparty gets filled no longer has anything to do with
+    #: the graph. **This is what the signal arm has to be read against**, not
+    #: against the switch being off: turning it off removes the concentration
+    #: too, so the difference would be the mechanism and the information at
+    #: once. The permutation is drawn once, at build time, and held for the run,
+    #: because a fresh draw each round would be a different intervention: it
+    #: would average the ranking away rather than misdirect it.
+    shuffled: bool = False
+
+    #: How much the terms a counterparty offers worsen with the business it is
+    #: already carrying. Zero is off and reproduces every earlier run to the
+    #: bit, which is what makes this a switch rather than a rewrite.
+    #:
+    #: **This is the condition the edge locus of the broadcast switch is locked
+    #: on, in the form this stage needs it.** With terms fixed by position, more
+    #: flow onto a profitable counterparty never reduces what it offers, the
+    #: arbitrage never closes, and any concentration that comes out is given by
+    #: the construction rather than measured (discipline 12). It is also the
+    #: assumption most favourable to the opposing account, which holds that
+    #: arbitrage removes persistent differences: switching it on hands that
+    #: mechanism over rather than keeping an advantage the construction gave.
+    #:
+    #: The form is ``gamma_j = gbar (1 + kappa (1 - c_j)) (1 + eta * share_j)``
+    #: where ``share_j`` is the counterparty's share of last round's total
+    #: inflow. The share is dimensionless, so this is too, and it is one global
+    #: number of the same kind as ``kappa`` rather than one per agent. Being a
+    #: knob it has to be swept and the direction reported across the sweep.
+    #:
+    #: Only ``rank_by="terms"`` reads it. Under the other orderings the field is
+    #: never consulted and a run reaches none of this arithmetic.
+    congestion: float = 0.0
+
+    def __post_init__(self) -> None:
+        # Negative values are admitted from 2026-09-03 and they are not a
+        # relaxation of a check, they are a second account. A positive value is
+        # congestion, terms worsening as a counterparty fills. A negative one is
+        # scale, terms improving as it fills, which is what the carrier this
+        # stage corresponds to actually looks like: a correspondent bank does
+        # not price you worse because other banks also clear through it.
+        #
+        # The domain is what has to hold rather than the sign. The share is in
+        # [0, 1], so ``1 + eta * share`` stays positive for every realised share
+        # exactly when ``eta > -1``, and that bound needs no reading of the run.
+        if self.congestion <= -1.0:
+            raise ValueError("congestion must exceed -1 so that the terms "
+                             "factor stays positive at every share")
+        if self.rank_by not in GREEDY_RANKS:
+            raise ValueError(f"rank_by must be one of {GREEDY_RANKS}, "
+                             f"got {self.rank_by!r}")
+
+
 @dataclass(frozen=True)
 class NetworkConfig:
     """Parameters for one A2 run."""
@@ -1590,6 +1915,25 @@ class NetworkConfig:
 
     #: Claims moved out of circulation without being destroyed. Off by default.
     park: ParkSpec = field(default_factory=ParkSpec)
+
+    #: Industries as clusters of agents, with a Leontief matrix between them.
+    #: ``count = 0`` is off and no line of ``industry.py`` is reached.
+    industry: IndustrySpec = field(default_factory=IndustrySpec)
+    broadcast: BroadcastSpec = field(default_factory=BroadcastSpec)
+
+    #: The spread of terms across position, ``kappa`` in the asset stage's
+    #: terms function. Carried here so the rank-and-fill rule can price a
+    #: counterparty without importing that stage's config object. **The default
+    #: is that stage's own registered value and is checked against it at use
+    #: rather than copied and trusted**, because a constant duplicated in two
+    #: files is a constant that will drift. Nothing new is chosen here. Only
+    #: ``GreedySpec(rank_by="terms", congestion>0)`` reads it.
+    asset_terms_spread: float = 1.0
+
+    #: Rank-and-fill routing instead of the proportional split. Off by default,
+    #: and independent of ``edge_cut`` on purpose: the two are the same signal
+    #: read with opposite signs and a stage has to be able to run either alone.
+    greedy: GreedySpec = field(default_factory=GreedySpec)
 
     epsilon: float = DEFAULT_EPSILON
     rounds: int = 300
@@ -1664,6 +2008,7 @@ class NetworkHistory:
     demoted: np.ndarray  # (rounds,) nodes that lost the core this round
     frozen_holdings: np.ndarray  # (rounds,) claims held by nodes that have left
     parked: np.ndarray  # (rounds,) claims out of circulation and not destroyed
+    returned: np.ndarray  # (rounds,) claims that came back out of the parked stock
     potential_support: int  # constant: nodes reachable in the potential graph
     node_count: int  # constant: nodes in the graph
     adjacency: np.ndarray  # the potential graph, fixed for the whole run
@@ -1761,6 +2106,9 @@ class Network:
 
     def __init__(self, config: NetworkConfig) -> None:
         self.config = config
+        #: The round being computed. Read by ``_apply_broadcast`` so a signal
+        #: can switch on partway through, and set before the first route build.
+        self._t = 0
         self.rng = np.random.default_rng(config.seed)
 
         spec = config.spec
@@ -1802,6 +2150,72 @@ class Network:
         wage_mask = np.zeros((n, n))
         wage_mask[np.ix_(self._wage_payers, self._wage_receivers)] = 1.0
         self.adjacency = build_graph(config.spec, wage_edges=wage_mask)
+
+        # Industries. Built here so the routing below can consult them, and
+        # guarded so that ``count = 0`` leaves ``_io_weights`` at None and every
+        # line downstream takes the pre-industry path.
+        ind = config.industry
+        self._industry_of = assign_industries(
+            ind, spec.financial_nodes, np.concatenate([spec.intermediate_nodes, spec.household_nodes]).astype(int)
+        )
+        if ind.enabled:
+            self._io = build_io_matrix(ind)
+            check_feasible(self._io)
+            self._io_weights = route_weights(self._io, self._industry_of)
+        else:
+            self._io = None
+            self._io_weights = None
+        #: Last round's inflow vector, read by industry switching. None on the
+        #: first round, when there is nothing to have observed yet.
+        self._last_inflow: np.ndarray | None = None
+        #: Rank-and-fill diagnostics. Allocated whether or not the switch is on,
+        #: because they are read by the stage rather than by the model and an
+        #: attribute that exists only on one path is the shape a reader trips
+        #: over. Nothing in the round touches them when the switch is off.
+        self._greedy_filled: np.ndarray = np.zeros(n, dtype=int)
+        self._greedy_ever_used: np.ndarray = np.zeros((n, n), dtype=bool)
+        #: The control arm's permutation, drawn once and held. ``None`` on the
+        #: signal arm and when the switch is off, and the branch that reads it
+        #: is guarded on that, so neither reaches the draw.
+        #: Cumulative amount sent from each payer to each counterparty. The
+        #: bilateral order's key, and a quantity on the edge rather than on the
+        #: node, which is the whole reason that order is a different object
+        #: from the other two.
+        self._greedy_history: np.ndarray = np.zeros((n, n), dtype=float)
+        self._greedy_perm: np.ndarray | None = None
+        if config.greedy.enabled and config.greedy.shuffled:
+            self._greedy_perm = np.random.default_rng(
+                config.seed + _GREEDY_OFFSET
+            ).permutation(n)
+        #: Cumulative industry switches. A diagnostic, printed rather than
+        #: judged: a treatment that moves nothing is inert, and the way to find
+        #: that out is to count what it moved, not to argue about it.
+        self._switch_count = 0
+        #: Rounds each industry has been below the sustainable level, -1 for
+        #: healthy. Updated every round the industry machinery is on, whether
+        #: or not anyone is switching, so the state is readable even in arms
+        #: that hold switching at zero.
+        #: Members per industry at t=0, the denominator the delivery ratio is
+        #: measured against. Frozen: an industry that has shrunk is compared
+        #: with what it was, not with what it has become.
+        self._initial_agents = (
+            np.bincount(
+                self._industry_of[self._industry_of >= 0],
+                minlength=config.industry.count,
+            ).astype(float)
+            if config.industry.enabled
+            else np.zeros(0)
+        )
+        self._damaged_for = (
+            np.full(config.industry.count, -1, dtype=int)
+            if config.industry.enabled
+            else np.zeros(0, dtype=int)
+        )
+        #: Per-industry recovery friction. Flat and equal to the scalar while
+        #: ``friction_spread`` is zero, so every run that predates the spread
+        #: reproduces bit for bit. Volume Two section 3 is what asks for it:
+        #: it orders four bases by formation lag and the ordering is the claim.
+        self._friction_of = friction_vector(config.industry)
         self.wage_mask = wage_mask
 
         # Discretionary routing follows the graph minus the payroll edges: wages
@@ -1823,6 +2237,8 @@ class Network:
             discretionary = self.adjacency.copy()
         else:
             discretionary = np.clip(self.adjacency - wage_mask, 0.0, 1.0)
+        discretionary = self._apply_industry(discretionary)
+        discretionary = self._apply_broadcast(discretionary)
         row_sums = discretionary.sum(axis=1, keepdims=True)
         self._route = np.divide(
             discretionary,
@@ -1893,6 +2309,19 @@ class Network:
         #: per-node figure so that who parked can be read, and added back into
         #: the conservation check, because they still exist.
         self._parked = np.zeros(n)
+        #: Circulating claims before the first round, the reference the return
+        #: shortfall is measured against. Set on the first round rather than
+        #: here, because ``holdings`` does not exist yet at this point, and
+        #: taken once and never updated, because a moving reference would make
+        #: the trigger chase itself.
+        self._circulating_baseline: float | None = None
+        # Set when ``_run_steps`` finishes. A partially drained generator
+        # leaves it None, and that is the honest state rather than a stale
+        # history from an earlier call.
+        self._history: NetworkHistory | None = None
+        #: How much came back this round, kept so the two halves can be read
+        #: apart rather than only as a net change in the parked stock.
+        self._returned_this_round = 0.0
         self._repaid = 0.0
         self._repay_blocked = 0
 
@@ -2122,9 +2551,18 @@ class Network:
             # breaks. The in-loop assertion caught this on the infrastructure
             # channel, which reweights the routes and so reaches the case first.
             spent = spent * (sums.ravel() > 0)
+        route = self._greedy_reroute(route, spent)
         matrix = spent[:, None] * route
-        self.holdings = self.holdings - spent + matrix.sum(axis=0)
-        return matrix
+        rationed = self._ration_supply(matrix)
+        if rationed is None:
+            self.holdings = self.holdings - spent + matrix.sum(axis=0)
+            return matrix
+        # What was not delivered was not paid for, so it is subtracted from the
+        # payer's outgoings rather than from the seller's receipts. Recomputing
+        # the row sums instead of reusing ``spent`` is deliberate: they are no
+        # longer the same number, and reusing it would leak claims.
+        self.holdings = self.holdings - rationed.sum(axis=1) + rationed.sum(axis=0)
+        return rationed
 
     # -- hooks -------------------------------------------------------------
     #
@@ -2132,6 +2570,501 @@ class Network:
     # mechanisms without a second copy of the round loop. A second copy would
     # make the bitwise reproduction of A2 a claim about two files staying in
     # step, which is not a claim anyone can check by reading either one.
+
+    def _switch_industries(self) -> np.ndarray | None:
+        """Move the worst-off nodes into their layer's best-paid industry.
+
+        Who moves is read off last round's inflow, which is the only signal a
+        node in this model has about how it is doing. Where they move is the
+        industry with the highest mean inflow *within the same layer*: a
+        household does not become a bank by filing a form, and letting it would
+        make the two-layer structure a costume rather than a constraint.
+
+        The cost is a transfer, not a deletion. It leaves the mover and lands on
+        the financial layer weighted by in-degree, the same weighting that picks
+        the injection node, so the round's conservation assertion covers it and
+        it shows up in total volume like any other payment.
+
+        Returns the transfer matrix, or None when nothing moved.
+        """
+        ind = self.config.industry
+        if not ind.enabled:
+            return None
+        self._update_damage()
+        if ind.switch_rate <= 0.0 or self._last_inflow is None:
+            return None
+        inflow = self._last_inflow
+        movers: list[tuple[int, int, float]] = []
+        lower = np.concatenate([self._mid, self._l2]).astype(int)
+        for nodes in (self._l1, lower):
+            # A node that has left circulation is not looking for work. Without
+            # this line the switchers are exactly the nodes with the lowest
+            # inflow, which after the subsistence floor is on means the ones
+            # that are already dead: 6869 switches ran, and the live industry
+            # membership came out identical to the arm where switching was
+            # blocked entirely. Every reading of the entry friction up to this
+            # point was measuring moves between graveyards.
+            nodes = nodes[self._alive[nodes]]
+            if nodes.size == 0:
+                continue
+            gs = self._industry_of[nodes]
+            keep = gs >= 0
+            nodes_v, gs_v = nodes[keep], gs[keep]
+            uniq = np.unique(gs_v)
+            if nodes_v.size == 0 or uniq.size < 2:
+                continue
+            means = np.array([inflow[nodes_v[gs_v == g]].mean() for g in uniq])
+            best = int(uniq[int(np.argmax(means))])
+            k = int(round(ind.switch_rate * nodes_v.size))
+            if k <= 0:
+                continue
+            order = np.argsort(inflow[nodes_v], kind="stable")
+            cand = nodes_v[order[:k]]
+            cand = cand[self._industry_of[cand] != best]
+            own = means[np.searchsorted(uniq, self._industry_of[cand])] if cand.size else np.zeros(0)
+            fees = np.zeros(cand.size)
+            if cand.size and self._entry_threshold(best, ind.switch_cost) == float("inf"):
+                # Irreversible: the best industry is damaged and closed. Nobody
+                # moves into it and nobody is redirected elsewhere, because the
+                # rule is "go to the best one" and the best one is shut.
+                cand, own, fees = cand[:0], own[:0], fees[:0]
+            elif cand.size and ind.switch_cost > 0.0:
+                # Two dimensions, kept apart on purpose.
+                #
+                # The *decision* is dimensionless: a node moves when the
+                # relative gain, the best industry's mean inflow over its own,
+                # clears the threshold. Two earlier versions failed here. The
+                # first deducted the fee after the move was settled, so it was a
+                # tax on movers rather than a price of moving and the line read
+                # flat. The second put the fee in the decision but scaled it off
+                # the holdings *stock* while the gain was a *flow*: the movers
+                # are by construction the lowest-inflow nodes, their stock is
+                # small, the fee never bound, and sweeping 0 to 1 moved 2990
+                # switches to 2693. What a move is worth is measured in inflow,
+                # so what it costs has to be measured there too.
+                #
+                # The *payment* still comes out of the stock, because that is
+                # the only place a node has anything to pay with, and it is
+                # capped at what the node holds.
+                thr = self._entry_threshold(best, ind.switch_cost)
+                keep = (float(means.max()) - own) > thr * np.maximum(own, 1e-12)
+                cand, own = cand[keep], own[keep]
+                fees = np.minimum(
+                    ind.switch_cost * np.maximum(own, 0.0),
+                    np.maximum(self.holdings[cand], 0.0),
+                )
+            movers.extend(
+                (int(i), best, float(f)) for i, f in zip(cand, fees, strict=True)
+            )
+        if not movers:
+            return None
+
+        matrix = np.zeros((self._n, self._n))
+        if ind.switch_cost > 0.0:
+            w = self.adjacency.sum(axis=0)[self._l1]
+            w = w / w.sum() if w.sum() > 0 else np.full(self._l1.size, 1.0 / self._l1.size)
+            for i, _, fee in movers:
+                if fee <= 0.0:
+                    continue
+                matrix[i, self._l1] += fee * w
+                self.holdings[i] -= fee
+                self.holdings[self._l1] += fee * w
+        for i, g, _ in movers:
+            self._industry_of[i] = g
+        self._switch_count += len(movers)
+        self._io_weights = route_weights(self._io, self._industry_of)
+        self._rebuild_route()
+        return matrix if matrix.any() else None
+
+    def _greedy_reroute(self, route: np.ndarray, spent: np.ndarray) -> np.ndarray:
+        """Rank the counterparties and fill them in order. A no-op when off.
+
+        Returns ``route`` itself when the switch is off or before any inflow has
+        been seen, so the caller then takes the pre-existing path unchanged and
+        the default reproduces bit for bit.
+
+        **Why this is here and not in ``_rebuild_route``.** Capacity is an
+        amount and the routing array is a set of fractions, so the rank-and-fill
+        cannot be done until a node's budget is known, and the budget is
+        ``spent``. Doing it there would have meant estimating the budget, which
+        is a knob wearing a different hat.
+
+        **The ranking is the same for every payer.** ``inflow[j]`` is a property
+        of the counterparty, so one ``argsort`` serves all rows and the whole
+        rule is two array expressions rather than a loop over nodes. That is not
+        only speed: it is why no rule about who chooses first was needed.
+
+        The arithmetic, per payer ``i`` and its eligible edges in rank order:
+        each counterparty takes ``min(what is left of i's budget, its
+        capacity)``. What the capacities do not absorb is spread back over the
+        same edges in the proportions the caller passed in, so the row still
+        sums to one and nothing is left unspent.
+        """
+        if not self.config.greedy.enabled or self._last_inflow is None:
+            return route
+        cap = np.maximum(np.asarray(self._last_inflow, dtype=float), 0.0)
+        # The order and the capacity are separate roles. Capacity is always
+        # what the counterparty took in; the key the queue sorts on is either
+        # that same number or the counterparty's in-degree, which does not move
+        # with the flow. Ordering on the degree is how the claim that the
+        # ranking drives its own input gets tested rather than asserted.
+        rank_by = self.config.greedy.rank_by
+        key = cap
+        if rank_by == "degree":
+            key = (np.asarray(self.adjacency, dtype=float) > 0).sum(axis=0)
+        elif rank_by == "terms":
+            # Best terms first. Terms fall as centrality rises on the asset
+            # stage's construction, so with no congestion the best counterparty
+            # is the most central one and the key is the centrality itself.
+            # Imported from the stage that defines it rather than recomputed
+            # here, so the two cannot drift apart.
+            from .asset import centrality as _centrality
+            cen = np.asarray(_centrality(self.adjacency), dtype=float)
+            eta = float(self.config.greedy.congestion)
+            if eta <= 0.0:
+                key = cen
+            else:
+                # What the payer would pay, up to the class constant: the
+                # position term times the congestion term. Ranking is on the
+                # negative of it, because the queue takes the largest key first
+                # and the best counterparty is the cheapest one.
+                from .asset import AssetSpec as _AssetSpec
+                spread = float(self.config.asset_terms_spread)
+                registered = float(_AssetSpec().terms_spread)
+                if spread != registered and spread == 1.0:
+                    # The field was left at its default while the stage that
+                    # owns the constant moved. Raise rather than run on a stale
+                    # copy: this is the drift the field's note names.
+                    raise ValueError(
+                        "asset_terms_spread defaults to the asset stage's "
+                        f"registered {registered!r} and that value has moved; "
+                        "set it explicitly or update the default")
+                total = float(cap.sum())
+                share = cap / total if total > 0 else np.zeros_like(cap)
+                gamma = (1.0 + spread * (1.0 - cen)) * (1.0 + eta * share)
+                key = -gamma
+        if self._greedy_perm is not None:
+            # The control arm. Same numbers, reassigned to counterparties, so
+            # the queue and its concentration survive and the correspondence to
+            # the graph does not.
+            cap = cap[self._greedy_perm]
+            key = key[self._greedy_perm]
+        mask = route > 0.0
+        # Descending inflow, ties by index so two runs of the same graph rank
+        # them the same way. ``kind="stable"`` is what makes that true.
+        budget = np.maximum(spent, 0.0)[:, None]
+        if rank_by == "bilateral":
+            # One order per payer, because the key is a quantity on the edge.
+            # Ties break on the public number, which is what a payer with no
+            # history of its own has to go on. ``lexsort`` takes the last key
+            # as primary, so the history is passed last.
+            order2 = np.lexsort(
+                (-np.broadcast_to(cap, route.shape), -self._greedy_history),
+                axis=1)
+            cap_o = cap[order2]
+            mask_o = np.take_along_axis(mask, order2, axis=1)
+            avail = mask_o * cap_o
+            ahead = np.cumsum(avail, axis=1) - avail
+            alloc_o = np.clip(budget - ahead, 0.0, avail)
+            alloc = np.zeros_like(route)
+            np.put_along_axis(alloc, order2, alloc_o, axis=1)
+        else:
+            order = np.argsort(-key, kind="stable")
+            cap_o = cap[order]
+            mask_o = mask[:, order]
+            # Capacity ahead of each counterparty in the queue, counting only
+            # the ones this payer can actually reach.
+            avail = mask_o * cap_o[None, :]
+            ahead = np.cumsum(avail, axis=1) - avail
+            alloc_o = np.clip(budget - ahead, 0.0, avail)
+            alloc = np.zeros_like(route)
+            alloc[:, order] = alloc_o
+        # Whatever the queue could not take goes back over the same edges in the
+        # caller's proportions. Not spending it would be a second mechanism.
+        left = np.maximum(budget.ravel() - alloc.sum(axis=1), 0.0)
+        alloc = alloc + left[:, None] * route
+        # What each payer has sent to each counterparty, accumulated. Only the
+        # bilateral order reads it; the other two never touch it, so a run on
+        # them reaches this line and nothing else.
+        self._greedy_history = self._greedy_history + alloc
+        total = alloc.sum(axis=1, keepdims=True)
+        out = np.divide(alloc, total, out=np.zeros_like(alloc), where=total > 0)
+        # A payer whose queue and remainder both came to nothing keeps the
+        # proportional row, so the row sums stay at one wherever they were.
+        dead = (total.ravel() <= 0.0) & self._has_out
+        if dead.any():
+            out[dead] = route[dead]
+        # Diagnostics, not criteria, and the two are not the same kind of
+        # thing. **``_greedy_filled`` is this round only**: it is overwritten
+        # every time this runs, so at the end of a run it describes the last
+        # round and nothing else. ``_greedy_ever_used`` accumulates, so the
+        # per-payer count taken from it is the run-level quantity.
+        #
+        # The distinction is written here because reading the first as though
+        # it were the second gave a clean separation of twenty seeds into two
+        # groups that the second does not reproduce: two of the seventeen sit
+        # with the three. A per-round snapshot reported as a property of a run
+        # is a different quantity wearing the same name.
+        used = out > 0.0
+        self._greedy_filled = used.sum(axis=1)
+        self._greedy_ever_used |= used
+        return out
+
+    def _ration_supply(self, matrix: np.ndarray) -> np.ndarray | None:
+        """Cut each payment to what the seller's industry can actually deliver.
+
+        An industry that has lost members has lost capacity. The Leontief
+        production function is a min, so the buyer who cannot get the input does
+        not spend the money elsewhere: the transaction does not happen and the
+        claim stays where it was. That is the difference between an industry
+        layer that redirects money and one that can destroy a trade, and it is
+        the only path by which anything in this layer reaches total volume.
+
+        Returns None when off, and the caller then takes the pre-existing code
+        path unchanged, which is what keeps the zero setting bit-for-bit.
+        """
+        ind = self.config.industry
+        if not ind.enabled or ind.supply_elasticity <= 0.0:
+            return None
+        g = self._industry_of
+        live = (g >= 0) & self._alive
+        current = np.bincount(g[live], minlength=ind.count).astype(float)
+        ratio = np.divide(
+            current,
+            self._initial_agents,
+            out=np.ones(ind.count),
+            where=self._initial_agents > 0,
+        )
+        deliverable = 1.0 - ind.supply_elasticity * (1.0 - np.minimum(ratio, 1.0))
+        return matrix * deliverable[g][None, :]
+
+    def _perturb_coefficients(self) -> None:
+        """Advance ``A`` one period: ``A' = diag(r) A diag(s)``.
+
+        The RAS form, one row multiplier and one column multiplier, because the
+        two mean different things: rows are substitution, one seller's product
+        used less per unit of everyone's output; columns are fabrication, one
+        buyer's intermediate input intensity. Technical progress is a directed
+        trend on the rows; outsourcing is a directed trend on the columns, and
+        it runs the other way.
+
+        Every drift at zero returns immediately, so a run without perturbation
+        reaches none of this and reproduces the earlier build bit for bit.
+        Hawkins-Simon is rechecked every period rather than once at build time,
+        because a positive column drift raises the column sums and a matrix that
+        was feasible at t=0 need not stay feasible.
+        """
+        ind = self.config.industry
+        if not ind.enabled or self._io is None or perturbation_is_off(ind):
+            return
+        r, c = coefficient_perturbation(ind)
+        self._io = r[:, None] * self._io * c[None, :]
+        check_feasible(self._io)
+        self._io_weights = route_weights(self._io, self._industry_of)
+
+    def _update_damage(self) -> None:
+        """Count how long each industry has been below the sustainable level.
+
+        The level is a share of the mean industry size **within the layer**, so
+        a financial industry is measured against financial industries. An
+        industry that comes back above the line resets to healthy rather than
+        keeping a scar: the friction is on re-entry while it is down, which is
+        the mechanism being modelled, and a permanent mark would be a second
+        one riding on it.
+        """
+        ind = self.config.industry
+        if ind.min_share <= 0.0 or self._damaged_for.size == 0:
+            return
+        g = self._industry_of
+        lower = np.concatenate([self._mid, self._l2]).astype(int)
+        for nodes in (self._l1, lower):
+            # Same reason as in the switch: an industry's size is how many of
+            # its members are still trading, not how many were assigned to it
+            # at t=0.
+            nodes = nodes[self._alive[nodes]]
+            if nodes.size == 0:
+                continue
+            gs = g[nodes]
+            gs = gs[gs >= 0]
+            if gs.size == 0:
+                continue
+            present = np.unique(gs)
+            counts = np.bincount(gs, minlength=self._damaged_for.size)
+            bar = ind.min_share * counts[present].mean()
+            for gi in present:
+                if counts[gi] < bar:
+                    self._damaged_for[gi] = max(self._damaged_for[gi], 0) + 1
+                else:
+                    self._damaged_for[gi] = -1
+
+    def _entry_threshold(self, industry: int, base: float) -> float:
+        """Relative-gain threshold for moving *into* ``industry``.
+
+        Healthy industries charge ``base``. A damaged one charges more, in
+        proportion to how long it has been down, and infinite friction never
+        clears at all, which is the absorbing wall: the industry is not
+        expensive to rejoin, it cannot be rejoined.
+        """
+        ind = self.config.industry
+        if self._damaged_for.size == 0 or self._damaged_for[industry] < 0:
+            return base
+        f = (float(self._friction_of[industry])
+             if self._friction_of.size else float(ind.recovery_friction))
+        if np.isinf(f):
+            return float("inf")
+        return base * (1.0 + f * float(self._damaged_for[industry]))
+
+    def _apply_broadcast(self, discretionary: np.ndarray) -> np.ndarray:
+        """Tilt the routing toward a public signal, or return the argument.
+
+        Returns the argument untouched when the weight is zero, which is what
+        makes the default reproduce every earlier stage to the bit: the array
+        that reaches ``row_sums`` is then the same object as before. Same shape
+        as ``_apply_industry`` directly below, and for the same reason.
+        """
+        spec = self.config.broadcast
+        if spec.weight == 0.0 or not spec.phi:
+            return discretionary
+        if self._t < spec.from_round:
+            return discretionary
+        if spec.until_round is not None and self._t >= spec.until_round:
+            return discretionary
+        phi = np.asarray(spec.phi, dtype=float)
+        if phi.shape[0] != discretionary.shape[0]:
+            raise ValueError(
+                f"broadcast phi has {phi.shape[0]} entries for "
+                f"{discretionary.shape[0]} nodes"
+            )
+        # One number per vertex, so what the signal says about the edge i -> j is
+        # phi[j] - phi[i], a difference of two potentials, and every loop it can
+        # express sums to zero. What such a signal cannot say is whatever varies
+        # along the other index of the field: see BROADCAST_LOCI for the measured
+        # split on A3's terms.
+        gain = np.exp(spec.weight * (phi[None, :] - phi[:, None]))
+        return discretionary * gain
+
+    def _apply_industry(self, discretionary: np.ndarray) -> np.ndarray:
+        """Scale each route by the buyer industry's requirement for the seller's.
+
+        Returns the argument untouched when industries are off, which is what
+        makes ``count = 0`` reproduce every earlier stage to the bit: the array
+        that reaches ``row_sums`` is then the same object as before.
+        """
+        if self._io_weights is None:
+            return discretionary
+        # Only the intermediate-input part of a node's spending is what the
+        # Leontief matrix describes. The rest is final demand -- payroll,
+        # consumption, rent -- and no coefficient in ``A`` constrains where it
+        # goes. Routing *all* of it through ``A`` was the first version, and it
+        # stranded 38.5% of nodes with no outlet at all and collapsed total
+        # volume by a factor of 34: a node whose few out-edges all point at
+        # mismatched industries stopped spending entirely and became a sink,
+        # which is an accidental hoarding mechanism rather than a modelled one.
+        #
+        # The split ratio is the intermediate input share of gross output, and
+        # that share IS the column sum of ``A``. While the matrix is fixed it
+        # equals ``column_sum`` for every industry, so the scalar below is the
+        # whole story and is kept as its own branch: with technical change off
+        # this reproduces the earlier build to the bit without depending on the
+        # normaliser landing on ``column_sum`` to the last float.
+        #
+        # Once ``Theta`` moves the matrix, the two stop being the same thing,
+        # and using the parameter instead of the live column sum was the fifth
+        # modelling error of this family. The paper's whole claim about
+        # technical progress is that it lowers the units of input needed per
+        # unit of output, which IS the column sum falling; holding the split at
+        # ``column_sum`` while the matrix drifts keeps the intermediate half at
+        # a constant size and lets ``Theta`` only reshuffle who inside it gets
+        # paid. Measured: driving the production rows down by a factor of ten
+        # moved total volume by 0.02%.
+        ind_cfg = self.config.industry
+        g = self._industry_of
+        if perturbation_is_off(ind_cfg):
+            share = float(ind_cfg.column_sum)
+        else:
+            col = self._io.sum(axis=0)
+            share = np.where(g >= 0, col[g], ind_cfg.column_sum)[:, None]
+
+        # Two levels of allocation, and collapsing them was the third modelling
+        # error of this stage.
+        #
+        # Leontief says industry ``g(i)`` needs ``A[k, g(i)]`` of industry ``k``
+        # per unit of its own output. That requirement is a property of the
+        # **industry**, not of how many firms happen to staff it. Weighting the
+        # payment graph by ``A`` alone makes an industry's share proportional to
+        # ``node count x coefficient``, so an industry that loses half its
+        # members loses half its inflow and the survivors are no better off than
+        # before. There is then no reason for anyone to move back into a
+        # shrinking industry, the entry friction of stage three has nothing to
+        # bite on, and sweeping it from zero to infinity changes nothing --
+        # which is exactly what it did.
+        #
+        # So: the industry share is ``A[k, g(i)]`` regardless of headcount, and
+        # that share is then split among whichever members of ``k`` the buyer
+        # actually has an edge to. Fewer members, more each. That is what makes
+        # a thinned industry attractive again, and it is the pressure the
+        # recovery lag exists to hold back.
+        k = ind_cfg.count
+        onehot = np.zeros((self._n, k))
+        seen = g >= 0
+        onehot[np.arange(self._n)[seen], g[seen]] = 1.0
+        per_industry = discretionary @ onehot
+        denom = per_industry[:, g]
+        inter = np.divide(
+            discretionary * self._io_weights,
+            denom,
+            out=np.zeros_like(discretionary),
+            where=denom > 0,
+        )
+
+        def _norm(m: np.ndarray) -> np.ndarray:
+            s = m.sum(axis=1, keepdims=True)
+            return np.divide(m, s, out=np.zeros_like(m), where=s > 0)
+
+        # Final demand has an industry structure too, and leaving it out was the
+        # fourth error of this stage. ``x = Ax + f``: the ``Ax`` half is the
+        # matrix, the ``f`` half is the consumption basket, and **both** are
+        # allocated by industry. Routing ``f`` down the raw payment graph makes
+        # a household indifferent between industries, which is not a
+        # simplification of Leontief, it is the negation of the thing that binds
+        # a node's income to the cluster it sits in: an industry that loses half
+        # its members would lose half its final demand too, and the survivors
+        # would be no better off. Half the spending was then unbound, which is
+        # why the entry friction kept failing to reach any aggregate.
+        #
+        # ``f`` is uniform across industries here. Uniform is not the same as
+        # absent: uniform means each industry draws an equal share regardless of
+        # headcount, whereas the raw graph gives an industry a share
+        # proportional to how many nodes it has. This is the same correction
+        # made above for ``A``, applied on the other half.
+        f_share = np.full(k, 1.0 / k)
+        final = np.divide(
+            discretionary * f_share[g][None, :],
+            denom,
+            out=np.zeros_like(discretionary),
+            where=denom > 0,
+        )
+        # Final demand is held at its ORIGINAL absolute share, not at
+        # ``1 - share``. That was the sixth modelling error of this family and
+        # it inverted the reading: letting final demand absorb whatever the
+        # intermediate half gives up means technical progress makes the
+        # allocation MORE even, because final demand is spread uniformly across
+        # industries, and the downstream sellers get back through ``f`` exactly
+        # what they lost through ``A``.
+        #
+        # The paper says the opposite and says it precisely: internal demand
+        # shrinks for goods that are decreasingly needed in the overall
+        # production pattern, "even when the external demand remains the same".
+        # External demand staying the same is an absolute quantity, not a
+        # share. So the two shares are set independently and their sum falls
+        # below one as the matrix drifts down; the difference is spending that
+        # does not happen, which is the same treatment the supply constraint
+        # gives to an input that cannot be delivered.
+        #
+        # With technical change off, ``share`` is ``column_sum`` and the two
+        # sum to exactly one, so this reproduces the earlier build to the bit.
+        final_share = 1.0 - float(ind_cfg.column_sum)
+        return share * _norm(inter) + final_share * _norm(final)
 
     def _rebuild_route(self) -> None:
         """Recompute the discretionary routing from the current adjacency.
@@ -2145,6 +3078,8 @@ class Network:
             discretionary = self.adjacency.copy()
         else:
             discretionary = np.clip(self.adjacency - self.wage_mask, 0.0, 1.0)
+        discretionary = self._apply_industry(discretionary)
+        discretionary = self._apply_broadcast(discretionary)
         row_sums = discretionary.sum(axis=1, keepdims=True)
         self._route = np.divide(
             discretionary,
@@ -2387,6 +3322,44 @@ class Network:
             self._repaid += float(pay[j])
         np.clip(ledger, 0.0, None, out=ledger)
         return matrix if matrix.any() else None
+
+    def _return_claims(self) -> None:
+        """Bring parked claims back when circulation has fallen short.
+
+        A no-op when the switch is off, which is the default, so a run that does
+        not set ``return_rate`` is bit-for-bit the one-way case.
+
+        **Before this round's parking**, so what comes back is inside the
+        spending base the same round draws on. The ordering is the content: the
+        manuscript has these claims return to the market to buy resources, which
+        they cannot do if they arrive after the spending.
+
+        **Keyed to the shortfall.** The pull is the home graph running short
+        against the resources on offer, not the age of the parked stock.
+
+        **Shared out in proportion to who parked**, because the parked figure is
+        per node so that who parked can be read, and a return that redistributed
+        it would be a second claim about the world.
+
+        Conservation is untouched: the stock moves between two columns the
+        round's assertion already sums together.
+        """
+        spec = self.config.park
+        if not spec.returns or self._circulating_baseline is None:
+            return
+        parked_total = float(self._parked.sum())
+        if parked_total <= 0.0:
+            return
+        shortfall = self._circulating_baseline - float(self.holdings.sum())
+        if shortfall <= 0.0:
+            return
+        amount = min(parked_total, spec.return_rate * shortfall)
+        if amount <= 0.0:
+            return
+        back = amount * (self._parked / parked_total)
+        self._parked -= back
+        self.holdings += back
+        self._returned_this_round = float(amount)
 
     def _park_claims(self) -> None:
         """Move a share of what a node holds out of the trading system.
@@ -2696,6 +3669,27 @@ class Network:
     # -- driver ------------------------------------------------------------
 
     def run(self) -> NetworkHistory:
+        """Run every round and return the history. **Unchanged behaviour.**
+
+        The body moved to ``_run_steps``, which is the same code with one
+        ``yield`` at the end of each round. Nothing inside the round changed,
+        and a run through this wrapper is bit-for-bit what it was: the loop is
+        drained here and the history it built is handed back.
+
+        **Why a generator underneath.** Two graphs that trade with each other
+        have to advance in lockstep, and a driver can only interleave them at a
+        point the round itself names. ``_run_steps`` names one, after
+        ``_post_round``, where the round's books are closed and the next round
+        has not opened. A caller that wants one graph still calls ``run`` and
+        sees none of this.
+        """
+        for _ in self._run_steps():
+            pass
+        assert self._history is not None
+        return self._history
+
+    def _run_steps(self):
+        """The round loop, yielding the round index after each round closes."""
         cfg = self.config
         rounds, n = cfg.rounds, self._n
 
@@ -2722,6 +3716,7 @@ class Network:
             "demoted": np.zeros(rounds),
             "frozen_holdings": np.zeros(rounds),
             "parked": np.zeros(rounds),
+            "returned": np.zeros(rounds),
         }
 
         # The real side. Constant every round, exactly as in ``economy.py``:
@@ -2789,10 +3784,20 @@ class Network:
             # Out of reach before the discretionary spending is computed, so
             # what is parked is out of the spending base as well as out of the
             # obligations that were already served above.
+            # The coefficients move before anyone decides where to go, so a
+            # switch this round is made against the new matrix.
+            self._perturb_coefficients()
+            switch_matrix = self._switch_industries()
+            if self._circulating_baseline is None:
+                self._circulating_baseline = float(self.holdings.sum())
+            self._returned_this_round = 0.0
+            self._return_claims()
             self._park_claims()
             spend_matrix = self._discretionary_flow()
             fiscal_matrix = self._fiscal_flow(t)
             flow = wage_matrix + spend_matrix
+            if switch_matrix is not None:
+                flow = flow + switch_matrix
             if fiscal_matrix is not None:
                 flow = flow + fiscal_matrix
             if debt_matrix is not None:
@@ -2814,6 +3819,7 @@ class Network:
 
             reached = reachable_from(flow, self.injection_node, epsilon_abs)
             inflow = flow.sum(axis=0)
+            self._last_inflow = inflow
             l2_inflow = float(flow[:, self._l2].sum())
 
             out["total_volume"][t] = float(flow.sum())
@@ -2904,8 +3910,23 @@ class Network:
             # floor**, so their trigger cannot borrow the floor's state.
             self._cut_edges(t, inflow)
 
+            self._t = t
+            if cfg.broadcast.from_round and t == cfg.broadcast.from_round:
+                # Routing is rebuilt on graph events, so a signal that switches
+                # on partway needs one here or it would not be seen until the
+                # next cut or rewire.
+                self._rebuild_route()
+            if (cfg.broadcast.until_round is not None
+                    and t == cfg.broadcast.until_round):
+                # Same reason on the way out. Without this the routing keeps the
+                # tilt after the signal is gone until some other graph event
+                # happens to clear it, which would make the tear-down arm read a
+                # lag that the model does not contain.
+                self._rebuild_route()
+
             rw = cfg.rewire
-            if rw.active and not cfg.spec.uniform_access and t % rw.interval == 0:
+            if (rw.active and not cfg.spec.uniform_access
+                    and t >= rw.from_round and t % rw.interval == 0):
                 got, lost = self._rewire(t)
                 out["promoted"][t] = got
                 out["demoted"][t] = lost
@@ -2919,6 +3940,7 @@ class Network:
             out["starved"][t] = int(out_of_market.sum())
             out["frozen_holdings"][t] = float(self.holdings[out_of_market].sum())
             out["parked"][t] = float(self._parked.sum())
+            out["returned"][t] = self._returned_this_round
 
             out["holdings"][t] = self.holdings
             out["active_resources"][t] = resources_offered
@@ -2952,8 +3974,13 @@ class Network:
                 self._pending_issuance += destroyed_this_round
 
             self._post_round(t)
+            # **The only line added inside the round.** The books for round ``t``
+            # are closed and round ``t+1`` has not opened, so a driver that
+            # moves claims between two graphs here moves them between two
+            # settled states rather than into the middle of one.
+            yield t
 
-        return NetworkHistory(
+        self._history = NetworkHistory(
             potential_support=potential,
             node_count=n,
             adjacency=self.adjacency,
@@ -2961,6 +3988,7 @@ class Network:
             epsilon_absolute=float(epsilon_abs or 0.0),
             **out,
         )
+        return
 
 
 #: Memo for ``autonomous_share``. The quantity is a property of the

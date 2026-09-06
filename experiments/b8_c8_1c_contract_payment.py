@@ -374,7 +374,7 @@ def scan(path: Path, t: Tally, limit_rows: int) -> None:
 
 # ---------------------------------------------------------------------------
 # Self-test: a hand-built amortisation schedule, run through the same functions
-# before anything touches a real loan. The discipline is HANDOFF_B8 §7 step 2.
+# before anything touches a real loan.
 # ---------------------------------------------------------------------------
 
 def selftest() -> int:

@@ -1,0 +1,51 @@
+{
+ "criteria": {
+  "B43-4": {
+   "name": "closed form from the proof reproduces the enumerated counts",
+   "passed": true
+  },
+  "B43-5": {
+   "name": "counting form holds on every configuration, including those where the partition form fails",
+   "passed": true
+  }
+ },
+ "n3": {
+  "closed_form_one_sided_lower": 180,
+  "closed_form_one_sided_upper": 180,
+  "closed_form_two_sided": 810,
+  "configurations": 1539,
+  "counting_form_failures": 0,
+  "enumerated_one_sided_lower": 180,
+  "enumerated_one_sided_upper": 180,
+  "enumerated_two_sided": 810,
+  "lemma_A_failures": 0,
+  "lemma_B_failures": 0,
+  "partition_form_failures": 810
+ },
+ "n4": {
+  "closed_form_one_sided_lower": 4994,
+  "closed_form_one_sided_upper": 4994,
+  "closed_form_two_sided": 18468,
+  "configurations": 25029,
+  "counting_form_failures": 0,
+  "enumerated_one_sided_lower": 4994,
+  "enumerated_one_sided_upper": 4994,
+  "enumerated_two_sided": 18468,
+  "lemma_A_failures": 0,
+  "lemma_B_failures": 0,
+  "partition_form_failures": 18468
+ },
+ "n5": {
+  "closed_form_one_sided_lower": 129783,
+  "closed_form_one_sided_upper": 129783,
+  "closed_form_two_sided": 394389,
+  "configurations": 453438,
+  "counting_form_failures": 0,
+  "enumerated_one_sided_lower": 129783,
+  "enumerated_one_sided_upper": 129783,
+  "enumerated_two_sided": 394389,
+  "lemma_A_failures": 0,
+  "lemma_B_failures": 0,
+  "partition_form_failures": 394389
+ }
+}

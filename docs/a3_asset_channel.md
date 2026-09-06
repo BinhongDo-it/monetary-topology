@@ -139,8 +139,8 @@ one fewer parameter. `rent_rate = 0` recovers the no-rent behaviour bitwise.
 **No service flow beyond rent, and no imputed rent.** Living in a dwelling you
 own consumes something while nobody pays anybody. Booking it requires either
 creating claims from nothing, which breaks conservation, or inventing a
-housing-to-claims conversion rate, which is inventing a deflator. `PROJECT_PLAN`
-§11.7 rules that out. Tenancy makes the transfer real instead.
+housing-to-claims conversion rate, which is inventing a deflator. Inventing a
+deflator is ruled out. Tenancy makes the transfer real instead.
 
 **Tier-differential appreciation is not an input and does not need to be.**
 Higher tiers appreciate faster because their bidder pool is the rich, whose
@@ -565,10 +565,10 @@ holders would reproduce exactly the error refused above.
 ### 6.4b The step in retention is a step in layer, and the asset's own step is a transient
 
 §6.4 leaves A3-6 with two numbers, a holder statistic and a non-holder
-statistic, and `PROJECT_PLAN` §16.1 proposed taking the *shape* between them to
+statistic, and one proposal was to take the *shape* between them to
 external data as a distinguishing prediction: that a one-off transfer is
 retained in a **step** on whether the recipient owns an asset, rather than along
-a gradient in wealth. §16.1's own first instruction was that two points cannot
+a gradient in wealth. That proposal's own first instruction was that two points cannot
 tell those apart and the profile had to be run internally first. It has been.
 `experiments/a3_asset_channel.py --retention-profile`, every node shocked
 separately, one full model run each, five seeds, a thousand runs. It is a
@@ -716,10 +716,10 @@ non-holder, and they get poorer by a third. They were already at 0.31%
 retention, so nothing downstream notices.
 
 **So the defect is where the census said it was and it is not load-bearing
-here.** `PROJECT_PLAN` §16.4 judged that hard-coded layer membership mattered
+here.** An earlier ruling judged that hard-coded layer membership mattered
 for A6's levy and little for A3. Its conclusion survives this check. Its stated
-reason does not: §16.4 argued that A3 already had the mechanism through the
-`γ·P` gate, and §16.1's own run shows that gate admits production-layer nodes at
+reason does not: it argued that A3 already had the mechanism through the
+`γ·P` gate, and the retention-profile run shows that gate admits production-layer nodes at
 the opening and none of them still hold at round 150. And the 2026-08-13 census
 puts three of the five instrument instances in A3, not in A6. **The defect lives
 here; it just does not carry anything here.**
@@ -1258,7 +1258,7 @@ that way and should have been.
 measured on the top eighth of the production layer and that the next carrier
 needs a larger measured population. The grid shows that parameter already
 exists: `s = 5.0` carries `98.8` nodes against the registered `41.6`, and it
-keeps both channels quotable. §13.3 of `PROJECT_PLAN` notes independently that
+keeps both channels quotable. A separate reading notes independently that
 `s = 5` admits eighty-eight production-layer nodes to the lowest tier against
 twenty-three at the registered `s = 3`.
 

@@ -1,0 +1,148 @@
+{
+  "carrier": "Singapore S 156/2025, CPF (Revised Workfare Income Supplement Scheme) (Amendment No. 2) Regulations 2025",
+  "classes": {
+    "8AA eligible employee": {
+      "2025 onward": {
+        "benefit_table_month": "Twelfth Schedule (reg 13C(1))",
+        "cash_proportion_month": "two-fifths (reg 13B(1)(b)(i))",
+        "qualifying_quantity": "total wages for the relevant month",
+        "small_sum_exclusion": "$50 from any one employer (reg 8AH(a)(ii))",
+        "waiver_top_up": "9/8/6/5/4 by age band (reg 8AI(2))"
+      }
+    },
+    "8AB eligible Group A worker": {
+      "applicable year 2025-2028": {
+        "benefit_table_month": "Thirteenth Schedule (reg 13C(2)(a))",
+        "cash_proportion_month": "one-tenth (reg 13B(1)(a)(i))",
+        "qualifying_quantity": "total APE for the relevant month",
+        "small_sum_exclusion": "$50 from any one platform operator (reg 8AH(b)(ii)(A))",
+        "waiver_top_up": "7/7/7/5/4 by age band (reg 8AI(4))"
+      },
+      "applicable year 2029 onward": {
+        "benefit_table_month": "Twelfth Schedule (reg 13C(2)(b))",
+        "cash_proportion_month": "two-fifths (reg 13B(1)(b)(ii))",
+        "qualifying_quantity": "total APE for the relevant month",
+        "small_sum_exclusion": "$50 from any one platform operator (reg 8AH(b)(ii)(A))",
+        "waiver_top_up": "7/7/7/5/4 by age band (reg 8AI(4))"
+      }
+    },
+    "8AC eligible Group B worker": {
+      "2025 onward": {
+        "benefit_table_month": "Thirteenth Schedule (reg 13C(3))",
+        "cash_proportion_month": "one-tenth (reg 13B(1)(a)(ii))",
+        "qualifying_quantity": "total APE for the relevant month",
+        "small_sum_exclusion": "$500 from any one platform operator (reg 8AH(b)(ii)(B))",
+        "waiver_top_up": "Fifteenth Schedule, age band by annual APE (reg 8AI(6))"
+      }
+    },
+    "8AD eligible employee-platform worker": {
+      "2025 onward": {
+        "benefit_table_month": "Twelfth Schedule (reg 13C(4))",
+        "cash_proportion_month": "two-fifths (reg 13B(1)(b)(i))",
+        "qualifying_quantity": "aggregate of total wages and total APE",
+        "small_sum_exclusion": "per limb, employee and platform separately (reg 8AH)",
+        "waiver_top_up": "routed to 8AI(3)-(6) by the worker's group (reg 8AI(7))"
+      }
+    },
+    "8AE eligible self-employed person": {
+      "2025 onward": {
+        "benefit_table_month": "Fourteenth Schedule (reg 13D(1)(a))",
+        "cash_proportion_month": "assessed for the year under reg 13B(2)",
+        "qualifying_quantity": "average monthly income for the relevant year",
+        "small_sum_exclusion": "not applicable, the year is the unit",
+        "waiver_top_up": "reg 8AJ, by notified income band"
+      }
+    }
+  },
+  "config": {
+    "arithmetic": "exact rationals, no floating point",
+    "classes_written": 5,
+    "clause_dimensions": 5,
+    "clause_vectors": 6,
+    "pages_in_instrument": 33,
+    "schedules_compared": [
+      "Twelfth",
+      "Thirteenth",
+      "Fourteenth"
+    ]
+  },
+  "coverage": [
+    {
+      "carried": "reg 2 definitions, deletion of reg 4, Part 2/Part 3 headings, reg 8AA, start of 8AB",
+      "pages": "1-4"
+    },
+    {
+      "carried": "regs 8AB(b)(ii)-(iii), 8AC, 8AD, 8AE, 8AF, 8AG(1)",
+      "pages": "5-8"
+    },
+    {
+      "carried": "8AG(2)-(3), 8AH, 8AI, 8AJ, 8AK, regs 10 and 11-13 amendments, 13A, 13B(1)",
+      "pages": "9-18"
+    },
+    {
+      "carried": "13B(1)(b)(ii) and 13B(2), 13C, 13D, 13E, regs 14A/15 and First/Second/Ninth/Tenth/Eleventh Schedule amendments, Twelfth to Fifteenth Schedules, execution page",
+      "pages": "19-33"
+    }
+  ],
+  "criteria": [
+    {
+      "detail": "48 coefficients compared, distinct ratios ['2/3'], anomalies 0",
+      "name": "B33-1",
+      "passed": true,
+      "text": "Every coefficient of the Thirteenth Schedule is exactly two-thirds of the corresponding coefficient of the Twelfth, over all seven bands and four age columns, slopes and intercepts alike."
+    },
+    {
+      "detail": "56 cells compared, 0 differ",
+      "name": "B33-2",
+      "passed": true,
+      "text": "The Fourteenth Schedule is cell for cell identical to the Twelfth; only the variable it is read against differs (total monthly sum against average monthly income)."
+    },
+    {
+      "detail": "5 written classes carrying 6 clause vectors, 0 colliding pairs",
+      "name": "B33-3",
+      "passed": true,
+      "text": "No two of the classes the instrument writes receive an identical clause vector on all five dimensions. A collision would put the read partition strictly coarser than the written one."
+    },
+    {
+      "detail": "33 of 33 pages",
+      "name": "B33-4",
+      "passed": true,
+      "text": "Every page of the instrument was opened, and the coverage table names what each batch carried, including batches that carried nothing bearing on the criteria."
+    },
+    {
+      "detail": "1 of 5 written classes carry more than one vector: 8AB eligible Group A worker",
+      "name": "B33-5",
+      "passed": true,
+      "text": "Where the read partition is strictly finer than the written one, the extra line is drawn by the instrument itself and can be named. Every class carrying more than one clause vector has its dividing provisions listed; a split with no provision behind it would put the read partition finer than the written one and fail the arm."
+    }
+  ],
+  "internal_lines": {
+    "8AB eligible Group A worker": [
+      "reg 13B(1)(b)(ii): the cash proportion moves from one-tenth to two-fifths at applicable year 2029",
+      "reg 13C(2)(b): the benefit table moves from the Thirteenth to the Twelfth Schedule at applicable year 2029"
+    ]
+  },
+  "readings": {
+    "cells_compared_12_vs_14": 56,
+    "cells_differing_12_vs_14": 0,
+    "classes_written": 5,
+    "clause_vectors": 6,
+    "coefficients_compared_12_vs_13": 48,
+    "colliding_vector_pairs": 0,
+    "distinct_benefit_functions": 2,
+    "group_a_merges_with_employee": {
+      "dimension_benefit_table": "Thirteenth to Twelfth Schedule at applicable year 2029, reg 13C(2)(b)",
+      "dimension_cash_proportion": "one-tenth to two-fifths at applicable year 2029, reg 13B(1)(b)(ii)",
+      "dimensions_still_separating_after_2029": [
+        "qualifying quantity, APE against wages",
+        "waiver top-up, 7/7/7/5/4 against 9/8/6/5/4",
+        "the exclusivity clause, and not also as the other"
+      ]
+    },
+    "ratio_13_over_12": [
+      "2/3"
+    ],
+    "written_benefit_tables": 3
+  },
+  "stage": "B33"
+}

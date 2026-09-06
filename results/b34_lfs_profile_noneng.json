@@ -1,0 +1,4499 @@
+{
+  "apprentice_two_cells": {
+    "2019|hourpay|alt_21_under_25": [
+      {
+        "age": 16,
+        "diff": -0.056391,
+        "n_all": 19,
+        "n_appr": 5,
+        "p_all": 0.842105,
+        "p_no_appr": 0.785714
+      },
+      {
+        "age": 17,
+        "diff": -0.011457,
+        "n_all": 52,
+        "n_appr": 5,
+        "p_all": 0.692308,
+        "p_no_appr": 0.680851
+      },
+      {
+        "age": 18,
+        "diff": -0.041211,
+        "n_all": 72,
+        "n_appr": 11,
+        "p_all": 0.680556,
+        "p_no_appr": 0.639344
+      },
+      {
+        "age": 19,
+        "diff": -0.037793,
+        "n_all": 71,
+        "n_appr": 11,
+        "p_all": 0.521127,
+        "p_no_appr": 0.483333
+      },
+      {
+        "age": 20,
+        "diff": -0.056275,
+        "n_all": 76,
+        "n_appr": 11,
+        "p_all": 0.394737,
+        "p_no_appr": 0.338462
+      },
+      {
+        "age": 21,
+        "diff": -0.019741,
+        "n_all": 84,
+        "n_appr": 5,
+        "p_all": 0.488095,
+        "p_no_appr": 0.468354
+      },
+      {
+        "age": 22,
+        "diff": -0.017573,
+        "n_all": 106,
+        "n_appr": 4,
+        "p_all": 0.301887,
+        "p_no_appr": 0.284314
+      },
+      {
+        "age": 23,
+        "diff": 0.0,
+        "n_all": 106,
+        "n_appr": 0,
+        "p_all": 0.245283,
+        "p_no_appr": 0.245283
+      },
+      {
+        "age": 24,
+        "diff": -0.02724,
+        "n_all": 93,
+        "n_appr": 3,
+        "p_all": 0.182796,
+        "p_no_appr": 0.155556
+      },
+      {
+        "age": 25,
+        "diff": 0.00431,
+        "n_all": 120,
+        "n_appr": 4,
+        "p_all": 0.125,
+        "p_no_appr": 0.12931
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 143,
+        "n_appr": 0,
+        "p_all": 0.146853,
+        "p_no_appr": 0.146853
+      },
+      {
+        "age": 27,
+        "diff": 0.002439,
+        "n_all": 123,
+        "n_appr": 3,
+        "p_all": 0.097561,
+        "p_no_appr": 0.1
+      },
+      {
+        "age": 28,
+        "diff": 0.0,
+        "n_all": 157,
+        "n_appr": 0,
+        "p_all": 0.127389,
+        "p_no_appr": 0.127389
+      },
+      {
+        "age": 29,
+        "diff": 0.000895,
+        "n_all": 150,
+        "n_appr": 1,
+        "p_all": 0.133333,
+        "p_no_appr": 0.134228
+      },
+      {
+        "age": 30,
+        "diff": 0.0,
+        "n_all": 154,
+        "n_appr": 0,
+        "p_all": 0.142857,
+        "p_no_appr": 0.142857
+      }
+    ],
+    "2019|hourpay|main_nlw_25plus": [
+      {
+        "age": 16,
+        "diff": -0.037594,
+        "n_all": 19,
+        "n_appr": 5,
+        "p_all": 0.894737,
+        "p_no_appr": 0.857143
+      },
+      {
+        "age": 17,
+        "diff": -0.022504,
+        "n_all": 52,
+        "n_appr": 5,
+        "p_all": 0.788462,
+        "p_no_appr": 0.765957
+      },
+      {
+        "age": 18,
+        "diff": -0.028689,
+        "n_all": 72,
+        "n_appr": 11,
+        "p_all": 0.75,
+        "p_no_appr": 0.721311
+      },
+      {
+        "age": 19,
+        "diff": -0.024883,
+        "n_all": 71,
+        "n_appr": 11,
+        "p_all": 0.591549,
+        "p_no_appr": 0.566667
+      },
+      {
+        "age": 20,
+        "diff": -0.044939,
+        "n_all": 76,
+        "n_appr": 11,
+        "p_all": 0.552632,
+        "p_no_appr": 0.507692
+      },
+      {
+        "age": 21,
+        "diff": -0.011453,
+        "n_all": 84,
+        "n_appr": 5,
+        "p_all": 0.619048,
+        "p_no_appr": 0.607595
+      },
+      {
+        "age": 22,
+        "diff": -0.014983,
+        "n_all": 106,
+        "n_appr": 4,
+        "p_all": 0.367925,
+        "p_no_appr": 0.352941
+      },
+      {
+        "age": 23,
+        "diff": 0.0,
+        "n_all": 106,
+        "n_appr": 0,
+        "p_all": 0.339623,
+        "p_no_appr": 0.339623
+      },
+      {
+        "age": 24,
+        "diff": -0.025806,
+        "n_all": 93,
+        "n_appr": 3,
+        "p_all": 0.225806,
+        "p_no_appr": 0.2
+      },
+      {
+        "age": 25,
+        "diff": 0.007471,
+        "n_all": 120,
+        "n_appr": 4,
+        "p_all": 0.216667,
+        "p_no_appr": 0.224138
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 143,
+        "n_appr": 0,
+        "p_all": 0.216783,
+        "p_no_appr": 0.216783
+      },
+      {
+        "age": 27,
+        "diff": -0.004472,
+        "n_all": 123,
+        "n_appr": 3,
+        "p_all": 0.154472,
+        "p_no_appr": 0.15
+      },
+      {
+        "age": 28,
+        "diff": 0.0,
+        "n_all": 157,
+        "n_appr": 0,
+        "p_all": 0.184713,
+        "p_no_appr": 0.184713
+      },
+      {
+        "age": 29,
+        "diff": 0.001208,
+        "n_all": 150,
+        "n_appr": 1,
+        "p_all": 0.18,
+        "p_no_appr": 0.181208
+      },
+      {
+        "age": 30,
+        "diff": 0.0,
+        "n_all": 154,
+        "n_appr": 0,
+        "p_all": 0.207792,
+        "p_no_appr": 0.207792
+      }
+    ],
+    "2019|hrrate|alt_21_under_25": [
+      {
+        "age": 16,
+        "diff": -0.02521,
+        "n_all": 17,
+        "n_appr": 3,
+        "p_all": 0.882353,
+        "p_no_appr": 0.857143
+      },
+      {
+        "age": 17,
+        "diff": -0.015504,
+        "n_all": 45,
+        "n_appr": 2,
+        "p_all": 0.666667,
+        "p_no_appr": 0.651163
+      },
+      {
+        "age": 18,
+        "diff": -0.016026,
+        "n_all": 52,
+        "n_appr": 4,
+        "p_all": 0.557692,
+        "p_no_appr": 0.541667
+      },
+      {
+        "age": 19,
+        "diff": -0.0375,
+        "n_all": 48,
+        "n_appr": 3,
+        "p_all": 0.4375,
+        "p_no_appr": 0.4
+      },
+      {
+        "age": 20,
+        "diff": -0.046703,
+        "n_all": 56,
+        "n_appr": 4,
+        "p_all": 0.392857,
+        "p_no_appr": 0.346154
+      },
+      {
+        "age": 21,
+        "diff": 0.006294,
+        "n_all": 55,
+        "n_appr": 3,
+        "p_all": 0.109091,
+        "p_no_appr": 0.115385
+      },
+      {
+        "age": 22,
+        "diff": 0.000877,
+        "n_all": 59,
+        "n_appr": 1,
+        "p_all": 0.050847,
+        "p_no_appr": 0.051724
+      },
+      {
+        "age": 23,
+        "diff": 0.0,
+        "n_all": 50,
+        "n_appr": 0,
+        "p_all": 0.08,
+        "p_no_appr": 0.08
+      },
+      {
+        "age": 24,
+        "diff": -0.026393,
+        "n_all": 33,
+        "n_appr": 2,
+        "p_all": 0.090909,
+        "p_no_appr": 0.064516
+      },
+      {
+        "age": 25,
+        "diff": -0.020408,
+        "n_all": 49,
+        "n_appr": 2,
+        "p_all": 0.020408,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 67,
+        "n_appr": 0,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 27,
+        "diff": 0.0,
+        "n_all": 37,
+        "n_appr": 1,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 28,
+        "diff": 0.0,
+        "n_all": 64,
+        "n_appr": 0,
+        "p_all": 0.015625,
+        "p_no_appr": 0.015625
+      },
+      {
+        "age": 29,
+        "diff": 0.000377,
+        "n_all": 52,
+        "n_appr": 1,
+        "p_all": 0.019231,
+        "p_no_appr": 0.019608
+      },
+      {
+        "age": 30,
+        "diff": 0.0,
+        "n_all": 50,
+        "n_appr": 0,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      }
+    ],
+    "2019|hrrate|main_nlw_25plus": [
+      {
+        "age": 16,
+        "diff": -0.012605,
+        "n_all": 17,
+        "n_appr": 3,
+        "p_all": 0.941176,
+        "p_no_appr": 0.928571
+      },
+      {
+        "age": 17,
+        "diff": -0.008269,
+        "n_all": 45,
+        "n_appr": 2,
+        "p_all": 0.822222,
+        "p_no_appr": 0.813953
+      },
+      {
+        "age": 18,
+        "diff": -0.003205,
+        "n_all": 52,
+        "n_appr": 4,
+        "p_all": 0.711538,
+        "p_no_appr": 0.708333
+      },
+      {
+        "age": 19,
+        "diff": -0.030556,
+        "n_all": 48,
+        "n_appr": 3,
+        "p_all": 0.541667,
+        "p_no_appr": 0.511111
+      },
+      {
+        "age": 20,
+        "diff": -0.034341,
+        "n_all": 56,
+        "n_appr": 4,
+        "p_all": 0.553571,
+        "p_no_appr": 0.519231
+      },
+      {
+        "age": 21,
+        "diff": -0.017483,
+        "n_all": 55,
+        "n_appr": 3,
+        "p_all": 0.363636,
+        "p_no_appr": 0.346154
+      },
+      {
+        "age": 22,
+        "diff": -0.013442,
+        "n_all": 59,
+        "n_appr": 1,
+        "p_all": 0.220339,
+        "p_no_appr": 0.206897
+      },
+      {
+        "age": 23,
+        "diff": 0.0,
+        "n_all": 50,
+        "n_appr": 0,
+        "p_all": 0.24,
+        "p_no_appr": 0.24
+      },
+      {
+        "age": 24,
+        "diff": -0.043011,
+        "n_all": 33,
+        "n_appr": 2,
+        "p_all": 0.333333,
+        "p_no_appr": 0.290323
+      },
+      {
+        "age": 25,
+        "diff": -0.016066,
+        "n_all": 49,
+        "n_appr": 2,
+        "p_all": 0.122449,
+        "p_no_appr": 0.106383
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 67,
+        "n_appr": 0,
+        "p_all": 0.104478,
+        "p_no_appr": 0.104478
+      },
+      {
+        "age": 27,
+        "diff": 0.002252,
+        "n_all": 37,
+        "n_appr": 1,
+        "p_all": 0.081081,
+        "p_no_appr": 0.083333
+      },
+      {
+        "age": 28,
+        "diff": 0.0,
+        "n_all": 64,
+        "n_appr": 0,
+        "p_all": 0.03125,
+        "p_no_appr": 0.03125
+      },
+      {
+        "age": 29,
+        "diff": 0.001131,
+        "n_all": 52,
+        "n_appr": 1,
+        "p_all": 0.057692,
+        "p_no_appr": 0.058824
+      },
+      {
+        "age": 30,
+        "diff": 0.0,
+        "n_all": 50,
+        "n_appr": 0,
+        "p_all": 0.06,
+        "p_no_appr": 0.06
+      }
+    ],
+    "2021|hourpay|alt_21_under_23": [
+      {
+        "age": 16,
+        "diff": -0.024242,
+        "n_all": 15,
+        "n_appr": 4,
+        "p_all": 0.933333,
+        "p_no_appr": 0.909091
+      },
+      {
+        "age": 17,
+        "diff": 0.0,
+        "n_all": 36,
+        "n_appr": 6,
+        "p_all": 0.666667,
+        "p_no_appr": 0.666667
+      },
+      {
+        "age": 18,
+        "diff": -0.01752,
+        "n_all": 53,
+        "n_appr": 11,
+        "p_all": 0.660377,
+        "p_no_appr": 0.642857
+      },
+      {
+        "age": 19,
+        "diff": 0.003799,
+        "n_all": 56,
+        "n_appr": 9,
+        "p_all": 0.464286,
+        "p_no_appr": 0.468085
+      },
+      {
+        "age": 20,
+        "diff": 0.016698,
+        "n_all": 49,
+        "n_appr": 5,
+        "p_all": 0.346939,
+        "p_no_appr": 0.363636
+      },
+      {
+        "age": 21,
+        "diff": -0.002288,
+        "n_all": 57,
+        "n_appr": 11,
+        "p_all": 0.263158,
+        "p_no_appr": 0.26087
+      },
+      {
+        "age": 22,
+        "diff": 0.004006,
+        "n_all": 59,
+        "n_appr": 4,
+        "p_all": 0.305085,
+        "p_no_appr": 0.309091
+      },
+      {
+        "age": 23,
+        "diff": 0.010235,
+        "n_all": 70,
+        "n_appr": 3,
+        "p_all": 0.228571,
+        "p_no_appr": 0.238806
+      },
+      {
+        "age": 24,
+        "diff": 0.0,
+        "n_all": 67,
+        "n_appr": 0,
+        "p_all": 0.149254,
+        "p_no_appr": 0.149254
+      },
+      {
+        "age": 25,
+        "diff": -0.009623,
+        "n_all": 87,
+        "n_appr": 1,
+        "p_all": 0.172414,
+        "p_no_appr": 0.162791
+      },
+      {
+        "age": 26,
+        "diff": -0.005747,
+        "n_all": 90,
+        "n_appr": 3,
+        "p_all": 0.166667,
+        "p_no_appr": 0.16092
+      },
+      {
+        "age": 27,
+        "diff": 0.000983,
+        "n_all": 111,
+        "n_appr": 1,
+        "p_all": 0.108108,
+        "p_no_appr": 0.109091
+      },
+      {
+        "age": 28,
+        "diff": 0.00202,
+        "n_all": 110,
+        "n_appr": 2,
+        "p_all": 0.109091,
+        "p_no_appr": 0.111111
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 137,
+        "n_appr": 0,
+        "p_all": 0.109489,
+        "p_no_appr": 0.109489
+      },
+      {
+        "age": 30,
+        "diff": 0.000839,
+        "n_all": 147,
+        "n_appr": 1,
+        "p_all": 0.122449,
+        "p_no_appr": 0.123288
+      }
+    ],
+    "2021|hourpay|main_nlw_23plus": [
+      {
+        "age": 16,
+        "diff": -0.024242,
+        "n_all": 15,
+        "n_appr": 4,
+        "p_all": 0.933333,
+        "p_no_appr": 0.909091
+      },
+      {
+        "age": 17,
+        "diff": -0.011111,
+        "n_all": 36,
+        "n_appr": 6,
+        "p_all": 0.777778,
+        "p_no_appr": 0.766667
+      },
+      {
+        "age": 18,
+        "diff": -0.040431,
+        "n_all": 53,
+        "n_appr": 11,
+        "p_all": 0.754717,
+        "p_no_appr": 0.714286
+      },
+      {
+        "age": 19,
+        "diff": 0.006459,
+        "n_all": 56,
+        "n_appr": 9,
+        "p_all": 0.589286,
+        "p_no_appr": 0.595745
+      },
+      {
+        "age": 20,
+        "diff": 0.030612,
+        "n_all": 49,
+        "n_appr": 5,
+        "p_all": 0.469388,
+        "p_no_appr": 0.5
+      },
+      {
+        "age": 21,
+        "diff": 0.001144,
+        "n_all": 57,
+        "n_appr": 11,
+        "p_all": 0.368421,
+        "p_no_appr": 0.369565
+      },
+      {
+        "age": 22,
+        "diff": -0.022496,
+        "n_all": 59,
+        "n_appr": 4,
+        "p_all": 0.440678,
+        "p_no_appr": 0.418182
+      },
+      {
+        "age": 23,
+        "diff": 0.013433,
+        "n_all": 70,
+        "n_appr": 3,
+        "p_all": 0.3,
+        "p_no_appr": 0.313433
+      },
+      {
+        "age": 24,
+        "diff": 0.0,
+        "n_all": 67,
+        "n_appr": 0,
+        "p_all": 0.149254,
+        "p_no_appr": 0.149254
+      },
+      {
+        "age": 25,
+        "diff": -0.009356,
+        "n_all": 87,
+        "n_appr": 1,
+        "p_all": 0.195402,
+        "p_no_appr": 0.186047
+      },
+      {
+        "age": 26,
+        "diff": -0.014176,
+        "n_all": 90,
+        "n_appr": 3,
+        "p_all": 0.255556,
+        "p_no_appr": 0.241379
+      },
+      {
+        "age": 27,
+        "diff": -0.007781,
+        "n_all": 111,
+        "n_appr": 1,
+        "p_all": 0.144144,
+        "p_no_appr": 0.136364
+      },
+      {
+        "age": 28,
+        "diff": -0.005892,
+        "n_all": 110,
+        "n_appr": 2,
+        "p_all": 0.181818,
+        "p_no_appr": 0.175926
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 137,
+        "n_appr": 0,
+        "p_all": 0.153285,
+        "p_no_appr": 0.153285
+      },
+      {
+        "age": 30,
+        "diff": 0.000978,
+        "n_all": 147,
+        "n_appr": 1,
+        "p_all": 0.142857,
+        "p_no_appr": 0.143836
+      }
+    ],
+    "2021|hrrate|alt_21_under_23": [
+      {
+        "age": 16,
+        "diff": -0.019481,
+        "n_all": 14,
+        "n_appr": 3,
+        "p_all": 0.928571,
+        "p_no_appr": 0.909091
+      },
+      {
+        "age": 17,
+        "diff": -0.012644,
+        "n_all": 30,
+        "n_appr": 1,
+        "p_all": 0.633333,
+        "p_no_appr": 0.62069
+      },
+      {
+        "age": 18,
+        "diff": -0.021368,
+        "n_all": 39,
+        "n_appr": 3,
+        "p_all": 0.410256,
+        "p_no_appr": 0.388889
+      },
+      {
+        "age": 19,
+        "diff": -0.054957,
+        "n_all": 32,
+        "n_appr": 3,
+        "p_all": 0.46875,
+        "p_no_appr": 0.413793
+      },
+      {
+        "age": 20,
+        "diff": 0.0,
+        "n_all": 23,
+        "n_appr": 0,
+        "p_all": 0.217391,
+        "p_no_appr": 0.217391
+      },
+      {
+        "age": 21,
+        "diff": -0.043611,
+        "n_all": 34,
+        "n_appr": 5,
+        "p_all": 0.147059,
+        "p_no_appr": 0.103448
+      },
+      {
+        "age": 22,
+        "diff": 0.002963,
+        "n_all": 27,
+        "n_appr": 2,
+        "p_all": 0.037037,
+        "p_no_appr": 0.04
+      },
+      {
+        "age": 23,
+        "diff": 0.0,
+        "n_all": 26,
+        "n_appr": 1,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 24,
+        "diff": 0.0,
+        "n_all": 22,
+        "n_appr": 0,
+        "p_all": 0.045455,
+        "p_no_appr": 0.045455
+      },
+      {
+        "age": 25,
+        "diff": 0.002165,
+        "n_all": 22,
+        "n_appr": 1,
+        "p_all": 0.045455,
+        "p_no_appr": 0.047619
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 30,
+        "n_appr": 0,
+        "p_all": 0.066667,
+        "p_no_appr": 0.066667
+      },
+      {
+        "age": 27,
+        "diff": 0.001783,
+        "n_all": 34,
+        "n_appr": 1,
+        "p_all": 0.058824,
+        "p_no_appr": 0.060606
+      },
+      {
+        "age": 28,
+        "diff": 0.0,
+        "n_all": 28,
+        "n_appr": 1,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 38,
+        "n_appr": 0,
+        "p_all": 0.026316,
+        "p_no_appr": 0.026316
+      },
+      {
+        "age": 30,
+        "diff": 0.000641,
+        "n_all": 40,
+        "n_appr": 1,
+        "p_all": 0.025,
+        "p_no_appr": 0.025641
+      }
+    ],
+    "2021|hrrate|main_nlw_23plus": [
+      {
+        "age": 16,
+        "diff": -0.019481,
+        "n_all": 14,
+        "n_appr": 3,
+        "p_all": 0.928571,
+        "p_no_appr": 0.909091
+      },
+      {
+        "age": 17,
+        "diff": -0.010345,
+        "n_all": 30,
+        "n_appr": 1,
+        "p_all": 0.7,
+        "p_no_appr": 0.689655
+      },
+      {
+        "age": 18,
+        "diff": -0.012821,
+        "n_all": 39,
+        "n_appr": 3,
+        "p_all": 0.512821,
+        "p_no_appr": 0.5
+      },
+      {
+        "age": 19,
+        "diff": -0.054957,
+        "n_all": 32,
+        "n_appr": 3,
+        "p_all": 0.46875,
+        "p_no_appr": 0.413793
+      },
+      {
+        "age": 20,
+        "diff": 0.0,
+        "n_all": 23,
+        "n_appr": 0,
+        "p_all": 0.26087,
+        "p_no_appr": 0.26087
+      },
+      {
+        "age": 21,
+        "diff": -0.023327,
+        "n_all": 34,
+        "n_appr": 5,
+        "p_all": 0.264706,
+        "p_no_appr": 0.241379
+      },
+      {
+        "age": 22,
+        "diff": -0.016296,
+        "n_all": 27,
+        "n_appr": 2,
+        "p_all": 0.296296,
+        "p_no_appr": 0.28
+      },
+      {
+        "age": 23,
+        "diff": 0.001538,
+        "n_all": 26,
+        "n_appr": 1,
+        "p_all": 0.038462,
+        "p_no_appr": 0.04
+      },
+      {
+        "age": 24,
+        "diff": 0.0,
+        "n_all": 22,
+        "n_appr": 0,
+        "p_all": 0.136364,
+        "p_no_appr": 0.136364
+      },
+      {
+        "age": 25,
+        "diff": 0.006494,
+        "n_all": 22,
+        "n_appr": 1,
+        "p_all": 0.136364,
+        "p_no_appr": 0.142857
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 30,
+        "n_appr": 0,
+        "p_all": 0.1,
+        "p_no_appr": 0.1
+      },
+      {
+        "age": 27,
+        "diff": -0.027629,
+        "n_all": 34,
+        "n_appr": 1,
+        "p_all": 0.088235,
+        "p_no_appr": 0.060606
+      },
+      {
+        "age": 28,
+        "diff": 0.003968,
+        "n_all": 28,
+        "n_appr": 1,
+        "p_all": 0.107143,
+        "p_no_appr": 0.111111
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 38,
+        "n_appr": 0,
+        "p_all": 0.078947,
+        "p_no_appr": 0.078947
+      },
+      {
+        "age": 30,
+        "diff": 0.001282,
+        "n_all": 40,
+        "n_appr": 1,
+        "p_all": 0.05,
+        "p_no_appr": 0.051282
+      }
+    ],
+    "2022|hourpay|alt_21_under_23": [
+      {
+        "age": 16,
+        "diff": -0.031373,
+        "n_all": 17,
+        "n_appr": 2,
+        "p_all": 0.764706,
+        "p_no_appr": 0.733333
+      },
+      {
+        "age": 17,
+        "diff": 0.005495,
+        "n_all": 42,
+        "n_appr": 3,
+        "p_all": 0.738095,
+        "p_no_appr": 0.74359
+      },
+      {
+        "age": 18,
+        "diff": -0.007543,
+        "n_all": 32,
+        "n_appr": 3,
+        "p_all": 0.59375,
+        "p_no_appr": 0.586207
+      },
+      {
+        "age": 19,
+        "diff": -0.042735,
+        "n_all": 45,
+        "n_appr": 6,
+        "p_all": 0.555556,
+        "p_no_appr": 0.512821
+      },
+      {
+        "age": 20,
+        "diff": -0.001032,
+        "n_all": 57,
+        "n_appr": 6,
+        "p_all": 0.491228,
+        "p_no_appr": 0.490196
+      },
+      {
+        "age": 21,
+        "diff": -0.012186,
+        "n_all": 53,
+        "n_appr": 5,
+        "p_all": 0.283019,
+        "p_no_appr": 0.270833
+      },
+      {
+        "age": 22,
+        "diff": 0.004762,
+        "n_all": 70,
+        "n_appr": 1,
+        "p_all": 0.328571,
+        "p_no_appr": 0.333333
+      },
+      {
+        "age": 23,
+        "diff": 0.003571,
+        "n_all": 72,
+        "n_appr": 2,
+        "p_all": 0.125,
+        "p_no_appr": 0.128571
+      },
+      {
+        "age": 24,
+        "diff": 0.003125,
+        "n_all": 65,
+        "n_appr": 1,
+        "p_all": 0.2,
+        "p_no_appr": 0.203125
+      },
+      {
+        "age": 25,
+        "diff": 0.0,
+        "n_all": 86,
+        "n_appr": 0,
+        "p_all": 0.104651,
+        "p_no_appr": 0.104651
+      },
+      {
+        "age": 26,
+        "diff": 0.000877,
+        "n_all": 96,
+        "n_appr": 1,
+        "p_all": 0.083333,
+        "p_no_appr": 0.084211
+      },
+      {
+        "age": 27,
+        "diff": 0.001808,
+        "n_all": 89,
+        "n_appr": 2,
+        "p_all": 0.078652,
+        "p_no_appr": 0.08046
+      },
+      {
+        "age": 28,
+        "diff": -0.006961,
+        "n_all": 106,
+        "n_appr": 3,
+        "p_all": 0.09434,
+        "p_no_appr": 0.087379
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 111,
+        "n_appr": 0,
+        "p_all": 0.099099,
+        "p_no_appr": 0.099099
+      },
+      {
+        "age": 30,
+        "diff": 0.002322,
+        "n_all": 136,
+        "n_appr": 3,
+        "p_all": 0.102941,
+        "p_no_appr": 0.105263
+      }
+    ],
+    "2022|hourpay|main_nlw_23plus": [
+      {
+        "age": 16,
+        "diff": -0.031373,
+        "n_all": 17,
+        "n_appr": 2,
+        "p_all": 0.764706,
+        "p_no_appr": 0.733333
+      },
+      {
+        "age": 17,
+        "diff": 0.007326,
+        "n_all": 42,
+        "n_appr": 3,
+        "p_all": 0.761905,
+        "p_no_appr": 0.769231
+      },
+      {
+        "age": 18,
+        "diff": -0.00431,
+        "n_all": 32,
+        "n_appr": 3,
+        "p_all": 0.625,
+        "p_no_appr": 0.62069
+      },
+      {
+        "age": 19,
+        "diff": -0.032479,
+        "n_all": 45,
+        "n_appr": 6,
+        "p_all": 0.622222,
+        "p_no_appr": 0.589744
+      },
+      {
+        "age": 20,
+        "diff": 0.00516,
+        "n_all": 57,
+        "n_appr": 6,
+        "p_all": 0.54386,
+        "p_no_appr": 0.54902
+      },
+      {
+        "age": 21,
+        "diff": -0.000393,
+        "n_all": 53,
+        "n_appr": 5,
+        "p_all": 0.396226,
+        "p_no_appr": 0.395833
+      },
+      {
+        "age": 22,
+        "diff": 0.005176,
+        "n_all": 70,
+        "n_appr": 1,
+        "p_all": 0.357143,
+        "p_no_appr": 0.362319
+      },
+      {
+        "age": 23,
+        "diff": 0.005159,
+        "n_all": 72,
+        "n_appr": 2,
+        "p_all": 0.180556,
+        "p_no_appr": 0.185714
+      },
+      {
+        "age": 24,
+        "diff": 0.003606,
+        "n_all": 65,
+        "n_appr": 1,
+        "p_all": 0.230769,
+        "p_no_appr": 0.234375
+      },
+      {
+        "age": 25,
+        "diff": 0.0,
+        "n_all": 86,
+        "n_appr": 0,
+        "p_all": 0.162791,
+        "p_no_appr": 0.162791
+      },
+      {
+        "age": 26,
+        "diff": 0.001316,
+        "n_all": 96,
+        "n_appr": 1,
+        "p_all": 0.125,
+        "p_no_appr": 0.126316
+      },
+      {
+        "age": 27,
+        "diff": 0.002066,
+        "n_all": 89,
+        "n_appr": 2,
+        "p_all": 0.089888,
+        "p_no_appr": 0.091954
+      },
+      {
+        "age": 28,
+        "diff": -0.006411,
+        "n_all": 106,
+        "n_appr": 3,
+        "p_all": 0.113208,
+        "p_no_appr": 0.106796
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 111,
+        "n_appr": 0,
+        "p_all": 0.108108,
+        "p_no_appr": 0.108108
+      },
+      {
+        "age": 30,
+        "diff": 0.002488,
+        "n_all": 136,
+        "n_appr": 3,
+        "p_all": 0.110294,
+        "p_no_appr": 0.112782
+      }
+    ],
+    "2022|hrrate|alt_21_under_23": [
+      {
+        "age": 16,
+        "diff": -0.019048,
+        "n_all": 15,
+        "n_appr": 1,
+        "p_all": 0.733333,
+        "p_no_appr": 0.714286
+      },
+      {
+        "age": 17,
+        "diff": -0.017316,
+        "n_all": 35,
+        "n_appr": 2,
+        "p_all": 0.714286,
+        "p_no_appr": 0.69697
+      },
+      {
+        "age": 18,
+        "diff": -0.027668,
+        "n_all": 23,
+        "n_appr": 1,
+        "p_all": 0.391304,
+        "p_no_appr": 0.363636
+      },
+      {
+        "age": 19,
+        "diff": -0.035294,
+        "n_all": 34,
+        "n_appr": 4,
+        "p_all": 0.235294,
+        "p_no_appr": 0.2
+      },
+      {
+        "age": 20,
+        "diff": 0.018382,
+        "n_all": 34,
+        "n_appr": 2,
+        "p_all": 0.294118,
+        "p_no_appr": 0.3125
+      },
+      {
+        "age": 21,
+        "diff": 0.002521,
+        "n_all": 35,
+        "n_appr": 1,
+        "p_all": 0.085714,
+        "p_no_appr": 0.088235
+      },
+      {
+        "age": 22,
+        "diff": 0.0,
+        "n_all": 32,
+        "n_appr": 0,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 23,
+        "diff": 0.0,
+        "n_all": 33,
+        "n_appr": 0,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 24,
+        "diff": 0.0,
+        "n_all": 17,
+        "n_appr": 0,
+        "p_all": 0.117647,
+        "p_no_appr": 0.117647
+      },
+      {
+        "age": 25,
+        "diff": 0.0,
+        "n_all": 28,
+        "n_appr": 0,
+        "p_all": 0.035714,
+        "p_no_appr": 0.035714
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 30,
+        "n_appr": 0,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 27,
+        "diff": 0.0,
+        "n_all": 22,
+        "n_appr": 2,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 28,
+        "diff": -0.025641,
+        "n_all": 39,
+        "n_appr": 1,
+        "p_all": 0.025641,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 33,
+        "n_appr": 0,
+        "p_all": 0.030303,
+        "p_no_appr": 0.030303
+      },
+      {
+        "age": 30,
+        "diff": 0.0,
+        "n_all": 27,
+        "n_appr": 1,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      }
+    ],
+    "2022|hrrate|main_nlw_23plus": [
+      {
+        "age": 16,
+        "diff": -0.014286,
+        "n_all": 15,
+        "n_appr": 1,
+        "p_all": 0.8,
+        "p_no_appr": 0.785714
+      },
+      {
+        "age": 17,
+        "diff": -0.017316,
+        "n_all": 35,
+        "n_appr": 2,
+        "p_all": 0.714286,
+        "p_no_appr": 0.69697
+      },
+      {
+        "age": 18,
+        "diff": -0.025692,
+        "n_all": 23,
+        "n_appr": 1,
+        "p_all": 0.434783,
+        "p_no_appr": 0.409091
+      },
+      {
+        "age": 19,
+        "diff": -0.031373,
+        "n_all": 34,
+        "n_appr": 4,
+        "p_all": 0.264706,
+        "p_no_appr": 0.233333
+      },
+      {
+        "age": 20,
+        "diff": 0.020221,
+        "n_all": 34,
+        "n_appr": 2,
+        "p_all": 0.323529,
+        "p_no_appr": 0.34375
+      },
+      {
+        "age": 21,
+        "diff": 0.004202,
+        "n_all": 35,
+        "n_appr": 1,
+        "p_all": 0.142857,
+        "p_no_appr": 0.147059
+      },
+      {
+        "age": 22,
+        "diff": 0.0,
+        "n_all": 32,
+        "n_appr": 0,
+        "p_all": 0.125,
+        "p_no_appr": 0.125
+      },
+      {
+        "age": 23,
+        "diff": 0.0,
+        "n_all": 33,
+        "n_appr": 0,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 24,
+        "diff": 0.0,
+        "n_all": 17,
+        "n_appr": 0,
+        "p_all": 0.117647,
+        "p_no_appr": 0.117647
+      },
+      {
+        "age": 25,
+        "diff": 0.0,
+        "n_all": 28,
+        "n_appr": 0,
+        "p_all": 0.071429,
+        "p_no_appr": 0.071429
+      },
+      {
+        "age": 26,
+        "diff": 0.0,
+        "n_all": 30,
+        "n_appr": 0,
+        "p_all": 0.033333,
+        "p_no_appr": 0.033333
+      },
+      {
+        "age": 27,
+        "diff": -0.040909,
+        "n_all": 22,
+        "n_appr": 2,
+        "p_all": 0.090909,
+        "p_no_appr": 0.05
+      },
+      {
+        "age": 28,
+        "diff": -0.025641,
+        "n_all": 39,
+        "n_appr": 1,
+        "p_all": 0.025641,
+        "p_no_appr": 0.0
+      },
+      {
+        "age": 29,
+        "diff": 0.0,
+        "n_all": 33,
+        "n_appr": 0,
+        "p_all": 0.030303,
+        "p_no_appr": 0.030303
+      },
+      {
+        "age": 30,
+        "diff": 0.0,
+        "n_all": 27,
+        "n_appr": 1,
+        "p_all": 0.0,
+        "p_no_appr": 0.0
+      }
+    ]
+  },
+  "config": {
+    "age_hi": 30,
+    "age_lo": 16,
+    "cache_files": [
+      "lfs_ry2019_q1_aj19.csv.gz",
+      "lfs_ry2019_q2_js19.csv.gz",
+      "lfs_ry2019_q3_od19.csv.gz",
+      "lfs_ry2019_q4_jm20.csv.gz",
+      "lfs_ry2021_q1_aj21.csv.gz",
+      "lfs_ry2021_q2_js21.csv.gz",
+      "lfs_ry2021_q3_od21.csv.gz",
+      "lfs_ry2021_q4_jm22.csv.gz",
+      "lfs_ry2022_q1_aj22.csv.gz",
+      "lfs_ry2022_q2_js22.csv.gz",
+      "lfs_ry2022_q3_od22.csv.gz",
+      "lfs_ry2022_q4_jm23.csv.gz"
+    ],
+    "missing_codes": {
+      "hrrate": [
+        998.0,
+        999.0
+      ]
+    },
+    "missing_codes_source": "LFS User Guide volume 3, HRRATE entry",
+    "pay_columns": [
+      "hourpay",
+      "hrrate"
+    ],
+    "rate_years": {
+      "2019": "2019-20",
+      "2021": "2021-22",
+      "2022": "2022-23"
+    },
+    "rows_total": 196792,
+    "scope": "non-england",
+    "scope_codes": [
+      2.0,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "scope_source": "COUNTRY, labelled 'Country within UK': 1 England, 2 Wales, 3 Scotland, 4 Scotland North of Caledonian Canal, 5 Northern Ireland. Checked against CTRY9D row by row.",
+    "status_filter": null,
+    "statutory_rates": {
+      "2019": [
+        8.21,
+        7.7,
+        6.15,
+        4.35,
+        3.9
+      ],
+      "2021": [
+        8.91,
+        8.36,
+        6.56,
+        4.62,
+        4.3
+      ],
+      "2022": [
+        9.5,
+        9.18,
+        6.83,
+        4.81,
+        4.81
+      ]
+    },
+    "threshold_source": {
+      "2019": "SI 2019/603 reg 2(2) and reg 2(3), in force 1 April 2019",
+      "2021": "SI 2021/329 reg 2(2) and reg 2(3)(a), in force 1 April 2021",
+      "2022": "SI 2022/382 reg 2, in force 1 April 2022"
+    },
+    "thresholds": {
+      "2019": {
+        "alt_21_under_25": 7.7,
+        "main_nlw_25plus": 8.21
+      },
+      "2021": {
+        "alt_21_under_23": 8.36,
+        "main_nlw_23plus": 8.91
+      },
+      "2022": {
+        "alt_21_under_23": 9.18,
+        "main_nlw_23plus": 9.5
+      }
+    },
+    "weights": [
+      "unweighted",
+      "incwt"
+    ]
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Step 2 of the LFS arm draws the profile and judges nothing. No criterion is scored here; arms one to four are scored later.",
+  "files": [
+    {
+      "file": "lfs_ry2019_q1_aj19.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL15",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT18",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 86548
+    },
+    {
+      "file": "lfs_ry2019_q2_js19.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL15",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT18",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 85342
+    },
+    {
+      "file": "lfs_ry2019_q3_od19.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL15",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT18",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 84062
+    },
+    {
+      "file": "lfs_ry2019_q4_jm20.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL15",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 77903
+    },
+    {
+      "file": "lfs_ry2021_q1_aj21.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL15",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 87904
+    },
+    {
+      "file": "lfs_ry2021_q2_js21.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL15",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 90453
+    },
+    {
+      "file": "lfs_ry2021_q3_od21.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL15",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 84205
+    },
+    {
+      "file": "lfs_ry2021_q4_jm22.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL22",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 79566
+    },
+    {
+      "file": "lfs_ry2022_q1_aj22.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL22",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 75992
+    },
+    {
+      "file": "lfs_ry2022_q2_js22.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL22",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 69437
+    },
+    {
+      "file": "lfs_ry2022_q3_od22.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL22",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 62862
+    },
+    {
+      "file": "lfs_ry2022_q4_jm23.csv.gz",
+      "matched": {
+        "age": "AGE",
+        "apprcurr": "APPRCURR",
+        "appsam": "APPSAM",
+        "country": "COUNTRY",
+        "ctry9d": "CTRY9D",
+        "entryq": "QRTR",
+        "hiqual": "HIQUAL22",
+        "hourpay": "HOURPAY",
+        "hrrate": "HRRATE",
+        "incwt": "PIWT22",
+        "perwt": "PWT24",
+        "status": "INECAC05",
+        "w1yr": "W1YR",
+        "wave": "THISWV"
+      },
+      "rows": 57876
+    }
+  ],
+  "on_statutory_value": {
+    "2019|hourpay": {
+      "n": 1526,
+      "on_statutory_value": 0,
+      "share_on_statutory_value": 0.0
+    },
+    "2019|hrrate": {
+      "n": 734,
+      "on_statutory_value": 98,
+      "share_on_statutory_value": 0.133515
+    },
+    "2021|hourpay": {
+      "n": 1144,
+      "on_statutory_value": 0,
+      "share_on_statutory_value": 0.0
+    },
+    "2021|hrrate": {
+      "n": 439,
+      "on_statutory_value": 35,
+      "share_on_statutory_value": 0.079727
+    },
+    "2022|hourpay": {
+      "n": 1077,
+      "on_statutory_value": 8,
+      "share_on_statutory_value": 0.007428
+    },
+    "2022|hrrate": {
+      "n": 437,
+      "on_statutory_value": 60,
+      "share_on_statutory_value": 0.1373
+    }
+  },
+  "profile": {
+    "2019|hourpay|alt_21_under_25|incwt": [
+      {
+        "age": 16,
+        "n": 19,
+        "p": 0.837507,
+        "se_binom": 0.084632,
+        "to_edge": 0.162493
+      },
+      {
+        "age": 17,
+        "n": 52,
+        "p": 0.706742,
+        "se_binom": 0.063133,
+        "to_edge": 0.293258
+      },
+      {
+        "age": 18,
+        "n": 72,
+        "p": 0.686684,
+        "se_binom": 0.054664,
+        "to_edge": 0.313316
+      },
+      {
+        "age": 19,
+        "n": 71,
+        "p": 0.478989,
+        "se_binom": 0.059287,
+        "to_edge": 0.478989
+      },
+      {
+        "age": 20,
+        "n": 76,
+        "p": 0.369348,
+        "se_binom": 0.055361,
+        "to_edge": 0.369348
+      },
+      {
+        "age": 21,
+        "n": 84,
+        "p": 0.503593,
+        "se_binom": 0.054553,
+        "to_edge": 0.496407
+      },
+      {
+        "age": 22,
+        "n": 106,
+        "p": 0.299457,
+        "se_binom": 0.044487,
+        "to_edge": 0.299457
+      },
+      {
+        "age": 23,
+        "n": 106,
+        "p": 0.270898,
+        "se_binom": 0.043166,
+        "to_edge": 0.270898
+      },
+      {
+        "age": 24,
+        "n": 93,
+        "p": 0.21671,
+        "se_binom": 0.042723,
+        "to_edge": 0.21671
+      },
+      {
+        "age": 25,
+        "n": 120,
+        "p": 0.088118,
+        "se_binom": 0.025877,
+        "to_edge": 0.088118
+      },
+      {
+        "age": 26,
+        "n": 143,
+        "p": 0.137242,
+        "se_binom": 0.028775,
+        "to_edge": 0.137242
+      },
+      {
+        "age": 27,
+        "n": 123,
+        "p": 0.090341,
+        "se_binom": 0.025848,
+        "to_edge": 0.090341
+      },
+      {
+        "age": 28,
+        "n": 157,
+        "p": 0.138004,
+        "se_binom": 0.027526,
+        "to_edge": 0.138004
+      },
+      {
+        "age": 29,
+        "n": 150,
+        "p": 0.123584,
+        "se_binom": 0.026871,
+        "to_edge": 0.123584
+      },
+      {
+        "age": 30,
+        "n": 154,
+        "p": 0.120787,
+        "se_binom": 0.02626,
+        "to_edge": 0.120787
+      }
+    ],
+    "2019|hourpay|alt_21_under_25|unweighted": [
+      {
+        "age": 16,
+        "n": 19,
+        "p": 0.842105,
+        "se_binom": 0.083655,
+        "to_edge": 0.157895
+      },
+      {
+        "age": 17,
+        "n": 52,
+        "p": 0.692308,
+        "se_binom": 0.064004,
+        "to_edge": 0.307692
+      },
+      {
+        "age": 18,
+        "n": 72,
+        "p": 0.680556,
+        "se_binom": 0.054949,
+        "to_edge": 0.319444
+      },
+      {
+        "age": 19,
+        "n": 71,
+        "p": 0.521127,
+        "se_binom": 0.059286,
+        "to_edge": 0.478873
+      },
+      {
+        "age": 20,
+        "n": 76,
+        "p": 0.394737,
+        "se_binom": 0.056069,
+        "to_edge": 0.394737
+      },
+      {
+        "age": 21,
+        "n": 84,
+        "p": 0.488095,
+        "se_binom": 0.054539,
+        "to_edge": 0.488095
+      },
+      {
+        "age": 22,
+        "n": 106,
+        "p": 0.301887,
+        "se_binom": 0.044589,
+        "to_edge": 0.301887
+      },
+      {
+        "age": 23,
+        "n": 106,
+        "p": 0.245283,
+        "se_binom": 0.04179,
+        "to_edge": 0.245283
+      },
+      {
+        "age": 24,
+        "n": 93,
+        "p": 0.182796,
+        "se_binom": 0.040078,
+        "to_edge": 0.182796
+      },
+      {
+        "age": 25,
+        "n": 120,
+        "p": 0.125,
+        "se_binom": 0.03019,
+        "to_edge": 0.125
+      },
+      {
+        "age": 26,
+        "n": 143,
+        "p": 0.146853,
+        "se_binom": 0.0296,
+        "to_edge": 0.146853
+      },
+      {
+        "age": 27,
+        "n": 123,
+        "p": 0.097561,
+        "se_binom": 0.026754,
+        "to_edge": 0.097561
+      },
+      {
+        "age": 28,
+        "n": 157,
+        "p": 0.127389,
+        "se_binom": 0.026609,
+        "to_edge": 0.127389
+      },
+      {
+        "age": 29,
+        "n": 150,
+        "p": 0.133333,
+        "se_binom": 0.027756,
+        "to_edge": 0.133333
+      },
+      {
+        "age": 30,
+        "n": 154,
+        "p": 0.142857,
+        "se_binom": 0.028198,
+        "to_edge": 0.142857
+      }
+    ],
+    "2019|hourpay|main_nlw_25plus|incwt": [
+      {
+        "age": 16,
+        "n": 19,
+        "p": 0.854523,
+        "se_binom": 0.080888,
+        "to_edge": 0.145477
+      },
+      {
+        "age": 17,
+        "n": 52,
+        "p": 0.786802,
+        "se_binom": 0.056797,
+        "to_edge": 0.213198
+      },
+      {
+        "age": 18,
+        "n": 72,
+        "p": 0.76448,
+        "se_binom": 0.050007,
+        "to_edge": 0.23552
+      },
+      {
+        "age": 19,
+        "n": 71,
+        "p": 0.538553,
+        "se_binom": 0.059162,
+        "to_edge": 0.461447
+      },
+      {
+        "age": 20,
+        "n": 76,
+        "p": 0.570473,
+        "se_binom": 0.056781,
+        "to_edge": 0.429527
+      },
+      {
+        "age": 21,
+        "n": 84,
+        "p": 0.62182,
+        "se_binom": 0.052911,
+        "to_edge": 0.37818
+      },
+      {
+        "age": 22,
+        "n": 106,
+        "p": 0.375018,
+        "se_binom": 0.047023,
+        "to_edge": 0.375018
+      },
+      {
+        "age": 23,
+        "n": 106,
+        "p": 0.385581,
+        "se_binom": 0.047276,
+        "to_edge": 0.385581
+      },
+      {
+        "age": 24,
+        "n": 93,
+        "p": 0.267346,
+        "se_binom": 0.045893,
+        "to_edge": 0.267346
+      },
+      {
+        "age": 25,
+        "n": 120,
+        "p": 0.163748,
+        "se_binom": 0.033781,
+        "to_edge": 0.163748
+      },
+      {
+        "age": 26,
+        "n": 143,
+        "p": 0.203589,
+        "se_binom": 0.033673,
+        "to_edge": 0.203589
+      },
+      {
+        "age": 27,
+        "n": 123,
+        "p": 0.149699,
+        "se_binom": 0.032169,
+        "to_edge": 0.149699
+      },
+      {
+        "age": 28,
+        "n": 157,
+        "p": 0.190566,
+        "se_binom": 0.031345,
+        "to_edge": 0.190566
+      },
+      {
+        "age": 29,
+        "n": 150,
+        "p": 0.165628,
+        "se_binom": 0.030353,
+        "to_edge": 0.165628
+      },
+      {
+        "age": 30,
+        "n": 154,
+        "p": 0.18441,
+        "se_binom": 0.031251,
+        "to_edge": 0.18441
+      }
+    ],
+    "2019|hourpay|main_nlw_25plus|unweighted": [
+      {
+        "age": 16,
+        "n": 19,
+        "p": 0.894737,
+        "se_binom": 0.070406,
+        "to_edge": 0.105263
+      },
+      {
+        "age": 17,
+        "n": 52,
+        "p": 0.788462,
+        "se_binom": 0.056635,
+        "to_edge": 0.211538
+      },
+      {
+        "age": 18,
+        "n": 72,
+        "p": 0.75,
+        "se_binom": 0.051031,
+        "to_edge": 0.25
+      },
+      {
+        "age": 19,
+        "n": 71,
+        "p": 0.591549,
+        "se_binom": 0.058336,
+        "to_edge": 0.408451
+      },
+      {
+        "age": 20,
+        "n": 76,
+        "p": 0.552632,
+        "se_binom": 0.057035,
+        "to_edge": 0.447368
+      },
+      {
+        "age": 21,
+        "n": 84,
+        "p": 0.619048,
+        "se_binom": 0.052986,
+        "to_edge": 0.380952
+      },
+      {
+        "age": 22,
+        "n": 106,
+        "p": 0.367925,
+        "se_binom": 0.046839,
+        "to_edge": 0.367925
+      },
+      {
+        "age": 23,
+        "n": 106,
+        "p": 0.339623,
+        "se_binom": 0.045998,
+        "to_edge": 0.339623
+      },
+      {
+        "age": 24,
+        "n": 93,
+        "p": 0.225806,
+        "se_binom": 0.043356,
+        "to_edge": 0.225806
+      },
+      {
+        "age": 25,
+        "n": 120,
+        "p": 0.216667,
+        "se_binom": 0.037608,
+        "to_edge": 0.216667
+      },
+      {
+        "age": 26,
+        "n": 143,
+        "p": 0.216783,
+        "se_binom": 0.034458,
+        "to_edge": 0.216783
+      },
+      {
+        "age": 27,
+        "n": 123,
+        "p": 0.154472,
+        "se_binom": 0.032586,
+        "to_edge": 0.154472
+      },
+      {
+        "age": 28,
+        "n": 157,
+        "p": 0.184713,
+        "se_binom": 0.030971,
+        "to_edge": 0.184713
+      },
+      {
+        "age": 29,
+        "n": 150,
+        "p": 0.18,
+        "se_binom": 0.031369,
+        "to_edge": 0.18
+      },
+      {
+        "age": 30,
+        "n": 154,
+        "p": 0.207792,
+        "se_binom": 0.032694,
+        "to_edge": 0.207792
+      }
+    ],
+    "2019|hrrate|alt_21_under_25|incwt": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.896076,
+        "se_binom": 0.074013,
+        "to_edge": 0.103924
+      },
+      {
+        "age": 17,
+        "n": 45,
+        "p": 0.756381,
+        "se_binom": 0.063991,
+        "to_edge": 0.243619
+      },
+      {
+        "age": 18,
+        "n": 52,
+        "p": 0.583555,
+        "se_binom": 0.068363,
+        "to_edge": 0.416445
+      },
+      {
+        "age": 19,
+        "n": 48,
+        "p": 0.535269,
+        "se_binom": 0.071989,
+        "to_edge": 0.464731
+      },
+      {
+        "age": 20,
+        "n": 56,
+        "p": 0.384981,
+        "se_binom": 0.065023,
+        "to_edge": 0.384981
+      },
+      {
+        "age": 21,
+        "n": 55,
+        "p": 0.115104,
+        "se_binom": 0.043034,
+        "to_edge": 0.115104
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.054985,
+        "se_binom": 0.029677,
+        "to_edge": 0.054985
+      },
+      {
+        "age": 23,
+        "n": 50,
+        "p": 0.071179,
+        "se_binom": 0.036363,
+        "to_edge": 0.071179
+      },
+      {
+        "age": 24,
+        "n": 33,
+        "p": 0.031244,
+        "se_binom": 0.030286,
+        "to_edge": 0.031244
+      },
+      {
+        "age": 25,
+        "n": 49,
+        "p": 0.030397,
+        "se_binom": 0.024525,
+        "to_edge": 0.030397
+      },
+      {
+        "age": 26,
+        "n": 67,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 27,
+        "n": 37,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 28,
+        "n": 64,
+        "p": 0.019832,
+        "se_binom": 0.017428,
+        "to_edge": 0.019832
+      },
+      {
+        "age": 29,
+        "n": 52,
+        "p": 0.030116,
+        "se_binom": 0.023701,
+        "to_edge": 0.030116
+      },
+      {
+        "age": 30,
+        "n": 50,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      }
+    ],
+    "2019|hrrate|alt_21_under_25|unweighted": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.882353,
+        "se_binom": 0.078142,
+        "to_edge": 0.117647
+      },
+      {
+        "age": 17,
+        "n": 45,
+        "p": 0.666667,
+        "se_binom": 0.070273,
+        "to_edge": 0.333333
+      },
+      {
+        "age": 18,
+        "n": 52,
+        "p": 0.557692,
+        "se_binom": 0.068874,
+        "to_edge": 0.442308
+      },
+      {
+        "age": 19,
+        "n": 48,
+        "p": 0.4375,
+        "se_binom": 0.071603,
+        "to_edge": 0.4375
+      },
+      {
+        "age": 20,
+        "n": 56,
+        "p": 0.392857,
+        "se_binom": 0.065263,
+        "to_edge": 0.392857
+      },
+      {
+        "age": 21,
+        "n": 55,
+        "p": 0.109091,
+        "se_binom": 0.042037,
+        "to_edge": 0.109091
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.050847,
+        "se_binom": 0.028601,
+        "to_edge": 0.050847
+      },
+      {
+        "age": 23,
+        "n": 50,
+        "p": 0.08,
+        "se_binom": 0.038367,
+        "to_edge": 0.08
+      },
+      {
+        "age": 24,
+        "n": 33,
+        "p": 0.090909,
+        "se_binom": 0.050044,
+        "to_edge": 0.090909
+      },
+      {
+        "age": 25,
+        "n": 49,
+        "p": 0.020408,
+        "se_binom": 0.020199,
+        "to_edge": 0.020408
+      },
+      {
+        "age": 26,
+        "n": 67,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 27,
+        "n": 37,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 28,
+        "n": 64,
+        "p": 0.015625,
+        "se_binom": 0.015502,
+        "to_edge": 0.015625
+      },
+      {
+        "age": 29,
+        "n": 52,
+        "p": 0.019231,
+        "se_binom": 0.019045,
+        "to_edge": 0.019231
+      },
+      {
+        "age": 30,
+        "n": 50,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      }
+    ],
+    "2019|hrrate|main_nlw_25plus|incwt": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.91602,
+        "se_binom": 0.067269,
+        "to_edge": 0.08398
+      },
+      {
+        "age": 17,
+        "n": 45,
+        "p": 0.857237,
+        "se_binom": 0.05215,
+        "to_edge": 0.142763
+      },
+      {
+        "age": 18,
+        "n": 52,
+        "p": 0.715804,
+        "se_binom": 0.062547,
+        "to_edge": 0.284196
+      },
+      {
+        "age": 19,
+        "n": 48,
+        "p": 0.620954,
+        "se_binom": 0.070025,
+        "to_edge": 0.379046
+      },
+      {
+        "age": 20,
+        "n": 56,
+        "p": 0.559293,
+        "se_binom": 0.066344,
+        "to_edge": 0.440707
+      },
+      {
+        "age": 21,
+        "n": 55,
+        "p": 0.361061,
+        "se_binom": 0.064765,
+        "to_edge": 0.361061
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.188583,
+        "se_binom": 0.050927,
+        "to_edge": 0.188583
+      },
+      {
+        "age": 23,
+        "n": 50,
+        "p": 0.250455,
+        "se_binom": 0.061274,
+        "to_edge": 0.250455
+      },
+      {
+        "age": 24,
+        "n": 33,
+        "p": 0.311023,
+        "se_binom": 0.080583,
+        "to_edge": 0.311023
+      },
+      {
+        "age": 25,
+        "n": 49,
+        "p": 0.121981,
+        "se_binom": 0.046752,
+        "to_edge": 0.121981
+      },
+      {
+        "age": 26,
+        "n": 67,
+        "p": 0.082268,
+        "se_binom": 0.033569,
+        "to_edge": 0.082268
+      },
+      {
+        "age": 27,
+        "n": 37,
+        "p": 0.093133,
+        "se_binom": 0.047777,
+        "to_edge": 0.093133
+      },
+      {
+        "age": 28,
+        "n": 64,
+        "p": 0.027417,
+        "se_binom": 0.020412,
+        "to_edge": 0.027417
+      },
+      {
+        "age": 29,
+        "n": 52,
+        "p": 0.060758,
+        "se_binom": 0.033128,
+        "to_edge": 0.060758
+      },
+      {
+        "age": 30,
+        "n": 50,
+        "p": 0.038072,
+        "se_binom": 0.027064,
+        "to_edge": 0.038072
+      }
+    ],
+    "2019|hrrate|main_nlw_25plus|unweighted": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.941176,
+        "se_binom": 0.057067,
+        "to_edge": 0.058824
+      },
+      {
+        "age": 17,
+        "n": 45,
+        "p": 0.822222,
+        "se_binom": 0.056994,
+        "to_edge": 0.177778
+      },
+      {
+        "age": 18,
+        "n": 52,
+        "p": 0.711538,
+        "se_binom": 0.062826,
+        "to_edge": 0.288462
+      },
+      {
+        "age": 19,
+        "n": 48,
+        "p": 0.541667,
+        "se_binom": 0.071918,
+        "to_edge": 0.458333
+      },
+      {
+        "age": 20,
+        "n": 56,
+        "p": 0.553571,
+        "se_binom": 0.066431,
+        "to_edge": 0.446429
+      },
+      {
+        "age": 21,
+        "n": 55,
+        "p": 0.363636,
+        "se_binom": 0.064864,
+        "to_edge": 0.363636
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.220339,
+        "se_binom": 0.05396,
+        "to_edge": 0.220339
+      },
+      {
+        "age": 23,
+        "n": 50,
+        "p": 0.24,
+        "se_binom": 0.060399,
+        "to_edge": 0.24
+      },
+      {
+        "age": 24,
+        "n": 33,
+        "p": 0.333333,
+        "se_binom": 0.082061,
+        "to_edge": 0.333333
+      },
+      {
+        "age": 25,
+        "n": 49,
+        "p": 0.122449,
+        "se_binom": 0.046829,
+        "to_edge": 0.122449
+      },
+      {
+        "age": 26,
+        "n": 67,
+        "p": 0.104478,
+        "se_binom": 0.037369,
+        "to_edge": 0.104478
+      },
+      {
+        "age": 27,
+        "n": 37,
+        "p": 0.081081,
+        "se_binom": 0.044874,
+        "to_edge": 0.081081
+      },
+      {
+        "age": 28,
+        "n": 64,
+        "p": 0.03125,
+        "se_binom": 0.021749,
+        "to_edge": 0.03125
+      },
+      {
+        "age": 29,
+        "n": 52,
+        "p": 0.057692,
+        "se_binom": 0.032334,
+        "to_edge": 0.057692
+      },
+      {
+        "age": 30,
+        "n": 50,
+        "p": 0.06,
+        "se_binom": 0.033586,
+        "to_edge": 0.06
+      }
+    ],
+    "2021|hourpay|alt_21_under_23|incwt": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.925523,
+        "se_binom": 0.067789,
+        "to_edge": 0.074477
+      },
+      {
+        "age": 17,
+        "n": 36,
+        "p": 0.741821,
+        "se_binom": 0.072939,
+        "to_edge": 0.258179
+      },
+      {
+        "age": 18,
+        "n": 53,
+        "p": 0.655407,
+        "se_binom": 0.065279,
+        "to_edge": 0.344593
+      },
+      {
+        "age": 19,
+        "n": 56,
+        "p": 0.437156,
+        "se_binom": 0.066285,
+        "to_edge": 0.437156
+      },
+      {
+        "age": 20,
+        "n": 49,
+        "p": 0.476311,
+        "se_binom": 0.071348,
+        "to_edge": 0.476311
+      },
+      {
+        "age": 21,
+        "n": 57,
+        "p": 0.286354,
+        "se_binom": 0.059876,
+        "to_edge": 0.286354
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.195729,
+        "se_binom": 0.051654,
+        "to_edge": 0.195729
+      },
+      {
+        "age": 23,
+        "n": 70,
+        "p": 0.168053,
+        "se_binom": 0.044691,
+        "to_edge": 0.168053
+      },
+      {
+        "age": 24,
+        "n": 67,
+        "p": 0.121866,
+        "se_binom": 0.039965,
+        "to_edge": 0.121866
+      },
+      {
+        "age": 25,
+        "n": 87,
+        "p": 0.158751,
+        "se_binom": 0.03918,
+        "to_edge": 0.158751
+      },
+      {
+        "age": 26,
+        "n": 90,
+        "p": 0.148467,
+        "se_binom": 0.03748,
+        "to_edge": 0.148467
+      },
+      {
+        "age": 27,
+        "n": 111,
+        "p": 0.143682,
+        "se_binom": 0.033293,
+        "to_edge": 0.143682
+      },
+      {
+        "age": 28,
+        "n": 110,
+        "p": 0.10136,
+        "se_binom": 0.028776,
+        "to_edge": 0.10136
+      },
+      {
+        "age": 29,
+        "n": 137,
+        "p": 0.123042,
+        "se_binom": 0.028064,
+        "to_edge": 0.123042
+      },
+      {
+        "age": 30,
+        "n": 147,
+        "p": 0.119,
+        "se_binom": 0.026706,
+        "to_edge": 0.119
+      }
+    ],
+    "2021|hourpay|alt_21_under_23|unweighted": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.933333,
+        "se_binom": 0.064406,
+        "to_edge": 0.066667
+      },
+      {
+        "age": 17,
+        "n": 36,
+        "p": 0.666667,
+        "se_binom": 0.078567,
+        "to_edge": 0.333333
+      },
+      {
+        "age": 18,
+        "n": 53,
+        "p": 0.660377,
+        "se_binom": 0.065051,
+        "to_edge": 0.339623
+      },
+      {
+        "age": 19,
+        "n": 56,
+        "p": 0.464286,
+        "se_binom": 0.066645,
+        "to_edge": 0.464286
+      },
+      {
+        "age": 20,
+        "n": 49,
+        "p": 0.346939,
+        "se_binom": 0.067999,
+        "to_edge": 0.346939
+      },
+      {
+        "age": 21,
+        "n": 57,
+        "p": 0.263158,
+        "se_binom": 0.058325,
+        "to_edge": 0.263158
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.305085,
+        "se_binom": 0.059945,
+        "to_edge": 0.305085
+      },
+      {
+        "age": 23,
+        "n": 70,
+        "p": 0.228571,
+        "se_binom": 0.050189,
+        "to_edge": 0.228571
+      },
+      {
+        "age": 24,
+        "n": 67,
+        "p": 0.149254,
+        "se_binom": 0.043534,
+        "to_edge": 0.149254
+      },
+      {
+        "age": 25,
+        "n": 87,
+        "p": 0.172414,
+        "se_binom": 0.040498,
+        "to_edge": 0.172414
+      },
+      {
+        "age": 26,
+        "n": 90,
+        "p": 0.166667,
+        "se_binom": 0.039284,
+        "to_edge": 0.166667
+      },
+      {
+        "age": 27,
+        "n": 111,
+        "p": 0.108108,
+        "se_binom": 0.029473,
+        "to_edge": 0.108108
+      },
+      {
+        "age": 28,
+        "n": 110,
+        "p": 0.109091,
+        "se_binom": 0.029725,
+        "to_edge": 0.109091
+      },
+      {
+        "age": 29,
+        "n": 137,
+        "p": 0.109489,
+        "se_binom": 0.026677,
+        "to_edge": 0.109489
+      },
+      {
+        "age": 30,
+        "n": 147,
+        "p": 0.122449,
+        "se_binom": 0.027037,
+        "to_edge": 0.122449
+      }
+    ],
+    "2021|hourpay|main_nlw_23plus|incwt": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.925523,
+        "se_binom": 0.067789,
+        "to_edge": 0.074477
+      },
+      {
+        "age": 17,
+        "n": 36,
+        "p": 0.80393,
+        "se_binom": 0.06617,
+        "to_edge": 0.19607
+      },
+      {
+        "age": 18,
+        "n": 53,
+        "p": 0.745303,
+        "se_binom": 0.059847,
+        "to_edge": 0.254697
+      },
+      {
+        "age": 19,
+        "n": 56,
+        "p": 0.61674,
+        "se_binom": 0.064969,
+        "to_edge": 0.38326
+      },
+      {
+        "age": 20,
+        "n": 49,
+        "p": 0.577979,
+        "se_binom": 0.070555,
+        "to_edge": 0.422021
+      },
+      {
+        "age": 21,
+        "n": 57,
+        "p": 0.374916,
+        "se_binom": 0.064121,
+        "to_edge": 0.374916
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.335419,
+        "se_binom": 0.061467,
+        "to_edge": 0.335419
+      },
+      {
+        "age": 23,
+        "n": 70,
+        "p": 0.253968,
+        "se_binom": 0.052026,
+        "to_edge": 0.253968
+      },
+      {
+        "age": 24,
+        "n": 67,
+        "p": 0.121866,
+        "se_binom": 0.039965,
+        "to_edge": 0.121866
+      },
+      {
+        "age": 25,
+        "n": 87,
+        "p": 0.208721,
+        "se_binom": 0.04357,
+        "to_edge": 0.208721
+      },
+      {
+        "age": 26,
+        "n": 90,
+        "p": 0.245373,
+        "se_binom": 0.045358,
+        "to_edge": 0.245373
+      },
+      {
+        "age": 27,
+        "n": 111,
+        "p": 0.173346,
+        "se_binom": 0.03593,
+        "to_edge": 0.173346
+      },
+      {
+        "age": 28,
+        "n": 110,
+        "p": 0.210984,
+        "se_binom": 0.038902,
+        "to_edge": 0.210984
+      },
+      {
+        "age": 29,
+        "n": 137,
+        "p": 0.175208,
+        "se_binom": 0.032478,
+        "to_edge": 0.175208
+      },
+      {
+        "age": 30,
+        "n": 147,
+        "p": 0.141248,
+        "se_binom": 0.028725,
+        "to_edge": 0.141248
+      }
+    ],
+    "2021|hourpay|main_nlw_23plus|unweighted": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.933333,
+        "se_binom": 0.064406,
+        "to_edge": 0.066667
+      },
+      {
+        "age": 17,
+        "n": 36,
+        "p": 0.777778,
+        "se_binom": 0.06929,
+        "to_edge": 0.222222
+      },
+      {
+        "age": 18,
+        "n": 53,
+        "p": 0.754717,
+        "se_binom": 0.0591,
+        "to_edge": 0.245283
+      },
+      {
+        "age": 19,
+        "n": 56,
+        "p": 0.589286,
+        "se_binom": 0.065741,
+        "to_edge": 0.410714
+      },
+      {
+        "age": 20,
+        "n": 49,
+        "p": 0.469388,
+        "se_binom": 0.071295,
+        "to_edge": 0.469388
+      },
+      {
+        "age": 21,
+        "n": 57,
+        "p": 0.368421,
+        "se_binom": 0.063892,
+        "to_edge": 0.368421
+      },
+      {
+        "age": 22,
+        "n": 59,
+        "p": 0.440678,
+        "se_binom": 0.064635,
+        "to_edge": 0.440678
+      },
+      {
+        "age": 23,
+        "n": 70,
+        "p": 0.3,
+        "se_binom": 0.054772,
+        "to_edge": 0.3
+      },
+      {
+        "age": 24,
+        "n": 67,
+        "p": 0.149254,
+        "se_binom": 0.043534,
+        "to_edge": 0.149254
+      },
+      {
+        "age": 25,
+        "n": 87,
+        "p": 0.195402,
+        "se_binom": 0.04251,
+        "to_edge": 0.195402
+      },
+      {
+        "age": 26,
+        "n": 90,
+        "p": 0.255556,
+        "se_binom": 0.045977,
+        "to_edge": 0.255556
+      },
+      {
+        "age": 27,
+        "n": 111,
+        "p": 0.144144,
+        "se_binom": 0.033338,
+        "to_edge": 0.144144
+      },
+      {
+        "age": 28,
+        "n": 110,
+        "p": 0.181818,
+        "se_binom": 0.036775,
+        "to_edge": 0.181818
+      },
+      {
+        "age": 29,
+        "n": 137,
+        "p": 0.153285,
+        "se_binom": 0.030779,
+        "to_edge": 0.153285
+      },
+      {
+        "age": 30,
+        "n": 147,
+        "p": 0.142857,
+        "se_binom": 0.028862,
+        "to_edge": 0.142857
+      }
+    ],
+    "2021|hrrate|alt_21_under_23|incwt": [
+      {
+        "age": 16,
+        "n": 14,
+        "p": 0.930017,
+        "se_binom": 0.068183,
+        "to_edge": 0.069983
+      },
+      {
+        "age": 17,
+        "n": 30,
+        "p": 0.658605,
+        "se_binom": 0.086573,
+        "to_edge": 0.341395
+      },
+      {
+        "age": 18,
+        "n": 39,
+        "p": 0.411648,
+        "se_binom": 0.078804,
+        "to_edge": 0.411648
+      },
+      {
+        "age": 19,
+        "n": 32,
+        "p": 0.478635,
+        "se_binom": 0.088308,
+        "to_edge": 0.478635
+      },
+      {
+        "age": 20,
+        "n": 23,
+        "p": 0.214179,
+        "se_binom": 0.085543,
+        "to_edge": 0.214179
+      },
+      {
+        "age": 21,
+        "n": 34,
+        "p": 0.141095,
+        "se_binom": 0.059702,
+        "to_edge": 0.141095
+      },
+      {
+        "age": 22,
+        "n": 27,
+        "p": 0.025373,
+        "se_binom": 0.030264,
+        "to_edge": 0.025373
+      },
+      {
+        "age": 23,
+        "n": 26,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 24,
+        "n": 22,
+        "p": 0.020382,
+        "se_binom": 0.030126,
+        "to_edge": 0.020382
+      },
+      {
+        "age": 25,
+        "n": 22,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.121738,
+        "se_binom": 0.059699,
+        "to_edge": 0.121738
+      },
+      {
+        "age": 27,
+        "n": 34,
+        "p": 0.076082,
+        "se_binom": 0.045469,
+        "to_edge": 0.076082
+      },
+      {
+        "age": 28,
+        "n": 28,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 29,
+        "n": 38,
+        "p": 0.02351,
+        "se_binom": 0.024579,
+        "to_edge": 0.02351
+      },
+      {
+        "age": 30,
+        "n": 40,
+        "p": 0.015426,
+        "se_binom": 0.019486,
+        "to_edge": 0.015426
+      }
+    ],
+    "2021|hrrate|alt_21_under_23|unweighted": [
+      {
+        "age": 16,
+        "n": 14,
+        "p": 0.928571,
+        "se_binom": 0.06883,
+        "to_edge": 0.071429
+      },
+      {
+        "age": 17,
+        "n": 30,
+        "p": 0.633333,
+        "se_binom": 0.087981,
+        "to_edge": 0.366667
+      },
+      {
+        "age": 18,
+        "n": 39,
+        "p": 0.410256,
+        "se_binom": 0.078764,
+        "to_edge": 0.410256
+      },
+      {
+        "age": 19,
+        "n": 32,
+        "p": 0.46875,
+        "se_binom": 0.088216,
+        "to_edge": 0.46875
+      },
+      {
+        "age": 20,
+        "n": 23,
+        "p": 0.217391,
+        "se_binom": 0.086006,
+        "to_edge": 0.217391
+      },
+      {
+        "age": 21,
+        "n": 34,
+        "p": 0.147059,
+        "se_binom": 0.060739,
+        "to_edge": 0.147059
+      },
+      {
+        "age": 22,
+        "n": 27,
+        "p": 0.037037,
+        "se_binom": 0.036345,
+        "to_edge": 0.037037
+      },
+      {
+        "age": 23,
+        "n": 26,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 24,
+        "n": 22,
+        "p": 0.045455,
+        "se_binom": 0.044409,
+        "to_edge": 0.045455
+      },
+      {
+        "age": 25,
+        "n": 22,
+        "p": 0.045455,
+        "se_binom": 0.044409,
+        "to_edge": 0.045455
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.066667,
+        "se_binom": 0.045542,
+        "to_edge": 0.066667
+      },
+      {
+        "age": 27,
+        "n": 34,
+        "p": 0.058824,
+        "se_binom": 0.040353,
+        "to_edge": 0.058824
+      },
+      {
+        "age": 28,
+        "n": 28,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 29,
+        "n": 38,
+        "p": 0.026316,
+        "se_binom": 0.025967,
+        "to_edge": 0.026316
+      },
+      {
+        "age": 30,
+        "n": 40,
+        "p": 0.025,
+        "se_binom": 0.024686,
+        "to_edge": 0.025
+      }
+    ],
+    "2021|hrrate|main_nlw_23plus|incwt": [
+      {
+        "age": 16,
+        "n": 14,
+        "p": 0.930017,
+        "se_binom": 0.068183,
+        "to_edge": 0.069983
+      },
+      {
+        "age": 17,
+        "n": 30,
+        "p": 0.726178,
+        "se_binom": 0.081413,
+        "to_edge": 0.273822
+      },
+      {
+        "age": 18,
+        "n": 39,
+        "p": 0.514004,
+        "se_binom": 0.080033,
+        "to_edge": 0.485996
+      },
+      {
+        "age": 19,
+        "n": 32,
+        "p": 0.478635,
+        "se_binom": 0.088308,
+        "to_edge": 0.478635
+      },
+      {
+        "age": 20,
+        "n": 23,
+        "p": 0.270592,
+        "se_binom": 0.092636,
+        "to_edge": 0.270592
+      },
+      {
+        "age": 21,
+        "n": 34,
+        "p": 0.337929,
+        "se_binom": 0.08112,
+        "to_edge": 0.337929
+      },
+      {
+        "age": 22,
+        "n": 27,
+        "p": 0.329004,
+        "se_binom": 0.090423,
+        "to_edge": 0.329004
+      },
+      {
+        "age": 23,
+        "n": 26,
+        "p": 0.014502,
+        "se_binom": 0.023445,
+        "to_edge": 0.014502
+      },
+      {
+        "age": 24,
+        "n": 22,
+        "p": 0.166373,
+        "se_binom": 0.079399,
+        "to_edge": 0.166373
+      },
+      {
+        "age": 25,
+        "n": 22,
+        "p": 0.062949,
+        "se_binom": 0.05178,
+        "to_edge": 0.062949
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.161148,
+        "se_binom": 0.067127,
+        "to_edge": 0.161148
+      },
+      {
+        "age": 27,
+        "n": 34,
+        "p": 0.118067,
+        "se_binom": 0.05534,
+        "to_edge": 0.118067
+      },
+      {
+        "age": 28,
+        "n": 28,
+        "p": 0.084206,
+        "se_binom": 0.05248,
+        "to_edge": 0.084206
+      },
+      {
+        "age": 29,
+        "n": 38,
+        "p": 0.105048,
+        "se_binom": 0.04974,
+        "to_edge": 0.105048
+      },
+      {
+        "age": 30,
+        "n": 40,
+        "p": 0.0231,
+        "se_binom": 0.023752,
+        "to_edge": 0.0231
+      }
+    ],
+    "2021|hrrate|main_nlw_23plus|unweighted": [
+      {
+        "age": 16,
+        "n": 14,
+        "p": 0.928571,
+        "se_binom": 0.06883,
+        "to_edge": 0.071429
+      },
+      {
+        "age": 17,
+        "n": 30,
+        "p": 0.7,
+        "se_binom": 0.083666,
+        "to_edge": 0.3
+      },
+      {
+        "age": 18,
+        "n": 39,
+        "p": 0.512821,
+        "se_binom": 0.080038,
+        "to_edge": 0.487179
+      },
+      {
+        "age": 19,
+        "n": 32,
+        "p": 0.46875,
+        "se_binom": 0.088216,
+        "to_edge": 0.46875
+      },
+      {
+        "age": 20,
+        "n": 23,
+        "p": 0.26087,
+        "se_binom": 0.091561,
+        "to_edge": 0.26087
+      },
+      {
+        "age": 21,
+        "n": 34,
+        "p": 0.264706,
+        "se_binom": 0.075661,
+        "to_edge": 0.264706
+      },
+      {
+        "age": 22,
+        "n": 27,
+        "p": 0.296296,
+        "se_binom": 0.087877,
+        "to_edge": 0.296296
+      },
+      {
+        "age": 23,
+        "n": 26,
+        "p": 0.038462,
+        "se_binom": 0.037715,
+        "to_edge": 0.038462
+      },
+      {
+        "age": 24,
+        "n": 22,
+        "p": 0.136364,
+        "se_binom": 0.073165,
+        "to_edge": 0.136364
+      },
+      {
+        "age": 25,
+        "n": 22,
+        "p": 0.136364,
+        "se_binom": 0.073165,
+        "to_edge": 0.136364
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.1,
+        "se_binom": 0.054772,
+        "to_edge": 0.1
+      },
+      {
+        "age": 27,
+        "n": 34,
+        "p": 0.088235,
+        "se_binom": 0.048643,
+        "to_edge": 0.088235
+      },
+      {
+        "age": 28,
+        "n": 28,
+        "p": 0.107143,
+        "se_binom": 0.058451,
+        "to_edge": 0.107143
+      },
+      {
+        "age": 29,
+        "n": 38,
+        "p": 0.078947,
+        "se_binom": 0.043744,
+        "to_edge": 0.078947
+      },
+      {
+        "age": 30,
+        "n": 40,
+        "p": 0.05,
+        "se_binom": 0.03446,
+        "to_edge": 0.05
+      }
+    ],
+    "2022|hourpay|alt_21_under_23|incwt": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.768772,
+        "se_binom": 0.102257,
+        "to_edge": 0.231228
+      },
+      {
+        "age": 17,
+        "n": 42,
+        "p": 0.720141,
+        "se_binom": 0.069271,
+        "to_edge": 0.279859
+      },
+      {
+        "age": 18,
+        "n": 32,
+        "p": 0.554724,
+        "se_binom": 0.087857,
+        "to_edge": 0.445276
+      },
+      {
+        "age": 19,
+        "n": 45,
+        "p": 0.531649,
+        "se_binom": 0.074386,
+        "to_edge": 0.468351
+      },
+      {
+        "age": 20,
+        "n": 57,
+        "p": 0.540315,
+        "se_binom": 0.066011,
+        "to_edge": 0.459685
+      },
+      {
+        "age": 21,
+        "n": 53,
+        "p": 0.304525,
+        "se_binom": 0.063214,
+        "to_edge": 0.304525
+      },
+      {
+        "age": 22,
+        "n": 70,
+        "p": 0.319257,
+        "se_binom": 0.05572,
+        "to_edge": 0.319257
+      },
+      {
+        "age": 23,
+        "n": 72,
+        "p": 0.180831,
+        "se_binom": 0.045358,
+        "to_edge": 0.180831
+      },
+      {
+        "age": 24,
+        "n": 65,
+        "p": 0.183312,
+        "se_binom": 0.047992,
+        "to_edge": 0.183312
+      },
+      {
+        "age": 25,
+        "n": 86,
+        "p": 0.107602,
+        "se_binom": 0.033415,
+        "to_edge": 0.107602
+      },
+      {
+        "age": 26,
+        "n": 96,
+        "p": 0.095595,
+        "se_binom": 0.03001,
+        "to_edge": 0.095595
+      },
+      {
+        "age": 27,
+        "n": 89,
+        "p": 0.055377,
+        "se_binom": 0.024244,
+        "to_edge": 0.055377
+      },
+      {
+        "age": 28,
+        "n": 106,
+        "p": 0.134223,
+        "se_binom": 0.03311,
+        "to_edge": 0.134223
+      },
+      {
+        "age": 29,
+        "n": 111,
+        "p": 0.151324,
+        "se_binom": 0.034014,
+        "to_edge": 0.151324
+      },
+      {
+        "age": 30,
+        "n": 136,
+        "p": 0.08439,
+        "se_binom": 0.023836,
+        "to_edge": 0.08439
+      }
+    ],
+    "2022|hourpay|alt_21_under_23|unweighted": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.764706,
+        "se_binom": 0.102879,
+        "to_edge": 0.235294
+      },
+      {
+        "age": 17,
+        "n": 42,
+        "p": 0.738095,
+        "se_binom": 0.067843,
+        "to_edge": 0.261905
+      },
+      {
+        "age": 18,
+        "n": 32,
+        "p": 0.59375,
+        "se_binom": 0.086821,
+        "to_edge": 0.40625
+      },
+      {
+        "age": 19,
+        "n": 45,
+        "p": 0.555556,
+        "se_binom": 0.074074,
+        "to_edge": 0.444444
+      },
+      {
+        "age": 20,
+        "n": 57,
+        "p": 0.491228,
+        "se_binom": 0.066216,
+        "to_edge": 0.491228
+      },
+      {
+        "age": 21,
+        "n": 53,
+        "p": 0.283019,
+        "se_binom": 0.061876,
+        "to_edge": 0.283019
+      },
+      {
+        "age": 22,
+        "n": 70,
+        "p": 0.328571,
+        "se_binom": 0.056139,
+        "to_edge": 0.328571
+      },
+      {
+        "age": 23,
+        "n": 72,
+        "p": 0.125,
+        "se_binom": 0.038976,
+        "to_edge": 0.125
+      },
+      {
+        "age": 24,
+        "n": 65,
+        "p": 0.2,
+        "se_binom": 0.049614,
+        "to_edge": 0.2
+      },
+      {
+        "age": 25,
+        "n": 86,
+        "p": 0.104651,
+        "se_binom": 0.033008,
+        "to_edge": 0.104651
+      },
+      {
+        "age": 26,
+        "n": 96,
+        "p": 0.083333,
+        "se_binom": 0.028208,
+        "to_edge": 0.083333
+      },
+      {
+        "age": 27,
+        "n": 89,
+        "p": 0.078652,
+        "se_binom": 0.028535,
+        "to_edge": 0.078652
+      },
+      {
+        "age": 28,
+        "n": 106,
+        "p": 0.09434,
+        "se_binom": 0.028391,
+        "to_edge": 0.09434
+      },
+      {
+        "age": 29,
+        "n": 111,
+        "p": 0.099099,
+        "se_binom": 0.02836,
+        "to_edge": 0.099099
+      },
+      {
+        "age": 30,
+        "n": 136,
+        "p": 0.102941,
+        "se_binom": 0.026058,
+        "to_edge": 0.102941
+      }
+    ],
+    "2022|hourpay|main_nlw_23plus|incwt": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.768772,
+        "se_binom": 0.102257,
+        "to_edge": 0.231228
+      },
+      {
+        "age": 17,
+        "n": 42,
+        "p": 0.726441,
+        "se_binom": 0.068786,
+        "to_edge": 0.273559
+      },
+      {
+        "age": 18,
+        "n": 32,
+        "p": 0.558299,
+        "se_binom": 0.087785,
+        "to_edge": 0.441701
+      },
+      {
+        "age": 19,
+        "n": 45,
+        "p": 0.617475,
+        "se_binom": 0.072449,
+        "to_edge": 0.382525
+      },
+      {
+        "age": 20,
+        "n": 57,
+        "p": 0.616066,
+        "se_binom": 0.064418,
+        "to_edge": 0.383934
+      },
+      {
+        "age": 21,
+        "n": 53,
+        "p": 0.398067,
+        "se_binom": 0.067238,
+        "to_edge": 0.398067
+      },
+      {
+        "age": 22,
+        "n": 70,
+        "p": 0.329779,
+        "se_binom": 0.056192,
+        "to_edge": 0.329779
+      },
+      {
+        "age": 23,
+        "n": 72,
+        "p": 0.205907,
+        "se_binom": 0.047655,
+        "to_edge": 0.205907
+      },
+      {
+        "age": 24,
+        "n": 65,
+        "p": 0.200579,
+        "se_binom": 0.049668,
+        "to_edge": 0.200579
+      },
+      {
+        "age": 25,
+        "n": 86,
+        "p": 0.170316,
+        "se_binom": 0.040535,
+        "to_edge": 0.170316
+      },
+      {
+        "age": 26,
+        "n": 96,
+        "p": 0.13421,
+        "se_binom": 0.034791,
+        "to_edge": 0.13421
+      },
+      {
+        "age": 27,
+        "n": 89,
+        "p": 0.088836,
+        "se_binom": 0.030158,
+        "to_edge": 0.088836
+      },
+      {
+        "age": 28,
+        "n": 106,
+        "p": 0.148682,
+        "se_binom": 0.034556,
+        "to_edge": 0.148682
+      },
+      {
+        "age": 29,
+        "n": 111,
+        "p": 0.166538,
+        "se_binom": 0.035362,
+        "to_edge": 0.166538
+      },
+      {
+        "age": 30,
+        "n": 136,
+        "p": 0.088516,
+        "se_binom": 0.024357,
+        "to_edge": 0.088516
+      }
+    ],
+    "2022|hourpay|main_nlw_23plus|unweighted": [
+      {
+        "age": 16,
+        "n": 17,
+        "p": 0.764706,
+        "se_binom": 0.102879,
+        "to_edge": 0.235294
+      },
+      {
+        "age": 17,
+        "n": 42,
+        "p": 0.761905,
+        "se_binom": 0.065721,
+        "to_edge": 0.238095
+      },
+      {
+        "age": 18,
+        "n": 32,
+        "p": 0.625,
+        "se_binom": 0.085582,
+        "to_edge": 0.375
+      },
+      {
+        "age": 19,
+        "n": 45,
+        "p": 0.622222,
+        "se_binom": 0.072274,
+        "to_edge": 0.377778
+      },
+      {
+        "age": 20,
+        "n": 57,
+        "p": 0.54386,
+        "se_binom": 0.065971,
+        "to_edge": 0.45614
+      },
+      {
+        "age": 21,
+        "n": 53,
+        "p": 0.396226,
+        "se_binom": 0.067185,
+        "to_edge": 0.396226
+      },
+      {
+        "age": 22,
+        "n": 70,
+        "p": 0.357143,
+        "se_binom": 0.05727,
+        "to_edge": 0.357143
+      },
+      {
+        "age": 23,
+        "n": 72,
+        "p": 0.180556,
+        "se_binom": 0.045331,
+        "to_edge": 0.180556
+      },
+      {
+        "age": 24,
+        "n": 65,
+        "p": 0.230769,
+        "se_binom": 0.052259,
+        "to_edge": 0.230769
+      },
+      {
+        "age": 25,
+        "n": 86,
+        "p": 0.162791,
+        "se_binom": 0.039809,
+        "to_edge": 0.162791
+      },
+      {
+        "age": 26,
+        "n": 96,
+        "p": 0.125,
+        "se_binom": 0.033754,
+        "to_edge": 0.125
+      },
+      {
+        "age": 27,
+        "n": 89,
+        "p": 0.089888,
+        "se_binom": 0.030318,
+        "to_edge": 0.089888
+      },
+      {
+        "age": 28,
+        "n": 106,
+        "p": 0.113208,
+        "se_binom": 0.030775,
+        "to_edge": 0.113208
+      },
+      {
+        "age": 29,
+        "n": 111,
+        "p": 0.108108,
+        "se_binom": 0.029473,
+        "to_edge": 0.108108
+      },
+      {
+        "age": 30,
+        "n": 136,
+        "p": 0.110294,
+        "se_binom": 0.026861,
+        "to_edge": 0.110294
+      }
+    ],
+    "2022|hrrate|alt_21_under_23|incwt": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.707596,
+        "se_binom": 0.117446,
+        "to_edge": 0.292404
+      },
+      {
+        "age": 17,
+        "n": 35,
+        "p": 0.703068,
+        "se_binom": 0.077231,
+        "to_edge": 0.296932
+      },
+      {
+        "age": 18,
+        "n": 23,
+        "p": 0.352018,
+        "se_binom": 0.099586,
+        "to_edge": 0.352018
+      },
+      {
+        "age": 19,
+        "n": 34,
+        "p": 0.15688,
+        "se_binom": 0.062372,
+        "to_edge": 0.15688
+      },
+      {
+        "age": 20,
+        "n": 34,
+        "p": 0.276532,
+        "se_binom": 0.076708,
+        "to_edge": 0.276532
+      },
+      {
+        "age": 21,
+        "n": 35,
+        "p": 0.091545,
+        "se_binom": 0.048746,
+        "to_edge": 0.091545
+      },
+      {
+        "age": 22,
+        "n": 32,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 23,
+        "n": 33,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 24,
+        "n": 17,
+        "p": 0.112481,
+        "se_binom": 0.076631,
+        "to_edge": 0.112481
+      },
+      {
+        "age": 25,
+        "n": 28,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 27,
+        "n": 22,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 28,
+        "n": 39,
+        "p": 0.058318,
+        "se_binom": 0.037525,
+        "to_edge": 0.058318
+      },
+      {
+        "age": 29,
+        "n": 33,
+        "p": 0.007094,
+        "se_binom": 0.01461,
+        "to_edge": 0.007094
+      },
+      {
+        "age": 30,
+        "n": 27,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      }
+    ],
+    "2022|hrrate|alt_21_under_23|unweighted": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.733333,
+        "se_binom": 0.11418,
+        "to_edge": 0.266667
+      },
+      {
+        "age": 17,
+        "n": 35,
+        "p": 0.714286,
+        "se_binom": 0.07636,
+        "to_edge": 0.285714
+      },
+      {
+        "age": 18,
+        "n": 23,
+        "p": 0.391304,
+        "se_binom": 0.101764,
+        "to_edge": 0.391304
+      },
+      {
+        "age": 19,
+        "n": 34,
+        "p": 0.235294,
+        "se_binom": 0.072747,
+        "to_edge": 0.235294
+      },
+      {
+        "age": 20,
+        "n": 34,
+        "p": 0.294118,
+        "se_binom": 0.078142,
+        "to_edge": 0.294118
+      },
+      {
+        "age": 21,
+        "n": 35,
+        "p": 0.085714,
+        "se_binom": 0.047319,
+        "to_edge": 0.085714
+      },
+      {
+        "age": 22,
+        "n": 32,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 23,
+        "n": 33,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 24,
+        "n": 17,
+        "p": 0.117647,
+        "se_binom": 0.078142,
+        "to_edge": 0.117647
+      },
+      {
+        "age": 25,
+        "n": 28,
+        "p": 0.035714,
+        "se_binom": 0.035071,
+        "to_edge": 0.035714
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 27,
+        "n": 22,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 28,
+        "n": 39,
+        "p": 0.025641,
+        "se_binom": 0.02531,
+        "to_edge": 0.025641
+      },
+      {
+        "age": 29,
+        "n": 33,
+        "p": 0.030303,
+        "se_binom": 0.02984,
+        "to_edge": 0.030303
+      },
+      {
+        "age": 30,
+        "n": 27,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      }
+    ],
+    "2022|hrrate|main_nlw_23plus|incwt": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.960067,
+        "se_binom": 0.050556,
+        "to_edge": 0.039933
+      },
+      {
+        "age": 17,
+        "n": 35,
+        "p": 0.703068,
+        "se_binom": 0.077231,
+        "to_edge": 0.296932
+      },
+      {
+        "age": 18,
+        "n": 23,
+        "p": 0.352018,
+        "se_binom": 0.099586,
+        "to_edge": 0.352018
+      },
+      {
+        "age": 19,
+        "n": 34,
+        "p": 0.168159,
+        "se_binom": 0.064142,
+        "to_edge": 0.168159
+      },
+      {
+        "age": 20,
+        "n": 34,
+        "p": 0.289134,
+        "se_binom": 0.077751,
+        "to_edge": 0.289134
+      },
+      {
+        "age": 21,
+        "n": 35,
+        "p": 0.186968,
+        "se_binom": 0.065903,
+        "to_edge": 0.186968
+      },
+      {
+        "age": 22,
+        "n": 32,
+        "p": 0.088646,
+        "se_binom": 0.050246,
+        "to_edge": 0.088646
+      },
+      {
+        "age": 23,
+        "n": 33,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 24,
+        "n": 17,
+        "p": 0.112481,
+        "se_binom": 0.076631,
+        "to_edge": 0.112481
+      },
+      {
+        "age": 25,
+        "n": 28,
+        "p": 0.030417,
+        "se_binom": 0.032454,
+        "to_edge": 0.030417
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.050674,
+        "se_binom": 0.040044,
+        "to_edge": 0.050674
+      },
+      {
+        "age": 27,
+        "n": 22,
+        "p": 0.091281,
+        "se_binom": 0.061403,
+        "to_edge": 0.091281
+      },
+      {
+        "age": 28,
+        "n": 39,
+        "p": 0.058318,
+        "se_binom": 0.037525,
+        "to_edge": 0.058318
+      },
+      {
+        "age": 29,
+        "n": 33,
+        "p": 0.007094,
+        "se_binom": 0.01461,
+        "to_edge": 0.007094
+      },
+      {
+        "age": 30,
+        "n": 27,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      }
+    ],
+    "2022|hrrate|main_nlw_23plus|unweighted": [
+      {
+        "age": 16,
+        "n": 15,
+        "p": 0.8,
+        "se_binom": 0.10328,
+        "to_edge": 0.2
+      },
+      {
+        "age": 17,
+        "n": 35,
+        "p": 0.714286,
+        "se_binom": 0.07636,
+        "to_edge": 0.285714
+      },
+      {
+        "age": 18,
+        "n": 23,
+        "p": 0.434783,
+        "se_binom": 0.103367,
+        "to_edge": 0.434783
+      },
+      {
+        "age": 19,
+        "n": 34,
+        "p": 0.264706,
+        "se_binom": 0.075661,
+        "to_edge": 0.264706
+      },
+      {
+        "age": 20,
+        "n": 34,
+        "p": 0.323529,
+        "se_binom": 0.080231,
+        "to_edge": 0.323529
+      },
+      {
+        "age": 21,
+        "n": 35,
+        "p": 0.142857,
+        "se_binom": 0.059148,
+        "to_edge": 0.142857
+      },
+      {
+        "age": 22,
+        "n": 32,
+        "p": 0.125,
+        "se_binom": 0.058463,
+        "to_edge": 0.125
+      },
+      {
+        "age": 23,
+        "n": 33,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      },
+      {
+        "age": 24,
+        "n": 17,
+        "p": 0.117647,
+        "se_binom": 0.078142,
+        "to_edge": 0.117647
+      },
+      {
+        "age": 25,
+        "n": 28,
+        "p": 0.071429,
+        "se_binom": 0.04867,
+        "to_edge": 0.071429
+      },
+      {
+        "age": 26,
+        "n": 30,
+        "p": 0.033333,
+        "se_binom": 0.032773,
+        "to_edge": 0.033333
+      },
+      {
+        "age": 27,
+        "n": 22,
+        "p": 0.090909,
+        "se_binom": 0.061291,
+        "to_edge": 0.090909
+      },
+      {
+        "age": 28,
+        "n": 39,
+        "p": 0.025641,
+        "se_binom": 0.02531,
+        "to_edge": 0.025641
+      },
+      {
+        "age": 29,
+        "n": 33,
+        "p": 0.030303,
+        "se_binom": 0.02984,
+        "to_edge": 0.030303
+      },
+      {
+        "age": 30,
+        "n": 27,
+        "p": 0.0,
+        "se_binom": 0.0,
+        "to_edge": 0.0
+      }
+    ]
+  },
+  "special_codes_dropped": {
+    "hrrate": [
+      {
+        "age": 16,
+        "coded": 7,
+        "non_null": 53,
+        "share": 0.132075
+      },
+      {
+        "age": 17,
+        "coded": 19,
+        "non_null": 129,
+        "share": 0.147287
+      },
+      {
+        "age": 18,
+        "coded": 30,
+        "non_null": 144,
+        "share": 0.208333
+      },
+      {
+        "age": 19,
+        "coded": 32,
+        "non_null": 146,
+        "share": 0.219178
+      },
+      {
+        "age": 20,
+        "coded": 46,
+        "non_null": 159,
+        "share": 0.289308
+      },
+      {
+        "age": 21,
+        "coded": 34,
+        "non_null": 158,
+        "share": 0.21519
+      },
+      {
+        "age": 22,
+        "coded": 41,
+        "non_null": 159,
+        "share": 0.257862
+      },
+      {
+        "age": 23,
+        "coded": 35,
+        "non_null": 144,
+        "share": 0.243056
+      },
+      {
+        "age": 24,
+        "coded": 29,
+        "non_null": 101,
+        "share": 0.287129
+      },
+      {
+        "age": 25,
+        "coded": 46,
+        "non_null": 145,
+        "share": 0.317241
+      },
+      {
+        "age": 26,
+        "coded": 34,
+        "non_null": 161,
+        "share": 0.21118
+      },
+      {
+        "age": 27,
+        "coded": 46,
+        "non_null": 139,
+        "share": 0.330935
+      },
+      {
+        "age": 28,
+        "coded": 48,
+        "non_null": 179,
+        "share": 0.268156
+      },
+      {
+        "age": 29,
+        "coded": 46,
+        "non_null": 169,
+        "share": 0.272189
+      },
+      {
+        "age": 30,
+        "coded": 42,
+        "non_null": 159,
+        "share": 0.264151
+      }
+    ]
+  },
+  "stage": "B34-LFS-step2"
+}

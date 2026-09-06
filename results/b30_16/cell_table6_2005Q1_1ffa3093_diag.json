@@ -1,0 +1,13 @@
+{
+  "source": "table6",
+  "year": 2005,
+  "quarter": 1,
+  "cfg_key": "1ffa3093",
+  "n_carriers": 15,
+  "n_routes": 3378,
+  "n_cells": 6756,
+  "density": 0.13333333333333333,
+  "fare_mean": 186.3571314387211,
+  "fare_sd": 46.20289125313606,
+  "cells_per_route": 2.0
+}

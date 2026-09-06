@@ -1,0 +1,91 @@
+{
+ "stage": "B36",
+ "criterion": "B36-5 destination split",
+ "route": "all countries minus China, both at HS10",
+ "sources": [
+  "b35_census_raw_0201-0202_total.json",
+  "b35_census_raw_0201-0202_5700.json"
+ ],
+ "window": {
+  "base": [
+   2021,
+   2024
+  ],
+  "test": 2025
+ },
+ "bands": {
+  "pass_at": 0.75,
+  "fail_at": 0.444
+ },
+ "tonnes": {
+  "2016": {
+   "all": 815608.095,
+   "china": 0.0,
+   "other": 815608.095,
+   "months": 12
+  },
+  "2017": {
+   "all": 918221.492,
+   "china": 2957.026,
+   "other": 915264.466,
+   "months": 12
+  },
+  "2018": {
+   "all": 1013817.594,
+   "china": 7189.078,
+   "other": 1006628.516,
+   "months": 12
+  },
+  "2019": {
+   "all": 967466.156,
+   "china": 10492.061,
+   "other": 956974.095,
+   "months": 12
+  },
+  "2020": {
+   "all": 941294.117,
+   "china": 36871.701,
+   "other": 904422.416,
+   "months": 12
+  },
+  "2021": {
+   "all": 1102003.627,
+   "china": 176121.523,
+   "other": 925882.104,
+   "months": 12
+  },
+  "2022": {
+   "all": 1148171.939,
+   "china": 208274.522,
+   "other": 939897.417,
+   "months": 12
+  },
+  "2023": {
+   "all": 973992.928,
+   "china": 166056.048,
+   "other": 807936.88,
+   "months": 12
+  },
+  "2024": {
+   "all": 962894.664,
+   "china": 157253.503,
+   "other": 805641.161,
+   "months": 12
+  },
+  "2025": {
+   "all": 833104.982,
+   "china": 52437.41,
+   "other": 780667.572,
+   "months": 12
+  },
+  "2026": {
+   "all": 374200.074,
+   "china": 3839.419,
+   "other": 370360.655,
+   "months": 6
+  }
+ },
+ "ratio_non_china": 0.8974847316942701,
+ "ratio_china": 0.29637979575902634,
+ "verdict": "PASS, the fall is specific to the China lane"
+}

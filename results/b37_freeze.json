@@ -1,0 +1,249 @@
+{
+ "floor_days": 7,
+ "min_freeze": 8,
+ "series": {
+  "oficial": {
+   "freezes": 63,
+   "referee": "bcra",
+   "note": "A 3500, the central bank's own reference",
+   "longest": [
+    {
+     "days": 57,
+     "first": "2019-12-11",
+     "last": "2020-02-05",
+     "value": 60.44832503882965,
+     "referee_move": 0.012326323636079651,
+     "percentile": 0.02994385527136619,
+     "yard_median": 0.07249584186462678,
+     "own_daily_step": 0.0038694032782785465,
+     "referee_over_own_step": 3.1855877378497213,
+     "first_move_after": -0.00869587135593455,
+     "step_over_gap": -0.7054716079725005
+    },
+    {
+     "days": 37,
+     "first": "2019-10-29",
+     "last": "2019-12-04",
+     "value": 60.44832503882965,
+     "referee_move": 0.007525011946277067,
+     "percentile": 0.05237215033887862,
+     "yard_median": 0.04599251152058881,
+     "own_daily_step": 0.0038694032782785465,
+     "referee_over_own_step": 1.9447473951655045,
+     "first_move_after": 0.008547216679650244,
+     "step_over_gap": 1.135840944927523
+    },
+    {
+     "days": 35,
+     "first": "2021-05-10",
+     "last": "2021-06-13",
+     "value": 96.95359714832658,
+     "referee_move": 0.012800344032331597,
+     "percentile": 0.07938461538461539,
+     "yard_median": 0.043173347976355456,
+     "own_daily_step": 0.0038694032782785465,
+     "referee_over_own_step": 3.3080925175693565,
+     "first_move_after": 0.01026622009185259,
+     "step_over_gap": 0.8020268881775192
+    },
+    {
+     "days": 30,
+     "first": "2021-06-14",
+     "last": "2021-07-13",
+     "value": 97.95407086997457,
+     "referee_move": 0.009091921758409846,
+     "percentile": 0.07423312883435583,
+     "yard_median": 0.03754573149977414,
+     "own_daily_step": 0.0038694032782785465,
+     "referee_over_own_step": 2.349696091241939,
+     "first_move_after": 0.010161798155153315,
+     "step_over_gap": 1.1176732956103428
+    }
+   ]
+  },
+  "mayorista": {
+   "freezes": 5,
+   "referee": "bcra",
+   "note": "A 3500; mayorista is the interbank rate beside it",
+   "longest": [
+    {
+     "days": 71,
+     "first": "2024-08-13",
+     "last": "2024-10-22",
+     "value": 937.998800638892,
+     "referee_move": 0.04623800138548107,
+     "percentile": 0.16677155443675268,
+     "yard_median": 0.09217796883278938,
+     "own_daily_step": 0.0014825810878281171,
+     "referee_over_own_step": 31.187502501611345,
+     "first_move_after": 0.047876064799264026,
+     "step_over_gap": 1.03542677807647
+    },
+    {
+     "days": 50,
+     "first": "2024-01-23",
+     "last": "2024-03-12",
+     "value": 819.366920555132,
+     "referee_move": 0.03208511291738647,
+     "percentile": 0.1795031055900621,
+     "yard_median": 0.06330208251259054,
+     "own_daily_step": 0.0014825810878281171,
+     "referee_over_own_step": 21.64138823893203,
+     "first_move_after": 0.03265466991871551,
+     "step_over_gap": 1.0177514413864008
+    },
+    {
+     "days": 30,
+     "first": "2023-12-12",
+     "last": "2024-01-10",
+     "value": 365.94965842312246,
+     "referee_move": 0.7991282403389356,
+     "percentile": 0.9815950920245399,
+     "yard_median": 0.03754573149977414,
+     "own_daily_step": 0.0014825810878281171,
+     "referee_over_own_step": 539.011489421874,
+     "first_move_after": 0.7983891384327908,
+     "step_over_gap": 0.999075114770276
+    },
+    {
+     "days": 26,
+     "first": "2024-07-08",
+     "last": "2024-08-02",
+     "value": 914.4521897289109,
+     "referee_move": 0.017440139984142285,
+     "percentile": 0.20930232558139536,
+     "yard_median": 0.03209942182776646,
+     "own_daily_step": 0.0014825810878281171,
+     "referee_over_own_step": 11.763363317746709,
+     "first_move_after": 0.018380989889032154,
+     "step_over_gap": 1.0539473826325563
+    }
+   ]
+  },
+  "blue": {
+   "freezes": 7,
+   "referee": "ambito:informal",
+   "note": "the other publisher of the same market",
+   "longest": [
+    {
+     "days": 19,
+     "first": "2020-01-15",
+     "last": "2020-02-02",
+     "value": 75.97367965289031,
+     "referee_move": 0.0,
+     "percentile": 0.0,
+     "yard_median": 0.0501408569552631,
+     "own_daily_step": 0.008313116196145639,
+     "referee_over_own_step": 0.0,
+     "first_move_after": 0.006711510166070367,
+     "step_over_gap": null
+    },
+    {
+     "days": 13,
+     "first": "2020-07-03",
+     "last": "2020-07-15",
+     "value": 121.89749792346026,
+     "referee_move": 0.0,
+     "percentile": 0.0,
+     "yard_median": 0.035845964228058184,
+     "own_daily_step": 0.008313116196145639,
+     "referee_over_own_step": 0.0,
+     "first_move_after": 0.024332585990640403,
+     "step_over_gap": null
+    },
+    {
+     "days": 10,
+     "first": "2020-02-28",
+     "last": "2020-03-08",
+     "value": 75.97367965289031,
+     "referee_move": 0.0,
+     "percentile": 0.0,
+     "yard_median": 0.030408883594565134,
+     "own_daily_step": 0.008313116196145639,
+     "referee_over_own_step": 0.0,
+     "first_move_after": 0.01308102305478529,
+     "step_over_gap": null
+    },
+    {
+     "days": 10,
+     "first": "2025-12-26",
+     "last": "2026-01-04",
+     "value": 1519.967104907208,
+     "referee_move": 0.013245807723488044,
+     "percentile": 0.2602996254681648,
+     "yard_median": 0.030408883594565134,
+     "own_daily_step": 0.008313116196145639,
+     "referee_over_own_step": 1.593362514243388,
+     "first_move_after": -0.00991787021359738,
+     "step_over_gap": -0.7487554115715103
+    }
+   ]
+  },
+  "cripto": {
+   "freezes": 1,
+   "referee": "ambito:ccl",
+   "note": "PROXY, not the same instrument",
+   "longest": [
+    {
+     "days": 47,
+     "first": "2025-10-03",
+     "last": "2025-11-18",
+     "value": 1516.9970336160845,
+     "referee_move": -0.036289004119456174,
+     "percentile": 0.24313115603939867,
+     "yard_median": 0.08370073022988415,
+     "own_daily_step": 0.004719852505854692,
+     "referee_over_own_step": 7.688588589249739,
+     "first_move_after": -0.03178993758734497,
+     "step_over_gap": 0.8760212179617503
+    }
+   ]
+  },
+  "tarjeta": {
+   "freezes": 3,
+   "referee": "bcra",
+   "note": "PROXY, tarjeta is oficial times a tax",
+   "longest": [
+    {
+     "days": 13,
+     "first": "2025-12-17",
+     "last": "2025-12-29",
+     "value": 1884.7198067617371,
+     "referee_move": 0.0043626037850414265,
+     "percentile": 0.07468123861566485,
+     "yard_median": 0.016485021986014183,
+     "own_daily_step": 0.0015629906867624358,
+     "referee_over_own_step": 2.791189878474633,
+     "first_move_after": 0.003443364267721313,
+     "step_over_gap": 0.7892910833498064
+    },
+    {
+     "days": 11,
+     "first": "2025-06-06",
+     "last": "2025-06-16",
+     "value": 1527.154216181195,
+     "referee_move": -0.0019626811016127967,
+     "percentile": 0.05518496058217101,
+     "yard_median": 0.013955330670201226,
+     "own_daily_step": 0.0015629906867624358,
+     "referee_over_own_step": 1.2557215588266082,
+     "first_move_after": -0.012854036824326391,
+     "step_over_gap": 6.549223311807418
+    },
+    {
+     "days": 9,
+     "first": "2026-01-27",
+     "last": "2026-02-04",
+     "value": 1871.7178606830678,
+     "referee_move": 0.004360556600263309,
+     "percentile": 0.11932162325863113,
+     "yard_median": 0.011373101486870351,
+     "own_daily_step": 0.0015629906867624358,
+     "referee_over_own_step": 2.7898800915415083,
+     "first_move_after": -0.003479316726954711,
+     "step_over_gap": -0.7979065623743112
+    }
+   ]
+  }
+ }
+}

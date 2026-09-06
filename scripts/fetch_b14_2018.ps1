@@ -3,7 +3,7 @@
   Fetch the eight 2018 Tick Pilot Appendix B.I files for B14 leg A.
 
 .DESCRIPTION
-  Registered in the design file, section 7 supplement 2 clause A and its expansion A1.
+  Registered in the design file, section 7 supplement 2 clause A and its expansion B14_A1.
 
   This exists because experiments/b14_fetch_2018.py cannot reach the host from every
   environment: a proxied egress answers 403 on all URL forms. Windows reaches it
