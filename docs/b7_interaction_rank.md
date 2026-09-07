@@ -2685,7 +2685,8 @@ outcome was chosen after the fact needs all of it.
   `b7_robustness_rank.py`.** Their readings in `b7_robustness_rank_draws50.json`
   use no partition and stand as readings; their gates in that file are void under
   §3.15 and §3.16 and are not quoted anywhere.
-- **`run_all.py` carries no B7 entry** and `RESULTS.md`'s B7 sections render from
+- **`run_all.py` carries no B7 entry** (that runner is legacy from 2026-09-07
+  and its table covers 52 of the 365 scripts, so an absent entry is not a status) and `RESULTS.md`'s B7 sections render from
   records that now carry the `.expired_20260816_pre_partition_fix` suffix. Both
   wait for a re-render.
 - **`interaction_rank.py` has no test.**

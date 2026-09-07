@@ -1,0 +1,592 @@
+{
+ "config": {
+  "cache_dir": "data/cache/ipeds",
+  "classes": {
+   "2": "in-district",
+   "3": "in-state",
+   "4": "out-of-state"
+  },
+  "control": {
+   "1": "public",
+   "2": "private nonprofit",
+   "3": "private for-profit"
+  },
+  "endpoint": "https://educationdata.urban.org/api/v1/college-university/ipeds/",
+  "field": "tuition_fees_ft",
+  "levels": {
+   "1": "undergraduate",
+   "2": "graduate"
+  },
+  "missing": "negative codes are absences and are dropped, not read as fees",
+  "refresh": false,
+  "states_requested": 56,
+  "year": 2020
+ },
+ "coverage": {
+  "AK": {
+   "directory_rows": 10,
+   "dropped": 0,
+   "schools": 7,
+   "tuition_rows": 33
+  },
+  "AL": {
+   "directory_rows": 81,
+   "dropped": 0,
+   "schools": 62,
+   "tuition_rows": 273
+  },
+  "AR": {
+   "directory_rows": 86,
+   "dropped": 3,
+   "schools": 54,
+   "tuition_rows": 216
+  },
+  "AS": {
+   "directory_rows": 1,
+   "dropped": 0,
+   "schools": 1,
+   "tuition_rows": 3
+  },
+  "AZ": {
+   "directory_rows": 116,
+   "dropped": 0,
+   "schools": 57,
+   "tuition_rows": 225
+  },
+  "CA": {
+   "directory_rows": 700,
+   "dropped": 16,
+   "schools": 372,
+   "tuition_rows": 1561
+  },
+  "CO": {
+   "directory_rows": 98,
+   "dropped": 0,
+   "schools": 56,
+   "tuition_rows": 249
+  },
+  "CT": {
+   "directory_rows": 71,
+   "dropped": 3,
+   "schools": 43,
+   "tuition_rows": 189
+  },
+  "DC": {
+   "directory_rows": 25,
+   "dropped": 0,
+   "schools": 18,
+   "tuition_rows": 87
+  },
+  "DE": {
+   "directory_rows": 19,
+   "dropped": 0,
+   "schools": 9,
+   "tuition_rows": 45
+  },
+  "FL": {
+   "directory_rows": 356,
+   "dropped": 6,
+   "schools": 148,
+   "tuition_rows": 657
+  },
+  "GA": {
+   "directory_rows": 148,
+   "dropped": 0,
+   "schools": 106,
+   "tuition_rows": 456
+  },
+  "GU": {
+   "directory_rows": 3,
+   "dropped": 0,
+   "schools": 3,
+   "tuition_rows": 12
+  },
+  "HI": {
+   "directory_rows": 24,
+   "dropped": 0,
+   "schools": 17,
+   "tuition_rows": 69
+  },
+  "IA": {
+   "directory_rows": 80,
+   "dropped": 0,
+   "schools": 57,
+   "tuition_rows": 252
+  },
+  "ID": {
+   "directory_rows": 40,
+   "dropped": 0,
+   "schools": 17,
+   "tuition_rows": 72
+  },
+  "IL": {
+   "directory_rows": 256,
+   "dropped": 12,
+   "schools": 153,
+   "tuition_rows": 660
+  },
+  "IN": {
+   "directory_rows": 108,
+   "dropped": 0,
+   "schools": 67,
+   "tuition_rows": 339
+  },
+  "KS": {
+   "directory_rows": 75,
+   "dropped": 0,
+   "schools": 59,
+   "tuition_rows": 252
+  },
+  "KY": {
+   "directory_rows": 88,
+   "dropped": 0,
+   "schools": 56,
+   "tuition_rows": 240
+  },
+  "LA": {
+   "directory_rows": 115,
+   "dropped": 0,
+   "schools": 50,
+   "tuition_rows": 222
+  },
+  "MA": {
+   "directory_rows": 152,
+   "dropped": 0,
+   "schools": 106,
+   "tuition_rows": 519
+  },
+  "MD": {
+   "directory_rows": 82,
+   "dropped": 3,
+   "schools": 52,
+   "tuition_rows": 243
+  },
+  "ME": {
+   "directory_rows": 37,
+   "dropped": 3,
+   "schools": 29,
+   "tuition_rows": 123
+  },
+  "MI": {
+   "directory_rows": 168,
+   "dropped": 9,
+   "schools": 99,
+   "tuition_rows": 420
+  },
+  "MN": {
+   "directory_rows": 100,
+   "dropped": 3,
+   "schools": 83,
+   "tuition_rows": 345
+  },
+  "MO": {
+   "directory_rows": 150,
+   "dropped": 0,
+   "schools": 91,
+   "tuition_rows": 405
+  },
+  "MP": {
+   "directory_rows": 1,
+   "dropped": 0,
+   "schools": 1,
+   "tuition_rows": 3
+  },
+  "MS": {
+   "directory_rows": 56,
+   "dropped": 0,
+   "schools": 33,
+   "tuition_rows": 144
+  },
+  "MT": {
+   "directory_rows": 31,
+   "dropped": 0,
+   "schools": 24,
+   "tuition_rows": 96
+  },
+  "NC": {
+   "directory_rows": 167,
+   "dropped": 3,
+   "schools": 133,
+   "tuition_rows": 564
+  },
+  "ND": {
+   "directory_rows": 27,
+   "dropped": 0,
+   "schools": 20,
+   "tuition_rows": 93
+  },
+  "NE": {
+   "directory_rows": 43,
+   "dropped": 0,
+   "schools": 34,
+   "tuition_rows": 162
+  },
+  "NH": {
+   "directory_rows": 38,
+   "dropped": 0,
+   "schools": 25,
+   "tuition_rows": 108
+  },
+  "NJ": {
+   "directory_rows": 165,
+   "dropped": 3,
+   "schools": 92,
+   "tuition_rows": 381
+  },
+  "NM": {
+   "directory_rows": 49,
+   "dropped": 0,
+   "schools": 34,
+   "tuition_rows": 141
+  },
+  "NV": {
+   "directory_rows": 39,
+   "dropped": 0,
+   "schools": 17,
+   "tuition_rows": 75
+  },
+  "NY": {
+   "directory_rows": 439,
+   "dropped": 18,
+   "schools": 314,
+   "tuition_rows": 1356
+  },
+  "OH": {
+   "directory_rows": 283,
+   "dropped": 12,
+   "schools": 165,
+   "tuition_rows": 717
+  },
+  "OK": {
+   "directory_rows": 104,
+   "dropped": 0,
+   "schools": 44,
+   "tuition_rows": 201
+  },
+  "OR": {
+   "directory_rows": 80,
+   "dropped": 6,
+   "schools": 51,
+   "tuition_rows": 234
+  },
+  "PA": {
+   "directory_rows": 338,
+   "dropped": 12,
+   "schools": 200,
+   "tuition_rows": 894
+  },
+  "PR": {
+   "directory_rows": 155,
+   "dropped": 0,
+   "schools": 99,
+   "tuition_rows": 426
+  },
+  "RI": {
+   "directory_rows": 22,
+   "dropped": 0,
+   "schools": 14,
+   "tuition_rows": 75
+  },
+  "SC": {
+   "directory_rows": 96,
+   "dropped": 0,
+   "schools": 62,
+   "tuition_rows": 279
+  },
+  "SD": {
+   "directory_rows": 29,
+   "dropped": 0,
+   "schools": 24,
+   "tuition_rows": 120
+  },
+  "TN": {
+   "directory_rows": 154,
+   "dropped": 3,
+   "schools": 76,
+   "tuition_rows": 351
+  },
+  "TX": {
+   "directory_rows": 416,
+   "dropped": 0,
+   "schools": 202,
+   "tuition_rows": 876
+  },
+  "UT": {
+   "directory_rows": 69,
+   "dropped": 0,
+   "schools": 28,
+   "tuition_rows": 132
+  },
+  "VA": {
+   "directory_rows": 146,
+   "dropped": 3,
+   "schools": 105,
+   "tuition_rows": 453
+  },
+  "VI": {
+   "directory_rows": 1,
+   "dropped": 0,
+   "schools": 1,
+   "tuition_rows": 6
+  },
+  "VT": {
+   "directory_rows": 22,
+   "dropped": 6,
+   "schools": 17,
+   "tuition_rows": 84
+  },
+  "WA": {
+   "directory_rows": 103,
+   "dropped": 0,
+   "schools": 70,
+   "tuition_rows": 288
+  },
+  "WI": {
+   "directory_rows": 92,
+   "dropped": 0,
+   "schools": 66,
+   "tuition_rows": 306
+  },
+  "WV": {
+   "directory_rows": 73,
+   "dropped": 0,
+   "schools": 42,
+   "tuition_rows": 180
+  },
+  "WY": {
+   "directory_rows": 10,
+   "dropped": 0,
+   "schools": 8,
+   "tuition_rows": 27
+  }
+ },
+ "criteria": {
+  "B53-1": {
+   "detail": "3439 private schedules, 15 write more than one value; 3861 of 3861 institutions matched to a control code",
+   "kind": "known_answer",
+   "name": "every private institution writes one value across the three classes; the control code comes from a separate endpoint, so this is a check and not a restatement. Three states: no private schedule identified leaves nothing to judge, none writing more than one value confirms it, any writing more than one refutes it",
+   "passed": false,
+   "state": "refuted"
+  },
+  "B53-2": {
+   "detail": "3 -> 1 : 3617, 3 -> 2 : 1738, 3 -> 3 : 250",
+   "kind": "own_reading",
+   "name": "how many schedules write 3 -> 1, 3 -> 2 and 3 -> 3, split by control and level, printed with no line on it",
+   "passed": true
+  },
+  "B53-3": {
+   "detail": "0 non-integer figures over 5605 schedules",
+   "kind": "premise",
+   "name": "the premise that makes these collisions exact rather than an upper bound: every figure is a whole dollar amount",
+   "passed": true
+  },
+  "B53-4": {
+   "detail": "56 states requested, 56 returned rows, empty: none; 124 rows dropped for a negative code",
+   "kind": "bookkeeping",
+   "name": "coverage state by state, states returning nothing named rather than absent",
+   "passed": true
+  }
+ },
+ "dropped_negative": 124,
+ "join": {
+  "institutions_in_tuition": 3861,
+  "matched_to_a_control_code": 3861,
+  "unmatched": 0
+ },
+ "non_integer_fees": [],
+ "private_schedules": 3439,
+ "private_with_more_than_one_value": [
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 185679,
+   "values": {
+    "in-district": 24107,
+    "in-state": 24107,
+    "out-of-state": 30527
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 188641,
+   "values": {
+    "in-district": 32596,
+    "in-state": 32596,
+    "out-of-state": 36276
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 195702,
+   "values": {
+    "in-district": 18570,
+    "in-state": 18570,
+    "out-of-state": 23000
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 204893,
+   "values": {
+    "in-district": 12422,
+    "in-state": 12473,
+    "out-of-state": 13391
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 494959,
+   "values": {
+    "in-district": 4640,
+    "in-state": 5000,
+    "out-of-state": 9080
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 388520,
+   "values": {
+    "in-district": 6801,
+    "in-state": 6801,
+    "out-of-state": 9225
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 461795,
+   "values": {
+    "in-district": 9900,
+    "in-state": 9900,
+    "out-of-state": 12675
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "graduate",
+   "unitid": 461795,
+   "values": {
+    "in-district": 10400,
+    "in-state": 10400,
+    "out-of-state": 18496
+   }
+  },
+  {
+   "control": "private for-profit",
+   "level": "graduate",
+   "unitid": 243081,
+   "values": {
+    "in-district": 18408,
+    "in-state": 18408,
+    "out-of-state": 20584
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 430670,
+   "values": {
+    "in-district": 9192,
+    "in-state": 9192,
+    "out-of-state": 15042
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "graduate",
+   "unitid": 430670,
+   "values": {
+    "in-district": 9417,
+    "in-state": 9417,
+    "out-of-state": 10867
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "undergraduate",
+   "unitid": 483595,
+   "values": {
+    "in-district": 5080,
+    "in-state": 6220,
+    "out-of-state": 7996
+   }
+  },
+  {
+   "control": "private nonprofit",
+   "level": "graduate",
+   "unitid": 483595,
+   "values": {
+    "in-district": 6758,
+    "in-state": 8320,
+    "out-of-state": 10696
+   }
+  },
+  {
+   "control": "private for-profit",
+   "level": "undergraduate",
+   "unitid": 494807,
+   "values": {
+    "in-district": 10506,
+    "in-state": 10506,
+    "out-of-state": 19242
+   }
+  },
+  {
+   "control": "private for-profit",
+   "level": "graduate",
+   "unitid": 494807,
+   "values": {
+    "in-district": 18408,
+    "in-state": 18408,
+    "out-of-state": 20584
+   }
+  }
+ ],
+ "schedules": {
+  "with_all_three_classes": 5605,
+  "with_fewer": 0
+ },
+ "shapes": {
+  "by_control_and_level": {
+   "private for-profit|graduate": {
+    "1": 188,
+    "2": 2
+   },
+   "private for-profit|undergraduate": {
+    "1": 480,
+    "2": 1
+   },
+   "private nonprofit|graduate": {
+    "1": 1246,
+    "2": 2,
+    "3": 1
+   },
+   "private nonprofit|undergraduate": {
+    "1": 1510,
+    "2": 6,
+    "3": 3
+   },
+   "public|graduate": {
+    "1": 57,
+    "2": 500,
+    "3": 3
+   },
+   "public|undergraduate": {
+    "1": 136,
+    "2": 1227,
+    "3": 243
+   }
+  },
+  "overall": {
+   "1": 3617,
+   "2": 1738,
+   "3": 250
+  }
+ },
+ "stage": "B53"
+}

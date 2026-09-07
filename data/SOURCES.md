@@ -2343,3 +2343,114 @@ by other people, not an input to any criterion scored here**. The readings on th
 carrier are taken from the instrument described above under what the instrument is,
 whose four limits are recorded there. **Any use of this clone would be a separate
 carrier with its own availability work, and none has been done.**
+
+### IEA End-use Energy Prices
+
+`https://api.iea.org/prices`, the public read endpoint behind the End-Use Prices Data
+Explorer, no key and no login, licensed CC BY 4.0. Responses are cached verbatim under
+`data/cache/iea/`, one file per query with the query sorted into the file name, first
+fetched 2026-09-06. `experiments/b49_energy_class_square.py` reads the cache and goes to
+the network only when a file is missing or `--refresh` is passed. The dimensions are
+country, sector (`ELGEN`, `IND`, `RESID`, `TRANS`), product (electricity, natural gas,
+light fuel oil, LPG, fuel oil, steam coal, gasoline, automotive diesel), unit (national
+currency, USD, USD at constant 2020 prices and PPP) and year, each enumerable from a
+list endpoint under the same host.
+
+**Basis: prices include VAT, in every sector.** The database documentation states that
+the World Energy Prices series includes VAT for the industry and electricity-generation
+sectors as well, so that countries stay comparable, and that it is the OECD-only
+quarterly series which reports those two sectors VAT exempt. This endpoint returns the
+former, which is read off the country coverage rather than assumed: Algeria is in it and
+is not an OECD member. **The distinction is load-bearing.** Were residential prices
+quoted with tax and industrial prices without, a residential-against-industrial reading
+would be measuring the tax convention rather than the price.
+
+**Depth differs by product and is the binding limit here.** Electricity and natural gas
+by sector carry three years only, 2000, 2010 and 2025; transport fuels carry a full
+annual series back to the 1960s. The one product with depth is the one with a single
+class, so depth and shape run opposite in this source. Units are `USD/MWh` for
+electricity and gas, checked in the script rather than assumed, since the square divides
+one by the other.
+
+The cached files stay on the machine that fetched them, as everything under `data/`
+does. They are small and the endpoint serves them, so re-fetching costs one run.
+
+### Eurostat bi-annual energy prices
+
+`https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/`, the public
+dissemination endpoint, no key and no login. Four datasets are used: `nrg_pc_204`
+household electricity, `nrg_pc_205` non-household electricity, `nrg_pc_202` household
+gas, `nrg_pc_203` non-household gas, first fetched 2026-09-06 and cached verbatim under
+`data/cache/eurostat/`, one file per query with the query sorted into the file name.
+`experiments/b50_hungary_class_square.py` pulls `geo=HU` alone;
+`experiments/b52_europe_class_square.py` pulls the reporting area whole, which returns
+**33 countries over 38 semesters, 2007-S1 to 2025-S2**, after the seven aggregate codes
+(`EU`, `EU27_2007`, `EU27_2020`, `EU28`, `EA`, `EA19`, `EA20`) are dropped by name so
+that no aggregate is read as a country. Both read the cache and go to the network only
+when a file is missing or `--refresh` is passed.
+
+**Bands: the per-band series, never the total band.** The total band carries 10, 10, 1
+and 6 semesters across the four datasets while every consumption band carries 37, from
+2007-S2 to 2025-S2. A time dimension listing 38 semesters says the system knows those
+semesters, not that this country reported them, and the aggregate row is the sparser
+one here rather than the fuller one. The bands taken are the standard reference bands
+Eurostat itself publishes against: `KWH2500-4999` and `MWH500-1999` for electricity,
+`GJ20-199` and `GJ10000-99999` for gas.
+
+**Basis: one tax code on both legs, always.** Eurostat publishes three, `X_TAX` with no
+taxes, `X_VAT` with other taxes but not VAT, and `I_TAX` with everything. Its own
+presentation shows household prices with all taxes and non-household prices net of
+recoverable ones, so **comparing the two as presented would measure the tax convention
+rather than the price.** All three are computed here, and the differences between them
+are the part of a class difference that taxation writes.
+
+**A semester price is an average over six months, not a price on a date.** Any rule
+taking effect inside a semester is diluted in proportion to the months it covers, which
+is a resolution limit on dating and not on precision.
+
+**One conversion is scalar and one is not.** Quoting the four prices in euro applies one
+exchange rate per country and semester, shared by both classes, which cancels in the
+difference of log ratios; the residual over the panel bounds what the instrument can
+resolve. The purchasing-power unit is not a single scalar per semester and carries
+structure of its own, so it is reported and excluded from that bound.
+
+The cached files stay on the machine that fetched them, as everything under `data/`
+does. They are small and the endpoint serves them, so re-fetching costs one run.
+
+### IPEDS published tuition, through the Education Data API
+
+`https://educationdata.urban.org/api/v1/college-university/ipeds/`, the Urban
+Institute's public read endpoint over the federal IPEDS collection, no key and no login.
+Two endpoints are used: `academic-year-tuition` for the published rates and
+`directory` for the control code. Responses are cached verbatim under
+`data/cache/ipeds/`, one file per state and endpoint, 112 files, first fetched
+2026-09-06. `experiments/b53_tuition_class_values.py` reads the cache and goes to the
+network only when a file is missing or `--refresh` is passed. Requests go out state by
+state so an interrupted pull resumes where it stopped.
+
+**Basis: the published schedule, not a paid amount.** The field is `tuition_fees_ft`,
+full-time tuition and required fees as the institution published them for the academic
+year, before any aid. That is what a reading of the counting law wants, because the
+object is what the schedule writes rather than what any student ends up paying.
+
+**Three class codes and what they are.** `2` in-district, `3` in-state, `4`
+out-of-state, read per institution and per level (`1` undergraduate, `2` graduate). A
+schedule is one institution at one level, and the reading is how many distinct dollar
+amounts those three codes carry. 2020, the one year pulled: 56 states and territories
+requested, 56 returned, 5,605 schedules over 3,861 institutions.
+
+**Control comes from a different endpoint and is not derived here.** All 3,861
+institutions matched a control code, none unmatched; the field is `inst_control` on the
+directory endpoint, and joining on it is what makes the private-against-public split a
+check rather than a restatement of the tuition figures themselves.
+
+**Negative values are absence codes, and are dropped rather than read.** 124 rows
+carried one in 2020. Reading a negative code as a fee would put a fourth distinct value
+into a schedule that has three.
+
+**Every published figure is a whole dollar amount, checked and not assumed.** Zero
+non-integer figures over 5,605 schedules, which is why the collisions counted on this
+carrier are exact rather than bounded above by a rounding step.
+
+The cached files stay on the machine that fetched them, as everything under `data/`
+does. They total about 23 MB and the endpoint serves them, so re-fetching costs one run.

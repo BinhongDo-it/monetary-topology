@@ -1,0 +1,676 @@
+{
+ "by_year": {
+  "2000": {
+   "max": 0.380720116,
+   "median": -0.047212143,
+   "min": -0.641739743,
+   "n": 13,
+   "negative": 8,
+   "positive": 5
+  },
+  "2010": {
+   "max": 0.044305011,
+   "median": -0.161038842,
+   "min": -0.475018668,
+   "n": 13,
+   "negative": 11,
+   "positive": 2
+  },
+  "2025": {
+   "max": 0.107480136,
+   "median": -0.230181151,
+   "min": -0.85264972,
+   "n": 13,
+   "negative": 12,
+   "positive": 1
+  }
+ },
+ "cells": [
+  {
+   "country": "Algeria",
+   "price_ind_electricity": 22.561848,
+   "price_ind_gas": 1.713754,
+   "price_resid_electricity": 42.120765,
+   "price_resid_gas": 3.039057,
+   "square_sum": 0.051419527,
+   "year": "2000"
+  },
+  {
+   "country": "Algeria",
+   "price_ind_electricity": 29.441031,
+   "price_ind_gas": 1.893403,
+   "price_resid_electricity": 52.993855,
+   "price_resid_gas": 3.695488,
+   "square_sum": -0.080950227,
+   "year": "2010"
+  },
+  {
+   "country": "Algeria",
+   "price_ind_electricity": 18.711759,
+   "price_ind_gas": 1.306608,
+   "price_resid_electricity": 32.425273,
+   "price_resid_gas": 2.453093,
+   "square_sum": -0.080129211,
+   "year": "2025"
+  },
+  {
+   "country": "Czechia",
+   "price_ind_electricity": 52.468473,
+   "price_ind_gas": 15.502138,
+   "price_resid_electricity": 54.406376,
+   "price_resid_gas": 18.429512,
+   "square_sum": -0.136706465,
+   "year": "2000"
+  },
+  {
+   "country": "Czechia",
+   "price_ind_electricity": 172.511094,
+   "price_ind_gas": 54.687943,
+   "price_resid_electricity": 194.258636,
+   "price_resid_gas": 68.488998,
+   "square_sum": -0.106300956,
+   "year": "2010"
+  },
+  {
+   "country": "Czechia",
+   "price_ind_electricity": 271.458153,
+   "price_ind_gas": 79.362773,
+   "price_resid_electricity": 361.438625,
+   "price_resid_gas": 133.019377,
+   "square_sum": -0.230181151,
+   "year": "2025"
+  },
+  {
+   "country": "France",
+   "price_ind_electricity": 41.917235,
+   "price_ind_gas": 18.028918,
+   "price_resid_electricity": 101.874472,
+   "price_resid_gas": 29.943169,
+   "square_sum": 0.380720116,
+   "year": "2000"
+  },
+  {
+   "country": "France",
+   "price_ind_electricity": 125.734281,
+   "price_ind_gas": 53.324964,
+   "price_resid_electricity": 165.43041,
+   "price_resid_gas": 74.901231,
+   "square_sum": -0.065385913,
+   "year": "2010"
+  },
+  {
+   "country": "France",
+   "price_ind_electricity": 198.735225,
+   "price_ind_gas": 87.411395,
+   "price_resid_electricity": 287.711338,
+   "price_resid_gas": 159.810363,
+   "square_sum": -0.233377962,
+   "year": "2025"
+  },
+  {
+   "country": "Greece",
+   "price_ind_electricity": 45.523045,
+   "price_ind_gas": 18.272258,
+   "price_resid_electricity": 70.593545,
+   "price_resid_gas": 22.169358,
+   "square_sum": 0.245392917,
+   "year": "2000"
+  },
+  {
+   "country": "Greece",
+   "price_ind_electricity": 125.732956,
+   "price_ind_gas": 49.102225,
+   "price_resid_electricity": 158.555711,
+   "price_resid_gas": 93.348788,
+   "square_sum": -0.410492778,
+   "year": "2010"
+  },
+  {
+   "country": "Greece",
+   "price_ind_electricity": 215.50495,
+   "price_ind_gas": 58.337976,
+   "price_resid_electricity": 287.021353,
+   "price_resid_gas": 105.178825,
+   "square_sum": -0.302835992,
+   "year": "2025"
+  },
+  {
+   "country": "Hungary",
+   "price_ind_electricity": 54.585178,
+   "price_ind_gas": 10.562591,
+   "price_resid_electricity": 65.331542,
+   "price_resid_gas": 13.450094,
+   "square_sum": -0.061954916,
+   "year": "2000"
+  },
+  {
+   "country": "Hungary",
+   "price_ind_electricity": 165.713109,
+   "price_ind_gas": 46.257233,
+   "price_resid_electricity": 218.477516,
+   "price_resid_gas": 58.565239,
+   "square_sum": 0.040501585,
+   "year": "2010"
+  },
+  {
+   "country": "Hungary",
+   "price_ind_electricity": 232.127696,
+   "price_ind_gas": 73.314422,
+   "price_resid_electricity": 125.594845,
+   "price_resid_gas": 35.625112,
+   "square_sum": 0.107480136,
+   "year": "2025"
+  },
+  {
+   "country": "Ireland",
+   "price_ind_electricity": 55.155946,
+   "price_ind_gas": 14.072533,
+   "price_resid_electricity": 101.562725,
+   "price_resid_gas": 29.756889,
+   "square_sum": -0.138323752,
+   "year": "2000"
+  },
+  {
+   "country": "Ireland",
+   "price_ind_electricity": 156.216063,
+   "price_ind_gas": 42.111677,
+   "price_resid_electricity": 232.678617,
+   "price_resid_gas": 73.68373,
+   "square_sum": -0.161038842,
+   "year": "2010"
+  },
+  {
+   "country": "Ireland",
+   "price_ind_electricity": 307.355285,
+   "price_ind_gas": 91.576127,
+   "price_resid_electricity": 390.709236,
+   "price_resid_gas": 159.46524,
+   "square_sum": -0.314696069,
+   "year": "2025"
+  },
+  {
+   "country": "Netherlands",
+   "price_ind_electricity": 67.059774,
+   "price_ind_gas": 16.788579,
+   "price_resid_electricity": 131.21985,
+   "price_resid_gas": 30.935647,
+   "square_sum": 0.06007948,
+   "year": "2000"
+  },
+  {
+   "country": "Netherlands",
+   "price_ind_electricity": 138.280616,
+   "price_ind_gas": 41.018065,
+   "price_resid_electricity": 221.360722,
+   "price_resid_gas": 86.170863,
+   "square_sum": -0.271810998,
+   "year": "2010"
+  },
+  {
+   "country": "Netherlands",
+   "price_ind_electricity": 252.19471,
+   "price_ind_gas": 81.284768,
+   "price_resid_electricity": 283.573775,
+   "price_resid_gas": 203.150619,
+   "square_sum": -0.798718155,
+   "year": "2025"
+  },
+  {
+   "country": "New Zealand",
+   "price_ind_electricity": 31.847458,
+   "price_ind_gas": 6.513303,
+   "price_resid_electricity": 60.242691,
+   "price_resid_gas": 23.406415,
+   "square_sum": -0.641739743,
+   "year": "2000"
+  },
+  {
+   "country": "New Zealand",
+   "price_ind_electricity": 79.688205,
+   "price_ind_gas": 23.696638,
+   "price_resid_electricity": 175.233287,
+   "price_resid_gas": 83.792912,
+   "square_sum": -0.475018668,
+   "year": "2010"
+  },
+  {
+   "country": "New Zealand",
+   "price_ind_electricity": 131.72836,
+   "price_ind_gas": 34.223292,
+   "price_resid_electricity": 217.143903,
+   "price_resid_gas": 132.340023,
+   "square_sum": -0.85264972,
+   "year": "2025"
+  },
+  {
+   "country": "Poland",
+   "price_ind_electricity": 45.005321,
+   "price_ind_gas": 13.954315,
+   "price_resid_electricity": 65.467117,
+   "price_resid_gas": 21.280011,
+   "square_sum": -0.047212143,
+   "year": "2000"
+  },
+  {
+   "country": "Poland",
+   "price_ind_electricity": 146.430455,
+   "price_ind_gas": 47.756774,
+   "price_resid_electricity": 182.753789,
+   "price_resid_gas": 71.160085,
+   "square_sum": -0.177221911,
+   "year": "2010"
+  },
+  {
+   "country": "Poland",
+   "price_ind_electricity": 263.011132,
+   "price_ind_gas": 70.24934,
+   "price_resid_electricity": 307.981788,
+   "price_resid_gas": 104.857525,
+   "square_sum": -0.242707318,
+   "year": "2025"
+  },
+  {
+   "country": "Slovak Republic",
+   "price_ind_electricity": 46.677122,
+   "price_ind_gas": 9.635571,
+   "price_resid_electricity": 50.339051,
+   "price_resid_gas": 9.350377,
+   "square_sum": 0.105571886,
+   "year": "2000"
+  },
+  {
+   "country": "Slovak Republic",
+   "price_ind_electricity": 203.629083,
+   "price_ind_gas": 54.651343,
+   "price_resid_electricity": 213.075808,
+   "price_resid_gas": 60.561996,
+   "square_sum": -0.057345889,
+   "year": "2010"
+  },
+  {
+   "country": "Slovak Republic",
+   "price_ind_electricity": 257.079692,
+   "price_ind_gas": 92.366381,
+   "price_resid_electricity": 220.231197,
+   "price_resid_gas": 82.74652,
+   "square_sum": -0.044727121,
+   "year": "2025"
+  },
+  {
+   "country": "Spain",
+   "price_ind_electricity": 49.498247,
+   "price_ind_gas": 17.529706,
+   "price_resid_electricity": 117.391164,
+   "price_resid_gas": 42.34065,
+   "square_sum": -0.018276304,
+   "year": "2000"
+  },
+  {
+   "country": "Spain",
+   "price_ind_electricity": 154.808573,
+   "price_ind_gas": 39.319099,
+   "price_resid_electricity": 236.880371,
+   "price_resid_gas": 73.940477,
+   "square_sum": -0.206184115,
+   "year": "2010"
+  },
+  {
+   "country": "Spain",
+   "price_ind_electricity": 184.876931,
+   "price_ind_gas": 63.219802,
+   "price_resid_electricity": 323.67989,
+   "price_resid_gas": 114.20629,
+   "square_sum": -0.031324132,
+   "year": "2025"
+  },
+  {
+   "country": "Switzerland",
+   "price_ind_electricity": 74.219451,
+   "price_ind_gas": 20.592796,
+   "price_resid_electricity": 111.259602,
+   "price_resid_gas": 35.350358,
+   "square_sum": -0.135527245,
+   "year": "2000"
+  },
+  {
+   "country": "Switzerland",
+   "price_ind_electricity": 120.712701,
+   "price_ind_gas": 61.233227,
+   "price_resid_electricity": 179.953898,
+   "price_resid_gas": 87.328101,
+   "square_sum": 0.044305011,
+   "year": "2010"
+  },
+  {
+   "country": "Switzerland",
+   "price_ind_electricity": 308.88352,
+   "price_ind_gas": 124.210054,
+   "price_resid_electricity": 359.894822,
+   "price_resid_gas": 180.699197,
+   "square_sum": -0.222012058,
+   "year": "2025"
+  },
+  {
+   "country": "United Kingdom",
+   "price_ind_electricity": 58.065819,
+   "price_ind_gas": 9.448414,
+   "price_resid_electricity": 106.705541,
+   "price_resid_gas": 25.180093,
+   "square_sum": -0.371710915,
+   "year": "2000"
+  },
+  {
+   "country": "United Kingdom",
+   "price_ind_electricity": 127.169222,
+   "price_ind_gas": 29.405311,
+   "price_resid_electricity": 184.031775,
+   "price_resid_gas": 56.622665,
+   "square_sum": -0.285644266,
+   "year": "2010"
+  },
+  {
+   "country": "United Kingdom",
+   "price_ind_electricity": 336.584202,
+   "price_ind_gas": 72.728426,
+   "price_resid_electricity": 420.747812,
+   "price_resid_gas": 100.050863,
+   "square_sum": -0.095761088,
+   "year": "2025"
+  }
+ ],
+ "config": {
+  "aggregates_dropped": [
+   "Africa",
+   "Americas",
+   "Asia",
+   "Europe",
+   "European Union - 27",
+   "G20",
+   "IEA",
+   "IEA and Accession/Association countries",
+   "OECD",
+   "OECD Americas",
+   "OECD Asia Oceania",
+   "OECD Europe",
+   "Oceania",
+   "World"
+  ],
+  "base_unit": "USDCUR",
+  "cache_dir": "data/cache/iea",
+  "endpoint": "https://api.iea.org/prices",
+  "refresh": false,
+  "series": {
+   "IE": [
+    "IND",
+    "ELECTR"
+   ],
+   "IG": [
+    "IND",
+    "NATGAS"
+   ],
+   "RE": [
+    "RESID",
+    "ELECTR"
+   ],
+   "RG": [
+    "RESID",
+    "NATGAS"
+   ]
+  },
+  "units": [
+   "USDCUR",
+   "NCCUR",
+   "PPPREA"
+  ],
+  "years": [
+   "2000",
+   "2010",
+   "2025"
+  ]
+ },
+ "criteria": {
+  "B49-1": {
+   "detail": "13 countries, 39 cells, 156 prices",
+   "kind": "instrument",
+   "name": "locked panel complete: all four series in all three years",
+   "passed": true
+  },
+  "B49-2": {
+   "detail": "ELECTR roster 111 record 111 all-three-years 38 paired 179; NATGAS roster 69 record 69 all-three-years 28 paired 102; KEROSENE roster 103 record 103 all-three-years 32 paired 122; LPG roster 96 record 96 all-three-years 15 paired 48; RESFUEL roster 73 record 73 all-three-years 19 paired 17; COAL roster 38 record 38 all-three-years 13 paired 22; GASOLINE roster 138 record 138 all-three-years 44 paired 0; DIESEL roster 137 record 137 all-three-years 46 paired 0",
+   "kind": "bookkeeping",
+   "name": "roster is never shorter than the records it names, and the gap between the two is reported per product (D37)",
+   "passed": true
+  },
+  "B49-3": {
+   "detail": "floor from NCCUR = 2.471e-03, worst cell Netherlands 2000",
+   "kind": "instrument",
+   "name": "square sum invariant to the currency the prices are quoted in (implementation check, not independent confirmation)",
+   "passed": true
+  },
+  "B49-4": {
+   "detail": "39 of 39 above 2.471e-03; smallest 7.4 x floor, median 56 x; at or below: none",
+   "kind": "instrument",
+   "name": "every square sum stands above the measured floor (D24); a cell at or below it is unreadable rather than zero",
+   "passed": true
+  },
+  "B49-5": {
+   "detail": "0 of 39 cells are exactly zero",
+   "kind": "rival",
+   "name": "no cell matches the rival's point prediction, which is that every square sum is exactly zero",
+   "passed": true
+  }
+ },
+ "currency_identity": {
+  "by_unit": {
+   "NCCUR": {
+    "cells_expected": 39,
+    "cells_present": 39,
+    "max_gap": 0.002470882218831516,
+    "median_gap": 9.191544414477448e-09,
+    "worst_cell": "Netherlands 2000"
+   },
+   "PPPREA": {
+    "cells_expected": 39,
+    "cells_present": 35,
+    "max_gap": 0.018300221158359165,
+    "median_gap": 1.2524415282655355e-08,
+    "worst_cell": "Poland 2025"
+   }
+  },
+  "floor": 0.002470882218831516,
+  "floor_unit": "NCCUR",
+  "note": "implementation check, not an independent confirmation"
+ },
+ "degeneracy_check": {
+  "edges_traversable": "both classes buy both carriers in every locked country, so this is a first cohomology object and not a reachability statement",
+  "terms_nonzero": "the two classes face separate published tariffs, so the first term is not zero by construction",
+  "unobserved": "the two transfer wedges are not observed; for the full sum to vanish they would have to cancel the measured term in every one of the cells",
+  "where_the_difference_is_published": "all four prices are compiled from national official sources and published annually, per carrier and per class"
+ },
+ "locked_cells": 39,
+ "locked_countries": [
+  "Algeria",
+  "Czechia",
+  "France",
+  "Greece",
+  "Hungary",
+  "Ireland",
+  "Netherlands",
+  "New Zealand",
+  "Poland",
+  "Slovak Republic",
+  "Spain",
+  "Switzerland",
+  "United Kingdom"
+ ],
+ "magnitude": {
+  "cells_above_floor": 39,
+  "cells_at_or_below_floor": [],
+  "cells_total": 39,
+  "max_abs": 0.85264972,
+  "median_abs": 0.138323752,
+  "median_multiple_of_floor": 55.98152390501782,
+  "min_abs": 0.018276304,
+  "smallest_multiple_of_floor": 7.396671464430584
+ },
+ "prices_behind_cells": 156,
+ "product_grid": {
+  "COAL": {
+   "countries_by_sector": {
+    "ELGEN": 18,
+    "IND": 21,
+    "RESID": 22,
+    "TRANS": 0
+   },
+   "paired_cells": 22,
+   "record_countries": 38,
+   "record_countries_all_three_years": 13,
+   "record_country_year_cells": 77,
+   "roster_countries": 38
+  },
+  "DIESEL": {
+   "countries_by_sector": {
+    "ELGEN": 0,
+    "IND": 0,
+    "RESID": 0,
+    "TRANS": 137
+   },
+   "paired_cells": 0,
+   "record_countries": 137,
+   "record_countries_all_three_years": 46,
+   "record_country_year_cells": 280,
+   "roster_countries": 137
+  },
+  "ELECTR": {
+   "countries_by_sector": {
+    "ELGEN": 0,
+    "IND": 88,
+    "RESID": 110,
+    "TRANS": 0
+   },
+   "paired_cells": 179,
+   "record_countries": 111,
+   "record_countries_all_three_years": 38,
+   "record_country_year_cells": 231,
+   "roster_countries": 111
+  },
+  "GASOLINE": {
+   "countries_by_sector": {
+    "ELGEN": 0,
+    "IND": 0,
+    "RESID": 0,
+    "TRANS": 138
+   },
+   "paired_cells": 0,
+   "record_countries": 138,
+   "record_countries_all_three_years": 44,
+   "record_country_year_cells": 3256,
+   "roster_countries": 138
+  },
+  "KEROSENE": {
+   "countries_by_sector": {
+    "ELGEN": 0,
+    "IND": 66,
+    "RESID": 99,
+    "TRANS": 0
+   },
+   "paired_cells": 122,
+   "record_countries": 103,
+   "record_countries_all_three_years": 32,
+   "record_country_year_cells": 219,
+   "roster_countries": 103
+  },
+  "LPG": {
+   "countries_by_sector": {
+    "ELGEN": 0,
+    "IND": 7,
+    "RESID": 89,
+    "TRANS": 42
+   },
+   "paired_cells": 48,
+   "record_countries": 96,
+   "record_countries_all_three_years": 15,
+   "record_country_year_cells": 175,
+   "roster_countries": 96
+  },
+  "NATGAS": {
+   "countries_by_sector": {
+    "ELGEN": 19,
+    "IND": 56,
+    "RESID": 58,
+    "TRANS": 15
+   },
+   "paired_cells": 102,
+   "record_countries": 69,
+   "record_countries_all_three_years": 28,
+   "record_country_year_cells": 147,
+   "roster_countries": 69
+  },
+  "RESFUEL": {
+   "countries_by_sector": {
+    "ELGEN": 15,
+    "IND": 71,
+    "RESID": 0,
+    "TRANS": 0
+   },
+   "paired_cells": 17,
+   "record_countries": 73,
+   "record_countries_all_three_years": 19,
+   "record_country_year_cells": 141,
+   "roster_countries": 73
+  }
+ },
+ "quoted_units": {
+  "NCCUR": {
+   "IE": [
+    "National currency/MWh"
+   ],
+   "IG": [
+    "National currency/MWh"
+   ],
+   "RE": [
+    "National currency/MWh"
+   ],
+   "RG": [
+    "National currency/MWh"
+   ]
+  },
+  "PPPREA": {
+   "IE": [
+    " 2020 USD PPP/MWh"
+   ],
+   "IG": [
+    " 2020 USD PPP/MWh"
+   ],
+   "RE": [
+    " 2020 USD PPP/MWh"
+   ],
+   "RG": [
+    " 2020 USD PPP/MWh"
+   ]
+  },
+  "USDCUR": {
+   "IE": [
+    "USD/MWh"
+   ],
+   "IG": [
+    "USD/MWh"
+   ],
+   "RE": [
+    "USD/MWh"
+   ],
+   "RG": [
+    "USD/MWh"
+   ]
+  }
+ },
+ "readings": {
+  "sign_and_median_by_year": "2000: 5+ 8- median -0.0472; 2010: 2+ 11- median -0.1610; 2025: 1+ 12- median -0.2302"
+ },
+ "rival_point_prediction": {
+  "cells_exactly_zero": 0,
+  "cells_total": 39,
+  "rival": "a scalar price field over positions, which predicts every square sum is exactly zero"
+ },
+ "stage": "B49"
+}

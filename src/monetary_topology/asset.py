@@ -894,8 +894,10 @@ def loop_sum(terms: np.ndarray, a: int, b: int, tier: int, periods: int) -> floa
     agree with lives in ``product_graph.py``, and the two are kept apart on
     purpose: if the simulated exponent and the loop sum were computed by the
     same code, their agreement would be an identity and A3-4 would establish
-    nothing. ``scripts/run_all.py`` asserts the two modules do not import each
-    other.
+    nothing. ``experiments/a3_asset_channel.py`` asserts at the AST level, on every run
+    of that stage, that the two modules do not import each other. (Corrected
+    2026-09-07: this said ``scripts/run_all.py``, which has never carried an
+    A3 job at all. The guard is where it always was and the argument stands.)
     """
     if periods < 1:
         raise ValueError("periods must be at least 1")

@@ -524,8 +524,8 @@ def main() -> int:
                     "pre-window at all"
                 ),
                 "detail": _detail(primary, collapse),
-                # `void` is this repository's third state and `run_all.py`
-                # already honours it: a criterion the run could not evaluate is
+                # `void` is this repository's third state, honoured by
+                # `run_all.py` (legacy from 2026-09-07) and by the ledger: a criterion the run could not evaluate is
                 # not a criterion the run failed, so it leaves both the numerator
                 # and the denominator. `passed` stays a bool so the field keeps
                 # one type (discipline 22); `void` is what carries the meaning.

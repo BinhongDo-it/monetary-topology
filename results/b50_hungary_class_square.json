@@ -1,0 +1,984 @@
+{
+ "cells": [
+  {
+   "I_TAX": -0.075091,
+   "X_TAX": -0.099728,
+   "X_VAT": -0.075148,
+   "price_ind_elec": 34.16,
+   "price_ind_gas": 2595.84,
+   "price_resid_elec": 32.71,
+   "price_resid_gas": 2679.49,
+   "semester": "2007-S2"
+  },
+  {
+   "I_TAX": 0.155838,
+   "X_TAX": 0.135097,
+   "X_VAT": 0.155904,
+   "price_ind_elec": 34.77,
+   "price_ind_gas": 2948.69,
+   "price_resid_elec": 39.28,
+   "price_resid_gas": 2850.47,
+   "semester": "2008-S1"
+  },
+  {
+   "I_TAX": 0.144608,
+   "X_TAX": 0.127154,
+   "X_VAT": 0.144658,
+   "price_ind_elec": 36.49,
+   "price_ind_gas": 3510.11,
+   "price_resid_elec": 38.78,
+   "price_resid_gas": 3228.14,
+   "semester": "2008-S2"
+  },
+  {
+   "I_TAX": -0.081307,
+   "X_TAX": -0.099772,
+   "X_VAT": -0.081212,
+   "price_ind_elec": 43.1171,
+   "price_ind_gas": 3585.5752,
+   "price_resid_elec": 43,
+   "price_resid_gas": 3878.7264,
+   "semester": "2009-S1"
+  },
+  {
+   "I_TAX": -0.024642,
+   "X_TAX": -0.050305,
+   "X_VAT": -0.024745,
+   "price_ind_elec": 43.87,
+   "price_ind_gas": 3407.58,
+   "price_resid_elec": 45.06,
+   "price_resid_gas": 3587.33,
+   "semester": "2009-S2"
+  },
+  {
+   "I_TAX": -0.10603,
+   "X_TAX": -0.137052,
+   "X_VAT": -0.110092,
+   "price_ind_elec": 35.86,
+   "price_ind_gas": 2819.26,
+   "price_resid_elec": 46.22,
+   "price_resid_gas": 4040.2,
+   "semester": "2010-S1"
+  },
+  {
+   "I_TAX": -0.031775,
+   "X_TAX": -0.055968,
+   "X_VAT": -0.035521,
+   "price_ind_elec": 36.6127,
+   "price_ind_gas": 3465.74,
+   "price_resid_elec": 43.92,
+   "price_resid_gas": 4291.67,
+   "semester": "2010-S2"
+  },
+  {
+   "I_TAX": -0.091823,
+   "X_TAX": -0.098901,
+   "X_VAT": -0.073554,
+   "price_ind_elec": 34.2399,
+   "price_ind_gas": 2892.27,
+   "price_resid_elec": 45.3099,
+   "price_resid_gas": 4195.44,
+   "semester": "2011-S1"
+  },
+  {
+   "I_TAX": 0.128086,
+   "X_TAX": 0.181396,
+   "X_VAT": 0.185345,
+   "price_ind_elec": 38.0968,
+   "price_ind_gas": 4411.21,
+   "price_resid_elec": 44.9311,
+   "price_resid_gas": 4577.09,
+   "semester": "2011-S2"
+  },
+  {
+   "I_TAX": 0.403004,
+   "X_TAX": 0.398725,
+   "X_VAT": 0.400434,
+   "price_ind_elec": 35.1675,
+   "price_ind_gas": 4562.06,
+   "price_resid_elec": 45.7608,
+   "price_resid_gas": 3967.26,
+   "semester": "2012-S1"
+  },
+  {
+   "I_TAX": 0.387901,
+   "X_TAX": 0.383449,
+   "X_VAT": 0.385438,
+   "price_ind_elec": 35.5451,
+   "price_ind_gas": 4649.22,
+   "price_resid_elec": 45.8167,
+   "price_resid_gas": 4065.94,
+   "semester": "2012-S2"
+  },
+  {
+   "I_TAX": 0.339572,
+   "X_TAX": 0.306367,
+   "X_VAT": 0.338113,
+   "price_ind_elec": 35.8121,
+   "price_ind_gas": 4323.66,
+   "price_resid_elec": 41.3545,
+   "price_resid_gas": 3555.25,
+   "semester": "2013-S1"
+  },
+  {
+   "I_TAX": 0.444701,
+   "X_TAX": 0.445215,
+   "X_VAT": 0.439113,
+   "price_ind_elec": 36.59,
+   "price_ind_gas": 5021.2,
+   "price_resid_elec": 39.4858,
+   "price_resid_gas": 3473.4,
+   "semester": "2013-S2"
+  },
+  {
+   "I_TAX": 0.376528,
+   "X_TAX": 0.414109,
+   "X_VAT": 0.360637,
+   "price_ind_elec": 35.054,
+   "price_ind_gas": 4311.89,
+   "price_resid_elec": 36.8927,
+   "price_resid_gas": 3114.2,
+   "semester": "2014-S1"
+  },
+  {
+   "I_TAX": 0.363334,
+   "X_TAX": 0.39516,
+   "X_VAT": 0.347358,
+   "price_ind_elec": 34.8693,
+   "price_ind_gas": 4261.35,
+   "price_resid_elec": 35.5661,
+   "price_resid_gas": 3022.36,
+   "semester": "2014-S2"
+  },
+  {
+   "I_TAX": 0.321659,
+   "X_TAX": 0.361126,
+   "X_VAT": 0.302173,
+   "price_ind_elec": 33.2061,
+   "price_ind_gas": 3984.27,
+   "price_resid_elec": 34.6542,
+   "price_resid_gas": 3014.34,
+   "semester": "2015-S1"
+  },
+  {
+   "I_TAX": 0.252945,
+   "X_TAX": 0.286552,
+   "X_VAT": 0.233828,
+   "price_ind_elec": 33.8596,
+   "price_ind_gas": 3723.11,
+   "price_resid_elec": 35.7686,
+   "price_resid_gas": 3054.03,
+   "semester": "2015-S2"
+  },
+  {
+   "I_TAX": 0.260344,
+   "X_TAX": 0.284286,
+   "X_VAT": 0.242704,
+   "price_ind_elec": 31.4072,
+   "price_ind_gas": 3498.23,
+   "price_resid_elec": 34.8246,
+   "price_resid_gas": 2989.78,
+   "semester": "2016-S1"
+  },
+  {
+   "I_TAX": 0.094723,
+   "X_TAX": 0.102998,
+   "X_VAT": 0.076732,
+   "price_ind_elec": 30.7816,
+   "price_ind_gas": 3004.65,
+   "price_resid_elec": 34.9106,
+   "price_resid_gas": 3099.72,
+   "semester": "2016-S2"
+  },
+  {
+   "I_TAX": 0.112015,
+   "X_TAX": 0.177959,
+   "X_VAT": 0.077099,
+   "price_ind_elec": 29.3027,
+   "price_ind_gas": 2848.49,
+   "price_resid_elec": 34.8075,
+   "price_resid_gas": 3025.05,
+   "semester": "2017-S1"
+  },
+  {
+   "I_TAX": 0.015113,
+   "X_TAX": 0.090011,
+   "X_VAT": -0.018152,
+   "price_ind_elec": 29.562,
+   "price_ind_gas": 2683.4009,
+   "price_resid_elec": 35.028,
+   "price_resid_gas": 3131.8697,
+   "semester": "2017-S2"
+  },
+  {
+   "I_TAX": -0.074664,
+   "X_TAX": -0.039418,
+   "X_VAT": -0.098387,
+   "price_ind_elec": 32.7328,
+   "price_ind_gas": 2691.4389,
+   "price_resid_elec": 35.2862,
+   "price_resid_gas": 3126.3122,
+   "semester": "2018-S1"
+  },
+  {
+   "I_TAX": 0.129066,
+   "X_TAX": 0.164612,
+   "X_VAT": 0.109374,
+   "price_ind_elec": 33.114,
+   "price_ind_gas": 3248.7825,
+   "price_resid_elec": 36.1623,
+   "price_resid_gas": 3118.259,
+   "semester": "2018-S2"
+  },
+  {
+   "I_TAX": -0.011432,
+   "X_TAX": 0.024778,
+   "X_VAT": -0.033445,
+   "price_ind_elec": 38.623,
+   "price_ind_gas": 3273.4442,
+   "price_resid_elec": 35.8898,
+   "price_resid_gas": 3076.77,
+   "semester": "2019-S1"
+  },
+  {
+   "I_TAX": -0.041856,
+   "X_TAX": -0.023299,
+   "X_VAT": -0.061811,
+   "price_ind_elec": 39.1999,
+   "price_ind_gas": 3183.7224,
+   "price_resid_elec": 36.1969,
+   "price_resid_gas": 3065.4857,
+   "semester": "2019-S2"
+  },
+  {
+   "I_TAX": -0.117136,
+   "X_TAX": -0.057614,
+   "X_VAT": -0.146808,
+   "price_ind_elec": 42.3507,
+   "price_ind_gas": 3236.4767,
+   "price_resid_elec": 35.615,
+   "price_resid_gas": 3059.9647,
+   "semester": "2020-S1"
+  },
+  {
+   "I_TAX": -0.239045,
+   "X_TAX": -0.216737,
+   "X_VAT": -0.261425,
+   "price_ind_elec": 41.6634,
+   "price_ind_gas": 2783.3405,
+   "price_resid_elec": 36.0097,
+   "price_resid_gas": 3055.2536,
+   "semester": "2020-S2"
+  },
+  {
+   "I_TAX": -0.200722,
+   "X_TAX": -0.179997,
+   "X_VAT": -0.222365,
+   "price_ind_elec": 40.9569,
+   "price_ind_gas": 2827.3735,
+   "price_resid_elec": 36.1366,
+   "price_resid_gas": 3049.1306,
+   "semester": "2021-S1"
+  },
+  {
+   "I_TAX": 0.392218,
+   "X_TAX": 0.374402,
+   "X_VAT": 0.386906,
+   "price_ind_elec": 46.8264,
+   "price_ind_gas": 5849.4293,
+   "price_resid_elec": 36.0344,
+   "price_resid_gas": 3040.8987,
+   "semester": "2021-S2"
+  },
+  {
+   "I_TAX": 0.115649,
+   "X_TAX": 0.044546,
+   "X_VAT": 0.127764,
+   "price_ind_elec": 79.6972,
+   "price_ind_gas": 7632.4979,
+   "price_resid_elec": 35.5604,
+   "price_resid_gas": 3033.642,
+   "semester": "2022-S1"
+  },
+  {
+   "I_TAX": 0.770889,
+   "X_TAX": 0.700831,
+   "X_VAT": 0.76733,
+   "price_ind_elec": 115.868,
+   "price_ind_gas": 22412.7898,
+   "price_resid_elec": 44.1198,
+   "price_resid_gas": 3947.9628,
+   "semester": "2022-S2"
+  },
+  {
+   "I_TAX": 0.189736,
+   "X_TAX": 0.170705,
+   "X_VAT": 0.184831,
+   "price_ind_elec": 147.949,
+   "price_ind_gas": 14458.9952,
+   "price_resid_elec": 44.0494,
+   "price_resid_gas": 3560.9394,
+   "semester": "2023-S1"
+  },
+  {
+   "I_TAX": 0.000169,
+   "X_TAX": -0.032688,
+   "X_VAT": -0.006068,
+   "price_ind_elec": 130.2054,
+   "price_ind_gas": 10694.7653,
+   "price_resid_elec": 43.3256,
+   "price_resid_gas": 3558.0609,
+   "semester": "2023-S2"
+  },
+  {
+   "I_TAX": 0.133173,
+   "X_TAX": 0.150162,
+   "X_VAT": 0.112642,
+   "price_ind_elec": 110.6066,
+   "price_ind_gas": 8818.9548,
+   "price_resid_elec": 42.6268,
+   "price_resid_gas": 2974.9708,
+   "semester": "2024-S1"
+  },
+  {
+   "I_TAX": -0.153157,
+   "X_TAX": -0.167561,
+   "X_VAT": -0.165859,
+   "price_ind_elec": 114.6509,
+   "price_ind_gas": 8352.1874,
+   "price_resid_elec": 41.3442,
+   "price_resid_gas": 3510.3666,
+   "semester": "2024-S2"
+  },
+  {
+   "I_TAX": -0.099045,
+   "X_TAX": -0.09267,
+   "X_VAT": -0.117396,
+   "price_ind_elec": 107.9204,
+   "price_ind_gas": 7989.28,
+   "price_resid_elec": 42.0573,
+   "price_resid_gas": 3437.6372,
+   "semester": "2025-S1"
+  },
+  {
+   "I_TAX": -0.225658,
+   "X_TAX": -0.245125,
+   "X_VAT": -0.241596,
+   "price_ind_elec": 104.2426,
+   "price_ind_gas": 7147.4707,
+   "price_resid_elec": 42.3146,
+   "price_resid_gas": 3635.7966,
+   "semester": "2025-S2"
+  }
+ ],
+ "clean_window_reading": {
+  "abs_change": 0.048329,
+  "floor": 0.0007404370264278981,
+  "median_of_other_transitions": 0.096902,
+  "multiple_of_floor": 65.3,
+  "percentile_in_own_movement": 22,
+  "premise_holds": false,
+  "verdict": "premise does not hold: the two household carriers did not move by the same proportion, so this window carries no point prediction to judge"
+ },
+ "config": {
+  "base_currency": "NAC",
+  "base_tax": "I_TAX",
+  "cache_dir": "data/cache/eurostat",
+  "currencies": [
+   "NAC",
+   "EUR",
+   "PPS"
+  ],
+  "endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/",
+  "geo": "HU",
+  "legs": {
+   "IE": {
+    "band": "MWH500-1999",
+    "ds": "nrg_pc_205",
+    "unit": "KWH",
+    "what": "non-household electricity, 500 to 2 000 MWh"
+   },
+   "IG": {
+    "band": "GJ10000-99999",
+    "ds": "nrg_pc_203",
+    "unit": "GJ_GCV",
+    "what": "non-household gas, 10 000 to 100 000 GJ"
+   },
+   "RE": {
+    "band": "KWH2500-4999",
+    "ds": "nrg_pc_204",
+    "unit": "KWH",
+    "what": "household electricity, 2 500 to 5 000 kWh"
+   },
+   "RG": {
+    "band": "GJ20-199",
+    "ds": "nrg_pc_202",
+    "unit": "GJ_GCV",
+    "what": "household gas, 20 to 200 GJ"
+   }
+  },
+  "refresh": false,
+  "rounds": [
+   {
+    "date": "2013-01-01",
+    "electricity": -0.1,
+    "equal_sized": true,
+    "gas": -0.1,
+    "month_in_semester": 1,
+    "months_covered": 6,
+    "previous": "2012-S2",
+    "semester": "2013-S1"
+   },
+   {
+    "date": "2013-11-01",
+    "electricity": -0.111,
+    "equal_sized": true,
+    "gas": -0.111,
+    "month_in_semester": 5,
+    "months_covered": 2,
+    "previous": "2013-S1",
+    "semester": "2013-S2"
+   },
+   {
+    "date": "2014-04-01",
+    "electricity": 0.0,
+    "equal_sized": false,
+    "gas": -0.065,
+    "month_in_semester": 4,
+    "months_covered": 3,
+    "previous": "2013-S2",
+    "semester": "2014-S1"
+   },
+   {
+    "date": "2014-09-01",
+    "electricity": -0.057,
+    "equal_sized": false,
+    "gas": 0.0,
+    "month_in_semester": 3,
+    "months_covered": 4,
+    "previous": "2014-S1",
+    "semester": "2014-S2"
+   },
+   {
+    "date": "2022-08-01",
+    "electricity": null,
+    "equal_sized": false,
+    "gas": null,
+    "month_in_semester": 2,
+    "months_covered": 5,
+    "previous": "2022-S1",
+    "semester": "2022-S2"
+   }
+  ],
+  "taxes": [
+   "X_TAX",
+   "X_VAT",
+   "I_TAX"
+  ],
+  "windows": {
+   "clean": {
+    "from": "2012-S2",
+    "prediction": "square sum does not move",
+    "status": "load-bearing",
+    "to": "2013-S1"
+   },
+   "confounded": {
+    "from": "2022-S1",
+    "prediction": "square sum falls",
+    "status": "downgraded in advance, the industrial leg moves in the same semester for reasons outside the law",
+    "to": "2022-S2"
+   },
+   "small": {
+    "from": "2013-S2",
+    "prediction": "square sum rises by about +0.0085",
+    "status": "registered in advance as likely below the floor",
+    "to": "2015-S1"
+   }
+  }
+ },
+ "coverage": {
+  "IE": {
+   "band": "MWH500-1999",
+   "band_semesters": 37,
+   "band_span": [
+    "2007-S2",
+    "2025-S2"
+   ],
+   "dataset": "nrg_pc_205",
+   "total_band": "TOT_KWH",
+   "total_semesters": 10,
+   "total_span": [
+    "2021-S1",
+    "2025-S2"
+   ]
+  },
+  "IG": {
+   "band": "GJ10000-99999",
+   "band_semesters": 37,
+   "band_span": [
+    "2007-S2",
+    "2025-S2"
+   ],
+   "dataset": "nrg_pc_203",
+   "total_band": "TOT_GJ",
+   "total_semesters": 6,
+   "total_span": [
+    "2021-S2",
+    "2024-S1"
+   ]
+  },
+  "RE": {
+   "band": "KWH2500-4999",
+   "band_semesters": 37,
+   "band_span": [
+    "2007-S2",
+    "2025-S2"
+   ],
+   "dataset": "nrg_pc_204",
+   "total_band": "TOT_KWH",
+   "total_semesters": 10,
+   "total_span": [
+    "2021-S1",
+    "2025-S2"
+   ]
+  },
+  "RG": {
+   "band": "GJ20-199",
+   "band_semesters": 37,
+   "band_span": [
+    "2007-S2",
+    "2025-S2"
+   ],
+   "dataset": "nrg_pc_202",
+   "total_band": "TOT_GJ",
+   "total_semesters": 1,
+   "total_span": [
+    "2024-S1",
+    "2024-S1"
+   ]
+  }
+ },
+ "criteria": {
+  "B50-1": {
+   "detail": "37 semesters with all four legs, 37 of them in all three tax bases, 2007-S2..2025-S2",
+   "kind": "instrument",
+   "name": "the panel is complete: four legs across the semesters, in all three tax bases",
+   "passed": true
+  },
+  "B50-2": {
+   "detail": "RE band 37 vs total 10; IE band 37 vs total 10; RG band 37 vs total 1; IG band 37 vs total 6",
+   "kind": "instrument",
+   "name": "the reading uses the per-band series, which carries more semesters than the total band it would be natural to take",
+   "passed": true
+  },
+  "B50-3": {
+   "detail": "floor 7.404e-04 over 37 comparisons in EUR, worst at 2018-S2 EUR; ['PPS'] reported separately at 5.190e-02 and excluded from the floor",
+   "kind": "instrument",
+   "name": "the square sum does not move with the currency the prices are quoted in (implementation check, not independent confirmation)",
+   "passed": true
+  },
+  "B50-4": {
+   "detail": "change -0.048329, 65.3x the floor 7.404e-04, 22th percentile of the 36 own transitions whose median is 0.096902: premise does not hold: the two household carriers did not move by the same proportion, so this window carries no point prediction to judge",
+   "kind": "own_reading",
+   "name": "point prediction over the clean window, read in four states: the premise of equal proportional cuts failing leaves nothing to judge; otherwise below the floor confirms it, above the floor and above this quantity's own median movement refutes it, and above the floor but inside that movement is undecidable",
+   "passed": null,
+   "state": "premise does not hold: the two household carriers did not move by the same proportion, so this window carries no point prediction to judge"
+  },
+  "B50-5": {
+   "detail": "dlog household electricity -0.102467, household gas -0.134220, difference 0.031753 against floor 7.404e-04",
+   "kind": "premise",
+   "name": "the arithmetic premise of B50-4: over the same window the two household carriers moved by the same proportion. The statute sets a ceiling rather than an equality, so cutting one carrier further than the other breaks the premise without breaking the statute",
+   "passed": false
+  },
+  "B50-6": {
+   "detail": "X_TAX -0.106024, I_TAX -0.102467",
+   "kind": "premise",
+   "name": "the cut reached the price and not only the tax: the household leg moves the same way with tax excluded as with tax included",
+   "passed": true
+  }
+ },
+ "currency_identity": {
+  "comparisons": 37,
+  "floor_currencies": [
+   "EUR"
+  ],
+  "max_gap": 0.0007404370264278981,
+  "median_gap": 0.00020990462862613413,
+  "note": "implementation check, not an independent confirmation",
+  "reported_only": {
+   "comparisons": 37,
+   "currencies": [
+    "PPS"
+   ],
+   "max_gap": 0.05189786609591085,
+   "why_excluded": "not a single scalar per country-semester, so it is not forced to cancel and cannot bound the instrument",
+   "worst": "2021-S1 PPS"
+  },
+  "worst": "2018-S2 EUR"
+ },
+ "household_electricity_by_tax_base": {
+  "I_TAX": -0.102467,
+  "X_TAX": -0.106024
+ },
+ "own_movement": {
+  "abs_max": 0.65524,
+  "abs_median": 0.096902,
+  "abs_min": 0.007399,
+  "steps": [
+   {
+    "change": 0.230928,
+    "from": "2007-S2",
+    "to": "2008-S1"
+   },
+   {
+    "change": -0.01123,
+    "from": "2008-S1",
+    "to": "2008-S2"
+   },
+   {
+    "change": -0.225915,
+    "from": "2008-S2",
+    "to": "2009-S1"
+   },
+   {
+    "change": 0.056666,
+    "from": "2009-S1",
+    "to": "2009-S2"
+   },
+   {
+    "change": -0.081388,
+    "from": "2009-S2",
+    "to": "2010-S1"
+   },
+   {
+    "change": 0.074254,
+    "from": "2010-S1",
+    "to": "2010-S2"
+   },
+   {
+    "change": -0.060048,
+    "from": "2010-S2",
+    "to": "2011-S1"
+   },
+   {
+    "change": 0.219908,
+    "from": "2011-S1",
+    "to": "2011-S2"
+   },
+   {
+    "change": 0.274919,
+    "from": "2011-S2",
+    "to": "2012-S1"
+   },
+   {
+    "change": -0.015103,
+    "from": "2012-S1",
+    "to": "2012-S2"
+   },
+   {
+    "change": -0.048329,
+    "from": "2012-S2",
+    "to": "2013-S1"
+   },
+   {
+    "change": 0.105129,
+    "from": "2013-S1",
+    "to": "2013-S2"
+   },
+   {
+    "change": -0.068173,
+    "from": "2013-S2",
+    "to": "2014-S1"
+   },
+   {
+    "change": -0.013194,
+    "from": "2014-S1",
+    "to": "2014-S2"
+   },
+   {
+    "change": -0.041676,
+    "from": "2014-S2",
+    "to": "2015-S1"
+   },
+   {
+    "change": -0.068713,
+    "from": "2015-S1",
+    "to": "2015-S2"
+   },
+   {
+    "change": 0.007399,
+    "from": "2015-S2",
+    "to": "2016-S1"
+   },
+   {
+    "change": -0.165621,
+    "from": "2016-S1",
+    "to": "2016-S2"
+   },
+   {
+    "change": 0.017292,
+    "from": "2016-S2",
+    "to": "2017-S1"
+   },
+   {
+    "change": -0.096902,
+    "from": "2017-S1",
+    "to": "2017-S2"
+   },
+   {
+    "change": -0.089777,
+    "from": "2017-S2",
+    "to": "2018-S1"
+   },
+   {
+    "change": 0.20373,
+    "from": "2018-S1",
+    "to": "2018-S2"
+   },
+   {
+    "change": -0.140499,
+    "from": "2018-S2",
+    "to": "2019-S1"
+   },
+   {
+    "change": -0.030423,
+    "from": "2019-S1",
+    "to": "2019-S2"
+   },
+   {
+    "change": -0.07528,
+    "from": "2019-S2",
+    "to": "2020-S1"
+   },
+   {
+    "change": -0.121909,
+    "from": "2020-S1",
+    "to": "2020-S2"
+   },
+   {
+    "change": 0.038323,
+    "from": "2020-S2",
+    "to": "2021-S1"
+   },
+   {
+    "change": 0.59294,
+    "from": "2021-S1",
+    "to": "2021-S2"
+   },
+   {
+    "change": -0.276568,
+    "from": "2021-S2",
+    "to": "2022-S1"
+   },
+   {
+    "change": 0.65524,
+    "from": "2022-S1",
+    "to": "2022-S2"
+   },
+   {
+    "change": -0.581153,
+    "from": "2022-S2",
+    "to": "2023-S1"
+   },
+   {
+    "change": -0.189567,
+    "from": "2023-S1",
+    "to": "2023-S2"
+   },
+   {
+    "change": 0.133003,
+    "from": "2023-S2",
+    "to": "2024-S1"
+   },
+   {
+    "change": -0.286329,
+    "from": "2024-S1",
+    "to": "2024-S2"
+   },
+   {
+    "change": 0.054112,
+    "from": "2024-S2",
+    "to": "2025-S1"
+   },
+   {
+    "change": -0.126614,
+    "from": "2025-S1",
+    "to": "2025-S2"
+   }
+  ],
+  "transitions": 36
+ },
+ "panel": {
+  "n_semesters": 37,
+  "n_semesters_all_three_tax_bases": 37,
+  "semesters_all_four_legs": [
+   "2007-S2",
+   "2008-S1",
+   "2008-S2",
+   "2009-S1",
+   "2009-S2",
+   "2010-S1",
+   "2010-S2",
+   "2011-S1",
+   "2011-S2",
+   "2012-S1",
+   "2012-S2",
+   "2013-S1",
+   "2013-S2",
+   "2014-S1",
+   "2014-S2",
+   "2015-S1",
+   "2015-S2",
+   "2016-S1",
+   "2016-S2",
+   "2017-S1",
+   "2017-S2",
+   "2018-S1",
+   "2018-S2",
+   "2019-S1",
+   "2019-S2",
+   "2020-S1",
+   "2020-S2",
+   "2021-S1",
+   "2021-S2",
+   "2022-S1",
+   "2022-S2",
+   "2023-S1",
+   "2023-S2",
+   "2024-S1",
+   "2024-S2",
+   "2025-S1",
+   "2025-S2"
+  ]
+ },
+ "readings": {
+  "confounded_window": {
+   "dlog_IE": 0.374217,
+   "dlog_IG": 1.077217,
+   "dlog_RE": 0.215676,
+   "dlog_RG": 0.263436,
+   "from": "2022-S1",
+   "prediction": "square sum falls",
+   "square_I_TAX": {
+    "after": 0.770889,
+    "before": 0.115649,
+    "change": 0.65524
+   },
+   "square_X_TAX": {
+    "after": 0.700831,
+    "before": 0.044546,
+    "change": 0.656285
+   },
+   "square_X_VAT": {
+    "after": 0.76733,
+    "before": 0.127764,
+    "change": 0.639566
+   },
+   "status": "downgraded in advance, the industrial leg moves in the same semester for reasons outside the law",
+   "to": "2022-S2"
+  },
+  "small_window": {
+   "dlog_IE": -0.097041,
+   "dlog_IG": -0.231315,
+   "dlog_RE": -0.130522,
+   "dlog_RG": -0.141753,
+   "from": "2013-S2",
+   "prediction": "square sum rises by about +0.0085",
+   "square_I_TAX": {
+    "after": 0.321659,
+    "before": 0.444701,
+    "change": -0.123043
+   },
+   "square_X_TAX": {
+    "after": 0.361126,
+    "before": 0.445215,
+    "change": -0.084089
+   },
+   "square_X_VAT": {
+    "after": 0.302173,
+    "before": 0.439113,
+    "change": -0.13694
+   },
+   "status": "registered in advance as likely below the floor",
+   "to": "2015-S1"
+  }
+ },
+ "stage": "B50",
+ "windows": {
+  "clean": {
+   "dlog_IE": 0.007484,
+   "dlog_IG": -0.072597,
+   "dlog_RE": -0.102467,
+   "dlog_RG": -0.13422,
+   "from": "2012-S2",
+   "prediction": "square sum does not move",
+   "square_I_TAX": {
+    "after": 0.339572,
+    "before": 0.387901,
+    "change": -0.048329
+   },
+   "square_X_TAX": {
+    "after": 0.306367,
+    "before": 0.383449,
+    "change": -0.077083
+   },
+   "square_X_VAT": {
+    "after": 0.338113,
+    "before": 0.385438,
+    "change": -0.047325
+   },
+   "status": "load-bearing",
+   "to": "2013-S1"
+  },
+  "confounded": {
+   "dlog_IE": 0.374217,
+   "dlog_IG": 1.077217,
+   "dlog_RE": 0.215676,
+   "dlog_RG": 0.263436,
+   "from": "2022-S1",
+   "prediction": "square sum falls",
+   "square_I_TAX": {
+    "after": 0.770889,
+    "before": 0.115649,
+    "change": 0.65524
+   },
+   "square_X_TAX": {
+    "after": 0.700831,
+    "before": 0.044546,
+    "change": 0.656285
+   },
+   "square_X_VAT": {
+    "after": 0.76733,
+    "before": 0.127764,
+    "change": 0.639566
+   },
+   "status": "downgraded in advance, the industrial leg moves in the same semester for reasons outside the law",
+   "to": "2022-S2"
+  },
+  "small": {
+   "dlog_IE": -0.097041,
+   "dlog_IG": -0.231315,
+   "dlog_RE": -0.130522,
+   "dlog_RG": -0.141753,
+   "from": "2013-S2",
+   "prediction": "square sum rises by about +0.0085",
+   "square_I_TAX": {
+    "after": 0.321659,
+    "before": 0.444701,
+    "change": -0.123043
+   },
+   "square_X_TAX": {
+    "after": 0.361126,
+    "before": 0.445215,
+    "change": -0.084089
+   },
+   "square_X_VAT": {
+    "after": 0.302173,
+    "before": 0.439113,
+    "change": -0.13694
+   },
+   "status": "registered in advance as likely below the floor",
+   "to": "2015-S1"
+  }
+ }
+}

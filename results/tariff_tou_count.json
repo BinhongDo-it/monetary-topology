@@ -1,0 +1,1650 @@
+{
+ "across_customer_classes": {
+  "Armenia": {
+   "commercial": 2,
+   "industrial": 2
+  },
+  "Bangladesh": {
+   "commercial": 2,
+   "industrial": 2
+  },
+  "Burkina Faso": {
+   "commercial": 2,
+   "industrial": 2
+  },
+  "China": {
+   "agricultural": 2,
+   "commercial": 4,
+   "industrial": 4
+  },
+  "C\u00f4te d'Ivoire": {
+   "commercial": 3,
+   "industrial": 3
+  },
+  "India": {
+   "commercial": 4,
+   "industrial": 4
+  },
+  "Jordan": {
+   "agricultural": 2,
+   "industrial": 2
+  },
+  "Malaysia": {
+   "commercial": 2,
+   "industrial": 2
+  },
+  "Mongolia": {
+   "commercial": 3,
+   "industrial": 3
+  },
+  "Tunisia": {
+   "agricultural": 2,
+   "commercial": 3
+  },
+  "Turkey": {
+   "commercial": 3,
+   "industrial": 4
+  },
+  "Zimbabwe": {
+   "agricultural": 2,
+   "commercial": 3,
+   "industrial": 3
+  }
+ },
+ "across_customer_classes_same": [
+  "Jordan",
+  "Armenia",
+  "Bangladesh",
+  "Burkina Faso",
+  "C\u00f4te d'Ivoire",
+  "India",
+  "Malaysia",
+  "Mongolia"
+ ],
+ "arm": "time-of-use",
+ "collisions": {
+  "exact": 2,
+  "exact_rows": [
+   {
+    "annex": "commercial",
+    "charges": [
+     "0",
+     "0",
+     "0.01",
+     "0.02"
+    ],
+    "country": "India"
+   },
+   {
+    "annex": "industrial",
+    "charges": [
+     "0",
+     "0",
+     "0.01",
+     "0.02"
+    ],
+    "country": "India"
+   }
+  ],
+  "resolution_limited": 5,
+  "total": 7
+ },
+ "column_consistency": {
+  "charges_present_but_structure_silent": [
+   [
+    "commercial",
+    "Australia",
+    "DBT"
+   ],
+   [
+    "industrial",
+    "Armenia",
+    "kV-dependent"
+   ],
+   [
+    "industrial",
+    "Nepal",
+    "Linear"
+   ],
+   [
+    "industrial",
+    "Zimbabwe",
+    "Linear"
+   ]
+  ],
+  "structure_says_tou_but_no_charges": [
+   [
+    "agricultural",
+    "Iran, Islamic Rep.",
+    "Linear/Multiple/TOU"
+   ],
+   [
+    "agricultural",
+    "Morocco",
+    "Linear/Multiple/TOU"
+   ],
+   [
+    "agricultural",
+    "Turkey",
+    "Linear/TOU"
+   ],
+   [
+    "commercial",
+    "Korea, Rep.",
+    "Linear/Multiple/TOU -"
+   ],
+   [
+    "industrial",
+    "Congo, Dem. Rep.",
+    "Linear/TOU"
+   ],
+   [
+    "industrial",
+    "Iran, Islamic Rep.",
+    "Linear/TOU"
+   ],
+   [
+    "industrial",
+    "Nicaragua",
+    "Multiple/TOU"
+   ]
+  ]
+ },
+ "config": {
+  "annexes": [
+   "agricultural",
+   "commercial",
+   "industrial"
+  ],
+  "known_answer": {
+   "blocks": 179,
+   "collisions": 23,
+   "distinct_values": 156
+  },
+  "public_annex": "carries a demand charge and no time-of-use column, so it is out of this arm and named rather than dropped",
+  "resolution": "charges are printed to two decimals, so a collision between two positive charges is an upper bound; a collision on zero is not",
+  "source": "E:/better economics/monetary-topology/data/raw/falling_short_layout.txt"
+ },
+ "criteria": {
+  "TB-14": {
+   "detail": "got {'blocks': 179, 'distinct_values': 156, 'collisions': 23}, expected {'blocks': 179, 'distinct_values': 156, 'collisions': 23}",
+   "kind": "known_answer",
+   "name": "the column splitter reproduces the residential counts already on disk, which is the known answer for the part of this file most likely to be wrong",
+   "passed": true
+  },
+  "TB-15": {
+   "detail": "42 schedules carry a time-of-use column across three annexes, writing 112 periods and 105 distinct values, 7 collisions",
+   "kind": "own_reading",
+   "name": "periods written against distinct values, printed per annex and per colliding schedule, with no threshold on either",
+   "passed": true
+  },
+  "TB-16": {
+   "detail": "7 total, 2 exact, 5 resolution-limited",
+   "kind": "own_reading",
+   "name": "collisions split into the part rounding could have produced and the part it could not, which is a collision on zero",
+   "passed": true
+  },
+  "TB-17": {
+   "detail": "7 schedules name TOU with no charges printed, 4 print charges without naming it",
+   "kind": "known_answer",
+   "name": "the survey's structure column against its time-of-use column, both directions named row by row rather than counted",
+   "passed": true
+  },
+  "TB-18": {
+   "detail": "12 countries in more than one annex, 8 write the same period count in all of them",
+   "kind": "own_reading",
+   "name": "periods per customer class for each country appearing in more than one annex, printed with no line on it",
+   "passed": true
+  }
+ },
+ "known_answer_check": {
+  "expected": {
+   "blocks": 179,
+   "collisions": 23,
+   "distinct_values": 156
+  },
+  "got": {
+   "blocks": 179,
+   "collisions": 23,
+   "distinct_values": 156
+  },
+  "schedules": 53
+ },
+ "per_annex": {
+  "agricultural": {
+   "collisions": 0,
+   "distinct_values": 14,
+   "exact_collisions": 0,
+   "periods": 14,
+   "rows": [
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Bangladesh",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [
+      "0.05",
+      "0.14"
+     ],
+     "collisions": 0,
+     "country": "China",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/Multiple/TOU",
+     "values": 2
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "India",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Iran, Islamic Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple/TOU",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [
+      "0.08",
+      "0.17"
+     ],
+     "collisions": 0,
+     "country": "Jordan",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Kyrgyz Republic",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Lebanon",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Malaysia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "kV-dependent",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Morocco",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple/TOU",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Mozambique",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [
+      "0.14",
+      "0.19"
+     ],
+     "collisions": 0,
+     "country": "Nicaragua",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/Multiple/TOU",
+     "values": 2
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Nigeria",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/kV-dependent",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [
+      "0.07",
+      "0.11"
+     ],
+     "collisions": 0,
+     "country": "Thailand",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "IBT/TOU",
+     "values": 2
+    },
+    {
+     "annex": "agricultural",
+     "charges": [
+      "0.05",
+      "0.08"
+     ],
+     "collisions": 0,
+     "country": "Tunisia",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "agricultural",
+     "charges": [],
+     "collisions": 0,
+     "country": "Turkey",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/TOU",
+     "values": 0
+    },
+    {
+     "annex": "agricultural",
+     "charges": [
+      "0.05",
+      "0.08"
+     ],
+     "collisions": 0,
+     "country": "Venezuela, RB",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "agricultural",
+     "charges": [
+      "0.04",
+      "0.13"
+     ],
+     "collisions": 0,
+     "country": "Zimbabwe",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/Multiple/TOU",
+     "values": 2
+    }
+   ],
+   "rows_parsed": 17,
+   "schedules_with_tou": 7
+  },
+  "commercial": {
+   "collisions": 2,
+   "distinct_values": 42,
+   "exact_collisions": 1,
+   "periods": 44,
+   "rows": [
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Algeria",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.09",
+      "0.11"
+     ],
+     "collisions": 0,
+     "country": "Armenia",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "kV-dependent/TOU",
+     "values": 2
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.18",
+      "0.32",
+      "0.32"
+     ],
+     "collisions": 1,
+     "country": "Australia",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "DBT",
+     "values": 2
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Austria",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.1",
+      "0.14"
+     ],
+     "collisions": 0,
+     "country": "Bangladesh",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Benin",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Bolivia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.13",
+      "0.28"
+     ],
+     "collisions": 0,
+     "country": "Burkina Faso",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Burundi",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Product-dependent",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Cambodia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.14",
+      "0.16"
+     ],
+     "collisions": 0,
+     "country": "Cameroon",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "IBT/TOU",
+     "values": 2
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Chile",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.06",
+      "0.14",
+      "0.22",
+      "0.24"
+     ],
+     "collisions": 0,
+     "country": "China",
+     "exact_collisions": 0,
+     "periods": 4,
+     "structure": "kV-dependent/TOU",
+     "values": 4
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Congo, Dem. Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.07",
+      "0.08",
+      "0.1"
+     ],
+     "collisions": 0,
+     "country": "C\u00f4te d'Ivoire",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/Multiple/TOU",
+     "values": 3
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Egypt, Arab Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Ethiopia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Germany",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Ghana",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Greece",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Guatemala",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Guinea 11 Monthly e",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear set to 1000 kWh per month",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Haiti",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT                 2.",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Honduras",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT                  -",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0",
+      "0",
+      "0.01",
+      "0.02"
+     ],
+     "collisions": 1,
+     "country": "India",
+     "exact_collisions": 1,
+     "periods": 4,
+     "structure": "kW-dependent/TOU 1.34",
+     "values": 3
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Indonesia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT                  -",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.04",
+      "0.07",
+      "0.15"
+     ],
+     "collisions": 0,
+     "country": "Iran, Islamic Rep.",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/Multiple/TOU -",
+     "values": 3
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Jordan",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT                 4.",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Kenya",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple      -",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Korea, Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple/TOU -",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Kyrgyz Republic",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear              9.",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Lebanon",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Madagascar",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Malawi",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.07",
+      "0.11"
+     ],
+     "collisions": 0,
+     "country": "Malaysia",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.1",
+      "0.15",
+      "0.21"
+     ],
+     "collisions": 0,
+     "country": "Mali",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.05",
+      "0.08",
+      "0.13"
+     ],
+     "collisions": 0,
+     "country": "Mongolia",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Morocco",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Mozambique",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Myanmar",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Non-linear IBT",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Nepal",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Nicaragua",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Nigeria",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/voltage dependent",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.12",
+      "0.18"
+     ],
+     "collisions": 0,
+     "country": "Pakistan",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/Multiple/TOU",
+     "values": 2
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Philippines",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Rwanda",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Sierra Leone",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Solomon Islands",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Tanzania",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Thailand",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Togo",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.07",
+      "0.13",
+      "0.14"
+     ],
+     "collisions": 0,
+     "country": "Tunisia",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.08",
+      "0.13",
+      "0.21"
+     ],
+     "collisions": 0,
+     "country": "Turkey",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Uganda",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Vanuatu",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Venezuela, RB",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Yemen, Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Zambia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "commercial",
+     "charges": [
+      "0.05",
+      "0.08",
+      "0.16"
+     ],
+     "collisions": 0,
+     "country": "Zimbabwe",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    }
+   ],
+   "rows_parsed": 59,
+   "schedules_with_tou": 16
+  },
+  "industrial": {
+   "collisions": 5,
+   "distinct_values": 49,
+   "exact_collisions": 1,
+   "periods": 54,
+   "rows": [
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Algeria",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.08",
+      "0.09"
+     ],
+     "collisions": 0,
+     "country": "Armenia",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "kV-dependent",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.08",
+      "0.11"
+     ],
+     "collisions": 0,
+     "country": "Bangladesh",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "kV-dependent/TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Benin",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Bolivia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.13",
+      "0.24"
+     ],
+     "collisions": 0,
+     "country": "Burkina Faso",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Cambodia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Chile",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.06",
+      "0.15",
+      "0.17",
+      "0.1"
+     ],
+     "collisions": 0,
+     "country": "China",
+     "exact_collisions": 0,
+     "periods": 4,
+     "structure": "kV-dependent/TOU",
+     "values": 4
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Congo, Dem. Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/TOU",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.07",
+      "0.08",
+      "0.1"
+     ],
+     "collisions": 0,
+     "country": "C\u00f4te d'Ivoire",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Multiple/TOU",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Egypt, Arab Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Ethiopia",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Ghana",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Guinea",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Haiti",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0",
+      "0",
+      "0.01",
+      "0.02"
+     ],
+     "collisions": 1,
+     "country": "India",
+     "exact_collisions": 1,
+     "periods": 4,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Iran, Islamic Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/TOU",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.15",
+      "0.18"
+     ],
+     "collisions": 0,
+     "country": "Jordan",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Kenya 12 Monthly ele",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple to 5000 kWh per month.",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Kyrgyz Republic",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.05",
+      "0.05",
+      "0.07",
+      "0.07",
+      "0.21"
+     ],
+     "collisions": 2,
+     "country": "Lebanon",
+     "exact_collisions": 0,
+     "periods": 5,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.02",
+      "0.04",
+      "0.19"
+     ],
+     "collisions": 0,
+     "country": "Madagascar",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.1",
+      "0.03"
+     ],
+     "collisions": 0,
+     "country": "Malawi",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/Multiple & TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.06",
+      "0.1"
+     ],
+     "collisions": 0,
+     "country": "Malaysia",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.05",
+      "0.1",
+      "0.17"
+     ],
+     "collisions": 0,
+     "country": "Mongolia",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.07",
+      "0.11",
+      "0.15"
+     ],
+     "collisions": 0,
+     "country": "Morocco",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Mozambique",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Myanmar",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Non-linear IBT",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.04",
+      "0.07",
+      "0.09"
+     ],
+     "collisions": 0,
+     "country": "Nepal",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Nicaragua",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Multiple/TOU",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.09",
+      "0.09",
+      "0.26"
+     ],
+     "collisions": 1,
+     "country": "Niger",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear/Multiple/TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Nigeria",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/voltage dependent",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Pakistan",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Philippines",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Rwanda",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.12",
+      "0.17"
+     ],
+     "collisions": 0,
+     "country": "Senegal",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Sierra Leone",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Solomon Islands",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Tanzania",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Thailand",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT (voltage) /Multiple",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Togo",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "IBT",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.04",
+      "0.09",
+      "0.09",
+      "0.16"
+     ],
+     "collisions": 1,
+     "country": "Turkey",
+     "exact_collisions": 0,
+     "periods": 4,
+     "structure": "Linear/TOU",
+     "values": 3
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Uganda",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear/Multiple",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Vanuatu",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Venezuela, RB",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [],
+     "collisions": 0,
+     "country": "Yemen, Rep.",
+     "exact_collisions": 0,
+     "periods": 0,
+     "structure": "Linear",
+     "values": 0
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.03",
+      "0.04"
+     ],
+     "collisions": 0,
+     "country": "Zambia",
+     "exact_collisions": 0,
+     "periods": 2,
+     "structure": "Linear/Multiple/TOU",
+     "values": 2
+    },
+    {
+     "annex": "industrial",
+     "charges": [
+      "0.05",
+      "0.08",
+      "0.16"
+     ],
+     "collisions": 0,
+     "country": "Zimbabwe",
+     "exact_collisions": 0,
+     "periods": 3,
+     "structure": "Linear",
+     "values": 3
+    }
+   ],
+   "rows_parsed": 49,
+   "schedules_with_tou": 19
+  }
+ },
+ "stage": "tariff_block_corpus"
+}

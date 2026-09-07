@@ -557,8 +557,9 @@ claim/resource line.
 
 ## 10. Outputs
 
-`results/a1_default_cascade.json`, and rows in `RESULTS.md` written by the
-renderer rather than by hand.
+`results/a1_default_cascade.json`, and a section in `RESULTS.md`. **That file has
+been kept by hand since 2026-08-21**, when the generator that used to render it
+was retired, so the section is written rather than produced.
 
 Also `data/processed/a1_model_v1.csv`, the model V1 series that
 the measurement side requires of the simulation side: the default rate by
@@ -925,7 +926,10 @@ item 8 unanswered, and this is that item answered against A1-1.
 
 **A1-1 still passes** and no criterion is restated. The stage's records should be
 regenerated on the changed mechanism rather than carried forward, which is
-failure mode 9 and is why `scripts/run_all.py` now carries a job for this stage.
+failure mode 9. A job was added in `scripts/run_all.py` at the time for that
+reason; **that runner is a dead file from 2026-09-07**, its table covering 52 of
+the 365 scripts under `experiments/`, so what carries the point is the rule
+itself: a stage whose mechanism changed is re-run and its record rewritten.
 
 ### 2026-08-16, the income path, registered before it is run on
 
@@ -977,3 +981,11 @@ criterion may be read as having produced it.
 
 Goes in this section with the date, the reason, and what had been seen at the
 time. Sections 1 to 10 are not edited once a result exists.
+
+### 2026-09-07, the runner is legacy
+
+`scripts/run_all.py` is legacy from this date. Its job table covers 52 of the 365
+scripts under `experiments/` and nothing has required it to be complete since the
+record ratchet was retired on 2026-08-21, so **whether this stage has a job there
+says nothing about whether it has run**. A stage is run by its own file and its
+record is in `results/`; `RESULTS.md` is the index. Nothing above is withdrawn.

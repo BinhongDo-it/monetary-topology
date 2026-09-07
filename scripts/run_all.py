@@ -1,5 +1,32 @@
 #!/usr/bin/env python3
-"""Run everything and print a digest short enough to paste.
+"""Legacy batch runner. Runs a fixed list of stages and prints a short digest.
+
+**This is legacy and its scope is fixed.** It was the middle link of a chain
+that ran every stage, regenerated ``RESULTS.md`` from the records, and had
+continuous integration compare the two. All three ends of that chain were
+retired on 2026-08-21: the generator, the CI trigger, and the ratchet in
+``tests/`` that had required every record to have a job in this file. **The
+batch runner outlived what it was batching for.** It is kept because much of
+the A track is wired into it and it is a convenient way to run that batch on a
+machine that already holds ``data/``.
+
+**It is not an index of the work and it is not a reproduction script.**
+``RESULTS.md`` is the index, kept by hand. ``data/`` is described in
+``data/SOURCES.md`` rather than shipped, so the stages that read fetched data
+cannot run from a fresh clone. **A station is run by its own file**, which is
+how every station is run in the first place::
+
+    python experiments/b52_europe_class_square.py
+
+**Coverage, counted 2026-09-07**: 52 of the 365 scripts under ``experiments/``,
+which is 25 stations in full, 10 in part and 50 not at all. In full: A0, A8
+through A21, A24, A25, B6, B12, B15, B49 through B53. In part: A1, A2, A4, A5,
+A6, A26, B1, B2, B5 and the tariff-corpus arms. Not at all: **A3 and A7**, A22,
+A23, **the whole C track**, L2, and every B-track station from B3 onward apart
+from those named, including B7, B8, B9, B10, B13, B14, B16, B21, B30, B34
+through B44 and B54 through B56. Adding a stage here is optional and changes
+nothing about whether it has run; the list is maintained by hand and since
+2026-08-21 nothing has required it to be complete.
 
 Usage::
 
@@ -294,6 +321,14 @@ EXPERIMENTS = [
         "experiments/a25_boundary.py",
         "a25_boundary.json",
     ),
+    # B51 fetches nothing. It is a screen over candidate carriers whose inputs
+    # are the four questions, the candidates and the grounds, so it belongs with
+    # the stages that run anywhere rather than with the ones that read a cache.
+    (
+        "B51  which carriers can show a class difference",
+        "experiments/b51_class_carrier_screen.py",
+        "b51_class_carrier_screen.json",
+    ),
 ]
 
 #: Stages slow enough that putting them in the default run would change what
@@ -459,6 +494,42 @@ DATA_STAGES = [
         "B12  grid invariance: every cut of the delinquency ladder",
         "experiments/b12_pullback.py --ladder",
         "b12_ladder.json",
+    ),
+    # The class-square family. Each reads a cache under data/cache/ and goes to
+    # the network only for a file that is missing or when --refresh is passed,
+    # so they sit here rather than with the stages that run anywhere.
+    (
+        "B49  class square on the two energy carriers",
+        "experiments/b49_energy_class_square.py",
+        "b49_energy_class_square.json",
+    ),
+    (
+        "B50  a statute that caps one leg",
+        "experiments/b50_hungary_class_square.py",
+        "b50_hungary_class_square.json",
+    ),
+    (
+        "B52  the class square across the European reporting area",
+        "experiments/b52_europe_class_square.py",
+        "b52_europe_class_square.json",
+    ),
+    (
+        "B53  the counting law where the collisions are exact",
+        "experiments/b53_tuition_class_values.py",
+        "b53_tuition_class_values.json",
+    ),
+    # The tariff-corpus arms that score criteria. tariff_blocks_count.py is an
+    # earlier diagnostic pass with no criteria block and is left out on that
+    # ground rather than forgotten.
+    (
+        "TB   tariff blocks: conditions naming a price",
+        "experiments/tariff_blocks_conditionality.py",
+        "tariff_blocks_conditionality.json",
+    ),
+    (
+        "TB   tariff blocks: time-of-use periods and values",
+        "experiments/tariff_tou_count.py",
+        "tariff_tou_count.json",
     ),
 ]
 
@@ -742,6 +813,11 @@ def _all_criteria(block) -> list:
     return out
 
 
+#: Criterion name -> its ``kind``, filled in as records are read. Empty for
+#: records written before the field existed.
+KIND: dict[str, str] = {}
+
+
 def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
     """Pass count, total, the names that failed, and every name seen.
 
@@ -796,6 +872,28 @@ def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
             c = node.get("criteria")
             if isinstance(c, list):
                 blocks.append(c)
+            elif isinstance(c, dict):
+                # **A fourth shape, found 2026-09-07 and the same fault again.**
+                # Newer stations key their criteria by name instead of listing
+                # them, and this reader took only lists, so seven records read
+                # as nothing at all: b43_counting_proof_check and the whole
+                # B49 to B53 family. Six stages had just been added to the job
+                # table and every one of them printed ``no result`` with exit
+                # code 0. Nothing failed; the digest simply did not see them.
+                #
+                # That is four times now: the renderer died on records writing
+                # ``criterion`` for ``name``, skipped 22 records with no
+                # ``stage`` key, and this file missed every record a nesting
+                # writer produced. **Each was found by counting, never by
+                # anything breaking**, which is what an index that cannot see
+                # part of what it indexes looks like from the outside.
+                #
+                # The name is carried in so a criterion keyed ``B52-3`` still
+                # reports under that name.
+                blocks.append([
+                    (v if v.get("name") else {**v, "name": k})
+                    for k, v in c.items() if isinstance(v, dict)
+                ])
             for k, v in node.items():
                 if k != "criteria":
                     _collect(v)
@@ -841,6 +939,16 @@ def criteria_from(path: Path) -> tuple[int, int, list[str], list[str]]:
     passed = sum(c["passed"] for c in live)
     failed = [c["name"] for c in live if not c["passed"]]
     seen = [c["name"] for c in live] + read + undecided
+    # **What a criterion is asking is part of what its failure means.** Six
+    # kinds are in use, and only one of them, ``rival``, says anything about
+    # the theory when it does not pass: an ``instrument`` failure points at
+    # code, a ``premise`` failure says the criteria resting on it have no
+    # object, a ``known_answer`` failure returns a named list of anomalies,
+    # and an ``own_reading`` failure withdraws one reading. Printing them all
+    # as one word makes a digest whose failure count refers to nothing, so the
+    # kind is carried out to the caller and printed beside the name. Records
+    # written before the field existed carry none, and print without one.
+    KIND.update({c["name"]: c["kind"] for c in kept if c.get("kind")})
     return passed, len(live), failed, seen
 
 
@@ -958,7 +1066,9 @@ def main() -> int:
             how = "READ " if reading else f"exit {code}"
             lines.append(f"  {label:<32} {mark:>8}   {how}   {secs}")
             for name in unexpected:
-                lines.append(f"       FAILED: {name}")
+                k = KIND.get(name)
+                tag = f" [{k}]" if k else ""
+                lines.append(f"       FAILED{tag}: {name}")
             for name in expected:
                 lines.append(
                     f"       expected FAIL: {name} -- {EXPECTED_FAILURES[name]}"

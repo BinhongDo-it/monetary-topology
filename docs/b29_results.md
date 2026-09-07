@@ -126,9 +126,9 @@ feasible set the field sits.
 **Corrected instruction.** The defect must be extracted as **the component of the
 observed field orthogonal to the span of the cycles the traders can actually
 close**, which is a Hodge extraction over the whole observed field rather than an
-arithmetic sum around one loop. **That is HodgeRank's operation**, already cited in
-[`b0c_precedent_topological.md`](b0c_precedent_topological.md), and this arm is the
-reason the project now needs it rather than merely acknowledging it.
+arithmetic sum around one loop. **That is HodgeRank's operation** (Jiang, Lim, Yao and Ye, *Math. Prog. B* 2010,
+arXiv:0811.1067), and this arm is the reason the project now needs it rather than
+merely acknowledging it.
 
 **Two consequences for any real reading.**
 

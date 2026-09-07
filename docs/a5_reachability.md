@@ -495,6 +495,8 @@ scored on. Only quantities that run rounds moved, and a file in which half the
 numbers reproduce exactly does not look like a file that is wrong. And stage A5
 is in neither `scripts/run_all.py`'s experiment list nor the continuous
 integration reruns, so no comparison between record and code was ever performed.
+(Both are legacy since: the CI trigger from 2026-08-21, the runner from
+2026-09-07, whose table covers 52 of the 365 scripts under `experiments/`.)
 
 **What it costs, stated in both directions.** It costs no verdict: two of six
 live criteria pass under both settings, and the four failures fail under both.

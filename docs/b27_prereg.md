@@ -46,9 +46,8 @@ find a carrier whose reference graph has cycles, and to show it has them before
 anything else is read.**
 
 **The instrument is not this project's.** Reading cyclic inconsistency off a graph
-of comparisons is HodgeRank, cited in
-[`b0c_precedent_topological.md`](b0c_precedent_topological.md) §2a. This station
-uses it and says so. **What is this project's is the choice of object it is
+of comparisons is HodgeRank (Jiang, Lim, Yao and Ye, *Math. Prog. B* 2010,
+arXiv:0811.1067). This station uses it and says so. **What is this project's is the choice of object it is
 applied to.**
 
 ---

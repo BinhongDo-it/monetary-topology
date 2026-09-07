@@ -257,7 +257,6 @@ incompleteness as a small perturbation of completeness.
   no-free-lunch-with-vanishing-risk to zero curvature. **Continuous time and
   stochastic, not a finite graph with a bounded reach.**
 - **Jiang, Lim, Yao and Ye**, HodgeRank (*Math. Prog. B*, 2010, arXiv:0811.1067),
-  already cited in [`b0c_precedent_topological.md`](b0c_precedent_topological.md),
   give the Hodge decomposition of cyclic inconsistency on comparison graphs.
 - **Ostroy and Starr**, *Money and the Decentralization of Exchange*
   (*Econometrica* 42(6), 1974, 1093-1113), is the economics precedent for asking

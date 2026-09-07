@@ -1349,10 +1349,15 @@ reason measured.
 **Two decisions, taken and registered rather than left open.**
 
 **`diagnostic_only` stays on.** Every A7 record keeps it and no A7 heading enters
-`RESULTS.md`. Flipping it needs a job in `run_all.py`, that file is currently
-carrying another line of work, and the reproducibility this flag protects is
-already met: the records are on disk and the verdicts are in this document. **To
-be revisited when that work lands**, not deferred indefinitely.
+`RESULTS.md`. Flipping it needed a job in `run_all.py` when this
+was written, and the reproducibility this flag protects is already met: the
+records are on disk and the verdicts are in this document. **To be revisited**,
+not deferred indefinitely.
+
+**2026-09-07: that condition is void rather than met.** `run_all.py` is legacy
+from this date, A7 is not in its job table and never was, and a job there has
+stopped being evidence of anything since the record ratchet was retired on
+2026-08-21. Whatever revisits this decision, it is not that file.
 
 **`D_reach` stays the default output of `experiments/a7_continuous_c.py`, and
 this is a registered known state rather than an oversight.** `D_fixed` runs under

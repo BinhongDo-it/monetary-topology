@@ -1,0 +1,346 @@
+{
+  "agra_current_schedule": {
+    "reading": {
+      "friday": {
+        "cells": 21,
+        "class_lines": 3,
+        "collisions": 17,
+        "distinct_values": 4,
+        "distinct_values_per_monument": {
+          "Agra Fort": 2,
+          "Akbar's Tomb": 2,
+          "Fatehpur Sikri": 2,
+          "Itimad-Ud-Daulah": 2,
+          "Mariyam's Tomb": 2,
+          "Mehtab Bagh": 2,
+          "Ram Bagh": 2
+        },
+        "monuments": 7,
+        "monuments_where_saarc_is_its_own_value": [],
+        "n_saarc_separates": 0,
+        "values": [
+          25,
+          40,
+          300,
+          600
+        ]
+      },
+      "weekday_except_friday": {
+        "cells": 24,
+        "class_lines": 3,
+        "collisions": 14,
+        "distinct_values": 10,
+        "distinct_values_per_monument": {
+          "Agra Fort": 3,
+          "Akbar's Tomb": 2,
+          "Fatehpur Sikri": 2,
+          "Itimad-Ud-Daulah": 2,
+          "Mariyam's Tomb": 2,
+          "Mehtab Bagh": 2,
+          "Ram Bagh": 2,
+          "Taj Mahal": 3
+        },
+        "monuments": 8,
+        "monuments_where_saarc_is_its_own_value": [
+          "Agra Fort",
+          "Taj Mahal"
+        ],
+        "n_saarc_separates": 2,
+        "values": [
+          25,
+          30,
+          50,
+          90,
+          300,
+          310,
+          540,
+          610,
+          650,
+          1100
+        ]
+      }
+    },
+    "source": "tajmahal.gov.in, official site of the Department of Tourism, Government of Uttar Pradesh, retrieved 2026-09-07 by browser"
+  },
+  "config": {
+    "amounts_in": "smallest currency unit",
+    "carriers": [
+      "asi_monument_admission",
+      "mta_reduced_fare"
+    ],
+    "ceiling_is_not_a_value": true,
+    "n_carriers": 2
+  },
+  "criteria": [
+    {
+      "criterion": "every price is an exact integer in the smallest currency unit",
+      "detail": "2 carriers, 10 amounts, 0 not exact",
+      "kind": "premise",
+      "name": "B56-1",
+      "passed": true
+    },
+    {
+      "criterion": "collapse = lines named - distinct values, and it splits into the two steps",
+      "detail": "asi_monument_admission: 3 lines -> 2 values, collapse 1; mta_reduced_fare: 3 lines -> 1 values, collapse 2",
+      "kind": "instrument",
+      "name": "B56-2",
+      "passed": true
+    },
+    {
+      "criterion": "the eligibility step and the pricing step are recorded separately",
+      "detail": "asi_monument_admission: 0 at eligibility, 1 at pricing; mta_reduced_fare: 1 at eligibility, 1 at pricing",
+      "kind": "bookkeeping",
+      "name": "B56-3",
+      "passed": true
+    },
+    {
+      "criterion": "every carrier names its instrument and its retrieval",
+      "detail": "2 carriers, 0 without provenance",
+      "kind": "bookkeeping",
+      "name": "B56-4",
+      "passed": true
+    },
+    {
+      "criterion": "rival: a seller that has paid to sort gives each sorted block its own price, so distinct values == blocks named",
+      "detail": "the rival's point prediction fails where it was read; 0 of 3 read operators hit it. mbta_boston 11 blocks -> 3 values; mta_maryland 4 blocks -> 2 values; mta_new_york 4 blocks -> 2 values",
+      "kind": "rival",
+      "name": "B56-5",
+      "passed": true
+    },
+    {
+      "criterion": "the same pair of segments, drawn and credentialed by two operators under the same federal condition, gets the same verdict",
+      "detail": "the same pair is judged two different ways: mbta_boston merged, mta_maryland priced apart. nominal contradicting pairs 3, independent 1",
+      "kind": "own_reading",
+      "name": "B56-6",
+      "passed": true
+    }
+  ],
+  "rival_arm": {
+    "operators_where_rival_hits": [],
+    "per_operator": {
+      "mbta_boston": {
+        "blocks_named": 11,
+        "checked": true,
+        "collapse": 8,
+        "distinct_values_per_good": {
+          "bus": 3,
+          "subway": 3
+        },
+        "free_lines": 5,
+        "max_distinct_values": 3,
+        "reduced_lines": 5,
+        "rival_hits": false,
+        "rival_point_prediction": 11
+      },
+      "mta_maryland": {
+        "blocks_named": 4,
+        "checked": true,
+        "collapse": 2,
+        "distinct_values_per_good": {
+          "day pass": 2,
+          "monthly pass": 2,
+          "single trip": 2
+        },
+        "free_lines": 0,
+        "max_distinct_values": 2,
+        "reduced_lines": 3,
+        "rival_hits": false,
+        "rival_point_prediction": 4
+      },
+      "mta_new_york": {
+        "blocks_named": 4,
+        "checked": true,
+        "collapse": 2,
+        "distinct_values_per_good": {
+          "subway and local bus": 2
+        },
+        "free_lines": 0,
+        "max_distinct_values": 2,
+        "reduced_lines": 3,
+        "rival_hits": false,
+        "rival_point_prediction": 4
+      },
+      "nj_transit": {
+        "checked": false,
+        "verdict": "not read"
+      }
+    },
+    "read": 3,
+    "rival": "third-degree price discrimination: a seller that has paid to sort and has blocked resale prices each segment by its own elasticity, so two segments share a price only when their elasticities are equal, and elasticity is a property of the rider, not of the operator",
+    "rival_hits": 0,
+    "same_pair_two_operators": {
+      "contradiction": true,
+      "detail": {
+        "mbta_boston": {
+          "senior_cents": {
+            "bus": 85,
+            "subway": 110
+          },
+          "source": "mbta.com/fares/reduced, retrieved 2026-09-07",
+          "student_cents": {
+            "bus": 85,
+            "subway": 110
+          },
+          "student_line": "some middle and high school students, at schools enrolled in the MBTA Student Pass Program (S-Card, M7)",
+          "verdict": "merged",
+          "via": "the page's sentence that all reduced fare prices are the same; the student amount is not printed as a separate cell"
+        },
+        "mta_maryland": {
+          "senior_cents": {
+            "single trip": 100
+          },
+          "source": "mta.maryland.gov/regular-fares and /student-fares, retrieved 2026-09-07 by browser",
+          "student_cents": {
+            "single trip": 150
+          },
+          "student_line": "students aged 13 to 21 at participating private, parochial, or Baltimore County public schools, with an MTA Student Transit ID",
+          "verdict": "priced apart",
+          "via": "the fare table prints Student as its own column: full 200, senior/disability 100, student 150"
+        }
+      },
+      "independent_contradictions": 1,
+      "n_distinct_verdicts": 2,
+      "n_operators": 2,
+      "nominal_contradicting_pairs": 3,
+      "operators": {
+        "mbta_boston": "merged",
+        "mta_maryland": "priced apart"
+      },
+      "pair": "middle/high school student  vs  65 or over",
+      "third_party_payer_excluded": {
+        "mta_maryland": "Baltimore City Public Schools middle and high school students ride free; children 12 and under ride free with no credential at all. Neither is the operator's own price."
+      }
+    }
+  },
+  "rows": {
+    "asi_monument_admission": {
+      "ceiling": null,
+      "class_lines_named": 3,
+      "collapse_at_eligibility_step": 0,
+      "collapse_at_value_step": 1,
+      "distinct_values": 2,
+      "eligibility_classes": 3,
+      "good": "world heritage monument, one entry",
+      "instrument": "Ministry of Culture decision, effective 2016-04-01",
+      "jurisdiction": "India",
+      "note": "ASI's own site refuses automated retrieval by robots rule, so the current rate is not retrieved; this station reads the values this notification wrote, not today's counter price",
+      "second_distinct_values": 2,
+      "second_good": "other ticketed monument, one entry",
+      "second_values": {
+        "Indian citizens": 1500,
+        "SAARC and BIMSTEC nationals": 1500,
+        "other foreign nationals": 20000
+      },
+      "source": "Press Information Bureau release, retrieved 2026-09-07",
+      "total_collapse": 1,
+      "values": {
+        "Indian citizens": 3000,
+        "SAARC and BIMSTEC nationals": 3000,
+        "other foreign nationals": 50000
+      }
+    },
+    "mta_reduced_fare": {
+      "actual_share_of_full": 0.5,
+      "ceiling": {
+        "full_fare_cents": 300,
+        "rule": "not more than 50 percent of the peak hour fare",
+        "second_full_fare_cents": 725
+      },
+      "class_lines_named": 3,
+      "collapse_at_eligibility_step": 1,
+      "collapse_at_value_step": 1,
+      "distinct_values": 1,
+      "eligibility_classes": 2,
+      "good": "subway and local bus, one ride",
+      "instrument": "49 U.S.C. 5307(c)(1)(D) as a condition of federal assistance",
+      "jurisdiction": "United States, New York",
+      "note": "the statute names three lines; MTA's eligibility page folds Medicare into the disability class, then prices what is left as one",
+      "second_actual_share_of_full": 0.496551724137931,
+      "second_distinct_values": 1,
+      "second_good": "express bus off peak, one ride",
+      "second_values": {
+        "65 or over": 360,
+        "qualifying disability, including Medicare": 360
+      },
+      "source": "US Code retrieved 2026-09-07; MTA reduced-fare page retrieved 2026-09-07. FTA's own guidance page refuses automated retrieval by robots rule and is recorded as not retrieved",
+      "total_collapse": 2,
+      "values": {
+        "65 or over": 150,
+        "qualifying disability, including Medicare": 150
+      }
+    }
+  },
+  "stage": "B56",
+  "transit_agencies": {
+    "mbta_boston": {
+      "checked": true,
+      "class_lines": 5,
+      "collapse": 4,
+      "distinct_values_per_good": {
+        "bus": 1,
+        "subway": 1
+      },
+      "lines": [
+        "65 or over",
+        "person with a disability",
+        "Medicare card",
+        "middle and high school student",
+        "low income 18-64"
+      ],
+      "max_distinct_values": 1,
+      "quote": "No matter which type of reduced fare card you have, all reduced fare prices are the same",
+      "source": "mbta.com/fares/reduced, retrieved 2026-09-07",
+      "verdict": "collapsed to one value"
+    },
+    "mta_maryland": {
+      "checked": true,
+      "class_lines": 3,
+      "collapse": 2,
+      "distinct_values_per_good": {
+        "day pass": 1,
+        "monthly pass": 1,
+        "single trip": 1
+      },
+      "lines": [
+        "65 or over",
+        "person with a disability",
+        "Medicare card"
+      ],
+      "max_distinct_values": 1,
+      "quote": "the fare table prints one column headed Senior/Disability; full fare single trip is 200 cents, so the reduced single trip sits exactly at the federal ceiling, while the monthly pass at 2300 against 7700 is far below it",
+      "source": "mta.maryland.gov/regular-fares, retrieved 2026-09-07 by browser",
+      "verdict": "collapsed to one value"
+    },
+    "mta_new_york": {
+      "checked": true,
+      "class_lines": 3,
+      "collapse": 2,
+      "distinct_values_per_good": {
+        "subway and local bus": 1
+      },
+      "lines": [
+        "65 or over",
+        "listed disability",
+        "Medicare card"
+      ],
+      "max_distinct_values": 1,
+      "quote": "seniors and people with disabilities receive the same reduced fares",
+      "source": "mta.info reduced-fare page, retrieved 2026-09-07",
+      "verdict": "collapsed to one value"
+    },
+    "nj_transit": {
+      "checked": false,
+      "class_lines": 5,
+      "lines": [
+        "62 or over (65 to or from Metro-North stations)",
+        "person with a disability",
+        "military personnel",
+        "Medicare card",
+        "veteran with service-connected disability"
+      ],
+      "quote": "savings of 50% or more on a regular one-way fare; the page gives no dollar amounts, so the value count is NOT READ",
+      "source": "njtransit.com reduced-fare page, retrieved 2026-09-07",
+      "verdict": "amounts not read"
+    }
+  }
+}

@@ -1,0 +1,647 @@
+{
+  "carries": [
+    "disability_transit_fare",
+    "electricity",
+    "heritage_site_admission",
+    "hunting_fishing_licence",
+    "piped_natural_gas",
+    "senior_transit_fare",
+    "tuition_resident_rate"
+  ],
+  "config": {
+    "axes": [
+      "age",
+      "connection point",
+      "disability",
+      "enrolment",
+      "means test",
+      "membership",
+      "nationality",
+      "occupation",
+      "residence"
+    ],
+    "cell_to_verdict": {
+      "a checked no on any question": "fails",
+      "all four checked yes": "carries",
+      "any answer is unknown": "undetermined",
+      "any answer is yes but unchecked": "undetermined"
+    },
+    "n_candidates": 19,
+    "questions": [
+      "Q0_one_commodity",
+      "Q1_no_transfer",
+      "Q2_two_posted_prices",
+      "Q3_imposed_split"
+    ]
+  },
+  "counts": {
+    "carries": 7,
+    "fails": 4,
+    "family_B": 13,
+    "undetermined": 8
+  },
+  "criteria": [
+    {
+      "criterion": "known answers: tuition carries and is family B; electricity and piped gas are family A",
+      "detail": "tuition carries / B, electricity A, gas A",
+      "name": "B54-1",
+      "passed": true
+    },
+    {
+      "criterion": "every one of the four answers carries a reason",
+      "detail": "19 candidates x 4 questions = 76 answers, 0 without a reason",
+      "name": "B54-2",
+      "passed": true
+    },
+    {
+      "criterion": "every failing candidate names the question it fails",
+      "detail": "4 fail, 0 without a named question",
+      "name": "B54-3",
+      "passed": true
+    },
+    {
+      "criterion": "rule 11c: no unchecked or unknown answer is mapped to a verdict",
+      "detail": "cell to verdict map printed; 8 candidates carry an unchecked or unknown answer, 0 of them leaked into a verdict",
+      "name": "B54-4",
+      "passed": true
+    }
+  ],
+  "fails": [
+    "loyalty_programme_price",
+    "membership_price",
+    "military_discount",
+    "student_software_licence"
+  ],
+  "rows": {
+    "child_transit_fare": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same trip"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "age is inspected"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "both fares published"
+        },
+        "Q3_imposed_split": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "read 2026-09-07: 49 U.S.C. 5307(c)(1)(D) names seniors, disability and Medicare only. it does NOT reach this class, so the split here is not federally imposed and has to be read jurisdiction by jurisdiction"
+        }
+      },
+      "axis": "age",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q3_imposed_split"
+      ],
+      "verdict": "undetermined"
+    },
+    "disability_transit_fare": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same trip. note: a paratransit service is NOT the same commodity and would fail Q0"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "a certificate is inspected"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "both fares published"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "read 2026-09-07: 49 U.S.C. 5307(c)(1)(D) makes it a condition of federal transit assistance that during non-peak hours a fare no greater than 50 percent of the peak fare be charged to seniors, to persons with the listed disabilities, and to Medicare card holders. the class line is drawn by federal statute; the operator picks the value under that ceiling"
+        }
+      },
+      "axis": "disability",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [],
+      "verdict": "carries"
+    },
+    "electricity": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "one kilowatt hour is one kilowatt hour"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "fixed network; nothing moves past the meter. the barrier is the good, not an identity"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "residential and industrial prices published per country and half year (B49, B52)"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "connection voltage and eligibility set by regulation"
+        }
+      },
+      "axis": "connection point",
+      "family": "A: commodity cannot be transferred",
+      "questions_named": [],
+      "verdict": "carries"
+    },
+    "foreigner_medical_fee": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "the same procedure may or may not be the same product once the class differs"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "eligibility is checked at the point of care"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "what is published is often a reimbursement rate, not a price. the two numbers are then not commensurable (B51 flagged this for copayments)"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": false,
+          "reason": "set by health ministry regulation"
+        }
+      },
+      "axis": "nationality",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q0_one_commodity",
+        "Q2_two_posted_prices"
+      ],
+      "verdict": "undetermined"
+    },
+    "heritage_site_admission": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the same monument, the same entry, on the same day. Q0 is as strong here as anywhere in the corpus"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "a passport is checked at the counter; a ticket bought at the national price cannot be used by a foreigner"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "read 2026-09-07: the Ministry of Culture announcement effective 2016-04-01 posts both, world heritage monuments Rs.30 for Indian citizens against Rs.500 for other foreign nationals, other ticketed monuments Rs.15 against Rs.200. ASI's own site refuses automated retrieval by robots rule, so the current rate is recorded as not retrieved rather than absent; it does not bear on Q2"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "read 2026-09-07: the Ministry of Culture set it, not the individual monument. this is the third band, nationality, which no visitor can cross"
+        }
+      },
+      "axis": "nationality",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [],
+      "verdict": "carries"
+    },
+    "hunting_fishing_licence": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the same licence conveys the same right to take the same species in the same season"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the licence is issued to a named person and checked in the field; it cannot be handed over"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "read 2026-09-07: 4 Va. Admin. Code 15-20-65 carries both, e.g. resident hunting $22.00 against nonresident $110.00, resident freshwater fishing $22.00 against $46.00. the two classes sit in separate subsections of the same filed regulation, which is what Q2 asks: each class has a published price"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "read 2026-09-07: Code of Virginia 29.1-319 sets who is entitled to a resident licence, and it is the legislature that sets it. the Board's authority under 29.1-103 covers the fee, not the residency test, so the operator cannot draw this line"
+        }
+      },
+      "axis": "residence",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [],
+      "verdict": "carries"
+    },
+    "low_income_electricity_rate": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "one kilowatt hour. Q0 and Q1 for this good are already established by B49 and B52"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the good is on a fixed network AND the discount is attached to a verified household. both barriers hold"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": false,
+          "reason": "the discounted schedule and the standard schedule are lines on the same filed tariff. NOT YET READ: one filed tariff"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "read 2026-09-07: California Public Utilities Code 739.1(a) sets the eligibility benchmark at 200 percent of the federal poverty guideline and 739.1(c)(1) binds the average effective discount to not less than 30 and not more than 35 percent. the statute draws the line AND brackets the value; the utility does neither"
+        }
+      },
+      "axis": "means test",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q2_two_posted_prices"
+      ],
+      "verdict": "undetermined"
+    },
+    "loyalty_programme_price": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same good"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the account is identified at checkout"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "shelf price and member price both shown"
+        },
+        "Q3_imposed_split": {
+          "answer": "no",
+          "checked": true,
+          "reason": "the seller draws the line; enrolment is free and open"
+        }
+      },
+      "axis": "membership",
+      "family": "none",
+      "questions_named": [
+        "Q3_imposed_split"
+      ],
+      "verdict": "fails"
+    },
+    "means_tested_transit_fare": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same trip, same vehicle"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the pass is issued to a named person and inspected"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": false,
+          "reason": "both fares published in the same fare table"
+        },
+        "Q3_imposed_split": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "read 2026-09-07: 49 U.S.C. 5307(c)(1)(D) names seniors, disability and Medicare only. it does NOT reach this class, so the split here is not federally imposed and has to be read jurisdiction by jurisdiction"
+        }
+      },
+      "axis": "means test",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q3_imposed_split"
+      ],
+      "verdict": "undetermined"
+    },
+    "membership_price": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same good"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the card is checked"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "member and non-member prices both posted"
+        },
+        "Q3_imposed_split": {
+          "answer": "no",
+          "checked": true,
+          "reason": "the seller draws the line and anyone may cross it by paying the membership. the split is chosen by the parties, which is what D30 second clause bars"
+        }
+      },
+      "axis": "membership",
+      "family": "none",
+      "questions_named": [
+        "Q3_imposed_split"
+      ],
+      "verdict": "fails"
+    },
+    "military_discount": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same good"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "service identity is checked"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "no",
+          "checked": true,
+          "reason": "the discount is announced as a percentage off, and the discounted price is usually not posted as a second price"
+        },
+        "Q3_imposed_split": {
+          "answer": "no",
+          "checked": true,
+          "reason": "the merchant chooses to offer it. no statute requires it"
+        }
+      },
+      "axis": "occupation",
+      "family": "none",
+      "questions_named": [
+        "Q2_two_posted_prices",
+        "Q3_imposed_split"
+      ],
+      "verdict": "fails"
+    },
+    "piped_natural_gas": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same molecule, same pipe"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "fixed network; the barrier is the good"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "published, though not in every country (B52: Albania)"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "connection and eligibility set by regulation"
+        }
+      },
+      "axis": "connection point",
+      "family": "A: commodity cannot be transferred",
+      "questions_named": [],
+      "verdict": "carries"
+    },
+    "resident_admission_price": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same site, same visit"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "proof of residence is shown at the gate"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": false,
+          "reason": "both prices normally appear on the same board"
+        },
+        "Q3_imposed_split": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "THIS IS THE ONE TO CHECK: a municipal site may set the resident price itself, which would be a chosen split and fail Q3. a statutory one would pass"
+        }
+      },
+      "axis": "residence",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q3_imposed_split"
+      ],
+      "verdict": "undetermined"
+    },
+    "senior_prescription_copayment": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "the same molecule, the same pack"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "eligibility checked at the counter"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "B51 already flagged it: what is published may be a reimbursement rate rather than a price, and two such numbers are not commensurable"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": false,
+          "reason": "the age threshold is statutory"
+        }
+      },
+      "axis": "age",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q2_two_posted_prices"
+      ],
+      "verdict": "undetermined"
+    },
+    "senior_transit_fare": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same trip, same seat, same service"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "an identity card is inspected"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "both fares appear in the published fare table"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "read 2026-09-07: 49 U.S.C. 5307(c)(1)(D) makes it a condition of federal transit assistance that during non-peak hours a fare no greater than 50 percent of the peak fare be charged to seniors, to persons with the listed disabilities, and to Medicare card holders. the class line is drawn by federal statute; the operator picks the value under that ceiling"
+        }
+      },
+      "axis": "age",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [],
+      "verdict": "carries"
+    },
+    "state_park_camping": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same pitch, same night"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": false,
+          "reason": "residency checked at booking or at the gate. NOT YET READ: whether it is actually verified"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": false,
+          "reason": "published fee schedules per state park system"
+        },
+        "Q3_imposed_split": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "the park agency may set it; same question as above"
+        }
+      },
+      "axis": "residence",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q3_imposed_split"
+      ],
+      "verdict": "undetermined"
+    },
+    "student_software_licence": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "no",
+          "checked": true,
+          "reason": "the academic edition is commonly a different product: restricted licence terms, no commercial use, sometimes fewer features. the gap carries product specification, which is exactly what Q0 was written to catch (B51 on broadband and cable)"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "enrolment is verified"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "both prices posted"
+        },
+        "Q3_imposed_split": {
+          "answer": "no",
+          "checked": true,
+          "reason": "the vendor defines the academic class itself"
+        }
+      },
+      "axis": "enrolment",
+      "family": "none",
+      "questions_named": [
+        "Q0_one_commodity",
+        "Q3_imposed_split"
+      ],
+      "verdict": "fails"
+    },
+    "student_transit_fare": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same trip"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "a student card is inspected"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "both fares published"
+        },
+        "Q3_imposed_split": {
+          "answer": "unknown",
+          "checked": false,
+          "reason": "read 2026-09-07: 49 U.S.C. 5307(c)(1)(D) names seniors, disability and Medicare only. it does NOT reach this class, so the split here is not federally imposed and has to be read jurisdiction by jurisdiction"
+        }
+      },
+      "axis": "enrolment",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [
+        "Q3_imposed_split"
+      ],
+      "verdict": "undetermined"
+    },
+    "tuition_resident_rate": {
+      "answers": {
+        "Q0_one_commodity": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "same seat, same instruction, same degree"
+        },
+        "Q1_no_transfer": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "residency is verified at enrolment and cannot be lent"
+        },
+        "Q2_two_posted_prices": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "IPEDS publishes in-district, in-state and out-of-state per school per level (B53: 5605 schedules, 3861 schools, 2020)"
+        },
+        "Q3_imposed_split": {
+          "answer": "yes",
+          "checked": true,
+          "reason": "residency defined by state statute, not by the school"
+        }
+      },
+      "axis": "residence",
+      "family": "B: eligibility cannot be transferred",
+      "questions_named": [],
+      "verdict": "carries"
+    }
+  },
+  "stage": "B54",
+  "undetermined": [
+    "child_transit_fare",
+    "foreigner_medical_fee",
+    "low_income_electricity_rate",
+    "means_tested_transit_fare",
+    "resident_admission_price",
+    "senior_prescription_copayment",
+    "state_park_camping",
+    "student_transit_fare"
+  ]
+}

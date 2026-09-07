@@ -26,7 +26,15 @@ machine.
 Scope
 -----
 **Records some job in `scripts/run_all.py` regenerates**, taken from the runner
-itself rather than listed here. A record nothing re-runs is never compared
+itself rather than listed here.
+
+**That runner is legacy as of 2026-09-07 and this scope inherits its shape.**
+Its job table covers 52 of the 365 scripts under `experiments/`, and nothing has
+required it to be complete since the record ratchet was retired on 2026-08-21.
+So this guard covers those 52 and not the repository, and **adding a stage to
+that table pulls its record into this threshold**, which is a consequence worth
+knowing before adding one. What the guard is worth is unchanged for the records
+it does reach: two machines rendering the same record must not differ. A record nothing re-runs is never compared
 against a fresh one, so it cannot turn a byte-diff red; the exposure begins the
 day the stage gets a job, and scoping this way means the guard picks that up on
 its own instead of waiting for somebody to remember.

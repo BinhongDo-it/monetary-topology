@@ -2001,6 +2001,28 @@
    "stored": null,
    "url": "https://aquis-public-files.s3.eu-west-2.amazonaws.com/aqse/market_data/previous/pre_trade_transaction_prev.csv",
    "venue": "aquis"
+  },
+  {
+   "at": "2026-09-06T22:48:05",
+   "bytes": 26521413,
+   "label": "pre_trade_current",
+   "note": "identical content already on disk",
+   "sha256": "61f21a6b2628580a732ea93634499d6774ca5d49335857b564cbc6379ee034ac",
+   "status": 200,
+   "stored": null,
+   "url": "https://aquis-public-files.s3.eu-west-2.amazonaws.com/aqse/market_data/current/pre_trade_transaction_data.csv",
+   "venue": "aquis"
+  },
+  {
+   "at": "2026-09-06T22:48:07",
+   "bytes": 29445345,
+   "label": "pre_trade_previous",
+   "note": "identical content already on disk",
+   "sha256": "8172eb6c81fedd2c88ebb3a67a383c03e5eec780dad1eb620994a5f84cf7427f",
+   "status": 200,
+   "stored": null,
+   "url": "https://aquis-public-files.s3.eu-west-2.amazonaws.com/aqse/market_data/previous/pre_trade_transaction_prev.csv",
+   "venue": "aquis"
   }
  ],
  "sha_seen": {

@@ -567,20 +567,54 @@ git clone https://github.com/<user>/monetary-topology
 cd monetary-topology
 pip install -e ".[dev]"
 
-python scripts/run_all.py            # lint, tests, every stage, one digest
-python scripts/run_all.py --quick    # lint and tests only
-python scripts/run_all.py --slow     # adds A6's ratchet, about twenty-five minutes
-python scripts/run_all.py --b2       # adds the stages needing fetched data
+python experiments/a0_retention.py       # one stage, and this is the way in
+python experiments/b52_europe_class_square.py
+
+python scripts/run_all.py               # tests, then a batch of stages, one digest
+python scripts/run_all.py --quick       # tests only
+python scripts/run_all.py --slow        # adds A6's ratchet, about twenty-five minutes
+python scripts/run_all.py --b2          # adds the stages that read fetched data
 python scripts/run_all.py --skip-done   # read a stage's existing record instead of re-running it
 python scripts/run_all.py --only B10 B14   # restrict to the named stages
 ```
 
-`run_all.py` is the entry point. It prints a dozen pasteable lines: one per
-stage, with its pass count, its exit code and its wall time, and a named line for
-every criterion that failed. Criteria registered as failing carry the reason
-inline, so a reader can tell a known negative from a regression without opening
-anything. Individual stages still run on their own, for example
-`python experiments/a0_retention.py`, and take `--rounds N` and `--seeds N`.
+**A single stage is the way in.** Each is one file under `experiments/`, takes
+`--rounds N` and `--seeds N`, writes its record to `results/`, and exits non-zero
+if a live criterion fails. Nothing else has to be working for that to run.
+
+**`run_all.py` is legacy, and its scope is fixed.** It was the middle link of a
+chain that ran every stage, regenerated `RESULTS.md` from the records, and had
+continuous integration compare the two. All three ends of that chain were retired
+on 2026-08-21: the generator, the CI trigger, and the ratchet that had required
+every record to have a job here. **The batch runner outlived what it was
+batching for**, and it is kept because a good deal of the A track is wired into
+it and it is a convenient way to run that batch on a machine that already holds
+`data/`. It is not a reproduction script: `data/` is described rather than
+shipped, in [`data/SOURCES.md`](data/SOURCES.md).
+
+**What it covers, counted on 2026-09-07.** 52 of the 365 scripts under
+`experiments/`, which is 25 stations in full, 10 in part and 50 not at all.
+
+| | stations |
+|---|---|
+| **in full** | A0, A8 to A21, A24, A25, B6, B12, B15, B49 to B53 |
+| **in part** | A1, A2, A4, A5, A6, A26, B1, B2, B5, and the tariff-corpus arms |
+| **not at all** | **A3 and A7**, A22, A23, **the whole C track**, L2, and every B-track station from B3 onward apart from those named above, including B7, B8, B9, B10, B13, B14, B16, B21, B30, B34 to B44 and B54 to B56 |
+
+**A station outside that table is run by its own file and nothing else**, which
+is how every station is run in the first place. The job table is a list somebody
+maintained by hand while something forced them to, and since 2026-08-21 nothing
+has. **Read it as a convenience, not as an index of the work**: `RESULTS.md` is
+the index, and it is kept by hand for the same reason.
+
+The digest prints one line per stage with the pass count, the exit code and the
+wall time, plus a named line for every criterion that did not pass.
+
+**A failure line carries the kind of criterion it was**, because the six kinds
+mean six different things when they do not pass and only one of them speaks to
+the theory. Criteria adjudicated not to be repaired carry their reason inline,
+so a reader can tell a standing negative from a regression without opening
+anything.
 
 Every experiment script exits non-zero if a live criterion fails, so a
 regression shows up the moment its stage is run. `.github/workflows/ci.yml` is
@@ -824,7 +858,7 @@ simulating instances.
 |---|---|---|
 | B0 | what the non-integrability claim licenses, and what it does not | **complete**, scope-fixing, no measurement. One inequality on one cycle carries it, with no interpersonal comparison, no utility function and no welfare criterion. The four readings it does not license were written down before the stage ran, and the single attack surface is logged as assumption A1: whether the cycles measured are the relevant cycles of the economy or an artefact of how the position space was carved, [`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) |
 | B0b | which standard constructs need the object Theorem 1 characterises | **complete**, and it runs no measurement of its own: every empirical assertion in it is a pointer to a criterion already in [RESULTS.md](RESULTS.md). Domar-weighted aggregation is the load-bearing one, because it needs a frontier whose gradient is the price vector, [`docs/b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md) |
-| B0c | whether the topological reading of exchange has a precedent, and where one sentence in the literature collides with one this project makes | **complete**, a priority-defence survey rather than an intellectual debt: nothing in the theorem takes an input from any work named there, [`docs/b0c_precedent_topological.md`](docs/b0c_precedent_topological.md) |
+| B0c | the constructions in the literature that read as closest to this one, and the structural difference in each case | **complete**, a literature survey: every entry reduces to a single-index object before its theorems, on which Corollary 5.4 forces the residual to vanish identically, [`docs/b0c_related_literature.md`](docs/b0c_related_literature.md) |
 | B0d | the New Keynesian family, the one line on which it and this framework disagree, and the sense in which it is a special case | **complete**, and the disagreement is an index-set argument rather than a dispute about frictions: that family's price field carries no agent index, so it lives in the zero set of the quantity measured here. Two direct engagements are on file, one of them a control arm that forced the field exact and reported what survived, [`docs/b0d_new_keynesian.md`](docs/b0d_new_keynesian.md) |
 | B1 setup | fixing the field so the claim is not vacuous | **complete**, [`docs/b1_setup.md`](docs/b1_setup.md) |
 | B2 design | pre-registration, filters, falsifications | **complete**, [`docs/b2_measurement.md`](docs/b2_measurement.md) |
@@ -872,6 +906,11 @@ simulating instances.
 | B46 | what "a tier" is, asked of the corpus before asking who was in it | **No data was fetched: this reads tables already on disk and the published texts of the reforms themselves.** A tier written into a text that no position falls into produces no value, and the corpus had been coded by how many tiers each text writes. Two of the nine multi-tier carriers turn out to be quantity limits rather than rate schedules, and a quantity limit changes whether an edge is passable rather than the weight on it. |
 | B47 | the corpus re-coded by what each class receives | **No data was fetched.** B43 proved the law needs only that class values be distinguishable, not that they be numbers, and the corpus had been coded before that, by identity or by amount band. Re-coding each case by what its blocks receive moves cases in both directions, and which direction is set by whether the threshold varies with identity. It also brought out a restriction the zero-counterexample statement had always carried without stating it: it holds for programmes that partition holders. |
 | B48 | **a reference number whose input is removed in three steps** | **4/4.** A third party posted the ratio of one share's price in two cities on every trading day. Cutting the transfer edge left the number computed, posted, and moving `+24%` in a week. Ending production of one leg left it **frozen**, one value reprinted on 17 consecutive posts, and that value is by construction the last close before the halt. Removing the leg permanently left it **empty**, `0.00` on 146 posts to the end of the series. The publisher never stopped, so this reads the cell where the transfer graph is cut and the information graph is whole, at three depths rather than two. **Two of the three states had no name before this.** |
+| B49 | **a class square on the two energy carriers that cannot be resold** | **5/5.** A difference between two classes is only readable where the holder of the cheaper price cannot resell to the holder of the dearer one, and of the eight products this source carries only two qualify: electricity and piped gas arrive over a fixed network and the connection point is the class definition, while the other six travel in drums and wagons. Gasoline and diesel have one class rather than two, their paired-cell counts being `0` rather than small. Reading residential against industrial across electricity and gas, in 13 countries and 3 years, **39 of 39 square sums are nonzero and every one stands above a floor measured rather than declared**, the smallest at `7.4x` the floor and the median at `56x`. A scalar price field over positions predicts every one of them is exactly zero. B52 reads the same square on 27 times as many cells with the same answer, [`docs/b49_results.md`](docs/b49_results.md) |
+| B50 | a programme change on one leg, and what the class square should do | **3 pass, 1 not judged, 1 premise fails, 1 pass.** Hungary cut regulated household energy in dated rounds, each naming a percentage. Read as equal cuts the square should not move; the statute in fact sets a **ceiling**, and the two household carriers moved by `0.0318` against a floor of `0.00074`, so the window carries no point prediction and the reading is recorded as not judged rather than as a failure. The residue is the general limit: **a one-leg change tests anything only when the other leg is quiet at the same moment**, and the design cannot arrange that, [`docs/b50_results.md`](docs/b50_results.md) |
+| B51 | which carriers can show a class difference at all | **4/4, no data fetched.** Four questions, applied to 17 candidates and checked against every carrier whose class difference has been measured. Writing down the implicit first question, *is it one commodity*, removes cable television and fixed broadband, whose household-against-business difference is a product difference. The screen also splits the qualifying family in two: the commodity cannot be handed on, close to enumerated, or **the entitlement cannot be handed on**, which needs no network and had never been used until B53, [`docs/b51_results.md`](docs/b51_results.md) |
+| B52 | the same class square across the European reporting area | **4 pass, 3 fail, and the three failures are this station's own reading.** 33 countries, 38 semesters, **1,069 readable cells, none of them at the rival's point prediction of exactly zero**, median 103 times the measured floor; seven cells below the floor are named and carry no verdict. That is B49 at 27 times the width on an independent panel. The three failing lines withdraw B49's apparent one-directional sign drift: both directions are populated in all three windows, including one stopping before the 2021 wholesale move, [`docs/b52_results.md`](docs/b52_results.md) |
+| B53 | the counting law where the collisions are exact | **3 pass, 1 known-answer check fails and returns its list.** 5,605 published tuition schedules write three classes in whole dollars, so **8,972 collisions are exact rather than bounded above by a rounding step**, the first corpus reading here that takes no resolution caveat. The control group is the finding: of 3,439 private schedules 3,424 write one value, of 2,166 public ones 1,973 write two or three, which is the counting law's own prediction about a split imposed from outside the transaction, [`docs/b53_results.md`](docs/b53_results.md) |
 | square complex | curl against harmonic on `Γ` | **withdrawn**, see B1 §12 |
 
 **Track C — the same claim where no market exists.** A price field that does not
@@ -1071,6 +1110,21 @@ record keeps both, including three withdrawals and the criteria that were void
 on their own registered estimator. Citing a passing criterion without its
 attached scope limits is a misreading of the record rather than a shortening of
 it; each stage's limits sit in its own document under `docs/`.
+
+**Criteria are of six kinds, and counts are given per kind.** `instrument` asks
+whether the run's own machinery is sound, `premise` whether the external fact a
+station rests on holds at all, `known_answer` whether a parser reproduces counts
+that are already known from another source, `rival` whether the scalar-potential
+prediction of an exact zero holds in a cell, `own_reading` whether the station's
+own registered reading holds, and `bookkeeping` whether the record names
+everything it is required to name. Each means something different when it does
+not pass: the instrument ones point at code and say where; the premise ones say
+the criteria resting on them have no object to judge; the known-answer ones
+return a named and checkable list of anomalies, which is often the most useful
+thing a station returns; a station's own reading that does not pass withdraws
+that one reading. The rival line is the one that bears on the theory. A count
+that pools the six refers to nothing, which is why the totals in this file are
+given by kind and by stage.
 
 ## License
 

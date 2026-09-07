@@ -33,7 +33,6 @@ HANDOFF*.md
 # Files already tracked are unaffected: an ignore rule does not untrack anything,
 # which was checked by asking git rather than by reasoning about it.
 data/**
-!data/**/
 
 # The four exceptions are code and provenance, not data.
 #

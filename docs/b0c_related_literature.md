@@ -1,30 +1,35 @@
-# B0c: the one precedent that has to be cited, and why the rest are not
+# B0c: related literature, and how this framework differs from every entry
 
-**Status: citation placement only.** No theorem is proved here and no data is
-analysed. This file was a long survey of the topological-economics literature and
-has been cut to what earns its place. The long version is kept beside it as
-`.expired_20260828_pre_收缩`.
+> ## This framework is original throughout. It was built from first-hand observation of economic news and the construction that grew out of it, and not from any work named below.
+>
+> ## **That someone else has mentioned a similar-sounding concept is not a precondition on this work.** The entries here are surveyed so that a reader who knows one of them can see how the two relate. In every case the object is different, and the difference is given as a checkable fact rather than as an impression.
+>
+> ## Where a specific concept of someone else's is actually used, the credit is given at the station that uses it, in context. That is done for clarity, so that the relation between this framework and the others is legible to a reader, rather than putting it in a much more general place with a group of unrelated concepts.
+
+**Status: literature survey.** No theorem is proved here and no data is analysed.
 
 ---
 
-## 1. What a citation is for here
+## 1. What this file is for
 
 It is not intellectual debt. Nothing in
 [`b1_theorem.md`](b1_theorem.md) takes an input from any work named below, and
 whether those works are correct does not bear on any result in this repository.
 
-It is **priority defence**, and that function does not depend on the cited work
-being right or important. One sentence in the literature collides with one
-sentence this project wants to make. A referee who knows that sentence and does
-not see it cited could conclude something about me rather than about the
-theorem, and that conclusion is fatal in a way unrelated to the theorem's merits.
+It is a **map of the neighbourhood**. Several constructions in the literature
+apply the same standard mathematics, the Helmholtz-Hodge splitting of a field
+into an exact part and a remainder, and a reader who knows one of them will want
+to know how this framework relates to it. **The answer is the same every time and
+it is structural: their object carries no agent index, so on their object the
+residual this framework measures is identically zero.** That is a statement about
+the objects, provable from Corollary 5.4.
 
-One paper meets that description. The rest are a lineage mention, which is cheap
-and buys legibility, or they are dropped.
+Three entries earn a full treatment. The rest are a lineage mention, which is
+cheap and buys legibility, or they are dropped and the reason is given.
 
 ---
 
-## 2. Kemp-Benedict (2012): the sentence that collides
+## 2. Kemp-Benedict (2012): a neighbouring construction on a different object
 
 Kemp-Benedict, E. (2012), *General Equilibrium as a Topological Field Theory*,
 SEI working paper, arXiv:1209.1705 [q-fin.GN]. No journal version, so arXiv is
@@ -45,18 +50,25 @@ that A_bar(p)" is zero. There the theory localises on critical points and, in hi
 words, "perturbatively ... the field theory behaves as general equilibrium
 posits."
 
-**So the slogan is his.** "Standard price theory is the degenerate case of a
-larger object obtained by splitting a field into an exact part and a remainder"
-was published in 2012 and this project must not appear to claim it.
+**The Helmholtz-Hodge splitting of a field into an exact part and a remainder is
+nineteenth-century mathematics and belongs to nobody. A sentence of the form
+"theory X is the degenerate case of a larger object obtained by that splitting"
+is an instance of standard mathematics applied to whatever object the writer had.
+It carries a claim only together with the object, and the objects here are
+different.
 
-**Provenance, in the form a manuscript should use.** One sentence, stating
-independence and nothing about anyone's reading history:
+**The objects are different, and this file proves it rather than arguing it.**
+His state is the price vector `p`, one component per good, common to every agent;
+no agent index appears in his paper. On that object `D = 0` identically, so by
+Corollary 5.4 `R = 0` identically. His construction occupies the first summand of
+Corollary 5.1, `m * dist(w_bar, im d_G)^2`, and the whole content of Theorem 5 is
+the second summand, which Corollary 5.1 shows carries no cross term with the
+first. **Two summands with no cross term are orthogonal contributions, and that
+is the accurate description of the relation.** Anyone can check it by reading his
+§2 against that corollary.
 
-> Kemp-Benedict (2012) was located after the results in §14 were obtained and
-> nothing here derives from it. It is an unpublished working paper outside the
-> journals a search of this literature reaches, and it is recorded here because
-> the containment claim in §14.1 is close to his, not because anything was taken
-> from it.
+**The relation, stated once: two orthogonal summands.** §5 gives the paragraph
+in the form a manuscript should use.
 
 
 **The mechanism is not his, and this is provable from Corollary 5.1 rather than
@@ -97,8 +109,8 @@ Both are equilibrium selection, which this framework does not do.
 Jiang, X., Lim, L.-H., Yao, Y. and Ye, Y., *Statistical ranking and combinatorial
 Hodge theory*, Mathematical Programming B (2010), arXiv:0811.1067.
 
-**This is a closer precedent to Theorem 1 than anything in §2 or §3, and it has
-to be cited for that reason rather than for its subject.** Pairwise comparison
+**This is the nearest construction to Theorem 1 in the literature, and it is
+listed for that reason rather than for its subject.** Pairwise comparison
 data is treated as an **edge flow on a graph**, an antisymmetric function
 `X(i,j) = -X(j,i)`, and decomposed by Hodge into three orthogonal parts: a
 **gradient** flow `X_ij = s_j - s_i` induced by a potential, which is a global
@@ -107,10 +119,11 @@ ranking; a **curl** flow carrying local inconsistency around triangles; and a
 third: "if the residual is large, then the underlying data is plagued with cyclic
 inconsistencies."
 
-**That is this project's Theorem 1 in a different application.** A global
-potential exists exactly when the cycles close; where they do not, the obstruction
-is what remains after projecting onto gradients. The mathematics is theirs and
-should be presented as theirs.
+**That is the same standard decomposition Theorem 1 uses, on a different
+object.** A global potential exists exactly when the cycles close; where they do
+not, the obstruction is what remains after projecting onto gradients. **The Hodge
+decomposition is standard mathematics and belongs to nobody; what differs between
+the two constructions is the object it is applied to.**
 
 **The differentiator is the same one, for the third independent time.** They do
 handle multiple comparators: a pairwise ranking matrix `Y^α` is defined per voter
@@ -119,7 +132,7 @@ The index enters the construction and is integrated out before the results. That
 is §14.5's second row exactly, and it is the standard move, for the standard
 reason.
 
-**Three precedents, one differentiator, and it has not been breached.**
+**Three neighbouring constructions, one differentiator, and it holds in all three.**
 Farinelli and Takada introduce investors and prove theorems without the index.
 Kemp-Benedict has no index at all. HodgeRank admits raters and aggregates them
 away. **In each case the object that survives to the theorem is single-index, and
@@ -129,8 +142,8 @@ parameter the agent graph's own spectrum.
 
 **Practical consequence, and it is favourable.** Any station of this project that
 needs to read cyclic inconsistency off a graph of asserted comparisons should use
-their machinery and cite it. **The instrument is not this project's contribution
-and pretending otherwise would be both wrong and unnecessary.**
+their machinery and cite it. **The instrument is off the shelf; the contribution
+is the object it is pointed at.**
 
 **Citation status.** Abstract and section structure read from the arXiv HTML.
 **Full text not read**, and the journal volume and pages must be attached before
@@ -148,8 +161,8 @@ vector on goods, common to every agent**, so the agent index sits in the
 parameters and never in the field. That is the same structural point §2 makes
 about Kemp-Benedict and the same one
 [`b1_theorem.md`](b1_theorem.md) §14.5 makes about Farinelli and Takada, and one
-sentence naming Debreu and Balasko is enough to show a referee the construction
-here is not a rediscovery of theirs.
+sentence naming Debreu and Balasko places the lineage, and the construction here
+sits outside it for the same structural reason as the other two entries.
 
 **Nothing stronger is claimed.** An earlier draft used Balasko's contractibility
 result to argue that the degenerate locus carries no `H^1` and that this

@@ -328,9 +328,12 @@ rule, same holdings. If A1b's inputs move, this moves with them.
 
 ## 9. Outputs
 
-`results/a1d_measured_cushion.json`, and rows in `RESULTS.md` written by the
-renderer. The stage gets a job in `scripts/run_all.py` at the same time as its
-first record, not afterwards.
+`results/a1d_measured_cushion.json`, and a section in `RESULTS.md`. **That file has been kept by hand since
+2026-08-21**, when the generator that used to render it was retired, so the
+section is written rather than produced. A job in `scripts/run_all.py` was part
+of this when it was written; **that runner is a dead file from 2026-09-07** and
+its table covers 52 of the 365 scripts under `experiments/`, so what stands is
+the record itself, written when the stage first runs.
 
 ---
 
@@ -491,3 +494,11 @@ mechanism reads any of it.
 ### Anything altered after this date
 
 Goes here with the date, the reason, and what had been seen at the time.
+
+### 2026-09-07, the runner is legacy
+
+`scripts/run_all.py` is legacy from this date. Its job table covers 52 of the 365
+scripts under `experiments/` and nothing has required it to be complete since the
+record ratchet was retired on 2026-08-21, so **whether this stage has a job there
+says nothing about whether it has run**. A stage is run by its own file and its
+record is in `results/`; `RESULTS.md` is the index. Nothing above is withdrawn.

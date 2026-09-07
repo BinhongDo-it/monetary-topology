@@ -140,7 +140,7 @@ def criterion(name: str, passed: bool, detail: str, *,
 
     **A criterion the run could not evaluate is not a criterion the run
     failed**, and `run_all.criteria_from` is where that distinction is
-    counted. The flag is carried on every criterion
+    counted when that legacy runner is used. The flag is carried on every criterion
     rather than only on the voided one, so a reader can tell "this stage does
     not use voids" from "this criterion is not voided".
     """

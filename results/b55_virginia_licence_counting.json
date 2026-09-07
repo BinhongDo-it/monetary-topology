@@ -1,0 +1,851 @@
+{
+  "config": {
+    "amounts_in": "cents",
+    "n_rows_total": 106,
+    "no_fee_rows_excluded_from_value_set": true,
+    "retrieved": "2026-09-07",
+    "sections": [
+      "misc_fish",
+      "misc_hunt",
+      "nonresident_fish",
+      "nonresident_hunt",
+      "nonresident_hunt_extra",
+      "resident_fish",
+      "resident_hunt",
+      "resident_hunt_extra",
+      "trap"
+    ],
+    "source": "4 Va. Admin. Code 15-20-65"
+  },
+  "criteria": [
+    {
+      "criterion": "every fee is an exact integer number of cents, nothing rounded",
+      "detail": "104 priced rows, 0 not an exact cent amount",
+      "name": "B55-1",
+      "passed": true
+    },
+    {
+      "criterion": "collisions = cells - distinct values",
+      "detail": "104 cells, 45 distinct values, 59 collisions (56.7% of cells)",
+      "name": "B55-2",
+      "passed": true
+    },
+    {
+      "criterion": "the residency line counted on its own, over pairs that share activity, age band and term",
+      "detail": "26 pairs, 1 of them carry the same value on both sides",
+      "name": "B55-3",
+      "passed": true
+    },
+    {
+      "criterion": "every row carries the sub-heading it came from (rule 25)",
+      "detail": "106 rows, 0 without a sub-heading, 9 sub-headings",
+      "name": "B55-4",
+      "passed": true
+    }
+  ],
+  "reading": {
+    "cells_priced": 104,
+    "collisions": 59,
+    "distinct_values": 45,
+    "exempt_rows": 2,
+    "residency_pairs": 26,
+    "residency_pairs_same_value": 1
+  },
+  "residency_pairs": [
+    {
+      "nonresident_cents": 11000,
+      "ratio": 5.0,
+      "resident_cents": 2200,
+      "shared": "hunt, 16+, one year"
+    },
+    {
+      "nonresident_cents": 5900,
+      "ratio": 5.363636363636363,
+      "resident_cents": 1100,
+      "shared": "hunt, short trip"
+    },
+    {
+      "nonresident_cents": 1500,
+      "ratio": 2.0,
+      "resident_cents": 750,
+      "shared": "hunt, youth 12-15"
+    },
+    {
+      "nonresident_cents": 3000,
+      "ratio": 2.0,
+      "resident_cents": 1500,
+      "shared": "hunt, youth combination under 16"
+    },
+    {
+      "nonresident_cents": 5500,
+      "ratio": 5.0,
+      "resident_cents": 1100,
+      "shared": "hunt, partially disabled veteran, annual"
+    },
+    {
+      "nonresident_cents": 27500,
+      "ratio": 2.1153846153846154,
+      "resident_cents": 13000,
+      "shared": "hunt, infant lifetime"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 2.188679245283019,
+      "resident_cents": 26500,
+      "shared": "hunt, lifetime through 44"
+    },
+    {
+      "nonresident_cents": 8500,
+      "ratio": 3.8636363636363638,
+      "resident_cents": 2200,
+      "shared": "deer and turkey, 16+"
+    },
+    {
+      "nonresident_cents": 1500,
+      "ratio": 2.0,
+      "resident_cents": 750,
+      "shared": "deer and turkey, 12-15"
+    },
+    {
+      "nonresident_cents": 15000,
+      "ratio": 7.5,
+      "resident_cents": 2000,
+      "shared": "bear"
+    },
+    {
+      "nonresident_cents": 3000,
+      "ratio": 1.7647058823529411,
+      "resident_cents": 1700,
+      "shared": "archery"
+    },
+    {
+      "nonresident_cents": 3000,
+      "ratio": 1.7647058823529411,
+      "resident_cents": 1700,
+      "shared": "muzzleloading"
+    },
+    {
+      "nonresident_cents": 3000,
+      "ratio": 1.7647058823529411,
+      "resident_cents": 1700,
+      "shared": "bonus deer permit"
+    },
+    {
+      "nonresident_cents": 11000,
+      "ratio": 5.0,
+      "resident_cents": 2200,
+      "shared": "fox hunting"
+    },
+    {
+      "nonresident_cents": 2000,
+      "ratio": 1.3333333333333333,
+      "resident_cents": 1500,
+      "shared": "elk hunt lottery application"
+    },
+    {
+      "nonresident_cents": 40000,
+      "ratio": 10.0,
+      "resident_cents": 4000,
+      "shared": "special elk hunting"
+    },
+    {
+      "nonresident_cents": 20500,
+      "ratio": 4.555555555555555,
+      "resident_cents": 4500,
+      "shared": "trap, one year"
+    },
+    {
+      "nonresident_cents": 4600,
+      "ratio": 2.090909090909091,
+      "resident_cents": 2200,
+      "shared": "freshwater fish, one year"
+    },
+    {
+      "nonresident_cents": 2200,
+      "ratio": 1.0,
+      "resident_cents": 2200,
+      "shared": "fish in designated stocked trout waters"
+    },
+    {
+      "nonresident_cents": 7000,
+      "ratio": 1.8181818181818181,
+      "resident_cents": 3850,
+      "shared": "freshwater and saltwater fish"
+    },
+    {
+      "nonresident_cents": 2000,
+      "ratio": 1.5384615384615385,
+      "resident_cents": 1300,
+      "shared": "freshwater fish, five consecutive days"
+    },
+    {
+      "nonresident_cents": 3000,
+      "ratio": 1.3043478260869565,
+      "resident_cents": 2300,
+      "shared": "freshwater and saltwater fish, five consecutive days"
+    },
+    {
+      "nonresident_cents": 2300,
+      "ratio": 2.090909090909091,
+      "resident_cents": 1100,
+      "shared": "fishing, partially disabled veteran"
+    },
+    {
+      "nonresident_cents": 27500,
+      "ratio": 2.1153846153846154,
+      "resident_cents": 13000,
+      "shared": "fish, infant lifetime"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 2.188679245283019,
+      "resident_cents": 26500,
+      "shared": "fish, special lifetime freshwater"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 2.188679245283019,
+      "resident_cents": 26500,
+      "shared": "fish, special lifetime stocked trout"
+    }
+  ],
+  "rows": [
+    {
+      "cents": 2200,
+      "name": "One-year Resident License to Hunt, 16+",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 4300,
+      "name": "Two-year Resident License to Hunt, 16+",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 6400,
+      "name": "Three-year Resident License to Hunt, 16+",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 8500,
+      "name": "Four-year Resident License to Hunt, 16+",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 1100,
+      "name": "Resident Three-Day Trip License to Hunt",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 1500,
+      "name": "County or City Resident License to Hunt in County or City of Residence Only, 16+",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 800,
+      "name": "Resident Senior Citizen Annual License to Hunt, 65+",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 750,
+      "name": "Resident Junior License to Hunt, 12 through 15",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 1500,
+      "name": "Resident Youth Combination License to Hunt, under 16",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 9900,
+      "name": "Resident Sportsman License to Hunt and Freshwater Fish",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 1100,
+      "name": "Resident Hunting License for Partially Disabled Veterans",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 13000,
+      "name": "Resident Infant Lifetime License to Hunt",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 26000,
+      "name": "Resident Junior Lifetime License to Hunt, under 12",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 26500,
+      "name": "Resident Lifetime License to Hunt, through 44",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 21500,
+      "name": "Resident Lifetime License to Hunt, 45 through 50",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 16500,
+      "name": "Resident Lifetime License to Hunt, 51 through 55",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 11500,
+      "name": "Resident Lifetime License to Hunt, 56 through 60",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 6500,
+      "name": "Resident Lifetime License to Hunt, 61 through 64",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 2500,
+      "name": "Resident Lifetime License to Hunt, 65+",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 1500,
+      "name": "Totally and Permanently Disabled Resident Special Lifetime License to Hunt",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": null,
+      "name": "Service-Connected Totally and Permanently Disabled Veteran Resident Lifetime License to Hunt or Freshwater Fish",
+      "section": "resident_hunt"
+    },
+    {
+      "cents": 2200,
+      "name": "Resident Deer and Turkey Hunting License, 16+",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 750,
+      "name": "Resident Junior Deer and Turkey Hunting License, under 16",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 1700,
+      "name": "Resident Archery License",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 2000,
+      "name": "Resident Bear Hunting License",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 1700,
+      "name": "Resident Muzzleloading License",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 1700,
+      "name": "Resident Bonus Deer Permit",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 2200,
+      "name": "Resident Fox Hunting License",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 1500,
+      "name": "Resident Elk Hunt Lottery Application",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 4000,
+      "name": "Resident Special Elk Hunting License",
+      "section": "resident_hunt_extra"
+    },
+    {
+      "cents": 11000,
+      "name": "Nonresident License to Hunt, 16+",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 5900,
+      "name": "Nonresident Three-Day Trip License to Hunt",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 1200,
+      "name": "Nonresident Youth License to Hunt, under 12",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 1500,
+      "name": "Nonresident Youth License to Hunt, 12 through 15",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 3000,
+      "name": "Nonresident Youth Combination License to Hunt, under 16",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 5500,
+      "name": "Nonresident Annual Hunting License for Partially Disabled Veterans",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 2750,
+      "name": "Nonresident Annual Hunting License for Totally and Permanently Disabled Veterans",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 27500,
+      "name": "Nonresident Infant Lifetime License to Hunt",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 58000,
+      "name": "Nonresident Lifetime License to Hunt",
+      "section": "nonresident_hunt"
+    },
+    {
+      "cents": 8500,
+      "name": "Nonresident Deer and Turkey Hunting License, 16+",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 1500,
+      "name": "Nonresident Deer and Turkey Hunting License, 12 through 15",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 1200,
+      "name": "Nonresident Deer and Turkey Hunting License, under 12",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 15000,
+      "name": "Nonresident Bear Hunting License",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 3000,
+      "name": "Nonresident Archery License",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 3000,
+      "name": "Nonresident Muzzleloading License",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 2200,
+      "name": "Nonresident Shooting Preserve License to Hunt",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 3000,
+      "name": "Nonresident Bonus Deer Permit",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 11000,
+      "name": "Nonresident Fox Hunting License",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 2000,
+      "name": "Nonresident Elk Hunt Lottery Application",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 40000,
+      "name": "Nonresident Special Elk Hunting License",
+      "section": "nonresident_hunt_extra"
+    },
+    {
+      "cents": 2250,
+      "name": "Waterfowl Hunting Stationary Blind in Public Waters License",
+      "section": "misc_hunt"
+    },
+    {
+      "cents": 4000,
+      "name": "Waterfowl Hunting Floating Blind in Public Waters License",
+      "section": "misc_hunt"
+    },
+    {
+      "cents": 1700,
+      "name": "Foxhound Training Preserve License",
+      "section": "misc_hunt"
+    },
+    {
+      "cents": 1700,
+      "name": "Public Access Lands for Sportsmen Permit to Hunt, Trap, or Fish",
+      "section": "misc_hunt"
+    },
+    {
+      "cents": 4500,
+      "name": "One-year Resident License to Trap, 16+",
+      "section": "trap"
+    },
+    {
+      "cents": 8900,
+      "name": "Two-year Resident License to Trap, 16+",
+      "section": "trap"
+    },
+    {
+      "cents": 13300,
+      "name": "Three-year Resident License to Trap, 16+",
+      "section": "trap"
+    },
+    {
+      "cents": 17700,
+      "name": "Four-year Resident License to Trap, 16+",
+      "section": "trap"
+    },
+    {
+      "cents": 2000,
+      "name": "County or City Resident License to Trap in County or City of Residence Only",
+      "section": "trap"
+    },
+    {
+      "cents": 1000,
+      "name": "Resident Junior License to Trap, under 16",
+      "section": "trap"
+    },
+    {
+      "cents": 800,
+      "name": "Resident Senior Citizen License to Trap, 65+",
+      "section": "trap"
+    },
+    {
+      "cents": 2500,
+      "name": "Resident Senior Citizen Lifetime License to Trap, 65+",
+      "section": "trap"
+    },
+    {
+      "cents": 1500,
+      "name": "Totally and Permanently Disabled Resident Special Lifetime License to Trap",
+      "section": "trap"
+    },
+    {
+      "cents": 1500,
+      "name": "Service-Connected Totally and Permanently Disabled Veteran Resident Lifetime License to Trap",
+      "section": "trap"
+    },
+    {
+      "cents": 20500,
+      "name": "Nonresident License to Trap",
+      "section": "trap"
+    },
+    {
+      "cents": 2200,
+      "name": "One-year Resident License to Freshwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 4300,
+      "name": "Two-year Resident License to Freshwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 6400,
+      "name": "Three-year Resident License to Freshwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 8500,
+      "name": "Four-year Resident License to Freshwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 1500,
+      "name": "County or City Resident License to Freshwater Fish in County or City of Residence Only",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 800,
+      "name": "Resident License to Freshwater Fish, 65+",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 2200,
+      "name": "Resident License to Fish in Designated Stocked Trout Waters",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 3850,
+      "name": "Resident License to Freshwater and Saltwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 1300,
+      "name": "Resident License to Freshwater Fish for Five Consecutive Days",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 2300,
+      "name": "Resident License to Freshwater and Saltwater Fish for Five Consecutive Days",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 9900,
+      "name": "Resident Sportsman License to Hunt and Freshwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 1100,
+      "name": "Resident Fishing License for Partially Disabled Veterans",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 13000,
+      "name": "Resident Infant Lifetime License to Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 26500,
+      "name": "Resident Special Lifetime License to Freshwater Fish, through 44",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 21500,
+      "name": "Resident Special Lifetime License to Freshwater Fish, 45 through 50",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 16500,
+      "name": "Resident Special Lifetime License to Freshwater Fish, 51 through 55",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 11500,
+      "name": "Resident Special Lifetime License to Freshwater Fish, 56 through 60",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 6500,
+      "name": "Resident Special Lifetime License to Freshwater Fish, 61 through 64",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 2500,
+      "name": "Resident Special Lifetime License to Freshwater Fish, 65+",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 26500,
+      "name": "Resident Special Lifetime License to Fish in Designated Stocked Trout Waters, through 44",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 21500,
+      "name": "Resident Special Lifetime License to Fish in Designated Stocked Trout Waters, 45 through 50",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 16500,
+      "name": "Resident Special Lifetime License to Fish in Designated Stocked Trout Waters, 51 through 55",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 11500,
+      "name": "Resident Special Lifetime License to Fish in Designated Stocked Trout Waters, 56 through 60",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 6500,
+      "name": "Resident Special Lifetime License to Fish in Designated Stocked Trout Waters, 61 through 64",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 2500,
+      "name": "Resident Special Lifetime License to Fish in Designated Stocked Trout Waters, 65+",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 1500,
+      "name": "Totally and Permanently Disabled Resident Special Lifetime License to Freshwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": null,
+      "name": "Service-Connected Totally and Permanently Disabled Veteran Resident Lifetime License to Hunt and Freshwater Fish",
+      "section": "resident_fish"
+    },
+    {
+      "cents": 4600,
+      "name": "Nonresident License to Freshwater Fish",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 2200,
+      "name": "Nonresident License to Freshwater Fish in Designated Stocked Trout Waters",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 7000,
+      "name": "Nonresident License to Freshwater and Saltwater Fish",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 2300,
+      "name": "Nonresident Fishing License for Partially Disabled Veterans",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 1150,
+      "name": "Nonresident Annual Fishing License for Totally and Permanently Disabled Veterans",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 700,
+      "name": "Nonresident License to Freshwater Fish for One Day",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 2000,
+      "name": "Nonresident License to Freshwater Fish for Five Consecutive Days",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 3000,
+      "name": "Nonresident License to Freshwater and Saltwater Fish for Five Consecutive Days",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 27500,
+      "name": "Nonresident Infant Lifetime License to Fish",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 58000,
+      "name": "Nonresident Special Lifetime License to Freshwater Fish",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 58000,
+      "name": "Nonresident Special Lifetime License to Fish in Designated Stocked Trout Waters",
+      "section": "nonresident_fish"
+    },
+    {
+      "cents": 700,
+      "name": "Permit to Fish for One Day at Board-Designated Stocked Trout Fishing Areas",
+      "section": "misc_fish"
+    },
+    {
+      "cents": 1700,
+      "name": "Public Access Lands for Sportsmen Permit to Hunt, Trap, or Fish",
+      "section": "misc_fish"
+    },
+    {
+      "cents": 6000,
+      "name": "Special Guest Fishing License",
+      "section": "misc_fish"
+    }
+  ],
+  "stage": "B55",
+  "values_repeated": [
+    {
+      "cents": 1500,
+      "times": 10
+    },
+    {
+      "cents": 2200,
+      "times": 7
+    },
+    {
+      "cents": 1700,
+      "times": 6
+    },
+    {
+      "cents": 3000,
+      "times": 5
+    },
+    {
+      "cents": 2000,
+      "times": 4
+    },
+    {
+      "cents": 2500,
+      "times": 4
+    },
+    {
+      "cents": 800,
+      "times": 3
+    },
+    {
+      "cents": 1100,
+      "times": 3
+    },
+    {
+      "cents": 6500,
+      "times": 3
+    },
+    {
+      "cents": 8500,
+      "times": 3
+    },
+    {
+      "cents": 11500,
+      "times": 3
+    },
+    {
+      "cents": 16500,
+      "times": 3
+    },
+    {
+      "cents": 21500,
+      "times": 3
+    },
+    {
+      "cents": 26500,
+      "times": 3
+    },
+    {
+      "cents": 58000,
+      "times": 3
+    },
+    {
+      "cents": 700,
+      "times": 2
+    },
+    {
+      "cents": 750,
+      "times": 2
+    },
+    {
+      "cents": 1200,
+      "times": 2
+    },
+    {
+      "cents": 2300,
+      "times": 2
+    },
+    {
+      "cents": 4000,
+      "times": 2
+    },
+    {
+      "cents": 4300,
+      "times": 2
+    },
+    {
+      "cents": 6400,
+      "times": 2
+    },
+    {
+      "cents": 9900,
+      "times": 2
+    },
+    {
+      "cents": 11000,
+      "times": 2
+    },
+    {
+      "cents": 13000,
+      "times": 2
+    },
+    {
+      "cents": 27500,
+      "times": 2
+    }
+  ]
+}

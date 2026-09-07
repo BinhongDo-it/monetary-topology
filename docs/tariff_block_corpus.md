@@ -430,3 +430,58 @@ the 8.28 belonged to a row assembled out of two halves of different countries.
 read 3.97, then 3.92, and only 4.000 against the survey's stated four once both bugs
 were out. **A check that is close is not a check that passes**, and the two runs that
 read 3.97 and 3.92 were both being called a pass.
+
+
+## A third arm on the same document, and it needed no collection
+
+The residential annex is the only one of the five that draws blocks, which is
+why the first arm stopped there. The other four carry a time-of-use column
+instead, and that column states a charge per period. A schedule that writes four
+periods and prints `0.06, 0.14, 0.22, 0.24` has written four values; one that
+writes three and prints `0.18, 0.32, 0.32` has written two. That is the same
+object the block arm counts, under another name, and the text of all five
+annexes was already on disk.
+
+Three annexes carry the column. The public annex carries a demand charge and no
+time-of-use column, so it is out of this arm, named here rather than dropped
+quietly.
+
+**The reading.** Across the three, 125 rows, of which **42 carry a time-of-use
+column**. They write **112 periods** and **105 distinct values**, so **7
+collisions**.
+
+**Seven collisions, and two of them are exact.** Every collision in the block arm
+is bounded above by the survey rounding charges to two decimals, and is reported
+that way. Two collisions here are not: India prints `0, 0, 0.01, 0.02` for both
+its commercial and its industrial schedule, and two periods printed as zero are
+two periods charged nothing. No pair of distinct positive charges rounds to two
+zeros. Those two are one country writing one rule into two tables rather than two
+independent readings, and they are counted as one country in the record.
+
+| criterion | reading | |
+|---|---|---|
+| **TB-14** the same column splitter on the residential annex, against the counts already on disk | 53 schedules, `179` blocks, `156` distinct values, `23` collisions, reproduced digit for digit | PASS |
+| **TB-15** periods against distinct values, per annex and per colliding schedule | commercial `44 -> 42`, industrial `54 -> 49`, agricultural `14 -> 14`; every colliding schedule printed with its charges | PASS |
+| **TB-16** collisions split by whether rounding could have produced them | 7 total, **2 exact**, 5 resolution-limited | PASS |
+| **TB-17** the survey's structure column against its time-of-use column, both directions named row by row | 7 name time-of-use and print no charges; 4 print charges and do not name it | PASS |
+| **TB-18** periods per customer class for countries in more than one annex | 12 countries, 8 write the same period count in every annex they appear in | PASS |
+
+**What TB-17 found in the document itself.** Eleven of the forty-two schedules
+disagree with the survey's own description of them. Australia's commercial
+schedule is typed `DBT` and prints three time-of-use charges; Armenia's
+industrial one is typed `kV-dependent` and prints two. Seven go the other way,
+naming time-of-use in the structure column with the charge column empty. The rows
+are named rather than counted, because the count alone does not say whether the
+disagreement is in the typing or in the collection.
+
+**A parse error worth recording, and why the known-answer check did not catch
+it.** The first version identified each annex by its column labels. The
+industrial and agricultural annexes both print `Low to high TOU` and `Monthly`,
+so the industrial pages matched the agricultural pattern as well and were parsed
+a second time with the wrong column edges. The agricultural annex then reported
+66 rows where it has 17, and India's agricultural cell, which reads `-. -` in the
+document, came back carrying four numbers from the industrial row above it.
+**TB-14 passed throughout**, because it checks the residential annex and nothing
+else. A known-answer check covers the part it checks. Identifying each page by
+the `Annex 1X` title, which is printed once per annex, assigns every page to
+exactly one.

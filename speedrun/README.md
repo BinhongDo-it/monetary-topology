@@ -1008,8 +1008,11 @@ and every run record is a committed `results/*.json`.
 
 ## Climate policy, education policy, and administrative conversion factors
 
-**Stations: C1, C2, C3, B33, B36.** None of these is a financial carrier and nothing on
-them is traded. They exist because every reading elsewhere in this repository
+**Stations: C1, C2, C3, B33, B36, B49, B50, B51, B52, B53.** Most of these are not financial carriers and
+nothing on them is traded. The one exception is priced in a market, and it belongs
+here because the same thing holds of it for a different reason: both prices exist,
+and no one is in a position to hold them both. They exist because every reading
+elsewhere in this repository
 admits one cheap objection, that a non-zero loop sum on a market is friction:
 thin books, stale quotes, execution risk. **The objection is generic, so the
 answer should be too.** Wherever an institution declares that one unit of `a`
@@ -1122,6 +1125,95 @@ registrations that let those establishments ship expired in March 2025 and were
 not renewed, while the same customs system renewed three other product lines
 within days. **The point expires, the edge is gone, and no price mechanism
 intervenes anywhere in between.**
+
+**B49 is the version of that argument where the prices are real and the population
+still cannot exist.** Electricity and piped gas reach a buyer over a fixed network,
+and the connection point is what defines the class, so nothing moves past the
+meter: a residential customer cannot resell to an industrial one, and no
+arbitrageur can stand on both sides. Of the eight products the source carries only
+these two qualify. The other four solid and liquid fuels travel in drums, bottles
+and wagons, so a gap between two buyer classes there is carriage and handling.
+Gasoline and diesel have one class rather than two, and their paired-cell counts
+are **`0` rather than small**. Reading residential against industrial across the
+two carriers, in 13 countries and 3 years, **39 of 39 square sums are nonzero, and
+every one stands above a floor that is measured rather than declared**, the
+smallest at `7.4x` and the median at `56x`. The floor comes from quoting the same
+four prices in national currency, where one exchange rate per country and year
+cancels in the log difference, so the largest departure over the panel is what the
+instrument cannot resolve. **A scalar price field over positions predicts every one
+of those 39 numbers is exactly zero.** The four vertices and four edges give
+`b1 = 4 - 4 + 1 = 1`, so this is one loop read once per country-year rather than 39
+loops, and the record says so rather than multiplying by 39.
+
+**B52 is that reading at 27 times the width, and it is where the number now
+stands.** Eurostat publishes the same four legs bi-annually across the European
+reporting area: **33 countries, 38 semesters, 1,076 cells**, of which 1,069 stand
+above a floor measured the same way and **none of the 1,069 is exactly zero**. The
+median cell sits at **103 times** that floor. Seven cells fall to or below it and
+are named and left unscored, because a continuous quantity read at a threshold
+cannot be reported as a zero merely because the instrument stops there. Two more
+were dropped by name where the published gas price is `0.0`, which is the absence
+of a network rather than a price. The independent count is again the number of
+countries, 33, not the number of cells. B52 also settles a second question B49
+had raised: **B49 reported the sign of the square drifting in one direction, and
+on the wide panel both directions are populated** in each of three windows,
+including one that stops before the 2021 wholesale move. That shape is superseded
+and the framework's prediction is untouched by it, since the framework says this
+quantity is not identically zero and says nothing about which way it should drift.
+
+**B51 is the rule that says which carriers can carry this reading at all.** Four
+questions, applied to 17 candidates and checked against every carrier whose class
+difference has been measured: is it one commodity, can the cheaper class not hand it on,
+do both classes have a posted price, and is the split imposed rather than chosen.
+Writing down the first question, which had been implicit, removes cable television
+and fixed broadband, where a household-against-business difference is a difference
+of product. The rule also splits the qualifying family in two. Either the
+commodity cannot be handed on, which needs a metered network and is close to
+enumerated, **or the entitlement cannot be handed on**, which needs no network at
+all and had never been used here until B53. Six candidates are still open, and
+**nine of their twelve open answers are waiting on a document rather than on a
+judgement**, which is what turns the remainder into a reading list.
+
+**B53 is the first reading from that second family, and it is where the counting
+law's collisions become exact.** A published tuition schedule writes three classes
+for the same course in the same term, in-district, in-state and out-of-state, and
+it writes them in whole dollars, so two distinct amounts cannot round into one.
+Over **5,605 schedules and 3,861 institutions in 2020, 8,972 collisions are
+exact**, checked against a premise the station verifies rather than assumes: zero
+non-integer figures in the corpus. The control group is what makes it more than a
+corpus. Residency is a legal status set outside the transaction, so a public
+institution has the split imposed on it and a private one does not, and the
+control code comes from a separate endpoint. **Of 3,439 private schedules 3,424
+write one value; of 2,166 public schedules 1,973 write two or three.** That is the
+counting law's own statement about an imposed split, demonstrated across 56 states
+at once rather than by reading one statute.
+
+**B50 is where the other half of the programme is measured: how often a test of
+this kind can be run.** Hungary cut regulated household energy in dated rounds
+that each name a percentage, which looks like an ideal case for separating a
+shared programme from a shared environment. The statute sets a **ceiling** rather
+than an equal cut, so the two household carriers moved by different proportions
+and the window carries no point prediction to score. What the station establishes
+instead is a general condition: **a change to one leg tests anything only if the
+other leg is quiet at the same moment**, and in this window the untouched
+industrial legs moved more than the treated household ones. That condition is a
+property of the window and not something a design can arrange, so the number of
+usable cases is the number of carriers multiplied by the number of quiet moments.
+The station also separates two yardsticks that are easy to conflate: the
+instrument's floor says whether a move can be seen, and the series' own
+semester-to-semester movement says whether it stands out. The move here is 65
+times the floor and at the 22nd percentile of the series' own steps.
+
+**Station documents:** [`b49_prereg.md`](../docs/b49_prereg.md) and
+[`b49_results.md`](../docs/b49_results.md),
+[`b50_prereg.md`](../docs/b50_prereg.md) and
+[`b50_results.md`](../docs/b50_results.md),
+[`b51_prereg.md`](../docs/b51_prereg.md) and
+[`b51_results.md`](../docs/b51_results.md),
+[`b52_prereg.md`](../docs/b52_prereg.md) and
+[`b52_results.md`](../docs/b52_results.md),
+[`b53_prereg.md`](../docs/b53_prereg.md) and
+[`b53_results.md`](../docs/b53_results.md).
 
 ## What is not here
 

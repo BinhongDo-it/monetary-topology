@@ -4,10 +4,9 @@
 result so that it is not re-derived and so that no manuscript writes a promissory
 note against it. It licenses nothing about any economy.
 
-The question came from a neighbouring literature and the placement of that
-literature is in
-[`b0c_precedent_topological.md`](b0c_precedent_topological.md). Nothing below
-depends on it. Kemp-Benedict (2012) obtains endogenous transitions between
+The question came from a neighbouring literature, Kemp-Benedict (2012),
+*General Equilibrium as a Topological Field Theory*, arXiv:1209.1705. Nothing
+below depends on it. Kemp-Benedict (2012) obtains endogenous transitions between
 critical points on a single-price field; the question here was whether the A2
 carrier has anything of that shape on it. It does not.
 

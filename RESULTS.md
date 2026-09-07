@@ -15,6 +15,22 @@ Failed criteria are listed alongside passing ones. A results file that records
 only successes is the same kind of object as a statistic designed to look good,
 and this project's own argument is about that kind of object.
 
+**Criteria are of six kinds, and they are not summed.** Most criteria in this
+ledger interrogate the run itself: whether a parser reproduces counts that are
+already known, whether an identity holds to machine precision, whether the panel
+is complete, whether a station's external premise holds at all. A few
+interrogate the rival's point prediction, and a few more the station's own
+registered reading. Each kind means something different when it does not pass. A
+parser check that does not pass says the code was wrong and points at where; a
+premise check that does not pass says the criteria resting on it have no object
+to judge; a known-answer check that does not pass is how a named, checkable list
+of anomalies gets produced, and that list is usually the most useful thing the
+station returns; a station's own reading that does not pass withdraws that one
+reading. Only the rival line speaks to the theory. The six kinds are
+`instrument`, `premise`, `known_answer`, `rival`, `own_reading` and
+`bookkeeping`; counts are reported per kind, because a count that pools them
+refers to nothing.
+
 **A criterion is not to be read out of its carrier.** Every criterion here was
 registered against one construction, and several stations have since been read a
 second time on a different one: with A3's asset layer added, at a different node
@@ -6869,6 +6885,18 @@ one would take such a claim being on record first.
 **Two reopening conditions are registered**: a carrier that can express gross trade
 rather than the net balance, and a rival's point prediction. Neither is in hand.
 
+
+### Criteria adjudicated not to be repaired
+
+These verdicts lived only in the runner's allowlist, which is where this project
+recorded "looked at and left alone on purpose" while the runner existed. They are
+findings rather than defects, and they belong in the ledger.
+
+| criterion | why it is not repaired |
+|---|---|
+| **A25-4** what happens once it binds | **A reproduction failure, and that is the finding.** The stage ran in August with no record on disk: its readings went into this file by hand and the module that produced them was never called by anything. A driver written on 2026-09-03 puts the stage on the carrier its design sheet names and reproduces both structural halves, the boundary off at width zero in ten of ten cells and the ceiling binding in seven of thirty. **The four-cell table does not come back**: the recorded closing balance runs to `+9955` on the arm with a pump and no ceiling, and a sweep of six widths at both pump settings and both ceiling arms reaches `3.22` anywhere. The original readings are neither withdrawn nor overwritten. What is established is that **they do not reproduce from what is on disk** |
+
+
 ---
 
 ## A26 — every node ranks its counterparties, and what a queue does to a graph nobody cuts
@@ -7169,6 +7197,24 @@ whether the edges the queue abandons are the same edges the run arm would cut,
 which edges make up the set that load-insensitive orderings do not reach, and
 terms that depend on the pair rather than on the counterparty, for which the
 bilateral array the per-edge ordering already ranks on is the minimal carrier.
+
+
+### Criteria adjudicated not to be repaired
+
+These verdicts lived only in the runner's allowlist, which is where this project
+recorded "looked at and left alone on purpose" while the runner existed. Each is a
+reading rather than a defect, and keeping the criterion in its registered form is
+what makes the reading visible.
+
+| criterion | why it is not repaired |
+|---|---|
+| **A26-2c** | **The reading, not a defect.** It asks that every edge the proportional split would use is reached at least once while the rank-and-fill rule is on. It is not, in **28.6 to 38.3 per cent** of them, with no edge deleted and no floor active: the ordering produces an irreversibility that nothing in the rule states. Reshaping the criterion would hide that |
+| **A26-7** | **The locator's answer, and it is a negative one.** Does any cell of the registered density grid crossed with three wage elasticities leave the ranking biting without driving cumulative household inflow onto the floor? **Fifteen of fifteen are on the floor**, the ratio running `0.004` to `0.011` of control and falling as the graph gets denser. The criterion is written so that finding nothing fails it, which is what makes the sweep worth having run |
+| **A26-10** | **A registered prediction refuted.** The rule fills the counterparty with the largest inflow, so seeds whose median payer reaches four or five counterparties were predicted to show a *lower* head-capacity to typical-budget ratio than those reaching three. They show a higher one, with no clean separation. The same run found the quantity ill-conditioned past the first round: with issuance off the median payer's holdings reach zero within two rounds, so the denominator vanishes |
+| **A26-12** | **A registered prediction refuted in every seed, and the direction reverses a sentence this stage had carried since its first run.** That sentence said the ordering is driven by its own result: a counterparty left unreached takes in less, ranks lower, and is left unreached again. Ordering the queue on in-degree instead, which cannot move with the flow, was predicted to leave fewer edges unreached. **It leaves more, in twenty seeds of twenty, by 1.9 to 27.1 percentage points.** What puts edges out of use is the fixity of the order, and the feedback is what keeps some of them alive |
+| **A26-20** | **The outcome map failed, not the run.** This arm swept the other sign of the terms elasticity, terms improving with load, which is the sign this stage's own correspondence carries. Two cells were written down before it ran, unreached edges rise or they fall, and the reading landed in a third nobody had enumerated: **they hold at the frozen value exactly, above it in zero seeds of twenty and below it in zero**, while the queue on that side does move. Both registered accounts are refuted and the numbers are not in question. The criterion records FAIL because a design owes every reachable branch a reading and this one gave two of three |
+| **A26-22** | **The structural half is refuted and that is the reading.** The arm asks which edges a load-insensitive ordering never reaches. Two accounts were written down before it ran, queue position and payer poverty, and the discriminator was structural: with one global order and a leftover spread over every edge, each payer should reach a prefix of its own ranked neighbours and stop, with no holes. **Across 4,000 payers in twenty seeds there are 56 holes.** The account is wrong and the reason is not established: the obvious one, that a counterparty with no capacity is stepped over, is refuted by its own numbers, the largest capacity passed over being `1.03e-27` against a smallest absorbing capacity of `3.88e-165` |
+
 
 ---
 
@@ -8257,6 +8303,88 @@ asks whether a shared procedure can be told apart from a shared environment; thi
 asks whether a counting law's object propagates. **Same treatment variable, two
 questions**, and the availability work already done there should be read before any
 is repeated here.
+
+### The second arm ran, and it returns a negative reading with the treated group named
+
+`experiments/tariff_blocks_conditionality.py`, record
+`results/tariff_blocks_conditionality.json`. The programme and condition data are the
+IMF conditionality dataset of Kentikelenis and Stubbs, one country-year panel and one
+row-per-condition file, downloaded by hand and not redistributed here. The three
+outcomes were fixed before the pull.
+
+| criterion | reading | |
+|---|---|---|
+| **TB-11** print the block-count distribution for schedules whose country was under an arrangement in 2015 or 2016 and for those whose was not, cell by cell, no threshold on either | **23 under, 30 not.** Block counts `1..8`: under `4 4 7 2 2 2 2 0`, not under `7 4 8 3 2 2 3 1`. **Means 3.35 against 3.40** | the same shape on both, which was registered as a negative reading · `own_reading` |
+| **TB-12** print the count of conditions naming an electricity price against the block count, as a gradient, with the treated countries named | **21 conditions over 8 countries**, out of 723 conditions falling on these 53 in the window. Rank correlation of blocks against the SOE condition count `+0.11`, against months under an arrangement `+0.02` | printed · `own_reading` |
+| **TB-13** every schedule resolves to a name in the panel, and any country absent from the condition file is named rather than silently read as having none | **0 unmatched.** 7 named as absent from the condition file: Australia, Austria, Germany, Iran, Japan, Lebanon, Malaysia | PASS · `instrument` |
+
+**The negative reading is the registered one and is reported as it came.** Two
+distributions of the same shape was written down before the pull as one of the three
+outcomes, and it is what came back.
+
+**What the arm learned about its own treatment variable is worth more than that.**
+Being under an arrangement is not the treatment this arm wanted; having one's tariff
+schedule rewritten by an external condition is. Those are not the same set. Of the 53,
+23 were under an arrangement, and **the conditions that name an electricity price fall
+on 8 of them**: Pakistan 9, Jordan 4, Haiti 2, Madagascar 2, Guinea 1, Honduras 1,
+Kyrgyz Republic 1, Yemen 1. **Read one by one, seven of those eight name a price
+level**; the Yemen condition rolls out prepaid meters, which is metering rather than
+pricing. Both numbers are in the record and the full text of all 21 is printed there.
+
+**So the treatment group is seven or eight countries spread over eight block-count
+values, and no distribution reads off that.** This is not a sample that came out
+small. It is the number of times the mechanism occurred in this window on this
+corpus, which is what the count on the treatment variable is supposed to establish
+before anything is bought.
+
+**One expectation formed from the codebook did not survive the data.** The
+classification puts price rises for basic-needs goods, electricity and gas included
+when explicitly for households, in the social-policy area, so that area looked like
+the one to read. Across these 53 countries and these two years it carries **four
+conditions and none of them is about a price**: two on tertiary education policy, one
+on payroll system integration, one on a social-fund beneficiary survey. **Every
+electricity-price condition sits in the state-owned-enterprise area instead.**
+
+**The conditions themselves are a carrier for a different question, and that is this
+arm's net product.** Each is a dated public instrument in which a third party
+instructs a government to rewrite a published price schedule, several with the
+percentage in the text: Guinea `+20`, Madagascar `+15`, Honduras `+2.5`, and Jordan an
+automatic adjustment mechanism with a stated commencement date. The carrier ranking
+for the shared-procedure question already names programme conditionality as its
+strongest channel on the ground that the condition is itself an instruction to change
+a procedure and is published in a dated letter. **It had no instance attached. These
+21 are instances, with country, year, condition type and source document.**
+
+### A third arm: the time-of-use columns of the other annexes
+
+The residential annex is the only one that draws blocks. The other four carry a
+time-of-use column, which states a charge per period and so states how many
+periods a schedule writes and how many distinct values they carry. The text of
+all five annexes was already on disk, so this arm collected nothing.
+
+Across the three annexes that carry the column: **125 rows, 42 with a time-of-use
+column, writing 112 periods and 105 distinct values, 7 collisions**.
+
+| criterion | reading | |
+|---|---|---|
+| **TB-14** the same column splitter on the residential annex against the counts already on disk | `179` blocks, `156` values, `23` collisions, reproduced digit for digit | PASS · `known_answer` |
+| **TB-15** periods against distinct values, per annex and per colliding schedule | commercial `44 -> 42`, industrial `54 -> 49`, agricultural `14 -> 14` | PASS · `own_reading` |
+| **TB-16** collisions split by whether rounding could have produced them | 7 total, **2 exact**, 5 resolution-limited | PASS · `own_reading` |
+| **TB-17** the survey's structure column against its own time-of-use column | 7 name it and print nothing; 4 print charges without naming it | PASS · `known_answer` |
+| **TB-18** periods per customer class across annexes | 12 countries, 8 the same in every annex | PASS · `own_reading` |
+
+**Two of the seven collisions are exact, which the block arm has none of.** Every
+block-arm collision is bounded above by the survey rounding to two decimals.
+India prints `0, 0, 0.01, 0.02` for both its commercial and its industrial
+schedule: two periods charged nothing, and no pair of distinct positive charges
+rounds to two zeros. Those two are one country writing one rule into two tables,
+and the record counts them as one country.
+
+**TB-17 reads the document against itself.** Eleven of the forty-two schedules
+disagree with the survey's own typing of them, four printing time-of-use charges
+under a structure column that does not name it and seven the reverse. The rows
+are named rather than counted, because a count does not say whether the
+disagreement is in the typing or in the collection.
 
 
 ## B30 — the propagation chain, arm by arm, and what each one returned
@@ -12905,3 +13033,503 @@ which are two objects.
 of September 2026, so the 287 captured pages held here are the only copy of that
 series known to this project. They are treated as non-reproducible.
 
+
+## B49 — the two energy carriers that cannot be resold, and a square sum that is never zero
+
+Station documents: [`b49_prereg.md`](docs/b49_prereg.md) and [`b49_results.md`](docs/b49_results.md).
+
+A class differential can only be read off two prices when the holder of the
+cheaper one cannot resell it to the holder of the dearer one. Electricity and
+piped natural gas arrive over a fixed network and the connection point is the
+class definition, so nothing moves past the meter. Kerosene, LPG, fuel oil and
+coal all travel in drums, bottles and wagons, so a gap between two buyer classes
+there is carriage and handling. Gasoline and diesel do not even have two classes
+in this source: they exist in the transport sector only, one price, and their
+paired-cell counts are zero rather than small. Positions are therefore
+electricity and gas, classes are residential and industrial, and the square sum
+read here is the first of the three terms,
+
+    w_resid(elec, gas) - w_ind(elec, gas)
+      = log(P_resid_elec / P_resid_gas) - log(P_ind_elec / P_ind_gas)
+
+Carrier: the public read endpoint of the IEA End-use Energy Prices data set, CC
+BY 4.0, annual prices by sector. The locked panel is every country carrying all
+four series in all three published years, 13 countries by 3 years by 4 series,
+156 prices, every one of them in the record. `experiments/b49_energy_class_square.py`
+fetches and scores; responses are cached under `data/cache/iea/` so a rerun goes
+to the network zero times. All four prices are on one basis, VAT included: the
+database documentation states that the World Energy Prices series includes VAT
+for the industry and electricity-generation sectors as well, to keep countries
+comparable, and it is that series and not the OECD-only one that this endpoint
+returns, which is read off the country list rather than assumed, since Algeria is
+in the locked panel and is not an OECD member. Criteria are written into the
+script that produces the record, the record carries their wording, and every
+quantity this run produced is reported.
+
+| criterion | reading | |
+|---|---|---|
+| **B49-1** the locked panel is complete, all four series in all three years | 13 countries, 39 cells, 156 prices | PASS · `instrument` |
+| **B49-2** the country list is never shorter than the records it names, reported per product | all eight products return list and records equal to the digit; the sparsity is in the years, not in the list | PASS · `bookkeeping` |
+| **B49-3** the square sum does not move when the four prices are quoted in another currency | median gap `9.19e-09` over 39 of 39 cells, worst `2.471e-03` at Netherlands 2000 | PASS · `instrument` |
+| **B49-4** every square sum stands above that measured floor | 39 of 39, smallest `7.4x` the floor, median `56x`, none at or below | PASS · `instrument` |
+| **B49-5** no cell matches the rival's point prediction of exactly zero | 0 of 39 | PASS · `rival` |
+
+The rival here is a scalar price field over positions: if the terms facing every
+class were the gradient of one potential, every square sum would be exactly zero
+whatever the level of prices. This is a point prediction of zero, so it carries
+no band, and what it is read against is a measured floor rather than an
+interval. The floor is not declared. One exchange rate per country and year
+cancels in the log difference, so quoting the four prices in national currency
+must return the same square sum, and the largest departure over the 39 cells is
+what the instrument cannot resolve. That check is an implementation check and not
+an independent confirmation: the cancellation is forced by the construction, and
+only a coding error can break it. Its worth is exactly one code check, and the
+floor it hands over is the part that is used.
+
+What the reading does not cover. The square sum has three terms and the two
+transfer wedges are not observed, because moving between the residential and the
+industrial class is what the connection rules forbid. For the full sum to vanish,
+the difference of those two wedges would have to cancel the measured term in
+every one of the 39 cells.
+
+Counting the independent loops. The four vertices are the position-class pairs
+and the four edges are two within-class position edges and two agent edges, so
+`b1 = 4 - 4 + 1 = 1`. There is one independent loop, and the 39 cells are that
+one loop read once in each country-year rather than 39 independent loops. Any
+power claim multiplying by 39 would be counting the same circuit repeatedly.
+
+Sign and level, reported without a line drawn on either. `|square sum|` runs from
+`0.0183` at Spain in 2000 to `0.8526` at New Zealand in 2025, median `0.1383`. By
+year the sign splits 5 positive against 8 negative in 2000, 2 against 11 in 2010,
+1 against 12 in 2025, with medians `-0.0472`, `-0.1610` and `-0.2302`. Hungary is
+the one country running the other way, `-0.062` then `+0.041` then `+0.107`, and
+the reason is visible in its four prices: in 2025 its residential electricity is
+`125.595` against `232.128` for industry and its residential gas is `35.625`
+against `73.314`, both roughly half. Slovakia inverts on electricity in 2025 as
+well but not on gas, so its square sum stays negative.
+
+Which products can carry this square at all, counted before anything was read.
+The columns are the number of countries with a price in each sector, then the
+country list, the records, the countries carrying all three years, and the cells
+where one country-year holds two or more sectors.
+
+| product | ELGEN | IND | RESID | TRANS | list | records | 3 years | paired cells |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| electricity | 0 | 88 | 110 | 0 | 111 | 111 | 38 | **179** |
+| natural gas | 19 | 56 | 58 | 15 | 69 | 69 | 28 | **102** |
+| light fuel oil | 0 | 66 | 99 | 0 | 103 | 103 | 32 | 122 |
+| LPG | 0 | 7 | 89 | 42 | 96 | 96 | 15 | 48 |
+| fuel oil | 15 | 71 | 0 | 0 | 73 | 73 | 19 | 17 |
+| steam coal | 18 | 21 | 22 | 0 | 38 | 38 | 13 | 22 |
+| gasoline | 0 | 0 | 0 | 138 | 138 | 138 | 44 | **0** |
+| automotive diesel | 0 | 0 | 0 | 137 | 137 | 137 | 46 | **0** |
+
+Light fuel oil has more paired cells than LPG and is still the wrong object,
+because a drum can be carried. The count is larger and the thing being counted is
+not a class differential, which is the reason this table prints the object beside
+the count.
+
+A third class is visible in this table and is not read here. Natural gas carries
+26 cells pairing electricity generation against industry and 23 pairing it
+against residential, and coal carries 16 of the first kind. That is the same
+molecule with a third class defined by what it is burned for. Whether that
+division is imposed or chosen has to come from the rules granting it, not from
+the prices, so it is registered and left.
+
+
+## B50 — a statute that caps one leg, and why a ceiling is not an equality
+
+Station documents: [`b50_prereg.md`](docs/b50_prereg.md) and [`b50_results.md`](docs/b50_results.md).
+
+B49 read the square sum on electricity against piped gas, residential against
+industrial, and found it nonzero in every cell. This station asked whether that
+quantity moves when a published rule changes one leg and leaves the other alone.
+Hungary wrote such a rule: Act LIV of 2013 caps what a household may be charged
+at 90 per cent of a named reference tariff, covers household universal service
+only with industry outside it, fixes the sizes itself and delegates nothing.
+
+Carrier: Eurostat bi-annual energy prices, `geo=HU`, 37 semesters from 2007-S2
+to 2025-S2, four legs at the standard reference bands Eurostat itself uses, in
+all three of its tax bases. `experiments/b50_hungary_class_square.py` fetches and
+scores; responses are cached under `data/cache/eurostat/` so a rerun goes to the
+network zero times. Criteria are written into the script that produces the
+record, the record carries their wording, and every quantity this run produced is
+reported, including the two windows registered in advance as unlikely to read.
+
+Two arithmetic screens, both computable before any data is fetched, cut the five
+rounds of the programme down to one window. The square sum is a difference of
+log ratios, so a round cutting both carriers in the same proportion does not move
+its first term at all, and two of the five rounds are of that kind. A Eurostat
+semester price is an average over six months rather than a price on a date, so a
+round taking effect inside a semester is diluted in proportion to the months it
+covers, and only one round begins on the first day of a semester.
+
+| criterion | reading | |
+|---|---|---|
+| **B50-1** the panel is complete, four legs in every semester and every tax base | 37 semesters, 37 of them in all three bases | PASS · `instrument` |
+| **B50-2** the reading uses the per-band series, not the total band | bands carry 37 semesters against the total band's 10, 10, 1 and 6 | PASS · `instrument` |
+| **B50-3** the square sum does not move with the currency the prices are quoted in | floor `7.404e-04` over 37 comparisons in euro, worst at 2018-S2; the purchasing-power unit is reported separately at `5.190e-02` and excluded, since it is not one scalar per country-semester and so cannot bound the instrument | PASS · `instrument` |
+| **B50-4** the point prediction over the surviving window, in four states | **premise does not hold, so there is no point prediction here to judge** | not judged · `own_reading` |
+| **B50-5** the premise: both household carriers moved in the same proportion | household electricity `-0.1025`, household gas `-0.1342`, difference `0.0318` against a floor of `7.404e-04` | **FAIL** · `premise` |
+| **B50-6** the cut reached the price and not only the tax | tax-excluded `-0.1060` and tax-included `-0.1025`, same sign | PASS · `premise` |
+
+**What went into the design and did not survive contact with the statute.** The
+screens assumed the law required equal proportional cuts. It sets a ceiling: not
+more than 90 per cent of the reference tariff. A ceiling does not imply equality,
+gas fell 13.4 per cent against electricity's 10.2, that is fully lawful, and the
+first term of the square is therefore not constant by construction. The window
+the two screens left is not a clean point prediction after all, which is why
+B50-4 is recorded as not judged rather than as a pass or a failure.
+
+**Where the movement in that window actually came from.** The square sum moved
+`-0.0483`. Splitting it: the two household legs contribute `+0.0317` between
+them, and the two industrial legs contribute `-0.0801`, because industrial gas
+fell 7.3 per cent in the same semester while industrial electricity was flat at
+`+0.0075`. **The industrial half is two and a half times the household half, and
+the statute does not reach industry at all.** Wholesale gas was falling in early
+2013. So this window cannot separate a shared procedure from a shared
+environment, because the environment moved on its own.
+
+**Two yardsticks, and one of them is not the floor.** `0.0483` stands at 65 times
+the measured floor, so it is visible. Against this quantity's own movement it is
+ordinary: over the 36 semester-to-semester transitions the median absolute change
+is `0.0969`, and this one ranks 28th, at the 22nd percentile. A resolution floor
+says whether a number can be seen. It does not say whether the number stands out,
+and that needs the series' own distribution, taken from the distribution rather
+than from a constant chosen here.
+
+**The other two windows, reported as they came.** The 2014 rounds fall five
+months apart and semester averaging cannot separate them, so they were registered
+in advance as a single change of about `+0.0085`, likely below anything readable.
+The reading is `-0.1230`: readable, opposite in sign, and fourteen times the size.
+The reason is the same one as above, industrial gas fell 23.1 per cent over that
+span. The 2022 window was downgraded in advance because the industrial leg moves
+in the same semester for reasons outside the statute; it reads `+0.6552` with
+industrial gas at `+1.0772`, and the downgrade was right.
+
+**What the station leaves for the next one of its kind.** Two requirements, both
+bought here. A carrier's statute has to write an equality rather than a ceiling,
+or the two legs' actual movements have to be independently checkable as equal.
+And "the other leg does not move" has to be written down as an explicit
+assumption and checked on the spot, rather than living inside the arithmetic of
+the prediction, which is where it was here in all three windows.
+
+
+## B51 — the screen that decides where a class difference can be read, written out and checked against a count
+
+Station documents: [`b51_prereg.md`](docs/b51_prereg.md) and [`b51_results.md`](docs/b51_results.md).
+
+B49 counted how many of eight energy products can carry a class difference and
+got two. That count came from a rule rather than from the energy sector, so this
+station writes the rule out in full, applies it outside energy, and checks it
+against the one set of answers already on disk. Nothing is fetched: the whole
+station is four questions asked of seventeen candidates, plus one comparison
+against a record.
+
+The screen, in order. **Q0, one commodity**: are the two classes buying the same
+thing? **Q1, no transfer**: can a holder pass it to the other class cheaply?
+**Q2, two posted prices**: does each class have a published price? **Q3, imposed
+split**: is the division set by a third party rather than chosen by the parties?
+
+**Q0 is new, and it was implicit in Q1 all along.** "The two prices cannot be
+arbitraged against each other" presupposes that they are two prices of one thing.
+Written out, it removes fixed broadband and cable television, where a business
+package carries a service level, a static address and symmetric capacity, so the
+gap between the two prices contains product specification. One kilowatt hour is
+one kilowatt hour, and that is why electricity survives. Both of those two fail
+Q3 as well: the operator defines the packages, so the split is chosen.
+
+**Q1 has two sources, and until B53 only the first had been used.** Either the
+commodity cannot be transferred, arriving over a fixed network with nothing
+moving past the meter, or the entitlement cannot be transferred, with the
+commodity moving freely and identity checked at the point of consumption. The
+second covers tuition at a resident against a non-resident rate, named concession
+fares, resident admission pricing and prescription copayment. It is the larger
+family, and it was out of view because Q1 was read as a rule about commodities
+when it is a rule about whether a channel exists between two classes.
+
+| criterion | reading | |
+|---|---|---|
+| **B51-1** the screen passes every carrier whose class difference has been measured | electricity, piped natural gas and resident tuition, all three carry | PASS · `known_answer` |
+| **B51-2** the screen's Q2 answer agrees with the paired-cell count in the record, product by product | **8 of 8 agree**: `179`, `102`, `122`, `48`, `17` and `22` paired cells against a yes, `0` and `0` against a no | PASS · `known_answer` |
+| **B51-3** every candidate answers all four questions and every answer carries a ground | 17 candidates, 4 questions each | PASS · `bookkeeping` |
+| **B51-4** every candidate that does not pass names which questions it failed | 8 named, by question | PASS · `bookkeeping` |
+
+**B51-2 is the only thing here that data could have broken.** The screen reads a
+rule; the record counts rows. Two paths to the same eight answers, and they
+agree at every product.
+
+**What the station does not do.** It confirms no new carrier at the moment it
+runs. Eight fail, each at a named question, and the rest are open. **Resident
+tuition was one of the open ones and B53 settled it**: Q2 by 5,605 published
+schedules from one cross-institution source, and Q3 by measurement rather than
+by reading one statute, since private schedules write one value 3,424 times in
+3,439 while public ones write two or three 1,973 times in 2,166. Three candidates
+now carry and six are open, each with the specific thing that has to be read
+before it can be settled: a cross-country source of household against commercial water and
+sewerage tariffs; whether district heating publishes a separate non-household
+price at all; a fare table
+carrying both the full and the concession rate; whether a resident admission
+price is imposed or offered at the operator's discretion, which may fail Q3
+outright; and whether what is published against a prescription is a price or a
+reimbursement rate, since the second would make the two numbers
+incommensurable. An answer whose ground has not been read against a source
+leaves its candidate open rather than passing it, and the printed table marks
+which answers are read and which are carried.
+
+
+## B52 — the same class square across Europe and across time, and a reading of B49's withdrawn
+
+Station documents: [`b52_prereg.md`](docs/b52_prereg.md) and [`b52_results.md`](docs/b52_results.md).
+
+B49 read this square in 13 countries at 3 years. B50 read it in one country over
+37 semesters. This station puts both dimensions together on the Eurostat panel:
+every geography the source carries, 38 semesters, three tax bases. Nothing new is
+collected; the same four legs are pulled without a country filter.
+
+Carrier: Eurostat bi-annual energy prices, the standard reference bands Eurostat
+itself publishes against, `KWH2500-4999` and `MWH500-1999` for electricity,
+`GJ20-199` and `GJ10000-99999` for gas. `experiments/b52_europe_class_square.py`
+fetches and scores; responses are cached under `data/cache/eurostat/` so a rerun
+goes to the network zero times. Criteria are written into the script that
+produces the record, the record carries their wording, and every quantity this
+run produced is reported.
+
+**Counting the independent loops, because a panel invites inflation here.** Four
+vertices and four edges give `b1 = 4 - 4 + 1 = 1` per country. Each country is one
+independent square and the semesters are that square moving, not new squares. The
+independent count is **33, one per country, not 1076**. The script prints that
+line and writes it into the record.
+
+| criterion | reading | |
+|---|---|---|
+| **B52-1** panel completeness, country by country | 33 countries, 38 semesters, 1076 cells, 33 independent loops; two cells dropped because a price is zero, which is an absence and not a price | PASS · `instrument` |
+| **B52-2** the square does not move with the currency the prices are quoted in | floor `1.579e-03`; of 1076 comparisons **546 are the identity**, because a euro-area country already quotes in euro, and the floor comes from the rest | PASS · `instrument` |
+| **B52-3** no readable cell matches the rival's point prediction of exactly zero | **0 of 1069**; the 7 cells at or below the floor cannot separate zero from non-zero and carry no verdict | PASS · `rival` |
+| **B52-4** cells at or below the floor are named and carry no verdict | 1069 of 1076 above; median `103x` the floor, largest `2.1802` | PASS · `bookkeeping` |
+| **B52-5** the sign drift is one-directional, each country over its own first and last semester | 6 one way, 5 the other, 22 unchanged | **FAIL** · `own_reading` |
+| **B52-6** the same, on one window every country shares for its whole length | `2008-S1..2025-S2`, 22 countries: 5 against 2 | **FAIL** · `own_reading` |
+| **B52-7** the same, stopped before the 2021-2023 energy interventions | `2008-S1..2021-S1`, 23 countries: 3 against 2 | **FAIL** · `own_reading` |
+
+**What is stronger here.** The rival is a scalar price field over positions, which
+predicts every square sum is exactly zero whatever the level of prices. B49 read
+39 cells with 13 independent loops and a median at 56 times its floor. This reads
+1069 with 33 independent loops and a median at 103 times.
+
+**What is withdrawn.** B49 also read a moving sign, 5 positive cells of 13 in
+2000, 2 in 2010, 1 in 2025, with five countries turning one way and none the
+other. That shape does not survive: 6 against 5 with each country's own window, 5
+against 2 on a shared one, and **3 against 2 in a window stopping before the
+energy crisis**. One direction being empty is not there in any window. That
+withdraws a registered open item rather than a claim: the framework predicts a
+non-zero square and says nothing about which way the sign goes, and the reading
+was recorded as an open question and not as a result.
+
+**Three things the panel separates that were running together.** The crisis
+enlarged this quantity's movement by ten to twenty-five times: one Dutch semester
+moves `1.325` where thirteen German years move `0.07`. It contributed almost
+nothing to the first-to-last change: 14 down and 9 up before it, 15 down and 7 up
+across the whole window, because the jumps come back. And the bias itself is weak
+in both windows and one-directional in neither.
+
+**Dates.** The largest moves are at `2021-S2` to `2022-S1`. The Nord Stream 1
+reductions and halt run from June to September 2022 and the ruptures are 26
+September 2022, all inside `2022-S2`. European gas was already climbing in the
+autumn of 2021, so that halt is a step inside the episode rather than its start.
+The episode is one common shock with very different downstream responses, which
+is why it is not treated as one common design.
+
+**A negative reading on Germany, and the instrument limit it exposes.** The German
+electricity class gap moves `0.07` between 2008 and 2021 while the renewables
+surcharge on electricity bills rose about sixfold over the same years, with
+electricity-intensive industry paying a reduced rate. The two are consistent, and
+checking the statute says why: the reduced rate requires **more than 1 GWh a year,
+membership of a listed sector, and an electricity cost intensity of at least 14 or
+20 per cent** depending on the list. **The standard non-household reference band is
+0.5 to 2 GWh.** Its lower half cannot meet the consumption threshold at all, and a
+firm meeting the intensity test consumes far more than the band's upper edge. **So
+the reference band cannot see that exemption, and a class difference of that
+family is invisible to this instrument.** What is checked here is the threshold
+against the band, not a count of firms inside the band.
+
+
+## B53 — the counting law where the collisions are exact
+
+Station documents: [`b53_prereg.md`](docs/b53_prereg.md) and [`b53_results.md`](docs/b53_results.md).
+
+A published tuition schedule writes three classes, in-district, in-state and
+out-of-state, and produces however many distinct dollar figures those three
+carry. That is the counting law's object. What this corpus adds is that the
+figures are whole dollars: every collision the tariff corpus reports is bounded
+above by that survey rounding to two decimals and is stated as an upper bound at
+the published resolution, and no rounding turns two different dollar amounts into
+one. **B53-3 checks that premise rather than assuming it**, and finds no
+non-integer figure over 5,605 schedules.
+
+Carrier: the Urban Institute Education Data API over IPEDS, public and keyless,
+2020, fetched state by state and cached per endpoint and state so an interrupted
+run resumes. Institution control comes from a separate endpoint and is not
+derived here. `experiments/b53_tuition_class_values.py` fetches and scores.
+Criteria are written into the script that produces the record, the record carries
+their wording, and every quantity this run produced is reported.
+
+| criterion | reading | |
+|---|---|---|
+| **B53-1** every private institution writes one value across the three classes; the control code comes from a separate endpoint, so this is a check and not a restatement | 3,439 private schedules, **15 write more than one value**, each one named | **FAIL** · `known_answer` |
+| **B53-2** how many schedules write 3 → 1, 3 → 2 and 3 → 3, by control and level | `3 → 1` 3,617; `3 → 2` 1,738; `3 → 3` 250 | PASS · `own_reading` |
+| **B53-3** the premise that makes these collisions exact: every figure a whole dollar amount | 0 non-integer figures over 5,605 schedules | PASS · `premise` |
+| **B53-4** coverage state by state, states returning nothing named rather than absent | 56 requested, 56 returned; 124 rows dropped for a negative code, counted per state | PASS · `bookkeeping` |
+
+**The reading.**
+
+| control | level | 3 → 1 | 3 → 2 | 3 → 3 |
+|---|---|---:|---:|---:|
+| public | undergraduate | 136 | **1,227** | **243** |
+| public | graduate | 57 | **500** | 3 |
+| private nonprofit | undergraduate | **1,510** | 6 | 3 |
+| private nonprofit | graduate | **1,246** | 2 | 1 |
+| private for-profit | undergraduate | **480** | 1 | 0 |
+| private for-profit | graduate | **188** | 2 | 0 |
+
+Of 3,439 private schedules 3,424 write one value; of 2,166 public schedules 1,973
+write two or three. **The collisions total 8,972**, and every one of them is
+exact. The tariff corpus reports 23 in its block arm, all resolution-limited, and
+7 in its time-of-use arm, 2 of them exact.
+
+**Independent counts, both reported.** 5,605 schedules across 3,861 institutions.
+Undergraduate and graduate are two separate schedules and can each be counted as
+a procedure, and they are set by one institution, so the institution count is the
+ceiling and the schedule count is not. This run covers one year; the corpus runs
+1986 to 2023, and the independent count has to be recomputed before it is
+extended across years, since an institution across years is one object moving.
+
+**The failing criterion is the useful one.** The known answer is that a private
+institution has no in-state and out-of-state distinction. Fifteen schedules
+break it, and they are named rather than counted. Four institutions do it in
+both the undergraduate and the graduate schedule, which is not the signature of
+a filing error; most take the form in-district equal to in-state and below
+out-of-state, and three carry three distinct figures. The claim registered is
+that fifteen named schedules were written this way in 2020, not that private
+institutions in general price by residence.
+
+## B54 — enumerating the carriers where eligibility is checked at the counter
+
+Criteria are written into the script that produces the record, the record
+carries their wording, and every quantity this run produced is reported.
+
+A class difference shows up in a price only where the good is one good, the
+entitlement cannot be handed on, two prices are posted, and the split is imposed
+by someone other than the parties. B51 wrote those four questions down. One of
+the two ways to satisfy the second question, the good moves freely while the
+buyer's standing is checked at the point of sale, had produced one carrier. This
+station enumerates that family: nineteen named candidates on seven axes,
+residence, income test, nationality, age, enrolment or occupation, disability,
+and registration. `experiments/b54_eligibility_carrier_enum.py` records one row
+per candidate with each of the four answers, whether that answer stands on a
+document, and the document.
+
+| criterion | reading | |
+|---|---|---|
+| **B54-1** every answer says whether a document stands behind it, and an answer that does not is never counted as an answer | 19 candidates, 76 answers, 0 unmarked | PASS · `bookkeeping` |
+| **B54-2** the verdict map is written out cell by cell, and the undetermined cell maps to neither carrying nor failing | 4 cells printed, undetermined maps to no verdict | PASS · `instrument` |
+| **B54-3** print the object: every candidate's four answers and its verdict | carries 7, undetermined 8, fails 4 | PASS · `own_reading` |
+| **B54-4** every candidate names the instrument that would be read | 19 candidates, 0 without one | PASS · `bookkeeping` |
+
+Seven candidates carry, thirteen sit in this family. The eight undetermined
+candidates are not undetermined for eight reasons: ten of the twelve open answers
+in the first pass sat on one question, whether the split is drawn by statute or by
+the operator, and that question is answered by reading a rule rather than by
+buying data. The bottleneck in this family is reading, not availability.
+
+## B55 — a fee schedule where 104 cells carry 45 figures
+
+Criteria are written into the script that produces the record, the record
+carries their wording, and every quantity this run produced is reported.
+
+Virginia's hunting and fishing licence fees, `4 Va. Admin. Code 15-20-65`, taken
+from the state code, one section at a time, with every row carrying the
+sub-heading it was read under. The class lines are drawn by the legislature in
+`Code of Virginia 29.1-319`; the Board sets the figures. Amounts are exact to the
+cent, so no rounding turns two different figures into one.
+
+| criterion | reading | |
+|---|---|---|
+| **B55-1** every priced row an exact cent amount, the premise that makes the collisions exact | 104 priced rows, 0 inexact | PASS · `premise` |
+| **B55-2** cells, distinct figures and collisions satisfy collisions = cells − figures | 104 cells, 45 figures, 59 collisions | PASS · `instrument` |
+| **B55-3** the residency line counted on its own, across pairable activity, age and term cells | 26 pairs, 1 carrying the same figure on both sides | PASS · `own_reading` |
+| **B55-4** every row carries its sub-heading | 106 rows, 0 without one, 9 sub-headings | PASS · `bookkeeping` |
+
+The largest single block of the difference has a name: one lifetime age ladder,
+265 / 215 / 165 / 115 / 65 / 25, is reused across hunting, freshwater fishing and
+trout, so eighteen cells carry six figures.
+
+Read in the direction that can fail: forty-five figures means the programme wrote
+forty-five distinct class values on classes that have members. That reading fails
+when the figure count exceeds the number of bands the text writes, which would
+say a class line was drawn outside the text or a band was left to discretion.
+This run does not exceed it.
+
+Comparing corpora by their collision rate does not hold, and the station says so:
+the rate moves with how fine a granularity the pricing party chose, which is a
+property of that party. The quantity that does carry across carriers is per line
+rather than per table, whether drawing a class line separates any pair of cells
+that would otherwise carry the same figure. On this schedule the residency line
+separates 25 of 26 pairable cells.
+
+## B56 — three named class lines, and the schedules that write fewer figures
+
+Criteria are written into the script that produces the record, the record
+carries their wording, and every quantity this run produced is reported.
+
+Two carriers where the class line is nationality or age and the entitlement is
+checked at the gate: monument admission in India, and the reduced transit fare
+that `49 U.S.C. 5307(c)(1)(D)` conditions federal assistance on. The federal
+condition names three classes, people 65 and over, people with a disability and
+Medicare cardholders, and caps their off-peak fare at half the peak fare. It does
+not require the three to pay the same as each other.
+
+| criterion | reading | |
+|---|---|---|
+| **B56-1** every figure an exact integer in the smallest currency unit | 2 carriers, 10 amounts, 0 inexact | PASS · `premise` |
+| **B56-2** collapse = lines named − distinct figures, split into the eligibility step and the pricing step | monuments 3 → 2, collapse 1 at pricing; transit 3 → 1, collapse 1 at each step | PASS · `instrument` |
+| **B56-3** the two steps recorded separately | both recorded for both carriers | PASS · `bookkeeping` |
+| **B56-4** every carrier names its instrument and its retrieval | 2 carriers, 0 without provenance | PASS · `bookkeeping` |
+| **B56-5** the rival's point prediction, that a seller which has paid to sort gives each sorted block its own price, so figures equal blocks | 3 operators read, **0 hit it**; Boston 11 blocks → 3 figures, Maryland 4 → 2, New York 4 → 2 | PASS · `rival` |
+| **B56-6** the same pair of segments, drawn and credentialed by two operators under the same federal condition, gets the same verdict | Boston merges school students with seniors, Maryland prices them apart; 3 nominal pairs, **1 independent** | PASS · `own_reading` |
+
+**Where the line is drawn and where it is used are two steps.** On the current
+Agra schedule the SAARC and BIMSTEC line is checked at every counter and carries
+its own figure at two monuments of eight on a weekday and none of seven on a
+Friday. The same operator, the same day, the same line: used in one place and
+empty in another.
+
+**The rival, and why it has standing here.** Third-degree price discrimination
+asks for market power, sorting by elasticity, and blocked resale. All three hold
+on a transit network without argument: the operator is a price maker on its own
+lines, it issues a distinct photo credential per class and checks it at the
+farebox, and the credential is not transferable. The sorting cost is paid in
+full. Its point prediction is not that every named line carries its own figure,
+since it is silent where elasticities coincide. The half that can be read without
+measuring an elasticity is that elasticity belongs to the rider rather than to
+the operator, so one pair of segments cannot be merged in one city and priced
+apart in another. Boston merges school students with seniors, its page saying
+that all reduced fares are the same whichever card is held; Maryland prints
+Student as its own column at 1.50 against 1.00 for senior and disability and 2.00
+full. The federal condition says nothing about students.
+
+The reading that the cost of issuing one card rather than three explains the
+merge is closed by the same page: Boston conditions on which card is held on
+another good, admitting the senior and income-eligible cards to a reduced RIDE
+fare and not the disability, Medicare or student cards. The merge on the fare
+table is a choice and not a limit of the farebox.
+
+What is registered is that the rival's point prediction does not hold on the
+three operators read and that its remaining route out, an elasticity ordering
+that reverses between cities, has not been measured. That is not the same
+statement as the rival being wrong, and it is not the same statement as neither
+side being decidable.
+
+**Reading the criteria.** They do not all ask the same kind of question, so they
+do not add. Four of the six ask whether this run's instrument and its inputs are
+sound; one asks what this station's own registered reading says; one asks whether
+a rival's point prediction holds. Only the last of those bears on the framework.

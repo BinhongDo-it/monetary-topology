@@ -212,7 +212,7 @@ def main():
     # reach any destination outside that family however it was spelled, while
     # the flag's own help text says "destination name as it appears in the
     # codelist". Gate first and filter second, which is the same shape as the
-    # --only trap in run_all.py.
+    # --only trap in run_all.py (legacy, and the trap outlives it).
     exact = [r for r in countries
              if any(str(v).strip().upper() == a.country.upper()
                     for v in r.values())]

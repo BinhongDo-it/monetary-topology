@@ -1,0 +1,858 @@
+{
+  "arm": "conditionality",
+  "config": {
+    "condition_source": "IMF conditionality dataset, Kentikelenis and Stubbs, downloaded by hand; not redistributed",
+    "price_pattern": "electric|power tariff|power sector|utilit|tariff",
+    "raw_applicable_years_sum": 68696.0,
+    "raw_rows": 35915,
+    "schedules": 53,
+    "years": [
+      2015,
+      2016
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "under 23, not under 30, means 3.35 against 3.40",
+      "kind": "own_reading",
+      "name": "TB-11",
+      "passed": true,
+      "text": "Print the block-count distribution for schedules whose country was under an arrangement in either year and for those whose was not, cell by cell, with no threshold on either. A cluster on one side and not the other is the station's result; the same shape on both is a negative reading; either side too small to show a shape is undecided."
+    },
+    {
+      "detail": "21 conditions naming a price, over 8 of 53 countries",
+      "kind": "own_reading",
+      "name": "TB-12",
+      "passed": true,
+      "text": "Print the count of conditions naming an electricity price against the block count, as a gradient rather than a level, with the treated countries named rather than only counted."
+    },
+    {
+      "detail": "0 unmatched in the panel, 7 absent from the condition file",
+      "kind": "instrument",
+      "name": "TB-13",
+      "passed": true,
+      "text": "Every schedule's country resolves to a name in the conditionality panel, and any country absent from the condition file is named rather than silently treated as having no conditions."
+    }
+  ],
+  "per_schedule": [
+    {
+      "blocks": 3,
+      "matched_main": "Australia",
+      "matched_raw": null,
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Australia",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Austria",
+      "matched_raw": null,
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Austria",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 6,
+      "matched_main": "Bangladesh",
+      "matched_raw": "Bangladesh",
+      "months": 10.0,
+      "soe": 1.0,
+      "sp": 0.0,
+      "survey": "Bangladesh",
+      "total": 11.0,
+      "values": 4
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Benin",
+      "matched_raw": "Benin",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Benin",
+      "total": 0.0,
+      "values": 3
+    },
+    {
+      "blocks": 5,
+      "matched_main": "Bolivia",
+      "matched_raw": "Bolivia",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Bolivia",
+      "total": 0.0,
+      "values": 4
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Burkina Faso",
+      "matched_raw": "Burkina Faso",
+      "months": 24.0,
+      "soe": 9.0,
+      "sp": 0.0,
+      "survey": "Burkina Faso",
+      "total": 86.0,
+      "values": 3
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Burundi",
+      "matched_raw": "Burundi",
+      "months": 15.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Burundi",
+      "total": 49.0,
+      "values": 3
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Cambodia",
+      "matched_raw": "Cambodia",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Cambodia",
+      "total": 0.0,
+      "values": 2
+    },
+    {
+      "blocks": 4,
+      "matched_main": "Cameroon",
+      "matched_raw": "Cameroon",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Cameroon",
+      "total": 0.0,
+      "values": 4
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Chile",
+      "matched_raw": "Chile",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Chile",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 3,
+      "matched_main": "China",
+      "matched_raw": "China",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "China",
+      "total": 0.0,
+      "values": 3
+    },
+    {
+      "blocks": 7,
+      "matched_main": "Egypt, Arab Rep.",
+      "matched_raw": "Egypt",
+      "months": 2.0,
+      "soe": 2.0,
+      "sp": 0.0,
+      "survey": "Egypt, Arab Rep.",
+      "total": 11.0,
+      "values": 6
+    },
+    {
+      "blocks": 7,
+      "matched_main": "Ethiopia",
+      "matched_raw": "Ethiopia",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Ethiopia",
+      "total": 0.0,
+      "values": 3
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Germany",
+      "matched_raw": null,
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Germany",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Ghana",
+      "matched_raw": "Ghana",
+      "months": 21.0,
+      "soe": 2.0,
+      "sp": 0.0,
+      "survey": "Ghana",
+      "total": 121.0,
+      "values": 3
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Greece",
+      "matched_raw": "Greece",
+      "months": 13.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Greece",
+      "total": 15.0,
+      "values": 1
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Guatemala",
+      "matched_raw": "Guatemala",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Guatemala",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Guinea",
+      "matched_raw": "Guinea",
+      "months": 23.0,
+      "soe": 3.0,
+      "sp": 0.0,
+      "survey": "Guinea",
+      "total": 53.0,
+      "values": 2
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Haiti",
+      "matched_raw": "Haiti",
+      "months": 19.0,
+      "soe": 5.0,
+      "sp": 0.0,
+      "survey": "Haiti",
+      "total": 59.0,
+      "values": 3
+    },
+    {
+      "blocks": 5,
+      "matched_main": "Honduras",
+      "matched_raw": "Honduras",
+      "months": 24.0,
+      "soe": 16.0,
+      "sp": 0.0,
+      "survey": "Honduras",
+      "total": 68.0,
+      "values": 4
+    },
+    {
+      "blocks": 4,
+      "matched_main": "India",
+      "matched_raw": "India",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "India",
+      "total": 0.0,
+      "values": 4
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Indonesia",
+      "matched_raw": "Indonesia",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Indonesia",
+      "total": 0.0,
+      "values": 3
+    },
+    {
+      "blocks": 7,
+      "matched_main": "Iran, Islamic Rep.",
+      "matched_raw": null,
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Iran, Islamic Rep.",
+      "total": 0.0,
+      "values": 6
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Japan",
+      "matched_raw": null,
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Japan",
+      "total": 0.0,
+      "values": 3
+    },
+    {
+      "blocks": 7,
+      "matched_main": "Jordan",
+      "matched_raw": "Jordan",
+      "months": 13.0,
+      "soe": 12.0,
+      "sp": 0.0,
+      "survey": "Jordan",
+      "total": 49.0,
+      "values": 7
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Kenya",
+      "matched_raw": "Kenya",
+      "months": 23.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Kenya",
+      "total": 73.0,
+      "values": 3
+    },
+    {
+      "blocks": 6,
+      "matched_main": "Korea, Rep.",
+      "matched_raw": "Korea",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Korea, Rep.",
+      "total": 0.0,
+      "values": 6
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Kyrgyz Republic",
+      "matched_raw": "Kyrgyz Republic",
+      "months": 21.0,
+      "soe": 1.0,
+      "sp": 0.0,
+      "survey": "Kyrgyz Republic",
+      "total": 85.0,
+      "values": 2
+    },
+    {
+      "blocks": 6,
+      "matched_main": "Lebanon",
+      "matched_raw": null,
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Lebanon",
+      "total": 0.0,
+      "values": 5
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Madagascar",
+      "matched_raw": "Madagascar",
+      "months": 6.0,
+      "soe": 4.0,
+      "sp": 0.0,
+      "survey": "Madagascar",
+      "total": 28.0,
+      "values": 2
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Malawi",
+      "matched_raw": "Malawi",
+      "months": 24.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Malawi",
+      "total": 59.0,
+      "values": 1
+    },
+    {
+      "blocks": 5,
+      "matched_main": "Malaysia",
+      "matched_raw": null,
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Malaysia",
+      "total": 0.0,
+      "values": 5
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Mali",
+      "matched_raw": "Mali",
+      "months": 24.0,
+      "soe": 2.0,
+      "sp": 0.0,
+      "survey": "Mali",
+      "total": 62.0,
+      "values": 2
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Mongolia",
+      "matched_raw": "Mongolia",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Mongolia",
+      "total": 0.0,
+      "values": 2
+    },
+    {
+      "blocks": 6,
+      "matched_main": "Morocco",
+      "matched_raw": "Morocco",
+      "months": 24.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Morocco",
+      "total": 6.0,
+      "values": 5
+    },
+    {
+      "blocks": 4,
+      "matched_main": "Mozambique",
+      "matched_raw": "Mozambique",
+      "months": 13.0,
+      "soe": 1.0,
+      "sp": 0.0,
+      "survey": "Mozambique",
+      "total": 44.0,
+      "values": 3
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Myanmar",
+      "matched_raw": "Myanmar",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Myanmar",
+      "total": 0.0,
+      "values": 2
+    },
+    {
+      "blocks": 7,
+      "matched_main": "Nicaragua",
+      "matched_raw": "Nicaragua",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Nicaragua",
+      "total": 0.0,
+      "values": 7
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Niger",
+      "matched_raw": "Niger",
+      "months": 24.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Niger",
+      "total": 72.0,
+      "values": 1
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Nigeria",
+      "matched_raw": "Nigeria",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Nigeria",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 5,
+      "matched_main": "Pakistan",
+      "matched_raw": "Pakistan",
+      "months": 21.0,
+      "soe": 12.0,
+      "sp": 0.0,
+      "survey": "Pakistan",
+      "total": 100.0,
+      "values": 5
+    },
+    {
+      "blocks": 8,
+      "matched_main": "Philippines",
+      "matched_raw": "Philippines",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Philippines",
+      "total": 0.0,
+      "values": 4
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Rwanda",
+      "matched_raw": "Rwanda",
+      "months": 7.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Rwanda",
+      "total": 29.0,
+      "values": 1
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Senegal",
+      "matched_raw": "Senegal",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Senegal",
+      "total": 0.0,
+      "values": 2
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Sierra Leone",
+      "matched_raw": "Sierra Leone",
+      "months": 24.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Sierra Leone",
+      "total": 81.0,
+      "values": 3
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Solomon Islands",
+      "matched_raw": "Solomon Islands",
+      "months": 15.0,
+      "soe": 0.0,
+      "sp": 3.0,
+      "survey": "Solomon Islands",
+      "total": 32.0,
+      "values": 1
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Tanzania",
+      "matched_raw": "Tanzania",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Tanzania",
+      "total": 0.0,
+      "values": 2
+    },
+    {
+      "blocks": 4,
+      "matched_main": "Togo",
+      "matched_raw": "Togo",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Togo",
+      "total": 0.0,
+      "values": 4
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Turkey",
+      "matched_raw": "Turkey",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Turkey",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 1,
+      "matched_main": "Uganda",
+      "matched_raw": "Uganda",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Uganda",
+      "total": 0.0,
+      "values": 1
+    },
+    {
+      "blocks": 4,
+      "matched_main": "Yemen, Rep.",
+      "matched_raw": "Yemen",
+      "months": 15.0,
+      "soe": 1.0,
+      "sp": 1.0,
+      "survey": "Yemen, Rep.",
+      "total": 22.0,
+      "values": 4
+    },
+    {
+      "blocks": 2,
+      "matched_main": "Zambia",
+      "matched_raw": "Zambia",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Zambia",
+      "total": 0.0,
+      "values": 2
+    },
+    {
+      "blocks": 3,
+      "matched_main": "Zimbabwe",
+      "matched_raw": "Zimbabwe",
+      "months": 0.0,
+      "soe": 0.0,
+      "sp": 0.0,
+      "survey": "Zimbabwe",
+      "total": 0.0,
+      "values": 3
+    }
+  ],
+  "price_conditions": [
+    {
+      "condition_type": "PA",
+      "country": "Guinea",
+      "policy_area": "SOE",
+      "source_document": "GIN_20120224_h",
+      "text": "Increase electricity tariffs by 20 percent to bring them closer to cost-recovery levels",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Haiti",
+      "policy_area": "SOE",
+      "source_document": "HTI_20150518_a",
+      "text": "Signature of a protocol by the PM, the Minister of Public Works, the Minister of Finance, EDH, and other stakeholders that lays out the obligations of different stakeholders in achieving the targeted improvement in the electricity sector’s performance; TMU ¶38.",
+      "year": 2015
+    },
+    {
+      "condition_type": "SB",
+      "country": "Haiti",
+      "policy_area": "SOE",
+      "source_document": "HTI_20150518_a",
+      "text": "In line with EDH protocol, complete audit of the 200 largest clients, complete analysis on EDH tariff determination and penalties for non-payment; TMU ¶44.",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Honduras",
+      "policy_area": "SOE",
+      "source_document": "HND_20141203_a",
+      "text": "Adjust the average electricity tariff by 2.5 percent during 2015 to reflect past cost increases; further adjust tariffs to incorporate current changes in costs (see Appendix I).",
+      "year": 2015
+    },
+    {
+      "condition_type": "IB",
+      "country": "Jordan",
+      "policy_area": "SOE",
+      "source_document": "JOR_20120803_d",
+      "text": "Borrowing of the National Electric Power Company (NEPCO)",
+      "year": 2015
+    },
+    {
+      "condition_type": "SB",
+      "country": "Jordan",
+      "policy_area": "SOE",
+      "source_document": "JOR_20120803_d",
+      "text": "Implement already announced annual tariff increases as outlined in the medium term energy strategy",
+      "year": 2015
+    },
+    {
+      "condition_type": "SB",
+      "country": "Jordan",
+      "policy_area": "SOE",
+      "source_document": "JOR_20160824_a",
+      "text": "Adopt an automatic electricity tariff adjustment mechanism, with effective implementation on January 1, 2017 (MEFP ¶9)",
+      "year": 2016
+    },
+    {
+      "condition_type": "PA",
+      "country": "Jordan",
+      "policy_area": "SOE",
+      "source_document": "JOR_20160824_a",
+      "text": "Announce the government’s commitment to maintain NEPCO at operational balance during the program period and over the medium term and to adopt by mid-December 2016, and start implementing on January 1, 2017, an automatic electricity tariff adjustment mechanism (MEFP ¶9)",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Kyrgyz Republic",
+      "policy_area": "SOE",
+      "source_document": "KGZ_20150408_b",
+      "text": "Review the methodology for setting power tariffs to ensure economic soundness and adjust accordingly the roadmap for increasing tariffs.",
+      "year": 2016
+    },
+    {
+      "condition_type": "PA",
+      "country": "Madagascar",
+      "policy_area": "SOE",
+      "source_document": "MDG_20160727_a",
+      "text": "Increase in the weighted-average electricity tariffs by 15 percent compared to April 2016.",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Madagascar",
+      "policy_area": "SOE",
+      "source_document": "MDG_20160727_a",
+      "text": "Prior notification of World Bank and IMF staff of any exceptions (such as emergencies) allowing for single source procurement contracts for JIRAMA’s purchases of electricity and purchases and rentals of generators.",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_g",
+      "text": "Determine and notify multi-year tariffs for FESCO, IESCO, and LESCO, as defined in the TMU.",
+      "year": 2015
+    },
+    {
+      "condition_type": "PA",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_h",
+      "text": "Notify and implement the new gas tariff in line with the OGRA determination.",
+      "year": 2015
+    },
+    {
+      "condition_type": "PA",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_g",
+      "text": "Notify the new electricity tariff, as determined by NEPRA for FY2014/15, to be effective from June 10, 2015; and implement surcharges or similar measures in line with the program targets, consistent with the budgetary allocation of 0.3 percent of GDP in electricity subsides and the power sector payables reduction plan, as defined in the TMU.",
+      "year": 2015
+    },
+    {
+      "condition_type": "IB",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_g",
+      "text": "Power sector payment arrears",
+      "year": 2015
+    },
+    {
+      "condition_type": "PA",
+      "country": "Pakistan",
+      "policy_area": "RTP",
+      "source_document": "PAK_20130904_f",
+      "text": "Raise the GST rate on petroleum products from 17 to 27 percent, introduce additional fiscal measures, including 0.1 percent of GDP reduction in electricity subsidies, with total yield of 0.35 percent of GDP to assure compliance with the year-end fiscal targets.",
+      "year": 2015
+    },
+    {
+      "condition_type": "SB",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_i",
+      "text": "Determine Multi-year tariffs for IESCO and LESCO",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_i",
+      "text": "Notify multi-year tariffs for FESCO, IESCO and LESCO.",
+      "year": 2016
+    },
+    {
+      "condition_type": "IB",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_g",
+      "text": "Power sector payment arrears",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Pakistan",
+      "policy_area": "SOE",
+      "source_document": "PAK_20130904_k",
+      "text": "Update the plan to further limit the accumulation of new payables and gradually eliminate the outstanding stock of payables arrears in the power sector.",
+      "year": 2016
+    },
+    {
+      "condition_type": "SB",
+      "country": "Yemen",
+      "policy_area": "INS",
+      "source_document": "YEM_20140902_a",
+      "text": "Expand the roll out of prepaid electricity meters to two additional districts in the Capital City.",
+      "year": 2015
+    }
+  ],
+  "readings": {
+    "SOE_conditions_total": 71,
+    "SP_conditions_total": 4,
+    "absent_from_condition_file": [
+      "Australia",
+      "Austria",
+      "Germany",
+      "Iran, Islamic Rep.",
+      "Japan",
+      "Lebanon",
+      "Malaysia"
+    ],
+    "block_distribution_not_under": {
+      "1": 7,
+      "2": 4,
+      "3": 8,
+      "4": 3,
+      "5": 2,
+      "6": 2,
+      "7": 3,
+      "8": 1
+    },
+    "block_distribution_under": {
+      "1": 4,
+      "2": 4,
+      "3": 7,
+      "4": 2,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 0
+    },
+    "conditions_naming_a_price": 21,
+    "conditions_on_these_countries_in_window": 723,
+    "countries_named_by_a_price_condition": [
+      "Guinea",
+      "Haiti",
+      "Honduras",
+      "Jordan",
+      "Kyrgyz Republic",
+      "Madagascar",
+      "Pakistan",
+      "Yemen"
+    ],
+    "countries_with_any_SOE_condition": 14,
+    "countries_with_any_SP_condition": 2,
+    "mean_blocks_not_under": 3.4,
+    "mean_blocks_under": 3.3478,
+    "not_under_arrangement": 30,
+    "price_conditions_by_country": {
+      "Guinea": 1,
+      "Haiti": 2,
+      "Honduras": 1,
+      "Jordan": 4,
+      "Kyrgyz Republic": 1,
+      "Madagascar": 2,
+      "Pakistan": 9,
+      "Yemen": 1
+    },
+    "schedules": 53,
+    "spearman_blocks_vs_SOE_count": 0.2338,
+    "spearman_blocks_vs_months_under": -0.0274,
+    "under_arrangement": 23,
+    "unmatched_in_panel": []
+  },
+  "stage": "tariff_block_corpus"
+}

@@ -239,8 +239,9 @@ verdict, both are reported and the disagreement is the finding.
 ## 7. Outputs
 
 `results/a1b_default_cascade.json`, `data/processed/a1b_model_v1.csv` in the
-shape the measurement side requires, and rows in `RESULTS.md` written by
-the renderer.
+shape the measurement side requires, and a section in `RESULTS.md`. **That file
+has been kept by hand since 2026-08-21**, when the generator that used to render
+it was retired, so the section is written rather than produced.
 
 ---
 

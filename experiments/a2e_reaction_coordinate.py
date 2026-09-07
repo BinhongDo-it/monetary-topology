@@ -60,8 +60,9 @@ core. Nothing here benefits from a GPU: small graphs, a discrete agent loop, and
 the machine that matters is the CPU.
 
 **If the gate fails, that is the finding and it gets reported.** A failed gate
-means the station in ``docs/b0c_precedent_topological.md`` §5.1 does not get
-built on this carrier, and raising the seed count does not change that.
+means the endogenous-transition station does not get built on this carrier,
+and raising the seed count does not change that. Its scope and its closure are
+in ``docs/a2e_gate.md``.
 
 Usage::
 
@@ -562,7 +563,7 @@ def main() -> int:
         print(c.line())
     ok = all(c.passed for c in crit)
     print()
-    print("GATE OPEN: the station in b0c 5.1 is buildable on this carrier" if ok
+    print("GATE OPEN: the endogenous-transition station is buildable here" if ok
           else "GATE CLOSED: report this and do not build the station")
     return 0 if ok else 1
 

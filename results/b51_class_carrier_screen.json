@@ -1,0 +1,605 @@
+{
+ "candidates": {
+  "automotive_diesel": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "same fuel at the same pump"
+   },
+   "Q1_no_transfer": {
+    "answer": "no",
+    "checked": true,
+    "ground": "anyone can buy it and carry it away"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "no",
+    "checked": true,
+    "ground": "one class only, as with gasoline"
+   },
+   "Q3_imposed_split": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q1 and Q2 already fail"
+   },
+   "failed_questions": [
+    "Q1_no_transfer",
+    "Q2_two_posted_prices"
+   ],
+   "family": "none",
+   "sector": "energy",
+   "unresolved_questions": [
+    "Q3_imposed_split"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "cable_television": {
+   "Q0_one_commodity": {
+    "answer": "no",
+    "checked": true,
+    "ground": "commercial packages carry different rights and channel sets"
+   },
+   "Q1_no_transfer": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q0 already fails"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "both published"
+   },
+   "Q3_imposed_split": {
+    "answer": "no",
+    "checked": true,
+    "ground": "the operator defines the packages"
+   },
+   "failed_questions": [
+    "Q0_one_commodity",
+    "Q3_imposed_split"
+   ],
+   "family": "none",
+   "sector": "utilities",
+   "unresolved_questions": [
+    "Q1_no_transfer"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "district_heating": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "one gigajoule of heat from the same network"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "delivered over a fixed network; heat cannot be resold past the substation"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "household prices are published in several countries; whether a separate non-household price is published has not been checked"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "connection is physical and not chosen"
+   },
+   "failed_questions": [],
+   "family": "A: commodity cannot be transferred",
+   "sector": "utilities",
+   "unresolved_questions": [
+    "Q2_two_posted_prices",
+    "Q3_imposed_split"
+   ],
+   "verdict": "not settled: an answer is still open"
+  },
+  "electricity": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "one kilowatt hour is one kilowatt hour; the two classes take delivery of the same good"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "delivered over a fixed network and the connection point defines the class; nothing moves past the meter"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "residential and industrial prices both published per country and year"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "connection voltage, metering and eligibility are set by regulation, not chosen"
+   },
+   "failed_questions": [],
+   "family": "A: commodity cannot be transferred",
+   "sector": "energy",
+   "unresolved_questions": [],
+   "verdict": "carries a class difference"
+  },
+  "fixed_broadband": {
+   "Q0_one_commodity": {
+    "answer": "no",
+    "checked": true,
+    "ground": "the business package carries a service level, a static address and symmetric capacity, so the two classes are not buying one thing and the gap contains product specification"
+   },
+   "Q1_no_transfer": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q0 already fails"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "residential and business tariffs both published"
+   },
+   "Q3_imposed_split": {
+    "answer": "no",
+    "checked": true,
+    "ground": "the operator defines the two packages, so the split is chosen rather than imposed"
+   },
+   "failed_questions": [
+    "Q0_one_commodity",
+    "Q3_imposed_split"
+   ],
+   "family": "none",
+   "sector": "utilities",
+   "unresolved_questions": [
+    "Q1_no_transfer"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "fuel_oil": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "same residual fuel"
+   },
+   "Q1_no_transfer": {
+    "answer": "no",
+    "checked": true,
+    "ground": "shipped in tanks and wagons"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "generation and industry prices published"
+   },
+   "Q3_imposed_split": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q1 already fails"
+   },
+   "failed_questions": [
+    "Q1_no_transfer"
+   ],
+   "family": "none",
+   "sector": "energy",
+   "unresolved_questions": [
+    "Q3_imposed_split"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "gasoline": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "same fuel at the same pump"
+   },
+   "Q1_no_transfer": {
+    "answer": "no",
+    "checked": true,
+    "ground": "anyone can buy it and carry it away"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "no",
+    "checked": true,
+    "ground": "one class only: it exists in the transport sector and nowhere else, so there is one price and nothing to compare"
+   },
+   "Q3_imposed_split": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q1 and Q2 already fail"
+   },
+   "failed_questions": [
+    "Q1_no_transfer",
+    "Q2_two_posted_prices"
+   ],
+   "family": "none",
+   "sector": "energy",
+   "unresolved_questions": [
+    "Q3_imposed_split"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "light_fuel_oil": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "same distillate"
+   },
+   "Q1_no_transfer": {
+    "answer": "no",
+    "checked": true,
+    "ground": "travels in drums and tanks; a holder can pass it on, so a gap between two buyer classes is carriage and handling"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "industry and residential prices both published"
+   },
+   "Q3_imposed_split": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q1 already fails"
+   },
+   "failed_questions": [
+    "Q1_no_transfer"
+   ],
+   "family": "none",
+   "sector": "energy",
+   "unresolved_questions": [
+    "Q3_imposed_split"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "lpg": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "same gas"
+   },
+   "Q1_no_transfer": {
+    "answer": "no",
+    "checked": true,
+    "ground": "bottled; a bottle can be carried"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "industry, residential and transport prices published"
+   },
+   "Q3_imposed_split": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q1 already fails"
+   },
+   "failed_questions": [
+    "Q1_no_transfer"
+   ],
+   "family": "none",
+   "sector": "energy",
+   "unresolved_questions": [
+    "Q3_imposed_split"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "named_concession_fare": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "the same seat on the same train"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "the ticket is named and the eligibility is checked on board"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "fare tables publish the full and the concession rate; no cross-country source opened yet"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "age or student status, set outside the transaction; the rule has not been read"
+   },
+   "failed_questions": [],
+   "family": "B: eligibility cannot be transferred",
+   "sector": "transport",
+   "unresolved_questions": [
+    "Q2_two_posted_prices",
+    "Q3_imposed_split"
+   ],
+   "verdict": "not settled: an answer is still open"
+  },
+  "piped_natural_gas": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "same molecule, same pipe"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "delivered over a fixed network; nothing moves past the meter"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "residential and industrial prices both published"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "connection and eligibility set by regulation"
+   },
+   "failed_questions": [],
+   "family": "A: commodity cannot be transferred",
+   "sector": "energy",
+   "unresolved_questions": [],
+   "verdict": "carries a class difference"
+  },
+  "piped_water": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "one cubic metre of the same supply"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "delivered over a fixed network; nothing moves past the meter"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "household and commercial tariffs are published by regulators, but no cross-country source has been opened yet"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "connection and category set by the utility under regulation; not read against a rule book yet"
+   },
+   "failed_questions": [],
+   "family": "A: commodity cannot be transferred",
+   "sector": "utilities",
+   "unresolved_questions": [
+    "Q2_two_posted_prices",
+    "Q3_imposed_split"
+   ],
+   "verdict": "not settled: an answer is still open"
+  },
+  "prescription_copayment": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "the same molecule at the same dose"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "the prescription is named"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "what is published may be a reimbursement rate rather than a price, which would make the two numbers incommensurable"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "eligibility is set by statute"
+   },
+   "failed_questions": [],
+   "family": "B: eligibility cannot be transferred",
+   "sector": "health",
+   "unresolved_questions": [
+    "Q2_two_posted_prices",
+    "Q3_imposed_split"
+   ],
+   "verdict": "not settled: an answer is still open"
+  },
+  "resident_admission_price": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "the same exhibition on the same day"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "proof of residence is checked at entry"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "both prices are posted at the door; no systematic source opened yet"
+   },
+   "Q3_imposed_split": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "residence is a legal status, but the operator chooses whether to offer the split at all, so this may fail the second clause"
+   },
+   "failed_questions": [],
+   "family": "B: eligibility cannot be transferred",
+   "sector": "culture",
+   "unresolved_questions": [
+    "Q2_two_posted_prices",
+    "Q3_imposed_split"
+   ],
+   "verdict": "not settled: an answer is still open"
+  },
+  "sewerage": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "the same disposal service per cubic metre"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "delivered over a fixed network"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "published alongside water tariffs; no cross-country source opened yet"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": false,
+    "ground": "as with water; not read against a rule book"
+   },
+   "failed_questions": [],
+   "family": "A: commodity cannot be transferred",
+   "sector": "utilities",
+   "unresolved_questions": [
+    "Q2_two_posted_prices",
+    "Q3_imposed_split"
+   ],
+   "verdict": "not settled: an answer is still open"
+  },
+  "steam_coal": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "same coal"
+   },
+   "Q1_no_transfer": {
+    "answer": "no",
+    "checked": true,
+    "ground": "moved in wagons and holds"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "generation, industry and residential prices published"
+   },
+   "Q3_imposed_split": {
+    "answer": "unverified",
+    "checked": false,
+    "ground": "not reached: Q1 already fails"
+   },
+   "failed_questions": [
+    "Q1_no_transfer"
+   ],
+   "family": "none",
+   "sector": "energy",
+   "unresolved_questions": [
+    "Q3_imposed_split"
+   ],
+   "verdict": "does not carry a class difference"
+  },
+  "tuition_resident_rate": {
+   "Q0_one_commodity": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "the same course and the same degree, taught in the same room in the same term"
+   },
+   "Q1_no_transfer": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "a place cannot be handed on: residency is checked at enrolment and the seat is named"
+   },
+   "Q2_two_posted_prices": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "settled by B53: 5,605 published schedules over 56 states from one cross-institution source, each printing in-district, in-state and out-of-state"
+   },
+   "Q3_imposed_split": {
+    "answer": "yes",
+    "checked": true,
+    "ground": "settled by B53 by measurement rather than by reading one statute: private schedules write one value 3,424 times in 3,439, public ones write two or three 1,973 times in 2,166, so the split is not the seller's to choose"
+   },
+   "failed_questions": [],
+   "family": "B: eligibility cannot be transferred",
+   "sector": "education",
+   "unresolved_questions": [],
+   "verdict": "carries a class difference"
+  }
+ },
+ "config": {
+  "checked_against": "results/b49_energy_class_square.json",
+  "families": {
+   "A": "the commodity cannot be transferred",
+   "B": "the eligibility cannot be transferred"
+  },
+  "questions": [
+   "Q0_one_commodity",
+   "Q1_no_transfer",
+   "Q2_two_posted_prices",
+   "Q3_imposed_split"
+  ]
+ },
+ "criteria": {
+  "B51-1": {
+   "detail": "electricity: carries a class difference; piped_natural_gas: carries a class difference; tuition_resident_rate: carries a class difference",
+   "kind": "known_answer",
+   "name": "the screen passes every carrier whose class difference has been measured",
+   "passed": true
+  },
+  "B51-2": {
+   "detail": "8 of 8 agree",
+   "kind": "known_answer",
+   "name": "the screen's Q2 answer agrees with the paired-cell count in the record, product by product: a rule read against rows counted",
+   "passed": true
+  },
+  "B51-3": {
+   "detail": "17 candidates, 4 questions each",
+   "kind": "bookkeeping",
+   "name": "every candidate answers all four questions and every answer carries a ground",
+   "passed": true
+  },
+  "B51-4": {
+   "detail": "automotive_diesel fails Q1,Q2; cable_television fails Q0,Q3; fixed_broadband fails Q0,Q3; fuel_oil fails Q1; gasoline fails Q1,Q2; light_fuel_oil fails Q1; lpg fails Q1; steam_coal fails Q1",
+   "kind": "bookkeeping",
+   "name": "every candidate that does not pass names which questions it failed",
+   "passed": true
+  }
+ },
+ "q2_against_record": {
+  "agree": [
+   "automotive_diesel",
+   "electricity",
+   "fuel_oil",
+   "gasoline",
+   "light_fuel_oil",
+   "lpg",
+   "piped_natural_gas",
+   "steam_coal"
+  ],
+  "disagree": [],
+  "paired_cells": {
+   "COAL": 22,
+   "DIESEL": 0,
+   "ELECTR": 179,
+   "GASOLINE": 0,
+   "KEROSENE": 122,
+   "LPG": 48,
+   "NATGAS": 102,
+   "RESFUEL": 17
+  }
+ },
+ "stage": "B51",
+ "summary": {
+  "carries": [
+   "electricity",
+   "piped_natural_gas",
+   "tuition_resident_rate"
+  ],
+  "fails": [
+   "automotive_diesel",
+   "cable_television",
+   "fixed_broadband",
+   "fuel_oil",
+   "gasoline",
+   "light_fuel_oil",
+   "lpg",
+   "steam_coal"
+  ],
+  "open": [
+   "district_heating",
+   "named_concession_fare",
+   "piped_water",
+   "prescription_copayment",
+   "resident_admission_price",
+   "sewerage"
+  ]
+ }
+}

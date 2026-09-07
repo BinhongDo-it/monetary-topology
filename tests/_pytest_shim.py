@@ -7,7 +7,9 @@ a smoke check before it is handed to a machine that has the real thing.
 
 **It is not the test runner.** It does not collect, it does not report, it does
 not implement parametrisation, and a suite passing under it has not been run.
-``scripts/run_all.py`` and CI both use pytest.
+``scripts/run_all.py`` used pytest; that runner is legacy as of 2026-09-07 and
+the CI trigger has been ``workflow_dispatch`` only since 2026-08-21. Run pytest
+directly.
 """
 from __future__ import annotations
 

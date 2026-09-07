@@ -4256,7 +4256,7 @@ by whether the old procedure can survive at all:
 | channel | can the incumbent procedure stay | reading |
 |---|---|---|
 | **purchase of a failed firm's business** | **the entity is gone, so the procedure has no host** | **strongest**, but not in this industry, where a liquidation sends policies to a guaranty association rather than onto another plan. Wanted: an industry where the operating entity itself is sold and continues |
-| **conditional funding** | **the condition is the instruction to change the procedure; keeping it is what forfeits the money** | strong, and the conditionality is published in dated letters |
+| **conditional funding** | **the condition is the instruction to change the procedure; keeping it is what forfeits the money** | strong, and the conditionality is published in dated letters **Instances attached 2026-09-06 and the ranking is unchanged:** the tariff-block station's second arm pulled the condition file for its 53 countries over 2015 and 2016 and returned **21 conditions naming an electricity price, on 8 countries**, each carrying country, year, condition type and source document, several with the percentage in the text. **This cell had no instance before that.** The readings are in `results/tariff_blocks_conditionality.json`. |
 | **cross-border investment** | only where the home procedure is lawful in the destination. **Where it is not, it cannot stay** | strong, and the constraint is set by statute rather than by negotiation |
 | ordinary acquisition | **it can stay, and staying is the cheapest option** | **measured twice, stayed twice** |
 
@@ -11630,6 +11630,61 @@ STATUS:     第三十块第三节那条主张，其「不需要私有信息」�
 | 竞争性价格歧视文献 | 未取 |
 | 标签在多长时间窗内不可改变 | 仍未测（第三十块欠） |
 | Posner 1971 | 仍未取 |
+
+**指针 2026-09-07，本块与第三十块原文一字未动，改的是读法。**
+
+**第三十块被撤回的是「不需要私有信息」那一半，而「不需要最优性」那一半从来没被撤，
+且重读之后它是承重的那一半。**
+
+**理由**：三级价格歧视的全部实证内容是逆弹性法则 `P_i(1 − 1/|ε_i|) = MC`，
+**而那是一个一阶条件**。把最优性拿掉，剩下的只有「不同的组付不同的价」这句描述。
+**本线的计数定律不要最优性而仍然预言值的个数。**
+两边从同一张价目表上读出两个不同的可观测量：**它读比，本线读个数。**
+
+**由此这一族的正确写法是一张额外前提清单，不是一份认输记录：**
+
+```
+本线          划分 ＋ 登记点 ＋ 删边装置                     ⇒  值的个数
+三级价格歧视   以上 ＋ 弹性作为分组依据 ＋ 最优性 ＋ D = 0     ⇒  值之间的比
+```
+
+**本块隔离出来的「强制性替掉市场支配力」在这张表里的位置随之定下：它是第四样额外前提。**
+经典理论要市场支配力，**本线两者取一**（B30-20 那一格的不可拒绝性）。
+
+**同日新查到的一格，它不在本块的范围里而它改变上表最后一列的分量：**
+`D = 0` 在消费者那一侧有一个名字，**Slutsky 对称性**，
+而它在应用价格歧视所用的那类数据上**按构造不可检验** ——
+Kono, arXiv:2501.18923 证明平均 Slutsky 矩阵的对称性不可测，
+且「its identified set always contains a symmetric matrix」；
+Gunsilius 与 Sithole, arXiv:2505.05603（2026-02）说明该问题此前一直是开着的，
+并给出个体层面的可测形式。**两篇只读了摘要与结论句，进对外件之前要读全文。**
+
+**限定**：Slutsky 对称性与本线的 `D` 是同一类可积性条件而位置不同
+（前者在价格空间的补偿需求系统上，后者是位置上的标量势），**不得写成同一个对象**。
+
+**逐级定位与三条退路的答案在设计侧的整理件里，本块不重复。**
+
+**指针二，同日，晚于上一条：外部优先权工作整类停做。**
+
+**这条线做过七次「外部优先权检查」，同日裁定不做第八次。**
+**已有的块全部留着，它们里面的实质发现照旧有效** ——
+第四十五块那次检查的产物是把计数定律从基数升成划分，而那是本线现行的形式；
+第四十六块那次的产物是一张载体排序表。**买到的东西留下，那个动作停掉。**
+
+**由此关闭的登记项，它们不是办完了，是不办了：**
+
+- **「强制性替掉市场支配力」有没有被占**（第三十一块欠账第一行，登记 2026-08-31）。
+- **「无私有信息的分类定价」一类文献的检索**（第三十块第三节第 1 条打死路径）。
+- **Posner 1971 *Taxation by Regulation***，若取它只为看有没有第三处占领，则不取。
+
+**理由**：原创性归对象与理论，不归某个工具或某句部分陈述先不先出现。
+**Lorentz 变换在狭义相对论之前就写出来了，把非欧几何往物理上扔的人也有，
+而相对论仍然是原创的。**
+
+**仍然照做的三样，因为它们不是优先权工作：**
+开工前 grep 本线自己（防重复劳动，第三十一块立的那条）；
+正常的 related work 引用；**为了拿结果、载体、仪器、数据而读别人的东西。**
+**读文献是为了用，不是为了让。**
 
 ---
 
